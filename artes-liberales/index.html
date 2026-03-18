@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="es">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+  <meta content="Estudia Artes Liberales en IBERO. Desarrolla pensamiento cr&iacute;tico, creatividad y liderazgo para resolver desaf&iacute;os globales del mundo actual." name="description"/>
+  <title>
+   Artes Liberales | Pensamiento Cr&iacute;tico e Innovaci&oacute;n | IBERO
+  </title>
+  <!-- FAVICON OFICIAL -->
+  <link href="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/a6cb517879cf1f2182727ebce6cbf24a236d5b7a/fotos/svg/favicon.svg" rel="icon" type="image/svg+xml"/>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&amp;display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <script>
+   tailwind.config = {
+      theme: {
+        extend: {
+          colors: { 
+            ibero: { 
+              red: '#D91212', 
+              reddark: '#880d0d', 
+              purple: '#6B21A8', 
+              dark: '#09090B', 
+              gray: '#FAFAFA', 
+              teal: '#0f766e' 
+            } 
+          },
+          fontFamily: { 
+            sans: ['Inter', 'sans-serif'], 
+            serif: ['Playfair Display', 'serif'] 
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+   /* Ajustes Base - Zoom 90% para look Premium/Elegante */
+    html { zoom: 0.9; scroll-padding-top: 180px; }
+    body { background-color: #050505; color: #ffffff; }
+    .hide-scrollbar::-webkit-scrollbar { display: none; }
+    .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    
+    /* Nav Glassmorphism */
+    .nav-glass { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+    
+    /* Reveal Animation */
+    .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+    
+    /* Títulos con brillo */
+    .hero-shine-dark {
+        background: linear-gradient(110deg, #09090B 35%, #52525b 48%, #09090B 65%); background-size: 250% auto;
+        -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: textShine 6s linear infinite;
+        padding-bottom: 0.2em; margin-bottom: -0.2em;
+    }
+    .hero-shine-light {
+        background: linear-gradient(110deg, #ffffff 35%, #a1a1aa 48%, #ffffff 65%); background-size: 250% auto;
+        -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: textShine 6s linear infinite;
+        padding-bottom: 0.2em; margin-bottom: -0.2em;
+    }
+    @keyframes textShine { 0% { background-position: 250% center; } 100% { background-position: -250% center; } }
+
+    /* Floating Buttons Styles */
+    #scroll-top-btn {
+        position: fixed;
+        bottom: 24px;
+        left: 24px;
+        z-index: 50;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.4s ease;
+        pointer-events: none;
+    }
+    #scroll-top-btn.visible {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+    .floating-wa-btn {
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        z-index: 50;
+        transition: all 0.3s ease;
+    }
+    .floating-wa-btn:hover {
+        transform: translateY(-4px);
+    }
+  </style>
+  <link href="https://ibero.education/artes-liberales/" rel="canonical"/>
+  <meta content="Artes Liberales | Pensamiento Cr&iacute;tico e Innovaci&oacute;n | IBERO" property="og:title"/>
+  <meta content="Estudia Artes Liberales en IBERO. Desarrolla pensamiento cr&iacute;tico, creatividad y liderazgo para resolver desaf&iacute;os globales del mundo actual." property="og:description"/>
+  <meta content="https://ibero.education/artes-liberales/" property="og:url"/>
+  <meta content="website" property="og:type"/>
+  <meta content="https://ibero.education/fotos/og-image.jpg" property="og:image"/>
+  <meta content="artes liberales, pensamiento cr&iacute;tico, humanidades, innovaci&oacute;n, liderazgo, educaci&oacute;n, ibero" name="keywords"/>
+  <meta content="index, follow" name="robots"/>
+  <meta content="Centro Iberoamericano (IBERO)" name="author"/>
+  <meta content="es_ES" property="og:locale"/>
+  <meta content="Centro Iberoamericano" property="og:site_name"/>
+ </head>
+ <body class="text-white font-sans antialiased overflow-x-hidden selection:bg-ibero-reddark selection:text-white pt-[180px] md:pt-[190px]">
+  <!-- Botones Flotantes -->
+  <button aria-label="Volver arriba" class="w-10 h-10 bg-white border border-zinc-200 shadow-md text-zinc-500 rounded-full flex items-center justify-center hover:bg-zinc-50 hover:text-ibero-dark focus:outline-none focus:ring-2 focus:ring-ibero-dark focus:ring-offset-2 group" id="scroll-top-btn" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+   <i class="fa-solid fa-arrow-up group-hover:-translate-y-1 transition-transform text-sm">
+   </i>
+  </button>
+  <a aria-label="Asistencia 24/7 en WhatsApp" class="floating-wa-btn flex items-center gap-3 group" href="https://wa.me/19152854778" target="_blank">
+   <span class="bg-white border border-zinc-200 text-zinc-800 text-[11px] font-bold px-3 py-1.5 rounded-full shadow-sm opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-4 group-hover:translate-x-0 hidden sm:block">
+    Asistencia 24/7
+   </span>
+   <div class="w-12 h-12 bg-[#09090B] text-white rounded-full flex items-center justify-center shadow-lg border border-zinc-700 hover:bg-black transition-colors relative">
+    <span class="absolute inline-flex h-full w-full rounded-full bg-zinc-600 opacity-20 animate-ping">
+    </span>
+    <i class="fa-brands fa-whatsapp text-[22px] relative z-10">
+    </i>
+   </div>
+  </a>
+  <!-- NAVEGACIÓN ESTANDARIZADA -->
+  <nav class="fixed top-0 left-0 w-full z-50 transition-all duration-300 shadow-sm flex flex-col" id="navbar">
+   <!-- FRANJA NEGRA PRINCIPAL (IBERO LIBERAL ARTS) -->
+   <div class="bg-black text-white py-2.5 border-b border-zinc-900 w-full z-50 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     <h1 class="text-lg sm:text-2xl font-serif font-bold text-center tracking-wide italic">
+      IBERO
+      <span class="not-italic bg-gradient-to-r from-zinc-400 via-white to-zinc-400 bg-clip-text text-transparent drop-shadow-[0_0_12px_rgba(255,255,255,0.4)]">
+       Liberal Arts
+      </span>
+     </h1>
+    </div>
+   </div>
+   <!-- Fila 1: Logo y Navegación Interna (Ultra-Delgado y Scroll en Móvil) -->
+   <div class="w-full nav-glass border-b border-zinc-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div class="flex justify-between items-center h-14 md:h-16 gap-2 sm:gap-4">
+      <!-- Logo Oficial Actualizado -->
+      <a class="flex-shrink-0 flex items-center cursor-pointer" href="https://ibero.education/" target="_blank">
+       <img alt="Logo IBERO" class="h-8 sm:h-10 md:h-10 w-auto object-contain" src="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/1557a79470d9c26d1ad0f0b00243f9f03e55cf2f/fotos/svg/ibero-logo-black-redE.svg"/>
+      </a>
+      <!-- Menu Interno (Alineado izquierda en móvil para scroll, derecha en PC) -->
+      <div class="flex flex-1 items-center justify-start lg:justify-end gap-4 md:gap-10 overflow-x-auto hide-scrollbar px-2 sm:px-4">
+       <a class="text-[11px] md:text-[13px] font-bold text-zinc-600 hover:text-ibero-dark transition-colors whitespace-nowrap" href="#about">
+        &iquest;Qu&eacute; es?
+       </a>
+       <a class="text-[11px] md:text-[13px] font-bold text-zinc-600 hover:text-ibero-dark transition-colors whitespace-nowrap" href="#why">
+        Pilares
+       </a>
+       <a class="text-[11px] md:text-[13px] font-bold text-zinc-600 hover:text-ibero-dark transition-colors whitespace-nowrap" href="#experience">
+        Experiencia
+       </a>
+       <a class="text-[11px] md:text-[13px] font-bold text-zinc-600 hover:text-ibero-dark transition-colors whitespace-nowrap" href="#community">
+        Comunidad
+       </a>
+       <!-- Botón de Matrículas (OCULTO EN CELULAR para no estorbar, visible en PC) -->
+       <a class="hidden md:flex bg-black text-white px-6 py-2.5 rounded-lg text-[13px] font-bold hover:bg-zinc-800 border border-zinc-700 shadow-lg hover:shadow-xl transition-all items-center gap-2 group relative overflow-hidden shrink-0" href="https://ibero.education/registro-y-admisiones/" target="_blank">
+        <span class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-[textShine_1.5s_ease-in-out_infinite]">
+        </span>
+        <span>
+         Postular Admisi&oacute;n
+        </span>
+        <span class="relative flex h-2 w-2">
+         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75">
+         </span>
+         <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500">
+         </span>
+        </span>
+       </a>
+      </div>
+      <!-- Mobile Menu Button -->
+      <div class="md:hidden flex items-center shrink-0 border-l border-zinc-200 pl-2 ml-1">
+       <button class="text-zinc-600 hover:text-ibero-dark focus:outline-none p-2 transition-colors" id="mobile-menu-btn">
+        <i class="fa-solid fa-bars text-xl">
+        </i>
+       </button>
+      </div>
+     </div>
+    </div>
+   </div>
+   <!-- Fila 2: Enlaces Institucionales -->
+   <div class="flex w-full bg-[#050505] text-white border-b border-zinc-900">
+    <div class="max-w-7xl mx-auto w-full flex justify-start lg:justify-end items-center h-10 text-[10px] md:text-[11px] font-semibold tracking-wider uppercase overflow-x-auto hide-scrollbar">
+     <div class="flex items-center gap-5 md:gap-7 min-w-max px-4 sm:px-6 lg:px-8">
+      <a class="text-white hover:text-zinc-300 transition-colors" href="https://ibero.education/" target="_blank">
+       Inicio
+      </a>
+      <a class="text-white hover:text-zinc-300 transition-colors" href="https://qlase.goatify.app/" target="_blank">
+       Campus Virtual
+      </a>
+      <a class="text-white hover:text-zinc-300 transition-colors" href="https://ibero.education/publicaciones/" target="_blank">
+       Publicaciones
+      </a>
+      <a class="text-white hover:text-zinc-300 transition-colors" href="https://ibero.education/trabaja-con-nosotros/" target="_blank">
+       Docentes
+      </a>
+      <a class="text-white hover:text-zinc-300 transition-colors" href="https://ibero.education/trabaja-con-nosotros/" target="_blank">
+       Trabaja con nosotros
+      </a>
+      <a class="text-white hover:text-zinc-300 transition-colors" href="https://ibero.education/ayuda-financiera/" target="_blank">
+       Ayuda Financiera
+      </a>
+      <a class="text-white hover:text-zinc-300 transition-colors" href="https://ibero.education/contacto/" target="_blank">
+       Contactos
+      </a>
+     </div>
+    </div>
+   </div>
+   <!-- Fila 3: Ecosistema y Programas Académicos Externos -->
+   <div class="flex w-full bg-zinc-50/90 border-b border-zinc-200 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto w-full flex justify-start items-center h-12 text-[11px] md:text-[12px] font-medium text-zinc-600 overflow-x-auto hide-scrollbar">
+     <div class="flex items-center gap-6 lg:gap-12 min-w-max px-4 sm:px-6 lg:px-8">
+      <a class="hover:text-ibero-dark hover:font-bold transition-all" href="https://ibero.education/oferta-academica/" target="_blank">
+       Programas
+      </a>
+      <a class="hover:text-ibero-dark hover:font-bold transition-all" href="https://ibero.education/calendario-academico/" target="_blank">
+       Calendario Cursos
+      </a>
+      <a class="hover:text-ibero-dark hover:font-bold transition-all" href="https://ibero.education/certificaciones-intensivas/" target="_blank">
+       Certificaciones
+      </a>
+      <a class="hover:text-ibero-dark hover:font-bold transition-all" href="https://ibero.education/diplomados-intensivos/" target="_blank">
+       Diplomados
+      </a>
+      <a class="hover:text-ibero-dark hover:font-bold transition-all" href="https://ibero.education/executive-master/" target="_blank">
+       Executive Master
+      </a>
+      <a class="hover:text-ibero-dark hover:font-bold transition-all" href="https://ibero.education/ibero-academy/" target="_blank">
+       IBERO Academy
+      </a>
+      <a class="hover:text-ibero-dark hover:font-bold transition-all" href="https://ibero.education/ibero-labs/" target="_blank">
+       IBERO Labs
+      </a>
+      <a class="text-ibero-dark font-bold border-b-2 border-ibero-dark pb-0.5 transition-all" href="#">
+       Artes liberales
+      </a>
+      <a class="hover:text-ibero-dark hover:font-bold transition-all" href="https://ibero.education/consultor&iacute;a-en-educaci&oacute;n/" target="_blank">
+       Consultor&iacute;a Educaci&oacute;n
+      </a>
+      <a class="hover:text-ibero-dark hover:font-bold transition-all" href="https://ibero.education/english-courses/" target="_blank">
+       Ingl&eacute;s Continuo
+      </a>
+     </div>
+    </div>
+   </div>
+   <!-- Mobile Menu Panel Estructurado -->
+   <div class="hidden md:hidden bg-white border-t border-zinc-100 absolute w-full shadow-lg max-h-[calc(100vh-144px)] overflow-y-auto top-[158px]" id="mobile-menu">
+    <div class="px-4 pt-2 pb-6 space-y-1 flex flex-col">
+     <!-- Navegación Interna -->
+     <div class="mb-2 px-3 pt-2">
+      <span class="text-[10px] font-bold tracking-widest text-zinc-400 uppercase">
+       Navegaci&oacute;n de P&aacute;gina
+      </span>
+     </div>
+     <a class="mobile-link block px-3 py-3 text-base font-medium text-zinc-800 border-b border-zinc-50 hover:text-ibero-reddark" href="#about">
+      &iquest;Qu&eacute; es IBERO Liberal Arts?
+     </a>
+     <a class="mobile-link block px-3 py-3 text-base font-medium text-zinc-800 border-b border-zinc-50 hover:text-ibero-reddark" href="#why">
+      Nuestros Pilares
+     </a>
+     <a class="mobile-link block px-3 py-3 text-base font-medium text-zinc-800 border-b border-zinc-50 hover:text-ibero-reddark" href="#experience">
+      La Experiencia
+     </a>
+     <a class="mobile-link block px-3 py-3 text-base font-medium text-zinc-800 border-b border-zinc-50 hover:text-ibero-reddark" href="#community">
+      Comunidad
+     </a>
+     <!-- Portales Externos -->
+     <div class="mt-4 mb-2 px-3 border-t border-zinc-100 pt-4">
+      <span class="text-[10px] font-bold tracking-widest text-ibero-reddark uppercase">
+       Ecosistema &amp; Programas
+      </span>
+     </div>
+     <a class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 border-b border-zinc-50 hover:text-ibero-reddark" href="https://ibero.education/oferta-academica/" target="_blank">
+      Programas
+     </a>
+     <a class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 border-b border-zinc-50 hover:text-ibero-reddark" href="https://ibero.education/calendario-academico/" target="_blank">
+      Calendario Cursos
+     </a>
+     <a class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 border-b border-zinc-50 hover:text-ibero-reddark" href="https://ibero.education/certificaciones-intensivas/" target="_blank">
+      Certificaciones
+     </a>
+     <a class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 border-b border-zinc-50 hover:text-ibero-reddark" href="https://ibero.education/diplomados-intensivos/" target="_blank">
+      Diplomados
+     </a>
+     <a class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 border-b border-zinc-50 hover:text-ibero-reddark" href="https://ibero.education/executive-master/" target="_blank">
+      Executive Master
+     </a>
+     <a class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 border-b border-zinc-50 hover:text-ibero-reddark" href="https://ibero.education/ibero-academy/" target="_blank">
+      IBERO Academy
+     </a>
+     <a class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 border-b border-zinc-50 hover:text-ibero-reddark" href="https://ibero.education/ibero-labs/" target="_blank">
+      IBERO Labs
+     </a>
+     <a class="mobile-link block px-3 py-2.5 text-sm font-medium text-ibero-dark font-bold border-b border-zinc-50" href="#">
+      Artes liberales
+     </a>
+     <a class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 border-b border-zinc-50 hover:text-ibero-reddark" href="https://ibero.education/registro-y-admisiones/" target="_blank">
+      Registro y admisiones
+     </a>
+     <a class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 border-b border-zinc-50 hover:text-ibero-reddark" href="https://ibero.education/consultor&iacute;a-en-educaci&oacute;n/" target="_blank">
+      Consultor&iacute;a en educaci&oacute;n
+     </a>
+     <a class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 border-b border-zinc-50 hover:text-ibero-reddark" href="https://ibero.education/english-courses/" target="_blank">
+      Ingl&eacute;s Continuo
+     </a>
+     <div class="mt-4 mb-2 px-3">
+      <span class="text-[10px] font-bold tracking-widest text-ibero-reddark uppercase">
+       Institucional &amp; Contacto
+      </span>
+     </div>
+     <a class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 border-b border-zinc-50 hover:text-ibero-reddark" href="https://ibero.education/" target="_blank">
+      Inicio
+     </a>
+     <a class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 border-b border-zinc-50 hover:text-ibero-reddark" href="https://qlase.goatify.app/" target="_blank">
+      Campus Virtual
+     </a>
+     <a class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 border-b border-zinc-50 hover:text-ibero-reddark" href="https://ibero.education/publicaciones/" target="_blank">
+      Publicaciones
+     </a>
+     <a class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 border-b border-zinc-50 hover:text-ibero-reddark" href="https://ibero.education/trabaja-con-nosotros/" target="_blank">
+      Docentes
+     </a>
+     <a class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 border-b border-zinc-50 hover:text-ibero-reddark" href="https://ibero.education/ayuda-financiera/" target="_blank">
+      Ayuda Financiera
+     </a>
+     <a class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 hover:text-ibero-reddark" href="https://ibero.education/contacto/" target="_blank">
+      Contactos
+     </a>
+    </div>
+   </div>
+  </nav>
+  <!-- HERO SECTION -->
+  <section class="relative pt-32 pb-40 text-center flex items-center justify-center min-h-[75vh] overflow-hidden bg-[#050505]">
+   <!-- Imagen de Fondo Hero -->
+   <div class="absolute inset-0 z-0">
+    <img alt="Artes Liberales" class="w-full h-full object-cover filter brightness-[0.6] contrast-125" src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1920"/>
+    <div class="absolute inset-0 bg-gradient-to-b from-[#050505]/90 via-[#050505]/60 to-[#050505]">
+    </div>
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(217,18,18,0.15)_0%,transparent_60%)]">
+    </div>
+   </div>
+   <div class="container mx-auto px-4 relative z-10 reveal">
+    <div class="inline-block px-5 py-2 rounded-full border border-zinc-700 bg-zinc-900/80 shadow-2xl text-[10px] sm:text-xs font-bold tracking-widest uppercase mb-8 backdrop-blur-md text-white">
+     <span class="w-2 h-2 rounded-full bg-ibero-red inline-block mr-2 animate-pulse">
+     </span>
+     Formaci&oacute;n Humanista y Digital
+    </div>
+    <h2 class="text-[2.2rem] sm:text-5xl md:text-6xl lg:text-7xl font-sans font-extrabold tracking-tighter mb-6">
+     <span class="text-white">
+      Desata tu Potencial con
+     </span>
+     <br/>
+     <span class="font-serif italic hero-shine-light block mt-2">
+      Artes Liberales
+     </span>
+    </h2>
+    <p class="text-xl md:text-3xl mb-6 font-serif italic text-zinc-300">
+     "Donde los L&iacute;deres del Futuro Nacen y Brillan"
+    </p>
+    <p class="text-base sm:text-lg md:text-xl text-zinc-400 font-medium max-w-2xl mx-auto leading-relaxed mb-10">
+     Forjamos mentes innovadoras que piensan con audacia, crean con prop&oacute;sito y
+     <strong class="text-white border-b border-ibero-red/50 pb-0.5">
+      lideran con impacto.
+     </strong>
+    </p>
+    <a class="bg-ibero-reddark hover:bg-red-800 text-white px-8 py-4 rounded-xl text-sm sm:text-lg font-bold transition-all shadow-[0_0_20px_rgba(217,18,18,0.4)] inline-flex items-center gap-2" href="https://ibero.education/registro-y-admisiones/" target="_blank">
+     Empieza tu Transformaci&oacute;n
+     <i class="fa-solid fa-arrow-right">
+     </i>
+    </a>
+   </div>
+  </section>
+  <!-- ABOUT SECTION -->
+  <section class="py-20 lg:py-32 bg-[#050505] border-b border-zinc-900" id="about">
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+    <div class="flex flex-col md:flex-row items-center gap-12 lg:gap-16">
+     <!-- Text -->
+     <div class="md:w-1/2">
+      <h3 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-6">
+       &iquest;Qu&eacute; es IBERO
+       <br/>
+       <span class="font-serif italic text-zinc-400 font-medium mt-1 inline-block border-b-2 border-ibero-reddark pb-2">
+        Liberal Arts?
+       </span>
+      </h3>
+      <p class="text-base sm:text-lg text-zinc-400 leading-relaxed mb-8">
+       En IBERO Liberal Arts, transformamos tu talento con una educaci&oacute;n &uacute;nica que combina
+       <strong class="text-white">
+        humanidades, pensamiento cr&iacute;tico y habilidades digitales.
+       </strong>
+       Formamos l&iacute;deres creativos listos para conquistar cualquier desaf&iacute;o profesional con visi&oacute;n y excelencia.
+      </p>
+      <a class="bg-white text-ibero-dark hover:bg-zinc-200 px-6 py-3 rounded-xl font-bold text-sm transition-all shadow-md inline-flex items-center gap-2" href="https://ibero.education/oferta-academica/" target="_blank">
+       Descubre M&aacute;s
+       <i class="fa-solid fa-arrow-right">
+       </i>
+      </a>
+     </div>
+     <!-- Image -->
+     <div class="md:w-1/2 w-full">
+      <div class="aspect-video sm:aspect-[4/3] rounded-[2rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-zinc-800 relative group">
+       <img alt="Estudiante en acci&oacute;n" class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800"/>
+       <div class="absolute inset-0 bg-ibero-dark/20 group-hover:bg-transparent transition-colors duration-500">
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section>
+  <!-- NUEVA SUPER SECCIÓN: EL VERDADERO SIGNIFICADO DE LAS ARTES LIBERALES -->
+  <section class="py-20 lg:py-32 bg-zinc-950 relative border-b border-zinc-900 overflow-hidden">
+   <div class="absolute inset-0 bg-[radial-gradient(#27272a_1px,transparent_1px)] [background-size:30px_30px] opacity-10">
+   </div>
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="text-center mb-16 lg:mb-20 reveal">
+     <h2 class="text-[10px] sm:text-xs font-bold tracking-widest text-ibero-purple uppercase mb-3">
+      La Esencia del Programa
+     </h2>
+     <h3 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-6">
+      El Poder de la
+      <br/>
+      <span class="font-serif italic text-zinc-400 font-medium hero-shine-light">
+       Multidisciplinariedad
+      </span>
+     </h3>
+     <p class="text-sm sm:text-lg text-zinc-400 max-w-3xl mx-auto leading-relaxed">
+      Las Artes Liberales en IBERO no son solo humanidades cl&aacute;sicas. Es el arte de pensar estrat&eacute;gicamente, emprender y dominar m&uacute;ltiples &aacute;reas de conocimiento para
+      <strong class="text-white border-b border-ibero-purple">
+       liderar empresas y crear negocios reales
+      </strong>
+      .
+     </p>
+    </div>
+    <!-- Grid Asimétrico Pro -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 reveal">
+     <!-- Item 1 (Grande) -->
+     <div class="bg-zinc-900 border border-zinc-800 p-6 sm:p-10 rounded-[2rem] flex flex-col group transition-all duration-500 md:col-span-2 relative overflow-hidden">
+      <!-- Video Background -->
+      <video autoplay="" class="absolute inset-0 w-full h-full object-cover z-0 grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700" loop="" muted="" playsinline="">
+       <source src="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/c5441036666eabf17beca05e22852761e9ae4cdd/fotos/1.mp4" type="video/mp4"/>
+      </video>
+      <!-- Overlay oscuro -->
+      <div class="absolute inset-0 bg-zinc-900/90 group-hover:bg-zinc-900/70 transition-colors duration-500 z-10">
+      </div>
+      <div class="relative z-20 h-full flex flex-col">
+       <div class="w-12 h-12 bg-black border border-zinc-700 text-white rounded-xl flex items-center justify-center mb-6 shadow-sm group-hover:text-ibero-purple transition-colors">
+        <i class="fa-solid fa-chess-knight text-xl">
+        </i>
+       </div>
+       <h4 class="text-xl sm:text-2xl font-bold text-white mb-3">
+        Pensamiento Cr&iacute;tico Avanzado
+       </h4>
+       <p class="text-sm text-zinc-400 group-hover:text-zinc-200 transition-colors leading-relaxed max-w-xl">
+        La capacidad de analizar escenarios complejos, filtrar el ruido medi&aacute;tico y tomar decisiones estrat&eacute;gicas fundamentadas en datos, l&oacute;gica y contexto humano.
+       </p>
+      </div>
+     </div>
+     <!-- Item 2 -->
+     <div class="bg-zinc-900 border border-zinc-800 p-6 sm:p-10 rounded-[2rem] flex flex-col group transition-all duration-500 relative overflow-hidden">
+      <!-- Video Background -->
+      <video autoplay="" class="absolute inset-0 w-full h-full object-cover z-0 grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700" loop="" muted="" playsinline="">
+       <source src="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/c5441036666eabf17beca05e22852761e9ae4cdd/fotos/2.mp4" type="video/mp4"/>
+      </video>
+      <div class="absolute inset-0 bg-zinc-900/90 group-hover:bg-zinc-900/70 transition-colors duration-500 z-10">
+      </div>
+      <div class="relative z-20 h-full flex flex-col">
+       <div class="w-12 h-12 bg-black border border-zinc-700 text-white rounded-xl flex items-center justify-center mb-6 shadow-sm group-hover:text-ibero-reddark transition-colors">
+        <i class="fa-solid fa-rocket text-xl">
+        </i>
+       </div>
+       <h4 class="text-xl sm:text-2xl font-bold text-white mb-3">
+        Emprendimiento
+       </h4>
+       <p class="text-sm text-zinc-400 group-hover:text-zinc-200 transition-colors leading-relaxed">
+        Estructura ideas desde cero. Aprende a crear soluciones que el mercado realmente necesita y est&aacute; dispuesto a pagar.
+       </p>
+      </div>
+     </div>
+     <!-- Item 3 -->
+     <div class="bg-zinc-900 border border-zinc-800 p-6 sm:p-10 rounded-[2rem] flex flex-col group transition-all duration-500 relative overflow-hidden">
+      <!-- Video Background -->
+      <video autoplay="" class="absolute inset-0 w-full h-full object-cover z-0 grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700" loop="" muted="" playsinline="">
+       <source src="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/c5441036666eabf17beca05e22852761e9ae4cdd/fotos/3.mp4" type="video/mp4"/>
+      </video>
+      <div class="absolute inset-0 bg-zinc-900/90 group-hover:bg-zinc-900/70 transition-colors duration-500 z-10">
+      </div>
+      <div class="relative z-20 h-full flex flex-col">
+       <div class="w-12 h-12 bg-black border border-zinc-700 text-white rounded-xl flex items-center justify-center mb-6 shadow-sm group-hover:text-green-500 transition-colors">
+        <i class="fa-solid fa-chart-pie text-xl">
+        </i>
+       </div>
+       <h4 class="text-xl sm:text-2xl font-bold text-white mb-3">
+        Negocios Reales
+       </h4>
+       <p class="text-sm text-zinc-400 group-hover:text-zinc-200 transition-colors leading-relaxed">
+        Entiende la econom&iacute;a, el modelo de ingresos, las finanzas corporativas y la estructuraci&oacute;n comercial.
+       </p>
+      </div>
+     </div>
+     <!-- Item 4 (Grande) -->
+     <div class="bg-zinc-900 border border-zinc-800 p-6 sm:p-10 rounded-[2rem] flex flex-col group transition-all duration-500 md:col-span-2 relative overflow-hidden">
+      <!-- Video Background -->
+      <video autoplay="" class="absolute inset-0 w-full h-full object-cover z-0 grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700" loop="" muted="" playsinline="">
+       <source src="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/c5441036666eabf17beca05e22852761e9ae4cdd/fotos/4.mp4" type="video/mp4"/>
+      </video>
+      <div class="absolute inset-0 bg-zinc-900/90 group-hover:bg-zinc-900/70 transition-colors duration-500 z-10">
+      </div>
+      <div class="absolute right-0 top-0 w-48 h-48 bg-ibero-purple/10 blur-[50px] rounded-full pointer-events-none z-10">
+      </div>
+      <div class="relative z-20 h-full flex flex-col">
+       <div class="w-12 h-12 bg-black border border-zinc-700 text-white rounded-xl flex items-center justify-center mb-6 shadow-sm group-hover:text-blue-400 transition-colors">
+        <i class="fa-solid fa-microchip text-xl">
+        </i>
+       </div>
+       <h4 class="text-xl sm:text-2xl font-bold text-white mb-3">
+        Inteligencia Artificial y Tecnolog&iacute;a
+       </h4>
+       <p class="text-sm text-zinc-400 group-hover:text-zinc-200 transition-colors leading-relaxed max-w-xl">
+        Las humanidades en el siglo XXI requieren el dominio tecnol&oacute;gico. Automatiza procesos, escala tu productividad y utiliza la IA para amplificar tus ideas creativas.
+       </p>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section>
+  <!-- WHY CHOOSE IBERO (4 PILARES) -->
+  <section class="py-20 lg:py-32 bg-[#050505] relative border-b border-zinc-900" id="why">
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+    <div class="text-center mb-16 lg:mb-20">
+     <h3 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-6">
+      &iquest;Por qu&eacute; Elegir
+      <span class="font-serif italic text-zinc-400 font-medium border-b-2 border-ibero-reddark pb-1">
+       IBERO?
+      </span>
+     </h3>
+     <p class="text-sm sm:text-lg text-zinc-400 max-w-3xl mx-auto leading-relaxed">
+      En un mundo que cambia r&aacute;pido, el &eacute;xito depende de pensar con claridad, comunicar con impacto y liderar con prop&oacute;sito.
+      <strong class="text-white">
+       Nuestros cuatro pilares te preparan para destacar:
+      </strong>
+     </p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+     <!-- Pillar 1 -->
+     <div class="bg-zinc-900/50 border border-zinc-800 p-5 rounded-[1.5rem] hover:border-ibero-reddark hover:bg-zinc-900 transition-all duration-500 group flex flex-col h-full shadow-lg">
+      <div class="aspect-video rounded-xl overflow-hidden mb-6 relative">
+       <img alt="Pensamiento cr&iacute;tico" class="w-full h-full object-cover filter grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700" src="https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=600"/>
+       <div class="absolute inset-0 bg-gradient-to-t from-zinc-900 to-transparent">
+       </div>
+      </div>
+      <h4 class="text-lg sm:text-xl font-bold text-white mb-3">
+       Pensamiento Cr&iacute;tico
+      </h4>
+      <p class="text-sm text-zinc-400 leading-relaxed flex-grow">
+       Cuestiona, analiza y resuelve problemas complejos con absoluta creatividad e inteligencia.
+      </p>
+     </div>
+     <!-- Pillar 2 -->
+     <div class="bg-zinc-900/50 border border-zinc-800 p-5 rounded-[1.5rem] hover:border-ibero-reddark hover:bg-zinc-900 transition-all duration-500 group flex flex-col h-full shadow-lg">
+      <div class="aspect-video rounded-xl overflow-hidden mb-6 relative">
+       <img alt="Comunicaci&oacute;n poderosa" class="w-full h-full object-cover filter grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700" src="https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=600"/>
+       <div class="absolute inset-0 bg-gradient-to-t from-zinc-900 to-transparent">
+       </div>
+      </div>
+      <h4 class="text-lg sm:text-xl font-bold text-white mb-3">
+       Comunicaci&oacute;n Poderosa
+      </h4>
+      <p class="text-sm text-zinc-400 leading-relaxed flex-grow">
+       Expresa tus ideas con claridad, estructura, confianza y un alto nivel de persuasi&oacute;n ejecutiva.
+      </p>
+     </div>
+     <!-- Pillar 3 -->
+     <div class="bg-zinc-900/50 border border-zinc-800 p-5 rounded-[1.5rem] hover:border-ibero-reddark hover:bg-zinc-900 transition-all duration-500 group flex flex-col h-full shadow-lg">
+      <div class="aspect-video rounded-xl overflow-hidden mb-6 relative">
+       <img alt="&Eacute;tica y liderazgo" class="w-full h-full object-cover filter grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700" src="https://images.pexels.com/photos/3184317/pexels-photo-3184317.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=600"/>
+       <div class="absolute inset-0 bg-gradient-to-t from-zinc-900 to-transparent">
+       </div>
+      </div>
+      <h4 class="text-lg sm:text-xl font-bold text-white mb-3">
+       &Eacute;tica y Liderazgo
+      </h4>
+      <p class="text-sm text-zinc-400 leading-relaxed flex-grow">
+       Decide con responsabilidad, dirige equipos y lidera instituciones con valores s&oacute;lidos.
+      </p>
+     </div>
+     <!-- Pillar 4 -->
+     <div class="bg-zinc-900/50 border border-zinc-800 p-5 rounded-[1.5rem] hover:border-ibero-reddark hover:bg-zinc-900 transition-all duration-500 group flex flex-col h-full shadow-lg">
+      <div class="aspect-video rounded-xl overflow-hidden mb-6 relative">
+       <img alt="Visi&oacute;n global" class="w-full h-full object-cover filter grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700" src="https://images.pexels.com/photos/3184301/pexels-photo-3184301.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=600"/>
+       <div class="absolute inset-0 bg-gradient-to-t from-zinc-900 to-transparent">
+       </div>
+      </div>
+      <h4 class="text-lg sm:text-xl font-bold text-white mb-3">
+       Visi&oacute;n Global
+      </h4>
+      <p class="text-sm text-zinc-400 leading-relaxed flex-grow">
+       Adapta tu negocio y lidera en contextos diversos con una perspectiva interdisciplinaria.
+      </p>
+     </div>
+    </div>
+   </div>
+  </section>
+  <!-- EXPERIENCE SECTION -->
+  <section class="py-20 lg:py-32 bg-[#050505] border-b border-zinc-900" id="experience">
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+    <div class="flex flex-col md:flex-row-reverse items-center gap-12 lg:gap-16">
+     <!-- Text -->
+     <div class="md:w-1/2">
+      <h3 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-6">
+       Una Experiencia
+       <br/>
+       <span class="font-serif italic text-zinc-400 font-medium mt-1 inline-block border-b-2 border-ibero-reddark pb-2">
+        que Transforma
+       </span>
+      </h3>
+      <p class="text-sm sm:text-base text-zinc-400 leading-relaxed mb-6">
+       Nuestros cursos, diplomados y talleres van m&aacute;s all&aacute; de lo acad&eacute;mico. Basados en la filosof&iacute;a de las Artes Liberales, te equipan con habilidades pr&aacute;cticas para:
+      </p>
+      <ul class="space-y-4 mb-8">
+       <li class="flex items-start gap-3">
+        <div class="w-6 h-6 rounded-full bg-zinc-800 flex items-center justify-center text-ibero-reddark shrink-0 mt-0.5">
+         <i class="fa-solid fa-check text-[10px]">
+         </i>
+        </div>
+        <span class="text-zinc-300 font-medium">
+         Conectar ideas con impacto real en el mercado.
+        </span>
+       </li>
+       <li class="flex items-start gap-3">
+        <div class="w-6 h-6 rounded-full bg-zinc-800 flex items-center justify-center text-ibero-reddark shrink-0 mt-0.5">
+         <i class="fa-solid fa-check text-[10px]">
+         </i>
+        </div>
+        <span class="text-zinc-300 font-medium">
+         Crear proyectos y empresas innovadoras.
+        </span>
+       </li>
+       <li class="flex items-start gap-3">
+        <div class="w-6 h-6 rounded-full bg-zinc-800 flex items-center justify-center text-ibero-reddark shrink-0 mt-0.5">
+         <i class="fa-solid fa-check text-[10px]">
+         </i>
+        </div>
+        <span class="text-zinc-300 font-medium">
+         Resolver desaf&iacute;os con visi&oacute;n estrat&eacute;gica.
+        </span>
+       </li>
+      </ul>
+      <div class="bg-zinc-900/80 border border-zinc-800 p-5 rounded-2xl flex items-start gap-4 shadow-lg backdrop-blur-sm">
+       <i class="fa-solid fa-qrcode text-3xl text-white mt-1">
+       </i>
+       <div>
+        <p class="text-white font-bold mb-1">
+         Certificaci&oacute;n Digital Segura
+        </p>
+        <p class="text-xs text-zinc-400 leading-relaxed">
+         Obt&eacute;n certificados digitales con c&oacute;digo QR, perfectos para validar tus logros ante empleadores y destacar profesionalmente.
+        </p>
+       </div>
+      </div>
+     </div>
+     <!-- Image -->
+     <div class="md:w-1/2 w-full">
+      <div class="aspect-video sm:aspect-[4/3] rounded-[2rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-zinc-800 relative group">
+       <img alt="Aula innovadora" class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" src="https://images.pexels.com/photos/3184311/pexels-photo-3184311.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800"/>
+       <div class="absolute inset-0 bg-ibero-dark/20 group-hover:bg-transparent transition-colors duration-500">
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section>
+  <!-- COMMUNITY SECTION (PARALLAX) -->
+  <section class="py-24 lg:py-40 relative bg-fixed bg-center bg-cover flex items-center justify-center" id="community" style="background-image: url('https://images.pexels.com/photos/3184298/pexels-photo-3184298.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1920');">
+   <!-- Dark Overlay -->
+   <div class="absolute inset-0 bg-black/80">
+   </div>
+   <div class="container mx-auto px-4 text-center relative z-10 reveal">
+    <h3 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-6">
+     &Uacute;nete a una
+     <span class="font-serif italic text-zinc-300 font-medium">
+      Comunidad de L&iacute;deres
+     </span>
+    </h3>
+    <p class="text-base sm:text-lg text-zinc-300 mb-10 max-w-2xl mx-auto leading-relaxed">
+     Forma parte de una red vibrante de estudiantes, profesionales y expertos dedicados a la innovaci&oacute;n y el aprendizaje continuo. En IBERO,
+     <strong class="text-white">
+      tus ideas encuentran oportunidades reales.
+     </strong>
+    </p>
+    <a class="bg-white text-ibero-dark px-8 py-4 rounded-xl text-sm sm:text-lg font-bold transition-all shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:bg-zinc-200 inline-flex items-center gap-2" href="https://ibero.education/contacto/" target="_blank">
+     Conecta Ahora
+     <i class="fa-solid fa-network-wired">
+     </i>
+    </a>
+   </div>
+  </section>
+  <!-- CALL TO ACTION (CON VIDEO DE FONDO Y FILTRO ROJO IBERO) -->
+  <section class="py-24 lg:py-36 relative overflow-hidden flex items-center justify-center" id="join">
+   <!-- Video Background -->
+   <div class="absolute inset-0 z-0">
+    <video autoplay="" class="w-full h-full object-cover opacity-60 mix-blend-luminosity grayscale" loop="" muted="" playsinline="" preload="auto">
+     <source src="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/c5441036666eabf17beca05e22852761e9ae4cdd/fotos/1.mp4" type="video/mp4"/>
+    </video>
+    <!-- Filtro rojo ibero oscuro por encima del video -->
+    <div class="absolute inset-0 bg-gradient-to-b from-[#880d0d]/95 via-[#880d0d]/80 to-[#880d0d]/95">
+    </div>
+   </div>
+   <div class="container mx-auto px-4 text-center relative z-10 reveal">
+    <h3 class="text-4xl sm:text-5xl lg:text-7xl font-extrabold text-white mb-6 tracking-tighter drop-shadow-xl">
+     &iquest;Listo para Cambiar
+     <br/>
+     <span class="font-serif italic font-medium mt-2 block">
+      tu Futuro?
+     </span>
+    </h3>
+    <p class="text-lg sm:text-2xl text-white/90 font-medium mb-10 max-w-2xl mx-auto">
+     "Desata tu Potencial Ejecutivo con IBERO Liberal Arts."
+    </p>
+    <a class="bg-black hover:bg-zinc-900 text-white border border-zinc-800 px-10 py-5 rounded-xl text-base sm:text-xl font-bold transition-all shadow-2xl inline-flex items-center gap-3 group" href="https://ibero.education/registro-y-admisiones/" target="_blank">
+     Postular Admisi&oacute;n
+     <i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition-transform">
+     </i>
+    </a>
+   </div>
+  </section>
+  <!-- FOOTER PREMIUM EXACTO (CON LOGO Y GOATIFY) -->
+  <footer class="bg-[#050505] text-zinc-400 py-12 border-t border-zinc-900">
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Grid ampliado a 6 columnas para consistencia -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 mb-8 border-b border-zinc-900 pb-12">
+     <!-- Col 1: Brand & Socials -->
+     <div class="lg:col-span-2 lg:pr-12">
+      <div class="mb-1">
+       <img alt="Logo IBERO" class="w-40 sm:w-48 h-auto object-contain object-left" src="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/8c1109d60abc984df0e47724b61bab75d49a6b12/fotos/svg/ibero-menu-purple.svg"/>
+      </div>
+      <p class="text-xs sm:text-sm leading-relaxed mb-5">
+       Educaci&oacute;n Executive impulsada por Inteligencia Artificial. Formamos a los fundadores y creadores corporativos del ma&ntilde;ana.
+      </p>
+      <!-- Redes Sociales Correctas -->
+      <div class="flex flex-wrap gap-3 mb-4">
+       <a class="w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center hover:bg-[#0077b5] hover:text-white transition-colors border border-zinc-800" href="https://www.linkedin.com/company/centro-iberoamericano/" target="_blank">
+        <i class="fa-brands fa-linkedin-in text-sm">
+        </i>
+       </a>
+       <a class="w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center hover:bg-[#E1306C] hover:text-white transition-colors border border-zinc-800" href="https://www.instagram.com/centro.iberoamericano/" target="_blank">
+        <i class="fa-brands fa-instagram text-sm">
+        </i>
+       </a>
+       <a class="w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center hover:bg-[#1877F2] hover:text-white transition-colors border border-zinc-800" href="https://www.facebook.com/ibero.education/" target="_blank">
+        <i class="fa-brands fa-facebook-f text-sm">
+        </i>
+       </a>
+       <a class="w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center hover:bg-[#25D366] hover:text-white transition-colors border border-zinc-800" href="https://wa.me/19152854778" target="_blank">
+        <i class="fa-brands fa-whatsapp text-sm">
+        </i>
+       </a>
+      </div>
+      <!-- Correo Clickable -->
+      <div class="mt-4">
+       <a class="inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-zinc-300 hover:text-white transition-colors group" href="mailto:programas@ibero.education">
+        <div class="w-8 h-8 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center group-hover:bg-ibero-reddark group-hover:border-ibero-reddark transition-colors">
+         <i class="fa-solid fa-envelope text-xs">
+         </i>
+        </div>
+        <span class="border-b border-transparent group-hover:border-zinc-500 pb-0.5">
+         programas@ibero.education
+        </span>
+       </a>
+      </div>
+     </div>
+     <!-- Col 2: Programas -->
+     <div>
+      <h4 class="text-white font-bold mb-4 text-sm">
+       Programas
+      </h4>
+      <ul class="space-y-2 text-xs sm:text-sm">
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/oferta-academica/" target="_blank">
+         Programas
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/calendario-academico/" target="_blank">
+         Calendario Cursos
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/certificaciones-intensivas/" target="_blank">
+         Certificaciones
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/diplomados-intensivos/" target="_blank">
+         Diplomados Ejecutivos
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/executive-master/" target="_blank">
+         Executive Masters
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/english-courses/" target="_blank">
+         Programas de Ingl&eacute;s
+        </a>
+       </li>
+      </ul>
+     </div>
+     <!-- Col 3: Ecosistema IBERO -->
+     <div>
+      <h4 class="text-white font-bold mb-4 text-sm">
+       Ecosistema
+      </h4>
+      <ul class="space-y-2 text-xs sm:text-sm">
+       <li>
+        <a class="hover:text-white transition-colors" href="https://qlase.goatify.app/" target="_blank">
+         Campus Virtual
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/ibero-academy/" target="_blank">
+         IBERO Academy
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/ibero-labs/" target="_blank">
+         IBERO Labs
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/artes-liberales/" target="_blank">
+         Artes liberales
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/consultor&iacute;a-en-educaci&oacute;n/" target="_blank">
+         Consultor&iacute;a B2B
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/publicaciones/" target="_blank">
+         Portal de Publicaciones
+        </a>
+       </li>
+      </ul>
+     </div>
+     <!-- Col 4: Nosotros -->
+     <div>
+      <h4 class="text-white font-bold mb-4 text-sm">
+       Nosotros
+      </h4>
+      <ul class="space-y-2 text-xs sm:text-sm">
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/" target="_blank">
+         Inicio Institucional
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/metodologia/" target="_blank">
+         Metodolog&iacute;a 360&deg;
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/#colaboraciones" target="_blank">
+         Alianzas y Avales
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/trabaja-con-nosotros/" target="_blank">
+         Nuestro Claustro
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/trabaja-con-nosotros/" target="_blank">
+         Trabaja con nosotros
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/contacto/" target="_blank">
+         Contactos y Soporte
+        </a>
+       </li>
+      </ul>
+     </div>
+     <!-- Col 5: Legal & Soporte -->
+     <div>
+      <h4 class="text-white font-bold mb-4 text-sm">
+       Legal &amp; Admisiones
+      </h4>
+      <ul class="space-y-2 text-xs sm:text-sm">
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/registro-y-admisiones/" target="_blank">
+         Registro y admisiones
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/ayuda-financiera/" target="_blank">
+         Ayuda Financiera
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/contacto/" target="_blank">
+         Soporte al Estudiante
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="#">
+         Verificar Certificado QR
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="#">
+         T&eacute;rminos y Condiciones
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="#">
+         Pol&iacute;ticas de Privacidad
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <!-- Ajuste para que las burbujas no tapen los créditos -->
+    <div class="flex flex-col md:flex-row justify-between items-center text-[10px] sm:text-xs pt-6 pb-24 md:pb-4 md:px-16 border-t border-zinc-900/50">
+     <p class="text-zinc-500 mb-4 md:mb-0 text-center">
+      &copy; 2026 Centro Iberoamericano (IBERO). Todos los derechos reservados.
+     </p>
+     <div class="flex flex-col items-center md:items-end gap-1.5 text-center md:text-right">
+      <p class="text-zinc-500">
+       Sitio desarrollado y dise&ntilde;ado por
+       <a class="text-ibero-red hover:text-white font-bold transition-colors" href="https://www.goatify.app" target="_blank">
+        GOATIFY
+       </a>
+      </p>
+     </div>
+    </div>
+   </div>
+  </footer>
+  <!-- SCRIPTS -->
+  <script>
+   // Menu Mobile Toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+    const navbar = document.getElementById('navbar');
+
+    if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+          if(mobileMenuBtn.innerHTML.includes('bars')){
+             mobileMenuBtn.innerHTML = '<i class="fa-solid fa-xmark text-xl"></i>';
+          } else {
+             mobileMenuBtn.innerHTML = '<i class="fa-solid fa-bars text-xl"></i>';
+          }
+        });
+    }
+
+    mobileLinks.forEach(link => {
+       link.addEventListener('click', () => {
+          if (mobileMenu) mobileMenu.classList.add('hidden');
+          if (mobileMenuBtn) mobileMenuBtn.innerHTML = '<i class="fa-solid fa-bars text-xl"></i>';
+       });
+    });
+
+    // Scroll Navbar effect y Botón de Volver Arriba
+    const scrollTopBtn = document.getElementById('scroll-top-btn');
+
+    window.addEventListener('scroll', () => {
+       // Navbar
+       if (navbar) {
+           if (window.scrollY > 20) {
+              navbar.classList.add('shadow-md');
+              navbar.classList.remove('shadow-sm');
+           } else {
+              navbar.classList.remove('shadow-md');
+              navbar.classList.add('shadow-sm');
+           }
+       }
+       
+       // Scroll to Top Botón Sutil
+       if (scrollTopBtn) {
+           if (window.scrollY > 300) {
+               scrollTopBtn.classList.add('visible');
+           } else {
+               scrollTopBtn.classList.remove('visible');
+           }
+       }
+    });
+
+    // Animaciones Reveal al hacer scroll
+    function reveal() {
+      var reveals = document.querySelectorAll(".reveal");
+      for (var i = 0; i < reveals.length; i++) {
+        var windowHeight = window.innerHeight;
+        var elementTop = reveals[i].getBoundingClientRect().top;
+        var elementVisible = 50; 
+        
+        if(reveals[i].classList.contains('active') && window.scrollY < 100) continue;
+
+        if (elementTop < windowHeight - elementVisible) {
+          reveals[i].classList.add("active");
+        }
+      }
+    }
+
+    window.addEventListener("scroll", reveal);
+    window.addEventListener("resize", reveal);
+    window.addEventListener("load", reveal);
+    setTimeout(reveal, 100);
+  </script>
+ </body>
+</html>

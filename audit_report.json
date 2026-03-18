@@ -1,0 +1,258 @@
+{
+  "index.html": {
+    "title": "Centro Iberoamericano (IBERO) | Educaci\u00f3n Executive e Inteligencia Artificial",
+    "meta_description": "L\u00edderes en Educaci\u00f3n Executive. Transforma tu carrera con el Centro Iberoamericano. Domina la Inteligencia Artificial, Marketing Digital y Negocios en tiempo r\u00e9cord.",
+    "canonical": "https://ibero.education/",
+    "issues": [
+      "Title length is not optimal: 84 chars",
+      "Meta description length not optimal: 165 chars"
+    ],
+    "bad_links_count": 1,
+    "bad_links": [
+      "Possible staging/dev link used: https://www.linkedin.com/company/centro-iberoamericano/"
+    ]
+  },
+  "artes-liberales\\index.html": {
+    "title": "Artes Liberales | Pensamiento Cr\u00edtico e Innovaci\u00f3n | IBERO",
+    "meta_description": "Estudia Artes Liberales en IBERO. Desarrolla pensamiento cr\u00edtico, creatividad y liderazgo para resolver desaf\u00edos globales del mundo actual.",
+    "canonical": "https://ibero.education/artes-liberales/",
+    "issues": [],
+    "bad_links_count": 1,
+    "bad_links": [
+      "Possible staging/dev link used: https://www.linkedin.com/company/centro-iberoamericano/"
+    ]
+  },
+  "ayuda-financiera\\index.html": {
+    "title": "Ayuda Financiera y Becas | Educaci\u00f3n Accesible | IBERO",
+    "meta_description": "Conoce nuestras opciones de ayuda financiera, becas de excelencia y cr\u00e9dito directo sin intereses. El talento no tiene barreras en el Centro Iberoamericano.",
+    "canonical": "https://ibero.education/ayuda-financiera/",
+    "issues": [],
+    "bad_links_count": 1,
+    "bad_links": [
+      "Possible staging/dev link used: https://www.linkedin.com/company/centro-iberoamericano/"
+    ]
+  },
+  "calendario-academico\\index.html": {
+    "title": "Calendario Acad\u00e9mico 2026 | Fechas de Inicio | IBERO",
+    "meta_description": "Consulta el Calendario Acad\u00e9mico 2026 de IBERO. Fechas de inicio, inscripciones y duraci\u00f3n de todos nuestros Executive Masters, Diplomados y Certificaciones.",
+    "canonical": "https://ibero.education/calendario-academico/",
+    "issues": [],
+    "bad_links_count": 1,
+    "bad_links": [
+      "Possible staging/dev link used: https://www.linkedin.com/company/centro-iberoamericano/"
+    ]
+  },
+  "certificaciones-intensivas\\index.html": {
+    "title": "Certificaciones y Cursos Intensivos | IA y Negocios | IBERO",
+    "meta_description": "Certificaciones intensivas en Inteligencia Artificial, Marketing y Liderazgo. Acelera tu carrera y adquiere habilidades pr\u00e1cticas aplicables al instante.",
+    "canonical": "https://ibero.education/certificaciones-intensivas/",
+    "issues": [],
+    "bad_links_count": 1,
+    "bad_links": [
+      "Possible staging/dev link used: https://www.linkedin.com/company/centro-iberoamericano/"
+    ]
+  },
+  "comunicacion-efectiva\\index.html": {
+    "title": "Certificaci\u00f3n en Comunicaci\u00f3n Efectiva | Hablar en P\u00fablico | IBERO",
+    "meta_description": "Domina el arte de hablar en p\u00fablico con nuestra certificaci\u00f3n presencial en Comunicaci\u00f3n Efectiva. Proyecta liderazgo y mejora tu persuasi\u00f3n esc\u00e9nica.",
+    "canonical": "https://ibero.education/comunicacion-efectiva/",
+    "issues": [
+      "Title length is not optimal: 73 chars"
+    ],
+    "bad_links_count": 1,
+    "bad_links": [
+      "Possible staging/dev link used: https://www.linkedin.com/company/centro-iberoamericano/"
+    ]
+  },
+  "consultor\u00eda-en-educaci\u00f3n\\index.html": {
+    "title": "Consultor\u00eda en Educaci\u00f3n y Dise\u00f1o Curricular | IBERO B2B",
+    "meta_description": "Servicios B2B de consultor\u00eda acad\u00e9mica: dise\u00f1o de mallas curriculares, estrategias de comunicaci\u00f3n e integraci\u00f3n de IA para instituciones educativas.",
+    "canonical": "https://ibero.education/consultor\u00eda-en-educaci\u00f3n/",
+    "issues": [],
+    "bad_links_count": 1,
+    "bad_links": [
+      "Possible staging/dev link used: https://www.linkedin.com/company/centro-iberoamericano/"
+    ]
+  },
+  "contacto\\index.html": {
+    "title": "Contacto y Soporte | Habla con un Asesor | IBERO",
+    "meta_description": "Ponte en contacto con el Centro Iberoamericano. Resuelve tus dudas sobre admisiones, programas acad\u00e9micos y becas con nuestro equipo de asesores.",
+    "canonical": "https://ibero.education/contacto/",
+    "issues": [],
+    "bad_links_count": 2,
+    "bad_links": [
+      "Possible staging/dev link used: https://www.linkedin.com/company/centro-iberoamericano/",
+      "Possible staging/dev link used: https://www.linkedin.com/company/centro-iberoamericano/"
+    ]
+  },
+  "crea-tu-academia\\index.html": {
+    "title": "Certificaci\u00f3n Crea tu Curso Online y Monetiza | IBERO",
+    "meta_description": "Dise\u00f1a, estructura y lanza tu propio curso online con ayuda de la Inteligencia Artificial. Monetiza tu conocimiento en 4 d\u00edas intensivos.",
+    "canonical": "https://ibero.education/crea-tu-academia/",
+    "issues": [],
+    "bad_links_count": 1,
+    "bad_links": [
+      "Possible staging/dev link used: https://www.linkedin.com/company/centro-iberoamericano/"
+    ]
+  },
+  "diplomado-ia-negocios-marketing\\index.html": {
+    "title": "Diplomado IA en Negocios y Marketing Digital | IBERO",
+    "meta_description": "Aprende a escalar negocios reales con este Diplomado en IA Aplicada. Automatizaci\u00f3n, Vibe Coding y estrategias de marketing de vanguardia en 5 semanas.",
+    "canonical": "https://ibero.education/diplomado-ia-negocios-marketing/",
+    "issues": [],
+    "bad_links_count": 1,
+    "bad_links": [
+      "Possible staging/dev link used: https://www.linkedin.com/company/centro-iberoamericano/"
+    ]
+  },
+  "diplomados-intensivos\\index.html": {
+    "title": "Diplomados Ejecutivos Intensivos | Transformaci\u00f3n | IBERO",
+    "meta_description": "Inmersi\u00f3n ejecutiva total. Descubre nuestros diplomados en IA, negocios e innovaci\u00f3n dise\u00f1ados para transformar tu carrera profesional en tiempo r\u00e9cord.",
+    "canonical": "https://ibero.education/diplomados-intensivos/",
+    "issues": [],
+    "bad_links_count": 1,
+    "bad_links": [
+      "Possible staging/dev link used: https://www.linkedin.com/company/centro-iberoamericano/"
+    ]
+  },
+  "english-courses\\index.html": {
+    "title": "Cursos de Ingl\u00e9s Business & Tech | Idiomas | IBERO",
+    "meta_description": "Domina el idioma de los negocios e impulsa tu perfil global. Ingl\u00e9s Business & Tech dise\u00f1ado para profesionales y ejecutivos exigentes.",
+    "canonical": "https://ibero.education/english-courses/",
+    "issues": [],
+    "bad_links_count": 1,
+    "bad_links": [
+      "Possible staging/dev link used: https://www.linkedin.com/company/centro-iberoamericano/"
+    ]
+  },
+  "executive-master\\index.html": {
+    "title": "Executive Masters | Posgrados de \u00c9lite en IA | IBERO",
+    "meta_description": "Programas de alto nivel ejecutivo. Da el siguiente paso con nuestros Executive Masters en Inteligencia Artificial aplicada a los negocios.",
+    "canonical": "https://ibero.education/executive-master/",
+    "issues": [],
+    "bad_links_count": 1,
+    "bad_links": [
+      "Possible staging/dev link used: https://www.linkedin.com/company/centro-iberoamericano/"
+    ]
+  },
+  "goatify\\index.html": {
+    "title": "GOATIFY | Tecnolog\u00eda y Desarrollo de Software | IBERO",
+    "meta_description": "Conoce GOATIFY, el laboratorio de ingenier\u00eda y desarrollo de software del Centro Iberoamericano. Construimos plataformas con prop\u00f3sito e IA.",
+    "canonical": "https://ibero.education/goatify/",
+    "issues": [],
+    "bad_links_count": 1,
+    "bad_links": [
+      "Possible staging/dev link used: https://www.linkedin.com/company/centro-iberoamericano/"
+    ]
+  },
+  "ia-para-docentes\\index.html": {
+    "title": "Certificaci\u00f3n IA para Docentes | Innovaci\u00f3n Educativa | IBERO",
+    "meta_description": "Fortalece tu pr\u00e1ctica docente integrando la Inteligencia Artificial. Certificaci\u00f3n intensiva para crear propuestas pedag\u00f3gicas innovadoras en 4 d\u00edas.",
+    "canonical": "https://ibero.education/ia-para-docentes/",
+    "issues": [],
+    "bad_links_count": 1,
+    "bad_links": [
+      "Possible staging/dev link used: https://www.linkedin.com/company/centro-iberoamericano/"
+    ]
+  },
+  "ibero-academy\\index.html": {
+    "title": "IBERO Academy | Programas Acad\u00e9micos Virtuales | IBERO",
+    "meta_description": "Transforma tu futuro 100% online con IBERO Academy. Mentor\u00edas, orientaci\u00f3n vocacional y programas a distancia adaptados a tu ritmo.",
+    "canonical": "https://ibero.education/ibero-academy/",
+    "issues": [],
+    "bad_links_count": 1,
+    "bad_links": [
+      "Possible staging/dev link used: https://www.linkedin.com/company/centro-iberoamericano/"
+    ]
+  },
+  "ibero-labs\\index.html": {
+    "title": "IBERO Labs | Incubadora de Startups y Negocios | IBERO",
+    "meta_description": "Tu atajo al \u00e9xito emprendedor. Crea, valida y lanza tu startup integrando la potencia de la Inteligencia Artificial con IBERO Labs.",
+    "canonical": "https://ibero.education/ibero-labs/",
+    "issues": [],
+    "bad_links_count": 1,
+    "bad_links": [
+      "Possible staging/dev link used: https://www.linkedin.com/company/centro-iberoamericano/"
+    ]
+  },
+  "marketing-digital-con-ia\\index.html": {
+    "title": "Certificaci\u00f3n Marketing Digital con IA | Estrategia | IBERO",
+    "meta_description": "12 horas intensivas para dominar el Marketing Digital con IA. Construye, automatiza y monetiza tu presencia web sin improvisaciones.",
+    "canonical": "https://ibero.education/marketing-digital-con-ia/",
+    "issues": [],
+    "bad_links_count": 1,
+    "bad_links": [
+      "Possible staging/dev link used: https://www.linkedin.com/company/centro-iberoamericano/"
+    ]
+  },
+  "master-ejecutivo-ia\\index.html": {
+    "title": "Executive Master IA Aplicada a Negocios y Marketing | IBERO",
+    "meta_description": "Incubaci\u00f3n ejecutiva de 6 meses. Sistematiza y escala empresas reales dominando la Inteligencia Artificial, arquitectura digital y Vibe Coding.",
+    "canonical": "https://ibero.education/master-ejecutivo-ia/",
+    "issues": [],
+    "bad_links_count": 1,
+    "bad_links": [
+      "Possible staging/dev link used: https://www.linkedin.com/company/centro-iberoamericano/"
+    ]
+  },
+  "metodologia\\index.html": {
+    "title": "Metodolog\u00eda IBERO 360\u00b0 | C\u00f3mo Ense\u00f1amos | IBERO",
+    "meta_description": "Conoce nuestra metodolog\u00eda pr\u00e1ctica, estrat\u00e9gica y tecnol\u00f3gica. Evaluamos proyectos reales, no ex\u00e1menes de memoria. Educaci\u00f3n con impacto.",
+    "canonical": "https://ibero.education/metodologia/",
+    "issues": [],
+    "bad_links_count": 1,
+    "bad_links": [
+      "Possible staging/dev link used: https://www.linkedin.com/company/centro-iberoamericano/"
+    ]
+  },
+  "monetiza-tu-idea\\index.html": {
+    "title": "Certificaci\u00f3n Monetiza tu Idea con IA | Emprendimiento | IBERO",
+    "meta_description": "Haz realidad tus proyectos. Transforma tu idea en un negocio viable y escalable utilizando herramientas de Inteligencia Artificial en tiempo r\u00e9cord.",
+    "canonical": "https://ibero.education/monetiza-tu-idea/",
+    "issues": [],
+    "bad_links_count": 1,
+    "bad_links": [
+      "Possible staging/dev link used: https://www.linkedin.com/company/centro-iberoamericano/"
+    ]
+  },
+  "oferta-academica\\index.html": {
+    "title": "Oferta Acad\u00e9mica | Cat\u00e1logo de Cursos y Maestrias | IBERO",
+    "meta_description": "Explora nuestro cat\u00e1logo completo. Masters Ejecutivos, Diplomados, Certificaciones y programas dise\u00f1ados para dominar el mercado con IA.",
+    "canonical": "https://ibero.education/oferta-academica/",
+    "issues": [],
+    "bad_links_count": 1,
+    "bad_links": [
+      "Possible staging/dev link used: https://www.linkedin.com/company/centro-iberoamericano/"
+    ]
+  },
+  "publicaciones\\index.html": {
+    "title": "Publicaciones y Art\u00edculos | Investigaci\u00f3n M\u00e9dica y IA | IBERO",
+    "meta_description": "Nuestros insights. Explora art\u00edculos, investigaciones y noticias sobre tecnolog\u00eda, educaci\u00f3n e Inteligencia Artificial creados por nuestros expertos.",
+    "canonical": "https://ibero.education/publicaciones/",
+    "issues": [],
+    "bad_links_count": 1,
+    "bad_links": [
+      "Possible staging/dev link used: https://www.linkedin.com/company/centro-iberoamericano/"
+    ]
+  },
+  "registro-y-admisiones\\index.html": {
+    "title": "Registro y Admisiones | Postula a IBERO",
+    "meta_description": "Conoce el proceso de inscripci\u00f3n y requisitos de admisi\u00f3n para formar parte de la \u00e9lite acad\u00e9mica en el Centro Iberoamericano. Empieza tu postulaci\u00f3n hoy.",
+    "canonical": "https://ibero.education/registro-y-admisiones/",
+    "issues": [],
+    "bad_links_count": 1,
+    "bad_links": [
+      "Possible staging/dev link used: https://www.linkedin.com/company/centro-iberoamericano/"
+    ]
+  },
+  "trabaja-con-nosotros\\index.html": {
+    "title": "Trabaja con Nosotros | S\u00e9 Parte de IBERO | Vacantes",
+    "meta_description": "\u00danete a nuestro claustro docente o forma parte del equipo administrativo y tecnol\u00f3gico de IBERO. Buscamos talento que aporte valor educativo.",
+    "canonical": "https://ibero.education/trabaja-con-nosotros/",
+    "issues": [],
+    "bad_links_count": 1,
+    "bad_links": [
+      "Possible staging/dev link used: https://www.linkedin.com/company/centro-iberoamericano/"
+    ]
+  }
+}

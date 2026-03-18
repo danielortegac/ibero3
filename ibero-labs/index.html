@@ -1,0 +1,1566 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="es">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+  <meta content="Tu atajo al &eacute;xito emprendedor. Crea, valida y lanza tu startup integrando la potencia de la Inteligencia Artificial con IBERO Labs." name="description"/>
+  <title>
+   IBERO Labs | Incubadora de Startups y Negocios | IBERO
+  </title>
+  <!-- FAVICON OFICIAL -->
+  <link href="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/a6cb517879cf1f2182727ebce6cbf24a236d5b7a/fotos/svg/favicon.svg" rel="icon" type="image/svg+xml"/>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&amp;display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <script>
+   tailwind.config = {
+      theme: {
+        extend: {
+          colors: { 
+            ibero: { 
+              red: '#D91212', 
+              reddark: '#880d0d', 
+              purple: '#6B21A8', 
+              dark: '#09090B', 
+              gray: '#FAFAFA', 
+              teal: '#0f766e' 
+            } 
+          },
+          fontFamily: { 
+            sans: ['Inter', 'sans-serif'], 
+            serif: ['Playfair Display', 'serif'] 
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+   /* Ajustes Base - Zoom 90% para look Premium/Elegante */
+    html { zoom: 0.9; scroll-padding-top: 164px; }
+    body { background-color: #050505; color: #ffffff; }
+    .hide-scrollbar::-webkit-scrollbar { display: none; }
+    .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    
+    /* Nav Glassmorphism */
+    .nav-glass { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+    
+    /* Reveal Animation */
+    .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+    
+    /* Títulos con brillo */
+    .hero-shine-light {
+        background: linear-gradient(110deg, #ffffff 35%, #a1a1aa 48%, #ffffff 65%); background-size: 250% auto;
+        -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: textShine 6s linear infinite;
+        padding-bottom: 0.2em; margin-bottom: -0.2em;
+    }
+    @keyframes textShine { 0% { background-position: 250% center; } 100% { background-position: -250% center; } }
+
+    /* Estilos Específicos de IBERO Labs */
+    .quote-bg {
+      background: linear-gradient(rgba(9,9,11,0.92), rgba(9,9,11,0.98)), url('https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg') no-repeat center/cover;
+      background-attachment: fixed;
+    }
+
+    /* Floating Buttons Styles */
+    #scroll-top-btn {
+        position: fixed;
+        bottom: 24px;
+        left: 24px;
+        z-index: 50;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.4s ease;
+        pointer-events: none;
+    }
+    #scroll-top-btn.visible {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+    .floating-wa-btn {
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        z-index: 50;
+        transition: all 0.3s ease;
+    }
+    .floating-wa-btn:hover {
+        transform: translateY(-4px);
+    }
+  </style>
+  <link href="https://ibero.education/ibero-labs/" rel="canonical"/>
+  <meta content="IBERO Labs | Incubadora de Startups y Negocios | IBERO" property="og:title"/>
+  <meta content="Tu atajo al &eacute;xito emprendedor. Crea, valida y lanza tu startup integrando la potencia de la Inteligencia Artificial con IBERO Labs." property="og:description"/>
+  <meta content="https://ibero.education/ibero-labs/" property="og:url"/>
+  <meta content="website" property="og:type"/>
+  <meta content="https://ibero.education/fotos/og-image.jpg" property="og:image"/>
+  <meta content="ibero labs, incubadora de empresas, startups, emprendimiento, lanzamiento de negocios, ia" name="keywords"/>
+  <meta content="index, follow" name="robots"/>
+  <meta content="Centro Iberoamericano (IBERO)" name="author"/>
+  <meta content="es_ES" property="og:locale"/>
+  <meta content="Centro Iberoamericano" property="og:site_name"/>
+ </head>
+ <body class="text-white font-sans antialiased overflow-x-hidden selection:bg-emerald-500 selection:text-white pt-[156px] md:pt-[164px]">
+  <!-- Botones Flotantes -->
+  <!-- Scroll to Top (Izquierda) -->
+  <button aria-label="Volver arriba" class="w-10 h-10 bg-white border border-zinc-200 shadow-md text-zinc-500 rounded-full flex items-center justify-center hover:bg-zinc-50 hover:text-ibero-dark focus:outline-none focus:ring-2 focus:ring-ibero-dark focus:ring-offset-2 group" id="scroll-top-btn" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+   <i class="fa-solid fa-arrow-up group-hover:-translate-y-1 transition-transform text-sm">
+   </i>
+  </button>
+  <!-- WhatsApp 24/7 (Derecha) -->
+  <a aria-label="Asistencia 24/7 en WhatsApp" class="floating-wa-btn flex items-center gap-3 group" href="https://wa.me/19152854778" target="_blank">
+   <span class="bg-white border border-zinc-200 text-zinc-800 text-[11px] font-bold px-3 py-1.5 rounded-full shadow-sm opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-4 group-hover:translate-x-0 hidden sm:block">
+    Asistencia 24/7
+   </span>
+   <div class="w-12 h-12 bg-[#09090B] text-white rounded-full flex items-center justify-center shadow-lg border border-zinc-700 hover:bg-black transition-colors relative">
+    <span class="absolute inline-flex h-full w-full rounded-full bg-zinc-600 opacity-20 animate-ping">
+    </span>
+    <i class="fa-brands fa-whatsapp text-[22px] relative z-10">
+    </i>
+   </div>
+  </a>
+  <!-- HEADER / NAVEGACIÓN ESTANDARIZADO -->
+  <nav class="fixed top-0 left-0 w-full z-50 transition-all duration-300 shadow-sm flex flex-col" id="navbar">
+   <!-- FRANJA NEGRA PRINCIPAL (IBERO LABS) -->
+   <div class="bg-black text-white py-1.5 border-b border-zinc-900 w-full z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-center items-center gap-3">
+     <i class="fa-solid fa-flask text-emerald-500 text-base animate-pulse">
+     </i>
+     <h1 class="text-sm sm:text-base font-sans font-extrabold text-center tracking-tight">
+      IBERO
+      <span class="font-serif italic text-emerald-400 font-medium hero-shine-light">
+       Labs
+      </span>
+     </h1>
+    </div>
+   </div>
+   <!-- Fila 1: Logo y Navegación Interna -->
+   <div class="w-full nav-glass border-b border-zinc-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div class="flex justify-between items-center h-12 md:h-14">
+      <!-- Logo Oficial Actualizado -->
+      <a class="flex-shrink-0 flex items-center cursor-pointer" href="https://ibero.education/" target="_blank">
+       <img alt="Logo IBERO" class="h-7 sm:h-8 md:h-9 w-auto object-contain" src="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/1557a79470d9c26d1ad0f0b00243f9f03e55cf2f/fotos/svg/ibero-logo-black-redE.svg"/>
+      </a>
+      <!-- Menu Interno (Alineado izquierda en móvil para scroll, derecha en PC) -->
+      <div class="flex flex-1 items-center justify-start lg:justify-end gap-4 md:gap-10 overflow-x-auto hide-scrollbar px-2 sm:px-4">
+       <a class="text-[11px] md:text-[13px] font-bold text-zinc-600 hover:text-ibero-dark transition-colors whitespace-nowrap" href="#about">
+        &iquest;Qu&eacute; es Labs?
+       </a>
+       <a class="text-[11px] md:text-[13px] font-bold text-zinc-600 hover:text-ibero-dark transition-colors whitespace-nowrap" href="#metodo">
+        El M&eacute;todo
+       </a>
+       <a class="text-[11px] md:text-[13px] font-bold text-zinc-600 hover:text-ibero-dark transition-colors whitespace-nowrap" href="#beneficios">
+        Beneficios
+       </a>
+       <a class="text-[11px] md:text-[13px] font-bold text-zinc-600 hover:text-ibero-dark transition-colors whitespace-nowrap" href="#programas">
+        Rutas de Incubaci&oacute;n
+       </a>
+       <a class="text-[11px] md:text-[13px] font-bold text-zinc-600 hover:text-ibero-dark transition-colors whitespace-nowrap" href="#inversion">
+        Inversi&oacute;n
+       </a>
+       <!-- Botón de Matrículas (Oculto en celular para no estorbar, visible en PC) -->
+       <a class="hidden md:flex bg-black text-white px-6 py-2.5 rounded-lg text-[13px] font-bold hover:bg-zinc-800 border border-zinc-700 shadow-lg hover:shadow-xl transition-all items-center gap-2 group relative overflow-hidden shrink-0" href="https://ibero.education/registro-y-admisiones/" target="_blank">
+        <span class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-[textShine_1.5s_ease-in-out_infinite]">
+        </span>
+        <span>
+         Aplica Ahora
+        </span>
+        <span class="relative flex h-2 w-2">
+         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75">
+         </span>
+         <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500">
+         </span>
+        </span>
+       </a>
+      </div>
+      <!-- Mobile Menu Button -->
+      <div class="md:hidden flex items-center">
+       <button class="text-zinc-600 hover:text-ibero-dark focus:outline-none p-2 transition-colors" id="mobile-menu-btn">
+        <i class="fa-solid fa-bars text-xl">
+        </i>
+       </button>
+      </div>
+     </div>
+    </div>
+   </div>
+   <!-- Fila 2: Enlaces Institucionales -->
+   <div class="flex w-full bg-[#050505] text-white border-b border-zinc-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex justify-start md:justify-end items-center h-10 text-[10px] md:text-[11px] font-semibold tracking-wider uppercase overflow-x-auto hide-scrollbar">
+     <div class="flex items-center gap-5 md:gap-7 min-w-max pr-4 md:pr-0">
+      <a class="text-white hover:text-zinc-300 transition-colors" href="https://ibero.education/" target="_blank">
+       Inicio
+      </a>
+      <a class="text-white hover:text-zinc-300 transition-colors" href="https://qlase.goatify.app/" target="_blank">
+       Campus Virtual
+      </a>
+      <a class="text-white hover:text-zinc-300 transition-colors" href="https://ibero.education/trabaja-con-nosotros/" target="_blank">
+       Docentes
+      </a>
+      <a class="text-white hover:text-zinc-300 transition-colors" href="https://ibero.education/trabaja-con-nosotros/" target="_blank">
+       Trabaja con nosotros
+      </a>
+      <a class="text-white hover:text-zinc-300 transition-colors" href="https://ibero.education/ayuda-financiera/" target="_blank">
+       Ayuda Financiera
+      </a>
+      <a class="text-white hover:text-zinc-300 transition-colors" href="https://ibero.education/publicaciones/" target="_blank">
+       Publicaciones
+      </a>
+      <a class="text-white hover:text-zinc-300 transition-colors" href="https://ibero.education/contacto/" target="_blank">
+       Contactos
+      </a>
+     </div>
+    </div>
+   </div>
+   <!-- Fila 3: Ecosistema y Programas Académicos Externos -->
+   <div class="flex w-full bg-zinc-50/90 border-b border-zinc-200 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex justify-start md:justify-center items-center h-12 text-[11px] md:text-[12px] font-medium text-zinc-600 overflow-x-auto hide-scrollbar">
+     <div class="flex items-center gap-6 lg:gap-12 min-w-max pr-4 md:pr-0">
+      <a class="hover:text-ibero-dark hover:font-bold transition-all" href="https://ibero.education/oferta-academica/" target="_blank">
+       Cat&aacute;logo Oferta
+      </a>
+      <a class="hover:text-ibero-dark hover:font-bold transition-all" href="https://ibero.education/calendario-academico/" target="_blank">
+       Calendario 2026
+      </a>
+      <a class="hover:text-ibero-dark hover:font-bold transition-all" href="https://ibero.education/certificaciones-intensivas/" target="_blank">
+       Certificaciones
+      </a>
+      <a class="hover:text-ibero-dark hover:font-bold transition-all" href="https://ibero.education/diplomados-intensivos/" target="_blank">
+       Diplomados
+      </a>
+      <a class="hover:text-ibero-dark hover:font-bold transition-all" href="https://ibero.education/executive-master/" target="_blank">
+       Executive Master
+      </a>
+      <a class="hover:text-ibero-dark hover:font-bold transition-all" href="https://ibero.education/ibero-academy/" target="_blank">
+       IBERO Academy
+      </a>
+      <a class="hover:text-ibero-dark hover:font-bold transition-all text-ibero-dark font-bold border-b-2 border-ibero-dark pb-0.5" href="https://ibero.education/ibero-labs/" target="_blank">
+       IBERO Labs
+      </a>
+      <a class="hover:text-ibero-dark hover:font-bold transition-all" href="https://ibero.education/artes-liberales/" target="_blank">
+       Artes liberales
+      </a>
+      <a class="hover:text-ibero-dark hover:font-bold transition-all" href="https://ibero.education/consultor&iacute;a-en-educaci&oacute;n/" target="_blank">
+       Consultor&iacute;a Educaci&oacute;n
+      </a>
+     </div>
+    </div>
+   </div>
+   <!-- Mobile Menu Panel Estructurado -->
+   <div class="hidden md:hidden bg-white border-t border-zinc-100 absolute w-full shadow-lg max-h-[calc(100vh-190px)] overflow-y-auto top-[190px]" id="mobile-menu">
+    <div class="px-4 pt-2 pb-6 space-y-1 flex flex-col">
+     <!-- Navegación Interna -->
+     <div class="mb-2 px-3 pt-2">
+      <span class="text-[10px] font-bold tracking-widest text-zinc-400 uppercase">
+       Navegaci&oacute;n de P&aacute;gina
+      </span>
+     </div>
+     <a class="mobile-link block px-3 py-3 text-base font-medium text-zinc-800 border-b border-zinc-50 hover:text-ibero-reddark" href="#about">
+      &iquest;Qu&eacute; es Labs?
+     </a>
+     <a class="mobile-link block px-3 py-3 text-base font-medium text-zinc-800 border-b border-zinc-50 hover:text-ibero-reddark" href="#metodo">
+      El M&eacute;todo
+     </a>
+     <a class="mobile-link block px-3 py-3 text-base font-medium text-zinc-800 border-b border-zinc-50 hover:text-ibero-reddark" href="#beneficios">
+      Beneficios
+     </a>
+     <a class="mobile-link block px-3 py-3 text-base font-medium text-zinc-800 border-b border-zinc-50 hover:text-ibero-reddark" href="#programas">
+      Rutas de Incubaci&oacute;n
+     </a>
+     <a class="mobile-link block px-3 py-3 text-base font-medium text-zinc-800 border-b border-zinc-50 hover:text-ibero-reddark" href="#inversion">
+      Inversi&oacute;n
+     </a>
+     <!-- Portales Externos -->
+     <div class="mt-4 mb-2 px-3 border-t border-zinc-100 pt-4">
+      <span class="text-[10px] font-bold tracking-widest text-ibero-reddark uppercase">
+       Ecosistema &amp; Programas
+      </span>
+     </div>
+     <a class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 border-b border-zinc-50 hover:text-ibero-reddark" href="https://ibero.education/oferta-academica/" target="_blank">
+      Oferta Acad&eacute;mica
+     </a>
+     <a class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 border-b border-zinc-50 hover:text-ibero-reddark" href="https://ibero.education/calendario-academico/" target="_blank">
+      Calendario Cursos
+     </a>
+     <a class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 border-b border-zinc-50 hover:text-ibero-reddark" href="https://ibero.education/certificaciones-intensivas/" target="_blank">
+      Certificaciones
+     </a>
+     <a class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 border-b border-zinc-50 hover:text-ibero-reddark" href="https://ibero.education/diplomados-intensivos/" target="_blank">
+      Diplomados
+     </a>
+     <a class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 border-b border-zinc-50 hover:text-ibero-reddark" href="https://ibero.education/executive-master/" target="_blank">
+      Executive Master
+     </a>
+     <a class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 border-b border-zinc-50 hover:text-ibero-reddark" href="https://ibero.education/ibero-academy/" target="_blank">
+      IBERO Academy
+     </a>
+     <a class="mobile-link block px-3 py-2.5 text-sm font-medium text-ibero-dark font-bold border-b border-zinc-50 hover:text-ibero-reddark" href="https://ibero.education/ibero-labs/" target="_blank">
+      IBERO Labs
+     </a>
+     <a class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 border-b border-zinc-50 hover:text-ibero-reddark" href="https://ibero.education/artes-liberales/" target="_blank">
+      Artes liberales
+     </a>
+     <a class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 border-b border-zinc-50 hover:text-ibero-reddark" href="https://ibero.education/registro-y-admisiones/" target="_blank">
+      Registro y admisiones
+     </a>
+     <a class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 border-b border-zinc-50 hover:text-ibero-reddark" href="https://ibero.education/consultor&iacute;a-en-educaci&oacute;n/" target="_blank">
+      Consultor&iacute;a en educaci&oacute;n
+     </a>
+     <div class="mt-4 mb-2 px-3">
+      <span class="text-[10px] font-bold tracking-widest text-ibero-reddark uppercase">
+       Institucional &amp; Contacto
+      </span>
+     </div>
+     <a class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 border-b border-zinc-50 hover:text-ibero-reddark" href="https://ibero.education/" target="_blank">
+      Inicio
+     </a>
+     <a class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 border-b border-zinc-50 hover:text-ibero-reddark" href="https://qlase.goatify.app/" target="_blank">
+      Campus Virtual
+     </a>
+     <a class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 border-b border-zinc-50 hover:text-ibero-reddark" href="https://ibero.education/trabaja-con-nosotros/" target="_blank">
+      Docentes
+     </a>
+     <a class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 border-b border-zinc-50 hover:text-ibero-reddark" href="https://ibero.education/ayuda-financiera/" target="_blank">
+      Ayuda Financiera
+     </a>
+     <a class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 hover:text-ibero-reddark" href="https://ibero.education/publicaciones/" target="_blank">
+      Publicaciones
+     </a>
+     <a class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 hover:text-ibero-reddark" href="https://ibero.education/contacto/" target="_blank">
+      Contactos
+     </a>
+    </div>
+   </div>
+  </nav>
+  <!-- HERO SECTION LABS -->
+  <section class="relative pt-28 lg:pt-40 pb-32 text-center flex items-center justify-center min-h-[75vh] overflow-hidden bg-[#050505] border-b border-zinc-900">
+   <!-- Video Background -->
+   <div class="absolute inset-0 z-0">
+    <video autoplay="" class="absolute inset-0 w-full h-full object-cover pointer-events-none opacity-40 mix-blend-luminosity grayscale" loop="" muted="" playsinline="" preload="auto">
+     <source src="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/c5441036666eabf17beca05e22852761e9ae4cdd/fotos/2.mp4" type="video/mp4"/>
+    </video>
+    <div class="absolute inset-0 bg-gradient-to-b from-[#050505]/95 via-[#050505]/60 to-[#050505]">
+    </div>
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(16,185,129,0.1)_0%,transparent_60%)]">
+    </div>
+   </div>
+   <div class="container mx-auto px-4 relative z-10 reveal active">
+    <div class="inline-block px-5 py-2 rounded-full border border-emerald-500/30 bg-emerald-900/20 shadow-[0_0_20px_rgba(16,185,129,0.15)] text-[10px] sm:text-xs font-bold tracking-widest uppercase mb-8 backdrop-blur-md text-emerald-100">
+     <span class="w-2 h-2 rounded-full bg-emerald-500 inline-block mr-2 animate-pulse">
+     </span>
+     Incubadora &amp; Aceleradora
+    </div>
+    <h2 class="text-[2.2rem] sm:text-5xl md:text-6xl lg:text-7xl font-sans font-extrabold tracking-tighter mb-4">
+     <span class="text-white drop-shadow-md">
+      Tu Idea, Tu Negocio,
+     </span>
+     <br/>
+     <span class="font-serif italic hero-shine-light block mt-2 text-zinc-300">
+      Tu &Eacute;xito.
+     </span>
+    </h2>
+    <p class="text-xl md:text-2xl mb-8 font-medium text-zinc-400 max-w-3xl mx-auto leading-relaxed">
+     De cero a facturar en tiempo r&eacute;cord. Lanza tu startup, domina el mercado y escala con Inteligencia Artificial.
+    </p>
+    <div class="flex flex-col sm:flex-row justify-center gap-4 mt-6">
+     <a class="bg-ibero-reddark hover:bg-red-800 text-white font-bold py-4 px-8 rounded-xl text-sm sm:text-base transition-all shadow-[0_0_20px_rgba(217,18,18,0.4)] flex items-center justify-center gap-2" href="#programas">
+      Aplica a la Incubadora
+      <i class="fa-solid fa-rocket">
+      </i>
+     </a>
+    </div>
+   </div>
+  </section>
+  <!-- ABOUT SECTION -->
+  <section class="py-16 lg:py-28 bg-[#050505] border-b border-zinc-900 relative overflow-hidden" id="about">
+   <!-- Efecto sutil de malla -->
+   <div class="absolute inset-0 bg-[radial-gradient(#27272a_1px,transparent_1px)] [background-size:20px_20px] opacity-10">
+   </div>
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal relative z-10">
+    <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+     <div class="lg:w-1/2 text-center lg:text-left">
+      <div class="inline-flex items-center justify-center gap-2 border border-zinc-800 bg-zinc-900/80 px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest text-zinc-400 mb-6 shadow-sm">
+       <i class="fa-solid fa-fire text-emerald-500">
+       </i>
+       El Atajo al &Eacute;xito
+      </div>
+      <h2 class="text-3xl sm:text-5xl font-extrabold mb-8 text-white tracking-tight">
+       &iquest;Qu&eacute; es exactamente
+       <br/>
+       <span class="font-serif italic text-emerald-400 font-medium border-b border-zinc-700 pb-1">
+        IBERO Labs?
+       </span>
+      </h2>
+      <p class="text-base sm:text-lg leading-relaxed text-zinc-400 mb-6">
+       No somos una escuela tradicional; somos una
+       <strong>
+        aceleradora de talentos y negocios
+       </strong>
+       . Un ecosistema intensivo dise&ntilde;ado para sacarte de la teor&iacute;a eterna y llevarte directamente a la tracci&oacute;n de mercado.
+      </p>
+      <p class="text-base sm:text-lg leading-relaxed text-zinc-400 mb-8">
+       Aqu&iacute; no vienes a presentar ex&aacute;menes, vienes a construir un
+       <strong class="text-white">
+        negocio real, validado y monetizable
+       </strong>
+       . Aprende a registrar tu empresa sin fricciones, crear un Producto M&iacute;nimo Viable (MVP) usando Inteligencia Artificial, dise&ntilde;ar tu web transaccional, y lanzarte con la mentalidad de un founder imparable.
+      </p>
+      <ul class="space-y-4">
+       <li class="flex items-start gap-3">
+        <div class="w-6 h-6 rounded-full bg-zinc-900 flex items-center justify-center text-emerald-500 shrink-0 border border-zinc-800">
+         <i class="fa-solid fa-check text-[10px]">
+         </i>
+        </div>
+        <span class="text-zinc-300 font-medium">
+         Mentor&iacute;a directa de fundadores activos.
+        </span>
+       </li>
+       <li class="flex items-start gap-3">
+        <div class="w-6 h-6 rounded-full bg-zinc-900 flex items-center justify-center text-emerald-500 shrink-0 border border-zinc-800">
+         <i class="fa-solid fa-check text-[10px]">
+         </i>
+        </div>
+        <span class="text-zinc-300 font-medium">
+         Integraci&oacute;n 100% de IA para bajar costos operativos.
+        </span>
+       </li>
+      </ul>
+     </div>
+     <div class="lg:w-1/2 w-full">
+      <div class="aspect-square sm:aspect-video lg:aspect-[4/3] rounded-[2rem] overflow-hidden shadow-[0_20px_50px_rgba(16,185,129,0.15)] border border-zinc-800 relative group">
+       <!-- Foto SIEMPRE a color -->
+       <img alt="Emprendedores IBERO Labs Analizando Datos" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&amp;fit=crop&amp;w=800&amp;q=80"/>
+       <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-60 group-hover:opacity-30 transition-opacity duration-500">
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section>
+  <!-- SECCIÓN PERSUASIVA: DOLOR VS SOLUCIÓN -->
+  <section class="py-20 lg:py-32 bg-[#09090b] relative border-b border-zinc-900" id="metodo">
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="text-center mb-16 reveal">
+     <h2 class="text-3xl sm:text-5xl font-black text-white tracking-tight mb-6">
+      El
+      <span class="text-ibero-reddark font-serif italic font-medium">
+       Valle de la Muerte
+      </span>
+      de los Emprendedores
+     </h2>
+     <p class="text-zinc-400 text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed">
+      El 90% de las nuevas empresas fracasan en su primer a&ntilde;o. No por falta de pasi&oacute;n, sino por falta de estructura, agilidad tecnol&oacute;gica y estrategia comercial.
+      <strong class="text-white">
+       Nosotros cambiamos esas reglas.
+      </strong>
+     </p>
+    </div>
+    <div class="flex flex-col lg:flex-row gap-6 sm:gap-10 reveal">
+     <!-- El Dolor -->
+     <div class="lg:w-1/2 bg-zinc-900/50 border border-zinc-800 p-8 sm:p-10 rounded-[2rem]">
+      <div class="flex items-center gap-4 mb-8">
+       <div class="w-12 h-12 rounded-full bg-red-950 flex items-center justify-center text-red-500 shrink-0">
+        <i class="fa-solid fa-xmark text-xl">
+        </i>
+       </div>
+       <h3 class="text-xl sm:text-2xl font-bold text-zinc-300">
+        La Cruda Realidad
+       </h3>
+      </div>
+      <ul class="space-y-6">
+       <li class="flex items-start gap-4">
+        <i class="fa-solid fa-skull text-zinc-600 mt-1">
+        </i>
+        <div>
+         <h4 class="text-white font-bold mb-1">
+          Inversi&oacute;n a Ciegas
+         </h4>
+         <p class="text-sm text-zinc-500 leading-relaxed">
+          Gastar miles de d&oacute;lares en inventario, logos y abogados antes de saber si el mercado realmente quiere pagar por tu producto.
+         </p>
+        </div>
+       </li>
+       <li class="flex items-start gap-4">
+        <i class="fa-solid fa-skull text-zinc-600 mt-1">
+        </i>
+        <div>
+         <h4 class="text-white font-bold mb-1">
+          Cuellos de Botella Operativos
+         </h4>
+         <p class="text-sm text-zinc-500 leading-relaxed">
+          Hacer todo manual. Contratar personal prematuramente y consumir el flujo de caja en tareas que podr&iacute;an ser automatizadas.
+         </p>
+        </div>
+       </li>
+       <li class="flex items-start gap-4">
+        <i class="fa-solid fa-skull text-zinc-600 mt-1">
+        </i>
+        <div>
+         <h4 class="text-white font-bold mb-1">
+          Par&aacute;lisis por An&aacute;lisis
+         </h4>
+         <p class="text-sm text-zinc-500 leading-relaxed">
+          Tardar meses en lanzar "la versi&oacute;n perfecta", para descubrir que la competencia ya acapar&oacute; a tus clientes potenciales.
+         </p>
+        </div>
+       </li>
+      </ul>
+     </div>
+     <!-- La Solución -->
+     <div class="lg:w-1/2 bg-gradient-to-br from-zinc-900 to-black border border-emerald-500/30 p-8 sm:p-10 rounded-[2rem] shadow-[0_15px_40px_rgba(16,185,129,0.1)] relative overflow-hidden group hover:border-emerald-500 transition-colors">
+      <div class="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 blur-[80px] rounded-full pointer-events-none">
+      </div>
+      <div class="flex items-center gap-4 mb-8 relative z-10">
+       <div class="w-12 h-12 rounded-full bg-emerald-950 flex items-center justify-center text-emerald-500 shrink-0">
+        <i class="fa-solid fa-check text-xl">
+        </i>
+       </div>
+       <h3 class="text-xl sm:text-2xl font-bold text-white">
+        El M&eacute;todo IBERO Labs
+       </h3>
+      </div>
+      <ul class="space-y-6 relative z-10">
+       <li class="flex items-start gap-4">
+        <i class="fa-solid fa-bolt text-emerald-500 mt-1">
+        </i>
+        <div>
+         <h4 class="text-white font-bold mb-1">
+          Validaci&oacute;n Inmediata (MVP)
+         </h4>
+         <p class="text-sm text-zinc-400 leading-relaxed">
+          Lanzamos una versi&oacute;n &aacute;gil de tu producto al mercado. Conseguimos a tus primeros clientes pagadores para financiar el crecimiento real.
+         </p>
+        </div>
+       </li>
+       <li class="flex items-start gap-4">
+        <i class="fa-solid fa-robot text-emerald-500 mt-1">
+        </i>
+        <div>
+         <h4 class="text-white font-bold mb-1">
+          Operaci&oacute;n Sistematizada con IA
+         </h4>
+         <p class="text-sm text-zinc-400 leading-relaxed">
+          Implementamos agentes de Inteligencia Artificial para ventas, atenci&oacute;n al cliente y marketing, reduciendo tus costos fijos a casi cero.
+         </p>
+        </div>
+       </li>
+       <li class="flex items-start gap-4">
+        <i class="fa-solid fa-rocket text-emerald-500 mt-1">
+        </i>
+        <div>
+         <h4 class="text-white font-bold mb-1">
+          Velocidad de Ejecuci&oacute;n
+         </h4>
+         <p class="text-sm text-zinc-400 leading-relaxed">
+          Frameworks pre-construidos, plantillas estrat&eacute;gicas, automatizaci&oacute;n con IA y mentor&iacute;a directa para que lo que normalmente tomar&iacute;a meses de prueba y error, lo ejecutes con claridad en solo 5 semanas.
+         </p>
+        </div>
+       </li>
+      </ul>
+     </div>
+    </div>
+   </div>
+  </section>
+  <!-- BENEFITS SECTION -->
+  <section class="py-16 lg:py-28 bg-[#0a0a0a] relative border-b border-zinc-900 overflow-hidden" id="beneficios">
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="text-center mb-16 lg:mb-20 reveal">
+     <h2 class="text-[10px] sm:text-xs font-bold tracking-widest text-zinc-500 uppercase mb-3">
+      Valor Real y Estructura
+     </h2>
+     <h3 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+      Lo que obtienes en
+      <span class="font-serif italic text-emerald-400 font-medium">
+       IBERO Labs
+      </span>
+     </h3>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 reveal">
+     <!-- Benefit 1 -->
+     <div class="bg-zinc-900/60 border border-zinc-800 p-6 sm:p-8 rounded-[1.5rem] hover:border-emerald-500/50 transition-all duration-500 group relative overflow-hidden shadow-lg">
+      <div class="absolute inset-0 z-0 pointer-events-none">
+       <img class="w-full h-full object-cover opacity-[0.05] group-hover:opacity-[0.15] transition-opacity duration-500 filter grayscale" src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&amp;fit=crop&amp;w=600&amp;q=80"/>
+       <div class="absolute inset-0 bg-gradient-to-t from-zinc-900/90 to-transparent">
+       </div>
+      </div>
+      <div class="w-12 h-12 bg-black border border-zinc-700 rounded-xl flex items-center justify-center text-zinc-300 mb-5 group-hover:scale-110 group-hover:bg-emerald-950 group-hover:text-emerald-400 group-hover:border-emerald-800 transition-all relative z-10">
+       <i class="fa-solid fa-scale-balanced text-xl">
+       </i>
+      </div>
+      <h3 class="text-lg sm:text-xl font-bold mb-2 text-white relative z-10">
+       Legalidad Sin Dolor
+      </h3>
+      <p class="text-sm text-zinc-400 leading-relaxed relative z-10 mb-3">
+       Tr&aacute;mites, constituci&oacute;n, permisos y licencias para operar de forma segura.
+      </p>
+      <p class="text-xs text-zinc-500 border-l-2 border-emerald-500/50 pl-3 relative z-10 italic">
+       Ahorra miles de d&oacute;lares evitando abogados costosos para procesos estandarizados.
+      </p>
+     </div>
+     <!-- Benefit 2 -->
+     <div class="bg-zinc-900/60 border border-zinc-800 p-6 sm:p-8 rounded-[1.5rem] hover:border-emerald-500/50 transition-all duration-500 group relative overflow-hidden shadow-lg">
+      <div class="absolute inset-0 z-0 pointer-events-none">
+       <img class="w-full h-full object-cover opacity-[0.05] group-hover:opacity-[0.15] transition-opacity duration-500 filter grayscale" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&amp;fit=crop&amp;w=600&amp;q=80"/>
+       <div class="absolute inset-0 bg-gradient-to-t from-zinc-900/90 to-transparent">
+       </div>
+      </div>
+      <div class="w-12 h-12 bg-black border border-zinc-700 rounded-xl flex items-center justify-center text-zinc-300 mb-5 group-hover:scale-110 group-hover:bg-emerald-950 group-hover:text-emerald-400 group-hover:border-emerald-800 transition-all relative z-10">
+       <i class="fa-solid fa-bolt text-xl">
+       </i>
+      </div>
+      <h3 class="text-lg sm:text-xl font-bold mb-2 text-white relative z-10">
+       MVP en Tiempo R&eacute;cord
+      </h3>
+      <p class="text-sm text-zinc-400 leading-relaxed relative z-10 mb-3">
+       Prototipa &aacute;gilmente usando IA, valida en el mercado real y ajusta con feedback.
+      </p>
+      <p class="text-xs text-zinc-500 border-l-2 border-emerald-500/50 pl-3 relative z-10 italic">
+       Aprender&aacute;s a usar herramientas No-Code para armar productos funcionales sin programar.
+      </p>
+     </div>
+     <!-- Benefit 3 -->
+     <div class="bg-zinc-900/60 border border-zinc-800 p-6 sm:p-8 rounded-[1.5rem] hover:border-emerald-500/50 transition-all duration-500 group relative overflow-hidden shadow-lg">
+      <div class="absolute inset-0 z-0 pointer-events-none">
+       <img class="w-full h-full object-cover opacity-[0.05] group-hover:opacity-[0.15] transition-opacity duration-500 filter grayscale" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&amp;fit=crop&amp;w=600&amp;q=80"/>
+       <div class="absolute inset-0 bg-gradient-to-t from-zinc-900/90 to-transparent">
+       </div>
+      </div>
+      <div class="w-12 h-12 bg-black border border-zinc-700 rounded-xl flex items-center justify-center text-zinc-300 mb-5 group-hover:scale-110 group-hover:bg-emerald-950 group-hover:text-emerald-400 group-hover:border-emerald-800 transition-all relative z-10">
+       <i class="fa-solid fa-globe text-xl">
+       </i>
+      </div>
+      <h3 class="text-lg sm:text-xl font-bold mb-2 text-white relative z-10">
+       Dominio Digital
+      </h3>
+      <p class="text-sm text-zinc-400 leading-relaxed relative z-10 mb-3">
+       Estructura tu web profesional, integra pasarelas de pago y ecosistemas sociales.
+      </p>
+      <p class="text-xs text-zinc-500 border-l-2 border-emerald-500/50 pl-3 relative z-10 italic">
+       Deja de depender de programadores externos para cobrar por tus servicios.
+      </p>
+     </div>
+     <!-- Benefit 4 -->
+     <div class="bg-zinc-900/60 border border-zinc-800 p-6 sm:p-8 rounded-[1.5rem] hover:border-emerald-500/50 transition-all duration-500 group relative overflow-hidden shadow-lg">
+      <div class="absolute inset-0 z-0 pointer-events-none">
+       <img class="w-full h-full object-cover opacity-[0.05] group-hover:opacity-[0.15] transition-opacity duration-500 filter grayscale" src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&amp;fit=crop&amp;w=600&amp;q=80"/>
+       <div class="absolute inset-0 bg-gradient-to-t from-zinc-900/90 to-transparent">
+       </div>
+      </div>
+      <div class="w-12 h-12 bg-black border border-zinc-700 rounded-xl flex items-center justify-center text-zinc-300 mb-5 group-hover:scale-110 group-hover:bg-emerald-950 group-hover:text-emerald-400 group-hover:border-emerald-800 transition-all relative z-10">
+       <i class="fa-solid fa-chart-line text-xl">
+       </i>
+      </div>
+      <h3 class="text-lg sm:text-xl font-bold mb-2 text-white relative z-10">
+       Finanzas Claras
+      </h3>
+      <p class="text-sm text-zinc-400 leading-relaxed relative z-10 mb-3">
+       Maneja estructuras de costos, flujo de caja, modelos de ingresos y KPIs clave.
+      </p>
+      <p class="text-xs text-zinc-500 border-l-2 border-emerald-500/50 pl-3 relative z-10 italic">
+       Incluye plantillas financieras probadas para proyectar la rentabilidad desde el d&iacute;a 1.
+      </p>
+     </div>
+     <!-- Benefit 5 -->
+     <div class="bg-zinc-900/60 border border-zinc-800 p-6 sm:p-8 rounded-[1.5rem] hover:border-emerald-500/50 transition-all duration-500 group relative overflow-hidden shadow-lg">
+      <div class="absolute inset-0 z-0 pointer-events-none">
+       <img class="w-full h-full object-cover opacity-[0.05] group-hover:opacity-[0.15] transition-opacity duration-500 filter grayscale" src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&amp;fit=crop&amp;w=600&amp;q=80"/>
+       <div class="absolute inset-0 bg-gradient-to-t from-zinc-900/90 to-transparent">
+       </div>
+      </div>
+      <div class="w-12 h-12 bg-black border border-zinc-700 rounded-xl flex items-center justify-center text-zinc-300 mb-5 group-hover:scale-110 group-hover:bg-emerald-950 group-hover:text-emerald-400 group-hover:border-emerald-800 transition-all relative z-10">
+       <i class="fa-solid fa-brain text-xl">
+       </i>
+      </div>
+      <h3 class="text-lg sm:text-xl font-bold mb-2 text-white relative z-10">
+       Mentalidad de Fundador
+      </h3>
+      <p class="text-sm text-zinc-400 leading-relaxed relative z-10 mb-3">
+       Desarrolla resiliencia corporativa, liderazgo de equipos y enfoque l&aacute;ser.
+      </p>
+      <p class="text-xs text-zinc-500 border-l-2 border-emerald-500/50 pl-3 relative z-10 italic">
+       Trabajaremos la psicolog&iacute;a del emprendedor para soportar la presi&oacute;n del mercado.
+      </p>
+     </div>
+     <!-- Benefit 6 -->
+     <div class="bg-zinc-900/60 border border-zinc-800 p-6 sm:p-8 rounded-[1.5rem] hover:border-emerald-500/50 transition-all duration-500 group relative overflow-hidden shadow-lg">
+      <div class="absolute inset-0 z-0 pointer-events-none">
+       <img class="w-full h-full object-cover opacity-[0.05] group-hover:opacity-[0.15] transition-opacity duration-500 filter grayscale" src="https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&amp;fit=crop&amp;w=600&amp;q=80"/>
+       <div class="absolute inset-0 bg-gradient-to-t from-zinc-900/90 to-transparent">
+       </div>
+      </div>
+      <div class="w-12 h-12 bg-black border border-zinc-700 rounded-xl flex items-center justify-center text-zinc-300 mb-5 group-hover:scale-110 group-hover:bg-emerald-950 group-hover:text-emerald-400 group-hover:border-emerald-800 transition-all relative z-10">
+       <i class="fa-solid fa-handshake-angle text-xl">
+       </i>
+      </div>
+      <h3 class="text-lg sm:text-xl font-bold mb-2 text-white relative z-10">
+       Oportunidades Reales
+      </h3>
+      <p class="text-sm text-zinc-400 leading-relaxed relative z-10 mb-3">
+       Presenta tu idea en un Demo Day y conecta con aliados estrat&eacute;gicos.
+      </p>
+      <p class="text-xs text-zinc-500 border-l-2 border-emerald-500/50 pl-3 relative z-10 italic">
+       Acceso exclusivo a la red de contactos B2B del ecosistema IBERO.
+      </p>
+     </div>
+    </div>
+   </div>
+  </section>
+  <!-- NUEVA SECCIÓN: DIFERENCIA DE PROGRAMAS -->
+  <section class="py-16 lg:py-24 bg-[#09090b] relative border-b border-zinc-900 overflow-hidden">
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="text-center mb-12 reveal">
+     <h2 class="text-[10px] sm:text-xs font-bold tracking-widest text-emerald-500 uppercase mb-3">
+      Antes de elegir
+     </h2>
+     <h3 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+      &iquest;Cu&aacute;l es el programa
+      <span class="font-serif italic text-emerald-400 font-medium">
+       ideal para ti?
+      </span>
+     </h3>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-10 reveal">
+     <!-- Diferencia 1: Diplomado -->
+     <div class="bg-zinc-900/50 border border-zinc-800 p-8 rounded-[1.5rem] shadow-lg">
+      <div class="w-12 h-12 bg-zinc-800 rounded-full flex items-center justify-center text-white mb-6">
+       <i class="fa-solid fa-rocket text-xl">
+       </i>
+      </div>
+      <h4 class="text-xl font-bold text-white mb-3">
+       El Diplomado es para ti si...
+      </h4>
+      <p class="text-zinc-400 text-sm leading-relaxed mb-4">
+       Tienes una idea en la cabeza o un proyecto estancado y necesitas
+       <strong>
+        velocidad
+       </strong>
+       . Quieres dejar de planear y pasar a la acci&oacute;n. En 5 semanas te obligamos a estructurar, crear tu MVP y salir a probarlo al mercado real para conseguir tus primeras ventas.
+      </p>
+      <p class="text-xs font-bold text-emerald-500 uppercase tracking-widest">
+       Enfoque: Lanzamiento y Validaci&oacute;n
+      </p>
+     </div>
+     <!-- Diferencia 2: Master -->
+     <div class="bg-emerald-950/20 border border-emerald-900/50 p-8 rounded-[1.5rem] shadow-lg relative overflow-hidden">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 blur-[40px] rounded-full pointer-events-none">
+      </div>
+      <div class="w-12 h-12 bg-emerald-900 rounded-full flex items-center justify-center text-emerald-400 mb-6 relative z-10">
+       <i class="fa-solid fa-crown text-xl">
+       </i>
+      </div>
+      <h4 class="text-xl font-bold text-white mb-3 relative z-10">
+       El Master es para ti si...
+      </h4>
+      <p class="text-zinc-400 text-sm leading-relaxed mb-4 relative z-10">
+       Ya lanzaste o est&aacute;s decidido a armar un imperio corporativo. Quieres
+       <strong>
+        sistematizar y escalar
+       </strong>
+       . No quieres ser autoempleado, quieres automatizar procesos con IA, armar embudos recurrentes y construir una operaci&oacute;n seria lista para levantar inversi&oacute;n.
+      </p>
+      <p class="text-xs font-bold text-emerald-400 uppercase tracking-widest relative z-10">
+       Enfoque: Operaci&oacute;n y Escalamiento
+      </p>
+     </div>
+    </div>
+   </div>
+  </section>
+  <!-- PROGRAMS SECTION (TEXTOS OPTIMIZADOS) -->
+  <section class="py-20 lg:py-32 bg-[#050505] relative border-b border-zinc-900" id="programas">
+   <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-zinc-800/20 via-[#050505] to-[#050505]">
+   </div>
+   <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="text-center mb-16 reveal">
+     <h2 class="text-[10px] sm:text-xs font-bold tracking-widest text-emerald-500 uppercase mb-3">
+      Rutas de Incubaci&oacute;n
+     </h2>
+     <h2 class="text-4xl sm:text-5xl font-black text-white tracking-tight mb-4">
+      Nuestros
+      <span class="font-serif italic text-emerald-400 font-medium hero-shine-light">
+       Programas
+      </span>
+     </h2>
+     <p class="text-zinc-400 text-sm sm:text-base max-w-2xl mx-auto">
+      Selecciona la ruta que mejor se adapte a la velocidad corporativa que buscas para tu negocio.
+     </p>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 reveal items-stretch">
+     <!-- Program 1: Diplomado -->
+     <div class="bg-zinc-900 border border-zinc-800 rounded-[2rem] p-8 flex flex-col hover:border-zinc-500 transition-all group relative overflow-hidden shadow-2xl h-full">
+      <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+       <video autoplay="" class="w-full h-full object-cover opacity-20 filter grayscale group-hover:grayscale-0 group-hover:opacity-30 transition-all duration-700" loop="" muted="" playsinline="">
+        <source src="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/c5441036666eabf17beca05e22852761e9ae4cdd/fotos/1.mp4" type="video/mp4"/>
+       </video>
+       <div class="absolute inset-0 bg-gradient-to-t from-zinc-900/95 via-zinc-900/80 to-transparent">
+       </div>
+      </div>
+      <div class="relative z-10 flex-grow">
+       <span class="bg-white text-ibero-dark text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-6 inline-block shadow-md">
+        Incubadora Intensiva
+       </span>
+       <h3 class="text-2xl sm:text-3xl font-black text-white mb-2 leading-tight">
+        Diplomado en IA Aplicada
+        <br/>
+        <span class="text-zinc-400 text-lg sm:text-xl font-medium font-serif italic">
+         De la idea al negocio listo para operar
+        </span>
+       </h3>
+       <p class="text-zinc-400 text-sm mb-6 pb-6 border-b border-zinc-700">
+        Programa intensivo dise&ntilde;ado para estructurar, validar y lanzar tu negocio con Inteligencia Artificial, metodolog&iacute;a &aacute;gil y acompa&ntilde;amiento estrat&eacute;gico.
+        <strong>
+         Durante estas 5 semanas, forjaremos tu idea desde cero, la implementaremos en el mercado y la dejaremos operando con tracci&oacute;n inicial.
+        </strong>
+        Condensamos lo que normalmente tomar&iacute;a meses de ensayo, errores y gasto innecesario, para que cierres el proceso con una base empresarial real, funcional y lista para operar o monetizar.
+       </p>
+       <div class="grid grid-cols-2 gap-4 mb-6">
+        <div>
+         <p class="text-[10px] text-zinc-500 uppercase font-bold">
+          Duraci&oacute;n
+         </p>
+         <p class="text-sm font-bold text-white">
+          5 Semanas (60h Totales)
+         </p>
+        </div>
+        <div>
+         <p class="text-[10px] text-zinc-500 uppercase font-bold">
+          Aprobaci&oacute;n
+         </p>
+         <p class="text-sm font-bold text-white">
+          M&iacute;nimo 70% Pr&aacute;ctico
+         </p>
+        </div>
+       </div>
+       <!-- Precios Diplomado -->
+       <div class="bg-emerald-950/40 p-3 rounded-xl border border-emerald-800 text-center mb-8 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 blur-[30px] rounded-full pointer-events-none">
+        </div>
+        <p class="text-[10px] text-emerald-400 uppercase font-bold relative z-10">
+         Inversi&oacute;n Promocional
+        </p>
+        <p class="text-xl sm:text-2xl font-black text-emerald-400 relative z-10">
+         USD $197
+        </p>
+       </div>
+       <!-- Lista Diplomado -->
+       <ul class="space-y-4 mb-8">
+        <li class="flex items-start gap-3 text-sm text-zinc-300">
+         <i class="fa-solid fa-bolt text-emerald-500 mt-1">
+         </i>
+         <span class="leading-snug">
+          Prototipado r&aacute;pido y validaci&oacute;n de MVP con IA
+         </span>
+        </li>
+        <li class="flex items-start gap-3 text-sm text-zinc-300">
+         <i class="fa-solid fa-code text-emerald-500 mt-1">
+         </i>
+         <span class="leading-snug">
+          Desarrollo de Web App PWA Transaccional
+         </span>
+        </li>
+        <li class="flex items-start gap-3 text-sm text-zinc-300">
+         <i class="fa-solid fa-robot text-emerald-500 mt-1">
+         </i>
+         <span class="leading-snug">
+          IA configurada como tu asistente operativo 24/7
+         </span>
+        </li>
+        <li class="flex items-start gap-3 text-sm text-zinc-300">
+         <i class="fa-solid fa-pen-nib text-emerald-500 mt-1">
+         </i>
+         <span class="leading-snug">
+          Dise&ntilde;o de marca, branding y activos digitales
+         </span>
+        </li>
+        <li class="flex items-start gap-3 text-sm text-zinc-300">
+         <i class="fa-solid fa-user-astronaut text-emerald-500 mt-1">
+         </i>
+         <span class="leading-snug">
+          4 horas de mentor&iacute;a t&eacute;cnica y estrat&eacute;gica 1 a 1
+         </span>
+        </li>
+        <li class="flex items-start gap-3 text-sm text-zinc-300">
+         <i class="fa-solid fa-network-wired text-emerald-500 mt-1">
+         </i>
+         <span class="leading-snug">
+          Acceso a coworking e IBERO+ Community
+         </span>
+        </li>
+        <li class="flex items-start gap-3 text-sm text-zinc-300">
+         <i class="fa-solid fa-certificate text-emerald-500 mt-1">
+         </i>
+         <span class="leading-snug">
+          Certificado digital oficial con validaci&oacute;n QR
+         </span>
+        </li>
+       </ul>
+       <div class="bg-zinc-800/50 p-4 rounded-xl border border-zinc-700 mb-8 mt-auto">
+        <p class="text-[11px] font-bold text-white uppercase tracking-widest mb-2">
+         <i class="fa-solid fa-bullseye text-emerald-500 mr-1">
+         </i>
+         Entregable Final
+        </p>
+        <p class="text-xs text-zinc-400">
+         Sales con tu negocio estructurado, aterrizado y listo para operar: propuesta clara, MVP funcional, validaci&oacute;n inicial, identidad base, activos digitales y una estructura real para comenzar a vender o monetizar con mucho menos riesgo.
+        </p>
+       </div>
+      </div>
+      <a class="w-full text-center bg-white hover:bg-zinc-200 text-ibero-dark font-bold py-4 rounded-xl transition-all shadow-md relative z-10 mt-auto" href="https://ibero.education/registro-y-admisiones/" target="_blank">
+       &iexcl;Aplica al Diplomado!
+      </a>
+     </div>
+     <!-- Program 2: Executive Master -->
+     <div class="bg-[#09090b] border-2 border-emerald-500/30 rounded-[2rem] p-8 flex flex-col hover:border-emerald-500/60 transition-all group relative overflow-hidden shadow-[0_20px_50px_rgba(16,185,129,0.1)] lg:-translate-y-4 h-full">
+      <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+       <video autoplay="" class="w-full h-full object-cover opacity-20 filter grayscale group-hover:grayscale-0 group-hover:opacity-30 transition-all duration-700" loop="" muted="" playsinline="">
+        <source src="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/c5441036666eabf17beca05e22852761e9ae4cdd/fotos/3.mp4" type="video/mp4"/>
+       </video>
+       <div class="absolute inset-0 bg-gradient-to-t from-[#09090b]/95 via-[#09090b]/80 to-transparent">
+       </div>
+      </div>
+      <div class="relative z-10 flex-grow">
+       <span class="bg-emerald-500 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-6 inline-block shadow-[0_0_10px_rgba(16,185,129,0.4)]">
+        Programa de &Eacute;lite
+       </span>
+       <h3 class="text-2xl sm:text-3xl font-black text-white mb-2 leading-tight">
+        Executive Master en IA
+        <br/>
+        <span class="text-emerald-400 text-lg sm:text-xl font-medium font-serif italic">
+         Sistematiza, Automatiza y Escala
+        </span>
+       </h3>
+       <p class="text-zinc-400 text-sm mb-6 pb-6 border-b border-zinc-700">
+        Inmersi&oacute;n ejecutiva de seguimiento completo para founders que buscan minimizar riesgos, tomar mejores decisiones y construir una operaci&oacute;n seria, automatizada y escalable. Aqu&iacute; no solo aprendes: recibes acompa&ntilde;amiento estrat&eacute;gico continuo para optimizar tu modelo, fortalecer tu estructura, corregir errores a tiempo y convertir tu negocio en una empresa mucho m&aacute;s s&oacute;lida, rentable y lista para crecer.
+       </p>
+       <div class="grid grid-cols-2 gap-4 mb-6">
+        <div>
+         <p class="text-[10px] text-zinc-500 uppercase font-bold">
+          Duraci&oacute;n
+         </p>
+         <p class="text-sm font-bold text-white">
+          6 Meses (234h Totales)
+         </p>
+        </div>
+        <div>
+         <p class="text-[10px] text-zinc-500 uppercase font-bold">
+          Aprobaci&oacute;n
+         </p>
+         <p class="text-sm font-bold text-white">
+          M&iacute;nimo 70% Pr&aacute;ctico
+         </p>
+        </div>
+       </div>
+       <!-- Precios Master -->
+       <div class="flex gap-3 mb-8">
+        <div class="flex-1 bg-zinc-800/50 p-3 rounded-xl border border-zinc-700 text-center hover:border-zinc-500 transition-colors">
+         <p class="text-[10px] text-zinc-400 uppercase font-bold">
+          Plan Mensual
+         </p>
+         <p class="text-lg sm:text-xl font-black text-white">
+          $77
+          <span class="text-[10px] text-zinc-500 font-normal">
+           USD
+          </span>
+         </p>
+        </div>
+        <div class="flex-1 bg-emerald-950/40 p-3 rounded-xl border border-emerald-800 text-center relative overflow-hidden hover:border-emerald-500 transition-colors">
+         <div class="absolute top-0 right-0 bg-emerald-600 text-white text-[8px] font-bold px-2 py-0.5 rounded-bl-lg">
+          RECOMENDADO
+         </div>
+         <p class="text-[10px] text-emerald-400 uppercase font-bold mt-1">
+          Plan Semestral
+         </p>
+         <p class="text-lg sm:text-xl font-black text-emerald-400">
+          $367
+          <span class="text-[10px] text-emerald-600 font-normal">
+           USD
+          </span>
+         </p>
+        </div>
+       </div>
+       <!-- Lista Extensa adaptable a 2 columnas en pantallas ultra grandes -->
+       <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-x-4 gap-y-3 mb-8">
+        <li class="flex items-start gap-2 text-[12px] sm:text-sm text-emerald-400 col-span-1 sm:col-span-2 lg:col-span-1 xl:col-span-2 mb-2 p-2 bg-emerald-950/30 rounded-lg border border-emerald-900/50">
+         <i class="fa-solid fa-layer-group mt-1">
+         </i>
+         <strong class="leading-snug">
+          Incluye todo el contenido y beneficios del Diplomado, M&Aacute;S:
+         </strong>
+        </li>
+        <li class="flex items-start gap-2 text-[12px] sm:text-sm text-white col-span-1 sm:col-span-2 lg:col-span-1 xl:col-span-2 mb-2">
+         <i class="fa-solid fa-star text-emerald-400 mt-1">
+         </i>
+         <strong class="leading-snug">
+          Automatizaci&oacute;n total con IA: Marketing, atenci&oacute;n y datos
+         </strong>
+        </li>
+        <li class="flex items-start gap-2 text-[12px] sm:text-sm text-zinc-300">
+         <i class="fa-solid fa-check text-emerald-500 mt-1">
+         </i>
+         <span class="leading-snug">
+          Estructura legal corporativa y permisos
+         </span>
+        </li>
+        <li class="flex items-start gap-2 text-[12px] sm:text-sm text-zinc-300">
+         <i class="fa-solid fa-check text-emerald-500 mt-1">
+         </i>
+         <span class="leading-snug">
+          Web corporativa SEO y pagos avanzados
+         </span>
+        </li>
+        <li class="flex items-start gap-2 text-[12px] sm:text-sm text-zinc-300">
+         <i class="fa-solid fa-check text-emerald-500 mt-1">
+         </i>
+         <span class="leading-snug">
+          CRM y contabilidad sistematizada con IA
+         </span>
+        </li>
+        <li class="flex items-start gap-2 text-[12px] sm:text-sm text-zinc-300">
+         <i class="fa-solid fa-check text-emerald-500 mt-1">
+         </i>
+         <span class="leading-snug">
+          Finanzas avanzadas: costos, proyecciones
+         </span>
+        </li>
+        <li class="flex items-start gap-2 text-[12px] sm:text-sm text-zinc-300">
+         <i class="fa-solid fa-check text-emerald-500 mt-1">
+         </i>
+         <span class="leading-snug">
+          Growth hacking, embudos y remarketing
+         </span>
+        </li>
+        <li class="flex items-start gap-2 text-[12px] sm:text-sm text-zinc-300">
+         <i class="fa-solid fa-check text-emerald-500 mt-1">
+         </i>
+         <span class="leading-snug">
+          Gesti&oacute;n de equipos, cultura y mindset
+         </span>
+        </li>
+        <li class="flex items-start gap-2 text-[12px] sm:text-sm text-zinc-300">
+         <i class="fa-solid fa-check text-emerald-500 mt-1">
+         </i>
+         <span class="leading-snug">
+          Pitch deck ganador y Demo Day inversor
+         </span>
+        </li>
+        <li class="flex items-start gap-2 text-[12px] sm:text-sm text-zinc-300">
+         <i class="fa-solid fa-check text-emerald-500 mt-1">
+         </i>
+         <span class="leading-snug">
+          Seguimiento estrat&eacute;gico 1 a 1 continuo para reducir errores, corregir desv&iacute;os y minimizar riesgos de ejecuci&oacute;n
+         </span>
+        </li>
+        <li class="flex items-start gap-2 text-[12px] sm:text-sm text-zinc-300">
+         <i class="fa-solid fa-check text-emerald-500 mt-1">
+         </i>
+         <span class="leading-snug">
+          Certificado digital oficial con QR
+         </span>
+        </li>
+       </ul>
+       <!-- Beneficio VIP Mejorado -->
+       <div class="bg-gradient-to-r from-zinc-900 to-black p-4 rounded-xl border border-zinc-800 mb-4 backdrop-blur-md">
+        <p class="text-[11px] font-bold text-emerald-400 uppercase tracking-widest mb-1">
+         <i class="fa-solid fa-handshake text-emerald-400 mr-1">
+         </i>
+         Socio Comercial Exclusivo
+        </p>
+        <p class="text-xs text-zinc-300 leading-relaxed">
+         Ingreso autom&aacute;tico como partner de
+         <strong>
+          Goatify
+         </strong>
+         (Hub Tecnol&oacute;gico IBERO). Genera
+         <strong>
+          50% de comisi&oacute;n
+         </strong>
+         por referidos, diversificando tus ingresos reales.
+        </p>
+       </div>
+       <!-- Entregable Final -->
+       <div class="bg-zinc-800/50 p-4 rounded-xl border border-zinc-700 mb-8 mt-auto">
+        <p class="text-[11px] font-bold text-white uppercase tracking-widest mb-2">
+         <i class="fa-solid fa-bullseye text-emerald-500 mr-1">
+         </i>
+         Entregable Final
+        </p>
+        <p class="text-xs text-zinc-400">
+         Sales con una operaci&oacute;n mucho m&aacute;s s&oacute;lida, sistematizada y lista para escalar: estructura comercial, automatizaciones clave, procesos m&aacute;s inteligentes, activos estrat&eacute;gicos, mayor claridad financiera y una base real para vender de forma recurrente, crecer con orden y reducir riesgos en el camino.
+        </p>
+       </div>
+      </div>
+      <a class="w-full text-center bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-4 rounded-xl transition-all shadow-[0_0_25px_rgba(16,185,129,0.3)] relative z-10 mt-auto" href="https://ibero.education/registro-y-admisiones/" target="_blank">
+       &iexcl;Aplica al Master! (Recomendado)
+      </a>
+     </div>
+    </div>
+   </div>
+  </section>
+  <!-- INVESTMENT OPPORTUNITIES -->
+  <section class="py-16 lg:py-32 bg-[#0a0a0a] border-b border-zinc-900 text-center reveal relative overflow-hidden flex items-center justify-center min-h-[400px]" id="inversion">
+   <div class="absolute inset-0 z-0">
+    <video autoplay="" class="w-full h-full object-cover opacity-20 mix-blend-luminosity grayscale" loop="" muted="" playsinline="" preload="auto">
+     <source src="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/c5441036666eabf17beca05e22852761e9ae4cdd/fotos/4.mp4" type="video/mp4"/>
+    </video>
+    <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/80 to-[#0a0a0a]">
+    </div>
+   </div>
+   <div class="max-w-4xl mx-auto px-4 relative z-10">
+    <i class="fa-solid fa-chart-pie text-4xl text-emerald-500 mb-6 drop-shadow-[0_0_15px_rgba(16,185,129,0.4)]">
+    </i>
+    <h2 class="text-3xl sm:text-5xl font-extrabold mb-6 text-white tracking-tight">
+     Inversi&oacute;n y Oportunidades &Uacute;nicas
+    </h2>
+    <p class="text-base sm:text-xl text-zinc-300 mb-8 leading-relaxed font-medium">
+     En IBERO Labs, no solo te formamos,
+     <strong class="text-white border-b border-emerald-500/50">
+      invertimos en ti
+     </strong>
+     . Los mejores proyectos de cada cohorte reciben evaluaci&oacute;n para capital semilla y se conectan con
+     <strong class="text-emerald-400">
+      alianzas corporativas
+     </strong>
+     reales para impulsar tu crecimiento en el mercado.
+    </p>
+    <a class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-zinc-600 text-white px-8 py-4 rounded-xl font-bold text-sm sm:text-base hover:bg-white hover:text-black transition-colors shadow-lg" href="https://ibero.education/ayuda-financiera/" target="_blank">
+     Ver Opciones de Ayuda Financiera
+     <i class="fa-solid fa-arrow-up-right-from-square">
+     </i>
+    </a>
+   </div>
+  </section>
+  <!-- TESTIMONIAL CAROUSEL SECTION -->
+  <section class="quote-bg py-24 lg:py-32 relative flex items-center justify-center reveal overflow-hidden">
+   <div class="absolute inset-0 bg-black/70">
+   </div>
+   <div class="max-w-4xl mx-auto px-4 text-center relative z-10 w-full">
+    <i class="fa-solid fa-quote-left text-4xl sm:text-6xl text-zinc-600 mb-6">
+    </i>
+    <!-- Carrusel Container -->
+    <div class="relative overflow-hidden w-full" id="testimonial-carousel">
+     <div class="flex transition-transform duration-700 ease-in-out" id="testimonial-track">
+      <!-- Slide 1 -->
+      <div class="w-full flex-shrink-0 px-2 sm:px-4">
+       <blockquote class="text-2xl sm:text-4xl italic text-white mb-8 font-serif leading-relaxed drop-shadow-md">
+        &ldquo;De una idea a facturar en solo 30 d&iacute;as. IBERO Labs me dio las herramientas, la automatizaci&oacute;n con IA y la confianza ejecutiva para atraer inversores reales.&rdquo;
+       </blockquote>
+       <p class="text-sm sm:text-lg font-bold text-zinc-400 uppercase tracking-widest">
+        &ndash; Sof&iacute;a M., Fundadora de EcoVida
+       </p>
+      </div>
+      <!-- Slide 2 -->
+      <div class="w-full flex-shrink-0 px-2 sm:px-4">
+       <blockquote class="text-2xl sm:text-4xl italic text-white mb-8 font-serif leading-relaxed drop-shadow-md">
+        &ldquo;En 6 meses logramos lo que nos habr&iacute;a tomado 2 a&ntilde;os. El seguimiento continuo y la sistematizaci&oacute;n con IA transformaron nuestra operaci&oacute;n por completo.&rdquo;
+       </blockquote>
+       <p class="text-sm sm:text-lg font-bold text-zinc-400 uppercase tracking-widest">
+        &ndash; Andr&eacute;s V., CEO de TechNova
+       </p>
+      </div>
+      <!-- Slide 3 -->
+      <div class="w-full flex-shrink-0 px-2 sm:px-4">
+       <blockquote class="text-2xl sm:text-4xl italic text-white mb-8 font-serif leading-relaxed drop-shadow-md">
+        &ldquo;Pasamos de la par&aacute;lisis por an&aacute;lisis a tener un MVP validado y clientes reales en menos de 5 semanas. El nivel estrat&eacute;gico y t&aacute;ctico es brutal.&rdquo;
+       </blockquote>
+       <p class="text-sm sm:text-lg font-bold text-zinc-400 uppercase tracking-widest">
+        &ndash; Mariana L., Co-founder de CreaStudio
+       </p>
+      </div>
+      <!-- Slide 4 -->
+      <div class="w-full flex-shrink-0 px-2 sm:px-4">
+       <blockquote class="text-2xl sm:text-4xl italic text-white mb-8 font-serif leading-relaxed drop-shadow-md">
+        &ldquo;Aplicar Inteligencia Artificial a nuestros procesos B2B redujo nuestros costos operativos a la mitad. Lo que aprendes aqu&iacute; no lo ense&ntilde;an en la universidad.&rdquo;
+       </blockquote>
+       <p class="text-sm sm:text-lg font-bold text-zinc-400 uppercase tracking-widest">
+        &ndash; Carlos R., Director de Operaciones
+       </p>
+      </div>
+      <!-- Slide 5 -->
+      <div class="w-full flex-shrink-0 px-2 sm:px-4">
+       <blockquote class="text-2xl sm:text-4xl italic text-white mb-8 font-serif leading-relaxed drop-shadow-md">
+        &ldquo;El embudo que construimos en el Executive Master nos permiti&oacute; escalar ventas en piloto autom&aacute;tico. Es una inmersi&oacute;n corporativa de otro nivel.&rdquo;
+       </blockquote>
+       <p class="text-sm sm:text-lg font-bold text-zinc-400 uppercase tracking-widest">
+        &ndash; Valeria T., Founder E-commerce
+       </p>
+      </div>
+      <!-- Slide 6 -->
+      <div class="w-full flex-shrink-0 px-2 sm:px-4">
+       <blockquote class="text-2xl sm:text-4xl italic text-white mb-8 font-serif leading-relaxed drop-shadow-md">
+        &ldquo;Estructurar la empresa legal y financieramente desde el d&iacute;a 1 me salv&oacute; de errores fatales. Tienen un equipo de mentores que realmente saben hacer negocios.&rdquo;
+       </blockquote>
+       <p class="text-sm sm:text-lg font-bold text-zinc-400 uppercase tracking-widest">
+        &ndash; Roberto G., CEO Tech Startup
+       </p>
+      </div>
+     </div>
+    </div>
+    <!-- Carousel Dots -->
+    <div class="flex justify-center gap-3 mt-10" id="carousel-dots">
+     <button class="w-2.5 h-2.5 rounded-full bg-emerald-500 transition-all">
+     </button>
+     <button class="w-2.5 h-2.5 rounded-full bg-zinc-600 hover:bg-zinc-400 transition-all">
+     </button>
+     <button class="w-2.5 h-2.5 rounded-full bg-zinc-600 hover:bg-zinc-400 transition-all">
+     </button>
+     <button class="w-2.5 h-2.5 rounded-full bg-zinc-600 hover:bg-zinc-400 transition-all">
+     </button>
+     <button class="w-2.5 h-2.5 rounded-full bg-zinc-600 hover:bg-zinc-400 transition-all">
+     </button>
+     <button class="w-2.5 h-2.5 rounded-full bg-zinc-600 hover:bg-zinc-400 transition-all">
+     </button>
+    </div>
+   </div>
+  </section>
+  <!-- FINAL CTA SECTION -->
+  <section class="py-24 lg:py-36 bg-[#050505] text-center reveal relative overflow-hidden flex items-center justify-center">
+   <div class="absolute inset-0 z-0">
+    <video autoplay="" class="w-full h-full object-cover opacity-30 mix-blend-luminosity grayscale" loop="" muted="" playsinline="" preload="auto">
+     <source src="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/c5441036666eabf17beca05e22852761e9ae4cdd/fotos/1.mp4" type="video/mp4"/>
+    </video>
+    <div class="absolute inset-0 bg-gradient-to-b from-[#050505] via-[#0f766e]/20 to-[#050505]">
+    </div>
+   </div>
+   <div class="max-w-4xl mx-auto px-4 relative z-10">
+    <h2 class="text-4xl sm:text-5xl lg:text-7xl font-black mb-6 text-white tracking-tighter drop-shadow-xl">
+     &iquest;Listo para ser el pr&oacute;ximo
+     <span class="font-serif italic text-emerald-400 font-medium block mt-2">
+      gran founder?
+     </span>
+    </h2>
+    <p class="text-lg sm:text-2xl text-white/90 mb-10 max-w-2xl mx-auto leading-relaxed font-medium">
+     <strong class="text-white">
+      Cupos estrictamente limitados.
+     </strong>
+     &Uacute;nete a IBERO Labs, transforma tu idea en un negocio real automatizado y conquista el mercado con nuestro respaldo.
+    </p>
+    <a class="bg-[#0f766e] hover:bg-teal-800 text-white font-bold py-5 px-10 rounded-xl text-lg sm:text-xl transition-all shadow-[0_0_30px_rgba(15,118,110,0.5)] inline-flex items-center gap-3" href="https://ibero.education/registro-y-admisiones/" target="_blank">
+     Aplica Ahora Mismo
+     <i class="fa-solid fa-rocket">
+     </i>
+    </a>
+   </div>
+  </section>
+  <!-- FOOTER PREMIUM EXACTO -->
+  <footer class="bg-[#050505] text-zinc-400 py-12 border-t border-zinc-900">
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Grid ampliado a 5 columnas -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 mb-8 border-b border-zinc-900 pb-12">
+     <!-- Col 1: Brand & Socials -->
+     <div class="lg:col-span-2 lg:pr-12">
+      <div class="mb-1">
+       <img alt="Logo IBERO" class="w-40 sm:w-48 h-auto object-contain object-left" src="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/8c1109d60abc984df0e47724b61bab75d49a6b12/fotos/svg/ibero-menu-purple.svg"/>
+      </div>
+      <p class="text-xs sm:text-sm leading-relaxed mb-5">
+       Educaci&oacute;n Executive impulsada por Inteligencia Artificial. Formamos a los fundadores y creadores corporativos del ma&ntilde;ana.
+      </p>
+      <!-- Redes Sociales Correctas -->
+      <div class="flex flex-wrap gap-3 mb-4">
+       <a class="w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center hover:bg-[#0077b5] hover:text-white transition-colors border border-zinc-800" href="https://www.linkedin.com/company/centro-iberoamericano/" target="_blank">
+        <i class="fa-brands fa-linkedin-in text-sm">
+        </i>
+       </a>
+       <a class="w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center hover:bg-[#E1306C] hover:text-white transition-colors border border-zinc-800" href="https://www.instagram.com/centro.iberoamericano/" target="_blank">
+        <i class="fa-brands fa-instagram text-sm">
+        </i>
+       </a>
+       <a class="w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center hover:bg-[#1877F2] hover:text-white transition-colors border border-zinc-800" href="https://www.facebook.com/ibero.education/" target="_blank">
+        <i class="fa-brands fa-facebook-f text-sm">
+        </i>
+       </a>
+       <a class="w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center hover:bg-[#25D366] hover:text-white transition-colors border border-zinc-800" href="https://wa.me/19152854778" target="_blank">
+        <i class="fa-brands fa-whatsapp text-sm">
+        </i>
+       </a>
+      </div>
+      <!-- Correo Clickable -->
+      <div class="mt-4">
+       <a class="inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-zinc-300 hover:text-white transition-colors group" href="mailto:programas@ibero.education">
+        <div class="w-8 h-8 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center group-hover:bg-emerald-500 group-hover:border-emerald-500 transition-colors">
+         <i class="fa-solid fa-envelope text-xs">
+         </i>
+        </div>
+        <span class="border-b border-transparent group-hover:border-zinc-500 pb-0.5">
+         programas@ibero.education
+        </span>
+       </a>
+      </div>
+     </div>
+     <!-- Col 2: Programas -->
+     <div>
+      <h4 class="text-white font-bold mb-4 text-sm">
+       Programas
+      </h4>
+      <ul class="space-y-2 text-xs sm:text-sm">
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/oferta-academica/" target="_blank">
+         Oferta Acad&eacute;mica
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/calendario-academico/" target="_blank">
+         Calendario Cursos
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/certificaciones-intensivas/" target="_blank">
+         Cursos Intensivos
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/diplomados-intensivos/" target="_blank">
+         Diplomados Ejecutivos
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/executive-master/" target="_blank">
+         Executive Masters
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/english-courses/" target="_blank">
+         Programas de Ingl&eacute;s
+        </a>
+       </li>
+      </ul>
+     </div>
+     <!-- Col 3: Ecosistema IBERO -->
+     <div>
+      <h4 class="text-white font-bold mb-4 text-sm">
+       Ecosistema
+      </h4>
+      <ul class="space-y-2 text-xs sm:text-sm">
+       <li>
+        <a class="hover:text-white transition-colors" href="https://qlase.goatify.app/" target="_blank">
+         Campus Virtual
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/ibero-academy/" target="_blank">
+         IBERO Academy
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/ibero-labs/" target="_blank">
+         IBERO Labs
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/artes-liberales/" target="_blank">
+         Artes liberales
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/consultor&iacute;a-en-educaci&oacute;n/" target="_blank">
+         Consultor&iacute;a B2B
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/publicaciones/" target="_blank">
+         Portal de Publicaciones
+        </a>
+       </li>
+      </ul>
+     </div>
+     <!-- Col 4: Nosotros -->
+     <div>
+      <h4 class="text-white font-bold mb-4 text-sm">
+       Nosotros
+      </h4>
+      <ul class="space-y-2 text-xs sm:text-sm">
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/" target="_blank">
+         Inicio Institucional
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/metodologia/" target="_blank">
+         Metodolog&iacute;a 360&deg;
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/#colaboraciones" target="_blank">
+         Alianzas y Avales
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/trabaja-con-nosotros/" target="_blank">
+         Nuestro Claustro
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/trabaja-con-nosotros/" target="_blank">
+         Trabaja con nosotros
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/contacto/" target="_blank">
+         Contactos y Soporte
+        </a>
+       </li>
+      </ul>
+     </div>
+     <!-- Col 5: Legal & Soporte -->
+     <div>
+      <h4 class="text-white font-bold mb-4 text-sm">
+       Legal &amp; Admisiones
+      </h4>
+      <ul class="space-y-2 text-xs sm:text-sm">
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/registro-y-admisiones/" target="_blank">
+         Registro y admisiones
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/ayuda-financiera/" target="_blank">
+         Ayuda Financiera
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/contacto/" target="_blank">
+         Soporte al Estudiante
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="#">
+         Verificar Certificado QR
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="#">
+         T&eacute;rminos y Condiciones
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="#">
+         Pol&iacute;ticas de Privacidad
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <!-- Ajuste para que las burbujas no tapen los créditos -->
+    <div class="flex flex-col md:flex-row justify-between items-center text-[10px] sm:text-xs pt-6 pb-24 md:pb-4 md:px-16 border-t border-zinc-900/50">
+     <p class="text-zinc-500 mb-4 md:mb-0 text-center">
+      &copy; 2026 Centro Iberoamericano (IBERO). Todos los derechos reservados.
+     </p>
+     <div class="flex flex-col items-center md:items-end gap-1.5 text-center md:text-right">
+      <p class="text-zinc-500">
+       Sitio desarrollado y dise&ntilde;ado por
+       <a class="text-emerald-500 hover:text-white font-bold transition-colors" href="https://www.goatify.app" target="_blank">
+        GOATIFY
+       </a>
+      </p>
+     </div>
+    </div>
+   </div>
+  </footer>
+  <!-- SCRIPTS -->
+  <script>
+   // Menu Mobile Toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+    const navbar = document.getElementById('navbar');
+
+    if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+          if(mobileMenuBtn.innerHTML.includes('bars')){
+             mobileMenuBtn.innerHTML = '<i class="fa-solid fa-xmark text-xl"></i>';
+          } else {
+             mobileMenuBtn.innerHTML = '<i class="fa-solid fa-bars text-xl"></i>';
+          }
+        });
+    }
+
+    mobileLinks.forEach(link => {
+       link.addEventListener('click', () => {
+          if (mobileMenu) mobileMenu.classList.add('hidden');
+          if (mobileMenuBtn) mobileMenuBtn.innerHTML = '<i class="fa-solid fa-bars text-xl"></i>';
+       });
+    });
+
+    // Scroll Navbar effect y Botón de Volver Arriba
+    const scrollTopBtn = document.getElementById('scroll-top-btn');
+
+    window.addEventListener('scroll', () => {
+       // Navbar
+       if (navbar) {
+           if (window.scrollY > 20) {
+              navbar.classList.add('shadow-md');
+              navbar.classList.remove('shadow-sm');
+           } else {
+              navbar.classList.remove('shadow-md');
+              navbar.classList.add('shadow-sm');
+           }
+       }
+       
+       // Scroll to Top Botón Sutil
+       if (scrollTopBtn) {
+           if (window.scrollY > 300) {
+               scrollTopBtn.classList.add('visible');
+           } else {
+               scrollTopBtn.classList.remove('visible');
+           }
+       }
+    });
+
+    // Animaciones Reveal al hacer scroll
+    function reveal() {
+      var reveals = document.querySelectorAll(".reveal");
+      for (var i = 0; i < reveals.length; i++) {
+        var windowHeight = window.innerHeight;
+        var elementTop = reveals[i].getBoundingClientRect().top;
+        var elementVisible = 50; 
+        
+        if(reveals[i].classList.contains('active') && window.scrollY < 100) continue;
+
+        if (elementTop < windowHeight - elementVisible) {
+          reveals[i].classList.add("active");
+        }
+      }
+    }
+
+    window.addEventListener("scroll", reveal);
+    window.addEventListener("resize", reveal);
+    window.addEventListener("load", reveal);
+    setTimeout(reveal, 100);
+
+    // Testimonial Carousel Script
+    const track = document.getElementById('testimonial-track');
+    const dots = document.querySelectorAll('#carousel-dots button');
+    let currentSlide = 0;
+    const totalSlides = dots.length;
+
+    function updateCarousel() {
+      if(!track) return;
+      track.style.transform = `translateX(-${currentSlide * 100}%)`;
+      dots.forEach((dot, index) => {
+        if (index === currentSlide) {
+          dot.classList.remove('bg-zinc-600', 'hover:bg-zinc-400');
+          dot.classList.add('bg-emerald-500');
+        } else {
+          dot.classList.add('bg-zinc-600', 'hover:bg-zinc-400');
+          dot.classList.remove('bg-emerald-500');
+        }
+      });
+    }
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        currentSlide = index;
+        updateCarousel();
+      });
+    });
+
+    setInterval(() => {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      updateCarousel();
+    }, 6000); // Cambia cada 6 segundos
+  </script>
+ </body>
+</html>

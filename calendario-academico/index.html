@@ -1,0 +1,1781 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="es">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+  <title>
+   Calendario Acad&eacute;mico 2026 | Fechas de Inicio | IBERO
+  </title>
+  <!-- FAVICON OFICIAL -->
+  <link href="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/3339294f71590eeeaa7f0b0b0591f5e09156ed96/fotos/logos%20ibero/ibero-favicon.svg" rel="icon" type="image/svg+xml"/>
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <!-- Google Fonts (Inter + Playfair para las cursivas elegantes) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&amp;display=swap" rel="stylesheet"/>
+  <!-- Icons (FontAwesome y Phosphor) -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+  <script src="https://unpkg.com/@phosphor-icons/web">
+  </script>
+  <script>
+   tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { 
+            sans: ['Inter', 'sans-serif'], 
+            serif: ['Playfair Display', 'serif'] 
+          },
+          colors: {
+            ibero: {
+              red: '#dc2626',
+              darkRed: '#880d0d',
+              purple: '#6B21A8',
+              dark: '#0f172a',
+              card: '#1e293b',
+              gray: '#94a3b8'
+            }
+          },
+          animation: {
+            'fade-in-up': 'fadeInUp 0.6s ease-out forwards',
+            'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'bot-bounce': 'botBounce 2s infinite ease-in-out',
+          },
+          keyframes: {
+            fadeInUp: {
+              '0%': { opacity: '0', transform: 'translateY(20px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            botBounce: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-5px)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+   body { background-color: #0f172a; color: white; overflow-x: hidden; }
+    
+    /* Nav Glassmorphism (Para el menú principal unificado) */
+    .nav-glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+    .hide-scrollbar::-webkit-scrollbar { display: none; }
+    .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #0f172a; }
+    ::-webkit-scrollbar-thumb { background: #dc2626; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #880d0d; }
+
+    /* Ocultar Navbar en celular formato horizontal (Landscape) para maximizar espacio */
+    @media screen and (max-height: 500px) and (orientation: landscape) {
+        #navbar { display: none !important; }
+        body { padding-top: 0px !important; }
+    }
+
+    /* Calendar Grid Specifics Responsivo (Ancho Completo) */
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      gap: 2px; /* Reducido para móvil */
+    }
+    @media (min-width: 768px) {
+      .calendar-grid { gap: 6px; }
+    }
+
+    .calendar-day {
+      min-height: 125px; /* Aumentado a 125px para que se vean mejor los textos en móvil */
+      background: #1e293b;
+      border-radius: 0.25rem; /* Bordes más sutiles en móvil */
+      padding: 0.15rem; /* Padding al ras para aprovechar espacio */
+      transition: all 0.2s;
+      border: 1px solid rgba(255,255,255,0.05);
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      overflow: hidden; /* Evitar que el contenido se salga del día en móvil */
+    }
+    @media (min-width: 768px) {
+      .calendar-day { min-height: 160px; border-radius: 0.5rem; padding: 0.5rem; gap: 4px; overflow: visible; }
+    }
+    .calendar-day:hover { 
+      border-color: #dc2626; 
+      transform: translateY(-2px); 
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3); 
+      z-index: 10; 
+    }
+    
+    /* Modal Backdrop Blur */
+    #program-modal { backdrop-filter: blur(8px); }
+    
+    .event-badge { 
+      font-size: 0.65rem; /* Texto lo más grande y legible posible en móvil */
+      padding: 0.25rem; 
+      border-radius: 0.2rem; 
+      cursor: pointer; 
+      font-weight: 700; /* Más negrita para leer bien en móvil */
+      line-height: 1.1; 
+      transition: all 0.2s; 
+      white-space: normal; 
+      word-break: break-word;
+      /* Clamp para truncar texto si es muy largo en móviles */
+      display: -webkit-box;
+      -webkit-line-clamp: 5; /* Aumentado a 5 líneas para que no se corte rápido en móvil */
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    @media (min-width: 768px) { 
+      .event-badge { font-size: 0.70rem; padding: 0.35rem 0.4rem; border-radius: 0.3rem; line-height: 1.25; -webkit-line-clamp: 5; } 
+    }
+    .event-badge:hover { filter: brightness(1.2); transform: scale(1.02); }
+    
+    /* CLASES DE COLORES POR PROGRAMA */
+    .prog-gratis { background: rgba(16, 185, 129, 0.15); color: #6ee7b7; border: 1px solid #10b981; }
+    .prog-inscripcion { background: rgba(239, 68, 68, 0.15); color: #fca5a5; border: 1px dashed #ef4444; border-left: 4px solid #ef4444; }
+    .prog-marketing { background: rgba(59, 130, 246, 0.15); color: #93c5fd; border: 1px solid #3b82f6; }
+    .prog-docentes { background: rgba(168, 85, 247, 0.15); color: #d8b4fe; border: 1px solid #a855f7; }
+    .prog-monetiza { background: rgba(245, 158, 11, 0.15); color: #fcd34d; border: 1px solid #f59e0b; }
+    .prog-crea { background: rgba(20, 184, 166, 0.15); color: #5eead4; border: 1px solid #14b8a6; }
+    .prog-diplo { background: rgba(236, 72, 153, 0.15); color: #f9a8d4; border: 1px solid #ec4899; }
+    .prog-hablar { background: rgba(234, 88, 12, 0.15); color: #fdba74; border: 1px solid #ea580c; }
+    .prog-comercial { background: rgba(107, 114, 128, 0.15); color: #d1d5db; border: 1px dashed #6b7280; }
+    .prog-master { background: #000000; color: #ffffff; border: 1px solid #333333; }
+
+    /* ESTILOS DEL CHATBOT Y BOTÓN SCROLL */
+    #scroll-top-btn { position: fixed; bottom: 24px; left: 24px; z-index: 100; opacity: 0; transform: translateY(20px); transition: all 0.4s ease; pointer-events: none; background: #1e293b; color: #94a3b8; border: 1px solid rgba(255,255,255,0.1); width: 2.5rem; height: 2.5rem; border-radius: 9999px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3); }
+    #scroll-top-btn.visible { opacity: 1; transform: translateY(0); pointer-events: auto; cursor: pointer; }
+    #scroll-top-btn:hover { background: #dc2626; color: white; border-color: #dc2626; }
+
+    .chat-bubble-bot { background: #1e293b; border: 1px solid rgba(220, 38, 38, 0.2); color: #e2e8f0; border-radius: 1rem 1rem 1rem 0; padding: 0.85rem; font-size: 0.85rem; max-width: 90%; margin-bottom: 0.5rem; line-height: 1.5; }
+    .chat-bubble-user { background: #dc2626; color: #ffffff; border-radius: 1rem 1rem 0 1rem; padding: 0.75rem; font-size: 0.85rem; max-width: 85%; align-self: flex-end; margin-bottom: 0.5rem; line-height: 1.4; }
+    
+    /* Botones del Chatbot: Compactos y apilados en móvil, horizontales en PC */
+    .chat-option { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 0.4rem; padding: 0.4rem 0.2rem; font-size: 0.65rem; color: #cbd5e1; cursor: pointer; transition: all 0.2s; text-align: center; width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.2rem; font-weight: 600; line-height: 1.1; }
+    @media (min-width: 640px) {
+      .chat-option { border-radius: 0.5rem; padding: 0.5rem; font-size: 0.70rem; text-align: left; flex-direction: row; justify-content: flex-start; gap: 0.4rem; }
+    }
+    .chat-option:hover { background: rgba(220, 38, 38, 0.15); color: #fff; border-color: rgba(220, 38, 38, 0.5); transform: translateY(-2px); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.2); }
+    
+    .typing-indicator span { display: inline-block; width: 4px; height: 4px; background-color: #dc2626; border-radius: 50%; animation: typing 1s infinite; margin: 0 1px; }
+    .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+    .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes typing { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
+
+    /* MOTOR DE IMPRESIÓN NATIVO PARA PDF PERFECTO */
+    @media print {
+      @page { size: A4; margin: 12mm; }
+      body, html {
+        background-color: #0f172a !important; 
+        color: white !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        height: auto !important;
+        overflow: visible !important;
+      }
+      .no-print, #controls-section, #program-modal, .fixed.top-0.left-0, #chatbot-container, #chatbot-wrapper, #scroll-top-btn, #navbar { display: none !important; }
+      #app-container { padding: 0 !important; margin: 0 !important; max-width: 100% !important; }
+      #view-list > div {
+        page-break-inside: avoid !important; break-inside: avoid !important;
+        background-color: #1e293b !important; border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        margin-bottom: 20px !important; box-shadow: none !important;
+      }
+      .prog-gratis, .prog-inscripcion, .prog-marketing, .prog-docentes, .prog-monetiza, .prog-crea, .prog-diplo, .prog-hablar, .prog-comercial, .prog-master {
+        -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important;
+      }
+      #header-section { padding-top: 20px !important; padding-bottom: 20px !important; }
+    }
+  </style>
+  <meta content="Consulta el Calendario Acad&eacute;mico 2026 de IBERO. Fechas de inicio, inscripciones y duraci&oacute;n de todos nuestros Executive Masters, Diplomados y Certificaciones." name="description"/>
+  <link href="https://ibero.education/calendario-academico/" rel="canonical"/>
+  <meta content="Calendario Acad&eacute;mico 2026 | Fechas de Inicio | IBERO" property="og:title"/>
+  <meta content="Consulta el Calendario Acad&eacute;mico 2026 de IBERO. Fechas de inicio, inscripciones y duraci&oacute;n de todos nuestros Executive Masters, Diplomados y Certificaciones." property="og:description"/>
+  <meta content="https://ibero.education/calendario-academico/" property="og:url"/>
+  <meta content="website" property="og:type"/>
+  <meta content="https://ibero.education/fotos/og-image.jpg" property="og:image"/>
+  <meta content="calendario acad&eacute;mico, fechas inicio clases, inscripciones, cronograma ibero 2026, matriculaci&oacute;n" name="keywords"/>
+  <meta content="index, follow" name="robots"/>
+  <meta content="Centro Iberoamericano (IBERO)" name="author"/>
+  <meta content="es_ES" property="og:locale"/>
+  <meta content="Centro Iberoamericano" property="og:site_name"/>
+ </head>
+ <body class="antialiased selection:bg-ibero-red selection:text-white pt-[144px] md:pt-[152px]">
+  <!-- Botón Scroll to Top -->
+  <button aria-label="Volver arriba" id="scroll-top-btn" onclick="scrollToTop()">
+   <i class="ph-fill ph-caret-up text-lg">
+   </i>
+  </button>
+  <!-- HEADER / NAVEGACIÓN ESTANDARIZADO -->
+  <nav class="fixed top-0 left-0 w-full z-[100] transition-all duration-300 shadow-sm flex flex-col" id="navbar">
+   <!-- Fila 1: Logo y ENLACES A CURSOS DIRECTOS -->
+   <div class="w-full nav-glass border-b border-zinc-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div class="flex justify-between items-center h-14 md:h-16 gap-2 sm:gap-4">
+      <a class="flex-shrink-0 flex items-center cursor-pointer" href="https://ibero.education/" target="_blank">
+       <img alt="Logo IBERO" class="h-8 sm:h-10 md:h-10 w-auto object-contain" src="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/1557a79470d9c26d1ad0f0b00243f9f03e55cf2f/fotos/svg/ibero-logo-black-redE.svg"/>
+      </a>
+      <div class="flex flex-1 items-center justify-end gap-5 md:gap-8 overflow-x-auto hide-scrollbar px-2 sm:px-4">
+       <a class="text-[11px] md:text-[13px] font-bold text-zinc-600 hover:text-black transition-colors whitespace-nowrap" href="https://ibero.education/marketing-digital-con-ia/" target="_blank">
+        MKT con IA
+       </a>
+       <a class="text-[11px] md:text-[13px] font-bold text-zinc-600 hover:text-black transition-colors whitespace-nowrap" href="https://ibero.education/ia-para-docentes/" target="_blank">
+        IA Docentes
+       </a>
+       <a class="text-[11px] md:text-[13px] font-bold text-zinc-600 hover:text-black transition-colors whitespace-nowrap" href="https://ibero.education/monetiza-tu-idea/" target="_blank">
+        Monetiza IA
+       </a>
+       <a class="text-[11px] md:text-[13px] font-bold text-zinc-600 hover:text-black transition-colors whitespace-nowrap" href="https://ibero.education/crea-tu-academia/" target="_blank">
+        Crea tu Academia
+       </a>
+       <a class="text-[11px] md:text-[13px] font-bold text-zinc-600 hover:text-black transition-colors whitespace-nowrap" href="https://ibero.education/comunicacion-efectiva/" target="_blank">
+        Comunicaci&oacute;n Efectiva
+       </a>
+       <a class="text-[11px] md:text-[13px] font-bold text-zinc-600 hover:text-black transition-colors whitespace-nowrap" href="https://ibero.education/diplomado-ia-negocios-marketing/" target="_blank">
+        Diplomado
+       </a>
+       <a class="text-[11px] md:text-[13px] font-bold text-zinc-600 hover:text-black transition-colors whitespace-nowrap" href="https://ibero.education/master-ejecutivo-ia/" target="_blank">
+        Executive Master
+       </a>
+      </div>
+      <div class="md:hidden flex items-center shrink-0 border-l border-zinc-200 pl-2 ml-1">
+       <button class="text-zinc-600 hover:text-black focus:outline-none p-2 transition-colors" id="mobile-menu-btn">
+        <i class="fa-solid fa-bars text-xl">
+        </i>
+       </button>
+      </div>
+     </div>
+    </div>
+   </div>
+   <!-- Fila 2: Enlaces Institucionales -->
+   <div class="flex w-full bg-[#050505] text-white border-b border-zinc-900">
+    <div class="max-w-7xl mx-auto w-full flex justify-start lg:justify-end items-center h-10 text-[10px] md:text-[11px] font-semibold tracking-wider uppercase overflow-x-auto hide-scrollbar">
+     <div class="flex items-center gap-5 md:gap-7 min-w-max px-4 sm:px-6 lg:px-8">
+      <a class="text-white hover:text-zinc-300 transition-colors" href="https://ibero.education/" target="_blank">
+       Inicio
+      </a>
+      <a class="text-white hover:text-zinc-300 transition-colors" href="https://qlase.goatify.app/" target="_blank">
+       Campus Virtual
+      </a>
+      <a class="text-white hover:text-zinc-300 transition-colors" href="https://ibero.education/trabaja-con-nosotros/" target="_blank">
+       Docentes
+      </a>
+      <a class="text-white hover:text-zinc-300 transition-colors" href="https://ia.goatify.app/#discovery" target="_blank">
+       Publicaciones
+      </a>
+      <a class="text-white hover:text-zinc-300 transition-colors" href="https://ibero.education/trabaja-con-nosotros/" target="_blank">
+       Trabaja con nosotros
+      </a>
+      <a class="text-white hover:text-zinc-300 transition-colors" href="https://ibero.education/ayuda-financiera/" target="_blank">
+       Ayuda Financiera
+      </a>
+      <a class="text-white hover:text-zinc-300 transition-colors" href="https://ibero.education/contacto/" target="_blank">
+       Contactos
+      </a>
+     </div>
+    </div>
+   </div>
+   <!-- Fila 3: Ecosistema y Programas Académicos Externos -->
+   <div class="flex w-full bg-zinc-50/90 border-b border-zinc-200 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto w-full flex justify-start items-center h-12 text-[11px] md:text-[12px] font-medium text-zinc-600 overflow-x-auto hide-scrollbar">
+     <div class="flex items-center gap-6 lg:gap-12 min-w-max px-4 sm:px-6 lg:px-8">
+      <a class="hover:text-black hover:font-bold transition-all" href="https://ibero.education/oferta-academica/" target="_blank">
+       Oferta Acad&eacute;mica
+      </a>
+      <a class="text-ibero-red font-bold border-b-2 border-ibero-red pb-0.5 pointer-events-none" href="#">
+       Calendario Cursos
+      </a>
+      <a class="hover:text-black hover:font-bold transition-all" href="https://ibero.education/certificaciones-intensivas/" target="_blank">
+       Certificaciones
+      </a>
+      <a class="hover:text-black hover:font-bold transition-all" href="https://ibero.education/diplomados-intensivos/" target="_blank">
+       Diplomados
+      </a>
+      <a class="hover:text-black hover:font-bold transition-all" href="https://ibero.education/executive-master/" target="_blank">
+       Executive Master
+      </a>
+      <a class="hover:text-black hover:font-bold transition-all" href="https://ibero.education/ibero-academy/" target="_blank">
+       IBERO Academy
+      </a>
+      <a class="hover:text-black hover:font-bold transition-all" href="https://ibero.education/ibero-labs/" target="_blank">
+       IBERO Labs
+      </a>
+      <a class="hover:text-black hover:font-bold transition-all" href="https://ibero.education/artes-liberales/" target="_blank">
+       Artes liberales
+      </a>
+      <a class="hover:text-black hover:font-bold transition-all" href="https://ibero.education/consultor&iacute;a-en-educaci&oacute;n/" target="_blank">
+       Consultor&iacute;a Educaci&oacute;n
+      </a>
+     </div>
+    </div>
+   </div>
+   <!-- Mobile Menu Panel -->
+   <div class="hidden md:hidden bg-[#09090B] border-t border-zinc-800 absolute w-full shadow-2xl max-h-[calc(100vh-144px)] overflow-y-auto top-[144px]" id="mobile-menu">
+    <div class="px-4 pt-2 pb-6 space-y-1 flex flex-col">
+     <div class="mb-2 px-3 pt-2">
+      <span class="text-[10px] font-bold tracking-widest text-zinc-500 uppercase">
+       Programas Directos
+      </span>
+     </div>
+     <a class="mobile-link block px-3 py-3 text-base font-medium text-zinc-300 border-b border-zinc-800 hover:text-white" href="https://ibero.education/marketing-digital-con-ia/" target="_blank">
+      Marketing con IA
+     </a>
+     <a class="mobile-link block px-3 py-3 text-base font-medium text-zinc-300 border-b border-zinc-800 hover:text-white" href="https://ibero.education/ia-para-docentes/" target="_blank">
+      IA para Docentes
+     </a>
+     <a class="mobile-link block px-3 py-3 text-base font-medium text-zinc-300 border-b border-zinc-800 hover:text-white" href="https://ibero.education/monetiza-tu-idea/" target="_blank">
+      Monetiza tu Idea IA
+     </a>
+     <a class="mobile-link block px-3 py-3 text-base font-medium text-zinc-300 border-b border-zinc-800 hover:text-white" href="https://ibero.education/crea-tu-academia/" target="_blank">
+      Crea tu Academia
+     </a>
+     <a class="mobile-link block px-3 py-3 text-base font-medium text-zinc-300 border-b border-zinc-800 hover:text-white" href="https://ibero.education/comunicacion-efectiva/" target="_blank">
+      Comunicaci&oacute;n Efectiva
+     </a>
+     <a class="mobile-link block px-3 py-3 text-base font-medium text-zinc-300 border-b border-zinc-800 hover:text-white" href="https://ibero.education/diplomado-ia-negocios-marketing/" target="_blank">
+      Diplomado en IA
+     </a>
+     <a class="mobile-link block px-3 py-3 text-base font-medium text-zinc-300 border-b border-zinc-800 hover:text-white" href="https://ibero.education/master-ejecutivo-ia/" target="_blank">
+      Executive Master
+     </a>
+    </div>
+   </div>
+  </nav>
+  <!-- Background decorations (Detrás del calendario) -->
+  <div class="fixed top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
+   <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-ibero-red/20 rounded-full blur-[120px] animate-pulse-slow">
+   </div>
+   <div class="absolute bottom-[-10%] right-[-10%] w-[30%] h-[30%] bg-blue-600/10 rounded-full blur-[100px]">
+   </div>
+  </div>
+  <!-- Hero Section -->
+  <header class="relative bg-black pt-12 md:pt-16 pb-12 text-center border-b border-white/10 overflow-hidden w-full" id="header-section">
+   <!-- Video Background -->
+   <div class="absolute inset-0 z-0">
+    <video autoplay="" class="w-full h-full object-cover opacity-40" loop="" muted="" playsinline="">
+     <source src="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/d83d4e1f5d31f07d6435c9256ee64e7e501d3673/fotos/AI_Business_Education_Hero_Video.mp4" type="video/mp4"/>
+    </video>
+    <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black">
+    </div>
+   </div>
+   <div class="w-full px-4 sm:px-8 relative z-10">
+    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-xs sm:text-sm font-semibold text-red-200 mb-6 animate-fade-in-up" style="animation-delay: 0.1s;">
+     <i class="ph-fill ph-rocket-launch text-ibero-red">
+     </i>
+     Plan de Ejecuci&oacute;n a 9 Meses
+    </div>
+    <!-- Título con Cursivas (Playfair Display) Responsivo -->
+    <h1 class="text-3xl sm:text-4xl md:text-6xl font-extrabold mb-4 tracking-tight animate-fade-in-up px-2" style="animation-delay: 0.2s;">
+     Calendario
+     <span class="font-serif italic font-medium text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-red-600 block sm:inline mt-2 sm:mt-0">
+      Acad&eacute;mico 2026
+     </span>
+    </h1>
+    <!-- Horarios Elegantes Actualizados -->
+    <div class="text-sm sm:text-base md:text-lg text-ibero-gray max-w-5xl mx-auto mb-6 animate-fade-in-up space-y-4 px-2" style="animation-delay: 0.3s;">
+     <p class="md:text-xl mb-4">
+      Cronograma oficial Marzo - Noviembre.
+     </p>
+     <div class="flex flex-col sm:flex-row justify-center items-stretch gap-3 md:gap-4 text-sm md:text-base">
+      <div class="bg-white/10 border border-white/20 px-5 py-3 rounded-xl backdrop-blur-md w-full sm:w-auto flex-1 text-center sm:text-left shadow-lg">
+       <span class="text-white font-bold block mb-1">
+        Cursos y Diplomados
+        <span class="text-white/70 font-normal text-xs">
+         (Lun - Jue)
+        </span>
+       </span>
+       <span class="text-white/90 text-xs sm:text-sm font-medium tracking-wide">
+        7:00 PM a 9:00 PM EC/CO/PE
+        <span class="text-white/40 mx-1 hidden lg:inline">
+         |
+        </span>
+        <br class="lg:hidden"/>
+        6:00 PM a 8:00 PM MX
+       </span>
+      </div>
+      <div class="bg-white/10 border border-white/20 px-5 py-3 rounded-xl backdrop-blur-md w-full sm:w-auto flex-1 text-center sm:text-left shadow-lg">
+       <span class="text-white font-bold block mb-1">
+        Executive Master
+        <span class="text-white/70 font-normal text-xs">
+         (Lun - Vie)
+        </span>
+       </span>
+       <span class="text-white/90 text-xs sm:text-sm font-medium tracking-wide">
+        9:00 PM a 10:00 PM EC/CO/PE
+        <span class="text-white/40 mx-1 hidden lg:inline">
+         |
+        </span>
+        <br class="lg:hidden"/>
+        8:00 PM a 9:00 PM MX
+       </span>
+      </div>
+     </div>
+     <div class="flex justify-center mt-3">
+      <div class="bg-white/10 border border-white/20 px-5 py-3 rounded-xl backdrop-blur-md inline-flex flex-col sm:flex-row items-center gap-1 sm:gap-3 shadow-lg">
+       <span class="text-white font-bold text-sm text-center">
+        Talleres Pr&aacute;cticos Presenciales
+        <span class="text-white/70 font-normal text-xs">
+         (S&aacute;bados)
+        </span>
+       </span>
+       <span class="text-white/90 text-xs sm:text-sm font-medium tracking-wide">
+        9:00 AM a 1:00 PM Hora EC
+       </span>
+      </div>
+     </div>
+    </div>
+   </div>
+  </header>
+  <!-- Controles y Filtros (FULL WIDTH) -->
+  <section class="w-full px-4 sm:px-6 lg:px-8 py-8 no-print relative z-40" id="controls-section">
+   <div class="bg-ibero-card/90 backdrop-blur-md border border-white/10 p-5 rounded-2xl shadow-2xl flex flex-col gap-4 animate-fade-in-up" style="animation-delay: 0.4s;">
+    <div class="flex flex-col md:flex-row gap-4 items-end w-full">
+     <!-- Controles Base -->
+     <div class="flex-1 w-full grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div>
+       <label class="block text-sm font-semibold text-ibero-gray mb-2">
+        Vista del Calendario
+       </label>
+       <div class="flex bg-ibero-dark rounded-lg p-1 border border-white/10">
+        <button class="flex-1 py-2 px-4 rounded-md bg-ibero-red text-white font-semibold transition-colors flex items-center justify-center gap-2 shadow-lg" id="btn-view-list" onclick="setView('list')">
+         <i class="ph ph-list-dashes text-lg">
+         </i>
+         Lista
+        </button>
+        <button class="flex-1 py-2 px-4 rounded-md text-ibero-gray hover:text-white transition-colors flex items-center justify-center gap-2" id="btn-view-cal" onclick="setView('calendar')">
+         <i class="ph ph-calendar-blank text-lg">
+         </i>
+         Mes
+        </button>
+       </div>
+      </div>
+      <!-- Programas Dropdown Multiple -->
+      <div class="relative w-full" id="programs-dropdown-container">
+       <label class="block text-sm font-semibold text-ibero-gray mb-2">
+        <i class="ph ph-check-square-offset">
+        </i>
+        Filtrar Programa
+       </label>
+       <button class="w-full p-3 rounded-lg bg-ibero-dark border border-white/10 text-white flex justify-between items-center focus:outline-none focus:border-ibero-red transition-colors" id="prog-dropdown-btn" onclick="toggleProgramDropdown()">
+        <span class="truncate pr-2" id="prog-dropdown-text">
+         Todos los programas
+        </span>
+        <i class="ph ph-caret-down">
+        </i>
+       </button>
+       <div class="absolute z-50 hidden w-full mt-1 bg-ibero-card border border-white/10 rounded-lg shadow-2xl max-h-64 overflow-y-auto p-2 flex flex-col gap-1" id="prog-dropdown-menu">
+        <!-- Checkboxes inyectados por JS -->
+       </div>
+      </div>
+      <div>
+       <label class="block text-sm font-semibold text-ibero-gray mb-2">
+        <i class="ph ph-funnel">
+        </i>
+        Categor&iacute;a
+       </label>
+       <select class="w-full p-3 rounded-lg bg-ibero-dark border border-white/10 text-white focus:outline-none focus:border-ibero-red transition-colors appearance-none" id="filter-type" onchange="renderApp()">
+        <option value="all">
+         Todas las categor&iacute;as
+        </option>
+        <option value="curso">
+         Cursos
+        </option>
+        <option value="diplomado">
+         Diplomados
+        </option>
+        <option value="master">
+         Executive Master
+        </option>
+        <option value="taller">
+         Talleres
+        </option>
+        <option value="inscripcion">
+         Apertura Inscripciones
+        </option>
+        <option value="gratis">
+         Clases Gratis
+        </option>
+       </select>
+      </div>
+     </div>
+     <div class="w-full md:w-auto">
+      <button class="w-full md:w-auto bg-gradient-to-r from-zinc-700 to-zinc-800 hover:from-ibero-red hover:to-ibero-darkRed text-white py-3 px-6 rounded-lg font-semibold flex items-center justify-center gap-2 transition-all shadow-lg hover:shadow-red-500/25" id="pdf-btn" onclick="downloadPDF()">
+       <i class="ph ph-printer text-xl">
+       </i>
+       Guardar PDF
+      </button>
+     </div>
+    </div>
+   </div>
+  </section>
+  <!-- Contenedor Principal Calendario (FULL WIDTH) -->
+  <main class="w-full px-2 sm:px-6 lg:px-8 pb-20 min-h-screen" id="app-container">
+   <!-- Vista de Lista (Ajustada al 90% en desktop) -->
+   <div class="space-y-6 md:w-[90%] lg:w-[85%] mx-auto" id="view-list">
+   </div>
+   <!-- Vista de Calendario Mensual (Ajustada al 90% en desktop) -->
+   <div class="hidden md:w-[95%] lg:w-[90%] mx-auto" id="view-calendar">
+    <div class="bg-ibero-card border border-white/10 rounded-xl md:rounded-2xl p-1 sm:p-2 md:p-6 shadow-2xl">
+     <div class="flex items-center justify-between mb-4 md:mb-8 no-print px-2 md:px-0">
+      <button class="p-2 rounded-full hover:bg-white/10 transition-colors text-white" onclick="changeMonth(-1)">
+       <i class="ph ph-caret-left text-2xl">
+       </i>
+      </button>
+      <h2 class="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white capitalize" id="calendar-month-title">
+       Marzo 2026
+      </h2>
+      <button class="p-2 rounded-full hover:bg-white/10 transition-colors text-white" onclick="changeMonth(1)">
+       <i class="ph ph-caret-right text-2xl">
+       </i>
+      </button>
+     </div>
+     <div class="calendar-grid mb-1 md:mb-2">
+      <div class="text-center font-bold text-ibero-gray text-[10px] md:text-sm py-1 md:py-2">
+       LUN
+      </div>
+      <div class="text-center font-bold text-ibero-gray text-[10px] md:text-sm py-1 md:py-2">
+       MAR
+      </div>
+      <div class="text-center font-bold text-ibero-gray text-[10px] md:text-sm py-1 md:py-2">
+       MI&Eacute;
+      </div>
+      <div class="text-center font-bold text-ibero-gray text-[10px] md:text-sm py-1 md:py-2">
+       JUE
+      </div>
+      <div class="text-center font-bold text-ibero-gray text-[10px] md:text-sm py-1 md:py-2">
+       VIE
+      </div>
+      <div class="text-center font-bold text-ibero-gray text-[10px] md:text-sm py-1 md:py-2">
+       S&Aacute;B
+      </div>
+      <div class="text-center font-bold text-ibero-gray text-[10px] md:text-sm py-1 md:py-2">
+       DOM
+      </div>
+     </div>
+     <div class="calendar-grid" id="calendar-grid-days">
+     </div>
+    </div>
+   </div>
+  </main>
+  <!-- ========================================== -->
+  <!-- CHATBOT PRO COOL (AGENTE IA FLOTANTE)      -->
+  <!-- ========================================== -->
+  <div class="fixed bottom-6 right-6 z-[110] flex items-end gap-3 group no-print" id="chatbot-wrapper">
+   <!-- Chatbot Window -->
+   <div class="absolute bottom-20 right-0 w-[90vw] max-w-[440px] max-h-[75vh] bg-[#0f172a] border border-red-500/30 rounded-2xl shadow-[0_0_40px_rgba(220,38,38,0.2)] overflow-hidden flex flex-col transition-all duration-300 opacity-0 translate-y-10 pointer-events-none origin-bottom-right" id="chatbot-container">
+    <!-- Header Chatbot -->
+    <div class="bg-gradient-to-r from-[#1e293b] to-red-900/30 p-4 border-b border-red-500/20 flex justify-between items-center shrink-0">
+     <div class="flex items-center gap-3">
+      <div class="relative">
+       <div class="w-10 h-10 rounded-full bg-zinc-900 border border-red-500/50 flex items-center justify-center text-red-400">
+        <i class="ph-fill ph-robot text-xl">
+        </i>
+       </div>
+       <span class="absolute bottom-0 right-0 w-3 h-3 bg-emerald-500 border-2 border-[#0f172a] rounded-full">
+       </span>
+      </div>
+      <div>
+       <h4 class="text-white font-bold text-sm leading-tight">
+        Asistente IBERO
+       </h4>
+       <p class="text-[10px] text-emerald-400 font-mono tracking-widest uppercase">
+        Online &bull; Sincronizado
+       </p>
+      </div>
+     </div>
+     <button class="text-zinc-500 hover:text-white transition-colors focus:outline-none" onclick="toggleChatbot(event)">
+      <i class="ph ph-x text-xl">
+      </i>
+     </button>
+    </div>
+    <!-- Body Chatbot -->
+    <div class="flex-grow p-4 overflow-y-auto flex flex-col hide-scrollbar bg-[#050505]" id="chatbot-body">
+     <div class="chat-bubble-bot animate-fade-in-up">
+      &iexcl;Hola! 👋 Soy el agente de inteligencia acad&eacute;mica de IBERO. Tengo acceso en tiempo real a todo el cronograma oficial 2026.
+     </div>
+     <div class="chat-bubble-bot animate-fade-in-up" style="animation-delay: 0.1s;">
+      Selecciona una opci&oacute;n para brindarte informaci&oacute;n detallada de nuestros programas,
+      <em>
+       fechas
+      </em>
+      y
+      <em>
+       descuentos especiales
+      </em>
+      .
+     </div>
+    </div>
+    <!-- Opciones / Footer Chatbot (3 Columnas en Móvil, 2 en PC) -->
+    <div class="p-3 border-t border-white/5 bg-[#0f172a] shrink-0">
+     <div class="grid grid-cols-3 sm:grid-cols-2 gap-1.5 sm:gap-2" id="chatbot-options">
+      <button class="chat-option" onclick="botAnswer('fechas')">
+       <i class="ph-fill ph-calendar-check text-red-400 text-lg shrink-0">
+       </i>
+       <span>
+        Inicios
+       </span>
+      </button>
+      <button class="chat-option" onclick="botAnswer('precios')">
+       <i class="ph-fill ph-tag text-red-400 text-lg shrink-0">
+       </i>
+       <span>
+        Precios
+       </span>
+      </button>
+      <button class="chat-option" onclick="botAnswer('diplomado')">
+       <i class="ph-fill ph-graduation-cap text-red-400 text-lg shrink-0">
+       </i>
+       <span>
+        Diplomado
+       </span>
+      </button>
+      <button class="chat-option" onclick="botAnswer('master')">
+       <i class="ph-fill ph-crown text-red-400 text-lg shrink-0">
+       </i>
+       <span>
+        Master
+       </span>
+      </button>
+      <button class="chat-option" onclick="botAnswer('cursos')">
+       <i class="ph-fill ph-book-open text-red-400 text-lg shrink-0">
+       </i>
+       <span>
+        Cursos
+       </span>
+      </button>
+      <button class="chat-option" onclick="botAnswer('gratis')">
+       <i class="ph-fill ph-gift text-red-400 text-lg shrink-0">
+       </i>
+       <span>
+        Gratis
+       </span>
+      </button>
+     </div>
+    </div>
+   </div>
+   <!-- Asistente Label + Botón Flotante -->
+   <span class="bg-zinc-800 border border-zinc-700 text-zinc-300 text-[11px] font-bold px-3 py-1.5 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-4 group-hover:translate-x-0 hidden sm:block whitespace-nowrap mb-2">
+    Asistente 24/7
+   </span>
+   <button class="w-14 h-14 bg-ibero-red rounded-full shadow-[0_0_20px_rgba(220,38,38,0.4)] flex items-center justify-center text-white hover:scale-110 hover:bg-ibero-darkRed transition-all duration-300 animate-bot-bounce focus:outline-none relative" id="chatbot-toggle" onclick="toggleChatbot(event)">
+    <i class="ph-fill ph-robot text-3xl chatbot-icon-open">
+    </i>
+    <i class="ph-fill ph-chats-circle text-3xl hidden chatbot-icon-close">
+    </i>
+    <span class="absolute -top-1 -right-1 flex h-4 w-4">
+     <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75">
+     </span>
+     <span class="relative inline-flex rounded-full h-4 w-4 bg-white border-2 border-ibero-red">
+     </span>
+    </span>
+   </button>
+  </div>
+  <!-- Modal de Detalles del Calendario -->
+  <div class="fixed inset-0 z-[150] flex items-center justify-center hidden opacity-0 transition-opacity duration-300" id="program-modal">
+   <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="closeEventModal()">
+   </div>
+   <div class="bg-ibero-card border border-white/10 rounded-2xl w-full max-w-2xl m-4 relative z-10 shadow-2xl flex flex-col max-h-[90vh] transform scale-95 transition-transform duration-300" id="modal-content-box">
+    <!-- Modal Header -->
+    <div class="relative bg-gradient-to-r from-ibero-red to-ibero-darkRed p-4 sm:p-6 shrink-0 rounded-t-2xl">
+     <button class="absolute top-4 right-4 text-white/80 hover:text-white transition-colors" onclick="closeEventModal()">
+      <i class="ph ph-x text-2xl">
+      </i>
+     </button>
+     <div class="inline-block px-3 py-1 rounded-full text-[0.70rem] sm:text-xs font-bold uppercase tracking-wider mb-2 sm:mb-3 bg-white/20 text-white backdrop-blur-sm" id="modal-badge">
+     </div>
+     <h3 class="text-xl sm:text-2xl md:text-3xl font-bold text-white leading-tight font-serif italic" id="modal-title">
+     </h3>
+    </div>
+    <!-- Modal Body -->
+    <div class="p-4 sm:p-6 overflow-y-auto">
+     <p class="text-ibero-gray text-base sm:text-lg mb-6 leading-relaxed" id="modal-desc">
+     </p>
+     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+      <div class="flex items-center gap-3 bg-ibero-dark p-4 rounded-xl border border-white/5">
+       <div class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400">
+        <i class="ph-fill ph-calendar-blank text-xl">
+        </i>
+       </div>
+       <div>
+        <p class="text-sm text-ibero-gray font-semibold">
+         Fechas
+        </p>
+        <p class="font-bold text-white" id="modal-dates">
+        </p>
+       </div>
+      </div>
+      <div class="flex items-center gap-3 bg-ibero-dark p-4 rounded-xl border border-white/5">
+       <div class="w-10 h-10 rounded-full bg-amber-500/20 flex items-center justify-center text-amber-400">
+        <i class="ph-fill ph-clock text-xl">
+        </i>
+       </div>
+       <div>
+        <p class="text-sm text-ibero-gray font-semibold">
+         Horarios por Pa&iacute;s
+        </p>
+        <p class="font-bold text-white leading-snug" id="modal-schedule">
+        </p>
+       </div>
+      </div>
+     </div>
+     <!-- Inversión / Precios -->
+     <div id="investment-section">
+      <h4 class="text-sm font-bold text-ibero-gray uppercase tracking-wider mb-3 flex items-center gap-2">
+       <i class="ph ph-wallet">
+       </i>
+       Inversi&oacute;n por pa&iacute;s (30% OFF Aplicado)
+      </h4>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6" id="modal-prices">
+       <!-- Precios inyectados por JS -->
+      </div>
+     </div>
+     <!-- Acciones -->
+     <div class="flex flex-col sm:flex-row gap-3 border-t border-white/10 pt-6">
+      <a class="hidden flex-1 bg-ibero-red hover:bg-ibero-darkRed text-white font-bold py-3 px-4 rounded-lg items-center justify-center gap-2 transition-colors shadow-lg shadow-red-500/25" href="#" id="btn-inscribete" target="_blank">
+       <i class="ph-fill ph-link text-xl">
+       </i>
+       Inscr&iacute;bete Aqu&iacute;
+      </a>
+      <a class="flex-1 bg-white text-ibero-dark font-bold py-3 px-4 rounded-lg flex items-center justify-center gap-2 hover:bg-gray-200 transition-colors" href="#" id="btn-gcal" target="_blank">
+       <i class="ph-fill ph-google-logo text-xl">
+       </i>
+       Guardar en Calendar
+      </a>
+      <button class="flex-1 border border-white/20 text-white hover:bg-white/10 font-bold py-3 px-4 rounded-lg transition-colors" onclick="closeEventModal()">
+       Cerrar
+      </button>
+     </div>
+    </div>
+   </div>
+  </div>
+  <!-- FOOTER PREMIUM EXACTO -->
+  <footer class="bg-[#050505] text-zinc-400 py-12 border-t border-zinc-900 mt-10 no-print">
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Grid ampliado a 6 columnas para consistencia -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 mb-8 border-b border-zinc-900 pb-12">
+     <!-- Col 1: Brand & Socials -->
+     <div class="lg:col-span-2 lg:pr-12">
+      <div class="mb-1">
+       <img alt="Logo IBERO" class="w-40 sm:w-48 h-auto object-contain object-left" src="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/8c1109d60abc984df0e47724b61bab75d49a6b12/fotos/svg/ibero-menu-purple.svg"/>
+      </div>
+      <p class="text-xs sm:text-sm leading-relaxed mb-5">
+       Educaci&oacute;n Executive impulsada por Inteligencia Artificial. Formamos a los fundadores y creadores corporativos del ma&ntilde;ana.
+      </p>
+      <div class="flex flex-wrap gap-3 mb-4">
+       <a class="w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center hover:bg-[#0077b5] hover:text-white transition-colors border border-zinc-800" href="https://www.linkedin.com/company/centro-iberoamericano/" target="_blank">
+        <i class="fa-brands fa-linkedin-in text-sm">
+        </i>
+       </a>
+       <a class="w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center hover:bg-[#E1306C] hover:text-white transition-colors border border-zinc-800" href="https://www.instagram.com/centro.iberoamericano/" target="_blank">
+        <i class="fa-brands fa-instagram text-sm">
+        </i>
+       </a>
+       <a class="w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center hover:bg-[#1877F2] hover:text-white transition-colors border border-zinc-800" href="https://www.facebook.com/ibero.education/" target="_blank">
+        <i class="fa-brands fa-facebook-f text-sm">
+        </i>
+       </a>
+       <a class="w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center hover:bg-[#25D366] hover:text-white transition-colors border border-zinc-800" href="https://wa.me/19152854778" target="_blank">
+        <i class="fa-brands fa-whatsapp text-sm">
+        </i>
+       </a>
+      </div>
+      <div class="mt-4">
+       <a class="inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-zinc-300 hover:text-white transition-colors group" href="mailto:programas@ibero.education">
+        <div class="w-8 h-8 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center group-hover:bg-ibero-purple group-hover:border-ibero-purple transition-colors">
+         <i class="fa-solid fa-envelope text-xs">
+         </i>
+        </div>
+        <span class="border-b border-transparent group-hover:border-zinc-500 pb-0.5">
+         programas@ibero.education
+        </span>
+       </a>
+      </div>
+     </div>
+     <!-- Col 2: Programas -->
+     <div>
+      <h4 class="text-white font-bold mb-4 text-sm">
+       Programas
+      </h4>
+      <ul class="space-y-2 text-xs sm:text-sm">
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/oferta-academica/" target="_blank">
+         Oferta Acad&eacute;mica
+        </a>
+       </li>
+       <li>
+        <a class="text-white font-bold transition-colors" href="#">
+         Calendario Cursos
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/certificaciones-intensivas/" target="_blank">
+         Cursos Intensivos
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/diplomados-intensivos/" target="_blank">
+         Diplomados Ejecutivos
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/executive-master/" target="_blank">
+         Executive Masters
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/english-courses/" target="_blank">
+         Programas de Ingl&eacute;s
+        </a>
+       </li>
+      </ul>
+     </div>
+     <!-- Col 3: Ecosistema IBERO -->
+     <div>
+      <h4 class="text-white font-bold mb-4 text-sm">
+       Ecosistema
+      </h4>
+      <ul class="space-y-2 text-xs sm:text-sm">
+       <li>
+        <a class="hover:text-white transition-colors" href="https://qlase.goatify.app/" target="_blank">
+         Campus Virtual
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/ibero-academy/" target="_blank">
+         IBERO Academy
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/ibero-labs/" target="_blank">
+         IBERO Labs
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/artes-liberales/" target="_blank">
+         Artes liberales
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/consultor&iacute;a-en-educaci&oacute;n/" target="_blank">
+         Consultor&iacute;a B2B
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ia.goatify.app/#discovery" target="_blank">
+         Portal de Publicaciones
+        </a>
+       </li>
+      </ul>
+     </div>
+     <!-- Col 4: Nosotros -->
+     <div>
+      <h4 class="text-white font-bold mb-4 text-sm">
+       Nosotros
+      </h4>
+      <ul class="space-y-2 text-xs sm:text-sm">
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/" target="_blank">
+         Inicio Institucional
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/metodologia/" target="_blank">
+         Metodolog&iacute;a 360&deg;
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/#colaboraciones" target="_blank">
+         Alianzas y Avales
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/trabaja-con-nosotros/" target="_blank">
+         Nuestro Claustro
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/trabaja-con-nosotros/" target="_blank">
+         Trabaja con nosotros
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/contacto/" target="_blank">
+         Contactos y Soporte
+        </a>
+       </li>
+      </ul>
+     </div>
+     <!-- Col 5: Legal & Soporte -->
+     <div>
+      <h4 class="text-white font-bold mb-4 text-sm">
+       Legal &amp; Admisiones
+      </h4>
+      <ul class="space-y-2 text-xs sm:text-sm">
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/registro-y-admisiones/" target="_blank">
+         Registro y admisiones
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/ayuda-financiera/" target="_blank">
+         Ayuda Financiera
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/contacto/" target="_blank">
+         Soporte al Estudiante
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <!-- Incrementado el padding bottom en móvil (pb-32) para que el chatbot no tape el texto -->
+    <div class="flex flex-col md:flex-row justify-between items-center text-[10px] sm:text-xs pt-6 pb-32 md:pb-4 border-t border-zinc-900/50">
+     <p class="text-zinc-500 mb-4 md:mb-0 text-center">
+      &copy; 2026 Centro Iberoamericano (IBERO). Todos los derechos reservados.
+      <br/>
+      <span class="text-xs text-ibero-gray/60 block mt-1">
+       Calendario Acad&eacute;mico Institucional
+      </span>
+     </p>
+     <div class="flex flex-col items-center md:items-end gap-1.5 text-center md:text-right">
+      <p class="text-zinc-500">
+       Sitio desarrollado y dise&ntilde;ado por
+       <a class="text-ibero-purple hover:text-white font-bold transition-colors" href="https://www.goatify.app" target="_blank">
+        GOATIFY
+       </a>
+      </p>
+     </div>
+    </div>
+   </div>
+  </footer>
+  <script>
+   // --- LÓGICA DEL BOTÓN SCROLL TO TOP ---
+    const scrollTopBtn = document.getElementById('scroll-top-btn');
+    
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) {
+        scrollTopBtn.classList.add('visible');
+      } else {
+        scrollTopBtn.classList.remove('visible');
+      }
+    });
+
+    // --- LÓGICA DEL MENÚ MOBILE Y SCROLL NAVBAR ---
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navbar = document.getElementById('navbar');
+
+    if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+          if(mobileMenuBtn.innerHTML.includes('bars')){
+             mobileMenuBtn.innerHTML = '<i class="fa-solid fa-xmark text-xl"></i>';
+          } else {
+             mobileMenuBtn.innerHTML = '<i class="fa-solid fa-bars text-xl"></i>';
+          }
+        });
+    }
+
+    window.addEventListener('scroll', () => {
+       if (navbar) {
+           if (window.scrollY > 20) {
+              navbar.classList.add('shadow-md');
+              navbar.classList.remove('shadow-sm');
+           } else {
+              navbar.classList.remove('shadow-md');
+              navbar.classList.add('shadow-sm');
+           }
+       }
+    });
+
+    // --- LÓGICA DEL CHATBOT PRO COOL ---
+    let chatbotOpen = false;
+    const chatContainer = document.getElementById('chatbot-container');
+    const chatBody = document.getElementById('chatbot-body');
+    const chatOptions = document.getElementById('chatbot-options');
+    const chatToggleBtn = document.getElementById('chatbot-toggle');
+
+    function toggleChatbot(e) {
+        if(e) e.stopPropagation();
+        chatbotOpen = !chatbotOpen;
+        if(chatbotOpen) {
+            chatContainer.classList.remove('opacity-0', 'translate-y-10', 'pointer-events-none');
+            chatToggleBtn.querySelector('.chatbot-icon-open').classList.add('hidden');
+            chatToggleBtn.querySelector('.chatbot-icon-close').classList.remove('hidden');
+        } else {
+            chatContainer.classList.add('opacity-0', 'translate-y-10', 'pointer-events-none');
+            chatToggleBtn.querySelector('.chatbot-icon-open').classList.remove('hidden');
+            chatToggleBtn.querySelector('.chatbot-icon-close').classList.add('hidden');
+        }
+    }
+
+    // Cierre del chatbot al dar clic afuera de su contenedor
+    document.addEventListener('click', function(event) {
+        if (chatbotOpen && !chatContainer.contains(event.target) && !chatToggleBtn.contains(event.target)) {
+            toggleChatbot();
+        }
+    });
+
+    // Impedir que los clics dentro del chatbot lo cierren
+    chatContainer.addEventListener('click', function(event) {
+        event.stopPropagation();
+    });
+
+    function addMessage(text, isUser = false) {
+        const div = document.createElement('div');
+        div.className = isUser ? 'chat-bubble-user animate-fade-in-up' : 'chat-bubble-bot animate-fade-in-up';
+        div.innerHTML = text;
+        chatBody.appendChild(div);
+        chatBody.scrollTop = chatBody.scrollHeight;
+    }
+
+    function showTyping() {
+        const div = document.createElement('div');
+        div.id = 'typing-indicator';
+        div.className = 'chat-bubble-bot typing-indicator';
+        div.innerHTML = '<span></span><span></span><span></span>';
+        chatBody.appendChild(div);
+        chatBody.scrollTop = chatBody.scrollHeight;
+    }
+
+    function removeTyping() {
+        const typing = document.getElementById('typing-indicator');
+        if(typing) typing.remove();
+    }
+
+    function botAnswer(type) {
+        chatOptions.style.display = 'none'; 
+        
+        if(type === 'fechas') addMessage('¿Cuáles son las fechas de los próximos inicios?', true);
+        if(type === 'precios') addMessage('Dime sobre los precios y la inversión.', true);
+        if(type === 'master') addMessage('Quiero información del Executive Master en IA.', true);
+        if(type === 'diplomado') addMessage('¿De qué trata el Diplomado en IA?', true);
+        if(type === 'cursos') addMessage('¿Qué cursos cortos o talleres ofrecen?', true);
+        if(type === 'gratis') addMessage('¿Cómo puedo entrar a las Clases Gratis?', true);
+
+        showTyping();
+
+        setTimeout(() => {
+            removeTyping();
+            
+            if(type === 'fechas') {
+                addMessage('¡Claro! 🚀 Aquí tienes los <em>próximos arranques confirmados</em>:<br><br>• <strong>MKT Digital con IA:</strong> <em>30 de Marzo</em><br>• <strong>IA para Docentes:</strong> <em>6 de Abril</em><br>• <strong>Aprende a Hablar en Público:</strong> <em>11 de Abril</em><br>• <strong>Monetiza tu Idea con IA:</strong> <em>13 de Abril</em><br>• <strong>Crea tu Academia:</strong> <em>20 de Abril</em><br>• <strong>Diplomado Integral IA:</strong> <em>27 de Abril</em><br><br>💡 <em>Navega por el calendario y haz clic en cualquier programa para inscribirte directamente.</em>');
+            }
+            if(type === 'precios') {
+                addMessage('💸 <strong>Inversión y Descuentos (30% OFF pre-aplicado):</strong><br><br>• <strong>Cursos (1 Semana):</strong> <em>USD $47</em> (Aprox. MXN $850 / PEN S/185 / COP $190k)<br>• <strong>Talleres Presenciales:</strong> <em>USD $37</em><br>• <strong>Diplomado Integral (5 Semanas):</strong> <em>USD $197</em><br>• <strong>Executive Master (5 Meses):</strong> <em>USD $367</em><br><br>✨ <em>Todos los programas incluyen certificado oficial y acceso a grabaciones. ¡Elige tu programa y asegura tu lugar hoy!</em>');
+            }
+            if(type === 'master') {
+                addMessage('👑 <strong>Executive Master en IA Aplicada</strong><br><br>Nuestro programa de élite, diseñado para transformar tu perfil profesional a nivel directivo. Aprenderás a liderar la integración de IA en corporativos y startups.<br><br>• <strong>Inicia:</strong> <em>1 de Junio de 2026</em><br>• <strong>Duración:</strong> <em>5 meses intensivos</em><br>• <strong>Inversión:</strong> <em>USD $367</em><br><br><a href="https://ibero.education/master-ejecutivo-ia" target="_blank" class="inline-flex items-center gap-1 mt-3 px-4 py-2 bg-ibero-red text-white text-[13px] font-bold rounded-lg hover:bg-ibero-darkRed transition-all shadow-lg shadow-red-500/30">Postular al Master <i class="ph-bold ph-arrow-right"></i></a>');
+            }
+            if(type === 'diplomado') {
+                addMessage('🎓 <strong>Diplomado en IA Aplicada a Negocios y MKT</strong><br><br>5 semanas intensivas para dominar la IA. Crearás contenido automatizado, embudos de venta y escalarás tu negocio con herramientas de vanguardia.<br><br>• <strong>Inicia:</strong> <em>27 de Abril</em><br>• <strong>Inversión:</strong> <em>USD $197</em> (Ahorras 30%)<br><br><a href="https://ibero.education/diplomado-ia-negocios-marketing" target="_blank" class="inline-flex items-center gap-1 mt-3 px-4 py-2 bg-ibero-red text-white text-[13px] font-bold rounded-lg hover:bg-ibero-darkRed transition-all shadow-lg shadow-red-500/30">Inscribirme al Diplomado <i class="ph-bold ph-arrow-right"></i></a>');
+            }
+            if(type === 'cursos') {
+                addMessage('📘 <strong>Certificaciones y Talleres de 1 Semana:</strong><br><br>Especialízate rápido con nuestros cursos (USD $47 c/u):<br><br>• <a href="https://ibero.education/marketing-digital-con-ia" target="_blank" class="text-blue-400 hover:text-blue-300 underline font-semibold">Marketing Digital con IA</a><br>• <a href="https://ibero.education/ia-para-docentes" target="_blank" class="text-blue-400 hover:text-blue-300 underline font-semibold">IA para Docentes</a><br>• <a href="https://ibero.education/monetiza-tu-idea" target="_blank" class="text-blue-400 hover:text-blue-300 underline font-semibold">Monetiza tu Idea</a><br>• <a href="https://ibero.education/crea-tu-academia" target="_blank" class="text-blue-400 hover:text-blue-300 underline font-semibold">Crea tu Academia</a><br>• <a href="https://ibero.education/comunicacion-efectiva" target="_blank" class="text-blue-400 hover:text-blue-300 underline font-semibold">Hablar en Público (Taller Presencial USD $37)</a>');
+            }
+            if(type === 'gratis') {
+                addMessage('🟢 <strong>Clases de Prueba Gratuitas</strong><br><br>Ofrecemos una <em>Clase Introductoria en Vivo y sin costo</em> exactamente una semana antes del inicio oficial de casi todos nuestros programas.<br><br>Busca en el calendario los eventos marcados en verde con <strong>🟢 Clase Gratis</strong> y dale clic para reservar tu cupo.');
+            }
+
+            setTimeout(() => {
+                chatOptions.style.display = 'grid';
+                chatBody.scrollTop = chatBody.scrollHeight;
+            }, 800);
+
+        }, 1200);
+    }
+
+    // --- LÓGICA DEL CALENDARIO BASE INTACTA ---
+    const links = {
+      diplomado: 'https://ibero.education/diplomado-ia-negocios-marketing',
+      docentes: 'https://ibero.education/ia-para-docentes',
+      marketing: 'https://ibero.education/marketing-digital-con-ia',
+      creaCurso: 'https://ibero.education/crea-tu-academia',
+      monetiza: 'https://ibero.education/monetiza-tu-idea',
+      hablar: 'https://ibero.education/comunicacion-efectiva',
+      master: 'https://ibero.education/master-ejecutivo-ia'
+    };
+
+    const pricing = {
+      gratis: { usd: 'Gratis', mxn: 'Gratis', pen: 'Gratis', cop: 'Gratis' },
+      curso: { usd: '$47', mxn: '$850', pen: 'S/ 185', cop: '$190,000', originalUsd: '$67', originalMxn: '$1,214', originalPen: 'S/ 264', originalCop: '$271,428' },
+      taller: { usd: '$37', mxn: '$680', pen: 'S/ 150', cop: '$150,000', originalUsd: '$53', originalMxn: '$971', originalPen: 'S/ 214', originalCop: '$214,285' },
+      diplomado: { usd: '$197', mxn: '$3,500', pen: 'S/ 750', cop: '$790,000', originalUsd: '$281', originalMxn: '$5,000', originalPen: 'S/ 1,071', originalCop: '$1,128,571' },
+      master: { usd: '$367', mxn: '$6,600', pen: 'S/ 1,400', cop: '$1,470,000', originalUsd: '$524', originalMxn: '$9,430', originalPen: 'S/ 2,000', originalCop: '$2,100,000' },
+      inscripcion: null,
+      comercial: null
+    };
+
+    function getProgClass(ev) {
+      if (ev.type === 'inscripcion') return 'prog-inscripcion';
+      if (ev.type === 'gratis') return 'prog-gratis';
+      if (ev.type === 'comercial') return 'prog-comercial';
+      if (ev.type === 'master') return 'prog-master';
+      
+      const title = (ev.title || '').toUpperCase();
+      if (title.includes('MARKETING DIGITAL')) return 'prog-marketing';
+      if (title.includes('DOCENTES')) return 'prog-docentes';
+      if (title.includes('MONETIZA')) return 'prog-monetiza';
+      if (title.includes('CREA TU CURSO')) return 'prog-crea';
+      if (title.includes('DIPLOMADO')) return 'prog-diplo';
+      if (title.includes('HABLAR EN PÚBLICO')) return 'prog-hablar';
+      if (title.includes('EXECUTIVE MASTER')) return 'prog-master';
+      
+      return 'prog-marketing'; // Fallback
+    }
+
+    function getProgramEmoji(title) {
+      const t = (title || '').toUpperCase();
+      if (t.includes('CLASE GRATIS') || t.includes('GRATIS') || t.includes('🟢')) return '🟢';
+      if (t.includes('EXECUTIVE MASTER')) return '⚫';
+      if (t.includes('MARKETING DIGITAL')) return '🔵';
+      if (t.includes('DOCENTES')) return '🟣';
+      if (t.includes('MONETIZA')) return '🟡';
+      if (t.includes('CREA TU CURSO')) return '⚪'; 
+      if (t.includes('DIPLOMADO')) return '🔴';
+      if (t.includes('HABLAR EN PÚBLICO')) return '🟠';
+      return '🔴';
+    }
+
+    // Funciones Auxiliares para formatear los horarios multipaís
+    function formatScheduleDisplay(scheduleStr) {
+      if (scheduleStr.includes('7:00 PM - 9:00 PM')) {
+          let days = scheduleStr.split(',')[0];
+          return `${days} | 7:00 PM - 9:00 PM (EC/CO/PE) • 6:00 PM - 8:00 PM (MX)`;
+      } else if (scheduleStr.includes('9:00 PM - 10:00 PM')) {
+          let days = scheduleStr.split(',')[0];
+          return `${days} | 9:00 PM - 10:00 PM (EC/CO/PE) • 8:00 PM - 9:00 PM (MX)`;
+      } else if (scheduleStr.includes('9:00 AM a 1:00 PM')) {
+          let days = scheduleStr.split(',')[0];
+          return `${days} | 9:00 AM a 1:00 PM (Hora EC)`;
+      }
+      return scheduleStr;
+    }
+
+    function formatScheduleModal(scheduleStr) {
+      if (scheduleStr.includes('7:00 PM - 9:00 PM')) {
+          let days = scheduleStr.split(',')[0];
+          return `${days}<br><span class="text-white/70 text-[0.7rem] sm:text-xs font-normal mt-1 inline-block leading-tight">7:00 PM a 9:00 PM (EC/CO/PE)<br>6:00 PM a 8:00 PM (MX)</span>`;
+      } else if (scheduleStr.includes('9:00 PM - 10:00 PM')) {
+          let days = scheduleStr.split(',')[0];
+          return `${days}<br><span class="text-white/70 text-[0.7rem] sm:text-xs font-normal mt-1 inline-block leading-tight">9:00 PM a 10:00 PM (EC/CO/PE)<br>8:00 PM a 9:00 PM (MX)</span>`;
+      } else if (scheduleStr.includes('9:00 AM a 1:00 PM')) {
+          let days = scheduleStr.split(',')[0];
+          return `${days}<br><span class="text-white/70 text-[0.7rem] sm:text-xs font-normal mt-1 inline-block leading-tight">9:00 AM a 1:00 PM (Hora EC)</span>`;
+      }
+      return scheduleStr;
+    }
+
+    const baseSchedule = [
+      { week: 'Semana 1', startWeek: '2026-03-16', endWeek: '2026-03-22', events: [] },
+      { week: 'Semana 2', startWeek: '2026-03-23', endWeek: '2026-03-29', events: [] },
+      {
+        week: 'Semana 3', startWeek: '2026-03-30', endWeek: '2026-04-05',
+        events: [
+          { title: 'MARKETING DIGITAL CON INTELIGENCIA ARTIFICIAL', type: 'curso', start: '2026-03-30', end: '2026-04-02', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Aprende a integrar la IA en tus embudos de marketing.', link: links.marketing }
+        ]
+      },
+      {
+        week: 'Semana 4', startWeek: '2026-04-06', endWeek: '2026-04-12',
+        events: [
+          { title: 'INTELIGENCIA ARTIFICIAL PARA DOCENTES', type: 'curso', start: '2026-04-06', end: '2026-04-09', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Transforma tu metodología educativa utilizando IA.', link: links.docentes },
+          { title: 'APRENDE A HABLAR EN PÚBLICO', type: 'taller', start: '2026-04-11', end: '2026-04-11', schedule: 'Sábado, 9:00 AM a 1:00 PM', desc: 'Domina el escenario y la comunicación no verbal.', link: links.hablar }
+        ]
+      },
+      {
+        week: 'Semana 5', startWeek: '2026-04-13', endWeek: '2026-04-19',
+        events: [
+          { title: 'MONETIZA TU IDEA CON IA', type: 'curso', start: '2026-04-13', end: '2026-04-16', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Estructura tu modelo de negocio digital.', link: links.monetiza }
+        ]
+      },
+      {
+        week: 'Semana 6', startWeek: '2026-04-20', endWeek: '2026-04-26',
+        events: [
+          { title: 'CREA TU CURSO ONLINE Y MONETIZA', type: 'curso', start: '2026-04-20', end: '2026-04-23', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Empaqueta tu conocimiento en un producto digital.', link: links.creaCurso },
+          { title: 'APRENDE A HABLAR EN PÚBLICO', type: 'taller', start: '2026-04-25', end: '2026-04-25', schedule: 'Sábado, 9:00 AM a 1:00 PM', desc: 'Domina el escenario y la comunicación no verbal.', link: links.hablar }
+        ]
+      },
+      {
+        week: 'Semana 7', startWeek: '2026-04-27', endWeek: '2026-05-03',
+        events: [
+          { title: 'DIPLOMADO EN IA APLICADA A NEGOCIOS, MARKETING Y COMUNICACIÓN', type: 'diplomado', start: '2026-04-27', end: '2026-04-30', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Módulo 1: Fundamentos estratégicos de IA para empresas.', link: links.diplomado }
+        ]
+      },
+      {
+        week: 'Semana 8', startWeek: '2026-05-04', endWeek: '2026-05-10',
+        events: [
+          { title: 'DIPLOMADO EN IA APLICADA A NEGOCIOS, MARKETING Y COMUNICACIÓN', type: 'diplomado', start: '2026-05-04', end: '2026-05-07', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Módulo 2: Herramientas avanzadas de marketing.', link: links.diplomado },
+          { title: 'APRENDE A HABLAR EN PÚBLICO', type: 'taller', start: '2026-05-09', end: '2026-05-09', schedule: 'Sábado, 9:00 AM a 1:00 PM', desc: 'Taller presencial de alto impacto.', link: links.hablar }
+        ]
+      },
+      {
+        week: 'Semana 9', startWeek: '2026-05-11', endWeek: '2026-05-17',
+        events: [
+          { title: 'DIPLOMADO EN IA APLICADA A NEGOCIOS, MARKETING Y COMUNICACIÓN', type: 'diplomado', start: '2026-05-11', end: '2026-05-14', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Módulo 3: Creación de contenido automatizado.', link: links.diplomado }
+        ]
+      },
+      {
+        week: 'Semana 10', startWeek: '2026-05-18', endWeek: '2026-05-24',
+        events: [
+          { title: 'DIPLOMADO EN IA APLICADA A NEGOCIOS, MARKETING Y COMUNICACIÓN', type: 'diplomado', start: '2026-05-18', end: '2026-05-21', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Módulo 4: Proyecto final y graduación.', link: links.diplomado }
+        ]
+      },
+      {
+        week: 'Semana 11', startWeek: '2026-05-25', endWeek: '2026-05-31',
+        events: [
+          { title: 'DIPLOMADO EN IA APLICADA A NEGOCIOS, MARKETING Y COMUNICACIÓN', type: 'diplomado', start: '2026-05-25', end: '2026-05-28', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Módulo 5: Casos prácticos y cierre.', link: links.diplomado }
+        ]
+      },
+      {
+        week: 'Semana 12', startWeek: '2026-06-01', endWeek: '2026-06-07',
+        events: [
+          { title: 'MARKETING DIGITAL CON INTELIGENCIA ARTIFICIAL', type: 'curso', start: '2026-06-01', end: '2026-06-04', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Cohorte de Junio.', link: links.marketing },
+          { title: 'APRENDE A HABLAR EN PÚBLICO', type: 'taller', start: '2026-06-06', end: '2026-06-06', schedule: 'Sábado, 9:00 AM a 1:00 PM', desc: 'Taller práctico presencial.', link: links.hablar }
+        ]
+      },
+      {
+        week: 'Semana 13', startWeek: '2026-06-08', endWeek: '2026-06-14',
+        events: [
+          { title: 'INTELIGENCIA ARTIFICIAL PARA DOCENTES', type: 'curso', start: '2026-06-08', end: '2026-06-11', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Cohorte de Junio.', link: links.docentes }
+        ]
+      },
+      {
+        week: 'Semana 14', startWeek: '2026-06-15', endWeek: '2026-06-21',
+        events: [
+          { title: 'MONETIZA TU IDEA CON IA', type: 'curso', start: '2026-06-15', end: '2026-06-18', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Cohorte de Junio.', link: links.monetiza },
+          { title: 'APRENDE A HABLAR EN PÚBLICO', type: 'taller', start: '2026-06-20', end: '2026-06-20', schedule: 'Sábado, 9:00 AM a 1:00 PM', desc: 'Taller práctico presencial.', link: links.hablar }
+        ]
+      },
+      {
+        week: 'Semana 15', startWeek: '2026-06-22', endWeek: '2026-06-28',
+        events: [
+          { title: 'CREA TU CURSO ONLINE Y MONETIZA', type: 'curso', start: '2026-06-22', end: '2026-06-25', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Cohorte de Junio.', link: links.creaCurso }
+        ]
+      },
+      {
+        week: 'Semana 16', startWeek: '2026-06-29', endWeek: '2026-07-05',
+        events: [
+          { title: 'DIPLOMADO EN IA APLICADA A NEGOCIOS, MARKETING Y COMUNICACIÓN (2da Edición)', type: 'diplomado', start: '2026-06-29', end: '2026-07-02', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Módulo 1: Fundamentos estratégicos de IA para empresas.', link: links.diplomado },
+          { title: 'APRENDE A HABLAR EN PÚBLICO', type: 'taller', start: '2026-07-04', end: '2026-07-04', schedule: 'Sábado, 9:00 AM a 1:00 PM', desc: 'Taller práctico presencial.', link: links.hablar }
+        ]
+      },
+      {
+        week: 'Semana 17', startWeek: '2026-07-06', endWeek: '2026-07-12',
+        events: [
+          { title: 'DIPLOMADO EN IA APLICADA A NEGOCIOS, MARKETING Y COMUNICACIÓN (2da Edición)', type: 'diplomado', start: '2026-07-06', end: '2026-07-09', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Módulo 2: Herramientas avanzadas de marketing.', link: links.diplomado }
+        ]
+      },
+      {
+        week: 'Semana 18', startWeek: '2026-07-13', endWeek: '2026-07-19',
+        events: [
+          { title: 'DIPLOMADO EN IA APLICADA A NEGOCIOS, MARKETING Y COMUNICACIÓN (2da Edición)', type: 'diplomado', start: '2026-07-13', end: '2026-07-16', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Módulo 3: Creación de contenido automatizado.', link: links.diplomado },
+          { title: 'APRENDE A HABLAR EN PÚBLICO', type: 'taller', start: '2026-07-18', end: '2026-07-18', schedule: 'Sábado, 9:00 AM a 1:00 PM', desc: 'Taller práctico presencial.', link: links.hablar }
+        ]
+      },
+      {
+        week: 'Semana 19', startWeek: '2026-07-20', endWeek: '2026-07-26',
+        events: [
+          { title: 'DIPLOMADO EN IA APLICADA A NEGOCIOS, MARKETING Y COMUNICACIÓN (2da Edición)', type: 'diplomado', start: '2026-07-20', end: '2026-07-23', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Módulo 4: Proyecto final y presentación.', link: links.diplomado }
+        ]
+      },
+      {
+        week: 'Semana 20', startWeek: '2026-07-27', endWeek: '2026-08-02',
+        events: [
+          { title: 'DIPLOMADO EN IA APLICADA A NEGOCIOS, MARKETING Y COMUNICACIÓN (2da Edición)', type: 'diplomado', start: '2026-07-27', end: '2026-07-30', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Módulo 5: Casos prácticos y graduación.', link: links.diplomado },
+          { title: 'APRENDE A HABLAR EN PÚBLICO', type: 'taller', start: '2026-08-01', end: '2026-08-01', schedule: 'Sábado, 9:00 AM a 1:00 PM', desc: 'Taller práctico presencial.', link: links.hablar }
+        ]
+      },
+      {
+        week: 'Semana 21', startWeek: '2026-08-03', endWeek: '2026-08-09',
+        events: [
+          { title: 'INTELIGENCIA ARTIFICIAL PARA DOCENTES', type: 'curso', start: '2026-08-03', end: '2026-08-06', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Cohorte de Agosto.', link: links.docentes }
+        ]
+      },
+      {
+        week: 'Semana 22', startWeek: '2026-08-10', endWeek: '2026-08-16',
+        events: [
+          { title: 'Semana Comercial (No Cohorte por Feriado)', type: 'comercial', start: '2026-08-10', end: '2026-08-13', schedule: 'Toda la semana', desc: 'Ventas y remarketing.' },
+          { title: 'APRENDE A HABLAR EN PÚBLICO', type: 'taller', start: '2026-08-15', end: '2026-08-15', schedule: 'Sábado, 9:00 AM a 1:00 PM', desc: 'Taller práctico presencial.', link: links.hablar }
+        ]
+      },
+      {
+        week: 'Semana 23', startWeek: '2026-08-17', endWeek: '2026-08-23',
+        events: [
+          { title: 'MONETIZA TU IDEA CON IA', type: 'curso', start: '2026-08-17', end: '2026-08-20', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Cohorte de Agosto.', link: links.monetiza }
+        ]
+      },
+      {
+        week: 'Semana 24', startWeek: '2026-08-24', endWeek: '2026-08-30',
+        events: [
+          { title: 'CREA TU CURSO ONLINE Y MONETIZA', type: 'curso', start: '2026-08-24', end: '2026-08-27', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Cohorte de Agosto.', link: links.creaCurso },
+          { title: 'APRENDE A HABLAR EN PÚBLICO', type: 'taller', start: '2026-08-29', end: '2026-08-29', schedule: 'Sábado, 9:00 AM a 1:00 PM', desc: 'Taller práctico presencial.', link: links.hablar }
+        ]
+      },
+      {
+        week: 'Semana 25', startWeek: '2026-08-31', endWeek: '2026-09-06',
+        events: [
+          { title: 'MARKETING DIGITAL CON INTELIGENCIA ARTIFICIAL', type: 'curso', start: '2026-08-31', end: '2026-09-03', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Cohorte de Septiembre.', link: links.marketing }
+        ]
+      },
+      {
+        week: 'Semana 26', startWeek: '2026-09-07', endWeek: '2026-09-13',
+        events: [
+          { title: 'INTELIGENCIA ARTIFICIAL PARA DOCENTES', type: 'curso', start: '2026-09-07', end: '2026-09-10', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Cohorte de Septiembre.', link: links.docentes },
+          { title: 'APRENDE A HABLAR EN PÚBLICO', type: 'taller', start: '2026-09-12', end: '2026-09-12', schedule: 'Sábado, 9:00 AM a 1:00 PM', desc: 'Taller práctico presencial.', link: links.hablar }
+        ]
+      },
+      {
+        week: 'Semana 27', startWeek: '2026-09-14', endWeek: '2026-09-20',
+        events: [
+          { title: 'MONETIZA TU IDEA CON IA', type: 'curso', start: '2026-09-14', end: '2026-09-17', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Cohorte de Septiembre.', link: links.monetiza }
+        ]
+      },
+      {
+        week: 'Semana 28', startWeek: '2026-09-21', endWeek: '2026-09-27',
+        events: [
+          { title: 'CREA TU CURSO ONLINE Y MONETIZA', type: 'curso', start: '2026-09-21', end: '2026-09-24', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Cohorte de Septiembre.', link: links.creaCurso },
+          { title: 'APRENDE A HABLAR EN PÚBLICO', type: 'taller', start: '2026-09-26', end: '2026-09-26', schedule: 'Sábado, 9:00 AM a 1:00 PM', desc: 'Taller práctico presencial.', link: links.hablar }
+        ]
+      },
+      // Semanas extendidas
+      { week: 'Semana 29', startWeek: '2026-09-28', endWeek: '2026-10-04', events: [] },
+      { week: 'Semana 30', startWeek: '2026-10-05', endWeek: '2026-10-11', events: [] },
+      { week: 'Semana 31', startWeek: '2026-10-12', endWeek: '2026-10-18', events: [] },
+      { week: 'Semana 32', startWeek: '2026-10-19', endWeek: '2026-10-25', events: [] },
+      { week: 'Semana 33', startWeek: '2026-10-26', endWeek: '2026-11-01', events: [] },
+      { week: 'Semana 34', startWeek: '2026-11-02', endWeek: '2026-11-08', events: [] },
+      { week: 'Semana 35', startWeek: '2026-11-09', endWeek: '2026-11-15', events: [] },
+      { week: 'Semana 36', startWeek: '2026-11-16', endWeek: '2026-11-22', events: [] },
+      { week: 'Semana 37', startWeek: '2026-11-23', endWeek: '2026-11-29', events: [] }
+    ];
+
+    let dbSchedule = [];
+
+    // Inyectar Executive Master
+    function injectMaster(schedule) {
+      let finalSchedule = JSON.parse(JSON.stringify(schedule));
+      finalSchedule.forEach(w => {
+         if (w.startWeek >= '2026-06-01' && w.startWeek <= '2026-11-23') {
+           let [y, m, d] = w.startWeek.split('-');
+           let d1 = new Date(y, parseInt(m)-1, d);
+           let d2 = new Date(y, parseInt(m)-1, d);
+           d2.setDate(d2.getDate() + 4); // Lunes a viernes
+           let endStr = `${d2.getFullYear()}-${String(d2.getMonth()+1).padStart(2,'0')}-${String(d2.getDate()).padStart(2,'0')}`;
+           w.events.push({
+             title: 'EXECUTIVE MASTER EN IA APLICADA A NEGOCIOS, MARKETING Y COMUNICACIÓN',
+             type: 'master', start: w.startWeek, end: endStr, schedule: 'Lun a Vie, 9:00 PM - 10:00 PM',
+             desc: 'Programa de maestría ejecutiva intensiva (1 hora síncrona y 1 hora asíncrona).', link: links.master 
+           });
+         }
+      });
+      const inscWeek = finalSchedule.find(w => w.startWeek === '2026-05-04');
+      if (inscWeek) {
+        inscWeek.events.push({
+           title: '⚫ Inscripciones: EXECUTIVE MASTER EN IA APLICADA A NEGOCIOS, MARKETING Y COMUNICACIÓN',
+           type: 'inscripcion', start: '2026-05-04', end: '2026-05-04', schedule: 'Inicia el 1 de Junio',
+           desc: 'Apertura oficial de inscripciones al Executive Master.', link: links.master, relatedType: 'master'
+        });
+      }
+      return finalSchedule;
+    }
+
+    // Inyectar Inscripciones y Clases Gratis dinámicamente
+    function processDynamicEvents(schedule) {
+      let finalSchedule = JSON.parse(JSON.stringify(schedule));
+      let newEvents = [];
+      finalSchedule.forEach(week => {
+        week.events.forEach(ev => {
+          if(ev.type === 'comercial' || ev.type === 'inscripcion' || ev.type === 'master') return;
+          if(ev.type === 'gratis') {
+            const startDate = new Date(ev.start + 'T12:00:00');
+            startDate.setDate(startDate.getDate() - 6);
+            const isoDate = startDate.toISOString().split('T')[0];
+            let cleanTitle = ev.title.replace('🟢 ', '');
+            newEvents.push({ title: `🟢 Inscripciones: ${cleanTitle}`, type: 'inscripcion', start: isoDate, end: isoDate, schedule: `Clase el ${formatDate(ev.start)}`, desc: `Apertura de registros para la clase gratuita.`, link: ev.link, relatedType: 'gratis' });
+            return;
+          }
+          let diasAntesInsc = 0;
+          if(ev.type === 'curso' || ev.type === 'taller') diasAntesInsc = 14;
+          else if(ev.type === 'diplomado') diasAntesInsc = 28;
+          if(diasAntesInsc > 0) {
+            const startDate = new Date(ev.start + 'T12:00:00');
+            startDate.setDate(startDate.getDate() - diasAntesInsc);
+            const isoDate = startDate.toISOString().split('T')[0];
+            newEvents.push({ title: `${getProgramEmoji(ev.title)} Inscripciones: ${ev.title}`, type: 'inscripcion', start: isoDate, end: isoDate, schedule: `Inicia el ${formatDate(ev.start)}`, desc: `Apertura oficial de inscripciones. Asegura tu lugar con un 30% de descuento especial pre-aplicado.`, link: ev.link, relatedType: ev.type });
+          }
+          if ((ev.type === 'curso' || ev.type === 'diplomado') && !ev.title.includes('DOCENTES') && !ev.title.includes('HABLAR EN PÚBLICO')) {
+            const freeClassDate = new Date(ev.start + 'T12:00:00');
+            freeClassDate.setDate(freeClassDate.getDate() - 6);
+            const isoDateFree = freeClassDate.toISOString().split('T')[0];
+            newEvents.push({ title: `🟢 Clase Gratis: ${ev.title}`, type: 'gratis', start: isoDateFree, end: isoDateFree, schedule: '9:00 PM - 10:00 PM', desc: `Clase gratuita introductoria en vivo previa al inicio del programa.`, link: ev.link, relatedType: ev.type });
+            const freeClassInscDate = new Date(isoDateFree + 'T12:00:00');
+            freeClassInscDate.setDate(freeClassInscDate.getDate() - 6);
+            const isoDateFreeInsc = freeClassInscDate.toISOString().split('T')[0];
+            newEvents.push({ title: `🟢 Inscripciones: Clase Gratis - ${ev.title}`, type: 'inscripcion', start: isoDateFreeInsc, end: isoDateFreeInsc, schedule: `Clase en vivo el ${formatDate(isoDateFree)}`, desc: `Apertura de registros para la clase gratuita introductoria.`, link: ev.link, relatedType: 'gratis' });
+          }
+        });
+      });
+      newEvents.forEach(evt => {
+        let matchedWeek = finalSchedule.find(w => evt.start >= w.startWeek && evt.start <= w.endWeek);
+        if(!matchedWeek) matchedWeek = finalSchedule[0];
+        matchedWeek.events.push(evt);
+      });
+      finalSchedule.forEach(w => w.events.sort((a, b) => a.start.localeCompare(b.start)));
+      return finalSchedule;
+    }
+
+    let currentView = 'list';
+    let calMonth = 2; // Marzo
+    let calYear = 2026;
+
+    // --- LOGICA DEL DROPDOWN MULTIPLE ---
+    function toggleProgramDropdown() {
+      document.getElementById('prog-dropdown-menu').classList.toggle('hidden');
+    }
+
+    document.addEventListener('click', function(event) {
+      const container = document.getElementById('programs-dropdown-container');
+      if (container && !container.contains(event.target)) {
+        document.getElementById('prog-dropdown-menu').classList.add('hidden');
+      }
+    });
+
+    function toggleAllPrograms(masterCb) {
+      const checkboxes = document.querySelectorAll('.program-checkbox');
+      checkboxes.forEach(cb => cb.checked = masterCb.checked);
+      updateDropdownText();
+      renderApp();
+    }
+
+    function handleProgramCheckboxChange() {
+      const allCheckboxes = document.querySelectorAll('.program-checkbox');
+      const checkedCheckboxes = document.querySelectorAll('.program-checkbox:checked');
+      const masterCb = document.getElementById('check-all-progs');
+      if(masterCb) masterCb.checked = (allCheckboxes.length === checkedCheckboxes.length);
+      updateDropdownText();
+      renderApp();
+    }
+
+    function updateDropdownText() {
+      const allCheckboxes = document.querySelectorAll('.program-checkbox');
+      const checkedCheckboxes = document.querySelectorAll('.program-checkbox:checked');
+      const btnText = document.getElementById('prog-dropdown-text');
+      if (checkedCheckboxes.length === allCheckboxes.length || checkedCheckboxes.length === 0) {
+        btnText.textContent = 'Todos los programas';
+      } else if (checkedCheckboxes.length === 1) {
+        btnText.textContent = checkedCheckboxes[0].value;
+      } else {
+        btnText.textContent = `${checkedCheckboxes.length} programas seleccionados`;
+      }
+    }
+
+    function init() {
+      dbSchedule = processDynamicEvents(injectMaster(baseSchedule));
+      const allEvents = dbSchedule.flatMap(w => w.events);
+      const uniqueTitles = [...new Set(allEvents.map(e => e.title))].filter(t => !t.includes('Semana de Cierre') && !t.includes('Inscripciones:') && !t.includes('Clase Gratis:'));
+      
+      const progContainer = document.getElementById('prog-dropdown-menu');
+      progContainer.innerHTML = '';
+      progContainer.innerHTML += `
+        <label class="cursor-pointer flex items-center gap-3 p-2 hover:bg-white/5 rounded-md transition-colors border-b border-white/5 mb-1">
+          <input type="checkbox" id="check-all-progs" checked onchange="toggleAllPrograms(this)" class="w-4 h-4 accent-ibero-red bg-ibero-dark border-white/20 rounded">
+          <span class="text-sm font-bold text-white">Seleccionar Todos</span>
+        </label>
+      `;
+      uniqueTitles.forEach((t) => {
+        const wrapper = document.createElement('label');
+        wrapper.className = 'cursor-pointer flex items-center gap-3 p-2 hover:bg-white/5 rounded-md transition-colors';
+        wrapper.innerHTML = `
+          <input type="checkbox" value="${t}" class="program-checkbox w-4 h-4 accent-ibero-red bg-ibero-dark border-white/20 rounded" checked onchange="handleProgramCheckboxChange()">
+          <span class="text-sm text-gray-300 line-clamp-2 leading-tight">${t}</span>
+        `;
+        progContainer.appendChild(wrapper);
+      });
+      updateDropdownText();
+      renderApp();
+    }
+
+    function renderApp() {
+      if (currentView === 'list') {
+        document.getElementById('view-list').classList.remove('hidden');
+        document.getElementById('view-calendar').classList.add('hidden');
+        renderList();
+      } else {
+        document.getElementById('view-list').classList.add('hidden');
+        document.getElementById('view-calendar').classList.remove('hidden');
+        renderCalendar();
+      }
+    }
+
+    function setView(view) {
+      currentView = view;
+      const btnList = document.getElementById('btn-view-list');
+      const btnCal = document.getElementById('btn-view-cal');
+      if (view === 'list') {
+        btnList.className = 'flex-1 py-2 px-4 rounded-md bg-ibero-red text-white font-semibold transition-colors flex items-center justify-center gap-2 shadow-lg';
+        btnCal.className = 'flex-1 py-2 px-4 rounded-md text-ibero-gray hover:text-white transition-colors flex items-center justify-center gap-2';
+      } else {
+        btnCal.className = 'flex-1 py-2 px-4 rounded-md bg-ibero-red text-white font-semibold transition-colors flex items-center justify-center gap-2 shadow-lg';
+        btnList.className = 'flex-1 py-2 px-4 rounded-md text-ibero-gray hover:text-white transition-colors flex items-center justify-center gap-2';
+      }
+      renderApp();
+    }
+
+    function getFilteredEvents() {
+      const type = document.getElementById('filter-type').value;
+      const checkedPrograms = Array.from(document.querySelectorAll('.program-checkbox:checked')).map(cb => cb.value);
+
+      return dbSchedule.map(week => {
+        return {
+          ...week,
+          events: week.events.filter(e => {
+            const matchesProg = checkedPrograms.some(prog => e.title.includes(prog) || prog === e.title);
+            if (!matchesProg) return false;
+            if (type !== 'all' && e.type !== type) return false;
+            return true;
+          })
+        };
+      }).filter(week => {
+        const allCheckboxes = document.querySelectorAll('.program-checkbox');
+        const allChecked = checkedPrograms.length === allCheckboxes.length;
+        if (allChecked && type === 'all') return true; 
+        return week.events.length > 0;
+      });
+    }
+
+    function formatDate(dateString) {
+      const options = { day: 'numeric', month: 'short' };
+      return new Date(dateString + 'T12:00:00').toLocaleDateString('es-ES', options);
+    }
+
+    function getIconForType(type) {
+      switch(type) {
+        case 'curso': return '<i class="ph-fill ph-book-open"></i>';
+        case 'diplomado': return '<i class="ph-fill ph-graduation-cap"></i>';
+        case 'taller': return '<i class="ph-fill ph-users-three"></i>';
+        case 'gratis': return '<i class="ph-fill ph-gift"></i>';
+        case 'inscripcion': return '<i class="ph-fill ph-megaphone"></i>';
+        case 'comercial': return '<i class="ph-fill ph-trend-up"></i>';
+        case 'master': return '<i class="ph-fill ph-crown"></i>';
+        default: return '<i class="ph-fill ph-calendar"></i>';
+      }
+    }
+
+    function renderList() {
+      const container = document.getElementById('view-list');
+      container.innerHTML = '';
+      const data = getFilteredEvents();
+      
+      if(data.length === 0) {
+        container.innerHTML = `<div class="text-center text-ibero-gray py-12"><i class="ph ph-magnifying-glass text-4xl mb-3"></i><p>No se encontraron programas con esos filtros.</p></div>`;
+        return;
+      }
+
+      data.forEach((weekData, index) => {
+        const card = document.createElement('div');
+        card.className = `bg-ibero-card border border-white/5 p-6 rounded-2xl shadow-xl animate-fade-in-up hover:-translate-y-1 hover:border-white/20 transition-all duration-300 relative overflow-hidden group`;
+        card.style.animationDelay = `${index * 0.05}s`;
+
+        const isDiplo = weekData.events.some(e => e.type === 'diplomado');
+        const isMaster = weekData.events.some(e => e.type === 'master');
+        const isInscrip = weekData.events.some(e => e.type === 'inscripcion');
+        
+        let colorClass = 'bg-blue-500';
+        if (isMaster) colorClass = 'bg-black';
+        else if (isDiplo) colorClass = 'bg-ibero-red';
+        else if (isInscrip) colorClass = 'bg-red-500';
+        
+        const hasEvents = weekData.events.length > 0;
+        
+        card.innerHTML = `
+          <div class="absolute top-0 left-0 w-1 h-full ${colorClass} opacity-80"></div>
+          <div class="flex justify-between items-start mb-6 pl-4">
+            <div>
+              <h3 class="text-xl font-bold text-white mb-1">${weekData.week}</h3>
+              <p class="text-sm text-ibero-gray"><i class="ph ph-calendar text-ibero-red"></i> ${formatDate(weekData.startWeek)} - ${formatDate(weekData.endWeek)} de 2026</p>
+            </div>
+          </div>
+          <div class="space-y-4 pl-4">
+            ${hasEvents ? weekData.events.map(ev => `
+              <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center bg-[#09090B] p-4 rounded-xl border border-white/5 hover:border-white/10 transition-colors">
+                <div class="mb-3 sm:mb-0">
+                  <span class="inline-flex items-center gap-1 text-xs font-bold uppercase tracking-wider mb-2 px-2 py-1 rounded-md ${getProgClass(ev)}">
+                    ${getIconForType(ev.type)} ${ev.type}
+                  </span>
+                  <h4 class="font-bold text-white text-lg">${ev.title}</h4>
+                  <p class="text-sm text-ibero-gray mt-1"><i class="ph-fill ph-clock"></i> ${formatScheduleDisplay(ev.schedule)}</p>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-2 w-full sm:w-auto mt-4 sm:mt-0 shrink-0">
+                  ${ev.link && ev.type !== 'inscripcion' ? `<a href="${ev.link}" target="_blank" class="text-sm font-bold text-white bg-ibero-red hover:bg-ibero-darkRed px-4 py-2 rounded-lg transition-all flex items-center justify-center gap-2 shadow-lg shadow-red-500/20">Inscríbete Aquí <i class="ph ph-arrow-right"></i></a>` : ''}
+                  <button onclick="openEventModal('${encodeURIComponent(JSON.stringify(ev))}')" class="text-sm font-semibold text-white bg-white/5 hover:bg-white/10 border border-white/10 px-4 py-2 rounded-lg transition-all flex items-center justify-center gap-2">
+                    Ver Detalles <i class="ph ph-info"></i>
+                  </button>
+                </div>
+              </div>
+            `).join('') : '<p class="text-ibero-gray italic text-sm">Sin eventos programados para esta semana.</p>'}
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function changeMonth(dir) {
+      calMonth += dir;
+      if (calMonth > 11) { calMonth = 0; calYear++; }
+      if (calMonth < 0) { calMonth = 11; calYear--; }
+      if(calYear < 2026 || (calYear === 2026 && calMonth < 2)) { calYear = 2026; calMonth = 2; }
+      if(calYear > 2026 || (calYear === 2026 && calMonth > 11)) { calYear = 2026; calMonth = 11; }
+      renderCalendar();
+    }
+
+    function renderCalendar() {
+      const title = document.getElementById('calendar-month-title');
+      const date = new Date(calYear, calMonth, 1);
+      const monthNames = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+      title.textContent = `${monthNames[calMonth]} ${calYear}`;
+
+      const grid = document.getElementById('calendar-grid-days');
+      grid.innerHTML = '';
+
+      const firstDay = (date.getDay() === 0) ? 7 : date.getDay(); 
+      const daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
+      const flatEvents = getFilteredEvents().flatMap(w => w.events);
+
+      for (let i = 1; i < firstDay; i++) {
+        const blank = document.createElement('div');
+        blank.className = 'calendar-day opacity-20 pointer-events-none bg-transparent border-transparent';
+        grid.appendChild(blank);
+      }
+
+      for (let d = 1; d <= daysInMonth; d++) {
+        const dayDiv = document.createElement('div');
+        dayDiv.className = 'calendar-day relative flex flex-col group';
+        dayDiv.innerHTML = `<span class="text-xs md:text-sm font-bold text-ibero-gray group-hover:text-white transition-colors mb-1 md:mb-2">${d}</span>`;
+        
+        const currentStr = `${calYear}-${String(calMonth+1).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
+        
+        flatEvents.forEach(ev => {
+          if (currentStr >= ev.start && currentStr <= ev.end) {
+            const badge = document.createElement('div');
+            badge.className = `event-badge ${getProgClass(ev)} shadow-sm`;
+            badge.innerHTML = `${getIconForType(ev.type)} ${ev.title}`;
+            badge.title = ev.title;
+            badge.onclick = () => openEventModal(encodeURIComponent(JSON.stringify(ev)));
+            dayDiv.appendChild(badge);
+          }
+        });
+        grid.appendChild(dayDiv);
+      }
+    }
+
+    function openEventModal(dataEncoded) {
+      const ev = JSON.parse(decodeURIComponent(dataEncoded));
+      document.getElementById('modal-title').textContent = ev.title;
+      document.getElementById('modal-desc').textContent = ev.desc;
+      
+      const sDateStr = ev.start;
+      const eDateStr = ev.end;
+      const sDate = formatDate(sDateStr);
+      const eDate = formatDate(eDateStr);
+      document.getElementById('modal-dates').textContent = (sDate === eDate) ? sDate : `${sDate} al ${eDate}`;
+      
+      // Aplicar el formato multi-pais
+      document.getElementById('modal-schedule').innerHTML = formatScheduleModal(ev.schedule);
+
+      const badge = document.getElementById('modal-badge');
+      badge.className = `inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3 ${getProgClass(ev)}`;
+      badge.innerHTML = `${getIconForType(ev.type)} ${ev.type}`;
+
+      const btnInscribete = document.getElementById('btn-inscribete');
+      if(ev.link) {
+        btnInscribete.href = ev.link;
+        btnInscribete.classList.remove('hidden');
+        btnInscribete.classList.add('flex');
+      } else {
+        btnInscribete.classList.add('hidden');
+        btnInscribete.classList.remove('flex');
+      }
+
+      const pricesContainer = document.getElementById('modal-prices');
+      const invSection = document.getElementById('investment-section');
+      let key = ev.relatedType ? ev.relatedType : ev.type;
+      const p = pricing[key];
+
+      if(p) {
+        invSection.style.display = 'block';
+        pricesContainer.innerHTML = `
+          <div class="bg-ibero-dark/50 p-2 sm:p-3 rounded-lg border border-white/5 text-center relative flex flex-col min-w-0 break-words h-full">
+            <p class="text-xl mb-1">🇪🇨</p>
+            <p class="text-[0.65rem] sm:text-xs text-ibero-gray mb-1 leading-none uppercase tracking-wider">Ecuador</p>
+            <div class="mt-auto flex flex-col items-center justify-end w-full overflow-hidden">
+              ${p.originalUsd ? `<span class="line-through text-ibero-gray/60 text-[0.65rem] sm:text-xs font-normal leading-none mb-1">${p.originalUsd}</span>` : ''}
+              <span class="font-bold text-white text-sm sm:text-base leading-none truncate w-full" title="${p.usd}">${p.usd}</span>
+            </div>
+          </div>
+          <div class="bg-ibero-dark/50 p-2 sm:p-3 rounded-lg border border-white/5 text-center relative flex flex-col min-w-0 break-words h-full">
+            <p class="text-xl mb-1">🇲🇽</p>
+            <p class="text-[0.65rem] sm:text-xs text-ibero-gray mb-1 leading-none uppercase tracking-wider">México</p>
+            <div class="mt-auto flex flex-col items-center justify-end w-full overflow-hidden">
+              ${p.originalMxn ? `<span class="line-through text-ibero-gray/60 text-[0.65rem] sm:text-xs font-normal leading-none mb-1">${p.originalMxn}</span>` : ''}
+              <span class="font-bold text-white text-sm sm:text-base leading-none truncate w-full" title="${p.mxn}">${p.mxn}</span>
+            </div>
+          </div>
+          <div class="bg-ibero-dark/50 p-2 sm:p-3 rounded-lg border border-white/5 text-center relative flex flex-col min-w-0 break-words h-full">
+            <p class="text-xl mb-1">🇵🇪</p>
+            <p class="text-[0.65rem] sm:text-xs text-ibero-gray mb-1 leading-none uppercase tracking-wider">Perú</p>
+            <div class="mt-auto flex flex-col items-center justify-end w-full overflow-hidden">
+              ${p.originalPen ? `<span class="line-through text-ibero-gray/60 text-[0.65rem] sm:text-xs font-normal leading-none mb-1">${p.originalPen}</span>` : ''}
+              <span class="font-bold text-white text-sm sm:text-base leading-none truncate w-full" title="${p.pen}">${p.pen}</span>
+            </div>
+          </div>
+          <div class="bg-ibero-dark/50 p-2 sm:p-3 rounded-lg border border-white/5 text-center relative flex flex-col min-w-0 break-words h-full">
+            <p class="text-xl mb-1">🇨🇴</p>
+            <p class="text-[0.65rem] sm:text-xs text-ibero-gray mb-1 leading-none uppercase tracking-wider">Colombia</p>
+            <div class="mt-auto flex flex-col items-center justify-end w-full overflow-hidden">
+              ${p.originalCop ? `<span class="line-through text-ibero-gray/60 text-[0.65rem] sm:text-xs font-normal leading-none mb-1">${p.originalCop}</span>` : ''}
+              <span class="font-bold text-white text-sm sm:text-base leading-none truncate w-full" title="${p.cop}">${p.cop}</span>
+            </div>
+          </div>
+        `;
+      } else { invSection.style.display = 'none'; }
+
+      let startTimeStr = '190000'; let endTimeStr = '210000';
+      if (ev.schedule.includes('9:00 AM') || ev.schedule.includes('9:00 AM a 1:00 PM')) {
+        startTimeStr = '090000'; endTimeStr = '130000';
+      } else if (ev.schedule.includes('9:00 PM - 10:00 PM')) {
+        startTimeStr = '210000'; endTimeStr = '220000';
+      }
+
+      const formattedStartDate = sDateStr.replace(/-/g, '');
+      const formattedEndDate = eDateStr.replace(/-/g, '');
+      const gcalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent('IBERO: ' + ev.title)}&dates=${formattedStartDate}T${startTimeStr}/${formattedEndDate}T${endTimeStr}&details=${encodeURIComponent(ev.desc)}`;
+      document.getElementById('btn-gcal').href = gcalUrl;
+
+      const modal = document.getElementById('program-modal');
+      const box = document.getElementById('modal-content-box');
+      modal.classList.remove('hidden');
+      void modal.offsetWidth; 
+      modal.classList.remove('opacity-0');
+      box.classList.remove('scale-95');
+    }
+
+    function closeEventModal() {
+      const modal = document.getElementById('program-modal');
+      const box = document.getElementById('modal-content-box');
+      modal.classList.add('opacity-0');
+      box.classList.add('scale-95');
+      setTimeout(() => { modal.classList.add('hidden'); }, 300);
+    }
+
+    function downloadPDF() {
+      setTimeout(() => { window.print(); }, 300);
+    }
+
+    document.addEventListener('DOMContentLoaded', init);
+  </script>
+ </body>
+</html>
