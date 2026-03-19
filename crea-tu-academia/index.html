@@ -101,7 +101,7 @@
         -webkit-backdrop-filter: blur(16px);
     }
 
-    .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+    .reveal { opacity: 0; transform: translateY(20px); transition: all 0.4s ease-out; }
     .reveal.active { opacity: 1; transform: translateY(0); }
 
     /* Efecto Hero específico para esta página (Rose/Orange) */
@@ -275,7 +275,7 @@
       <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="window.location.href='https://ibero.education/'">
        <img alt="Logo IBERO" class="h-8 sm:h-10 md:h-10 w-auto object-contain" src="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/1557a79470d9c26d1ad0f0b00243f9f03e55cf2f/fotos/svg/ibero-logo-black-redE.svg"/>
       </div>
-      <div class="flex flex-1 items-center justify-start lg:justify-end gap-4 md:gap-10 overflow-x-auto hide-scrollbar px-2 sm:px-4">
+      <div class="flex flex-1 items-center justify-start gap-4 md:gap-6 overflow-x-auto hide-scrollbar px-2 sm:px-4 ml-0 lg:ml-6 scroll-smooth">
        <a class="text-[11px] md:text-[13px] font-bold text-zinc-600 hover:text-rose-600 transition-colors whitespace-nowrap" href="#presentacion">
         Prop&oacute;sito
        </a>
@@ -291,11 +291,23 @@
        <a class="text-[11px] md:text-[13px] font-bold text-zinc-600 hover:text-rose-600 transition-colors whitespace-nowrap" href="#certificacion">
         Diploma Oficial
        </a>
-       <a class="hidden md:flex bg-black text-white px-6 py-2.5 rounded-lg text-[13px] font-bold hover:bg-zinc-800 border border-zinc-700 shadow-lg hover:shadow-xl transition-all items-center gap-2 shrink-0 group" href="https://ibero.education/registro-y-admisiones/" target="_blank">
-        <span>
+       <a class="text-[11px] md:text-[13px] font-bold text-zinc-600 hover:text-rose-600 transition-colors whitespace-nowrap" href="#inversion">
+        Inversi&oacute;n
+       </a>
+       <!-- INTIS en gris -->
+       <a class="text-[11px] md:text-[13px] font-bold text-zinc-600 hover:text-rose-600 transition-colors whitespace-nowrap flex items-center gap-1" href="https://ia.goatify.app/#wallet" target="_blank">
+        <i class="fa-solid fa-coins"></i> INTIS
+       </a>
+      </div>
+      <!-- Botón Fijo a la derecha para Desktop -->
+      <div class="hidden lg:flex items-center shrink-0 ml-2">
+       <a class="flex bg-black text-white px-5 py-2.5 rounded-lg text-[13px] font-bold hover:bg-zinc-800 border border-zinc-700 shadow-lg hover:shadow-xl transition-all items-center gap-2 group relative overflow-hidden" href="https://ibero.education/registro-y-admisiones/" target="_blank">
+        <span class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-[textShine_1.5s_ease-in-out_infinite]">
+        </span>
+        <span class="whitespace-nowrap">
          Asegurar Cupo
         </span>
-        <span class="relative flex h-2 w-2">
+        <span class="relative flex h-2 w-2 shrink-0">
          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-500 opacity-75">
          </span>
          <span class="relative inline-flex rounded-full h-2 w-2 bg-rose-500">
@@ -333,6 +345,12 @@
       </a>
       <a class="text-white hover:text-rose-400 transition-colors" href="https://ibero.education/ayuda-financiera/" target="_blank">
        Ayuda Financiera
+      </a>
+      <a class="text-white hover:text-rose-400 transition-colors" href="https://www.ibero.education/metodologia/" target="_blank">
+       Metodolog&iacute;a
+      </a>
+      <a class="text-white hover:text-rose-400 transition-colors font-bold" href="https://www.ibero.education/goatify/" target="_blank">
+       Laboratorio Tech
       </a>
       <a class="text-white hover:text-rose-400 transition-colors" href="https://ibero.education/contacto/" target="_blank">
        Contactos
@@ -399,6 +417,26 @@
      </a>
      <a class="mobile-link block px-3 py-3 text-base font-medium text-zinc-800 hover:text-rose-500" href="#inversion">
       Inversi&oacute;n y Cupos
+     </a>
+     <div class="mt-4 mb-2 px-3 border-t border-zinc-100 pt-4">
+      <span class="text-[10px] font-bold tracking-widest text-zinc-400 uppercase">
+       Enlaces Institucionales
+      </span>
+     </div>
+     <a class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 border-b border-zinc-50 hover:text-theme-accent" href="https://ibero.education/" target="_blank">
+      Inicio Institucional
+     </a>
+     <a class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 border-b border-zinc-50 hover:text-theme-accent" href="https://ibero.education/ayuda-financiera/" target="_blank">
+      Ayuda Financiera
+     </a>
+     <a class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 border-b border-zinc-50 hover:text-theme-accent" href="https://www.ibero.education/metodologia/" target="_blank">
+      Metodolog&iacute;a
+     </a>
+     <a class="mobile-link block px-3 py-2.5 text-sm font-medium text-theme-accent border-b border-zinc-50 font-bold" href="https://www.ibero.education/goatify/" target="_blank">
+      Laboratorio Tech
+     </a>
+     <a class="mobile-link block px-3 py-2.5 text-sm font-medium text-zinc-600 hover:text-theme-accent" href="https://ibero.education/contacto/" target="_blank">
+      Contactos y Soporte
      </a>
     </div>
    </div>
@@ -613,43 +651,44 @@
     </div>
    </div>
   </section>
-  <!-- WEB PROFESIONAL INCLUIDA (BONO ESPECIAL) CORPORATIVO OSCURO -->
-  <section class="py-16 lg:py-20 bg-[#080509] relative overflow-hidden">
-   <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(244,63,94,0.05)_0%,transparent_70%)] pointer-events-none">
+  <!-- APLICACIÓN WEB PROFESIONAL INCLUIDA (BONO ESPECIAL) CORPORATIVO OSCURO -->
+  <section class="py-16 lg:py-24 bg-[#0a0512] relative overflow-hidden">
+   <div class="absolute inset-0 z-0 pointer-events-none">
+    <video autoplay="" class="w-full h-full object-cover opacity-40 filter grayscale mix-blend-luminosity" loop="" muted="" playsinline="">
+     <source src="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/c5441036666eabf17beca05e22852761e9ae4cdd/fotos/3.mp4" type="video/mp4"/>
+    </video>
+    <div class="absolute inset-0 bg-gradient-to-b from-[#080509]/90 via-[#080509]/40 to-[#080509]/90">
+    </div>
    </div>
    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 reveal">
-    <div class="bg-[#0f0a14] border border-zinc-800 rounded-[2rem] p-8 sm:p-14 text-center relative overflow-hidden shadow-2xl">
-     <div class="absolute -top-12 -right-12 w-48 h-48 bg-rose-600 opacity-[0.08] blur-3xl rounded-full pointer-events-none">
+    <div class="bg-zinc-900/60 backdrop-blur-2xl border border-zinc-700/50 rounded-[2rem] p-8 sm:p-14 text-center relative overflow-hidden shadow-2xl">
+     <div class="absolute -top-12 -right-12 w-48 h-48 bg-rose-600 opacity-[0.2] blur-3xl rounded-full pointer-events-none">
      </div>
-     <div class="absolute -bottom-12 -left-12 w-48 h-48 bg-orange-500 opacity-[0.08] blur-3xl rounded-full pointer-events-none">
+     <div class="absolute -bottom-12 -left-12 w-48 h-48 bg-orange-500 opacity-[0.2] blur-3xl rounded-full pointer-events-none">
      </div>
-     <div class="w-16 h-16 bg-zinc-800 border border-zinc-700 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-sm">
-      <i class="fa-solid fa-globe text-2xl text-white">
-      </i>
-     </div>
-     <p class="text-[10px] sm:text-xs font-bold tracking-widest text-zinc-500 uppercase mb-3">
+     <p class="text-[10px] sm:text-xs font-bold tracking-widest text-zinc-300 uppercase mb-3 drop-shadow-md">
       Activo Digital Corporativo
      </p>
-     <h2 class="text-3xl sm:text-5xl font-extrabold text-white mb-6 tracking-tight leading-tight">
-      Tu Propia P&aacute;gina Web
+     <h2 class="text-3xl sm:text-5xl font-extrabold text-white mb-6 tracking-tight leading-tight drop-shadow-lg">
+      Tu Propia Aplicaci&oacute;n Web
       <br/>
       <span class="font-serif italic font-medium text-orange-400">
        Funcional Incluida
       </span>
      </h2>
-     <p class="text-sm sm:text-lg text-zinc-400 max-w-2xl mx-auto leading-relaxed mb-10 font-medium">
+     <p class="text-sm sm:text-lg text-zinc-200 max-w-2xl mx-auto leading-relaxed mb-10 font-medium drop-shadow-md">
       No te llevar&aacute;s solo el dise&ntilde;o de tu curso. Usando herramientas como
       <strong class="text-white">
        Netlify y PayPal
       </strong>
       , cada participante saldr&aacute; con una
-      <strong class="text-white border-b border-zinc-600 pb-0.5">
-       Landing Page orientada a validaci&oacute;n o captaci&oacute;n
+      <strong class="text-white border-b border-zinc-400 pb-0.5">
+       Aplicaci&oacute;n Web construida y operativa
       </strong>
-      , lista para presentar su oferta y recibir a sus primeros alumnos.
+      , lista para presentar su oferta y procesar sus primeros alumnos y ventas desde el primer d&iacute;a.
      </p>
-     <a class="inline-flex items-center gap-2 bg-white hover:bg-zinc-200 text-zinc-900 px-8 py-4 rounded-xl font-bold text-sm sm:text-base transition-all shadow-[0_0_20px_rgba(255,255,255,0.1)]" href="#inversion">
-      Asegurar mi Web y mi Cupo
+     <a class="inline-flex items-center gap-2 bg-white hover:bg-zinc-200 text-zinc-900 px-8 py-4 rounded-xl font-bold text-sm sm:text-base transition-all shadow-[0_0_30px_rgba(255,255,255,0.25)]" href="#inversion">
+      Asegurar mi App Web y mi Cupo
      </a>
     </div>
    </div>
@@ -1210,7 +1249,7 @@
           </span>
          </div>
          <h4 class="text-lg sm:text-2xl font-black text-zinc-900 leading-tight group-hover:text-rose-600 transition-colors">
-          Empaquetado, presentaci&oacute;n, p&aacute;gina funcional y captaci&oacute;n
+          Empaquetado, presentaci&oacute;n, aplicaci&oacute;n funcional y captaci&oacute;n
          </h4>
         </div>
        </div>
@@ -1252,10 +1291,10 @@
           Laboratorio
          </div>
          <h6 class="text-[14px] font-bold text-zinc-900 mb-2 leading-tight">
-          P&aacute;gina y Captaci&oacute;n
+          Aplicaci&oacute;n Web y Captaci&oacute;n
          </h6>
          <p class="text-[12px] text-zinc-500 leading-relaxed">
-          Despliegue de p&aacute;gina funcional con Netlify. Configuraci&oacute;n de automatizaci&oacute;n b&aacute;sica con ManyChat y reservas con Calendly.
+          Despliegue de aplicaci&oacute;n funcional con Netlify y Antigravity. Configuraci&oacute;n de automatizaci&oacute;n b&aacute;sica con ManyChat y reservas con Calendly.
          </p>
         </div>
        </div>
@@ -1273,7 +1312,7 @@
            <strong class="text-zinc-700 w-16 shrink-0">
             1 Hora:
            </strong>
-           Dise&ntilde;ar la l&oacute;gica de presentaci&oacute;n de la oferta, definir el CTA y estructurar la p&aacute;gina base de captaci&oacute;n.
+           Dise&ntilde;ar la l&oacute;gica de presentaci&oacute;n de la oferta, definir el CTA y estructurar la aplicaci&oacute;n web base de captaci&oacute;n.
           </li>
          </ul>
         </div>
@@ -1291,7 +1330,7 @@
           <strong>
            Sistema inicial de captaci&oacute;n:
           </strong>
-          presentaci&oacute;n del programa + p&aacute;gina funcional en borrador + flujo b&aacute;sico de preinscripci&oacute;n.
+          presentaci&oacute;n del programa + aplicaci&oacute;n funcional en borrador + flujo b&aacute;sico de preinscripci&oacute;n.
          </p>
         </div>
        </div>
@@ -1541,22 +1580,32 @@
          Escalabilidad
         </span>
         <h5 class="text-white font-bold text-sm flex items-center gap-2">
-         Google AI Studio
+         Google AI Studio &amp; Pomeli
          <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-blue-400 group-hover:text-white">
          </i>
         </h5>
         <p class="text-[10px] text-zinc-300 mt-1">
-         El espacio para prototipado r&aacute;pido, experimentaci&oacute;n de prompts y creaci&oacute;n de aplicaciones AI-first (Gemini).
+         Entornos para prototipado r&aacute;pido, experimentaci&oacute;n de prompts e integraci&oacute;n de modelos para aplicaciones interactivas.
         </p>
        </a>
-       <a class="block p-3 rounded-xl bg-zinc-800/30 hover:bg-zinc-800/60 transition-all border border-transparent hover:border-white/20 group" href="https://netlify.com" target="_blank">
+       <a class="block p-3 rounded-xl bg-zinc-800/30 hover:bg-zinc-800/60 transition-all border border-transparent hover:border-white/20 group" href="https://deepseek.com" target="_blank">
         <h5 class="text-white font-bold text-sm flex items-center gap-2">
-         Netlify
+         DeepSeek / OpenAI Codex
          <i class="fa-solid fa-link text-[10px] text-zinc-500">
          </i>
         </h5>
         <p class="text-[10px] text-zinc-400 mt-1">
-         Despliegue r&aacute;pido de la p&aacute;gina funcional para presentar tu oferta educativa.
+         Asistencia t&eacute;cnica, generaci&oacute;n de c&oacute;digo, soporte PWA y vibe coding avanzado de extremo a extremo.
+        </p>
+       </a>
+       <a class="block p-3 rounded-xl bg-zinc-800/30 hover:bg-zinc-800/60 transition-all border border-transparent hover:border-white/20 group" href="https://netlify.com" target="_blank">
+        <h5 class="text-white font-bold text-sm flex items-center gap-2">
+         Netlify / Antigravity
+         <i class="fa-solid fa-link text-[10px] text-zinc-500">
+         </i>
+        </h5>
+        <p class="text-[10px] text-zinc-400 mt-1">
+         Plataformas de hosting &aacute;gil, publicaci&oacute;n veloz y despliegue global de Aplicaciones Web.
         </p>
        </a>
       </div>
@@ -1583,17 +1632,27 @@
        </a>
        <a class="block p-3 rounded-xl bg-zinc-800/30 hover:bg-zinc-800/60 transition-all border border-transparent hover:border-white/20 group" href="https://calendly.com" target="_blank">
         <h5 class="text-white font-bold text-sm flex items-center gap-2">
-         Calendly
+         Zapier / Calendly
          <i class="fa-solid fa-link text-[10px] text-zinc-500">
          </i>
         </h5>
         <p class="text-[10px] text-zinc-400 mt-1">
-         Agenda para llamadas de evaluaci&oacute;n si ofreces mentor&iacute;as de alto valor (High Ticket).
+         Agenda automatizada y reservas B2B para mentor&iacute;as de alto valor, y conexi&oacute;n de triggers invisibles.
+        </p>
+       </a>
+       <a class="block p-3 rounded-xl bg-zinc-800/30 hover:bg-zinc-800/60 transition-all border border-transparent hover:border-white/20 group" href="#" target="_blank">
+        <h5 class="text-white font-bold text-sm flex items-center gap-2">
+         Flow de Google &amp; Stich
+         <i class="fa-solid fa-link text-[10px] text-zinc-500">
+         </i>
+        </h5>
+        <p class="text-[10px] text-zinc-400 mt-1">
+         Orquestaci&oacute;n de flujos cognitivos, integraci&oacute;n de datos y automatizaci&oacute;n de ecosistemas.
         </p>
        </a>
        <a class="block p-3 rounded-xl bg-zinc-800/30 hover:bg-zinc-800/60 transition-all border border-transparent hover:border-white/20 group" href="https://paypal.com" target="_blank">
         <h5 class="text-white font-bold text-sm flex items-center gap-2">
-         PayPal
+         PayPal / Stripe
          <i class="fa-solid fa-link text-[10px] text-zinc-500">
          </i>
         </h5>
@@ -1608,7 +1667,14 @@
   </section>
   <!-- PERFIL DEL DOCENTE (MINIMALISTA Y RECTANGULAR) -->
   <section class="py-16 lg:py-24 bg-[#080509] relative border-b border-white/5 overflow-hidden" id="docente">
-   <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(244,63,94,0.05)_0%,transparent_60%)] pointer-events-none">
+   <div class="absolute inset-0 z-0 pointer-events-none">
+    <video aria-hidden="true" autoplay="" class="absolute inset-0 w-full h-full object-cover opacity-20 filter grayscale mix-blend-luminosity" loop="" muted="" playsinline="" preload="auto">
+     <source src="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/c5441036666eabf17beca05e22852761e9ae4cdd/fotos/2.mp4" type="video/mp4"/>
+    </video>
+    <div class="absolute inset-0 bg-gradient-to-b from-[#080509]/95 via-[#080509]/70 to-[#080509]/95">
+    </div>
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(244,63,94,0.05)_0%,transparent_60%)]">
+    </div>
    </div>
    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 reveal">
     <div class="text-center mb-10">
@@ -1625,16 +1691,16 @@
      </h2>
     </div>
     <!-- Tarjeta Rectangular, Compacta y Pro Sin Icono -->
-    <div class="bg-[#0f0a14] border border-zinc-800 rounded-[1.5rem] p-8 sm:p-10 shadow-[0_15px_40px_rgba(0,0,0,0.4)] relative overflow-hidden hover:border-rose-500/30 transition-colors duration-300 max-w-3xl mx-auto">
+    <div class="bg-[#0f0a14]/80 backdrop-blur-xl border border-zinc-800 rounded-[1.5rem] p-8 sm:p-10 shadow-[0_15px_40px_rgba(0,0,0,0.4)] relative overflow-hidden hover:border-rose-500/30 transition-colors duration-300 max-w-3xl mx-auto">
      <!-- Brillo sutil -->
      <div class="absolute top-0 right-0 w-64 h-64 bg-rose-600/10 blur-[80px] rounded-full pointer-events-none">
      </div>
-     <div class="relative z-10 text-center sm:text-left">
+     <div class="relative z-10 text-center">
       <h3 class="text-2xl sm:text-4xl font-black text-white mb-4">
        Daniel Ortega Corella
       </h3>
       <!-- Badges de Autoridad Pequeños y Ordenados -->
-      <div class="flex flex-wrap justify-center sm:justify-start gap-2 mb-6">
+      <div class="flex flex-wrap justify-center gap-2 mb-6">
        <span class="bg-zinc-800 border border-zinc-700 text-zinc-300 text-[10px] sm:text-[11px] font-bold px-2.5 py-1 rounded shadow-sm">
         Ingeniero Comercial
        </span>
@@ -1672,7 +1738,7 @@
        .
       </p>
       <!-- Botones de Acción Ejecutivos -->
-      <div class="flex flex-wrap justify-center sm:justify-start gap-3">
+      <div class="flex flex-wrap justify-center gap-3">
        <a class="inline-flex items-center justify-center gap-2 bg-zinc-900 border border-zinc-700 hover:border-[#0077b5] text-zinc-300 hover:text-white px-6 py-2.5 rounded-lg text-xs font-bold transition-all group shadow-sm" href="https://www.linkedin.com/in/danielortegac" target="_blank">
         <i class="fa-brands fa-linkedin text-[#0077b5] group-hover:text-white text-base transition-colors">
         </i>
@@ -2056,16 +2122,14 @@
         <a class="w-full text-center bg-gradient-to-r from-rose-600 to-rose-500 hover:from-rose-500 hover:to-rose-400 text-white font-black py-4 rounded-xl transition-all shadow-[0_0_20px_rgba(225,29,72,0.3)] transform hover:-translate-y-1" href="https://www.paypal.com/ncp/payment/QTZE28XP3MUT8" target="_blank">
          Pagar con Tarjeta Segura
         </a>
-        <a class="w-full text-center bg-[#150f1c] border border-orange-500/30 hover:border-orange-500/80 text-orange-400 font-bold py-3.5 rounded-xl transition-all flex items-center justify-center gap-2 shadow-[0_0_15px_rgba(251,146,60,0.1)] group" href="https://ia.goatify.app/#wallet" target="_blank">
-         <i class="fa-solid fa-coins group-hover:scale-110 transition-transform">
-         </i>
-         Pagar con INTIS
-        </a>
         <button class="w-full text-center bg-zinc-800/50 border border-zinc-700 hover:bg-zinc-700 hover:border-zinc-500 text-white font-bold py-3.5 rounded-xl transition-all flex items-center justify-center gap-2" id="toggle-bank">
          <i class="fa-solid fa-building-columns text-zinc-400">
          </i>
          Transferencia Bancaria
         </button>
+        <a class="w-full text-center bg-gradient-to-r from-gray-100 via-slate-200 to-gray-300 hover:from-slate-200 hover:to-slate-300 text-slate-800 border border-slate-300 font-bold py-4 rounded-xl transition-all flex items-center justify-center gap-2 shadow-[0_4px_10px_rgba(148,163,184,0.3)]" href="https://ia.goatify.app/#wallet" target="_blank">
+         <i class="fa-solid fa-coins"></i> Pagar con INTIS
+        </a>
        </div>
        <!-- Datos Bancarios Ocultos -->
        <div class="hidden mt-6 bg-[#080509] border border-zinc-800 rounded-xl p-5 relative z-10 text-sm text-zinc-300 space-y-2.5 text-left shadow-inner" id="bank-details">
@@ -2334,7 +2398,7 @@
          </i>
         </div>
         <h4 class="text-sm sm:text-base font-bold text-white group-hover:text-rose-400 transition-colors">
-         &iquest;De verdad tendr&eacute; una p&aacute;gina web para mi curso?
+         &iquest;De verdad me incluye una aplicaci&oacute;n web profesional?
         </h4>
        </div>
        <div class="w-6 h-6 rounded-full bg-zinc-800 flex items-center justify-center shrink-0 text-zinc-400 group-hover:text-white transition-all">
@@ -2344,9 +2408,9 @@
       </summary>
       <div class="px-5 sm:px-6 pb-6 pt-0 text-[13px] sm:text-sm text-zinc-400 leading-relaxed ml-12">
        <strong class="text-rose-400">
-        S&iacute;.
+        S&iacute;, es 100% real.
        </strong>
-       En el D&iacute;a 3 construiremos juntos una "Landing Page" orientada a captaci&oacute;n usando Netlify. Saldr&aacute;s con un sitio funcional para mostrar tu programa educativo al mundo y recibir interesados o pagos (v&iacute;a PayPal).
+       En el D&iacute;a 3 y 4 construiremos juntos tu "App Web" utilizando herramientas de despliegue &aacute;gil guiadas por IA. Sales de la certificaci&oacute;n con tu aplicaci&oacute;n web estructurada, con textos de alta conversi&oacute;n y lista para captar clientes o procesar ventas en internet.
       </div>
      </details>
      <!-- FAQ 4 -->
@@ -2494,6 +2558,11 @@
         </a>
        </li>
        <li>
+        <a class="hover:text-white transition-colors" href="https://www.ibero.education/goatify/" target="_blank">
+         Laboratorio Tech
+        </a>
+       </li>
+       <li>
         <a class="hover:text-white transition-colors" href="https://ibero.education/consultor&iacute;a-en-educaci&oacute;n/" target="_blank">
          Consultor&iacute;a B2B
         </a>
@@ -2589,7 +2658,7 @@
      <div class="flex flex-col items-center md:items-end gap-1.5 text-center md:text-right">
       <p class="text-zinc-500">
        Sitio desarrollado y dise&ntilde;ado por
-       <a class="text-rose-400 hover:text-white font-bold transition-colors" href="https://www.goatify.app" target="_blank">
+       <a class="text-rose-400 hover:text-white font-bold transition-colors" href="https://www.goatify.app" target="_blank" title="Goatify Desarrollo Tech">
         GOATIFY
        </a>
       </p>
@@ -2608,6 +2677,7 @@
 
       currencyBtns.forEach(btn => {
         btn.addEventListener('click', () => {
+          // 1. Estilo activo
           currencyBtns.forEach(b => {
             b.classList.remove('bg-rose-600', 'text-white');
             b.classList.add('text-zinc-400');
@@ -2615,10 +2685,12 @@
           btn.classList.remove('text-zinc-400');
           btn.classList.add('bg-rose-600', 'text-white');
 
+          // 2. Extraer datos
           const rate = parseFloat(btn.dataset.rate);
           const symbol = btn.dataset.symbol;
           const currency = btn.dataset.currency;
 
+          // Función formateadora
           const formatPrice = (price, currencyCode) => {
             if(currencyCode === 'COP') return price.toLocaleString('es-CO', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
             return price.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
@@ -2654,7 +2726,7 @@
       { keys: ['pago', 'pagar', 'tarjeta', 'transferencia'], text: `<strong>Métodos de Pago:</strong><br>1. Tarjetas vía PayPal <a href="https://www.paypal.com/ncp/payment/QTZE28XP3MUT8" target="_blank" class="text-rose-400 underline">AQUÍ</a>.<br>2. Transferencia: <strong>Banco Bolivariano</strong><br>Cta Corriente: 501 5025433<br>RUC: 1793199203001<br>A nombre de: CENTRO IBEROAMERICANO.` },
       { keys: ['temario', 'aprender', 'contenido'], text: `Aprenderás a convertir tu experiencia en un programa: Diseño Curricular, NotebookLM para research, Empaquetado Web en Netlify y estructura de Monetización.` },
       { keys: ['metodologia', 'entregable', 'proyecto'], text: `No es teoría. Al final entregas un proyecto aplicado (opcional): Un curso nuevo, el rediseño de una materia o el potenciamiento de tu academia.` },
-      { keys: ['web', 'pagina', 'incluye'], text: `¡Sí! Como parte del programa, construimos una <strong>Página Web Funcional (Landing Page)</strong> lista para captar interesados o validar tu curso antes de grabarlo.` }
+      { keys: ['web', 'pagina', 'incluye'], text: `¡Sí! Como parte del programa, construimos una <strong>Aplicación Web Funcional (Landing Page)</strong> lista para captar interesados o validar tu curso antes de grabarlo.` }
     ];
 
     function toggleChatbot(e) {
