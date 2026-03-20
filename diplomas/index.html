@@ -28,6 +28,9 @@
     }
   </script>
 
+  <!-- LIBRERÍA PARA PDF PERFECTOS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" xintegrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
   <style>
     html { zoom: 0.9; }
     body { background-color: #FAFAFA; }
@@ -41,27 +44,46 @@
     }
     @keyframes textShine { 0% { background-position: 250% center; } 100% { background-position: -250% center; } }
     
-    /* Efecto del Diploma Luminoso y Sutil */
+    /* EFECTO DIPLOMA: Plateado, Luminoso, Shiny, Espejado Sutil */
     .diploma-frame {
-      padding: 6px;
-      background: linear-gradient(145deg, #ffffff, #fdfdfd);
-      border: 1px solid rgba(228, 228, 231, 0.6);
-      border-radius: 16px;
-      /* Sombra elegante con un sutil halo esmeralda y púrpura para dar efecto luminoso pro */
-      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.08),
-                  0 0 20px 0 rgba(16, 185, 129, 0.04), 
-                  0 0 30px 0 rgba(107, 33, 168, 0.03);
+      position: relative;
+      padding: 8px;
+      background: linear-gradient(135deg, #ffffff 0%, #e4e4e7 50%, #ffffff 100%);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      border-radius: 12px;
+      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15),
+                  0 0 20px 0 rgba(255, 255, 255, 0.5) inset,
+                  0 0 0 1px rgba(161, 161, 170, 0.2);
+      overflow: hidden;
       transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+    }
+    .diploma-frame::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 50%; height: 100%;
+      background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.7) 50%, rgba(255,255,255,0) 100%);
+      transform: skewX(-25deg);
+      animation: diplomaShine 6s infinite;
+      pointer-events: none;
+      z-index: 10;
+    }
+    @keyframes diplomaShine {
+      0% { left: -100%; }
+      20% { left: 200%; }
+      100% { left: 200%; }
     }
     .diploma-frame:hover { 
       transform: translateY(-3px) scale(1.005); 
-      box-shadow: 0 30px 50px -15px rgba(0, 0, 0, 0.12),
-                  0 0 30px 0 rgba(16, 185, 129, 0.08), 
-                  0 0 50px 0 rgba(107, 33, 168, 0.06);
+      box-shadow: 0 30px 50px -15px rgba(0, 0, 0, 0.2),
+                  0 0 30px 0 rgba(255, 255, 255, 0.6) inset,
+                  0 0 0 1px rgba(161, 161, 170, 0.3);
     }
     .diploma-frame img {
-      border-radius: 10px;
-      box-shadow: 0 0 0 1px rgba(0,0,0,0.03) inset;
+      border-radius: 4px;
+      box-shadow: 0 0 0 1px rgba(0,0,0,0.05) inset;
+      position: relative;
+      z-index: 5;
     }
 
     /* Loader */
@@ -71,44 +93,6 @@
     /* Ocultar Scrollbar */
     .hide-scrollbar::-webkit-scrollbar { display: none; }
     .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-
-    /* Configuración PERFECTA para Imprimir como PDF */
-    @media print {
-      @page { margin: 0; size: landscape; }
-      body { margin: 0; padding: 0; background: white !important; }
-      body * { visibility: hidden; }
-      #print-area, #print-area * { visibility: visible; }
-      #print-area {
-        position: fixed;
-        left: 0;
-        top: 0;
-        width: 100vw;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 0;
-        padding: 0;
-        background: white !important;
-        z-index: 9999;
-      }
-      #diploma-image {
-        max-width: 95vw;
-        max-height: 95vh;
-        width: auto;
-        height: auto;
-        object-fit: contain;
-        box-shadow: none !important;
-        border: none !important;
-        border-radius: 0 !important;
-      }
-      .diploma-frame {
-        padding: 0 !important;
-        border: none !important;
-        background: transparent !important;
-        box-shadow: none !important;
-      }
-    }
   </style>
 </head>
 <body class="text-ibero-dark font-sans antialiased selection:bg-ibero-dark selection:text-white flex flex-col min-h-screen pt-[105px] md:pt-[121px] bg-white">
@@ -249,16 +233,14 @@
             </p>
           </div>
 
-          <!-- Sello Verde Prominente, Luminous y Pro (Derecha) -->
-          <div class="shrink-0 w-full md:w-auto flex flex-col items-center bg-white border border-emerald-100 px-8 py-6 rounded-[2rem] shadow-[0_0_40px_rgba(16,185,129,0.15)] relative overflow-hidden group">
-            <!-- Efecto luminoso interno sutil -->
+          <!-- Sello Verde Prominente y Pro (Derecha) - Tamaño optimizado para celular -->
+          <div class="shrink-0 w-auto max-w-[280px] md:max-w-none flex flex-col items-center bg-white border border-emerald-100 px-6 sm:px-8 py-5 sm:py-6 rounded-[2rem] shadow-[0_0_40px_rgba(16,185,129,0.15)] relative overflow-hidden group">
             <div class="absolute inset-0 bg-gradient-to-tr from-emerald-50/80 to-transparent"></div>
-            
             <div class="relative z-10 flex flex-col items-center">
               <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center text-emerald-500 text-3xl mb-3 shadow-[0_4px_15px_rgba(16,185,129,0.2)] border border-emerald-50">
-                <i class="fa-solid fa-shield-check"></i>
+                <i class="fa-solid fa-qrcode"></i>
               </div>
-              <h4 class="text-xl sm:text-2xl font-serif italic text-ibero-dark mb-1 leading-tight text-center hero-shine-dark">Auténtica<br>& Avalada</h4>
+              <h4 class="text-xl sm:text-2xl font-serif italic text-ibero-dark mb-1 leading-tight text-center hero-shine-dark whitespace-nowrap">Auténtica<br>& Avalada</h4>
               <div class="mt-2 bg-emerald-50/80 px-4 py-1.5 rounded-md border border-emerald-100 backdrop-blur-sm shadow-inner">
                 <p class="text-[10px] text-emerald-700 font-mono font-bold tracking-widest" id="student-id-display">ID: ...</p>
               </div>
@@ -267,40 +249,36 @@
           
         </div>
 
-        <!-- CONTENEDOR DEL DIPLOMA (Tamaño estético max-w-2xl y filo luminoso sutil) -->
+        <!-- CONTENEDOR DEL DIPLOMA (Luminoso, Shiny, Silver) -->
         <div class="relative w-full max-w-2xl flex flex-col items-center">
-          
-          <!-- Diploma Image (Envuelta en print-area para que salga perfecta en PDF) -->
-          <div id="print-area" class="w-full flex justify-center">
+          <div class="w-full flex justify-center">
             <div class="diploma-frame w-full">
-              <img id="diploma-image" src="" alt="Diploma" class="w-full h-auto object-contain block" />
+              <img id="diploma-image" src="" alt="Diploma" class="w-full h-auto object-contain block" crossorigin="anonymous" />
             </div>
           </div>
-          
         </div>
 
-        <!-- TEXTO DE AVAL / SKILLS (Con Favicon) -->
+        <!-- TEXTO DE AVAL / SKILLS (Con Favicon y Nombre en Negritas) -->
         <div class="mt-10 bg-white border border-zinc-200 rounded-3xl p-6 sm:p-8 max-w-2xl w-full text-center shadow-[0_4px_24px_-8px_rgba(0,0,0,0.05)] relative overflow-hidden">
-          <!-- Línea sutil superior -->
           <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-ibero-purple via-ibero-red to-ibero-purple"></div>
-          
           <div class="w-14 h-14 bg-zinc-50 rounded-full border border-zinc-200 flex items-center justify-center mx-auto mb-5 shadow-sm">
             <img src="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/3339294f71590eeeaa7f0b0b0591f5e09156ed96/fotos/logos%20ibero/ibero-favicon.svg" alt="IBERO" class="w-7 h-7 object-contain opacity-80" />
           </div>
           <p class="text-zinc-600 text-sm sm:text-base leading-relaxed font-medium">
-            Al culminar este programa, el <strong class="text-ibero-dark font-bold">Centro Iberoamericano (IBERO)</strong> avala que el estudiante aprobó satisfactoriamente y cuenta con habilidades blandas de alto nivel, conocimientos sólidos en <strong class="text-ibero-dark">Inteligencia Artificial</strong>, herramientas tecnológicas, comunicación estratégica y negocios.
+            Al culminar este programa, el <strong class="text-ibero-dark font-bold">Centro Iberoamericano (IBERO)</strong> avala que el estudiante <strong id="cert-student-name-2" class="text-ibero-dark font-black uppercase"></strong> aprobó satisfactoriamente y cuenta con habilidades blandas de alto nivel, conocimientos sólidos en <strong class="text-ibero-dark">Inteligencia Artificial</strong>, herramientas tecnológicas, comunicación estratégica y negocios.
           </p>
         </div>
 
-        <!-- Botones de Acción (Movidos debajo del segundo párrafo) -->
+        <!-- Botones de Acción -->
         <div class="flex flex-wrap justify-center gap-3 sm:gap-4 mt-8 w-full max-w-2xl border-t border-zinc-200 pt-8">
-          <button onclick="window.print()" class="bg-[#09090B] text-white px-5 sm:px-6 py-3 rounded-xl font-bold text-[11px] sm:text-xs hover:bg-zinc-800 transition-all shadow-md flex items-center gap-2">
+          <!-- Botón PDF que usa html2pdf -->
+          <button onclick="downloadPDF()" class="bg-[#09090B] text-white px-5 sm:px-6 py-3 rounded-xl font-bold text-[11px] sm:text-xs hover:bg-zinc-800 transition-all shadow-md flex items-center gap-2">
             <i class="fa-solid fa-file-pdf"></i> Guardar en PDF
           </button>
           <a id="download-btn" href="#" target="_blank" download class="bg-white border border-zinc-300 text-ibero-dark px-5 sm:px-6 py-3 rounded-xl font-bold text-[11px] sm:text-xs hover:bg-zinc-50 transition-all shadow-sm flex items-center gap-2">
             <i class="fa-solid fa-image"></i> Descargar Imagen
           </a>
-          <!-- Botón de LinkedIn Mejorado (Copia el texto y redirige) -->
+          <!-- Botón de LinkedIn -->
           <button id="linkedin-btn" class="bg-[#0077b5] text-white px-5 sm:px-6 py-3 rounded-xl font-bold text-[11px] sm:text-xs hover:bg-[#005e93] transition-all shadow-md flex items-center gap-2 group relative">
             <i class="fa-brands fa-linkedin text-sm"></i> Publicar en LinkedIn
             <span class="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-black text-white text-[9px] py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
@@ -331,9 +309,49 @@
     </div>
   </main>
 
+  <!-- ========================================================= -->
+  <!-- CONTENEDOR OCULTO PARA GENERACIÓN PERFECTA DEL PDF        -->
+  <!-- ========================================================= -->
+  <div id="pdf-export-container" style="display: none; width: 11in; background: white; color: black; position: absolute; left: -9999px; top: -9999px; z-index: -1;">
+    <!-- Página 1: El Diploma como Foto Perfecta -->
+    <div style="width: 11in; height: 8.5in; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+      <img id="pdf-diploma-img" src="" style="max-width: 100%; max-height: 100%; object-fit: contain;" crossorigin="anonymous"/>
+    </div>
+    
+    <!-- Salto de Página forzado para el PDF -->
+    <div class="html2pdf__page-break"></div>
+    
+    <!-- Página 2: Anexo de Certificación con Enlaces -->
+    <div style="width: 11in; height: 8.5in; padding: 1in; box-sizing: border-box; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background: #fafafa;">
+      <div style="background: white; padding: 40px; border-radius: 16px; border: 1px solid #e4e4e7; height: 100%; box-shadow: 0 4px 20px rgba(0,0,0,0.05);">
+        <h1 style="font-size: 26pt; color: #09090B; margin-bottom: 20px; font-weight: 800;">Anexo de Certificación Académica</h1>
+        <hr style="border: 0; border-top: 2px solid #e4e4e7; margin-bottom: 40px;">
+        
+        <p style="font-size: 14pt; line-height: 1.6; color: #3f3f46; margin-bottom: 25px; text-align: justify;">
+          El <strong>Centro Iberoamericano (IBERO)</strong> certifica y avala institucionalmente que el estudiante <strong id="pdf-student-name" style="color: #09090B;"></strong> ha culminado con excelencia académica el programa <strong id="pdf-course-name" style="color: #6B21A8;"></strong>. Este logro demuestra su alto nivel de competencia, rigor profesional y capacidad para liderar en su entorno.
+        </p>
+        
+        <p style="font-size: 14pt; line-height: 1.6; color: #3f3f46; margin-bottom: 50px; text-align: justify;">
+          Adicionalmente, se avala que el estudiante aprobó satisfactoriamente y cuenta con habilidades blandas de alto nivel, conocimientos sólidos en <strong>Inteligencia Artificial</strong>, herramientas tecnológicas, comunicación estratégica y negocios.
+        </p>
+        
+        <div style="background: #f0fdf4; border: 1px solid #bbf7d0; padding: 20px; border-radius: 12px; margin-bottom: 50px;">
+          <p style="font-size: 12pt; color: #166534; margin: 0;"><strong>ID de Verificación Oficial:</strong> <span id="pdf-student-id" style="font-family: monospace;"></span></p>
+        </div>
+
+        <div style="margin-top: auto; padding-top: 30px; border-top: 1px solid #e4e4e7;">
+           <h3 style="font-size: 16pt; color: #09090B; margin-bottom: 15px; font-weight: 800;">Centro Iberoamericano (IBERO)</h3>
+           <p style="font-size: 12pt; color: #71717a; margin-bottom: 8px;">Sitio Web Oficial: <a href="https://ibero.education" style="color: #6B21A8; text-decoration: none; font-weight: 600;">ibero.education</a></p>
+           <p style="font-size: 12pt; color: #71717a; margin-bottom: 8px;">Soporte y Contacto: <a href="mailto:programas@ibero.education" style="color: #6B21A8; text-decoration: none; font-weight: 600;">programas@ibero.education</a></p>
+           <p style="font-size: 12pt; color: #71717a; margin-bottom: 8px;">Redes Sociales: <a href="https://www.linkedin.com/company/centro-iberoamericano/" style="color: #6B21A8; text-decoration: none; font-weight: 600;">LinkedIn</a> | <a href="https://www.instagram.com/centro.iberoamericano/" style="color: #6B21A8; text-decoration: none; font-weight: 600;">Instagram</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
   <!-- MODAL ADMIN (OCULTO) -->
   <div id="admin-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[100] hidden items-center justify-center p-4 opacity-0 transition-opacity duration-300">
-    
     <!-- LOGIN ADMIN -->
     <div id="admin-login-box" class="bg-white rounded-[2rem] p-8 max-w-sm w-full shadow-2xl transform scale-95 transition-transform duration-300">
       <div class="text-center mb-6">
@@ -645,9 +663,7 @@
   <!-- ========================================================= -->
   <!-- BASE DE DATOS ESTÁTICA EXTERNA                            -->
   <!-- ========================================================= -->
-  <!-- Aseguramos que el objeto exista aunque data.js falle -->
   <script>window.BASE_DE_DATOS_DIPLOMAS = window.BASE_DE_DATOS_DIPLOMAS || {};</script>
-  <!-- Aquí conectamos el archivo data.js -->
   <script src="./data.js"></script>
 
   <!-- LÓGICA DEL SITIO -->
@@ -797,11 +813,20 @@
       // Ocultar cabecera inicial completa
       headerSection.classList.add('hidden');
 
+      // Textos visibles en pantalla
       document.getElementById('cert-student-name').innerText = diplomaData.nombre;
+      document.getElementById('cert-student-name-2').innerText = diplomaData.nombre;
       document.getElementById('cert-course-name').innerText = diplomaData.curso;
-      document.getElementById('diploma-image').src = diplomaData.url;
-      document.getElementById('download-btn').href = diplomaData.url;
       document.getElementById('student-id-display').innerText = "ID: " + slug.toUpperCase();
+      
+      // Textos para el export a PDF
+      document.getElementById('pdf-student-name').innerText = diplomaData.nombre;
+      document.getElementById('pdf-course-name').innerText = diplomaData.curso;
+      document.getElementById('pdf-student-id').innerText = slug.toUpperCase();
+
+      document.getElementById('diploma-image').src = diplomaData.url;
+      document.getElementById('pdf-diploma-img').src = diplomaData.url;
+      document.getElementById('download-btn').href = diplomaData.url;
       
       const btnLinkedIn = document.getElementById('linkedin-btn');
       btnLinkedIn.onclick = () => shareLinkedIn(slug);
@@ -813,9 +838,7 @@
 
     function showError(name) {
       headerSection.classList.remove('hidden');
-
       document.getElementById('error-name').innerText = name.toUpperCase();
-      
       resultError.classList.remove('hidden');
       resultError.classList.add('flex');
       setTimeout(() => resultError.classList.add('opacity-100'), 50);
@@ -840,6 +863,35 @@
       if (clearHash) {
         history.replaceState(null, '', window.location.pathname);
       }
+    }
+
+    // --- GENERACIÓN DE PDF PROFESIONAL CON HTML2PDF ---
+    function downloadPDF() {
+      const element = document.getElementById('pdf-export-container');
+      const studentId = document.getElementById('student-id-display').innerText.replace('ID: ', '');
+      
+      const opt = {
+        margin:       0,
+        filename:     `Certificacion_IBERO_${studentId}.pdf`,
+        image:        { type: 'jpeg', quality: 1 },
+        html2canvas:  { scale: 2, useCORS: true, letterRendering: true },
+        jsPDF:        { unit: 'in', format: 'letter', orientation: 'landscape' }
+      };
+
+      // Mostrar contenedor solo para capturar
+      element.style.display = 'block';
+
+      // Cambiamos temporalmente el texto del botón a "Generando..."
+      const btn = document.querySelector('button[onclick="downloadPDF()"]');
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Generando PDF...';
+      btn.disabled = true;
+
+      html2pdf().set(opt).from(element).save().then(() => {
+        element.style.display = 'none';
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+      });
     }
 
     // --- LÓGICA DE LINKEDIN PRO (Evitando Popup Blockers) ---
