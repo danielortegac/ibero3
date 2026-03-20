@@ -51,6 +51,10 @@
     /* Loader */
     .loader { border: 3px solid #f3f3f3; border-top: 3px solid #09090B; border-radius: 50%; width: 24px; height: 24px; animation: spin 1s linear infinite; }
     @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+    /* Ocultar Scrollbar */
+    .hide-scrollbar::-webkit-scrollbar { display: none; }
+    .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
   </style>
 </head>
 <body class="text-ibero-dark font-sans antialiased selection:bg-ibero-dark selection:text-white flex flex-col min-h-screen pt-[105px] md:pt-[121px] bg-white">
@@ -231,7 +235,7 @@
         <p class="text-zinc-500 text-sm text-center max-w-md mb-8">
           No pudimos localizar un diploma para <strong id="error-name" class="text-zinc-800"></strong>. Asegúrate de haber escrito tu nombre exactamente como te registraste, o contacta a soporte.
         </p>
-        <button onclick="resetSearch()" class="bg-white border border-zinc-200 text-ibero-dark px-6 py-3 rounded-xl font-bold text-xs hover:bg-zinc-50 transition-all shadow-sm">
+        <button onclick="resetSearch(true)" class="bg-white border border-zinc-200 text-ibero-dark px-6 py-3 rounded-xl font-bold text-xs hover:bg-zinc-50 transition-all shadow-sm">
           Intentar nuevamente
         </button>
       </div>
@@ -281,8 +285,8 @@
                 <input type="text" id="add-name" placeholder="Ej: Juan Perez Lopez" class="w-full mt-1 bg-white border border-zinc-200 rounded-lg py-2 px-3 text-xs focus:ring-2 focus:ring-ibero-dark outline-none">
               </div>
               <div>
-                <label class="text-[10px] font-bold text-zinc-500 uppercase">Link de la Foto (GitHub)</label>
-                <input type="url" id="add-url" placeholder="https://raw.githubusercontent.com/..." class="w-full mt-1 bg-white border border-zinc-200 rounded-lg py-2 px-3 text-xs focus:ring-2 focus:ring-ibero-dark outline-none">
+                <label class="text-[10px] font-bold text-zinc-500 uppercase">Ruta de la Foto</label>
+                <input type="text" id="add-url" placeholder="/fotos/diplomas/juan-perez.jpg" class="w-full mt-1 bg-white border border-zinc-200 rounded-lg py-2 px-3 text-xs focus:ring-2 focus:ring-ibero-dark outline-none">
               </div>
               <div>
                 <label class="text-[10px] font-bold text-zinc-500 uppercase">Programa</label>
@@ -299,9 +303,9 @@
             <h4 class="font-bold text-sm mb-2 border-b border-zinc-200 pb-2"><i class="fa-solid fa-list-ol mr-2"></i>Carga Masiva (Pega desde Excel)</h4>
             <p class="text-[10px] text-zinc-500 mb-3 leading-relaxed">
               Copia y pega celdas directo de Excel o Google Sheets en este orden estricto:<br>
-              <strong class="text-ibero-dark">Nombre Completo | URL de la foto | Programa</strong>
+              <strong class="text-ibero-dark">Nombre Completo | Ruta de la foto | Programa</strong>
             </p>
-            <textarea id="bulk-input" class="w-full flex-grow bg-white border border-zinc-200 rounded-lg py-2 px-3 text-xs font-mono focus:ring-2 focus:ring-ibero-dark outline-none resize-none min-h-[100px]" placeholder="Juan Perez Lopez   https://link...   Curso IA&#10;Maria Gomez   https://link...   Diplomado..."></textarea>
+            <textarea id="bulk-input" class="w-full flex-grow bg-white border border-zinc-200 rounded-lg py-2 px-3 text-xs font-mono focus:ring-2 focus:ring-ibero-dark outline-none resize-none min-h-[100px]" placeholder="Juan Perez   /fotos/diplomas/juan.jpg   Curso IA&#10;Maria Gomez   /fotos/diplomas/maria.jpg   Diplomado..."></textarea>
             <button onclick="generateBulkCode()" class="w-full bg-indigo-600 text-white py-2.5 rounded-lg font-bold text-xs hover:bg-indigo-700 transition-all mt-3 flex justify-center items-center gap-2">
               <i class="fa-solid fa-bolt"></i> Procesar Lista Completa
             </button>
@@ -316,12 +320,12 @@
             <span class="text-[10px] bg-zinc-800 text-zinc-400 px-2 py-1 rounded">JS Object</span>
           </div>
           
-          <p class="text-[10px] text-zinc-400 mb-4">Copia este código y <strong>reemplaza</strong> la variable <code>BASE_DE_DATOS_DIPLOMAS</code> en tu archivo de GitHub.</p>
+          <p class="text-[10px] text-zinc-400 mb-4">Copia este código y <strong>reemplaza</strong> todo el contenido de tu archivo <code>data.js</code> en GitHub.</p>
           
           <textarea id="output-json" class="w-full flex-grow bg-[#050505] text-emerald-400 border border-zinc-700 rounded-lg py-3 px-4 text-[10px] font-mono focus:outline-none resize-none min-h-[200px]" readonly></textarea>
           
           <button onclick="copyGeneratedCode()" class="w-full bg-emerald-600 text-white py-3 rounded-lg font-bold text-xs hover:bg-emerald-500 transition-all mt-4 flex justify-center items-center gap-2">
-            <i class="fa-solid fa-clipboard"></i> Copiar Código para GitHub
+            <i class="fa-solid fa-clipboard"></i> Copiar Código para data.js
           </button>
           <p id="copy-msg" class="text-[11px] text-center font-bold mt-3 text-emerald-400 opacity-0 transition-opacity">¡Copiado con éxito!</p>
         </div>
@@ -551,18 +555,12 @@
   </footer>
 
   <!-- ========================================================= -->
-  <!-- BASE DE DATOS ESTÁTICA (SOLO GITHUB)                      -->
-  <!-- Pega aquí el código que te genere el Panel de Admin       -->
+  <!-- BASE DE DATOS ESTÁTICA EXTERNA                            -->
   <!-- ========================================================= -->
-  <script>
-    let BASE_DE_DATOS_DIPLOMAS = {
-      "ejemplo-alumno": {
-        "nombre": "Ejemplo Alumno",
-        "url": "https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/main/fotos/ejemplo-diploma.jpg",
-        "curso": "Diplomado IA"
-      }
-    };
-  </script>
+  <!-- Aseguramos que el objeto exista aunque data.js falle -->
+  <script>window.BASE_DE_DATOS_DIPLOMAS = window.BASE_DE_DATOS_DIPLOMAS || {};</script>
+  <!-- Aquí conectamos el archivo data.js -->
+  <script src="./data.js"></script>
 
   <!-- LÓGICA DEL SITIO -->
   <script>
@@ -627,7 +625,7 @@
       try {
         document.execCommand('copy');
       } catch (err) {
-        console.error('Fallback: Oops, unable to copy', err);
+        console.error('Fallback error:', err);
       }
     }
 
@@ -652,7 +650,7 @@
     const resultSuccess = document.getElementById('result-success');
     const resultError = document.getElementById('result-error');
     
-    // Elementos de la cabecera (Para ocultarlos/mostrarlos)
+    // Elementos de la cabecera
     const headerTitle = document.getElementById('header-title');
     const headerDesc = document.getElementById('header-desc');
 
@@ -679,7 +677,7 @@
       }
     }
 
-    // Escuchar la carga inicial y los cambios en la barra de direcciones (SPA real)
+    // SPA real: Escuchar cambios en la barra de direcciones (Flechas atrás/adelante)
     window.addEventListener('DOMContentLoaded', handleHashRouting);
     window.addEventListener('hashchange', handleHashRouting);
 
@@ -695,13 +693,13 @@
       loadingState.classList.remove('hidden');
       loadingState.classList.add('flex');
 
-      // Simular un pequeño tiempo de carga para efecto premium
+      // Simular tiempo de validación premium
       setTimeout(() => {
         loadingState.classList.add('hidden');
         loadingState.classList.remove('flex');
 
-        if (BASE_DE_DATOS_DIPLOMAS[slug]) {
-          showSuccess(BASE_DE_DATOS_DIPLOMAS[slug], slug);
+        if (window.BASE_DE_DATOS_DIPLOMAS && window.BASE_DE_DATOS_DIPLOMAS[slug]) {
+          showSuccess(window.BASE_DE_DATOS_DIPLOMAS[slug], slug);
         } else {
           showError(displayName || slug.replace(/-/g, ' '));
         }
@@ -709,21 +707,16 @@
     }
 
     function showSuccess(diplomaData, slug) {
-      // Ocultar descripción inicial y modificar título
       headerDesc.classList.replace('opacity-100', 'opacity-0');
       setTimeout(() => headerDesc.classList.add('hidden'), 500);
       headerTitle.innerText = "Credencial Oficial";
 
-      // Llenar los datos empoderadores
       document.getElementById('cert-student-name').innerText = diplomaData.nombre;
       document.getElementById('cert-course-name').innerText = diplomaData.curso;
-
-      // Configurar imagen y botones
       document.getElementById('diploma-image').src = diplomaData.url;
       document.getElementById('download-btn').href = diplomaData.url;
       document.getElementById('student-id-display').innerText = "ID de Verificación: " + slug.toUpperCase();
       
-      // Asignar función al botón de LinkedIn
       const btnLinkedIn = document.getElementById('linkedin-btn');
       btnLinkedIn.onclick = () => shareLinkedIn(slug);
       
@@ -733,7 +726,6 @@
     }
 
     function showError(name) {
-      // Asegurarse de que el header esté normal
       headerDesc.classList.remove('hidden');
       setTimeout(() => headerDesc.classList.replace('opacity-0', 'opacity-100'), 10);
       headerTitle.innerHTML = 'Validador de <span class="font-serif italic text-zinc-500 font-medium">Credenciales</span>';
@@ -746,12 +738,11 @@
     }
 
     function resetSearch(clearHash = true) {
-      // Restaurar Cabecera
       headerDesc.classList.remove('hidden');
       setTimeout(() => headerDesc.classList.replace('opacity-0', 'opacity-100'), 10);
       headerTitle.innerHTML = 'Validador de <span class="font-serif italic text-zinc-500 font-medium">Credenciales</span>';
 
-      // Limpieza precisa de clases Tailwind
+      // Limpieza precisa de clases para evitar conflictos
       resultSuccess.classList.add('hidden');
       resultSuccess.classList.remove('flex', 'opacity-100');
       
@@ -764,39 +755,34 @@
       document.getElementById('search-section').classList.remove('hidden');
       searchInput.value = '';
       
-      // Limpiar URL si fue desencadenado manualmente
       if (clearHash) {
         history.replaceState(null, '', window.location.pathname);
       }
     }
 
-    // --- LÓGICA DE LINKEDIN PRO ---
+    // --- LÓGICA DE LINKEDIN PRO (Evitando Popup Blockers) ---
     function shareLinkedIn(slug) {
-      const diplomaInfo = BASE_DE_DATOS_DIPLOMAS[slug];
+      const diplomaInfo = window.BASE_DE_DATOS_DIPLOMAS[slug];
       const courseName = diplomaInfo ? diplomaInfo.curso : 'un programa de élite';
       const shareUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '#/' + slug;
       
-      // El texto motivacional y profesional para la publicación
       const postText = `🎓 ¡He culminado un nuevo reto académico!\n\nMe emociona compartir que he finalizado con éxito mi certificación en ${courseName} avalado por el Centro Iberoamericano (IBERO).\n\nHa sido un proceso de muchísimo aprendizaje, enfocado en llevar mis habilidades al siguiente nivel con metodologías reales y aplicables.\n\nPuedes verificar mi credencial oficial aquí:\n${shareUrl}\n\n🚀 #IBERO #Educación #CrecimientoProfesional #LogroAcademico #Certificación`;
 
       const btn = document.getElementById('linkedin-btn');
       const originalHtml = btn.innerHTML;
       
-      // Efecto visual en el botón
       btn.innerHTML = '<i class="fa-solid fa-check"></i> ¡Texto Copiado! Pegálo en LinkedIn...';
       btn.classList.replace('bg-[#0077b5]', 'bg-emerald-600');
       btn.classList.replace('hover:bg-[#005e93]', 'hover:bg-emerald-700');
 
-      // Copiamos al portapapeles y luego abrimos LinkedIn
+      // Copiar texto y ABRIR VENTANA INMEDIATAMENTE para evitar bloqueo de Safari/Chrome
       copyTextToClipboard(postText, () => {
+        window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`, '_blank');
+        
         setTimeout(() => {
-          // Restaurar botón
           btn.innerHTML = originalHtml;
           btn.classList.replace('bg-emerald-600', 'bg-[#0077b5]');
           btn.classList.replace('hover:bg-emerald-700', 'hover:bg-[#005e93]');
-          
-          // Abrir LinkedIn (el usuario solo presiona Ctrl+V para pegar el texto hermoso)
-          window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`, '_blank');
         }, 2000);
       });
     }
@@ -835,25 +821,31 @@
         adminLoginBox.classList.add('hidden');
         adminPanelBox.classList.remove('hidden');
         adminPanelBox.classList.add('flex');
-        updateOutputBox(); // Mostrar la base de datos actual al entrar
+        updateOutputBox();
       } else {
         alert("Código de acceso incorrecto");
       }
     }
 
-    // Ingreso Individual
     function generateSingleCode() {
-      const name = document.getElementById('add-name').value;
-      const url = document.getElementById('add-url').value;
-      const course = document.getElementById('add-course').value || "Certificación General";
+      const name = document.getElementById('add-name').value.trim();
+      const url = document.getElementById('add-url').value.trim();
+      const course = document.getElementById('add-course').value.trim() || "Certificación General";
 
       if(!name || !url) {
-        alert("El nombre y el Link de la foto son obligatorios");
+        alert("El nombre y la Ruta de la foto son obligatorios");
         return;
       }
 
       const slug = createSlug(name);
-      BASE_DE_DATOS_DIPLOMAS[slug] = { nombre: name, url: url, curso: course };
+      
+      // ALERTA DE SEGURIDAD PARA ADMIN
+      if (window.BASE_DE_DATOS_DIPLOMAS[slug]) {
+        const overwrite = confirm(`ATENCIÓN: Ya existe un registro para "${name}". ¿Deseas reemplazarlo con esta nueva información?`);
+        if (!overwrite) return;
+      }
+
+      window.BASE_DE_DATOS_DIPLOMAS[slug] = { nombre: name, url: url, curso: course };
 
       updateOutputBox();
       
@@ -862,7 +854,6 @@
       document.getElementById('add-course').value = '';
     }
 
-    // Ingreso Masivo (Desde Excel/TSV/CSV)
     function generateBulkCode() {
       const bulkText = document.getElementById('bulk-input').value;
       if (!bulkText.trim()) {
@@ -870,13 +861,15 @@
         return;
       }
 
+      const confirmBulk = confirm("Se van a procesar todos los alumnos en la lista. Si hay nombres repetidos en la base de datos, se actualizarán. ¿Deseas continuar?");
+      if(!confirmBulk) return;
+
       const lines = bulkText.split('\n');
       let count = 0;
 
       lines.forEach(line => {
         if (!line.trim()) return;
         
-        // Separamos por tabulador (Excel) o por coma (CSV)
         let parts = line.split('\t');
         if (parts.length < 2) parts = line.split(',');
 
@@ -887,7 +880,7 @@
           
           if (name && url) {
             const slug = createSlug(name);
-            BASE_DE_DATOS_DIPLOMAS[slug] = { nombre: name, url: url, curso: course };
+            window.BASE_DE_DATOS_DIPLOMAS[slug] = { nombre: name, url: url, curso: course };
             count++;
           }
         }
@@ -895,15 +888,14 @@
 
       updateOutputBox();
       document.getElementById('bulk-input').value = '';
-      alert(`¡Éxito! Se han añadido ${count} diplomas al código.`);
+      alert(`¡Éxito! Se han añadido o actualizado ${count} diplomas.`);
     }
 
     function updateOutputBox() {
-      const codeOutput = `let BASE_DE_DATOS_DIPLOMAS = ${JSON.stringify(BASE_DE_DATOS_DIPLOMAS, null, 2)};`;
+      const codeOutput = `window.BASE_DE_DATOS_DIPLOMAS = ${JSON.stringify(window.BASE_DE_DATOS_DIPLOMAS, null, 2)};`;
       document.getElementById('output-json').value = codeOutput;
     }
 
-    // Copiar código del Admin usando la función segura
     function copyGeneratedCode() {
       const text = document.getElementById('output-json').value;
 
