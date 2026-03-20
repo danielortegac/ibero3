@@ -28,10 +28,6 @@
     }
   </script>
 
-  <!-- FIREBASE (V9 Compat) -->
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
-
   <style>
     html { zoom: 0.9; }
     body { background-color: #FAFAFA; }
@@ -117,7 +113,7 @@
       <!-- ESTADO DE CARGA -->
       <div id="loading-state" class="hidden flex-col items-center justify-center py-12">
         <div class="loader mb-4"></div>
-        <p class="text-sm font-bold text-zinc-500 animate-pulse">Verificando en la base de datos...</p>
+        <p class="text-sm font-bold text-zinc-500 animate-pulse">Verificando registro oficial...</p>
       </div>
 
       <!-- RESULTADO: DIPLOMA ENCONTRADO -->
@@ -187,56 +183,54 @@
       <button onclick="closeAdmin()" class="w-full bg-transparent text-zinc-500 py-2 rounded-xl font-bold text-xs hover:text-zinc-800 transition-all">Cancelar</button>
     </div>
 
-    <!-- PANEL ADMIN -->
-    <div id="admin-panel-box" class="bg-white rounded-[2rem] p-6 sm:p-8 max-w-2xl w-full shadow-2xl hidden flex-col max-h-[90vh] overflow-y-auto relative">
+    <!-- PANEL ADMIN (GENERADOR DE CÓDIGO) -->
+    <div id="admin-panel-box" class="bg-white rounded-[2rem] p-6 sm:p-8 max-w-3xl w-full shadow-2xl hidden flex-col max-h-[90vh] overflow-y-auto relative">
       <button onclick="closeAdmin()" class="absolute top-6 right-6 text-zinc-400 hover:text-zinc-800"><i class="fa-solid fa-xmark text-xl"></i></button>
       
-      <div class="flex items-center gap-3 mb-8 border-b border-zinc-100 pb-4">
-        <i class="fa-solid fa-database text-ibero-purple text-2xl"></i>
+      <div class="flex items-center gap-3 mb-6 border-b border-zinc-100 pb-4">
+        <i class="fa-solid fa-code text-ibero-purple text-2xl"></i>
         <div>
-          <h2 class="text-2xl font-black text-ibero-dark tracking-tight">Panel de Control</h2>
-          <p class="text-xs font-bold text-zinc-400 uppercase tracking-widest">Gestor de Diplomas</p>
+          <h2 class="text-2xl font-black text-ibero-dark tracking-tight">Generador de Base de Datos</h2>
+          <p class="text-xs font-bold text-zinc-400 uppercase tracking-widest">Solo GitHub (Sin Firebase)</p>
         </div>
       </div>
 
+      <p class="text-xs text-zinc-600 mb-6 bg-blue-50 p-4 rounded-xl border border-blue-100">
+        <i class="fa-solid fa-circle-info text-blue-500 mr-2"></i> 
+        <strong>¿Cómo funciona?</strong> Ingresa los datos del alumno y haz clic en "Generar Código". Luego, copia el resultado y <strong>reemplaza</strong> la variable <code>BASE_DE_DATOS_DIPLOMAS</code> en tu archivo de GitHub para guardar los cambios de forma permanente.
+      </p>
+
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <!-- Agregar 1 por 1 -->
+        <!-- Formulario Ingreso -->
         <div class="bg-zinc-50 p-5 rounded-2xl border border-zinc-200">
-          <h4 class="font-bold text-sm mb-4 border-b border-zinc-200 pb-2"><i class="fa-solid fa-user-plus mr-2"></i>Cargar Individual</h4>
+          <h4 class="font-bold text-sm mb-4 border-b border-zinc-200 pb-2"><i class="fa-solid fa-user-plus mr-2"></i>Añadir Alumno</h4>
           <div class="space-y-3">
             <div>
-              <label class="text-[10px] font-bold text-zinc-500 uppercase">Nombre Completo del Alumno</label>
-              <input type="text" id="add-name" placeholder="Ej: Maria Lopez Gomez" class="w-full mt-1 bg-white border border-zinc-200 rounded-lg py-2 px-3 text-xs focus:ring-2 focus:ring-ibero-dark outline-none">
+              <label class="text-[10px] font-bold text-zinc-500 uppercase">Nombre Completo</label>
+              <input type="text" id="add-name" placeholder="Ej: Juan Perez Lopez" class="w-full mt-1 bg-white border border-zinc-200 rounded-lg py-2 px-3 text-xs focus:ring-2 focus:ring-ibero-dark outline-none">
             </div>
             <div>
-              <label class="text-[10px] font-bold text-zinc-500 uppercase">Link de la Imagen (GitHub/Drive)</label>
+              <label class="text-[10px] font-bold text-zinc-500 uppercase">Link de la Foto (GitHub)</label>
               <input type="url" id="add-url" placeholder="https://raw.githubusercontent.com/..." class="w-full mt-1 bg-white border border-zinc-200 rounded-lg py-2 px-3 text-xs focus:ring-2 focus:ring-ibero-dark outline-none">
             </div>
             <div>
-              <label class="text-[10px] font-bold text-zinc-500 uppercase">Nombre del Programa</label>
+              <label class="text-[10px] font-bold text-zinc-500 uppercase">Programa</label>
               <input type="text" id="add-course" placeholder="Ej: Diplomado IA" class="w-full mt-1 bg-white border border-zinc-200 rounded-lg py-2 px-3 text-xs focus:ring-2 focus:ring-ibero-dark outline-none">
             </div>
-            <button onclick="addSingleDiploma()" class="w-full bg-emerald-600 text-white py-2.5 rounded-lg font-bold text-xs hover:bg-emerald-700 transition-all mt-2">
-              Guardar Diploma
+            <button onclick="generateDiplomaCode()" class="w-full bg-ibero-dark text-white py-2.5 rounded-lg font-bold text-xs hover:bg-black transition-all mt-2">
+              <i class="fa-solid fa-wand-magic-sparkles mr-1"></i> Generar Código
             </button>
-            <p id="single-msg" class="text-[10px] text-center font-bold mt-2 hidden"></p>
           </div>
         </div>
 
-        <!-- Carga Masiva (JSON) -->
-        <div class="bg-zinc-50 p-5 rounded-2xl border border-zinc-200 flex flex-col">
-          <h4 class="font-bold text-sm mb-4 border-b border-zinc-200 pb-2"><i class="fa-solid fa-list-check mr-2"></i>Carga Masiva Rápida</h4>
-          <p class="text-[10px] text-zinc-500 mb-2 leading-relaxed">
-            Pega una lista en formato JSON de la siguiente manera: <br>
-            <code class="bg-white p-1 rounded border border-zinc-200 block mt-1">
-              [{"nombre": "Juan Perez", "url": "https://link.jpg", "curso": "IA"}]
-            </code>
-          </p>
-          <textarea id="bulk-json" class="w-full flex-grow bg-white border border-zinc-200 rounded-lg py-2 px-3 text-xs font-mono focus:ring-2 focus:ring-ibero-dark outline-none resize-none min-h-[100px]" placeholder="Pega el JSON aquí..."></textarea>
-          <button onclick="addBulkDiplomas()" class="w-full bg-ibero-dark text-white py-2.5 rounded-lg font-bold text-xs hover:bg-black transition-all mt-3">
-            Procesar Lista
+        <!-- Salida JSON Generada -->
+        <div class="flex flex-col">
+          <h4 class="font-bold text-sm mb-2"><i class="fa-solid fa-copy mr-2"></i>Código Generado</h4>
+          <textarea id="output-json" class="w-full flex-grow bg-zinc-900 text-green-400 border border-zinc-800 rounded-lg py-3 px-4 text-[10px] font-mono focus:outline-none resize-none min-h-[150px]" readonly></textarea>
+          <button onclick="copyGeneratedCode()" class="w-full bg-emerald-600 text-white py-2.5 rounded-lg font-bold text-xs hover:bg-emerald-700 transition-all mt-3">
+            <i class="fa-solid fa-clipboard mr-1"></i> Copiar para GitHub
           </button>
-          <p id="bulk-msg" class="text-[10px] text-center font-bold mt-2 hidden"></p>
+          <p id="copy-msg" class="text-[10px] text-center font-bold mt-2 text-emerald-600 hidden">¡Código copiado!</p>
         </div>
       </div>
     </div>
@@ -249,30 +243,23 @@
     </div>
   </footer>
 
-  <!-- SCRIPT LÓGICA PRINCIPAL -->
+  <!-- ========================================================= -->
+  <!-- BASE DE DATOS ESTÁTICA (SOLO GITHUB)                      -->
+  <!-- Pega aquí el código que te genere el Panel de Admin       -->
+  <!-- ========================================================= -->
   <script>
-    // =====================================================================
-    // 1. CONFIGURACIÓN DE FIREBASE
-    // ¡IMPORTANTE! REEMPLAZA ESTOS DATOS CON LOS DE TU PROYECTO FIREBASE
-    // =====================================================================
-    const firebaseConfig = {
-      apiKey: "TU_API_KEY",
-      authDomain: "tu-proyecto.firebaseapp.com",
-      projectId: "tu-proyecto",
-      storageBucket: "tu-proyecto.appspot.com",
-      messagingSenderId: "123456789",
-      appId: "1:123456789:web:abcde12345"
+    let BASE_DE_DATOS_DIPLOMAS = {
+      "ejemplo-alumno": {
+        "nombre": "Ejemplo Alumno",
+        "url": "https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/main/fotos/ejemplo-diploma.jpg",
+        "curso": "Diplomado IA"
+      }
     };
+  </script>
 
-    // Inicializar Firebase
-    firebase.initializeApp(firebaseConfig);
-    const db = firebase.firestore();
-
-    // =====================================================================
-    // 2. UTILIDADES
-    // =====================================================================
-    
-    // Función maestra para convertir "Juan Pérez López" a "juan-perez-lopez"
+  <!-- LÓGICA DEL SITIO -->
+  <script>
+    // 1. UTILIDADES
     function createSlug(name) {
       return name.toString().toLowerCase()
         .replace(/[áàäâ]/g, 'a')
@@ -288,31 +275,25 @@
         .replace(/\-\-+/g, '-');    // Quitar guiones dobles
     }
 
-    // =====================================================================
-    // 3. LÓGICA PÚBLICA (BUSCADOR DE DIPLOMAS)
-    // =====================================================================
+    // 2. BUSCADOR PÚBLICO
     const searchForm = document.getElementById('search-form');
     const searchInput = document.getElementById('student-name-input');
     const loadingState = document.getElementById('loading-state');
     const resultSuccess = document.getElementById('result-success');
     const resultError = document.getElementById('result-error');
 
-    // Escuchar el botón de buscar
-    searchForm.addEventListener('submit', async (e) => {
+    searchForm.addEventListener('submit', (e) => {
       e.preventDefault();
       const rawName = searchInput.value;
       const slug = createSlug(rawName);
       
-      // Actualizar la URL para que se pueda compartir (Ej: ibero.education/diplomas/?u=juan-perez)
       const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?u=' + slug;
       window.history.pushState({path:newUrl}, '', newUrl);
 
       searchDiploma(slug, rawName);
     });
 
-    // Función que busca en Firebase
-    async function searchDiploma(slug, displayName) {
-      // Ocultar buscador, mostrar loader
+    function searchDiploma(slug, displayName) {
       document.getElementById('search-section').classList.add('hidden');
       resultSuccess.classList.add('hidden');
       resultSuccess.classList.remove('opacity-100');
@@ -322,25 +303,18 @@
       loadingState.classList.remove('hidden');
       loadingState.classList.add('flex');
 
-      try {
-        // Consultar a Firestore en la colección 'diplomas' el documento con el ID = slug
-        const docRef = db.collection("diplomas").doc(slug);
-        const docSnap = await docRef.get();
-
+      // Simular un pequeño tiempo de carga para efecto premium
+      setTimeout(() => {
         loadingState.classList.add('hidden');
         loadingState.classList.remove('flex');
 
-        if (docSnap.exists) {
-          const data = docSnap.data();
-          showSuccess(data.url, slug);
+        // BÚSQUEDA EN LA VARIABLE LOCAL (BASE_DE_DATOS_DIPLOMAS)
+        if (BASE_DE_DATOS_DIPLOMAS[slug]) {
+          showSuccess(BASE_DE_DATOS_DIPLOMAS[slug].url, slug);
         } else {
           showError(displayName || slug.replace(/-/g, ' '));
         }
-      } catch (error) {
-        console.error("Error al buscar el diploma:", error);
-        loadingState.classList.add('hidden');
-        showError(displayName || slug);
-      }
+      }, 800);
     }
 
     function showSuccess(imageUrl, slug) {
@@ -366,7 +340,6 @@
       document.getElementById('search-section').classList.remove('hidden');
       searchInput.value = '';
       
-      // Limpiar URL
       const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
       window.history.pushState({path:newUrl}, '', newUrl);
     }
@@ -376,7 +349,6 @@
       window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank');
     }
 
-    // Al cargar la página, revisar si hay un slug en la URL (?u=juan-perez)
     window.addEventListener('DOMContentLoaded', () => {
       const params = new URLSearchParams(window.location.search);
       const userSlug = params.get('u');
@@ -385,9 +357,7 @@
       }
     });
 
-    // =====================================================================
-    // 4. PANEL DE SUPER ADMIN
-    // =====================================================================
+    // 3. PANEL DE ADMIN (GENERADOR)
     const adminModal = document.getElementById('admin-modal');
     const adminLoginBox = document.getElementById('admin-login-box');
     const adminPanelBox = document.getElementById('admin-panel-box');
@@ -421,88 +391,52 @@
         adminLoginBox.classList.add('hidden');
         adminPanelBox.classList.remove('hidden');
         adminPanelBox.classList.add('flex');
+        updateOutputBox(); // Mostrar la base de datos actual al entrar
       } else {
         alert("Código incorrecto");
       }
     }
 
-    // Agregar 1 diploma a Firebase
-    async function addSingleDiploma() {
+    function generateDiplomaCode() {
       const name = document.getElementById('add-name').value;
       const url = document.getElementById('add-url').value;
-      const course = document.getElementById('add-course').value;
-      const msg = document.getElementById('single-msg');
+      const course = document.getElementById('add-course').value || "Certificación General";
 
       if(!name || !url) {
-        msg.innerText = "Nombre y URL son obligatorios";
-        msg.className = "text-[10px] text-center font-bold mt-2 text-ibero-red block";
+        alert("El nombre y el Link son obligatorios");
         return;
       }
 
       const slug = createSlug(name);
       
-      msg.innerText = "Guardando...";
-      msg.className = "text-[10px] text-center font-bold mt-2 text-zinc-500 block";
+      // Agregar temporalmente a la variable local para generar el nuevo código
+      BASE_DE_DATOS_DIPLOMAS[slug] = {
+        nombre: name,
+        url: url,
+        curso: course
+      };
 
-      try {
-        await db.collection("diplomas").doc(slug).set({
-          nombre: name,
-          url: url,
-          curso: course || "General",
-          fecha_carga: firebase.firestore.FieldValue.serverTimestamp()
-        });
-        
-        msg.innerText = "¡Diploma guardado con éxito! ID: " + slug;
-        msg.className = "text-[10px] text-center font-bold mt-2 text-emerald-600 block";
-        
-        // Limpiar inputs
-        document.getElementById('add-name').value = '';
-        document.getElementById('add-url').value = '';
-        document.getElementById('add-course').value = '';
-      } catch (error) {
-        console.error("Error guardando:", error);
-        msg.innerText = "Error al guardar. Revisa la consola.";
-        msg.className = "text-[10px] text-center font-bold mt-2 text-ibero-red block";
-      }
+      updateOutputBox();
+      
+      // Limpiar inputs
+      document.getElementById('add-name').value = '';
+      document.getElementById('add-url').value = '';
+      document.getElementById('add-course').value = '';
     }
 
-    // Agregar lista JSON a Firebase
-    async function addBulkDiplomas() {
-      const jsonText = document.getElementById('bulk-json').value;
-      const msg = document.getElementById('bulk-msg');
+    function updateOutputBox() {
+      const codeOutput = `let BASE_DE_DATOS_DIPLOMAS = ${JSON.stringify(BASE_DE_DATOS_DIPLOMAS, null, 2)};`;
+      document.getElementById('output-json').value = codeOutput;
+    }
+
+    function copyGeneratedCode() {
+      const outputText = document.getElementById('output-json');
+      outputText.select();
+      document.execCommand("copy");
       
-      try {
-        const dataList = JSON.parse(jsonText);
-        msg.innerText = `Procesando ${dataList.length} diplomas...`;
-        msg.className = "text-[10px] text-center font-bold mt-2 text-zinc-500 block";
-
-        let count = 0;
-        const batch = db.batch();
-
-        for (let item of dataList) {
-          if (item.nombre && item.url) {
-            const slug = createSlug(item.nombre);
-            const docRef = db.collection("diplomas").doc(slug);
-            batch.set(docRef, {
-              nombre: item.nombre,
-              url: item.url,
-              curso: item.curso || "General",
-              fecha_carga: firebase.firestore.FieldValue.serverTimestamp()
-            });
-            count++;
-          }
-        }
-
-        await batch.commit();
-        msg.innerText = `¡${count} diplomas guardados con éxito!`;
-        msg.className = "text-[10px] text-center font-bold mt-2 text-emerald-600 block";
-        document.getElementById('bulk-json').value = '';
-
-      } catch (error) {
-        console.error("Error en bulk:", error);
-        msg.innerText = "Error: Asegúrate de que el formato JSON sea válido.";
-        msg.className = "text-[10px] text-center font-bold mt-2 text-ibero-red block";
-      }
+      const msg = document.getElementById('copy-msg');
+      msg.classList.remove('hidden');
+      setTimeout(() => msg.classList.add('hidden'), 3000);
     }
 
   </script>
