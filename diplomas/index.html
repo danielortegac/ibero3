@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+  <title>Verificación de Credenciales y Diplomas | IBERO</title>
+  <meta content="Verifica la autenticidad de los diplomas y certificaciones emitidas por el Centro Iberoamericano (IBERO)." name="description"/>
+  
+  <!-- FAVICON OFICIAL -->
+  <link href="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/3339294f71590eeeaa7f0b0b0591f5e09156ed96/fotos/logos%20ibero/ibero-favicon.svg" rel="icon" type="image/svg+xml"/>
+  
+  <!-- FONTS & ICONS -->
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+  
+  <!-- TAILWIND CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { ibero: { red: '#D91212', reddark: '#880d0d', purple: '#6B21A8', dark: '#09090B', gray: '#FAFAFA' } },
+          fontFamily: { sans: ['Inter', 'sans-serif'], serif: ['Playfair Display', 'serif'] }
+        }
+      }
+    }
+  </script>
+
+  <!-- FIREBASE (V9 Compat) -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+  <style>
+    html { zoom: 0.9; }
+    body { background-color: #FAFAFA; }
+    .nav-glass { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+    .glass-card { background: #ffffff; border: 1px solid #f4f4f5; box-shadow: 0 4px 24px -8px rgba(0,0,0,0.05); }
+    
+    /* Brillo Premium */
+    .hero-shine-dark {
+      background: linear-gradient(110deg, #09090B 35%, #52525b 48%, #09090B 65%); background-size: 250% auto;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: textShine 6s linear infinite;
+    }
+    @keyframes textShine { 0% { background-position: 250% center; } 100% { background-position: -250% center; } }
+    
+    /* Efecto del Diploma */
+    .diploma-frame {
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
+    }
+    .diploma-frame:hover { transform: scale(1.01); }
+
+    /* Loader */
+    .loader { border: 3px solid #f3f3f3; border-top: 3px solid #09090B; border-radius: 50%; width: 24px; height: 24px; animation: spin 1s linear infinite; }
+    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+  </style>
+</head>
+<body class="text-ibero-dark font-sans antialiased selection:bg-ibero-dark selection:text-white flex flex-col min-h-screen pt-20">
+
+  <!-- NAVBAR SIMPLIFICADO -->
+  <nav class="fixed top-0 left-0 w-full z-50 transition-all duration-300 shadow-sm nav-glass border-b border-zinc-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16 md:h-20">
+        <a class="flex-shrink-0 flex items-center" href="https://ibero.education">
+          <img alt="Logo IBERO" class="h-8 sm:h-10 w-auto object-contain" src="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/1557a79470d9c26d1ad0f0b00243f9f03e55cf2f/fotos/svg/ibero-logo-black-redE.svg"/>
+        </a>
+        <div class="flex items-center gap-4">
+          <span class="text-xs font-bold tracking-widest text-zinc-400 uppercase hidden sm:block border-r border-zinc-200 pr-4">Registro Oficial</span>
+          <a href="https://ibero.education" class="text-sm font-bold text-zinc-600 hover:text-ibero-dark transition-colors">Volver al Inicio</a>
+          <!-- Botón Secreto Admin (Doble clic en el candado) -->
+          <button id="admin-trigger" class="text-zinc-300 hover:text-zinc-500 transition-colors ml-2" ondblclick="openAdminLogin()">
+            <i class="fa-solid fa-lock text-xs"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="flex-grow flex flex-col items-center justify-center p-4 sm:p-8 relative overflow-hidden">
+    <!-- Decoración de fondo -->
+    <div class="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-bl from-zinc-100 to-transparent rounded-full blur-3xl -z-10 opacity-50 translate-x-1/2 -translate-y-1/2"></div>
+    
+    <div class="max-w-4xl w-full mx-auto relative z-10">
+      
+      <!-- CABECERA -->
+      <div class="text-center mb-10" id="header-section">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-zinc-200 bg-white shadow-sm text-[10px] sm:text-xs font-bold tracking-widest uppercase mb-6">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          Verificación Global Activa
+        </div>
+        <h1 class="text-3xl sm:text-5xl font-extrabold text-ibero-dark tracking-tight mb-4 hero-shine-dark">
+          Validador de <span class="font-serif italic text-zinc-500 font-medium">Credenciales</span>
+        </h1>
+        <p class="text-zinc-500 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+          Ingresa tu nombre completo para acceder a tu diploma oficial. Las credenciales de IBERO están respaldadas y verificadas para tu perfil profesional.
+        </p>
+      </div>
+
+      <!-- BUSCADOR -->
+      <div class="glass-card rounded-[2rem] p-6 sm:p-8 mb-12 max-w-2xl mx-auto" id="search-section">
+        <form id="search-form" class="flex flex-col sm:flex-row gap-3 relative">
+          <div class="relative flex-grow">
+            <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 transform -translate-y-1/2 text-zinc-400"></i>
+            <input type="text" id="student-name-input" placeholder="Ej: Juan Perez Lopez" class="w-full bg-zinc-50 border border-zinc-200 rounded-xl py-4 pl-12 pr-4 text-sm font-medium text-ibero-dark focus:outline-none focus:ring-2 focus:ring-ibero-dark focus:border-transparent transition-all" required>
+          </div>
+          <button type="submit" class="bg-ibero-dark text-white px-8 py-4 rounded-xl font-bold text-sm hover:bg-black transition-all shadow-md flex justify-center items-center gap-2 whitespace-nowrap">
+            <span>Verificar</span>
+            <i class="fa-solid fa-arrow-right text-xs"></i>
+          </button>
+        </form>
+        <p class="text-[10px] text-zinc-400 mt-4 text-center">Escribe tu nombre completo, nosotros generaremos el formato correcto automáticamente.</p>
+      </div>
+
+      <!-- ESTADO DE CARGA -->
+      <div id="loading-state" class="hidden flex-col items-center justify-center py-12">
+        <div class="loader mb-4"></div>
+        <p class="text-sm font-bold text-zinc-500 animate-pulse">Verificando en la base de datos...</p>
+      </div>
+
+      <!-- RESULTADO: DIPLOMA ENCONTRADO -->
+      <div id="result-success" class="hidden flex-col items-center opacity-0 transition-opacity duration-500">
+        <div class="bg-emerald-50 border border-emerald-200 text-emerald-800 px-6 py-3 rounded-2xl flex items-center gap-3 mb-8 shadow-sm">
+          <div class="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600">
+            <i class="fa-solid fa-check"></i>
+          </div>
+          <div>
+            <p class="text-xs font-bold uppercase tracking-wide">Credencial Auténtica</p>
+            <p class="text-[10px] opacity-80" id="student-id-display">ID: ...</p>
+          </div>
+        </div>
+
+        <div class="relative w-full max-w-3xl">
+          <!-- Diploma Image -->
+          <div class="diploma-frame rounded-xl overflow-hidden bg-white">
+            <img id="diploma-image" src="" alt="Diploma" class="w-full h-auto object-contain" />
+          </div>
+          
+          <!-- Botones de Acción -->
+          <div class="flex flex-wrap justify-center gap-4 mt-8">
+            <a id="download-btn" href="#" target="_blank" download class="bg-[#09090B] text-white px-6 py-3 rounded-xl font-bold text-xs hover:bg-zinc-800 transition-all shadow-md flex items-center gap-2">
+              <i class="fa-solid fa-download"></i> Descargar PDF/Imagen
+            </a>
+            <button onclick="shareLinkedIn()" class="bg-[#0077b5] text-white px-6 py-3 rounded-xl font-bold text-xs hover:bg-[#005e93] transition-all shadow-md flex items-center gap-2">
+              <i class="fa-brands fa-linkedin"></i> Añadir a LinkedIn
+            </button>
+            <button onclick="resetSearch()" class="bg-white border border-zinc-200 text-zinc-600 px-6 py-3 rounded-xl font-bold text-xs hover:bg-zinc-50 transition-all shadow-sm">
+              Buscar otro
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- RESULTADO: NO ENCONTRADO -->
+      <div id="result-error" class="hidden flex-col items-center py-12 opacity-0 transition-opacity duration-500">
+        <div class="w-20 h-20 bg-zinc-100 rounded-full flex items-center justify-center mb-6">
+          <i class="fa-solid fa-file-circle-xmark text-3xl text-zinc-400"></i>
+        </div>
+        <h3 class="text-xl font-bold text-ibero-dark mb-2">Credencial no encontrada</h3>
+        <p class="text-zinc-500 text-sm text-center max-w-md mb-8">
+          No pudimos localizar un diploma para <strong id="error-name" class="text-zinc-800"></strong>. Asegúrate de haber escrito tu nombre exactamente como te registraste, o contacta a soporte.
+        </p>
+        <button onclick="resetSearch()" class="bg-white border border-zinc-200 text-ibero-dark px-6 py-3 rounded-xl font-bold text-xs hover:bg-zinc-50 transition-all shadow-sm">
+          Intentar nuevamente
+        </button>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- MODAL ADMIN (OCULTO) -->
+  <div id="admin-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[100] hidden items-center justify-center p-4 opacity-0 transition-opacity duration-300">
+    
+    <!-- LOGIN ADMIN -->
+    <div id="admin-login-box" class="bg-white rounded-[2rem] p-8 max-w-sm w-full shadow-2xl transform scale-95 transition-transform duration-300">
+      <div class="text-center mb-6">
+        <div class="w-12 h-12 bg-zinc-900 text-white rounded-xl flex items-center justify-center mx-auto mb-4">
+          <i class="fa-solid fa-user-shield text-xl"></i>
+        </div>
+        <h3 class="text-xl font-bold text-ibero-dark">Acceso Restringido</h3>
+        <p class="text-[11px] text-zinc-500 mt-1">Solo personal autorizado IBERO</p>
+      </div>
+      <input type="password" id="admin-pwd" placeholder="Código de acceso" class="w-full bg-zinc-50 border border-zinc-200 rounded-xl py-3 px-4 text-center text-lg font-bold tracking-widest mb-4 focus:outline-none focus:ring-2 focus:ring-ibero-dark">
+      <button onclick="verifyAdmin()" class="w-full bg-ibero-dark text-white py-3 rounded-xl font-bold text-sm hover:bg-black transition-all mb-3">Entrar</button>
+      <button onclick="closeAdmin()" class="w-full bg-transparent text-zinc-500 py-2 rounded-xl font-bold text-xs hover:text-zinc-800 transition-all">Cancelar</button>
+    </div>
+
+    <!-- PANEL ADMIN -->
+    <div id="admin-panel-box" class="bg-white rounded-[2rem] p-6 sm:p-8 max-w-2xl w-full shadow-2xl hidden flex-col max-h-[90vh] overflow-y-auto relative">
+      <button onclick="closeAdmin()" class="absolute top-6 right-6 text-zinc-400 hover:text-zinc-800"><i class="fa-solid fa-xmark text-xl"></i></button>
+      
+      <div class="flex items-center gap-3 mb-8 border-b border-zinc-100 pb-4">
+        <i class="fa-solid fa-database text-ibero-purple text-2xl"></i>
+        <div>
+          <h2 class="text-2xl font-black text-ibero-dark tracking-tight">Panel de Control</h2>
+          <p class="text-xs font-bold text-zinc-400 uppercase tracking-widest">Gestor de Diplomas</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Agregar 1 por 1 -->
+        <div class="bg-zinc-50 p-5 rounded-2xl border border-zinc-200">
+          <h4 class="font-bold text-sm mb-4 border-b border-zinc-200 pb-2"><i class="fa-solid fa-user-plus mr-2"></i>Cargar Individual</h4>
+          <div class="space-y-3">
+            <div>
+              <label class="text-[10px] font-bold text-zinc-500 uppercase">Nombre Completo del Alumno</label>
+              <input type="text" id="add-name" placeholder="Ej: Maria Lopez Gomez" class="w-full mt-1 bg-white border border-zinc-200 rounded-lg py-2 px-3 text-xs focus:ring-2 focus:ring-ibero-dark outline-none">
+            </div>
+            <div>
+              <label class="text-[10px] font-bold text-zinc-500 uppercase">Link de la Imagen (GitHub/Drive)</label>
+              <input type="url" id="add-url" placeholder="https://raw.githubusercontent.com/..." class="w-full mt-1 bg-white border border-zinc-200 rounded-lg py-2 px-3 text-xs focus:ring-2 focus:ring-ibero-dark outline-none">
+            </div>
+            <div>
+              <label class="text-[10px] font-bold text-zinc-500 uppercase">Nombre del Programa</label>
+              <input type="text" id="add-course" placeholder="Ej: Diplomado IA" class="w-full mt-1 bg-white border border-zinc-200 rounded-lg py-2 px-3 text-xs focus:ring-2 focus:ring-ibero-dark outline-none">
+            </div>
+            <button onclick="addSingleDiploma()" class="w-full bg-emerald-600 text-white py-2.5 rounded-lg font-bold text-xs hover:bg-emerald-700 transition-all mt-2">
+              Guardar Diploma
+            </button>
+            <p id="single-msg" class="text-[10px] text-center font-bold mt-2 hidden"></p>
+          </div>
+        </div>
+
+        <!-- Carga Masiva (JSON) -->
+        <div class="bg-zinc-50 p-5 rounded-2xl border border-zinc-200 flex flex-col">
+          <h4 class="font-bold text-sm mb-4 border-b border-zinc-200 pb-2"><i class="fa-solid fa-list-check mr-2"></i>Carga Masiva Rápida</h4>
+          <p class="text-[10px] text-zinc-500 mb-2 leading-relaxed">
+            Pega una lista en formato JSON de la siguiente manera: <br>
+            <code class="bg-white p-1 rounded border border-zinc-200 block mt-1">
+              [{"nombre": "Juan Perez", "url": "https://link.jpg", "curso": "IA"}]
+            </code>
+          </p>
+          <textarea id="bulk-json" class="w-full flex-grow bg-white border border-zinc-200 rounded-lg py-2 px-3 text-xs font-mono focus:ring-2 focus:ring-ibero-dark outline-none resize-none min-h-[100px]" placeholder="Pega el JSON aquí..."></textarea>
+          <button onclick="addBulkDiplomas()" class="w-full bg-ibero-dark text-white py-2.5 rounded-lg font-bold text-xs hover:bg-black transition-all mt-3">
+            Procesar Lista
+          </button>
+          <p id="bulk-msg" class="text-[10px] text-center font-bold mt-2 hidden"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="bg-[#050505] text-zinc-500 py-6 border-t border-zinc-900 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 text-center text-[10px] sm:text-xs flex flex-col sm:flex-row justify-between items-center gap-4">
+      <p>&copy; 2026 Centro Iberoamericano (IBERO). Verificación Oficial.</p>
+      <p>Powered by <strong class="text-emerald-500">GOATIFY</strong></p>
+    </div>
+  </footer>
+
+  <!-- SCRIPT LÓGICA PRINCIPAL -->
+  <script>
+    // =====================================================================
+    // 1. CONFIGURACIÓN DE FIREBASE
+    // ¡IMPORTANTE! REEMPLAZA ESTOS DATOS CON LOS DE TU PROYECTO FIREBASE
+    // =====================================================================
+    const firebaseConfig = {
+      apiKey: "TU_API_KEY",
+      authDomain: "tu-proyecto.firebaseapp.com",
+      projectId: "tu-proyecto",
+      storageBucket: "tu-proyecto.appspot.com",
+      messagingSenderId: "123456789",
+      appId: "1:123456789:web:abcde12345"
+    };
+
+    // Inicializar Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+
+    // =====================================================================
+    // 2. UTILIDADES
+    // =====================================================================
+    
+    // Función maestra para convertir "Juan Pérez López" a "juan-perez-lopez"
+    function createSlug(name) {
+      return name.toString().toLowerCase()
+        .replace(/[áàäâ]/g, 'a')
+        .replace(/[éèëê]/g, 'e')
+        .replace(/[íìïî]/g, 'i')
+        .replace(/[óòöô]/g, 'o')
+        .replace(/[úùüû]/g, 'u')
+        .replace(/[ñ]/g, 'n')
+        .replace(/[ç]/g, 'c')
+        .trim()
+        .replace(/\s+/g, '-')       // Espacios por guiones
+        .replace(/[^\w\-]+/g, '')   // Quitar caracteres especiales
+        .replace(/\-\-+/g, '-');    // Quitar guiones dobles
+    }
+
+    // =====================================================================
+    // 3. LÓGICA PÚBLICA (BUSCADOR DE DIPLOMAS)
+    // =====================================================================
+    const searchForm = document.getElementById('search-form');
+    const searchInput = document.getElementById('student-name-input');
+    const loadingState = document.getElementById('loading-state');
+    const resultSuccess = document.getElementById('result-success');
+    const resultError = document.getElementById('result-error');
+
+    // Escuchar el botón de buscar
+    searchForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const rawName = searchInput.value;
+      const slug = createSlug(rawName);
+      
+      // Actualizar la URL para que se pueda compartir (Ej: ibero.education/diplomas/?u=juan-perez)
+      const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?u=' + slug;
+      window.history.pushState({path:newUrl}, '', newUrl);
+
+      searchDiploma(slug, rawName);
+    });
+
+    // Función que busca en Firebase
+    async function searchDiploma(slug, displayName) {
+      // Ocultar buscador, mostrar loader
+      document.getElementById('search-section').classList.add('hidden');
+      resultSuccess.classList.add('hidden');
+      resultSuccess.classList.remove('opacity-100');
+      resultError.classList.add('hidden');
+      resultError.classList.remove('opacity-100');
+      
+      loadingState.classList.remove('hidden');
+      loadingState.classList.add('flex');
+
+      try {
+        // Consultar a Firestore en la colección 'diplomas' el documento con el ID = slug
+        const docRef = db.collection("diplomas").doc(slug);
+        const docSnap = await docRef.get();
+
+        loadingState.classList.add('hidden');
+        loadingState.classList.remove('flex');
+
+        if (docSnap.exists) {
+          const data = docSnap.data();
+          showSuccess(data.url, slug);
+        } else {
+          showError(displayName || slug.replace(/-/g, ' '));
+        }
+      } catch (error) {
+        console.error("Error al buscar el diploma:", error);
+        loadingState.classList.add('hidden');
+        showError(displayName || slug);
+      }
+    }
+
+    function showSuccess(imageUrl, slug) {
+      document.getElementById('diploma-image').src = imageUrl;
+      document.getElementById('download-btn').href = imageUrl;
+      document.getElementById('student-id-display').innerText = "ID de Verificación: " + slug.toUpperCase();
+      
+      resultSuccess.classList.remove('hidden');
+      resultSuccess.classList.add('flex');
+      setTimeout(() => resultSuccess.classList.add('opacity-100'), 50);
+    }
+
+    function showError(name) {
+      document.getElementById('error-name').innerText = name.toUpperCase();
+      resultError.classList.remove('hidden');
+      resultError.classList.add('flex');
+      setTimeout(() => resultError.classList.add('opacity-100'), 50);
+    }
+
+    function resetSearch() {
+      resultSuccess.classList.add('hidden');
+      resultError.classList.add('hidden');
+      document.getElementById('search-section').classList.remove('hidden');
+      searchInput.value = '';
+      
+      // Limpiar URL
+      const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
+      window.history.pushState({path:newUrl}, '', newUrl);
+    }
+
+    function shareLinkedIn() {
+      const url = encodeURIComponent(window.location.href);
+      window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank');
+    }
+
+    // Al cargar la página, revisar si hay un slug en la URL (?u=juan-perez)
+    window.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const userSlug = params.get('u');
+      if (userSlug) {
+        searchDiploma(userSlug, userSlug.replace(/-/g, ' '));
+      }
+    });
+
+    // =====================================================================
+    // 4. PANEL DE SUPER ADMIN
+    // =====================================================================
+    const adminModal = document.getElementById('admin-modal');
+    const adminLoginBox = document.getElementById('admin-login-box');
+    const adminPanelBox = document.getElementById('admin-panel-box');
+    
+    function openAdminLogin() {
+      adminModal.classList.remove('hidden');
+      adminModal.classList.add('flex');
+      setTimeout(() => {
+        adminModal.classList.add('opacity-100');
+        adminLoginBox.classList.remove('scale-95');
+        adminLoginBox.classList.add('scale-100');
+      }, 10);
+    }
+
+    function closeAdmin() {
+      adminModal.classList.remove('opacity-100');
+      adminLoginBox.classList.remove('scale-100');
+      adminLoginBox.classList.add('scale-95');
+      setTimeout(() => {
+        adminModal.classList.add('hidden');
+        adminModal.classList.remove('flex');
+        adminPanelBox.classList.add('hidden');
+        adminLoginBox.classList.remove('hidden');
+        document.getElementById('admin-pwd').value = '';
+      }, 300);
+    }
+
+    function verifyAdmin() {
+      const pwd = document.getElementById('admin-pwd').value;
+      if (pwd === '9466') {
+        adminLoginBox.classList.add('hidden');
+        adminPanelBox.classList.remove('hidden');
+        adminPanelBox.classList.add('flex');
+      } else {
+        alert("Código incorrecto");
+      }
+    }
+
+    // Agregar 1 diploma a Firebase
+    async function addSingleDiploma() {
+      const name = document.getElementById('add-name').value;
+      const url = document.getElementById('add-url').value;
+      const course = document.getElementById('add-course').value;
+      const msg = document.getElementById('single-msg');
+
+      if(!name || !url) {
+        msg.innerText = "Nombre y URL son obligatorios";
+        msg.className = "text-[10px] text-center font-bold mt-2 text-ibero-red block";
+        return;
+      }
+
+      const slug = createSlug(name);
+      
+      msg.innerText = "Guardando...";
+      msg.className = "text-[10px] text-center font-bold mt-2 text-zinc-500 block";
+
+      try {
+        await db.collection("diplomas").doc(slug).set({
+          nombre: name,
+          url: url,
+          curso: course || "General",
+          fecha_carga: firebase.firestore.FieldValue.serverTimestamp()
+        });
+        
+        msg.innerText = "¡Diploma guardado con éxito! ID: " + slug;
+        msg.className = "text-[10px] text-center font-bold mt-2 text-emerald-600 block";
+        
+        // Limpiar inputs
+        document.getElementById('add-name').value = '';
+        document.getElementById('add-url').value = '';
+        document.getElementById('add-course').value = '';
+      } catch (error) {
+        console.error("Error guardando:", error);
+        msg.innerText = "Error al guardar. Revisa la consola.";
+        msg.className = "text-[10px] text-center font-bold mt-2 text-ibero-red block";
+      }
+    }
+
+    // Agregar lista JSON a Firebase
+    async function addBulkDiplomas() {
+      const jsonText = document.getElementById('bulk-json').value;
+      const msg = document.getElementById('bulk-msg');
+      
+      try {
+        const dataList = JSON.parse(jsonText);
+        msg.innerText = `Procesando ${dataList.length} diplomas...`;
+        msg.className = "text-[10px] text-center font-bold mt-2 text-zinc-500 block";
+
+        let count = 0;
+        const batch = db.batch();
+
+        for (let item of dataList) {
+          if (item.nombre && item.url) {
+            const slug = createSlug(item.nombre);
+            const docRef = db.collection("diplomas").doc(slug);
+            batch.set(docRef, {
+              nombre: item.nombre,
+              url: item.url,
+              curso: item.curso || "General",
+              fecha_carga: firebase.firestore.FieldValue.serverTimestamp()
+            });
+            count++;
+          }
+        }
+
+        await batch.commit();
+        msg.innerText = `¡${count} diplomas guardados con éxito!`;
+        msg.className = "text-[10px] text-center font-bold mt-2 text-emerald-600 block";
+        document.getElementById('bulk-json').value = '';
+
+      } catch (error) {
+        console.error("Error en bulk:", error);
+        msg.innerText = "Error: Asegúrate de que el formato JSON sea válido.";
+        msg.className = "text-[10px] text-center font-bold mt-2 text-ibero-red block";
+      }
+    }
+
+  </script>
+</body>
+</html>
