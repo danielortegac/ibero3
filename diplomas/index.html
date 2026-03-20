@@ -53,25 +53,85 @@
     @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
   </style>
 </head>
-<body class="text-ibero-dark font-sans antialiased selection:bg-ibero-dark selection:text-white flex flex-col min-h-screen pt-20">
+<body class="text-ibero-dark font-sans antialiased selection:bg-ibero-dark selection:text-white flex flex-col min-h-screen pt-[105px] md:pt-[121px] bg-white">
 
-  <!-- NAVBAR SIMPLIFICADO -->
-  <nav class="fixed top-0 left-0 w-full z-50 transition-all duration-300 shadow-sm nav-glass border-b border-zinc-200">
+  <!-- HEADER PREMIUM LIMPIO (2 FILAS) -->
+  <nav class="fixed top-0 left-0 w-full z-50 transition-all duration-300 shadow-sm flex flex-col" id="navbar">
+   <!-- Fila 1: Logo + Enlaces Académicos -->
+   <div class="w-full nav-glass border-b border-zinc-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between items-center h-16 md:h-20">
-        <a class="flex-shrink-0 flex items-center" href="https://ibero.education">
-          <img alt="Logo IBERO" class="h-8 sm:h-10 w-auto object-contain" src="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/1557a79470d9c26d1ad0f0b00243f9f03e55cf2f/fotos/svg/ibero-logo-black-redE.svg"/>
-        </a>
-        <div class="flex items-center gap-4">
-          <span class="text-xs font-bold tracking-widest text-zinc-400 uppercase hidden sm:block border-r border-zinc-200 pr-4">Registro Oficial</span>
-          <a href="https://ibero.education" class="text-sm font-bold text-zinc-600 hover:text-ibero-dark transition-colors">Volver al Inicio</a>
-          <!-- Botón Secreto Admin (Doble clic en el candado) -->
-          <button id="admin-trigger" class="text-zinc-300 hover:text-zinc-500 transition-colors ml-2" ondblclick="openAdminLogin()">
-            <i class="fa-solid fa-lock text-xs"></i>
-          </button>
-        </div>
+     <div class="flex justify-between items-center h-16 md:h-20 gap-2 sm:gap-4">
+      <!-- LOGO -->
+      <a class="flex-shrink-0 flex items-center cursor-pointer py-2" href="/">
+       <img alt="Logo IBERO" class="h-8 sm:h-10 md:h-10 w-auto object-contain" src="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/1557a79470d9c26d1ad0f0b00243f9f03e55cf2f/fotos/svg/ibero-logo-black-redE.svg"/>
+      </a>
+      <!-- ENLACES ACADÉMICOS (Antigua Fila 3) -->
+      <div class="flex flex-1 items-center justify-start lg:justify-end gap-4 md:gap-8 overflow-x-auto hide-scrollbar px-2 sm:px-4 ml-auto scroll-smooth">
+       <a class="text-[11px] md:text-[13px] font-medium text-zinc-600 hover:text-ibero-dark transition-colors whitespace-nowrap" href="https://ibero.education/oferta-academica/">Oferta Acad&eacute;mica</a>
+       <a class="text-[11px] md:text-[13px] font-medium text-zinc-600 hover:text-ibero-dark transition-colors whitespace-nowrap" href="https://ibero.education/calendario-academico/">Calendario Acad&eacute;mico</a>
+       <a class="text-[11px] md:text-[13px] font-medium text-zinc-600 hover:text-ibero-dark transition-colors whitespace-nowrap" href="https://ibero.education/certificaciones-intensivas/">Certificaciones 12h</a>
+       <a class="text-[11px] md:text-[13px] font-medium text-zinc-600 hover:text-ibero-dark transition-colors whitespace-nowrap" href="https://ibero.education/diplomados-intensivos/">Diplomados</a>
+       <a class="text-[11px] md:text-[13px] font-medium text-zinc-600 hover:text-ibero-dark transition-colors whitespace-nowrap" href="https://ibero.education/executive-master/">Executive Masters</a>
+       <a class="text-[11px] md:text-[13px] font-bold text-ibero-dark border-b-2 border-ibero-dark pb-0.5 whitespace-nowrap" href="#">Verificar Credencial</a>
       </div>
+      <!-- BOTONES DE ACCIÓN DERECHA -->
+      <div class="flex items-center shrink-0 border-l border-zinc-200 pl-3 ml-1 gap-3">
+       <!-- Botón Secreto Admin (Doble clic) -->
+       <button id="admin-trigger-desktop" class="text-zinc-300 hover:text-zinc-500 transition-colors" ondblclick="openAdminLogin()" title="Acceso Restringido">
+         <i class="fa-solid fa-lock text-xs"></i>
+       </button>
+       <!-- Botón Menú Móvil -->
+       <button aria-label="Abrir men&uacute; m&oacute;vil" class="md:hidden text-zinc-600 hover:text-ibero-dark focus:outline-none p-2 transition-colors" id="mobile-menu-btn">
+        <i class="fa-solid fa-bars text-xl"></i>
+       </button>
+      </div>
+     </div>
     </div>
+   </div>
+   <!-- Fila 2: Enlaces Institucionales (Barra Negra) -->
+   <div class="flex w-full bg-[#050505] text-white border-b border-zinc-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex justify-start md:justify-end items-center h-10 text-[10px] md:text-[11px] font-semibold tracking-wider uppercase overflow-x-auto hide-scrollbar">
+     <div class="flex items-center gap-5 md:gap-7 min-w-max pr-4 md:pr-0">
+      <a class="text-white hover:text-zinc-300 transition-colors" href="https://ibero.education/" target="_blank">Inicio</a>
+      <a class="text-white hover:text-zinc-300 transition-colors" href="https://qlase.goatify.app/" target="_blank">Campus Virtual</a>
+      <a class="text-white hover:text-zinc-300 transition-colors" href="https://ibero.education/trabaja-con-nosotros/" target="_blank">Docentes</a>
+      <a class="text-white hover:text-zinc-300 transition-colors" href="https://ibero.education/publicaciones/" target="_blank">Publicaciones</a>
+      <a class="text-white hover:text-zinc-300 transition-colors" href="https://ibero.education/trabaja-con-nosotros/" target="_blank">Trabaja con nosotros</a>
+      <a class="text-white hover:text-zinc-300 transition-colors" href="https://ibero.education/ayuda-financiera/" target="_blank">Ayuda Financiera</a>
+      <a class="text-white hover:text-zinc-300 transition-colors" href="https://www.ibero.education/metodologia/" target="_blank">Metodolog&iacute;a</a>
+      <a class="text-white hover:text-zinc-300 transition-colors font-bold" href="https://www.ibero.education/goatify/" target="_blank">Laboratorio Tech</a>
+      <a class="text-white hover:text-zinc-300 transition-colors" href="https://ibero.education/contacto/" target="_blank">Contactos</a>
+     </div>
+    </div>
+   </div>
+   <!-- Mobile Menu Panel -->
+   <div class="hidden md:hidden bg-white border-t border-zinc-100 absolute w-full shadow-lg max-h-[calc(100vh-105px)] overflow-y-auto top-[105px]" id="mobile-menu">
+    <div class="px-4 pt-2 pb-6 space-y-1 flex flex-col">
+     <div class="mb-2 px-3 pt-4">
+      <span class="text-[10px] font-bold tracking-widest text-ibero-reddark uppercase">
+       Programas
+      </span>
+     </div>
+     <a class="mobile-link block px-3 py-3 text-base font-medium text-zinc-800 border-b border-zinc-50 hover:text-ibero-reddark" href="https://ibero.education/oferta-academica/">
+      Oferta Acad&eacute;mica
+     </a>
+     <a class="mobile-link block px-3 py-3 text-base font-medium text-zinc-800 border-b border-zinc-50 hover:text-ibero-reddark" href="https://ibero.education/calendario-academico/">
+      Calendario Acad&eacute;mico
+     </a>
+     <a class="mobile-link block px-3 py-3 text-base font-medium text-zinc-800 border-b border-zinc-50 hover:text-ibero-reddark" href="https://ibero.education/certificaciones-intensivas/">
+      Certificaciones 12h
+     </a>
+     <a class="mobile-link block px-3 py-3 text-base font-medium text-zinc-800 border-b border-zinc-50 hover:text-ibero-reddark" href="https://ibero.education/diplomados-intensivos/">
+      Diplomados
+     </a>
+     <a class="mobile-link block px-3 py-3 text-base font-medium text-zinc-800 border-b border-zinc-50 hover:text-ibero-reddark" href="https://ibero.education/executive-master/">
+      Executive Masters
+     </a>
+     <a class="mobile-link block px-3 py-3 text-base font-bold text-ibero-dark bg-zinc-50 border-b border-zinc-100" href="#">
+      Verificar Credencial
+     </a>
+    </div>
+   </div>
   </nav>
 
   <!-- CONTENIDO PRINCIPAL -->
@@ -83,14 +143,14 @@
       
       <!-- CABECERA -->
       <div class="text-center mb-10" id="header-section">
-        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-zinc-200 bg-white shadow-sm text-[10px] sm:text-xs font-bold tracking-widest uppercase mb-6">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-zinc-200 bg-white shadow-sm text-[10px] sm:text-xs font-bold tracking-widest uppercase mb-6" id="status-badge">
           <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
           Verificación Global Activa
         </div>
-        <h1 class="text-3xl sm:text-5xl font-extrabold text-ibero-dark tracking-tight mb-4 hero-shine-dark">
+        <h1 id="header-title" class="text-3xl sm:text-5xl font-extrabold text-ibero-dark tracking-tight mb-4 hero-shine-dark transition-all duration-500">
           Validador de <span class="font-serif italic text-zinc-500 font-medium">Credenciales</span>
         </h1>
-        <p class="text-zinc-500 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+        <p id="header-desc" class="text-zinc-500 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed transition-all duration-500 opacity-100">
           Ingresa tu nombre completo para acceder a tu diploma oficial. Las credenciales de IBERO están respaldadas y verificadas para tu perfil profesional.
         </p>
       </div>
@@ -123,9 +183,17 @@
             <i class="fa-solid fa-check"></i>
           </div>
           <div>
-            <p class="text-xs font-bold uppercase tracking-wide">Credencial Auténtica</p>
+            <p class="text-xs font-bold uppercase tracking-wide">Credencial Auténtica y Avalada</p>
             <p class="text-[10px] opacity-80" id="student-id-display">ID: ...</p>
           </div>
+        </div>
+
+        <!-- TEXTO EMPODERADOR DEL ALUMNO -->
+        <div class="text-center mb-10 max-w-2xl mx-auto px-4">
+          <h2 class="text-2xl sm:text-4xl font-serif font-bold text-ibero-dark mb-4" id="cert-student-name">Nombre del Alumno</h2>
+          <p class="text-zinc-600 leading-relaxed text-sm sm:text-base">
+            El <strong class="text-ibero-dark">Centro Iberoamericano (IBERO)</strong> certifica y avala institucionalmente que el alumno ha culminado con excelencia académica el programa <strong class="text-ibero-purple" id="cert-course-name">Nombre del Programa</strong>. Este logro demuestra su alto nivel de competencia, rigor profesional y capacidad para liderar en su entorno.
+          </p>
         </div>
 
         <div class="relative w-full max-w-3xl">
@@ -137,10 +205,15 @@
           <!-- Botones de Acción -->
           <div class="flex flex-wrap justify-center gap-4 mt-8">
             <a id="download-btn" href="#" target="_blank" download class="bg-[#09090B] text-white px-6 py-3 rounded-xl font-bold text-xs hover:bg-zinc-800 transition-all shadow-md flex items-center gap-2">
-              <i class="fa-solid fa-download"></i> Descargar PDF/Imagen
+              <i class="fa-solid fa-download"></i> Descargar Imagen
             </a>
-            <button onclick="shareLinkedIn()" class="bg-[#0077b5] text-white px-6 py-3 rounded-xl font-bold text-xs hover:bg-[#005e93] transition-all shadow-md flex items-center gap-2">
-              <i class="fa-brands fa-linkedin"></i> Añadir a LinkedIn
+            <!-- Botón de LinkedIn Mejorado -->
+            <button id="linkedin-btn" class="bg-[#0077b5] text-white px-6 py-3 rounded-xl font-bold text-xs hover:bg-[#005e93] transition-all shadow-md flex items-center gap-2 group relative">
+              <i class="fa-brands fa-linkedin"></i> Publicar en LinkedIn
+              <!-- Tooltip explicativo -->
+              <span class="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-black text-white text-[9px] py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
+                Copia texto súper PRO automáticamente
+              </span>
             </button>
             <button onclick="resetSearch()" class="bg-white border border-zinc-200 text-zinc-600 px-6 py-3 rounded-xl font-bold text-xs hover:bg-zinc-50 transition-all shadow-sm">
               Buscar otro
@@ -184,7 +257,7 @@
     </div>
 
     <!-- PANEL ADMIN (GENERADOR DE CÓDIGO) -->
-    <div id="admin-panel-box" class="bg-white rounded-[2rem] p-6 sm:p-8 max-w-3xl w-full shadow-2xl hidden flex-col max-h-[90vh] overflow-y-auto relative">
+    <div id="admin-panel-box" class="bg-white rounded-[2rem] p-6 sm:p-8 max-w-4xl w-full shadow-2xl hidden flex-col max-h-[90vh] overflow-y-auto relative">
       <button onclick="closeAdmin()" class="absolute top-6 right-6 text-zinc-400 hover:text-zinc-800"><i class="fa-solid fa-xmark text-xl"></i></button>
       
       <div class="flex items-center gap-3 mb-6 border-b border-zinc-100 pb-4">
@@ -195,52 +268,286 @@
         </div>
       </div>
 
-      <p class="text-xs text-zinc-600 mb-6 bg-blue-50 p-4 rounded-xl border border-blue-100">
-        <i class="fa-solid fa-circle-info text-blue-500 mr-2"></i> 
-        <strong>¿Cómo funciona?</strong> Ingresa los datos del alumno y haz clic en "Generar Código". Luego, copia el resultado y <strong>reemplaza</strong> la variable <code>BASE_DE_DATOS_DIPLOMAS</code> en tu archivo de GitHub para guardar los cambios de forma permanente.
-      </p>
-
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <!-- Formulario Ingreso -->
-        <div class="bg-zinc-50 p-5 rounded-2xl border border-zinc-200">
-          <h4 class="font-bold text-sm mb-4 border-b border-zinc-200 pb-2"><i class="fa-solid fa-user-plus mr-2"></i>Añadir Alumno</h4>
-          <div class="space-y-3">
-            <div>
-              <label class="text-[10px] font-bold text-zinc-500 uppercase">Nombre Completo</label>
-              <input type="text" id="add-name" placeholder="Ej: Juan Perez Lopez" class="w-full mt-1 bg-white border border-zinc-200 rounded-lg py-2 px-3 text-xs focus:ring-2 focus:ring-ibero-dark outline-none">
+        <!-- Contenedor Izquierdo: Formularios de Ingreso -->
+        <div class="flex flex-col gap-6">
+          
+          <!-- Carga Individual -->
+          <div class="bg-zinc-50 p-5 rounded-2xl border border-zinc-200">
+            <h4 class="font-bold text-sm mb-4 border-b border-zinc-200 pb-2"><i class="fa-solid fa-user-plus mr-2"></i>Carga Individual</h4>
+            <div class="space-y-3">
+              <div>
+                <label class="text-[10px] font-bold text-zinc-500 uppercase">Nombre Completo</label>
+                <input type="text" id="add-name" placeholder="Ej: Juan Perez Lopez" class="w-full mt-1 bg-white border border-zinc-200 rounded-lg py-2 px-3 text-xs focus:ring-2 focus:ring-ibero-dark outline-none">
+              </div>
+              <div>
+                <label class="text-[10px] font-bold text-zinc-500 uppercase">Link de la Foto (GitHub)</label>
+                <input type="url" id="add-url" placeholder="https://raw.githubusercontent.com/..." class="w-full mt-1 bg-white border border-zinc-200 rounded-lg py-2 px-3 text-xs focus:ring-2 focus:ring-ibero-dark outline-none">
+              </div>
+              <div>
+                <label class="text-[10px] font-bold text-zinc-500 uppercase">Programa</label>
+                <input type="text" id="add-course" placeholder="Ej: Diplomado IA" class="w-full mt-1 bg-white border border-zinc-200 rounded-lg py-2 px-3 text-xs focus:ring-2 focus:ring-ibero-dark outline-none">
+              </div>
+              <button onclick="generateSingleCode()" class="w-full bg-ibero-dark text-white py-2.5 rounded-lg font-bold text-xs hover:bg-black transition-all mt-2">
+                Agregar a la lista
+              </button>
             </div>
-            <div>
-              <label class="text-[10px] font-bold text-zinc-500 uppercase">Link de la Foto (GitHub)</label>
-              <input type="url" id="add-url" placeholder="https://raw.githubusercontent.com/..." class="w-full mt-1 bg-white border border-zinc-200 rounded-lg py-2 px-3 text-xs focus:ring-2 focus:ring-ibero-dark outline-none">
-            </div>
-            <div>
-              <label class="text-[10px] font-bold text-zinc-500 uppercase">Programa</label>
-              <input type="text" id="add-course" placeholder="Ej: Diplomado IA" class="w-full mt-1 bg-white border border-zinc-200 rounded-lg py-2 px-3 text-xs focus:ring-2 focus:ring-ibero-dark outline-none">
-            </div>
-            <button onclick="generateDiplomaCode()" class="w-full bg-ibero-dark text-white py-2.5 rounded-lg font-bold text-xs hover:bg-black transition-all mt-2">
-              <i class="fa-solid fa-wand-magic-sparkles mr-1"></i> Generar Código
+          </div>
+
+          <!-- Carga Masiva (Bulk Upload) -->
+          <div class="bg-zinc-50 p-5 rounded-2xl border border-zinc-200 flex-grow flex flex-col">
+            <h4 class="font-bold text-sm mb-2 border-b border-zinc-200 pb-2"><i class="fa-solid fa-list-ol mr-2"></i>Carga Masiva (Pega desde Excel)</h4>
+            <p class="text-[10px] text-zinc-500 mb-3 leading-relaxed">
+              Copia y pega celdas directo de Excel o Google Sheets en este orden estricto:<br>
+              <strong class="text-ibero-dark">Nombre Completo | URL de la foto | Programa</strong>
+            </p>
+            <textarea id="bulk-input" class="w-full flex-grow bg-white border border-zinc-200 rounded-lg py-2 px-3 text-xs font-mono focus:ring-2 focus:ring-ibero-dark outline-none resize-none min-h-[100px]" placeholder="Juan Perez Lopez   https://link...   Curso IA&#10;Maria Gomez   https://link...   Diplomado..."></textarea>
+            <button onclick="generateBulkCode()" class="w-full bg-indigo-600 text-white py-2.5 rounded-lg font-bold text-xs hover:bg-indigo-700 transition-all mt-3 flex justify-center items-center gap-2">
+              <i class="fa-solid fa-bolt"></i> Procesar Lista Completa
             </button>
           </div>
+
         </div>
 
-        <!-- Salida JSON Generada -->
-        <div class="flex flex-col">
-          <h4 class="font-bold text-sm mb-2"><i class="fa-solid fa-copy mr-2"></i>Código Generado</h4>
-          <textarea id="output-json" class="w-full flex-grow bg-zinc-900 text-green-400 border border-zinc-800 rounded-lg py-3 px-4 text-[10px] font-mono focus:outline-none resize-none min-h-[150px]" readonly></textarea>
-          <button onclick="copyGeneratedCode()" class="w-full bg-emerald-600 text-white py-2.5 rounded-lg font-bold text-xs hover:bg-emerald-700 transition-all mt-3">
-            <i class="fa-solid fa-clipboard mr-1"></i> Copiar para GitHub
+        <!-- Contenedor Derecho: Salida de Código -->
+        <div class="flex flex-col bg-zinc-900 rounded-2xl p-5 border border-zinc-800 shadow-inner h-full relative">
+          <div class="flex justify-between items-center mb-4">
+            <h4 class="font-bold text-sm text-white"><i class="fa-solid fa-terminal mr-2"></i>Código Generado</h4>
+            <span class="text-[10px] bg-zinc-800 text-zinc-400 px-2 py-1 rounded">JS Object</span>
+          </div>
+          
+          <p class="text-[10px] text-zinc-400 mb-4">Copia este código y <strong>reemplaza</strong> la variable <code>BASE_DE_DATOS_DIPLOMAS</code> en tu archivo de GitHub.</p>
+          
+          <textarea id="output-json" class="w-full flex-grow bg-[#050505] text-emerald-400 border border-zinc-700 rounded-lg py-3 px-4 text-[10px] font-mono focus:outline-none resize-none min-h-[200px]" readonly></textarea>
+          
+          <button onclick="copyGeneratedCode()" class="w-full bg-emerald-600 text-white py-3 rounded-lg font-bold text-xs hover:bg-emerald-500 transition-all mt-4 flex justify-center items-center gap-2">
+            <i class="fa-solid fa-clipboard"></i> Copiar Código para GitHub
           </button>
-          <p id="copy-msg" class="text-[10px] text-center font-bold mt-2 text-emerald-600 hidden">¡Código copiado!</p>
+          <p id="copy-msg" class="text-[11px] text-center font-bold mt-3 text-emerald-400 opacity-0 transition-opacity">¡Copiado con éxito!</p>
         </div>
       </div>
     </div>
   </div>
 
-  <footer class="bg-[#050505] text-zinc-500 py-6 border-t border-zinc-900 mt-auto">
-    <div class="max-w-7xl mx-auto px-4 text-center text-[10px] sm:text-xs flex flex-col sm:flex-row justify-between items-center gap-4">
-      <p>&copy; 2026 Centro Iberoamericano (IBERO). Verificación Oficial.</p>
-      <p>Powered by <strong class="text-emerald-500">GOATIFY</strong></p>
+  <!-- AREA OCULTA PARA COPIAR TEXTO SEGURO -->
+  <textarea id="hidden-clipboard-area" style="position: absolute; left: -9999px;"></textarea>
+
+  <!-- FOOTER PREMIUM EXACTO (CON LOGO Y GOATIFY) -->
+  <footer class="bg-[#050505] text-zinc-400 py-12 border-t border-zinc-900 mt-auto">
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 mb-8 border-b border-zinc-900 pb-12">
+     <!-- Col 1: Brand & Socials -->
+     <div class="lg:col-span-2 lg:pr-12">
+      <div class="mb-1">
+       <img alt="Logo IBERO Color" class="w-40 sm:w-48 h-auto object-contain object-left" src="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/8c1109d60abc984df0e47724b61bab75d49a6b12/fotos/svg/ibero-menu-purple.svg" title="Centro Iberoamericano IBERO"/>
+      </div>
+      <p class="text-xs sm:text-sm leading-relaxed mb-5">
+       Educaci&oacute;n Executive impulsada por Inteligencia Artificial. Formamos a los fundadores y creadores corporativos del ma&ntilde;ana.
+      </p>
+      <!-- Redes Sociales Correctas -->
+      <div class="flex flex-wrap gap-3 mb-4">
+       <a aria-label="LinkedIn IBERO" class="w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center hover:bg-[#0077b5] hover:text-white transition-colors border border-zinc-800" href="https://www.linkedin.com/company/centro-iberoamericano/" target="_blank">
+        <i class="fa-brands fa-linkedin-in text-sm">
+        </i>
+       </a>
+       <a aria-label="Instagram IBERO" class="w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center hover:bg-[#E1306C] hover:text-white transition-colors border border-zinc-800" href="https://www.instagram.com/centro.iberoamericano/" target="_blank">
+        <i class="fa-brands fa-instagram text-sm">
+        </i>
+       </a>
+       <a aria-label="Facebook IBERO" class="w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center hover:bg-[#1877F2] hover:text-white transition-colors border border-zinc-800" href="https://www.facebook.com/ibero.education/" target="_blank">
+        <i class="fa-brands fa-facebook-f text-sm">
+        </i>
+       </a>
+       <a aria-label="WhatsApp IBERO" class="w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center hover:bg-[#25D366] hover:text-white transition-colors border border-zinc-800" href="https://wa.me/19152854778" target="_blank">
+        <i class="fa-brands fa-whatsapp text-sm">
+        </i>
+       </a>
+      </div>
+      <!-- Correo Clickable -->
+      <div class="mt-4">
+       <a class="inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-zinc-300 hover:text-white transition-colors group" href="mailto:programas@ibero.education" title="Enviar correo a IBERO">
+        <div class="w-8 h-8 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center group-hover:bg-ibero-purple group-hover:border-ibero-purple transition-colors group-hover:text-theme-dark">
+         <i class="fa-solid fa-envelope text-xs">
+         </i>
+        </div>
+        <span class="border-b border-transparent group-hover:border-zinc-500 pb-0.5">
+         programas@ibero.education
+        </span>
+       </a>
+      </div>
+     </div>
+     <!-- Col 2: Programas -->
+     <div>
+      <h4 class="text-white font-bold mb-4 text-sm">
+       Programas
+      </h4>
+      <ul class="space-y-2 text-xs sm:text-sm">
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/oferta-academica/" target="_blank">
+         Oferta Acad&eacute;mica
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/calendario-academico/" target="_blank">
+         Calendario Cursos
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/certificaciones-intensivas/" target="_blank">
+         Cursos Intensivos
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/diplomados-intensivos/" target="_blank">
+         Diplomados Ejecutivos
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/executive-master/" target="_blank">
+         Executive Masters
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/english-courses/" target="_blank">
+         Programas de Ingl&eacute;s
+        </a>
+       </li>
+      </ul>
+     </div>
+     <!-- Col 3: Ecosistema IBERO -->
+     <div>
+      <h4 class="text-white font-bold mb-4 text-sm">
+       Ecosistema
+      </h4>
+      <ul class="space-y-2 text-xs sm:text-sm">
+       <li>
+        <a class="hover:text-white transition-colors" href="https://qlase.goatify.app/" target="_blank">
+         Campus Virtual
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/ibero-academy/" target="_blank">
+         IBERO Academy
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/ibero-labs/" target="_blank">
+         IBERO Labs
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/artes-liberales/" target="_blank">
+         Artes liberales
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="https://www.ibero.education/goatify/" target="_blank">
+         Laboratorio Tech
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/consultor&iacute;a-en-educaci&oacute;n/" target="_blank">
+         Consultor&iacute;a B2B
+        </a>
+       </li>
+      </ul>
+     </div>
+     <!-- Col 4: Nosotros -->
+     <div>
+      <h4 class="text-white font-bold mb-4 text-sm">
+       Nosotros
+      </h4>
+      <ul class="space-y-2 text-xs sm:text-sm">
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/" target="_blank">
+         Inicio Institucional
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/metodologia/" target="_blank">
+         Metodolog&iacute;a 360&deg;
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/#colaboraciones" target="_blank">
+         Alianzas y Avales
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/trabaja-con-nosotros/" target="_blank">
+         Nuestro Claustro
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/publicaciones/" target="_blank">
+         Publicaciones
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/trabaja-con-nosotros/" target="_blank">
+         Trabaja con nosotros
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/contacto/" target="_blank">
+         Contactos y Soporte
+        </a>
+       </li>
+      </ul>
+     </div>
+     <!-- Col 5: Legal & Soporte -->
+     <div>
+      <h4 class="text-white font-bold mb-4 text-sm">
+       Legal &amp; Admisiones
+      </h4>
+      <ul class="space-y-2 text-xs sm:text-sm">
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/registro-y-admisiones/" target="_blank">
+         Registro y admisiones
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/ayuda-financiera/" target="_blank">
+         Ayuda Financiera
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="https://ibero.education/contacto/" target="_blank">
+         Soporte al Estudiante
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="#">
+         Verificar Certificado QR
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="#">
+         T&eacute;rminos y Condiciones
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-white transition-colors" href="#">
+         Pol&iacute;ticas de Privacidad
+        </a>
+       </li>
+      </ul>
+     </div>
     </div>
+    <div class="flex flex-col md:flex-row justify-between items-center text-[10px] sm:text-xs pt-6 pb-24 md:pb-4 md:px-16 border-t border-zinc-900/50">
+     <p class="text-zinc-500 mb-4 md:mb-0 text-center">
+      &copy; 2026 Centro Iberoamericano (IBERO). Todos los derechos reservados.
+     </p>
+     <div class="flex flex-col items-center md:items-end gap-1.5 text-center md:text-right">
+      <p class="text-zinc-500">
+       Sitio desarrollado y dise&ntilde;ado por
+       <a class="text-emerald-500 hover:text-white font-bold transition-colors" href="https://www.goatify.app" target="_blank" title="Goatify Desarrollo Tech">
+        GOATIFY
+       </a>
+      </p>
+     </div>
+    </div>
+   </div>
   </footer>
 
   <!-- ========================================================= -->
@@ -249,21 +556,52 @@
   <!-- ========================================================= -->
   <script>
     let BASE_DE_DATOS_DIPLOMAS = {
-  "ejemplo-alumno": {
-    "nombre": "Ejemplo Alumno",
-    "url": "https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/main/fotos/ejemplo-diploma.jpg",
-    "curso": "Diplomado IA"
-  },
-  "deoc-ortegas": {
-    "nombre": "deoc ortegas",
-    "url": "https://raw.githubusercontent.com/danielortegac/ohawelll/c7422a2e2e81b8d3f6ba2d058f25076694e0df27/ohawell/FAVICON%20OHA.jpeg",
-    "curso": "diplo"
-  }
-};
+      "ejemplo-alumno": {
+        "nombre": "Ejemplo Alumno",
+        "url": "https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/main/fotos/ejemplo-diploma.jpg",
+        "curso": "Diplomado IA"
+      }
+    };
   </script>
 
   <!-- LÓGICA DEL SITIO -->
   <script>
+    // --- MENÚ MÓVIL Y SCROLL DEL HEADER ---
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+    const navbar = document.getElementById('navbar');
+
+    if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+          if(mobileMenuBtn.innerHTML.includes('bars')){
+             mobileMenuBtn.innerHTML = '<i class="fa-solid fa-xmark text-2xl"></i>';
+          } else {
+             mobileMenuBtn.innerHTML = '<i class="fa-solid fa-bars text-2xl"></i>';
+          }
+        });
+    }
+
+    mobileLinks.forEach(link => {
+       link.addEventListener('click', () => {
+          if (mobileMenu) mobileMenu.classList.add('hidden');
+          if (mobileMenuBtn) mobileMenuBtn.innerHTML = '<i class="fa-solid fa-bars text-2xl"></i>';
+       });
+    });
+
+    window.addEventListener('scroll', () => {
+       if (navbar) {
+           if (window.scrollY > 20) {
+              navbar.classList.add('shadow-md', 'bg-white/95');
+              navbar.classList.remove('shadow-sm');
+           } else {
+              navbar.classList.remove('shadow-md', 'bg-white/95');
+              navbar.classList.add('shadow-sm');
+           }
+       }
+    });
+
     // 1. UTILIDADES
     function createSlug(name) {
       return name.toString().toLowerCase()
@@ -280,30 +618,79 @@
         .replace(/\-\-+/g, '-');    // Quitar guiones dobles
     }
 
-    // 2. BUSCADOR PÚBLICO
+    // Copiador universal que salta bloqueos de navegadores
+    function fallbackCopyTextToClipboard(text) {
+      var textArea = document.getElementById("hidden-clipboard-area");
+      textArea.value = text;
+      textArea.focus();
+      textArea.select();
+      try {
+        document.execCommand('copy');
+      } catch (err) {
+        console.error('Fallback: Oops, unable to copy', err);
+      }
+    }
+
+    function copyTextToClipboard(text, callback) {
+      if (!navigator.clipboard) {
+        fallbackCopyTextToClipboard(text);
+        if(callback) callback();
+        return;
+      }
+      navigator.clipboard.writeText(text).then(function() {
+        if(callback) callback();
+      }, function(err) {
+        fallbackCopyTextToClipboard(text);
+        if(callback) callback();
+      });
+    }
+
+    // 2. BUSCADOR PÚBLICO Y HASH ROUTING
     const searchForm = document.getElementById('search-form');
     const searchInput = document.getElementById('student-name-input');
     const loadingState = document.getElementById('loading-state');
     const resultSuccess = document.getElementById('result-success');
     const resultError = document.getElementById('result-error');
+    
+    // Elementos de la cabecera (Para ocultarlos/mostrarlos)
+    const headerTitle = document.getElementById('header-title');
+    const headerDesc = document.getElementById('header-desc');
 
     searchForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      const rawName = searchInput.value;
-      const slug = createSlug(rawName);
-      
-      const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?u=' + slug;
-      window.history.pushState({path:newUrl}, '', newUrl);
+      const rawName = searchInput.value.trim();
+      if (!rawName) return;
 
-      searchDiploma(slug, rawName);
+      const slug = createSlug(rawName);
+      window.location.hash = '#/' + slug;
     });
+
+    function getSlugFromHash() {
+      return decodeURIComponent(window.location.hash.replace(/^#\/?/, '').trim().toLowerCase());
+    }
+
+    function handleHashRouting() {
+      const slug = getSlugFromHash();
+
+      if (slug) {
+        searchDiploma(slug, slug.replace(/-/g, ' '));
+      } else {
+        resetSearch(false);
+      }
+    }
+
+    // Escuchar la carga inicial y los cambios en la barra de direcciones (SPA real)
+    window.addEventListener('DOMContentLoaded', handleHashRouting);
+    window.addEventListener('hashchange', handleHashRouting);
 
     function searchDiploma(slug, displayName) {
       document.getElementById('search-section').classList.add('hidden');
+      
       resultSuccess.classList.add('hidden');
-      resultSuccess.classList.remove('opacity-100');
+      resultSuccess.classList.remove('flex', 'opacity-100');
+      
       resultError.classList.add('hidden');
-      resultError.classList.remove('opacity-100');
+      resultError.classList.remove('flex', 'opacity-100');
       
       loadingState.classList.remove('hidden');
       loadingState.classList.add('flex');
@@ -313,19 +700,32 @@
         loadingState.classList.add('hidden');
         loadingState.classList.remove('flex');
 
-        // BÚSQUEDA EN LA VARIABLE LOCAL (BASE_DE_DATOS_DIPLOMAS)
         if (BASE_DE_DATOS_DIPLOMAS[slug]) {
-          showSuccess(BASE_DE_DATOS_DIPLOMAS[slug].url, slug);
+          showSuccess(BASE_DE_DATOS_DIPLOMAS[slug], slug);
         } else {
           showError(displayName || slug.replace(/-/g, ' '));
         }
       }, 800);
     }
 
-    function showSuccess(imageUrl, slug) {
-      document.getElementById('diploma-image').src = imageUrl;
-      document.getElementById('download-btn').href = imageUrl;
+    function showSuccess(diplomaData, slug) {
+      // Ocultar descripción inicial y modificar título
+      headerDesc.classList.replace('opacity-100', 'opacity-0');
+      setTimeout(() => headerDesc.classList.add('hidden'), 500);
+      headerTitle.innerText = "Credencial Oficial";
+
+      // Llenar los datos empoderadores
+      document.getElementById('cert-student-name').innerText = diplomaData.nombre;
+      document.getElementById('cert-course-name').innerText = diplomaData.curso;
+
+      // Configurar imagen y botones
+      document.getElementById('diploma-image').src = diplomaData.url;
+      document.getElementById('download-btn').href = diplomaData.url;
       document.getElementById('student-id-display').innerText = "ID de Verificación: " + slug.toUpperCase();
+      
+      // Asignar función al botón de LinkedIn
+      const btnLinkedIn = document.getElementById('linkedin-btn');
+      btnLinkedIn.onclick = () => shareLinkedIn(slug);
       
       resultSuccess.classList.remove('hidden');
       resultSuccess.classList.add('flex');
@@ -333,36 +733,75 @@
     }
 
     function showError(name) {
+      // Asegurarse de que el header esté normal
+      headerDesc.classList.remove('hidden');
+      setTimeout(() => headerDesc.classList.replace('opacity-0', 'opacity-100'), 10);
+      headerTitle.innerHTML = 'Validador de <span class="font-serif italic text-zinc-500 font-medium">Credenciales</span>';
+
       document.getElementById('error-name').innerText = name.toUpperCase();
+      
       resultError.classList.remove('hidden');
       resultError.classList.add('flex');
       setTimeout(() => resultError.classList.add('opacity-100'), 50);
     }
 
-    function resetSearch() {
+    function resetSearch(clearHash = true) {
+      // Restaurar Cabecera
+      headerDesc.classList.remove('hidden');
+      setTimeout(() => headerDesc.classList.replace('opacity-0', 'opacity-100'), 10);
+      headerTitle.innerHTML = 'Validador de <span class="font-serif italic text-zinc-500 font-medium">Credenciales</span>';
+
+      // Limpieza precisa de clases Tailwind
       resultSuccess.classList.add('hidden');
+      resultSuccess.classList.remove('flex', 'opacity-100');
+      
       resultError.classList.add('hidden');
+      resultError.classList.remove('flex', 'opacity-100');
+
+      loadingState.classList.add('hidden');
+      loadingState.classList.remove('flex');
+
       document.getElementById('search-section').classList.remove('hidden');
       searchInput.value = '';
       
-      const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
-      window.history.pushState({path:newUrl}, '', newUrl);
-    }
-
-    function shareLinkedIn() {
-      const url = encodeURIComponent(window.location.href);
-      window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank');
-    }
-
-    window.addEventListener('DOMContentLoaded', () => {
-      const params = new URLSearchParams(window.location.search);
-      const userSlug = params.get('u');
-      if (userSlug) {
-        searchDiploma(userSlug, userSlug.replace(/-/g, ' '));
+      // Limpiar URL si fue desencadenado manualmente
+      if (clearHash) {
+        history.replaceState(null, '', window.location.pathname);
       }
-    });
+    }
 
-    // 3. PANEL DE ADMIN (GENERADOR)
+    // --- LÓGICA DE LINKEDIN PRO ---
+    function shareLinkedIn(slug) {
+      const diplomaInfo = BASE_DE_DATOS_DIPLOMAS[slug];
+      const courseName = diplomaInfo ? diplomaInfo.curso : 'un programa de élite';
+      const shareUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '#/' + slug;
+      
+      // El texto motivacional y profesional para la publicación
+      const postText = `🎓 ¡He culminado un nuevo reto académico!\n\nMe emociona compartir que he finalizado con éxito mi certificación en ${courseName} avalado por el Centro Iberoamericano (IBERO).\n\nHa sido un proceso de muchísimo aprendizaje, enfocado en llevar mis habilidades al siguiente nivel con metodologías reales y aplicables.\n\nPuedes verificar mi credencial oficial aquí:\n${shareUrl}\n\n🚀 #IBERO #Educación #CrecimientoProfesional #LogroAcademico #Certificación`;
+
+      const btn = document.getElementById('linkedin-btn');
+      const originalHtml = btn.innerHTML;
+      
+      // Efecto visual en el botón
+      btn.innerHTML = '<i class="fa-solid fa-check"></i> ¡Texto Copiado! Pegálo en LinkedIn...';
+      btn.classList.replace('bg-[#0077b5]', 'bg-emerald-600');
+      btn.classList.replace('hover:bg-[#005e93]', 'hover:bg-emerald-700');
+
+      // Copiamos al portapapeles y luego abrimos LinkedIn
+      copyTextToClipboard(postText, () => {
+        setTimeout(() => {
+          // Restaurar botón
+          btn.innerHTML = originalHtml;
+          btn.classList.replace('bg-emerald-600', 'bg-[#0077b5]');
+          btn.classList.replace('hover:bg-emerald-700', 'hover:bg-[#005e93]');
+          
+          // Abrir LinkedIn (el usuario solo presiona Ctrl+V para pegar el texto hermoso)
+          window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`, '_blank');
+        }, 2000);
+      });
+    }
+
+    // 3. PANEL DE ADMIN (GENERADOR DE CÓDIGO)
     const adminModal = document.getElementById('admin-modal');
     const adminLoginBox = document.getElementById('admin-login-box');
     const adminPanelBox = document.getElementById('admin-panel-box');
@@ -398,35 +837,65 @@
         adminPanelBox.classList.add('flex');
         updateOutputBox(); // Mostrar la base de datos actual al entrar
       } else {
-        alert("Código incorrecto");
+        alert("Código de acceso incorrecto");
       }
     }
 
-    function generateDiplomaCode() {
+    // Ingreso Individual
+    function generateSingleCode() {
       const name = document.getElementById('add-name').value;
       const url = document.getElementById('add-url').value;
       const course = document.getElementById('add-course').value || "Certificación General";
 
       if(!name || !url) {
-        alert("El nombre y el Link son obligatorios");
+        alert("El nombre y el Link de la foto son obligatorios");
         return;
       }
 
       const slug = createSlug(name);
-      
-      // Agregar temporalmente a la variable local para generar el nuevo código
-      BASE_DE_DATOS_DIPLOMAS[slug] = {
-        nombre: name,
-        url: url,
-        curso: course
-      };
+      BASE_DE_DATOS_DIPLOMAS[slug] = { nombre: name, url: url, curso: course };
 
       updateOutputBox();
       
-      // Limpiar inputs
       document.getElementById('add-name').value = '';
       document.getElementById('add-url').value = '';
       document.getElementById('add-course').value = '';
+    }
+
+    // Ingreso Masivo (Desde Excel/TSV/CSV)
+    function generateBulkCode() {
+      const bulkText = document.getElementById('bulk-input').value;
+      if (!bulkText.trim()) {
+        alert("Por favor pega la lista de alumnos primero.");
+        return;
+      }
+
+      const lines = bulkText.split('\n');
+      let count = 0;
+
+      lines.forEach(line => {
+        if (!line.trim()) return;
+        
+        // Separamos por tabulador (Excel) o por coma (CSV)
+        let parts = line.split('\t');
+        if (parts.length < 2) parts = line.split(',');
+
+        if (parts.length >= 2) {
+          const name = parts[0].trim();
+          const url = parts[1].trim();
+          const course = parts[2] ? parts[2].trim() : "Certificación General";
+          
+          if (name && url) {
+            const slug = createSlug(name);
+            BASE_DE_DATOS_DIPLOMAS[slug] = { nombre: name, url: url, curso: course };
+            count++;
+          }
+        }
+      });
+
+      updateOutputBox();
+      document.getElementById('bulk-input').value = '';
+      alert(`¡Éxito! Se han añadido ${count} diplomas al código.`);
     }
 
     function updateOutputBox() {
@@ -434,14 +903,15 @@
       document.getElementById('output-json').value = codeOutput;
     }
 
+    // Copiar código del Admin usando la función segura
     function copyGeneratedCode() {
-      const outputText = document.getElementById('output-json');
-      outputText.select();
-      document.execCommand("copy");
-      
-      const msg = document.getElementById('copy-msg');
-      msg.classList.remove('hidden');
-      setTimeout(() => msg.classList.add('hidden'), 3000);
+      const text = document.getElementById('output-json').value;
+
+      copyTextToClipboard(text, () => {
+        const msg = document.getElementById('copy-msg');
+        msg.classList.remove('opacity-0');
+        setTimeout(() => msg.classList.add('opacity-0'), 3000);
+      });
     }
 
   </script>
