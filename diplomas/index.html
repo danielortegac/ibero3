@@ -55,6 +55,15 @@
     /* Ocultar Scrollbar */
     .hide-scrollbar::-webkit-scrollbar { display: none; }
     .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+    /* Configuración para Imprimir como PDF */
+    @media print {
+      body * { visibility: hidden; }
+      #print-area, #print-area * { visibility: visible; }
+      #print-area { position: absolute; left: 0; top: 0; width: 100%; display: flex; justify-content: center; align-items: flex-start; margin: 0; padding: 0; }
+      #diploma-image { max-width: 100%; max-height: 100vh; object-fit: contain; }
+      @page { margin: 0; size: landscape; }
+    }
   </style>
 </head>
 <body class="text-ibero-dark font-sans antialiased selection:bg-ibero-dark selection:text-white flex flex-col min-h-screen pt-[105px] md:pt-[121px] bg-white">
@@ -69,7 +78,7 @@
       <a class="flex-shrink-0 flex items-center cursor-pointer py-2" href="/">
        <img alt="Logo IBERO" class="h-8 sm:h-10 md:h-10 w-auto object-contain" src="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/1557a79470d9c26d1ad0f0b00243f9f03e55cf2f/fotos/svg/ibero-logo-black-redE.svg"/>
       </a>
-      <!-- ENLACES ACADÉMICOS (Antigua Fila 3) -->
+      <!-- ENLACES ACADÉMICOS -->
       <div class="flex flex-1 items-center justify-start lg:justify-end gap-4 md:gap-8 overflow-x-auto hide-scrollbar px-2 sm:px-4 ml-auto scroll-smooth">
        <a class="text-[11px] md:text-[13px] font-medium text-zinc-600 hover:text-ibero-dark transition-colors whitespace-nowrap" href="https://ibero.education/oferta-academica/">Oferta Acad&eacute;mica</a>
        <a class="text-[11px] md:text-[13px] font-medium text-zinc-600 hover:text-ibero-dark transition-colors whitespace-nowrap" href="https://ibero.education/calendario-academico/">Calendario Acad&eacute;mico</a>
@@ -139,28 +148,28 @@
   </nav>
 
   <!-- CONTENIDO PRINCIPAL -->
-  <main class="flex-grow flex flex-col items-center justify-center p-4 sm:p-8 relative overflow-hidden">
+  <main class="flex-grow flex flex-col items-center justify-start p-4 sm:p-8 relative overflow-hidden pt-8">
     <!-- Decoración de fondo -->
     <div class="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-bl from-zinc-100 to-transparent rounded-full blur-3xl -z-10 opacity-50 translate-x-1/2 -translate-y-1/2"></div>
     
-    <div class="max-w-4xl w-full mx-auto relative z-10">
+    <div class="max-w-4xl w-full mx-auto relative z-10 flex flex-col items-center">
       
-      <!-- CABECERA -->
-      <div class="text-center mb-10" id="header-section">
+      <!-- CABECERA INICIAL (Se oculta al encontrar el diploma) -->
+      <div class="text-center mb-10 w-full transition-all duration-500 opacity-100" id="header-section">
         <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-zinc-200 bg-white shadow-sm text-[10px] sm:text-xs font-bold tracking-widest uppercase mb-6" id="status-badge">
           <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
           Verificación Global Activa
         </div>
-        <h1 id="header-title" class="text-3xl sm:text-5xl font-extrabold text-ibero-dark tracking-tight mb-4 hero-shine-dark transition-all duration-500">
+        <h1 class="text-3xl sm:text-5xl font-extrabold text-ibero-dark tracking-tight mb-4 hero-shine-dark">
           Validador de <span class="font-serif italic text-zinc-500 font-medium">Credenciales</span>
         </h1>
-        <p id="header-desc" class="text-zinc-500 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed transition-all duration-500 opacity-100">
+        <p class="text-zinc-500 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
           Ingresa tu nombre completo para acceder a tu diploma oficial. Las credenciales de IBERO están respaldadas y verificadas para tu perfil profesional.
         </p>
       </div>
 
       <!-- BUSCADOR -->
-      <div class="glass-card rounded-[2rem] p-6 sm:p-8 mb-12 max-w-2xl mx-auto" id="search-section">
+      <div class="glass-card rounded-[2rem] p-6 sm:p-8 mb-12 max-w-2xl w-full mx-auto" id="search-section">
         <form id="search-form" class="flex flex-col sm:flex-row gap-3 relative">
           <div class="relative flex-grow">
             <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 transform -translate-y-1/2 text-zinc-400"></i>
@@ -175,59 +184,77 @@
       </div>
 
       <!-- ESTADO DE CARGA -->
-      <div id="loading-state" class="hidden flex-col items-center justify-center py-12">
+      <div id="loading-state" class="hidden flex-col items-center justify-center py-12 w-full">
         <div class="loader mb-4"></div>
         <p class="text-sm font-bold text-zinc-500 animate-pulse">Verificando registro oficial...</p>
       </div>
 
       <!-- RESULTADO: DIPLOMA ENCONTRADO -->
-      <div id="result-success" class="hidden flex-col items-center opacity-0 transition-opacity duration-500">
-        <div class="bg-emerald-50 border border-emerald-200 text-emerald-800 px-6 py-3 rounded-2xl flex items-center gap-3 mb-8 shadow-sm">
-          <div class="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600">
-            <i class="fa-solid fa-check"></i>
-          </div>
+      <div id="result-success" class="hidden flex-col items-center opacity-0 transition-opacity duration-500 w-full max-w-4xl">
+        
+        <!-- HEADER PREMIUM DEL RESULTADO (TITULO + SELLO) -->
+        <div class="w-full flex flex-col md:flex-row justify-between items-center mb-8 border-b border-zinc-200 pb-6 gap-6 text-center md:text-left">
           <div>
-            <p class="text-xs font-bold uppercase tracking-wide">Credencial Auténtica y Avalada</p>
-            <p class="text-[10px] opacity-80" id="student-id-display">ID: ...</p>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-ibero-dark tracking-tight hero-shine-dark mb-2">Credencial <span class="font-serif italic text-zinc-500 font-medium">Oficial</span></h2>
+            <p class="text-zinc-600 font-medium text-sm sm:text-base"><span id="cert-student-name" class="font-bold text-ibero-dark"></span> &bull; <span id="cert-course-name"></span></p>
+          </div>
+          
+          <!-- SELLO ELEGANTE -->
+          <div class="bg-white border border-emerald-200 shadow-[0_8px_30px_rgb(16,185,129,0.12)] rounded-2xl px-5 py-3 flex items-center gap-4 shrink-0">
+            <div class="w-10 h-10 bg-emerald-50 rounded-full flex items-center justify-center text-emerald-600 text-xl border border-emerald-100">
+              <i class="fa-solid fa-certificate"></i>
+            </div>
+            <div class="text-left">
+              <p class="text-xs font-black text-emerald-800 uppercase tracking-widest leading-none mb-1">Auténtica y Avalada</p>
+              <p class="text-[10px] text-zinc-500 font-mono leading-none" id="student-id-display">ID: ...</p>
+            </div>
           </div>
         </div>
 
-        <!-- TEXTO EMPODERADOR DEL ALUMNO -->
-        <div class="text-center mb-10 max-w-2xl mx-auto px-4">
-          <h2 class="text-2xl sm:text-4xl font-serif font-bold text-ibero-dark mb-4" id="cert-student-name">Nombre del Alumno</h2>
-          <p class="text-zinc-600 leading-relaxed text-sm sm:text-base">
-            El <strong class="text-ibero-dark">Centro Iberoamericano (IBERO)</strong> certifica y avala institucionalmente que el alumno ha culminado con excelencia académica el programa <strong class="text-ibero-purple" id="cert-course-name">Nombre del Programa</strong>. Este logro demuestra su alto nivel de competencia, rigor profesional y capacidad para liderar en su entorno.
-          </p>
-        </div>
-
-        <div class="relative w-full max-w-3xl">
-          <!-- Diploma Image -->
-          <div class="diploma-frame rounded-xl overflow-hidden bg-white">
-            <img id="diploma-image" src="" alt="Diploma" class="w-full h-auto object-contain" />
+        <div class="relative w-full max-w-3xl flex flex-col items-center">
+          <!-- Diploma Image (Envuelta en print-area para que salga perfecta en PDF) -->
+          <div id="print-area" class="w-full flex justify-center">
+            <div class="diploma-frame rounded-xl overflow-hidden bg-white inline-block">
+              <img id="diploma-image" src="" alt="Diploma" class="w-full h-auto object-contain block" />
+            </div>
           </div>
           
           <!-- Botones de Acción -->
-          <div class="flex flex-wrap justify-center gap-4 mt-8">
-            <a id="download-btn" href="#" target="_blank" download class="bg-[#09090B] text-white px-6 py-3 rounded-xl font-bold text-xs hover:bg-zinc-800 transition-all shadow-md flex items-center gap-2">
-              <i class="fa-solid fa-download"></i> Descargar Imagen
+          <div class="flex flex-wrap justify-center gap-3 sm:gap-4 mt-8 w-full">
+            <button onclick="window.print()" class="bg-[#09090B] text-white px-5 sm:px-6 py-3 rounded-xl font-bold text-[11px] sm:text-xs hover:bg-zinc-800 transition-all shadow-md flex items-center gap-2">
+              <i class="fa-solid fa-file-pdf"></i> Guardar como PDF
+            </button>
+            <a id="download-btn" href="#" target="_blank" download class="bg-white border border-zinc-300 text-ibero-dark px-5 sm:px-6 py-3 rounded-xl font-bold text-[11px] sm:text-xs hover:bg-zinc-50 transition-all shadow-sm flex items-center gap-2">
+              <i class="fa-solid fa-image"></i> Descargar Imagen
             </a>
-            <!-- Botón de LinkedIn Mejorado -->
-            <button id="linkedin-btn" class="bg-[#0077b5] text-white px-6 py-3 rounded-xl font-bold text-xs hover:bg-[#005e93] transition-all shadow-md flex items-center gap-2 group relative">
-              <i class="fa-brands fa-linkedin"></i> Publicar en LinkedIn
+            <!-- Botón de LinkedIn Mejorado (Copia el texto y redirige) -->
+            <button id="linkedin-btn" class="bg-[#0077b5] text-white px-5 sm:px-6 py-3 rounded-xl font-bold text-[11px] sm:text-xs hover:bg-[#005e93] transition-all shadow-md flex items-center gap-2 group relative">
+              <i class="fa-brands fa-linkedin text-sm"></i> Publicar en LinkedIn
               <!-- Tooltip explicativo -->
               <span class="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-black text-white text-[9px] py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
                 Copia texto súper PRO automáticamente
               </span>
             </button>
-            <button onclick="resetSearch()" class="bg-white border border-zinc-200 text-zinc-600 px-6 py-3 rounded-xl font-bold text-xs hover:bg-zinc-50 transition-all shadow-sm">
+            <button onclick="resetSearch(true)" class="bg-white border border-transparent text-zinc-500 px-4 py-3 rounded-xl font-bold text-[11px] sm:text-xs hover:text-zinc-800 hover:bg-zinc-100 transition-all">
               Buscar otro
             </button>
           </div>
         </div>
+
+        <!-- TEXTO DE AVAL / SKILLS -->
+        <div class="mt-12 bg-zinc-50 border border-zinc-200 rounded-3xl p-6 sm:p-8 max-w-3xl w-full text-center shadow-sm">
+          <div class="w-14 h-14 bg-white rounded-full border border-zinc-200 flex items-center justify-center mx-auto mb-5 shadow-sm">
+            <i class="fa-solid fa-award text-2xl text-ibero-purple"></i>
+          </div>
+          <p class="text-zinc-600 text-sm sm:text-base leading-relaxed font-medium">
+            Al culminar este programa, el <strong class="text-ibero-dark font-bold">Centro Iberoamericano (IBERO)</strong> avala que el estudiante aprobó satisfactoriamente y cuenta con habilidades blandas de alto nivel, conocimientos sólidos en <strong class="text-ibero-dark">Inteligencia Artificial</strong>, herramientas tecnológicas, comunicación estratégica y negocios.
+          </p>
+        </div>
+
       </div>
 
       <!-- RESULTADO: NO ENCONTRADO -->
-      <div id="result-error" class="hidden flex-col items-center py-12 opacity-0 transition-opacity duration-500">
+      <div id="result-error" class="hidden flex-col items-center py-12 opacity-0 transition-opacity duration-500 w-full">
         <div class="w-20 h-20 bg-zinc-100 rounded-full flex items-center justify-center mb-6">
           <i class="fa-solid fa-file-circle-xmark text-3xl text-zinc-400"></i>
         </div>
@@ -650,9 +677,8 @@
     const resultSuccess = document.getElementById('result-success');
     const resultError = document.getElementById('result-error');
     
-    // Elementos de la cabecera
-    const headerTitle = document.getElementById('header-title');
-    const headerDesc = document.getElementById('header-desc');
+    // Elemento de la cabecera completa inicial
+    const headerSection = document.getElementById('header-section');
 
     searchForm.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -707,15 +733,14 @@
     }
 
     function showSuccess(diplomaData, slug) {
-      headerDesc.classList.replace('opacity-100', 'opacity-0');
-      setTimeout(() => headerDesc.classList.add('hidden'), 500);
-      headerTitle.innerText = "Credencial Oficial";
+      // Ocultar cabecera inicial completa para dar espacio al diploma
+      headerSection.classList.add('hidden');
 
       document.getElementById('cert-student-name').innerText = diplomaData.nombre;
       document.getElementById('cert-course-name').innerText = diplomaData.curso;
       document.getElementById('diploma-image').src = diplomaData.url;
       document.getElementById('download-btn').href = diplomaData.url;
-      document.getElementById('student-id-display').innerText = "ID de Verificación: " + slug.toUpperCase();
+      document.getElementById('student-id-display').innerText = "ID: " + slug.toUpperCase();
       
       const btnLinkedIn = document.getElementById('linkedin-btn');
       btnLinkedIn.onclick = () => shareLinkedIn(slug);
@@ -726,9 +751,7 @@
     }
 
     function showError(name) {
-      headerDesc.classList.remove('hidden');
-      setTimeout(() => headerDesc.classList.replace('opacity-0', 'opacity-100'), 10);
-      headerTitle.innerHTML = 'Validador de <span class="font-serif italic text-zinc-500 font-medium">Credenciales</span>';
+      headerSection.classList.remove('hidden');
 
       document.getElementById('error-name').innerText = name.toUpperCase();
       
@@ -738,9 +761,7 @@
     }
 
     function resetSearch(clearHash = true) {
-      headerDesc.classList.remove('hidden');
-      setTimeout(() => headerDesc.classList.replace('opacity-0', 'opacity-100'), 10);
-      headerTitle.innerHTML = 'Validador de <span class="font-serif italic text-zinc-500 font-medium">Credenciales</span>';
+      headerSection.classList.remove('hidden');
 
       // Limpieza precisa de clases para evitar conflictos
       resultSuccess.classList.add('hidden');
@@ -766,7 +787,7 @@
       const courseName = diplomaInfo ? diplomaInfo.curso : 'un programa de élite';
       const shareUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '#/' + slug;
       
-      const postText = `🎓 ¡He culminado un nuevo reto académico!\n\nMe emociona compartir que he finalizado con éxito mi certificación en ${courseName} avalado por el Centro Iberoamericano (IBERO).\n\nHa sido un proceso de muchísimo aprendizaje, enfocado en llevar mis habilidades al siguiente nivel con metodologías reales y aplicables.\n\nPuedes verificar mi credencial oficial aquí:\n${shareUrl}\n\n🚀 #IBERO #Educación #CrecimientoProfesional #LogroAcademico #Certificación`;
+      const postText = `🎓 ¡He culminado un nuevo logro académico!\n\nMe emociona compartir que he finalizado con éxito mi certificación en ${courseName} avalado por el Centro Iberoamericano (IBERO).\n\nHa sido un proceso de muchísimo aprendizaje, enfocado en llevar mis habilidades al siguiente nivel con metodologías reales y aplicables.\n\nPuedes verificar mi credencial oficial aquí:\n${shareUrl}\n\n🚀 #IBERO #Educación #CrecimientoProfesional #LogroAcademico #Certificación`;
 
       const btn = document.getElementById('linkedin-btn');
       const originalHtml = btn.innerHTML;
