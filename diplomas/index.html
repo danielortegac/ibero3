@@ -28,8 +28,8 @@
     }
   </script>
 
-  <!-- LIBRERÍA PARA PDF PERFECTOS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" xintegrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- LIBRERÍA PARA PDF PERFECTOS (Limpia) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
   <style>
     html { zoom: 0.9; }
@@ -44,7 +44,7 @@
     }
     @keyframes textShine { 0% { background-position: 250% center; } 100% { background-position: -250% center; } }
     
-    /* EFECTO DIPLOMA: Plateado, Luminoso, Shiny, Espejado Sutil (Más sutil y elegante) */
+    /* EFECTO DIPLOMA: Plateado, Luminoso, Shiny, Espejado Sutil (Extremadamente Sutil) */
     .diploma-frame {
       position: relative;
       padding: 8px;
@@ -62,15 +62,15 @@
       position: absolute;
       top: 0; left: -100%;
       width: 50%; height: 100%;
-      background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.25) 50%, rgba(255,255,255,0) 100%);
+      background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.15) 50%, rgba(255,255,255,0) 100%);
       transform: skewX(-25deg);
-      animation: diplomaShine 7s infinite;
+      animation: diplomaShine 8s infinite;
       pointer-events: none;
       z-index: 10;
     }
     @keyframes diplomaShine {
       0% { left: -100%; }
-      20% { left: 200%; }
+      15% { left: 200%; }
       100% { left: 200%; }
     }
     .diploma-frame:hover { 
@@ -95,7 +95,7 @@
     .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
   </style>
 </head>
-<body class="text-ibero-dark font-sans antialiased selection:bg-ibero-dark selection:text-white flex flex-col min-h-screen pt-[105px] md:pt-[121px] bg-white">
+<body class="text-ibero-dark font-sans antialiased selection:bg-ibero-dark selection:text-white flex flex-col min-h-screen pt-[105px] md:pt-[121px] bg-white relative">
 
   <!-- HEADER PREMIUM LIMPIO (2 FILAS) -->
   <nav class="fixed top-0 left-0 w-full z-50 transition-all duration-300 shadow-sm flex flex-col" id="navbar">
@@ -271,14 +271,14 @@
 
         <!-- Botones de Acción -->
         <div class="flex flex-wrap justify-center gap-3 sm:gap-4 mt-8 w-full max-w-2xl border-t border-zinc-200 pt-8">
-          <!-- Botón PDF que usa html2pdf -->
+          <!-- Botón PDF -->
           <button onclick="downloadPDF()" class="bg-[#09090B] text-white px-5 sm:px-6 py-3 rounded-xl font-bold text-[11px] sm:text-xs hover:bg-zinc-800 transition-all shadow-md flex items-center gap-2">
             <i class="fa-solid fa-file-pdf"></i> Guardar en PDF
           </button>
           <a id="download-btn" href="#" target="_blank" download class="bg-white border border-zinc-300 text-ibero-dark px-5 sm:px-6 py-3 rounded-xl font-bold text-[11px] sm:text-xs hover:bg-zinc-50 transition-all shadow-sm flex items-center gap-2">
             <i class="fa-solid fa-image"></i> Descargar Imagen
           </a>
-          <!-- Botón de LinkedIn -->
+          <!-- Botón de LinkedIn Mejorado (Copia el texto y redirige) -->
           <button id="linkedin-btn" class="bg-[#0077b5] text-white px-5 sm:px-6 py-3 rounded-xl font-bold text-[11px] sm:text-xs hover:bg-[#005e93] transition-all shadow-md flex items-center gap-2 group relative">
             <i class="fa-brands fa-linkedin text-sm"></i> Publicar en LinkedIn
             <span class="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-black text-white text-[9px] py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
@@ -310,42 +310,51 @@
   </main>
 
   <!-- ========================================================= -->
-  <!-- CONTENEDOR OCULTO PARA GENERACIÓN PERFECTA DEL PDF        -->
+  <!-- WRAPPER OCULTO PARA GENERACIÓN PERFECTA DEL PDF (CARTA)   -->
   <!-- ========================================================= -->
-  <div id="pdf-export-container" style="display: none; width: 1056px; background: white; color: black; position: absolute; left: -9999px; top: 0; z-index: -1;">
-    <!-- Página 1: El Diploma como Foto Perfecta -->
-    <div style="width: 1056px; height: 816px; display: flex; align-items: center; justify-content: center; overflow: hidden; background: white;">
-      <img id="pdf-diploma-img" src="" style="max-width: 94%; max-height: 94%; object-fit: contain;" crossorigin="anonymous"/>
-    </div>
-    
-    <!-- Salto de Página forzado para el PDF -->
-    <div class="html2pdf__page-break"></div>
-    
-    <!-- Página 2: Anexo de Certificación con Enlaces -->
-    <div style="width: 1056px; height: 816px; padding: 80px; box-sizing: border-box; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background: #fafafa;">
-      <div style="background: white; padding: 50px; border-radius: 16px; border: 1px solid #e4e4e7; height: 100%; box-shadow: 0 4px 20px rgba(0,0,0,0.05); display: flex; flex-direction: column;">
-        <h1 style="font-size: 28pt; color: #09090B; margin-bottom: 20px; font-weight: 800;">Anexo de Certificación Académica</h1>
-        <hr style="border: 0; border-top: 2px solid #e4e4e7; margin-bottom: 40px;">
+  <div id="pdf-wrapper" style="position: absolute; left: -9999px; top: -9999px; pointer-events: none; z-index: -9999; width: 816px;">
+    <!-- Contenedor real que leerá html2canvas (Formato Carta Vertical 816x1056px) -->
+    <div id="pdf-export-container" style="width: 816px; min-height: 1056px; background: white; display: none;">
+      
+      <div style="padding: 60px; box-sizing: border-box; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; display: flex; flex-direction: column; min-height: 1056px;">
         
-        <p style="font-size: 15pt; line-height: 1.7; color: #3f3f46; margin-bottom: 25px; text-align: justify;">
+        <!-- Header (Logo y Título) -->
+        <div style="text-align: center; border-bottom: 2px solid #e4e4e7; padding-bottom: 20px; margin-bottom: 35px;">
+          <img src="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/1557a79470d9c26d1ad0f0b00243f9f03e55cf2f/fotos/svg/ibero-logo-black-redE.svg" alt="IBERO" style="height: 45px; margin-bottom: 15px;" crossorigin="anonymous">
+          <h1 style="font-size: 18pt; color: #09090B; font-weight: 800; margin: 0; text-transform: uppercase; letter-spacing: 1px;">Informe de Certificación Académica</h1>
+        </div>
+        
+        <!-- Párrafos Avalados -->
+        <p style="font-size: 13pt; line-height: 1.6; color: #3f3f46; margin-bottom: 20px; text-align: justify;">
           El <strong>Centro Iberoamericano (IBERO)</strong> certifica y avala institucionalmente que el estudiante <strong id="pdf-student-name" style="color: #09090B; text-transform: uppercase;"></strong> ha culminado con excelencia académica el programa <strong id="pdf-course-name" style="color: #6B21A8;"></strong>. Este logro demuestra su alto nivel de competencia, rigor profesional y capacidad para liderar en su entorno.
         </p>
         
-        <p style="font-size: 15pt; line-height: 1.7; color: #3f3f46; margin-bottom: 50px; text-align: justify;">
+        <p style="font-size: 13pt; line-height: 1.6; color: #3f3f46; margin-bottom: 35px; text-align: justify;">
           Adicionalmente, se avala que el estudiante aprobó satisfactoriamente y cuenta con habilidades blandas de alto nivel, conocimientos sólidos en <strong>Inteligencia Artificial</strong>, herramientas tecnológicas, comunicación estratégica y negocios.
         </p>
         
-        <div style="background: #f0fdf4; border: 1px solid #bbf7d0; padding: 25px; border-radius: 12px; margin-bottom: 50px;">
-          <p style="font-size: 13pt; color: #166534; margin: 0;"><strong>ID de Verificación Oficial:</strong> <span id="pdf-student-id" style="font-family: monospace;"></span></p>
+        <!-- Muestra del Diploma -->
+        <div style="text-align: center; margin-bottom: 35px;">
+          <p style="font-size: 10pt; color: #71717a; margin-bottom: 10px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Copia fiel de la credencial emitida:</p>
+          <div style="border: 1px solid #e4e4e7; padding: 12px; border-radius: 8px; display: inline-block; background: #fafafa; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+            <img id="pdf-diploma-img" src="" style="max-width: 600px; max-height: 380px; object-fit: contain; border: 1px solid #f4f4f5; border-radius: 4px;" crossorigin="anonymous"/>
+          </div>
+        </div>
+        
+        <!-- Caja de Verificación ID -->
+        <div style="background: #f0fdf4; border: 1px solid #bbf7d0; padding: 18px; border-radius: 8px; margin-bottom: auto; text-align: center;">
+          <p style="font-size: 12pt; color: #166534; margin: 0 0 5px 0;"><strong>ID de Verificación Oficial:</strong> <span id="pdf-student-id" style="font-family: monospace; font-size: 14pt;"></span></p>
+          <p style="font-size: 10pt; color: #166534; margin: 0; opacity: 0.9;">Documento verificable globalmente en: <strong style="text-decoration: underline;">ibero.education/diplomas</strong></p>
         </div>
 
-        <div style="margin-top: auto; padding-top: 30px; border-top: 1px solid #e4e4e7;">
-           <h3 style="font-size: 18pt; color: #09090B; margin-bottom: 15px; font-weight: 800;">Centro Iberoamericano (IBERO)</h3>
-           <p style="font-size: 13pt; color: #71717a; margin-bottom: 10px;">Sitio Web Oficial: <a href="https://ibero.education" style="color: #6B21A8; text-decoration: none; font-weight: 600;">ibero.education</a></p>
-           <p style="font-size: 13pt; color: #71717a; margin-bottom: 10px;">Soporte y Contacto: <a href="mailto:programas@ibero.education" style="color: #6B21A8; text-decoration: none; font-weight: 600;">programas@ibero.education</a></p>
-           <p style="font-size: 13pt; color: #71717a; margin-bottom: 10px;">Redes Sociales: <a href="https://www.linkedin.com/company/centro-iberoamericano/" style="color: #6B21A8; text-decoration: none; font-weight: 600;">LinkedIn</a> | <a href="https://www.instagram.com/centro.iberoamericano/" style="color: #6B21A8; text-decoration: none; font-weight: 600;">Instagram</a></p>
+        <!-- Footer del Informe -->
+        <div style="margin-top: 35px; padding-top: 20px; border-top: 1px solid #e4e4e7; text-align: center;">
+           <p style="font-size: 11pt; color: #3f3f46; margin: 0 0 5px 0;"><strong>Centro Iberoamericano (IBERO)</strong></p>
+           <p style="font-size: 10pt; color: #71717a; margin: 0;">ibero.education &bull; programas@ibero.education &bull; LinkedIn: Centro Iberoamericano</p>
         </div>
+
       </div>
+      
     </div>
   </div>
 
@@ -439,10 +448,7 @@
     </div>
   </div>
 
-  <!-- AREA OCULTA PARA COPIAR TEXTO SEGURO -->
-  <textarea id="hidden-clipboard-area" style="position: absolute; left: -9999px;"></textarea>
-
-  <!-- FOOTER PREMIUM EXACTO (CON LOGO Y GOATIFY) -->
+  <!-- FOOTER PREMIUM EXACTO -->
   <footer class="bg-[#050505] text-zinc-400 py-12 border-t border-zinc-900 mt-auto">
    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 mb-8 border-b border-zinc-900 pb-12">
@@ -780,7 +786,7 @@
       }
     }
 
-    // SPA real: Escuchar cambios en la barra de direcciones (Flechas atrás/adelante)
+    // SPA real: Escuchar cambios en la barra de direcciones
     window.addEventListener('DOMContentLoaded', handleHashRouting);
     window.addEventListener('hashchange', handleHashRouting);
 
@@ -865,46 +871,50 @@
       }
     }
 
-    // --- GENERACIÓN DE PDF PROFESIONAL CON HTML2PDF ---
+    // --- GENERACIÓN DE PDF PROFESIONAL (Formato Carta Informe) ---
     function downloadPDF() {
       const element = document.getElementById('pdf-export-container');
       const studentId = document.getElementById('student-id-display').innerText.replace('ID: ', '');
       
       const opt = {
         margin:       0,
-        filename:     `Certificacion_IBERO_${studentId}.pdf`,
+        filename:     `Informe_Certificacion_IBERO_${studentId}.pdf`,
         image:        { type: 'jpeg', quality: 0.98 },
-        html2canvas:  { scale: 2, useCORS: true, logging: false, windowWidth: 1056 },
-        jsPDF:        { unit: 'px', format: [1056, 816], orientation: 'landscape' }
+        html2canvas:  { scale: 2, useCORS: true, logging: false, windowWidth: 816 },
+        jsPDF:        { unit: 'px', format: [816, 1056], orientation: 'portrait' } // Formato Carta Vertical
       };
 
-      // Truco para renderizado perfecto: Mostrar el contenedor asegurando layout
+      // Truco de Oro: Traer al viewport asegurando que el navegador lo pinte
+      const wrapper = document.getElementById('pdf-wrapper');
+      wrapper.style.left = '0';
+      wrapper.style.top = '0';
       element.style.display = 'block';
-      element.style.opacity = '1';
 
-      // Cambiamos temporalmente el texto del botón a "Generando..."
       const btn = document.querySelector('button[onclick="downloadPDF()"]');
       const originalText = btn.innerHTML;
       btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Generando PDF...';
       btn.disabled = true;
 
-      // Esperar a que el DOM pinte el elemento antes de capturarlo
+      // Retraso para que el navegador procese el CSS e imágenes antes de capturar
       setTimeout(() => {
         html2pdf().set(opt).from(element).save().then(() => {
+          wrapper.style.left = '-9999px';
+          wrapper.style.top = '-9999px';
           element.style.display = 'none';
           btn.innerHTML = originalText;
           btn.disabled = false;
         }).catch(err => {
           console.error("PDF Error: ", err);
+          wrapper.style.left = '-9999px';
           element.style.display = 'none';
           btn.innerHTML = originalText;
           btn.disabled = false;
-          alert("Hubo un problema generando el PDF. Descarga la imagen en su lugar.");
+          alert("Hubo un problema generando el PDF. Verifica la ruta de la imagen o usa el botón de descargar imagen.");
         });
-      }, 300);
+      }, 500);
     }
 
-    // --- LÓGICA DE LINKEDIN PRO (Evitando Popup Blockers) ---
+    // --- LÓGICA DE LINKEDIN PRO ---
     function shareLinkedIn(slug) {
       const diplomaInfo = window.BASE_DE_DATOS_DIPLOMAS[slug];
       const courseName = diplomaInfo ? diplomaInfo.curso : 'un programa de élite';
@@ -919,7 +929,6 @@
       btn.classList.replace('bg-[#0077b5]', 'bg-emerald-600');
       btn.classList.replace('hover:bg-[#005e93]', 'hover:bg-emerald-700');
 
-      // Copiar texto y ABRIR VENTANA INMEDIATAMENTE para evitar bloqueo de Safari/Chrome
       copyTextToClipboard(postText, () => {
         window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`, '_blank');
         
@@ -983,7 +992,6 @@
 
       const slug = createSlug(name);
       
-      // ALERTA DE SEGURIDAD PARA ADMIN
       if (window.BASE_DE_DATOS_DIPLOMAS[slug]) {
         const overwrite = confirm(`ATENCIÓN: Ya existe un registro para "${name}". ¿Deseas reemplazarlo con esta nueva información?`);
         if (!overwrite) return;
@@ -1049,7 +1057,6 @@
         setTimeout(() => msg.classList.add('opacity-0'), 3000);
       });
     }
-
   </script>
 </body>
 </html>
