@@ -28,7 +28,7 @@
     }
   </script>
 
-  <!-- LIBRERÍA PARA PDF PERFECTOS -->
+  <!-- LIBRERÍA PARA PDF PERFECTOS (Limpia) -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
   <style>
@@ -44,16 +44,16 @@
     }
     @keyframes textShine { 0% { background-position: 250% center; } 100% { background-position: -250% center; } }
     
-    /* EFECTO DIPLOMA: Espejado Sutil, Elegante y Fino */
+    /* EFECTO DIPLOMA: Plateado, Luminoso, Shiny, Espejado Sutil (Extremadamente Sutil) */
     .diploma-frame {
       position: relative;
       padding: 8px;
       background: linear-gradient(135deg, #ffffff 0%, #f4f4f5 50%, #ffffff 100%);
       border: 1px solid rgba(255, 255, 255, 0.9);
       border-radius: 12px;
-      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.08),
-                  0 0 20px 0 rgba(255, 255, 255, 0.2) inset,
-                  0 0 0 1px rgba(161, 161, 170, 0.1);
+      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1),
+                  0 0 20px 0 rgba(255, 255, 255, 0.3) inset,
+                  0 0 0 1px rgba(161, 161, 170, 0.15);
       overflow: hidden;
       transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
     }
@@ -62,9 +62,9 @@
       position: absolute;
       top: 0; left: -100%;
       width: 50%; height: 100%;
-      background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0) 100%);
+      background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.15) 50%, rgba(255,255,255,0) 100%);
       transform: skewX(-25deg);
-      animation: diplomaShine 10s infinite;
+      animation: diplomaShine 8s infinite;
       pointer-events: none;
       z-index: 10;
     }
@@ -75,9 +75,9 @@
     }
     .diploma-frame:hover { 
       transform: translateY(-3px) scale(1.005); 
-      box-shadow: 0 30px 50px -15px rgba(0, 0, 0, 0.15),
-                  0 0 30px 0 rgba(255, 255, 255, 0.4) inset,
-                  0 0 0 1px rgba(161, 161, 170, 0.2);
+      box-shadow: 0 30px 50px -15px rgba(0, 0, 0, 0.2),
+                  0 0 30px 0 rgba(255, 255, 255, 0.6) inset,
+                  0 0 0 1px rgba(161, 161, 170, 0.3);
     }
     .diploma-frame img {
       border-radius: 4px;
@@ -233,7 +233,7 @@
             </p>
           </div>
 
-          <!-- Sello Verde Prominente y Pro (Derecha) -->
+          <!-- Sello Verde Prominente y Pro (Derecha) - Tamaño optimizado para celular -->
           <div class="shrink-0 w-auto max-w-[280px] md:max-w-none flex flex-col items-center bg-white border border-emerald-100 px-6 sm:px-8 py-5 sm:py-6 rounded-[2rem] shadow-[0_0_40px_rgba(16,185,129,0.15)] relative overflow-hidden group">
             <div class="absolute inset-0 bg-gradient-to-tr from-emerald-50/80 to-transparent"></div>
             <div class="relative z-10 flex flex-col items-center">
@@ -312,7 +312,7 @@
   <!-- ========================================================= -->
   <!-- WRAPPER OCULTO PARA GENERACIÓN PERFECTA DEL PDF (CARTA)   -->
   <!-- ========================================================= -->
-  <div id="pdf-wrapper" style="position: absolute; left: -9999px; top: 0; pointer-events: none; z-index: -9999; width: 816px;">
+  <div id="pdf-wrapper" style="position: absolute; left: -9999px; top: -9999px; pointer-events: none; z-index: -9999; width: 816px;">
     <!-- Contenedor real que leerá html2canvas (Formato Carta Vertical 816x1056px) -->
     <div id="pdf-export-container" style="width: 816px; min-height: 1056px; background: white; display: none;">
       
@@ -447,9 +447,6 @@
       </div>
     </div>
   </div>
-
-  <!-- AREA OCULTA PARA COPIAR TEXTO SEGURO -->
-  <textarea id="hidden-clipboard-area" style="position: absolute; left: -9999px;"></textarea>
 
   <!-- FOOTER PREMIUM EXACTO -->
   <footer class="bg-[#050505] text-zinc-400 py-12 border-t border-zinc-900 mt-auto">
@@ -732,6 +729,15 @@
     // Copiador universal que salta bloqueos de navegadores
     function fallbackCopyTextToClipboard(text) {
       var textArea = document.getElementById("hidden-clipboard-area");
+      if (!textArea) {
+        textArea = document.createElement("textarea");
+        textArea.id = "hidden-clipboard-area";
+        textArea.style.position = "fixed";
+        textArea.style.top = "0";
+        textArea.style.left = "0";
+        textArea.style.opacity = "0";
+        document.body.appendChild(textArea);
+      }
       textArea.value = text;
       textArea.focus();
       textArea.select();
@@ -882,44 +888,57 @@
       const opt = {
         margin:       0,
         filename:     `Informe_Certificacion_IBERO_${studentId}.pdf`,
-        image:        { type: 'jpeg', quality: 0.98 },
-        html2canvas:  { scale: 2, useCORS: true, logging: false, windowWidth: 816 },
-        jsPDF:        { unit: 'px', format: [816, 1056], orientation: 'portrait' } // Formato Carta Vertical
+        image:        { type: 'jpeg', quality: 1.0 }, // Mejoramos la calidad
+        html2canvas:  { scale: 2, useCORS: true, logging: false }, // Eliminamos el forzado de width que creaba problemas
+        jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' } // Formato estándar oficial para evitar descuadres en px
       };
 
-      // Truco de Oro: Traer al viewport en fixed pos para que html2canvas lo vea en 0,0 sin alterar el scroll visual
       const wrapper = document.getElementById('pdf-wrapper');
-      wrapper.style.position = 'fixed';
-      wrapper.style.left = '0';
-      wrapper.style.top = '0';
-      wrapper.style.zIndex = '-9999';
-      element.style.display = 'block';
-
       const btn = document.querySelector('button[onclick="downloadPDF()"]');
       const originalText = btn.innerHTML;
       btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Generando PDF...';
       btn.disabled = true;
 
+      // EL SECRETO DE LA ESTABILIDAD:
+      // 1. Quitar el zoom global temporalmente porque destruye las coordenadas de html2canvas
+      // 2. Traer el div al frente para que renderice y ubicarlo fuera del rango de vista sin usar z-index negativos que quedan tras el fondo
+      const htmlElement = document.documentElement;
+      const prevZoom = htmlElement.style.zoom || window.getComputedStyle(htmlElement).zoom;
+      htmlElement.style.zoom = '1';
+
+      wrapper.style.position = 'fixed';
+      wrapper.style.left = '200vw'; // Lejos a la derecha para que no se vea pero siga renderizado
+      wrapper.style.top = '0';
+      wrapper.style.zIndex = '99999'; // Traído al frente absoluto
+      element.style.display = 'block';
+
       // Retraso para que el navegador procese el CSS e imágenes antes de capturar
       setTimeout(() => {
         html2pdf().set(opt).from(element).save().then(() => {
-          // Restaurar a absoluto para evitar problemas
+          // Restaurar estados ocultos tal cual estaban
           wrapper.style.position = 'absolute';
           wrapper.style.left = '-9999px';
-          wrapper.style.top = '0';
+          wrapper.style.zIndex = '-9999';
           element.style.display = 'none';
+          
+          // Devolver el zoom si lo tenía
+          htmlElement.style.zoom = prevZoom === '1' ? '' : prevZoom; 
+          
           btn.innerHTML = originalText;
           btn.disabled = false;
         }).catch(err => {
           console.error("PDF Error: ", err);
           wrapper.style.position = 'absolute';
           wrapper.style.left = '-9999px';
+          wrapper.style.zIndex = '-9999';
           element.style.display = 'none';
+          htmlElement.style.zoom = prevZoom === '1' ? '' : prevZoom; 
+          
           btn.innerHTML = originalText;
           btn.disabled = false;
           alert("Hubo un problema generando el PDF. Verifica la ruta de la imagen o usa el botón de descargar imagen.");
         });
-      }, 800);
+      }, 500);
     }
 
     // --- LÓGICA DE LINKEDIN PRO ---
