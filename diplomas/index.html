@@ -221,7 +221,7 @@
       <!-- RESULTADO: DIPLOMA ENCONTRADO -->
       <div id="result-success" class="hidden flex-col items-center opacity-0 transition-opacity duration-500 w-full max-w-4xl">
         
-        <!-- CABECERA: TEXTO EMPODERADOR + SELLO VERDE AL LADO -->
+        <!-- CABECERA: TEXTO EMPODERADOR + SELLO VERDE AL LADO (Sello Oculto en Móvil) -->
         <div class="w-full flex flex-col md:flex-row items-center md:items-center justify-between gap-8 mb-10 px-4">
           
           <!-- Texto Empoderador (Izquierda) -->
@@ -233,8 +233,8 @@
             </p>
           </div>
 
-          <!-- Sello Verde Prominente y Pro (Derecha) -->
-          <div class="shrink-0 w-auto max-w-[280px] md:max-w-none flex flex-col items-center bg-white border border-emerald-100 px-6 sm:px-8 py-5 sm:py-6 rounded-[2rem] shadow-[0_0_40px_rgba(16,185,129,0.15)] relative overflow-hidden group">
+          <!-- Sello Verde Prominente y Pro (Derecha - Visible solo en Ordenador) -->
+          <div class="hidden md:flex shrink-0 w-auto max-w-[280px] md:max-w-none flex-col items-center bg-white border border-emerald-100 px-6 sm:px-8 py-5 sm:py-6 rounded-[2rem] shadow-[0_0_40px_rgba(16,185,129,0.15)] relative overflow-hidden group">
             <div class="absolute inset-0 bg-gradient-to-tr from-emerald-50/80 to-transparent"></div>
             <div class="relative z-10 flex flex-col items-center">
               <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center text-emerald-500 text-3xl mb-3 shadow-[0_4px_15px_rgba(16,185,129,0.2)] border border-emerald-50">
@@ -258,7 +258,7 @@
           </div>
         </div>
 
-        <!-- TEXTO DE AVAL / SKILLS -->
+        <!-- TEXTO DE AVAL / SKILLS (Segundo Párrafo) -->
         <div class="mt-10 bg-white border border-zinc-200 rounded-3xl p-6 sm:p-8 max-w-2xl w-full text-center shadow-[0_4px_24px_-8px_rgba(0,0,0,0.05)] relative overflow-hidden">
           <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-ibero-purple via-ibero-red to-ibero-purple"></div>
           <div class="w-14 h-14 bg-zinc-50 rounded-full border border-zinc-200 flex items-center justify-center mx-auto mb-5 shadow-sm">
@@ -267,6 +267,20 @@
           <p class="text-zinc-600 text-sm sm:text-base leading-relaxed font-medium">
             Al culminar este programa, el <strong class="text-ibero-dark font-bold">Centro Iberoamericano (IBERO)</strong> avala que el estudiante <strong id="cert-student-name-2" class="text-ibero-dark font-black uppercase"></strong> aprobó satisfactoriamente y cuenta con habilidades blandas de alto nivel, conocimientos sólidos en <strong class="text-ibero-dark">Inteligencia Artificial</strong>, herramientas tecnológicas, comunicación estratégica y negocios.
           </p>
+        </div>
+
+        <!-- Sello Verde Prominente y Pro (Móvil - Visible solo en Celular debajo del aval) -->
+        <div class="flex md:hidden shrink-0 w-full max-w-[280px] flex-col items-center bg-white border border-emerald-100 px-6 py-5 rounded-[2rem] shadow-[0_0_40px_rgba(16,185,129,0.15)] relative overflow-hidden group mt-6 mb-2 mx-auto">
+          <div class="absolute inset-0 bg-gradient-to-tr from-emerald-50/80 to-transparent"></div>
+          <div class="relative z-10 flex flex-col items-center">
+            <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center text-emerald-500 text-3xl mb-3 shadow-[0_4px_15px_rgba(16,185,129,0.2)] border border-emerald-50">
+              <i class="fa-solid fa-qrcode"></i>
+            </div>
+            <h4 class="text-xl font-serif italic text-ibero-dark mb-1 leading-tight text-center hero-shine-dark whitespace-nowrap">Auténtica<br>& Avalada</h4>
+            <div class="mt-2 bg-emerald-50/80 px-4 py-1.5 rounded-md border border-emerald-100 backdrop-blur-sm shadow-inner">
+              <p class="text-[10px] text-emerald-700 font-mono font-bold tracking-widest" id="student-id-display-mobile">ID: ...</p>
+            </div>
+          </div>
         </div>
 
         <!-- Botones de Acción -->
@@ -859,6 +873,12 @@
       document.getElementById('cert-student-name-2').innerText = diplomaData.nombre;
       document.getElementById('cert-course-name').innerText = diplomaData.curso;
       document.getElementById('student-id-display').innerText = "ID: " + slug.toUpperCase();
+      
+      // Mostrar el ID dinámico también en la versión móvil (si existe en el DOM)
+      const mobileIdDisplay = document.getElementById('student-id-display-mobile');
+      if (mobileIdDisplay) {
+        mobileIdDisplay.innerText = "ID: " + slug.toUpperCase();
+      }
       
       // Data Inyectada en el nuevo diseño del PDF
       document.getElementById('pdf-student-name').innerText = diplomaData.nombre;
