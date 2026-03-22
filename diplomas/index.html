@@ -842,22 +842,8 @@
       document.getElementById('diploma-image').src = diplomaData.url;
       document.getElementById('download-btn').href = diplomaData.url;
       
-      // FIX MAGISTRAL: Convertir a Base64 para inyectar directo en el PDF (Evita errores CORS en html2canvas)
-      const pdfImg = document.getElementById('pdf-diploma-img');
-      pdfImg.src = diplomaData.url; // Colocar URL inicial por si acaso
-      
-      fetch(diplomaData.url)
-        .then(response => response.blob())
-        .then(blob => {
-          const reader = new FileReader();
-          reader.onloadend = () => { 
-             pdfImg.src = reader.result; // Sobrescribe con código Data URI nativo 
-          };
-          reader.readAsDataURL(blob);
-        })
-        .catch(err => {
-          console.warn("No se pudo convertir a Base64 puro. Dependeremos de la red.", err);
-        });
+      // Asignar el source nativo
+      document.getElementById('pdf-diploma-img').src = diplomaData.url; 
 
       const btnLinkedIn = document.getElementById('linkedin-btn');
       btnLinkedIn.onclick = () => shareLinkedIn(slug);
@@ -896,63 +882,73 @@
       }
     }
 
-    // --- GENERACIÓN DE PDF PROFESIONAL (Formato Carta Informe) ---
+    // =========================================================
+    // LA SOLUCIÓN DEFINITIVA PARA LA IMAGEN EN BLANCO
+    // =========================================================
     function downloadPDF() {
-      const element = document.getElementById('pdf-export-container');
       const studentId = document.getElementById('student-id-display').innerText.replace('ID: ', '');
       
-      const opt = {
-        margin:       0,
-        filename:     `Informe_Certificacion_IBERO_${studentId}.pdf`,
-        image:        { type: 'jpeg', quality: 1.0 }, 
-        html2canvas:  { 
-          scale: 2, 
-          useCORS: true, 
-          // allowTaint: true, <--- ELIMINADO. Esto arruinaba por completo la imagen en jsPDF.
-          logging: false,
-          scrollY: 0, 
-          scrollX: 0
-        },
-        jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' } 
-      };
+      // 1. PANTALLA DE CARGA ABSOLUTA (Tapa todo visualmente)
+      // Esto sirve para que el usuario no vea cómo traemos el documento a la pantalla.
+      const loaderOverlay = document.createElement('div');
+      loaderOverlay.id = 'pdf-hard-loader';
+      loaderOverlay.style.cssText = 'position:fixed; top:0; left:0; width:100vw; height:100vh; background:#ffffff; z-index:999999; display:flex; flex-direction:column; justify-content:center; align-items:center;';
+      loaderOverlay.innerHTML = `
+        <div class="loader mb-4"></div>
+        <p class="font-bold text-ibero-dark text-lg mb-1">Generando Documento Oficial...</p>
+        <p class="text-xs text-zinc-500 text-center">Procesando imagen de alta resolución.<br>Por favor no cierres la ventana.</p>
+      `;
+      document.body.appendChild(loaderOverlay);
 
       const wrapper = document.getElementById('pdf-wrapper');
-      const btn = document.querySelector('button[onclick="downloadPDF()"]');
-      const originalText = btn.innerHTML;
-      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Generando PDF...';
-      btn.disabled = true;
+      const element = document.getElementById('pdf-export-container');
 
-      const htmlElement = document.documentElement;
-      const prevZoom = htmlElement.style.zoom || window.getComputedStyle(htmlElement).zoom;
-      htmlElement.style.zoom = '1';
-
-      wrapper.style.left = '0px'; 
+      // 2. EL TRUCO MAESTRO:
+      // Si el elemento está en left: -9999px, el navegador simplemente NO PINTA LA IMAGEN.
+      // Así que lo traemos a la posición 0,0 en pantalla real, justo debajo de la pantalla de carga.
+      wrapper.style.position = 'fixed';
+      wrapper.style.left = '0px';
       wrapper.style.top = '0px';
+      wrapper.style.zIndex = '999990'; 
+      wrapper.style.opacity = '1';
+      wrapper.style.pointerEvents = 'none'; // Que no bloquee nada por error
+      
+      // Re-aseguramos la fuente de la imagen
+      const visibleImg = document.getElementById('diploma-image');
+      const pdfImg = document.getElementById('pdf-diploma-img');
+      pdfImg.src = visibleImg.src;
 
-      const executeGeneration = () => {
+      // 3. TIEMPO DE RESPUESTA DEL NAVEGADOR
+      // Le damos 1.5 segundos (1500ms) para que el navegador se dé cuenta que el elemento
+      // ahora es visible, descargue cualquier cosa pendiente, y DIBUJE la imagen.
+      setTimeout(() => {
+        const opt = {
+          margin:       0,
+          filename:     `Informe_Certificacion_IBERO_${studentId}.pdf`,
+          image:        { type: 'jpeg', quality: 1.0 }, 
+          html2canvas:  { 
+            scale: 2, 
+            useCORS: true, 
+            allowTaint: false,
+            scrollY: 0, 
+            scrollX: 0
+          },
+          jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' } 
+        };
+
         html2pdf().set(opt).from(element).save().then(() => {
-          // Restaurar estados
+          // 4. LIMPIEZA: Regresamos el contenedor a la sombra y quitamos el loading
           wrapper.style.left = '-9999px';
-          htmlElement.style.zoom = prevZoom === '1' ? '' : prevZoom; 
-          btn.innerHTML = originalText;
-          btn.disabled = false;
+          wrapper.style.zIndex = '-9999';
+          document.body.removeChild(loaderOverlay);
         }).catch(err => {
           console.error("PDF Error: ", err);
           wrapper.style.left = '-9999px';
-          htmlElement.style.zoom = prevZoom === '1' ? '' : prevZoom; 
-          btn.innerHTML = originalText;
-          btn.disabled = false;
+          wrapper.style.zIndex = '-9999';
+          document.body.removeChild(loaderOverlay);
+          alert("Hubo un problema al generar el documento. Por favor, intenta de nuevo.");
         });
-      };
-
-      // ASEGURAMOS QUE LA IMAGEN ESTÁ COMPLETAMENTE LISTA ANTES DE CAPTURAR
-      const pdfImg = document.getElementById('pdf-diploma-img');
-      if (pdfImg.complete && pdfImg.naturalHeight !== 0) {
-        setTimeout(executeGeneration, 300); // Pequeño delay de reflow
-      } else {
-        pdfImg.onload = () => setTimeout(executeGeneration, 300);
-        pdfImg.onerror = () => setTimeout(executeGeneration, 300); // Forzar intento en caso de error
-      }
+      }, 1500);
     }
 
     // --- LÓGICA DE LINKEDIN PRO ---
