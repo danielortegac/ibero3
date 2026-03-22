@@ -3,8 +3,15 @@
 <head>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
-  <title>Verificación de Credenciales y Diplomas | IBERO</title>
+  <title>Verificación de Credenciales | IBERO</title>
+  
+  <!-- META ETIQUETAS PARA REDES SOCIALES (LINKEDIN, WHATSAPP, FB) -->
   <meta content="Verifica la autenticidad de los diplomas y certificaciones emitidas por el Centro Iberoamericano (IBERO)." name="description"/>
+  <meta property="og:title" content="🎓 ¡Mira mi nuevo título académico en IBERO!" />
+  <meta property="og:description" content="He culminado con éxito mi programa en el Centro Iberoamericano. Verifica mi credencial oficial aquí." />
+  <meta property="og:image" content="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/1557a79470d9c26d1ad0f0b00243f9f03e55cf2f/fotos/svg/ibero-logo-black-redE.svg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ibero.education/diplomas" />
   
   <!-- FAVICON OFICIAL -->
   <link href="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/3339294f71590eeeaa7f0b0b0591f5e09156ed96/fotos/logos%20ibero/ibero-favicon.svg" rel="icon" type="image/svg+xml"/>
@@ -991,24 +998,24 @@
       const courseName = diplomaInfo ? diplomaInfo.curso : 'un programa de élite';
       const shareUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '#/' + slug;
       
-      const postText = `🎓 ¡He culminado un nuevo logro académico!\n\nMe emociona compartir que he finalizado con éxito mi certificación en ${courseName} avalado por el Centro Iberoamericano (IBERO).\n\nHa sido un proceso de muchísimo aprendizaje, enfocado en llevar mis habilidades al siguiente nivel con metodologías reales y aplicables.\n\nPuedes verificar mi credencial oficial aquí:\n${shareUrl}\n\n🚀 #IBERO #Educación #CrecimientoProfesional #LogroAcademico #Certificación`;
+      const postText = `🎓 ¡He completado un nuevo reto académico!\n\nMe emociona compartir que he conseguido mi certificación en ${courseName}, avalado por el Centro Iberoamericano (IBERO).\n\nHa sido un proceso de muchísimo aprendizaje, enfocado en llevar mis habilidades al siguiente nivel con metodologías reales y aplicables.\n\nPuedes verificar mi credencial oficial aquí:\n${shareUrl}\n\n🚀 #IBERO #Educación #CrecimientoProfesional #LogroAcademico #Certificación`;
 
       const btn = document.getElementById('linkedin-btn');
       const originalHtml = btn.innerHTML;
       
-      btn.innerHTML = '<i class="fa-solid fa-check"></i> ¡Texto Copiado! Pega y sube tu diploma...';
+      btn.innerHTML = '<i class="fa-solid fa-check"></i> ¡Texto Copiado! Pega (Ctrl+V) y sube tu foto...';
       btn.classList.replace('bg-[#0077b5]', 'bg-emerald-600');
       btn.classList.replace('hover:bg-[#005e93]', 'hover:bg-emerald-700');
 
       copyTextToClipboard(postText, () => {
-        // En lugar de la ventana restrictiva, abrimos el Feed de LinkedIn para que puedan subir la imagen
-        window.open('https://www.linkedin.com/feed/', '_blank');
+        // Truco PRO: ?shareActive=true abre la ventana de "Crear publicación" automáticamente
+        window.open('https://www.linkedin.com/feed/?shareActive=true', '_blank');
         
         setTimeout(() => {
           btn.innerHTML = originalHtml;
           btn.classList.replace('bg-emerald-600', 'bg-[#0077b5]');
           btn.classList.replace('hover:bg-emerald-700', 'hover:bg-[#005e93]');
-        }, 3000);
+        }, 4000);
       });
     }
 
