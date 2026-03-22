@@ -329,7 +329,7 @@
         <div style="text-align: center; margin-bottom: 35px;">
           <p style="font-size: 10pt; color: #71717a; margin-bottom: 10px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Copia fiel de la credencial emitida:</p>
           <div style="border: 1px solid #e4e4e7; padding: 12px; border-radius: 8px; display: inline-block; background: #fafafa; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
-            <img id="pdf-diploma-img" src="" style="max-width: 600px; max-height: 380px; object-fit: contain; border: 1px solid #f4f4f5; border-radius: 4px;" crossorigin="anonymous"/>
+            <img id="pdf-diploma-img" src="" style="width: 100%; max-width: 600px; height: auto; border: 1px solid #f4f4f5; border-radius: 4px; display: block; margin: 0 auto;" />
           </div>
         </div>
 
@@ -825,27 +825,38 @@
       }, 800);
     }
 
-    // NUEVA FUNCIÓN: Conversión forzada a RAW (Base64) antes de armar el PDF
-    function getBase64Image(url, callback) {
-      const img = new Image();
-      img.crossOrigin = 'Anonymous';
-      img.onload = () => {
-        const canvas = document.createElement('canvas');
-        canvas.width = img.width;
-        canvas.height = img.height;
-        const ctx = canvas.getContext('2d');
-        ctx.drawImage(img, 0, 0);
-        callback(canvas.toDataURL('image/jpeg', 1.0));
-      };
-      img.onerror = () => {
-        console.warn('CORS bloqueó el canvas, intentando inyección directa...');
-        callback(url);
-      };
-      // Evita que el navegador use una versión cacheada sin permisos CORS
-      img.src = url + (url.indexOf('?') > -1 ? '&' : '?') + 't=' + new Date().getTime();
+    // NUEVA FUNCIÓN ULTRA ROBUSTA: Convierte la imagen a RAW (Base64) esquivando CORS de verdad
+    async function getBase64Image(url) {
+      try {
+        // Intento 1: Descarga directa estándar
+        const response = await fetch(url, { mode: 'cors' });
+        if (!response.ok) throw new Error("CORS bloqueado directamente");
+        const blob = await response.blob();
+        return await new Promise(resolve => {
+          const reader = new FileReader();
+          reader.onloadend = () => resolve(reader.result);
+          reader.readAsDataURL(blob);
+        });
+      } catch (error) {
+        console.warn('CORS bloqueó la imagen. Usando Proxy de respaldo...', error);
+        try {
+          // Intento 2: Usar un Proxy gratuito para obligar la descarga del RAW
+          const proxyUrl = 'https://api.allorigins.win/raw?url=' + encodeURIComponent(url);
+          const proxyResponse = await fetch(proxyUrl);
+          const proxyBlob = await proxyResponse.blob();
+          return await new Promise(resolve => {
+            const reader = new FileReader();
+            reader.onloadend = () => resolve(reader.result);
+            reader.readAsDataURL(proxyBlob);
+          });
+        } catch (proxyError) {
+          console.error('Proxy falló. Metiendo URL directa como último recurso.', proxyError);
+          return url;
+        }
+      }
     }
 
-    function showSuccess(diplomaData, slug) {
+    async function showSuccess(diplomaData, slug) {
       // Ocultar cabecera inicial completa
       headerSection.classList.add('hidden');
 
@@ -864,21 +875,31 @@
       document.getElementById('diploma-image').src = diplomaData.url;
       document.getElementById('download-btn').href = diplomaData.url;
 
-      // Bloqueamos el botón PDF hasta que la imagen esté en RAW
+      // Bloqueamos el botón PDF hasta tener la foto RAW asegurada
       const btnPDF = document.querySelector('button[onclick="downloadPDF()"]');
       const originalBtnHTML = '<i class="fa-solid fa-file-pdf"></i> Guardar en PDF';
-      btnPDF.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Cargando documento...';
+      btnPDF.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Cargando foto segura...';
       btnPDF.disabled = true;
       btnPDF.classList.add('opacity-50', 'cursor-not-allowed');
 
-      // Magia RAW: convertimos a base64 real
-      getBase64Image(diplomaData.url, (base64RAW) => {
-        document.getElementById('pdf-diploma-img').src = base64RAW;
-        // Desbloqueamos el botón porque la imagen ya es código puro
+      // Esperamos asíncronamente a que baje el RAW
+      const base64RAW = await getBase64Image(diplomaData.url);
+      const pdfImg = document.getElementById('pdf-diploma-img');
+      pdfImg.src = base64RAW;
+
+      // Desbloqueamos el botón cuando el navegador confirme que la pintó
+      pdfImg.onload = () => {
         btnPDF.innerHTML = originalBtnHTML;
         btnPDF.disabled = false;
         btnPDF.classList.remove('opacity-50', 'cursor-not-allowed');
-      });
+      };
+      
+      // Respaldo por si carga instantáneamente por caché
+      setTimeout(() => {
+        btnPDF.innerHTML = originalBtnHTML;
+        btnPDF.disabled = false;
+        btnPDF.classList.remove('opacity-50', 'cursor-not-allowed');
+      }, 1000);
       
       const btnLinkedIn = document.getElementById('linkedin-btn');
       btnLinkedIn.onclick = () => shareLinkedIn(slug);
