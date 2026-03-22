@@ -296,7 +296,7 @@
           <button id="linkedin-btn" class="bg-[#0077b5] text-white px-5 sm:px-6 py-3 rounded-xl font-bold text-[11px] sm:text-xs hover:bg-[#005e93] transition-all shadow-md flex items-center gap-2 group relative">
             <i class="fa-brands fa-linkedin text-sm"></i> Publicar en LinkedIn
             <span class="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-black text-white text-[9px] py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
-              Copia texto súper PRO automáticamente
+              Copia texto, abre LinkedIn y sube tu diploma
             </span>
           </button>
           <button onclick="resetSearch(true)" class="bg-white border border-transparent text-zinc-500 px-4 py-3 rounded-xl font-bold text-[11px] sm:text-xs hover:text-zinc-800 hover:bg-zinc-100 transition-all">
@@ -996,18 +996,19 @@
       const btn = document.getElementById('linkedin-btn');
       const originalHtml = btn.innerHTML;
       
-      btn.innerHTML = '<i class="fa-solid fa-check"></i> ¡Texto Copiado! Pegálo en LinkedIn...';
+      btn.innerHTML = '<i class="fa-solid fa-check"></i> ¡Texto Copiado! Pega y sube tu diploma...';
       btn.classList.replace('bg-[#0077b5]', 'bg-emerald-600');
       btn.classList.replace('hover:bg-[#005e93]', 'hover:bg-emerald-700');
 
       copyTextToClipboard(postText, () => {
-        window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`, '_blank');
+        // En lugar de la ventana restrictiva, abrimos el Feed de LinkedIn para que puedan subir la imagen
+        window.open('https://www.linkedin.com/feed/', '_blank');
         
         setTimeout(() => {
           btn.innerHTML = originalHtml;
           btn.classList.replace('bg-emerald-600', 'bg-[#0077b5]');
           btn.classList.replace('hover:bg-emerald-700', 'hover:bg-[#005e93]');
-        }, 2000);
+        }, 3000);
       });
     }
 
