@@ -825,6 +825,26 @@
       }, 800);
     }
 
+    // NUEVA FUNCIÓN: Conversión forzada a RAW (Base64) antes de armar el PDF
+    function getBase64Image(url, callback) {
+      const img = new Image();
+      img.crossOrigin = 'Anonymous';
+      img.onload = () => {
+        const canvas = document.createElement('canvas');
+        canvas.width = img.width;
+        canvas.height = img.height;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0);
+        callback(canvas.toDataURL('image/jpeg', 1.0));
+      };
+      img.onerror = () => {
+        console.warn('CORS bloqueó el canvas, intentando inyección directa...');
+        callback(url);
+      };
+      // Evita que el navegador use una versión cacheada sin permisos CORS
+      img.src = url + (url.indexOf('?') > -1 ? '&' : '?') + 't=' + new Date().getTime();
+    }
+
     function showSuccess(diplomaData, slug) {
       // Ocultar cabecera inicial completa
       headerSection.classList.add('hidden');
@@ -844,22 +864,21 @@
       document.getElementById('diploma-image').src = diplomaData.url;
       document.getElementById('download-btn').href = diplomaData.url;
 
-      // MAGIA RAW: Descargamos la imagen y la convertimos a código puro (Base64)
-      // para inyectarla directo al PDF. Así evitamos cuadros blancos por bloqueos de red.
-      fetch(diplomaData.url)
-        .then(response => response.blob())
-        .then(blob => {
-          const reader = new FileReader();
-          reader.onloadend = () => {
-            document.getElementById('pdf-diploma-img').src = reader.result;
-          };
-          reader.readAsDataURL(blob);
-        })
-        .catch(error => {
-          console.error('Error al convertir imagen a raw:', error);
-          // Si falla, intentamos usar el link normal como último recurso
-          document.getElementById('pdf-diploma-img').src = diplomaData.url;
-        });
+      // Bloqueamos el botón PDF hasta que la imagen esté en RAW
+      const btnPDF = document.querySelector('button[onclick="downloadPDF()"]');
+      const originalBtnHTML = '<i class="fa-solid fa-file-pdf"></i> Guardar en PDF';
+      btnPDF.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Cargando documento...';
+      btnPDF.disabled = true;
+      btnPDF.classList.add('opacity-50', 'cursor-not-allowed');
+
+      // Magia RAW: convertimos a base64 real
+      getBase64Image(diplomaData.url, (base64RAW) => {
+        document.getElementById('pdf-diploma-img').src = base64RAW;
+        // Desbloqueamos el botón porque la imagen ya es código puro
+        btnPDF.innerHTML = originalBtnHTML;
+        btnPDF.disabled = false;
+        btnPDF.classList.remove('opacity-50', 'cursor-not-allowed');
+      });
       
       const btnLinkedIn = document.getElementById('linkedin-btn');
       btnLinkedIn.onclick = () => shareLinkedIn(slug);
@@ -910,7 +929,6 @@
         html2canvas:  { 
           scale: 2, 
           useCORS: true, 
-          allowTaint: true, 
           logging: false,
           scrollY: 0, // <--- MAGIA 1: Evita el corte en blanco arriba provocado por el scroll
           scrollX: 0
