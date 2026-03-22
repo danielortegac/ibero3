@@ -325,11 +325,12 @@
           <h1 style="font-size: 18pt; color: #09090B; font-weight: 800; margin: 0; text-transform: uppercase; letter-spacing: 1px;">Informe de Certificación Académica</h1>
         </div>
         
-        <!-- Muestra del Diploma (AHORA PRIMERO) -->
+        <!-- Muestra del Diploma: REEMPLAZADO IMG POR CANVAS PARA EVITAR EL BUG DEL CUADRO BLANCO -->
         <div style="text-align: center; margin-bottom: 35px;">
           <p style="font-size: 10pt; color: #71717a; margin-bottom: 10px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Copia fiel de la credencial emitida:</p>
           <div style="border: 1px solid #e4e4e7; padding: 12px; border-radius: 8px; display: inline-block; background: #fafafa; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
-            <img id="pdf-diploma-img" src="" style="width: 100%; max-width: 600px; height: auto; border: 1px solid #f4f4f5; border-radius: 4px; display: block; margin: 0 auto;" />
+            <!-- EL CANVAS OBLIGA AL NAVEGADOR A MANTENER LA FOTO EN MEMORIA, IMPOSIBLE QUE SALGA BLANCO -->
+            <canvas id="pdf-diploma-canvas" style="width: 100%; max-width: 600px; height: auto; border: 1px solid #f4f4f5; border-radius: 4px; display: block; margin: 0 auto;"></canvas>
           </div>
         </div>
 
@@ -825,38 +826,7 @@
       }, 800);
     }
 
-    // NUEVA FUNCIÓN ULTRA ROBUSTA: Convierte la imagen a RAW (Base64) esquivando CORS de verdad
-    async function getBase64Image(url) {
-      try {
-        // Intento 1: Descarga directa estándar
-        const response = await fetch(url, { mode: 'cors' });
-        if (!response.ok) throw new Error("CORS bloqueado directamente");
-        const blob = await response.blob();
-        return await new Promise(resolve => {
-          const reader = new FileReader();
-          reader.onloadend = () => resolve(reader.result);
-          reader.readAsDataURL(blob);
-        });
-      } catch (error) {
-        console.warn('CORS bloqueó la imagen. Usando Proxy de respaldo...', error);
-        try {
-          // Intento 2: Usar un Proxy gratuito para obligar la descarga del RAW
-          const proxyUrl = 'https://api.allorigins.win/raw?url=' + encodeURIComponent(url);
-          const proxyResponse = await fetch(proxyUrl);
-          const proxyBlob = await proxyResponse.blob();
-          return await new Promise(resolve => {
-            const reader = new FileReader();
-            reader.onloadend = () => resolve(reader.result);
-            reader.readAsDataURL(proxyBlob);
-          });
-        } catch (proxyError) {
-          console.error('Proxy falló. Metiendo URL directa como último recurso.', proxyError);
-          return url;
-        }
-      }
-    }
-
-    async function showSuccess(diplomaData, slug) {
+    function showSuccess(diplomaData, slug) {
       // Ocultar cabecera inicial completa
       headerSection.classList.add('hidden');
 
@@ -875,31 +845,55 @@
       document.getElementById('diploma-image').src = diplomaData.url;
       document.getElementById('download-btn').href = diplomaData.url;
 
-      // Bloqueamos el botón PDF hasta tener la foto RAW asegurada
+      // Bloqueamos el botón PDF hasta tener la foto dibujada físicamente en el CANVAS
       const btnPDF = document.querySelector('button[onclick="downloadPDF()"]');
       const originalBtnHTML = '<i class="fa-solid fa-file-pdf"></i> Guardar en PDF';
-      btnPDF.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Cargando foto segura...';
+      btnPDF.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Procesando documento...';
       btnPDF.disabled = true;
       btnPDF.classList.add('opacity-50', 'cursor-not-allowed');
 
-      // Esperamos asíncronamente a que baje el RAW
-      const base64RAW = await getBase64Image(diplomaData.url);
-      const pdfImg = document.getElementById('pdf-diploma-img');
-      pdfImg.src = base64RAW;
+      // EL MÉTODO CANVAS (El único que nunca falla)
+      const canvas = document.getElementById('pdf-diploma-canvas');
+      const ctx = canvas.getContext('2d');
+      
+      // Limpiamos el canvas por si quedó una foto anterior
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // Desbloqueamos el botón cuando el navegador confirme que la pintó
-      pdfImg.onload = () => {
+      const img = new Image();
+      img.crossOrigin = 'Anonymous'; // Requerido para pintar en Canvas si viene de GitHub
+      
+      img.onload = () => {
+        // Fijamos el tamaño físico del canvas al tamaño real de la foto
+        canvas.width = img.width;
+        canvas.height = img.height;
+        // Dibujamos la foto. A partir de aquí, es físicamente imposible que salga en blanco.
+        ctx.drawImage(img, 0, 0);
+        
+        // Habilitamos el botón
         btnPDF.innerHTML = originalBtnHTML;
         btnPDF.disabled = false;
         btnPDF.classList.remove('opacity-50', 'cursor-not-allowed');
       };
-      
-      // Respaldo por si carga instantáneamente por caché
-      setTimeout(() => {
-        btnPDF.innerHTML = originalBtnHTML;
-        btnPDF.disabled = false;
-        btnPDF.classList.remove('opacity-50', 'cursor-not-allowed');
-      }, 1000);
+
+      img.onerror = () => {
+        console.warn('Fallo por CORS. Usando Proxy de respaldo al instante...');
+        const proxyImg = new Image();
+        proxyImg.crossOrigin = 'Anonymous';
+        proxyImg.onload = () => {
+          canvas.width = proxyImg.width;
+          canvas.height = proxyImg.height;
+          ctx.drawImage(proxyImg, 0, 0);
+          
+          btnPDF.innerHTML = originalBtnHTML;
+          btnPDF.disabled = false;
+          btnPDF.classList.remove('opacity-50', 'cursor-not-allowed');
+        };
+        // Forzamos el paso por el proxy
+        proxyImg.src = 'https://api.allorigins.win/raw?url=' + encodeURIComponent(diplomaData.url);
+      };
+
+      // Truco para evitar que la cache arruine el CORS del onload
+      img.src = diplomaData.url + (diplomaData.url.indexOf('?') > -1 ? '&' : '?') + 't=' + new Date().getTime();
       
       const btnLinkedIn = document.getElementById('linkedin-btn');
       btnLinkedIn.onclick = () => shareLinkedIn(slug);
@@ -946,12 +940,12 @@
       const opt = {
         margin:       0,
         filename:     `Informe_Certificacion_IBERO_${studentId}.pdf`,
-        image:        { type: 'jpeg', quality: 1.0 }, // Mejoramos la calidad
+        image:        { type: 'jpeg', quality: 1.0 }, 
         html2canvas:  { 
           scale: 2, 
           useCORS: true, 
           logging: false,
-          scrollY: 0, // <--- MAGIA 1: Evita el corte en blanco arriba provocado por el scroll
+          scrollY: 0, 
           scrollX: 0
         },
         jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' } 
@@ -963,34 +957,26 @@
       btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Generando PDF...';
       btn.disabled = true;
 
-      // EL SECRETO DE LA ESTABILIDAD:
       const htmlElement = document.documentElement;
       const prevZoom = htmlElement.style.zoom || window.getComputedStyle(htmlElement).zoom;
       htmlElement.style.zoom = '1';
 
-      // <--- MAGIA 2: Posicionamos el div perfectamente en 0,0 (pero sigue oculto por el z-index -9999)
       wrapper.style.left = '0px'; 
       wrapper.style.top = '0px';
 
-      // Retraso para que el navegador termine cualquier renderizado de la imagen
       setTimeout(() => {
         html2pdf().set(opt).from(element).save().then(() => {
-          // Restaurar estados ocultos tal cual estaban
           wrapper.style.left = '-9999px';
-          
-          // Devolver el zoom si lo tenía
           htmlElement.style.zoom = prevZoom === '1' ? '' : prevZoom; 
-          
           btn.innerHTML = originalText;
           btn.disabled = false;
         }).catch(err => {
           console.error("PDF Error: ", err);
           wrapper.style.left = '-9999px';
           htmlElement.style.zoom = prevZoom === '1' ? '' : prevZoom; 
-          
           btn.innerHTML = originalText;
           btn.disabled = false;
-          alert("Hubo un problema generando el PDF. Verifica la ruta de la imagen o usa el botón de descargar imagen.");
+          alert("Hubo un problema generando el PDF. Intenta de nuevo.");
         });
       }, 500);
     }
