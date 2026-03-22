@@ -312,7 +312,6 @@
   <!-- ========================================================= -->
   <!-- WRAPPER OCULTO PARA GENERACIÓN PERFECTA DEL PDF (CARTA)   -->
   <!-- ========================================================= -->
-  <!-- MODIFICACIÓN CLAVE: top a 0 y sin display: none dentro para precargar imagen -->
   <div id="pdf-wrapper" style="position: absolute; left: -9999px; top: 0; pointer-events: none; z-index: -9999; width: 816px;">
     <!-- Contenedor real que leerá html2canvas (Formato Carta Vertical 816x1056px) -->
     <div id="pdf-export-container" style="width: 816px; min-height: 1056px; background: white;">
@@ -841,9 +840,25 @@
       document.getElementById('pdf-student-id').innerText = slug.toUpperCase();
 
       document.getElementById('diploma-image').src = diplomaData.url;
-      document.getElementById('pdf-diploma-img').src = diplomaData.url;
       document.getElementById('download-btn').href = diplomaData.url;
       
+      // FIX MAGISTRAL: Convertir a Base64 para inyectar directo en el PDF (Evita errores CORS en html2canvas)
+      const pdfImg = document.getElementById('pdf-diploma-img');
+      pdfImg.src = diplomaData.url; // Colocar URL inicial por si acaso
+      
+      fetch(diplomaData.url)
+        .then(response => response.blob())
+        .then(blob => {
+          const reader = new FileReader();
+          reader.onloadend = () => { 
+             pdfImg.src = reader.result; // Sobrescribe con código Data URI nativo 
+          };
+          reader.readAsDataURL(blob);
+        })
+        .catch(err => {
+          console.warn("No se pudo convertir a Base64 puro. Dependeremos de la red.", err);
+        });
+
       const btnLinkedIn = document.getElementById('linkedin-btn');
       btnLinkedIn.onclick = () => shareLinkedIn(slug);
       
@@ -889,13 +904,13 @@
       const opt = {
         margin:       0,
         filename:     `Informe_Certificacion_IBERO_${studentId}.pdf`,
-        image:        { type: 'jpeg', quality: 1.0 }, // Mejoramos la calidad
+        image:        { type: 'jpeg', quality: 1.0 }, 
         html2canvas:  { 
           scale: 2, 
           useCORS: true, 
-          allowTaint: true, 
+          // allowTaint: true, <--- ELIMINADO. Esto arruinaba por completo la imagen en jsPDF.
           logging: false,
-          scrollY: 0, // <--- MAGIA 1: Evita el corte en blanco arriba provocado por el scroll
+          scrollY: 0, 
           scrollX: 0
         },
         jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' } 
@@ -907,36 +922,37 @@
       btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Generando PDF...';
       btn.disabled = true;
 
-      // EL SECRETO DE LA ESTABILIDAD:
       const htmlElement = document.documentElement;
       const prevZoom = htmlElement.style.zoom || window.getComputedStyle(htmlElement).zoom;
       htmlElement.style.zoom = '1';
 
-      // <--- MAGIA 2: Posicionamos el div perfectamente en 0,0 (pero sigue oculto por el z-index -9999)
       wrapper.style.left = '0px'; 
       wrapper.style.top = '0px';
 
-      // Retraso para que el navegador termine cualquier renderizado de la imagen
-      setTimeout(() => {
+      const executeGeneration = () => {
         html2pdf().set(opt).from(element).save().then(() => {
-          // Restaurar estados ocultos tal cual estaban
+          // Restaurar estados
           wrapper.style.left = '-9999px';
-          
-          // Devolver el zoom si lo tenía
           htmlElement.style.zoom = prevZoom === '1' ? '' : prevZoom; 
-          
           btn.innerHTML = originalText;
           btn.disabled = false;
         }).catch(err => {
           console.error("PDF Error: ", err);
           wrapper.style.left = '-9999px';
           htmlElement.style.zoom = prevZoom === '1' ? '' : prevZoom; 
-          
           btn.innerHTML = originalText;
           btn.disabled = false;
-          alert("Hubo un problema generando el PDF. Verifica la ruta de la imagen o usa el botón de descargar imagen.");
         });
-      }, 500);
+      };
+
+      // ASEGURAMOS QUE LA IMAGEN ESTÁ COMPLETAMENTE LISTA ANTES DE CAPTURAR
+      const pdfImg = document.getElementById('pdf-diploma-img');
+      if (pdfImg.complete && pdfImg.naturalHeight !== 0) {
+        setTimeout(executeGeneration, 300); // Pequeño delay de reflow
+      } else {
+        pdfImg.onload = () => setTimeout(executeGeneration, 300);
+        pdfImg.onerror = () => setTimeout(executeGeneration, 300); // Forzar intento en caso de error
+      }
     }
 
     // --- LÓGICA DE LINKEDIN PRO ---
