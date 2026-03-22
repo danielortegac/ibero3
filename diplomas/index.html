@@ -312,9 +312,10 @@
   <!-- ========================================================= -->
   <!-- WRAPPER OCULTO PARA GENERACIÓN PERFECTA DEL PDF (CARTA)   -->
   <!-- ========================================================= -->
-  <div id="pdf-wrapper" style="position: absolute; left: -9999px; top: -9999px; pointer-events: none; z-index: -9999; width: 816px;">
+  <!-- MODIFICACIÓN CLAVE: top a 0 y sin display: none dentro para precargar imagen -->
+  <div id="pdf-wrapper" style="position: absolute; left: -9999px; top: 0; pointer-events: none; z-index: -9999; width: 816px;">
     <!-- Contenedor real que leerá html2canvas (Formato Carta Vertical 816x1056px) -->
-    <div id="pdf-export-container" style="width: 816px; min-height: 1056px; background: white; display: none;">
+    <div id="pdf-export-container" style="width: 816px; min-height: 1056px; background: white;">
       
       <div style="padding: 60px; box-sizing: border-box; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; display: flex; flex-direction: column; min-height: 1056px;">
         
@@ -889,8 +890,15 @@
         margin:       0,
         filename:     `Informe_Certificacion_IBERO_${studentId}.pdf`,
         image:        { type: 'jpeg', quality: 1.0 }, // Mejoramos la calidad
-        html2canvas:  { scale: 2, useCORS: true, logging: false }, // Eliminamos el forzado de width que creaba problemas
-        jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' } // Formato estándar oficial para evitar descuadres en px
+        html2canvas:  { 
+          scale: 2, 
+          useCORS: true, 
+          allowTaint: true, 
+          logging: false,
+          scrollY: 0, // <--- MAGIA 1: Evita el corte en blanco arriba provocado por el scroll
+          scrollX: 0
+        },
+        jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' } 
       };
 
       const wrapper = document.getElementById('pdf-wrapper');
@@ -900,26 +908,19 @@
       btn.disabled = true;
 
       // EL SECRETO DE LA ESTABILIDAD:
-      // 1. Quitar el zoom global temporalmente porque destruye las coordenadas de html2canvas
-      // 2. Traer el div al frente para que renderice y ubicarlo fuera del rango de vista sin usar z-index negativos que quedan tras el fondo
       const htmlElement = document.documentElement;
       const prevZoom = htmlElement.style.zoom || window.getComputedStyle(htmlElement).zoom;
       htmlElement.style.zoom = '1';
 
-      wrapper.style.position = 'fixed';
-      wrapper.style.left = '200vw'; // Lejos a la derecha para que no se vea pero siga renderizado
-      wrapper.style.top = '0';
-      wrapper.style.zIndex = '99999'; // Traído al frente absoluto
-      element.style.display = 'block';
+      // <--- MAGIA 2: Posicionamos el div perfectamente en 0,0 (pero sigue oculto por el z-index -9999)
+      wrapper.style.left = '0px'; 
+      wrapper.style.top = '0px';
 
-      // Retraso para que el navegador procese el CSS e imágenes antes de capturar
+      // Retraso para que el navegador termine cualquier renderizado de la imagen
       setTimeout(() => {
         html2pdf().set(opt).from(element).save().then(() => {
           // Restaurar estados ocultos tal cual estaban
-          wrapper.style.position = 'absolute';
           wrapper.style.left = '-9999px';
-          wrapper.style.zIndex = '-9999';
-          element.style.display = 'none';
           
           // Devolver el zoom si lo tenía
           htmlElement.style.zoom = prevZoom === '1' ? '' : prevZoom; 
@@ -928,10 +929,7 @@
           btn.disabled = false;
         }).catch(err => {
           console.error("PDF Error: ", err);
-          wrapper.style.position = 'absolute';
           wrapper.style.left = '-9999px';
-          wrapper.style.zIndex = '-9999';
-          element.style.display = 'none';
           htmlElement.style.zoom = prevZoom === '1' ? '' : prevZoom; 
           
           btn.innerHTML = originalText;
