@@ -28,7 +28,7 @@
     }
   </script>
 
-  <!-- LIBRERÍA PARA PDF PERFECTOS -->
+  <!-- LIBRERÍA PARA PDF PERFECTOS (Limpia) -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
   <style>
@@ -44,7 +44,7 @@
     }
     @keyframes textShine { 0% { background-position: 250% center; } 100% { background-position: -250% center; } }
     
-    /* EFECTO DIPLOMA: Plateado, Luminoso, Shiny, Espejado Sutil */
+    /* EFECTO DIPLOMA: Plateado, Luminoso, Shiny, Espejado Sutil (Extremadamente Sutil) */
     .diploma-frame {
       position: relative;
       padding: 8px;
@@ -249,7 +249,7 @@
           
         </div>
 
-        <!-- CONTENEDOR DEL DIPLOMA VISUAL EN LA PÁGINA (ESTE SÍ SE QUEDA) -->
+        <!-- CONTENEDOR DEL DIPLOMA -->
         <div class="relative w-full max-w-2xl flex flex-col items-center">
           <div class="w-full flex justify-center">
             <div class="diploma-frame w-full">
@@ -271,9 +271,9 @@
 
         <!-- Botones de Acción -->
         <div class="flex flex-wrap justify-center gap-3 sm:gap-4 mt-8 w-full max-w-2xl border-t border-zinc-200 pt-8">
-          <!-- Botón PDF (AHORA GENERA EL REPORTE PRO) -->
+          <!-- Botón PDF -->
           <button onclick="downloadPDF()" class="bg-[#09090B] text-white px-5 sm:px-6 py-3 rounded-xl font-bold text-[11px] sm:text-xs hover:bg-zinc-800 transition-all shadow-md flex items-center gap-2">
-            <i class="fa-solid fa-file-pdf"></i> Guardar Reporte PDF
+            <i class="fa-solid fa-file-pdf"></i> Guardar en PDF Oficial
           </button>
           <a id="download-btn" href="#" target="_blank" download class="bg-white border border-zinc-300 text-ibero-dark px-5 sm:px-6 py-3 rounded-xl font-bold text-[11px] sm:text-xs hover:bg-zinc-50 transition-all shadow-sm flex items-center gap-2">
             <i class="fa-solid fa-image"></i> Descargar Imagen
@@ -310,68 +310,79 @@
   </main>
 
   <!-- ========================================================= -->
-  <!-- NUEVO PDF: CERTIFICADO/REPORTE OFICIAL SIN FOTO           -->
+  <!-- WRAPPER OCULTO PARA GENERACIÓN PERFECTA DEL PDF (CARTA)   -->
+  <!-- RE-DISEÑADO A NIVEL PRO Y EJECUTIVO                       -->
   <!-- ========================================================= -->
-  <div id="pdf-wrapper" style="position: absolute; left: -9999px; top: 0; pointer-events: none; z-index: -9999; width: 816px;">
-    <!-- Contenedor Carta Vertical 816x1056px -->
-    <div id="pdf-export-container" style="width: 816px; min-height: 1056px; background: white; padding: 0;">
+  <div id="pdf-wrapper" style="position: absolute; left: -9999px; top: 0; pointer-events: none; z-index: -9999; width: 816px; background-color: #ffffff;">
+    
+    <!-- Contenedor real que leerá html2canvas (Formato Carta Vertical 816x1056px) -->
+    <div id="pdf-export-container" style="width: 816px; min-height: 1056px; background: white; position: relative;">
       
-      <!-- Marco decorativo premium del certificado -->
-      <div style="margin: 40px; border: 2px solid #09090B; padding: 50px 40px; position: relative; min-height: 976px; box-sizing: border-box; display: flex; flex-direction: column;">
+      <!-- Barra decorativa superior -->
+      <div style="height: 6px; background: linear-gradient(to right, #6B21A8, #D91212, #09090B); width: 100%;"></div>
+
+      <div style="padding: 50px 60px; box-sizing: border-box; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; display: flex; flex-direction: column; min-height: 1050px;">
         
-        <!-- Logo -->
-        <div style="text-align: center; margin-bottom: 40px;">
-          <img src="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/1557a79470d9c26d1ad0f0b00243f9f03e55cf2f/fotos/svg/ibero-logo-black-redE.svg" style="height: 55px;" crossorigin="anonymous">
+        <!-- Header del PDF (Membrete) -->
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 2px solid #e4e4e7; padding-bottom: 20px; margin-bottom: 30px;">
+          <div>
+            <img src="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/1557a79470d9c26d1ad0f0b00243f9f03e55cf2f/fotos/svg/ibero-logo-black-redE.svg" alt="Centro Iberoamericano" style="height: 50px;" crossorigin="anonymous">
+          </div>
+          <div style="text-align: right;">
+            <h1 style="font-size: 16pt; color: #09090B; font-weight: 800; margin: 0 0 5px 0; text-transform: uppercase; letter-spacing: 1px;">Reporte de Validación Oficial</h1>
+            <p style="font-size: 10pt; color: #71717a; margin: 0;"><strong>Fecha de expedición:</strong> <span id="pdf-current-date"></span></p>
+          </div>
         </div>
-
-        <!-- Títulos -->
-        <h1 style="font-family: 'Playfair Display', serif; font-size: 26pt; text-align: center; color: #09090B; margin: 0 0 10px 0; font-style: italic;">Certificado de Autenticidad</h1>
-        <h2 style="font-family: 'Inter', sans-serif; font-size: 13pt; text-align: center; color: #6B21A8; letter-spacing: 3px; text-transform: uppercase; margin: 0 0 40px 0; font-weight: bold;">Reporte Oficial de Verificación</h2>
-
-        <p style="font-family: 'Inter', sans-serif; font-size: 13pt; line-height: 1.8; color: #3f3f46; text-align: justify; margin-bottom: 30px;">
-          El <strong>Centro Iberoamericano (IBERO)</strong> emite el presente documento oficial para certificar la validez, integridad y autenticidad del registro académico perteneciente a:
+        
+        <!-- Cuerpo del informe -->
+        <p style="font-size: 11pt; line-height: 1.6; color: #3f3f46; margin-bottom: 15px; text-align: justify;">
+          A quien corresponda:
+          <br><br>
+          Por medio de la presente, el <strong>Centro Iberoamericano (IBERO)</strong> certifica y valida la existencia, autenticidad y aprobación del documento académico detallado a continuación. El estudiante ha cumplido a cabalidad con las exigencias académicas, rigor profesional y evaluaciones requeridas por nuestra institución.
         </p>
 
+        <p style="font-size: 11pt; line-height: 1.6; color: #3f3f46; margin-bottom: 30px; text-align: justify;">
+          Adicionalmente, se avala que el titular aprobó satisfactoriamente el programa, demostrando contar con habilidades blandas de alto nivel, conocimientos sólidos en <strong>Inteligencia Artificial</strong>, manejo de herramientas tecnológicas, comunicación estratégica y visión de negocios.
+        </p>
+        
         <!-- Caja de Datos del Estudiante -->
-        <div style="background: #FAFAFA; border-left: 5px solid #D91212; padding: 25px; margin-bottom: 30px;">
-          <p style="font-family: 'Inter', sans-serif; margin: 0 0 5px 0; font-size: 11pt; color: #71717a; text-transform: uppercase; letter-spacing: 1px;">Titular de la Credencial:</p>
-          <p style="font-family: 'Playfair Display', serif; margin: 0 0 25px 0; font-size: 22pt; color: #09090B; font-weight: bold; text-transform: uppercase;" id="pdf-student-name">N/A</p>
-
-          <p style="font-family: 'Inter', sans-serif; margin: 0 0 5px 0; font-size: 11pt; color: #71717a; text-transform: uppercase; letter-spacing: 1px;">Programa Académico Aprobado:</p>
-          <p style="font-family: 'Inter', sans-serif; margin: 0; font-size: 15pt; color: #09090B; font-weight: 800;" id="pdf-course-name">N/A</p>
+        <div style="background-color: #fafafa; border: 1px solid #e4e4e7; border-radius: 8px; padding: 20px; margin-bottom: 30px;">
+          <table style="width: 100%; border-collapse: collapse;">
+            <tr>
+              <td style="padding: 8px 0; border-bottom: 1px solid #f4f4f5; width: 35%; color: #71717a; font-size: 11pt; font-weight: bold;">Nombre del Estudiante:</td>
+              <td style="padding: 8px 0; border-bottom: 1px solid #f4f4f5; width: 65%; color: #09090B; font-size: 12pt; font-weight: bold; text-transform: uppercase;" id="pdf-student-name"></td>
+            </tr>
+            <tr>
+              <td style="padding: 8px 0; border-bottom: 1px solid #f4f4f5; color: #71717a; font-size: 11pt; font-weight: bold;">Programa de Estudio:</td>
+              <td style="padding: 8px 0; border-bottom: 1px solid #f4f4f5; color: #6B21A8; font-size: 12pt; font-weight: bold;" id="pdf-course-name"></td>
+            </tr>
+            <tr>
+              <td style="padding: 8px 0; color: #71717a; font-size: 11pt; font-weight: bold;">ID de Verificación Global:</td>
+              <td style="padding: 8px 0; color: #166534; font-size: 12pt; font-family: monospace; font-weight: bold;" id="pdf-student-id"></td>
+            </tr>
+          </table>
         </div>
 
-        <p style="font-family: 'Inter', sans-serif; font-size: 13pt; line-height: 1.8; color: #3f3f46; text-align: justify; margin-bottom: 40px;">
-          Se avala institucionalmente que el titular ha culminado con excelencia académica el programa mencionado, demostrando un alto nivel de competencia, rigor profesional, conocimientos sólidos en herramientas tecnológicas y capacidad estratégica.
-        </p>
-
-        <!-- Instrucciones y Links Clickeables -->
-        <div style="border: 1px solid #e4e4e7; border-radius: 12px; padding: 30px; margin-bottom: auto; background: #ffffff;">
-          <h3 style="font-family: 'Inter', sans-serif; font-size: 13pt; color: #09090B; margin: 0 0 15px 0; border-bottom: 2px solid #f4f4f5; padding-bottom: 12px; font-weight: 800;">Validación en Línea y Descarga de Credencial</h3>
-          
-          <p style="font-family: 'Inter', sans-serif; font-size: 11pt; color: #3f3f46; margin-bottom: 20px; line-height: 1.6;">
-            Para visualizar el <strong>diploma original en alta resolución</strong>, descargarlo o verificar este ID en tiempo real desde nuestra base de datos, acceda al siguiente enlace seguro:
-          </p>
-
-          <!-- Link Directo y Oficial -->
-          <div style="background: #f0fdf4; border: 1px solid #bbf7d0; padding: 20px; border-radius: 8px; margin-bottom: 25px; text-align: center;">
-            <p style="font-family: 'Inter', sans-serif; font-size: 11pt; color: #166534; margin: 0 0 8px 0; text-transform: uppercase; font-weight: bold;">ID Oficial: <span id="pdf-student-id" style="font-size: 14pt; letter-spacing: 1px;">N/A</span></p>
-            <a id="pdf-direct-link" href="#" target="_blank" style="font-family: monospace; font-size: 11.5pt; color: #059669; text-decoration: underline; font-weight: bold; word-break: break-all; display: inline-block;">Enlace de Verificación</a>
-          </div>
-
-          <p style="font-family: 'Inter', sans-serif; font-size: 10.5pt; color: #71717a; margin: 0; line-height: 1.6;">
-            <strong>Verificación manual:</strong> También puede ingresar a <a href="https://ibero.education/diplomas" style="color: #6B21A8; text-decoration: none; font-weight: bold;">ibero.education/diplomas</a> y escribir exactamente el nombre: <strong id="pdf-manual-name" style="color: #09090B;">N/A</strong>.
+        <!-- Espaciador para mantener el diseño vertical -->
+        <div style="flex-grow: 1;"></div>
+        
+        <!-- Caja de Verificación con URL explícita (Para que sea linkeable) -->
+        <div style="background: #f8fafc; border-left: 4px solid #0ea5e9; padding: 15px 20px; margin-bottom: 25px;">
+          <p style="font-size: 11pt; color: #0f172a; margin: 0 0 5px 0;"><strong>🔍 Instrucciones de Verificación Externa:</strong></p>
+          <p style="font-size: 10pt; color: #334155; margin: 0; line-height: 1.5;">
+            Para verificar la validez de este reporte y credencial en línea, cualquier empleador o institución puede ingresar al portal oficial: <a href="https://ibero.education/diplomas" style="color: #0284c7; text-decoration: underline; font-weight: bold;">https://ibero.education/diplomas</a> e ingresar el código de verificación mencionado arriba.
           </p>
         </div>
 
-        <!-- Footer del Certificado -->
-        <div style="margin-top: 40px; text-align: center; border-top: 2px solid #f4f4f5; padding-top: 25px;">
-          <p style="font-family: 'Inter', sans-serif; font-size: 12pt; font-weight: 900; color: #09090B; margin: 0 0 10px 0; letter-spacing: 1px;">CENTRO IBEROAMERICANO (IBERO)</p>
-          <div style="font-family: 'Inter', sans-serif; font-size: 10pt; color: #71717a;">
-            <a href="https://ibero.education" style="color: #71717a; text-decoration: none;">ibero.education</a> &nbsp;|&nbsp; 
-            <a href="mailto:programas@ibero.education" style="color: #71717a; text-decoration: none;">programas@ibero.education</a> &nbsp;|&nbsp; 
-            <a href="https://www.linkedin.com/company/centro-iberoamericano/" style="color: #71717a; text-decoration: none;">LinkedIn: Centro Iberoamericano</a>
-          </div>
+        <!-- Footer del Informe con Links Claros -->
+        <div style="padding-top: 15px; border-top: 2px solid #e4e4e7; text-align: center;">
+           <p style="font-size: 12pt; color: #09090B; margin: 0 0 5px 0; font-weight: 800;">Centro Iberoamericano (IBERO)</p>
+           <p style="font-size: 9pt; color: #71717a; margin: 0 0 5px 0;">
+             <a href="https://ibero.education" style="color: #3f3f46; text-decoration: none;">https://ibero.education</a> &nbsp;|&nbsp; 
+             <a href="mailto:programas@ibero.education" style="color: #3f3f46; text-decoration: none;">programas@ibero.education</a> &nbsp;|&nbsp; 
+             <a href="https://linkedin.com/company/centro-iberoamericano" style="color: #3f3f46; text-decoration: none;">https://linkedin.com/company/centro-iberoamericano</a>
+           </p>
+           <p style="font-size: 8pt; color: #a1a1aa; margin: 0;">Este documento es un comprobante de validación digital generado por el sistema central de IBERO.</p>
         </div>
 
       </div>
@@ -746,7 +757,6 @@
         .replace(/\-\-+/g, '-');    // Quitar guiones dobles
     }
 
-    // Copiador universal que salta bloqueos de navegadores
     function fallbackCopyTextToClipboard(text) {
       var textArea = document.getElementById("hidden-clipboard-area");
       if (!textArea) {
@@ -789,7 +799,6 @@
     const resultSuccess = document.getElementById('result-success');
     const resultError = document.getElementById('result-error');
     
-    // Elemento de la cabecera completa inicial
     const headerSection = document.getElementById('header-section');
 
     searchForm.addEventListener('submit', (e) => {
@@ -815,7 +824,6 @@
       }
     }
 
-    // SPA real: Escuchar cambios en la barra de direcciones
     window.addEventListener('DOMContentLoaded', handleHashRouting);
     window.addEventListener('hashchange', handleHashRouting);
 
@@ -831,7 +839,6 @@
       loadingState.classList.remove('hidden');
       loadingState.classList.add('flex');
 
-      // Simular tiempo de validación premium
       setTimeout(() => {
         loadingState.classList.add('hidden');
         loadingState.classList.remove('flex');
@@ -845,31 +852,28 @@
     }
 
     function showSuccess(diplomaData, slug) {
-      // Ocultar cabecera inicial completa
       headerSection.classList.add('hidden');
 
-      // Textos visibles en pantalla
+      // Interfaz principal
       document.getElementById('cert-student-name').innerText = diplomaData.nombre;
       document.getElementById('cert-student-name-2').innerText = diplomaData.nombre;
       document.getElementById('cert-course-name').innerText = diplomaData.curso;
       document.getElementById('student-id-display').innerText = "ID: " + slug.toUpperCase();
       
-      // Textos para el REPORTE PDF OFICIAL
+      // Data Inyectada en el nuevo diseño del PDF
       document.getElementById('pdf-student-name').innerText = diplomaData.nombre;
       document.getElementById('pdf-course-name').innerText = diplomaData.curso;
       document.getElementById('pdf-student-id').innerText = slug.toUpperCase();
-      document.getElementById('pdf-manual-name').innerText = diplomaData.nombre;
+      
+      // Agregar la fecha actual formateada de forma profesional al PDF
+      const today = new Date();
+      const options = { year: 'numeric', month: 'long', day: 'numeric' };
+      document.getElementById('pdf-current-date').innerText = today.toLocaleDateString('es-ES', options);
 
-      // Generar el URL exacto para compartir/linkear
-      const shareUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '#/' + slug;
-      const pdfDirectLink = document.getElementById('pdf-direct-link');
-      pdfDirectLink.href = shareUrl;
-      pdfDirectLink.innerText = shareUrl;
-
-      // Muestra la imagen SÓLO EN LA PÁGINA WEB
+      // Imágenes
       document.getElementById('diploma-image').src = diplomaData.url;
       document.getElementById('download-btn').href = diplomaData.url;
-
+      
       const btnLinkedIn = document.getElementById('linkedin-btn');
       btnLinkedIn.onclick = () => shareLinkedIn(slug);
       
@@ -889,7 +893,6 @@
     function resetSearch(clearHash = true) {
       headerSection.classList.remove('hidden');
 
-      // Limpieza precisa de clases para evitar conflictos
       resultSuccess.classList.add('hidden');
       resultSuccess.classList.remove('flex', 'opacity-100');
       
@@ -907,50 +910,59 @@
       }
     }
 
-    // =========================================================
-    // GENERADOR PDF - AHORA COMO REPORTE FORMAL SIN FOTO CON LINKS
-    // =========================================================
+    // --- GENERACIÓN DE PDF PROFESIONAL (Formato Carta Informe) ---
     function downloadPDF() {
+      const element = document.getElementById('pdf-export-container');
       const studentId = document.getElementById('student-id-display').innerText.replace('ID: ', '');
-      const btn = document.querySelector('button[onclick="downloadPDF()"]');
-      const originalText = btn.innerHTML;
       
-      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Generando Reporte Oficial...';
-      btn.disabled = true;
+      // Opciones mejoradas para HTML2PDF
+      const opt = {
+        margin:       0,
+        filename:     `Reporte_Validacion_IBERO_${studentId}.pdf`,
+        image:        { type: 'jpeg', quality: 1.0 },
+        enableLinks:  true, // Permite que los links explícitos funcionen en el visor del PDF
+        html2canvas:  { 
+          scale: 3, // Aumentado a 3 para altísima resolución en texto e imagen
+          useCORS: true, 
+          allowTaint: true, 
+          logging: false,
+          scrollY: 0, 
+          scrollX: 0,
+          letterRendering: true
+        },
+        jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' } 
+      };
 
       const wrapper = document.getElementById('pdf-wrapper');
-      const element = document.getElementById('pdf-export-container');
+      const btn = document.querySelector('button[onclick="downloadPDF()"]');
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Generando PDF...';
+      btn.disabled = true;
 
-      // Ponemos el PDF detrás de la pantalla un momento para renderizarlo
-      wrapper.style.left = '0px';
-      wrapper.style.zIndex = '-100'; 
+      const htmlElement = document.documentElement;
+      const prevZoom = htmlElement.style.zoom || window.getComputedStyle(htmlElement).zoom;
+      htmlElement.style.zoom = '1';
 
-      // Como ya no hay fotos pesadas, la carga es casi instantánea
+      wrapper.style.left = '0px'; 
+      wrapper.style.top = '0px';
+
       setTimeout(() => {
-        const opt = {
-          margin:       0,
-          filename:     `Certificado_Verificacion_IBERO_${studentId}.pdf`,
-          image:        { type: 'jpeg', quality: 1.0 }, 
-          // Habilitamos los links nativos en html2pdf
-          html2canvas:  { scale: 2, useCORS: true }, 
-          jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' } 
-        };
-
         html2pdf().set(opt).from(element).save().then(() => {
-          // Ocultamos de nuevo
           wrapper.style.left = '-9999px';
-          wrapper.style.zIndex = '-9999';
+          htmlElement.style.zoom = prevZoom === '1' ? '' : prevZoom; 
+          
           btn.innerHTML = originalText;
           btn.disabled = false;
         }).catch(err => {
-          console.error("Error PDF:", err);
+          console.error("PDF Error: ", err);
           wrapper.style.left = '-9999px';
-          wrapper.style.zIndex = '-9999';
+          htmlElement.style.zoom = prevZoom === '1' ? '' : prevZoom; 
+          
           btn.innerHTML = originalText;
           btn.disabled = false;
-          alert("Hubo un error al generar el Reporte PDF.");
+          alert("Hubo un problema generando el PDF. Verifica la ruta de la imagen o usa el botón de descargar imagen.");
         });
-      }, 500); 
+      }, 600);
     }
 
     // --- LÓGICA DE LINKEDIN PRO ---
