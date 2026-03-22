@@ -337,7 +337,7 @@
         <div style="text-align: center; margin-bottom: 35px;">
           <p style="font-size: 10pt; color: #71717a; margin-bottom: 10px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Copia fiel de la credencial emitida:</p>
           <div style="border: 1px solid #e4e4e7; padding: 12px; border-radius: 8px; display: inline-block; background: #fafafa; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
-            <!-- AGREGAMOS crossorigin="anonymous" PARA QUE EL NAVEGADOR DEJE LEER EL LINK -->
+            <!-- SOLO LA ETIQUETA IMG LISTA PARA RECIBIR EL LINK -->
             <img id="pdf-diploma-img" src="" crossorigin="anonymous" style="max-width: 600px; max-height: 380px; object-fit: contain; border: 1px solid #f4f4f5; border-radius: 4px;"/>
           </div>
         </div>
@@ -843,7 +843,7 @@
       document.getElementById('diploma-image').src = diplomaData.url;
       document.getElementById('download-btn').href = diplomaData.url;
       
-      // Asignar el source nativo
+      // === CERO INVENTOS: SOLO PONEMOS EL LINK EXACTO EN EL PDF ===
       document.getElementById('pdf-diploma-img').src = diplomaData.url; 
 
       const btnLinkedIn = document.getElementById('linkedin-btn');
@@ -884,81 +884,48 @@
     }
 
     // =========================================================
-    // LA SOLUCIÓN DEFINITIVA (USANDO SOLO EL LINK DIRECTO)
+    // GENERADOR PDF - VERSIÓN LIMPIA (SOLO USA EL LINK DIRECTO)
     // =========================================================
     function downloadPDF() {
       const studentId = document.getElementById('student-id-display').innerText.replace('ID: ', '');
       const btn = document.querySelector('button[onclick="downloadPDF()"]');
       const originalText = btn.innerHTML;
       
-      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Preparando documento...';
+      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Generando PDF...';
       btn.disabled = true;
 
-      const visibleImg = document.getElementById('diploma-image');
-      const pdfImg = document.getElementById('pdf-diploma-img');
       const wrapper = document.getElementById('pdf-wrapper');
       const element = document.getElementById('pdf-export-container');
 
-      // 1. PASAMOS EL LINK DIRECTAMENTE (Como tú pediste, sin transformaciones raras)
-      pdfImg.src = visibleImg.src;
-
-      // 2. EL TRUCO PARA ENGAÑAR A CHROME:
-      // Traemos el contenedor al centro de la pantalla pero lo mandamos al fondo (z-index: -100).
-      // El usuario NO lo ve porque queda detrás del fondo blanco de tu página, 
-      // pero Chrome se ve OBLIGADO a descargar la foto porque "ya está en pantalla".
-      wrapper.style.position = 'fixed';
+      // Colocamos el div detrás de todo para que el navegador sí descargue el link
       wrapper.style.left = '0px';
-      wrapper.style.top = '0px';
       wrapper.style.zIndex = '-100'; 
-      wrapper.style.pointerEvents = 'none';
 
-      // 3. LA FUNCIÓN QUE CREA EL PDF
-      const generarPDF = () => {
-        // Le damos medio segundo (500ms) a Chrome para pintar los píxeles
-        setTimeout(() => {
-          const opt = {
-            margin:       0,
-            filename:     `Informe_Certificacion_IBERO_${studentId}.pdf`,
-            image:        { type: 'jpeg', quality: 1.0 }, 
-            html2canvas:  { 
-              scale: 2, 
-              useCORS: true, // ESTO ES VITAL: Le dice que acepte links externos
-              logging: false,
-              scrollY: 0, 
-              scrollX: 0
-            },
-            jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' } 
-          };
+      // Le damos 1 segundo al link para que cargue la foto
+      setTimeout(() => {
+        const opt = {
+          margin:       0,
+          filename:     `Informe_Certificacion_IBERO_${studentId}.pdf`,
+          image:        { type: 'jpeg', quality: 1.0 }, 
+          html2canvas:  { scale: 2, useCORS: true }, // useCORS permite procesar el link externo
+          jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' } 
+        };
 
-          html2pdf().set(opt).from(element).save().then(() => {
-            // Regresamos el contenedor a la nada (-9999px)
-            wrapper.style.left = '-9999px';
-            wrapper.style.zIndex = '-9999';
-            btn.innerHTML = originalText;
-            btn.disabled = false;
-          }).catch(err => {
-            console.error("Error PDF:", err);
-            wrapper.style.left = '-9999px';
-            wrapper.style.zIndex = '-9999';
-            btn.innerHTML = originalText;
-            btn.disabled = false;
-            alert("Hubo un error al generar el PDF.");
-          });
-        }, 500); 
-      };
-
-      // 4. ESPERAR A QUE EL LINK EXISTA ANTES DE TOMAR LA FOTO (La razón por la que salía blanco)
-      if (pdfImg.complete && pdfImg.naturalHeight !== 0) {
-        generarPDF(); // Si el link ya se descargó rápido, genera el PDF
-      } else {
-        pdfImg.onload = generarPDF; // Si tarda un poco, espera a que termine
-        pdfImg.onerror = () => {
-          alert("Error: No se pudo cargar el link de la imagen. Verifica la ruta.");
+        html2pdf().set(opt).from(element).save().then(() => {
+          // Ocultamos de nuevo
           wrapper.style.left = '-9999px';
+          wrapper.style.zIndex = '-9999';
           btn.innerHTML = originalText;
           btn.disabled = false;
-        };
-      }
+        }).catch(err => {
+          console.error("Error PDF:", err);
+          wrapper.style.left = '-9999px';
+          wrapper.style.zIndex = '-9999';
+          btn.innerHTML = originalText;
+          btn.disabled = false;
+          alert("Hubo un error al generar el PDF.");
+        });
+      }, 1000); 
     }
 
     // --- LÓGICA DE LINKEDIN PRO ---
