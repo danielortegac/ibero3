@@ -337,7 +337,7 @@
         <div style="text-align: center; margin-bottom: 35px;">
           <p style="font-size: 10pt; color: #71717a; margin-bottom: 10px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Copia fiel de la credencial emitida:</p>
           <div style="border: 1px solid #e4e4e7; padding: 12px; border-radius: 8px; display: inline-block; background: #fafafa; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
-            <img id="pdf-diploma-img" src="" style="max-width: 600px; max-height: 380px; object-fit: contain; border: 1px solid #f4f4f5; border-radius: 4px;" crossorigin="anonymous"/>
+            <img id="pdf-diploma-img" src="" style="max-width: 600px; max-height: 380px; object-fit: contain; border: 1px solid #f4f4f5; border-radius: 4px;"/>
           </div>
         </div>
         
@@ -889,38 +889,47 @@
       const studentId = document.getElementById('student-id-display').innerText.replace('ID: ', '');
       
       // 1. PANTALLA DE CARGA ABSOLUTA (Tapa todo visualmente)
-      // Esto sirve para que el usuario no vea cómo traemos el documento a la pantalla.
       const loaderOverlay = document.createElement('div');
       loaderOverlay.id = 'pdf-hard-loader';
       loaderOverlay.style.cssText = 'position:fixed; top:0; left:0; width:100vw; height:100vh; background:#ffffff; z-index:999999; display:flex; flex-direction:column; justify-content:center; align-items:center;';
       loaderOverlay.innerHTML = `
         <div class="loader mb-4"></div>
         <p class="font-bold text-ibero-dark text-lg mb-1">Generando Documento Oficial...</p>
-        <p class="text-xs text-zinc-500 text-center">Procesando imagen de alta resolución.<br>Por favor no cierres la ventana.</p>
+        <p class="text-xs text-zinc-500 text-center">Incrustando código de imagen de alta resolución.<br>Por favor no cierres la ventana.</p>
       `;
       document.body.appendChild(loaderOverlay);
 
+      const visibleImg = document.getElementById('diploma-image');
+      const pdfImg = document.getElementById('pdf-diploma-img');
       const wrapper = document.getElementById('pdf-wrapper');
       const element = document.getElementById('pdf-export-container');
 
-      // 2. EL TRUCO MAESTRO:
-      // Si el elemento está en left: -9999px, el navegador simplemente NO PINTA LA IMAGEN.
-      // Así que lo traemos a la posición 0,0 en pantalla real, justo debajo de la pantalla de carga.
+      // 2. MAGIA NEGRA: Clonar la imagen visible a texto puro (Base64)
+      try {
+        const tempCanvas = document.createElement('canvas');
+        tempCanvas.width = visibleImg.naturalWidth || visibleImg.width;
+        tempCanvas.height = visibleImg.naturalHeight || visibleImg.height;
+        const ctx = tempCanvas.getContext('2d');
+        ctx.drawImage(visibleImg, 0, 0, tempCanvas.width, tempCanvas.height);
+        
+        // Extraemos la imagen como texto (Base64) y la inyectamos.
+        // Como ya no es un link, el PDF no tiene que descargar NADA y no lo pueden bloquear.
+        pdfImg.src = tempCanvas.toDataURL('image/jpeg', 1.0);
+      } catch (e) {
+        console.warn("CORS bloqueó el canvas local, forzando proxy...", e);
+        // Si por alguna razón el servidor bloquea la lectura, forzamos un proxy que anula el bloqueo
+        pdfImg.src = "https://corsproxy.io/?" + encodeURIComponent(visibleImg.src);
+      }
+
+      // 3. Traemos el contenedor al frente por si acaso
       wrapper.style.position = 'fixed';
       wrapper.style.left = '0px';
       wrapper.style.top = '0px';
       wrapper.style.zIndex = '999990'; 
       wrapper.style.opacity = '1';
-      wrapper.style.pointerEvents = 'none'; // Que no bloquee nada por error
+      wrapper.style.pointerEvents = 'none'; 
       
-      // Re-aseguramos la fuente de la imagen
-      const visibleImg = document.getElementById('diploma-image');
-      const pdfImg = document.getElementById('pdf-diploma-img');
-      pdfImg.src = visibleImg.src;
-
-      // 3. TIEMPO DE RESPUESTA DEL NAVEGADOR
-      // Le damos 1.5 segundos (1500ms) para que el navegador se dé cuenta que el elemento
-      // ahora es visible, descargue cualquier cosa pendiente, y DIBUJE la imagen.
+      // 4. TIEMPO DE RESPUESTA DEL NAVEGADOR
       setTimeout(() => {
         const opt = {
           margin:       0,
@@ -929,7 +938,6 @@
           html2canvas:  { 
             scale: 2, 
             useCORS: true, 
-            allowTaint: false,
             scrollY: 0, 
             scrollX: 0
           },
@@ -937,18 +945,18 @@
         };
 
         html2pdf().set(opt).from(element).save().then(() => {
-          // 4. LIMPIEZA: Regresamos el contenedor a la sombra y quitamos el loading
+          // Limpieza
           wrapper.style.left = '-9999px';
           wrapper.style.zIndex = '-9999';
-          document.body.removeChild(loaderOverlay);
+          if(document.body.contains(loaderOverlay)) document.body.removeChild(loaderOverlay);
         }).catch(err => {
           console.error("PDF Error: ", err);
           wrapper.style.left = '-9999px';
           wrapper.style.zIndex = '-9999';
-          document.body.removeChild(loaderOverlay);
+          if(document.body.contains(loaderOverlay)) document.body.removeChild(loaderOverlay);
           alert("Hubo un problema al generar el documento. Por favor, intenta de nuevo.");
         });
-      }, 1500);
+      }, 1000);
     }
 
     // --- LÓGICA DE LINKEDIN PRO ---
