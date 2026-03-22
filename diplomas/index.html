@@ -337,7 +337,8 @@
         <div style="text-align: center; margin-bottom: 35px;">
           <p style="font-size: 10pt; color: #71717a; margin-bottom: 10px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Copia fiel de la credencial emitida:</p>
           <div style="border: 1px solid #e4e4e7; padding: 12px; border-radius: 8px; display: inline-block; background: #fafafa; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
-            <img id="pdf-diploma-img" src="" style="max-width: 600px; max-height: 380px; object-fit: contain; border: 1px solid #f4f4f5; border-radius: 4px;"/>
+            <!-- AGREGAMOS crossorigin="anonymous" PARA QUE EL NAVEGADOR DEJE LEER EL LINK -->
+            <img id="pdf-diploma-img" src="" crossorigin="anonymous" style="max-width: 600px; max-height: 380px; object-fit: contain; border: 1px solid #f4f4f5; border-radius: 4px;"/>
           </div>
         </div>
         
@@ -883,80 +884,81 @@
     }
 
     // =========================================================
-    // LA SOLUCIÓN DEFINITIVA PARA LA IMAGEN EN BLANCO
+    // LA SOLUCIÓN DEFINITIVA (USANDO SOLO EL LINK DIRECTO)
     // =========================================================
     function downloadPDF() {
       const studentId = document.getElementById('student-id-display').innerText.replace('ID: ', '');
+      const btn = document.querySelector('button[onclick="downloadPDF()"]');
+      const originalText = btn.innerHTML;
       
-      // 1. PANTALLA DE CARGA ABSOLUTA (Tapa todo visualmente)
-      const loaderOverlay = document.createElement('div');
-      loaderOverlay.id = 'pdf-hard-loader';
-      loaderOverlay.style.cssText = 'position:fixed; top:0; left:0; width:100vw; height:100vh; background:#ffffff; z-index:999999; display:flex; flex-direction:column; justify-content:center; align-items:center;';
-      loaderOverlay.innerHTML = `
-        <div class="loader mb-4"></div>
-        <p class="font-bold text-ibero-dark text-lg mb-1">Generando Documento Oficial...</p>
-        <p class="text-xs text-zinc-500 text-center">Incrustando código de imagen de alta resolución.<br>Por favor no cierres la ventana.</p>
-      `;
-      document.body.appendChild(loaderOverlay);
+      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Preparando documento...';
+      btn.disabled = true;
 
       const visibleImg = document.getElementById('diploma-image');
       const pdfImg = document.getElementById('pdf-diploma-img');
       const wrapper = document.getElementById('pdf-wrapper');
       const element = document.getElementById('pdf-export-container');
 
-      // 2. MAGIA NEGRA: Clonar la imagen visible a texto puro (Base64)
-      try {
-        const tempCanvas = document.createElement('canvas');
-        tempCanvas.width = visibleImg.naturalWidth || visibleImg.width;
-        tempCanvas.height = visibleImg.naturalHeight || visibleImg.height;
-        const ctx = tempCanvas.getContext('2d');
-        ctx.drawImage(visibleImg, 0, 0, tempCanvas.width, tempCanvas.height);
-        
-        // Extraemos la imagen como texto (Base64) y la inyectamos.
-        // Como ya no es un link, el PDF no tiene que descargar NADA y no lo pueden bloquear.
-        pdfImg.src = tempCanvas.toDataURL('image/jpeg', 1.0);
-      } catch (e) {
-        console.warn("CORS bloqueó el canvas local, forzando proxy...", e);
-        // Si por alguna razón el servidor bloquea la lectura, forzamos un proxy que anula el bloqueo
-        pdfImg.src = "https://corsproxy.io/?" + encodeURIComponent(visibleImg.src);
-      }
+      // 1. PASAMOS EL LINK DIRECTAMENTE (Como tú pediste, sin transformaciones raras)
+      pdfImg.src = visibleImg.src;
 
-      // 3. Traemos el contenedor al frente por si acaso
+      // 2. EL TRUCO PARA ENGAÑAR A CHROME:
+      // Traemos el contenedor al centro de la pantalla pero lo mandamos al fondo (z-index: -100).
+      // El usuario NO lo ve porque queda detrás del fondo blanco de tu página, 
+      // pero Chrome se ve OBLIGADO a descargar la foto porque "ya está en pantalla".
       wrapper.style.position = 'fixed';
       wrapper.style.left = '0px';
       wrapper.style.top = '0px';
-      wrapper.style.zIndex = '999990'; 
-      wrapper.style.opacity = '1';
-      wrapper.style.pointerEvents = 'none'; 
-      
-      // 4. TIEMPO DE RESPUESTA DEL NAVEGADOR
-      setTimeout(() => {
-        const opt = {
-          margin:       0,
-          filename:     `Informe_Certificacion_IBERO_${studentId}.pdf`,
-          image:        { type: 'jpeg', quality: 1.0 }, 
-          html2canvas:  { 
-            scale: 2, 
-            useCORS: true, 
-            scrollY: 0, 
-            scrollX: 0
-          },
-          jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' } 
-        };
+      wrapper.style.zIndex = '-100'; 
+      wrapper.style.pointerEvents = 'none';
 
-        html2pdf().set(opt).from(element).save().then(() => {
-          // Limpieza
+      // 3. LA FUNCIÓN QUE CREA EL PDF
+      const generarPDF = () => {
+        // Le damos medio segundo (500ms) a Chrome para pintar los píxeles
+        setTimeout(() => {
+          const opt = {
+            margin:       0,
+            filename:     `Informe_Certificacion_IBERO_${studentId}.pdf`,
+            image:        { type: 'jpeg', quality: 1.0 }, 
+            html2canvas:  { 
+              scale: 2, 
+              useCORS: true, // ESTO ES VITAL: Le dice que acepte links externos
+              logging: false,
+              scrollY: 0, 
+              scrollX: 0
+            },
+            jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' } 
+          };
+
+          html2pdf().set(opt).from(element).save().then(() => {
+            // Regresamos el contenedor a la nada (-9999px)
+            wrapper.style.left = '-9999px';
+            wrapper.style.zIndex = '-9999';
+            btn.innerHTML = originalText;
+            btn.disabled = false;
+          }).catch(err => {
+            console.error("Error PDF:", err);
+            wrapper.style.left = '-9999px';
+            wrapper.style.zIndex = '-9999';
+            btn.innerHTML = originalText;
+            btn.disabled = false;
+            alert("Hubo un error al generar el PDF.");
+          });
+        }, 500); 
+      };
+
+      // 4. ESPERAR A QUE EL LINK EXISTA ANTES DE TOMAR LA FOTO (La razón por la que salía blanco)
+      if (pdfImg.complete && pdfImg.naturalHeight !== 0) {
+        generarPDF(); // Si el link ya se descargó rápido, genera el PDF
+      } else {
+        pdfImg.onload = generarPDF; // Si tarda un poco, espera a que termine
+        pdfImg.onerror = () => {
+          alert("Error: No se pudo cargar el link de la imagen. Verifica la ruta.");
           wrapper.style.left = '-9999px';
-          wrapper.style.zIndex = '-9999';
-          if(document.body.contains(loaderOverlay)) document.body.removeChild(loaderOverlay);
-        }).catch(err => {
-          console.error("PDF Error: ", err);
-          wrapper.style.left = '-9999px';
-          wrapper.style.zIndex = '-9999';
-          if(document.body.contains(loaderOverlay)) document.body.removeChild(loaderOverlay);
-          alert("Hubo un problema al generar el documento. Por favor, intenta de nuevo.");
-        });
-      }, 1000);
+          btn.innerHTML = originalText;
+          btn.disabled = false;
+        };
+      }
     }
 
     // --- LÓGICA DE LINKEDIN PRO ---
