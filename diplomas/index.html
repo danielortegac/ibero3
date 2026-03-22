@@ -325,12 +325,11 @@
           <h1 style="font-size: 18pt; color: #09090B; font-weight: 800; margin: 0; text-transform: uppercase; letter-spacing: 1px;">Informe de Certificación Académica</h1>
         </div>
         
-        <!-- Muestra del Diploma: REEMPLAZADO IMG POR CANVAS PARA EVITAR EL BUG DEL CUADRO BLANCO -->
+        <!-- Muestra del Diploma (AHORA PRIMERO) -->
         <div style="text-align: center; margin-bottom: 35px;">
           <p style="font-size: 10pt; color: #71717a; margin-bottom: 10px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">Copia fiel de la credencial emitida:</p>
           <div style="border: 1px solid #e4e4e7; padding: 12px; border-radius: 8px; display: inline-block; background: #fafafa; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
-            <!-- EL CANVAS OBLIGA AL NAVEGADOR A MANTENER LA FOTO EN MEMORIA, IMPOSIBLE QUE SALGA BLANCO -->
-            <canvas id="pdf-diploma-canvas" style="width: 100%; max-width: 600px; height: auto; border: 1px solid #f4f4f5; border-radius: 4px; display: block; margin: 0 auto;"></canvas>
+            <img id="pdf-diploma-img" src="" style="max-width: 600px; max-height: 380px; object-fit: contain; border: 1px solid #f4f4f5; border-radius: 4px;" crossorigin="anonymous"/>
           </div>
         </div>
 
@@ -845,55 +844,22 @@
       document.getElementById('diploma-image').src = diplomaData.url;
       document.getElementById('download-btn').href = diplomaData.url;
 
-      // Bloqueamos el botón PDF hasta tener la foto dibujada físicamente en el CANVAS
-      const btnPDF = document.querySelector('button[onclick="downloadPDF()"]');
-      const originalBtnHTML = '<i class="fa-solid fa-file-pdf"></i> Guardar en PDF';
-      btnPDF.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Procesando documento...';
-      btnPDF.disabled = true;
-      btnPDF.classList.add('opacity-50', 'cursor-not-allowed');
-
-      // EL MÉTODO CANVAS (El único que nunca falla)
-      const canvas = document.getElementById('pdf-diploma-canvas');
-      const ctx = canvas.getContext('2d');
-      
-      // Limpiamos el canvas por si quedó una foto anterior
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      const img = new Image();
-      img.crossOrigin = 'Anonymous'; // Requerido para pintar en Canvas si viene de GitHub
-      
-      img.onload = () => {
-        // Fijamos el tamaño físico del canvas al tamaño real de la foto
-        canvas.width = img.width;
-        canvas.height = img.height;
-        // Dibujamos la foto. A partir de aquí, es físicamente imposible que salga en blanco.
-        ctx.drawImage(img, 0, 0);
-        
-        // Habilitamos el botón
-        btnPDF.innerHTML = originalBtnHTML;
-        btnPDF.disabled = false;
-        btnPDF.classList.remove('opacity-50', 'cursor-not-allowed');
-      };
-
-      img.onerror = () => {
-        console.warn('Fallo por CORS. Usando Proxy de respaldo al instante...');
-        const proxyImg = new Image();
-        proxyImg.crossOrigin = 'Anonymous';
-        proxyImg.onload = () => {
-          canvas.width = proxyImg.width;
-          canvas.height = proxyImg.height;
-          ctx.drawImage(proxyImg, 0, 0);
-          
-          btnPDF.innerHTML = originalBtnHTML;
-          btnPDF.disabled = false;
-          btnPDF.classList.remove('opacity-50', 'cursor-not-allowed');
-        };
-        // Forzamos el paso por el proxy
-        proxyImg.src = 'https://api.allorigins.win/raw?url=' + encodeURIComponent(diplomaData.url);
-      };
-
-      // Truco para evitar que la cache arruine el CORS del onload
-      img.src = diplomaData.url + (diplomaData.url.indexOf('?') > -1 ? '&' : '?') + 't=' + new Date().getTime();
+      // MAGIA RAW: Descargamos la imagen y la convertimos a código puro (Base64)
+      // para inyectarla directo al PDF. Así evitamos cuadros blancos por bloqueos de red.
+      fetch(diplomaData.url)
+        .then(response => response.blob())
+        .then(blob => {
+          const reader = new FileReader();
+          reader.onloadend = () => {
+            document.getElementById('pdf-diploma-img').src = reader.result;
+          };
+          reader.readAsDataURL(blob);
+        })
+        .catch(error => {
+          console.error('Error al convertir imagen a raw:', error);
+          // Si falla, intentamos usar el link normal como último recurso
+          document.getElementById('pdf-diploma-img').src = diplomaData.url;
+        });
       
       const btnLinkedIn = document.getElementById('linkedin-btn');
       btnLinkedIn.onclick = () => shareLinkedIn(slug);
@@ -940,12 +906,13 @@
       const opt = {
         margin:       0,
         filename:     `Informe_Certificacion_IBERO_${studentId}.pdf`,
-        image:        { type: 'jpeg', quality: 1.0 }, 
+        image:        { type: 'jpeg', quality: 1.0 }, // Mejoramos la calidad
         html2canvas:  { 
           scale: 2, 
           useCORS: true, 
+          allowTaint: true, 
           logging: false,
-          scrollY: 0, 
+          scrollY: 0, // <--- MAGIA 1: Evita el corte en blanco arriba provocado por el scroll
           scrollX: 0
         },
         jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' } 
@@ -957,26 +924,34 @@
       btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Generando PDF...';
       btn.disabled = true;
 
+      // EL SECRETO DE LA ESTABILIDAD:
       const htmlElement = document.documentElement;
       const prevZoom = htmlElement.style.zoom || window.getComputedStyle(htmlElement).zoom;
       htmlElement.style.zoom = '1';
 
+      // <--- MAGIA 2: Posicionamos el div perfectamente en 0,0 (pero sigue oculto por el z-index -9999)
       wrapper.style.left = '0px'; 
       wrapper.style.top = '0px';
 
+      // Retraso para que el navegador termine cualquier renderizado de la imagen
       setTimeout(() => {
         html2pdf().set(opt).from(element).save().then(() => {
+          // Restaurar estados ocultos tal cual estaban
           wrapper.style.left = '-9999px';
+          
+          // Devolver el zoom si lo tenía
           htmlElement.style.zoom = prevZoom === '1' ? '' : prevZoom; 
+          
           btn.innerHTML = originalText;
           btn.disabled = false;
         }).catch(err => {
           console.error("PDF Error: ", err);
           wrapper.style.left = '-9999px';
           htmlElement.style.zoom = prevZoom === '1' ? '' : prevZoom; 
+          
           btn.innerHTML = originalText;
           btn.disabled = false;
-          alert("Hubo un problema generando el PDF. Intenta de nuevo.");
+          alert("Hubo un problema generando el PDF. Verifica la ruta de la imagen o usa el botón de descargar imagen.");
         });
       }, 500);
     }
