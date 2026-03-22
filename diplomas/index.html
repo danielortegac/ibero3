@@ -840,9 +840,26 @@
       document.getElementById('pdf-course-name').innerText = diplomaData.curso;
       document.getElementById('pdf-student-id').innerText = slug.toUpperCase();
 
+      // Imagen para visualización normal en pantalla
       document.getElementById('diploma-image').src = diplomaData.url;
-      document.getElementById('pdf-diploma-img').src = diplomaData.url;
       document.getElementById('download-btn').href = diplomaData.url;
+
+      // MAGIA RAW: Descargamos la imagen y la convertimos a código puro (Base64)
+      // para inyectarla directo al PDF. Así evitamos cuadros blancos por bloqueos de red.
+      fetch(diplomaData.url)
+        .then(response => response.blob())
+        .then(blob => {
+          const reader = new FileReader();
+          reader.onloadend = () => {
+            document.getElementById('pdf-diploma-img').src = reader.result;
+          };
+          reader.readAsDataURL(blob);
+        })
+        .catch(error => {
+          console.error('Error al convertir imagen a raw:', error);
+          // Si falla, intentamos usar el link normal como último recurso
+          document.getElementById('pdf-diploma-img').src = diplomaData.url;
+        });
       
       const btnLinkedIn = document.getElementById('linkedin-btn');
       btnLinkedIn.onclick = () => shareLinkedIn(slug);
