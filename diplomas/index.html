@@ -1,30 +1,27 @@
 <!DOCTYPE html>
+
 <html class="scroll-smooth" lang="es">
 <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
-  <title>Verificación de Credenciales | IBERO</title>
-  
-  <!-- META ETIQUETAS PARA REDES SOCIALES (LINKEDIN, WHATSAPP, FB) -->
-  <meta content="Verifica la autenticidad de los diplomas y certificaciones emitidas por el Centro Iberoamericano (IBERO)." name="description"/>
-  <meta property="og:title" content="🎓 ¡Mira mi nuevo título académico en IBERO!" />
-  <meta property="og:description" content="He culminado con éxito mi programa en el Centro Iberoamericano. Verifica mi credencial oficial aquí." />
-  <meta property="og:image" content="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/1557a79470d9c26d1ad0f0b00243f9f03e55cf2f/fotos/svg/ibero-logo-black-redE.svg" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://ibero.education/diplomas" />
-  
-  <!-- FAVICON OFICIAL -->
-  <link href="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/3339294f71590eeeaa7f0b0b0591f5e09156ed96/fotos/logos%20ibero/ibero-favicon.svg" rel="icon" type="image/svg+xml"/>
-  
-  <!-- FONTS & ICONS -->
-  <link href="https://fonts.googleapis.com" rel="preconnect"/>
-  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet"/>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
-  
-  <!-- TAILWIND CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Verificación de Credenciales | IBERO</title>
+<!-- META ETIQUETAS PARA REDES SOCIALES (LINKEDIN, WHATSAPP, FB) -->
+<meta content="Verifica la autenticidad de los diplomas y certificaciones emitidas por el Centro Iberoamericano (IBERO)." name="description"/>
+<meta content="🎓 ¡Mira mi nuevo título académico en IBERO!" property="og:title"/>
+<meta content="He culminado con éxito mi programa en el Centro Iberoamericano. Verifica mi credencial oficial aquí." property="og:description"/>
+<meta content="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/1557a79470d9c26d1ad0f0b00243f9f03e55cf2f/fotos/svg/ibero-logo-black-redE.svg" property="og:image"/>
+<meta content="website" property="og:type"/>
+<meta content="https://ibero.education/diplomas" property="og:url"/>
+<!-- FAVICON OFICIAL -->
+<link href="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/3339294f71590eeeaa7f0b0b0591f5e09156ed96/fotos/logos%20ibero/ibero-favicon.svg" rel="icon" type="image/svg+xml"/>
+<!-- FONTS & ICONS -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<!-- TAILWIND CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
     tailwind.config = {
       theme: {
         extend: {
@@ -34,11 +31,9 @@
       }
     }
   </script>
-
-  <!-- LIBRERÍA PARA PDF PERFECTOS (Limpia) -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-
-  <style>
+<!-- LIBRERÍA PARA PDF PERFECTOS (Limpia) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<style>
     html { zoom: 0.9; }
     body { background-color: #FAFAFA; }
     .nav-glass { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
@@ -100,635 +95,825 @@
     /* Ocultar Scrollbar */
     .hide-scrollbar::-webkit-scrollbar { display: none; }
     .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-  </style>
+  @media (max-width: 767px){
+  #navbar{
+    z-index:9999 !important;
+    overflow:visible !important;
+  }
+  #navbar .desktop-dropdown.open{
+    z-index:10001;
+  }
+  #navbar .dropdown-panel{
+    z-index:10002 !important;
+  }
+  #navbar .desktop-dropdown.open .dropdown-panel{
+    padding-top:0 !important;
+  }
+}
+</style>
+<style id="ibero-menu-interaction-fix">
+@media (min-width: 768px){
+  .desktop-dropdown .dropdown-panel{display:none;}
+  .desktop-dropdown.open .dropdown-panel{display:block !important;}
+}
+.desktop-dropdown-trigger-wrap{
+  display:inline-flex;
+  align-items:center;
+  gap:.3rem;
+  white-space:nowrap;
+}
+.desktop-dropdown-link{
+  white-space:nowrap;
+  color:#52525b;
+  transition:color .2s ease;
+}
+.desktop-dropdown-link:hover,
+.desktop-dropdown.open .desktop-dropdown-link{
+  color:#18181b;
+}
+.desktop-dropdown-toggle,
+.mobile-accordion-toggle{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:1rem;
+  height:1rem;
+  min-width:1rem;
+  padding:0;
+  border:none;
+  border-radius:0;
+  background:transparent;
+  font-size:11px;
+  line-height:1;
+  color:#71717a;
+  box-shadow:none;
+  flex-shrink:0;
+  opacity:.82;
+  transition:transform .2s ease,color .2s ease,opacity .2s ease;
+}
+.desktop-dropdown-toggle:hover,
+.desktop-dropdown.open .desktop-dropdown-toggle,
+.mobile-accordion.is-open .mobile-accordion-toggle,
+.mobile-accordion-toggle:hover{
+  color:#27272a;
+  opacity:1;
+  background:transparent;
+}
+.desktop-dropdown.open .desktop-dropdown-toggle,
+.mobile-accordion.is-open .mobile-accordion-toggle{
+  transform:rotate(180deg);
+}
+.mobile-accordion{border-bottom:1px solid rgb(244 244 245);}
+.mobile-accordion-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:.65rem;
+  padding:.625rem .75rem;
+}
+.mobile-accordion-link{
+  flex:1;
+  min-width:0;
+  display:block;
+  font-size:.875rem;
+  line-height:1.25rem;
+  font-weight:500;
+  color:#52525b;
+}
+.mobile-accordion-link:hover{color:#18181b;}
+.mobile-accordion-panel{
+  display:none;
+  position:relative;
+  padding:.1rem .75rem .65rem 1.65rem;
+}
+.mobile-accordion.is-open .mobile-accordion-panel{display:block;}
+.mobile-accordion-panel::before{
+  content:'';
+  position:absolute;
+  left:1.08rem;
+  top:.15rem;
+  bottom:.7rem;
+  width:1px;
+  background:linear-gradient(to bottom, rgba(113,113,122,.22), rgba(113,113,122,.06));
+}
+.mobile-accordion-sublink{
+  display:block;
+  margin:.28rem 0;
+  padding:.5rem .7rem;
+  font-size:12px;
+  line-height:1.15rem;
+  color:#52525b;
+  background:#ffffff;
+  border:1px solid #e4e4e7;
+  border-radius:.8rem;
+  box-shadow:0 4px 12px rgba(0,0,0,0.04);
+}
+.mobile-accordion-sublink:hover{
+  color:#18181b;
+  background:#fafafa;
+  border-color:#d4d4d8;
+}
+@media (max-width: 767px){
+  #navbar{
+    z-index:9999 !important;
+    overflow:visible !important;
+  }
+  #navbar .desktop-dropdown.open{
+    z-index:10001;
+  }
+  #navbar .dropdown-panel{
+    z-index:10002 !important;
+  }
+  #navbar .desktop-dropdown.open .dropdown-panel{
+    padding-top:0 !important;
+  }
+}
+</style>
 </head>
 <body class="text-ibero-dark font-sans antialiased selection:bg-ibero-dark selection:text-white flex flex-col min-h-screen pt-[105px] md:pt-[121px] bg-white relative">
-
-  <!-- HEADER PREMIUM LIMPIO (2 FILAS) -->
-  <nav class="fixed top-0 left-0 w-full z-50 transition-all duration-300 shadow-sm flex flex-col" id="navbar">
-   <!-- Fila 1: Logo + Enlaces Académicos -->
-   <div class="w-full nav-glass border-b border-zinc-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-     <div class="flex justify-between items-center h-16 md:h-20 gap-2 sm:gap-4">
-      <!-- LOGO -->
-      <a class="flex-shrink-0 flex items-center cursor-pointer py-2" href="/">
-       <img alt="Logo IBERO" class="h-8 sm:h-10 md:h-10 w-auto object-contain" src="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/1557a79470d9c26d1ad0f0b00243f9f03e55cf2f/fotos/svg/ibero-logo-black-redE.svg"/>
-      </a>
-      <!-- ENLACES ACADÉMICOS -->
-      <div class="flex flex-1 items-center justify-start lg:justify-end gap-4 md:gap-8 overflow-x-auto hide-scrollbar px-2 sm:px-4 ml-auto scroll-smooth">
-       <a class="text-[11px] md:text-[13px] font-medium text-zinc-600 hover:text-ibero-dark transition-colors whitespace-nowrap" href="https://ibero.education/oferta-academica/">Oferta Acad&eacute;mica</a>
-       <a class="text-[11px] md:text-[13px] font-medium text-zinc-600 hover:text-ibero-dark transition-colors whitespace-nowrap" href="https://ibero.education/calendario-academico/">Calendario Acad&eacute;mico</a>
-       <a class="text-[11px] md:text-[13px] font-medium text-zinc-600 hover:text-ibero-dark transition-colors whitespace-nowrap" href="https://ibero.education/certificaciones-intensivas/">Certificaciones</a>
-       <a class="text-[11px] md:text-[13px] font-medium text-zinc-600 hover:text-ibero-dark transition-colors whitespace-nowrap" href="https://ibero.education/diplomados-intensivos/">Diplomados</a>
-       <a class="text-[11px] md:text-[13px] font-medium text-zinc-600 hover:text-ibero-dark transition-colors whitespace-nowrap" href="https://ibero.education/executive-master/">Executive Masters</a>
-       <a class="text-[11px] md:text-[13px] font-bold text-ibero-dark border-b-2 border-ibero-dark pb-0.5 whitespace-nowrap" href="#">Verificar Credencial</a>
-      </div>
-      <!-- BOTONES DE ACCIÓN DERECHA -->
-      <div class="flex items-center shrink-0 border-l border-zinc-200 pl-3 ml-1 gap-3">
-       <!-- Botón Secreto Admin (Doble clic) -->
-       <button id="admin-trigger-desktop" class="text-zinc-300 hover:text-zinc-500 transition-colors" ondblclick="openAdminLogin()" title="Acceso Restringido">
-         <i class="fa-solid fa-lock text-xs"></i>
-       </button>
-       <!-- Botón Menú Móvil -->
-       <button aria-label="Abrir men&uacute; m&oacute;vil" class="md:hidden text-zinc-600 hover:text-ibero-dark focus:outline-none p-2 transition-colors" id="mobile-menu-btn">
-        <i class="fa-solid fa-bars text-xl"></i>
-       </button>
-      </div>
-     </div>
-    </div>
-   </div>
-   <!-- Fila 2: Enlaces Institucionales (Barra Negra) -->
-   <div class="flex w-full bg-[#050505] text-white border-b border-zinc-900">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex justify-start md:justify-end items-center h-10 text-[10px] md:text-[11px] font-semibold tracking-wider uppercase overflow-x-auto hide-scrollbar">
-     <div class="flex items-center gap-5 md:gap-7 min-w-max pr-4 md:pr-0">
-      <a class="text-white hover:text-zinc-300 transition-colors" href="https://ibero.education/" target="_blank">Inicio</a>
-      <a class="text-white hover:text-zinc-300 transition-colors" href="https://qlase.goatify.app/" target="_blank">Campus Virtual</a>
-      <a class="text-zinc-200 hover:text-white transition-colors border border-white/15 bg-white/5 hover:bg-white/10 rounded-full px-3 py-1 whitespace-nowrap" href="https://ibero.education/diplomas/#" target="_blank">
-       Verificar Diplomas
-      </a>
-      <a class="text-white hover:text-zinc-300 transition-colors" href="https://ibero.education/trabaja-con-nosotros/" target="_blank">Docentes</a>
-      <a class="text-white hover:text-zinc-300 transition-colors" href="https://ibero.education/publicaciones/" target="_blank">Publicaciones</a>
-      <a class="text-white hover:text-zinc-300 transition-colors" href="https://ibero.education/trabaja-con-nosotros/" target="_blank">Trabaja con nosotros</a>
-      <a class="text-white hover:text-zinc-300 transition-colors" href="https://ibero.education/ayuda-financiera/" target="_blank">Ayuda Financiera</a>
-      <a class="text-white hover:text-zinc-300 transition-colors" href="https://www.ibero.education/metodologia/" target="_blank">Metodolog&iacute;a</a>
-      <a class="text-white hover:text-zinc-300 transition-colors font-bold" href="https://www.ibero.education/goatify/" target="_blank">Laboratorio Tech</a>
-      <a class="text-white hover:text-zinc-300 transition-colors" href="https://ibero.education/contacto/" target="_blank">Contactos</a>
-     </div>
-    </div>
-   </div>
-   <!-- Mobile Menu Panel -->
-   <div class="hidden md:hidden bg-white border-t border-zinc-100 absolute w-full shadow-lg max-h-[calc(100vh-105px)] overflow-y-auto top-[105px]" id="mobile-menu">
-    <div class="px-4 pt-2 pb-6 space-y-1 flex flex-col">
-     <div class="mb-2 px-3 pt-4">
-      <span class="text-[10px] font-bold tracking-widest text-ibero-reddark uppercase">
+<!-- HEADER PREMIUM LIMPIO (2 FILAS) -->
+<nav class="fixed top-0 left-0 w-full z-50 transition-all duration-300 shadow-sm flex flex-col" id="navbar">
+<!-- Fila 1: Logo + Enlaces Académicos -->
+<div class="w-full nav-glass border-b border-zinc-200">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-16 md:h-20 gap-2 sm:gap-4">
+<!-- LOGO -->
+<a class="flex-shrink-0 flex items-center cursor-pointer py-2" href="/">
+<img alt="Logo IBERO" class="h-8 sm:h-10 md:h-10 w-auto object-contain" src="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/1557a79470d9c26d1ad0f0b00243f9f03e55cf2f/fotos/svg/ibero-logo-black-redE.svg"/>
+</a>
+<!-- ENLACES ACADÉMICOS -->
+<div class="flex flex-1 items-center justify-start lg:justify-end gap-4 md:gap-8 overflow-x-auto hide-scrollbar px-2 sm:px-4 ml-auto scroll-smooth">
+<a class="text-[11px] md:text-[13px] font-medium text-zinc-600 hover:text-ibero-dark transition-colors whitespace-nowrap" href="https://ibero.education/oferta-academica/">Oferta Académica</a>
+<a class="text-[11px] md:text-[13px] font-medium text-zinc-600 hover:text-ibero-dark transition-colors whitespace-nowrap" href="https://ibero.education/calendario-academico/">Calendario Académico</a>
+<a class="text-[11px] md:text-[13px] font-medium text-zinc-600 hover:text-ibero-dark transition-colors whitespace-nowrap" href="https://ibero.education/certificaciones-intensivas/">Certificaciones</a>
+<a class="text-[11px] md:text-[13px] font-medium text-zinc-600 hover:text-ibero-dark transition-colors whitespace-nowrap" href="https://ibero.education/diplomados-intensivos/">Diplomados</a>
+<a class="text-[11px] md:text-[13px] font-medium text-zinc-600 hover:text-ibero-dark transition-colors whitespace-nowrap" href="https://ibero.education/executive-master/">Executive Masters</a>
+<a class="text-[11px] md:text-[13px] font-bold text-ibero-dark border-b-2 border-ibero-dark pb-0.5 whitespace-nowrap" href="#">Verificar Credencial</a>
+</div>
+<!-- BOTONES DE ACCIÓN DERECHA -->
+<div class="flex items-center shrink-0 border-l border-zinc-200 pl-3 ml-1 gap-3">
+<!-- Botón Secreto Admin (Doble clic) -->
+<button class="text-zinc-300 hover:text-zinc-500 transition-colors" id="admin-trigger-desktop" ondblclick="openAdminLogin()" title="Acceso Restringido">
+<i class="fa-solid fa-lock text-xs"></i>
+</button>
+<!-- Botón Menú Móvil -->
+<button aria-label="Abrir menú móvil" class="md:hidden text-zinc-600 hover:text-ibero-dark focus:outline-none p-2 transition-colors" id="mobile-menu-btn">
+<i class="fa-solid fa-bars text-xl"></i>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Fila 2: Institucional / comunidad / soporte -->
+<div class="flex w-full bg-[#050505] text-white border-b border-zinc-900">
+<div class="menu-scroll-row max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 flex justify-start items-center h-10 text-[9px] md:text-[10px] xl:text-[11px] font-semibold tracking-[0.1em] uppercase overflow-x-auto md:overflow-visible overflow-y-visible hide-scrollbar">
+<div class="flex items-center gap-4 md:gap-6 xl:gap-8 min-w-max pr-4">
+<a class="text-white/95 hover:text-white transition-colors whitespace-nowrap" href="https://ibero.education/" rel="noopener" target="_blank">Inicio</a>
+<a class="text-white/95 hover:text-white transition-colors whitespace-nowrap" href="https://qlase.goatify.app/" rel="noopener" target="_blank">Campus Virtual</a>
+<a class="text-white/95 hover:text-white transition-colors whitespace-nowrap" href="https://ibero.education/trabaja-con-nosotros/#docentes" rel="noopener" target="_blank">Docentes</a>
+<a class="text-white/95 hover:text-white transition-colors whitespace-nowrap" href="https://ibero.education/metodologia/" rel="noopener" target="_blank">Metodología</a>
+<a class="text-white/95 hover:text-white transition-colors whitespace-nowrap" href="https://ibero.education/goatify/" rel="noopener" target="_blank">Laboratorio Tech</a>
+<a class="text-white/95 hover:text-white transition-colors whitespace-nowrap" href="https://ia.goatify.app/#discovery" rel="noopener" target="_blank">Blog</a>
+<a class="text-white/95 hover:text-white transition-colors whitespace-nowrap" href="https://ibero.education/publicaciones/" rel="noopener" target="_blank">Publicaciones</a>
+<a class="text-white/95 hover:text-white transition-colors whitespace-nowrap" href="https://ibero.education/trabaja-con-nosotros/" rel="noopener" target="_blank">Trabaja con Nosotros</a>
+<a class="text-white/95 hover:text-white transition-colors whitespace-nowrap" href="https://ibero.education/ayuda-financiera/" rel="noopener" target="_blank">Ayuda Financiera</a>
+</div>
+</div>
+</div>
+<!-- Fila 3: Oferta académica -->
+<div class="flex w-full bg-zinc-50/90 border-b border-zinc-200 backdrop-blur-md">
+<div class="menu-scroll-row max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 flex justify-start items-center h-12 text-[10px] md:text-[11px] xl:text-[12px] font-medium overflow-x-auto md:overflow-visible overflow-y-visible hide-scrollbar">
+<div class="flex items-center gap-4 md:gap-5 xl:gap-5 min-w-max pr-4">
+<div class="relative desktop-dropdown">
+<div class="desktop-dropdown-trigger-wrap">
+<a class="desktop-dropdown-link" href="https://ibero.education/oferta-academica/" rel="noopener" target="_blank">Oferta Académica</a>
+<button aria-expanded="false" aria-label="Mostrar submenú de Oferta Académica" class="desktop-dropdown-toggle" data-dropdown-trigger="true" type="button">▾</button>
+</div>
+<div class="absolute left-0 top-full z-[120] hidden pt-0 md:pt-3 group-hover:block dropdown-panel">
+<div class="min-w-[280px] overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-[0_16px_40px_rgba(0,0,0,0.12)]">
+<a class="block px-4 py-2.5 text-[11px] md:text-[12px] font-medium leading-snug text-zinc-700 hover:bg-zinc-50 hover:text-ibero-dark whitespace-nowrap" href="https://ibero.education/marketing-digital-con-ia/" rel="noopener" target="_blank">
+          Marketing Digital con IA
+         </a>
+<a class="block px-4 py-2.5 text-[11px] md:text-[12px] font-medium leading-snug text-zinc-700 hover:bg-zinc-50 hover:text-ibero-dark whitespace-nowrap" href="https://ibero.education/ia-para-docentes/" rel="noopener" target="_blank">
+          IA para Docentes
+         </a>
+<a class="block px-4 py-2.5 text-[11px] md:text-[12px] font-medium leading-snug text-zinc-700 hover:bg-zinc-50 hover:text-ibero-dark whitespace-nowrap" href="https://ibero.education/comunicacion-efectiva/" rel="noopener" target="_blank">
+          Hablar en Público
+         </a>
+<a class="block px-4 py-2.5 text-[11px] md:text-[12px] font-medium leading-snug text-zinc-700 hover:bg-zinc-50 hover:text-ibero-dark whitespace-nowrap" href="https://ibero.education/monetiza-tu-idea/" rel="noopener" target="_blank">
+          Monetiza tu Idea
+         </a>
+<a class="block px-4 py-2.5 text-[11px] md:text-[12px] font-medium leading-snug text-zinc-700 hover:bg-zinc-50 hover:text-ibero-dark whitespace-nowrap" href="https://ibero.education/crea-tu-academia/" rel="noopener" target="_blank">
+          Crea tu Academia
+         </a>
+<a class="block px-4 py-2.5 text-[11px] md:text-[12px] font-medium leading-snug text-zinc-700 hover:bg-zinc-50 hover:text-ibero-dark whitespace-nowrap" href="https://ibero.education/diplomado-ia-negocios-marketing/" rel="noopener" target="_blank">
+          Diplomado en IA aplicada a Negocios, Marketing y Comunicación
+         </a>
+<a class="block px-4 py-2.5 text-[11px] md:text-[12px] font-medium leading-snug text-zinc-700 hover:bg-zinc-50 hover:text-ibero-dark whitespace-nowrap" href="https://ibero.education/executive-master/" rel="noopener" target="_blank">
+          Executive Master
+         </a>
+<a class="block px-4 py-2.5 text-[11px] md:text-[12px] font-medium leading-snug text-zinc-700 hover:bg-zinc-50 hover:text-ibero-dark whitespace-nowrap" href="https://ibero.education/master-ejecutivo-ia/" rel="noopener" target="_blank">
+          Master Ejecutivo IA
+         </a>
+<a class="block px-4 py-2.5 text-[11px] md:text-[12px] font-medium leading-snug text-zinc-700 hover:bg-zinc-50 hover:text-ibero-dark whitespace-nowrap" href="https://ibero.education/ibero-labs/" rel="noopener" target="_blank">
+          IBERO Labs
+         </a>
+</div>
+</div>
+</div>
+<a class="whitespace-nowrap text-zinc-600 hover:text-ibero-dark transition-colors" href="https://ibero.education/calendario-academico/" rel="noopener" target="_blank">Calendario Académico</a>
+<div class="relative desktop-dropdown">
+<div class="desktop-dropdown-trigger-wrap">
+<a class="desktop-dropdown-link" href="https://ibero.education/certificaciones-intensivas/" rel="noopener" target="_blank">Certificaciones</a>
+<button aria-expanded="false" aria-label="Mostrar submenú de Certificaciones" class="desktop-dropdown-toggle" data-dropdown-trigger="true" type="button">▾</button>
+</div>
+<div class="absolute left-0 top-full z-[120] hidden pt-0 md:pt-3 group-hover:block dropdown-panel">
+<div class="min-w-[280px] overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-[0_16px_40px_rgba(0,0,0,0.12)]">
+<a class="block px-4 py-2.5 text-[11px] md:text-[12px] font-medium leading-snug text-zinc-700 hover:bg-zinc-50 hover:text-ibero-dark whitespace-nowrap" href="https://ibero.education/marketing-digital-con-ia/" rel="noopener" target="_blank">
+          Marketing Digital con IA
+         </a>
+<a class="block px-4 py-2.5 text-[11px] md:text-[12px] font-medium leading-snug text-zinc-700 hover:bg-zinc-50 hover:text-ibero-dark whitespace-nowrap" href="https://ibero.education/ia-para-docentes/" rel="noopener" target="_blank">
+          IA para Docentes
+         </a>
+<a class="block px-4 py-2.5 text-[11px] md:text-[12px] font-medium leading-snug text-zinc-700 hover:bg-zinc-50 hover:text-ibero-dark whitespace-nowrap" href="https://ibero.education/comunicacion-efectiva/" rel="noopener" target="_blank">
+          Hablar en Público
+         </a>
+<a class="block px-4 py-2.5 text-[11px] md:text-[12px] font-medium leading-snug text-zinc-700 hover:bg-zinc-50 hover:text-ibero-dark whitespace-nowrap" href="https://ibero.education/monetiza-tu-idea/" rel="noopener" target="_blank">
+          Monetiza tu Idea
+         </a>
+<a class="block px-4 py-2.5 text-[11px] md:text-[12px] font-medium leading-snug text-zinc-700 hover:bg-zinc-50 hover:text-ibero-dark whitespace-nowrap" href="https://ibero.education/crea-tu-academia/" rel="noopener" target="_blank">
+          Crea tu Academia
+         </a>
+</div>
+</div>
+</div>
+<div class="relative desktop-dropdown">
+<div class="desktop-dropdown-trigger-wrap">
+<a class="desktop-dropdown-link" href="https://ibero.education/diplomados-intensivos/" rel="noopener" target="_blank">Diplomados</a>
+<button aria-expanded="false" aria-label="Mostrar submenú de Diplomados" class="desktop-dropdown-toggle" data-dropdown-trigger="true" type="button">▾</button>
+</div>
+<div class="absolute left-0 top-full z-[120] hidden pt-0 md:pt-3 group-hover:block dropdown-panel">
+<div class="min-w-[280px] overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-[0_16px_40px_rgba(0,0,0,0.12)]">
+<a class="block px-4 py-2.5 text-[11px] md:text-[12px] font-medium leading-snug text-zinc-700 hover:bg-zinc-50 hover:text-ibero-dark whitespace-nowrap" href="https://ibero.education/diplomado-ia-negocios-marketing/" rel="noopener" target="_blank">
+          Diplomado en IA aplicada a Negocios, Marketing y Comunicación
+         </a>
+</div>
+</div>
+</div>
+<div class="relative desktop-dropdown">
+<div class="desktop-dropdown-trigger-wrap">
+<a class="desktop-dropdown-link" href="https://ibero.education/executive-master/" rel="noopener" target="_blank">Executive Master</a>
+<button aria-expanded="false" aria-label="Mostrar submenú de Executive Master" class="desktop-dropdown-toggle" data-dropdown-trigger="true" type="button">▾</button>
+</div>
+<div class="absolute left-0 top-full z-[120] hidden pt-0 md:pt-3 group-hover:block dropdown-panel">
+<div class="min-w-[280px] overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-[0_16px_40px_rgba(0,0,0,0.12)]">
+<a class="block px-4 py-2.5 text-[11px] md:text-[12px] font-medium leading-snug text-zinc-700 hover:bg-zinc-50 hover:text-ibero-dark whitespace-nowrap" href="https://ibero.education/executive-master/" rel="noopener" target="_blank">
+          Executive Master
+         </a>
+<a class="block px-4 py-2.5 text-[11px] md:text-[12px] font-medium leading-snug text-zinc-700 hover:bg-zinc-50 hover:text-ibero-dark whitespace-nowrap" href="https://ibero.education/master-ejecutivo-ia/" rel="noopener" target="_blank">
+          Master Ejecutivo IA
+         </a>
+</div>
+</div>
+</div>
+<a class="whitespace-nowrap text-zinc-600 hover:text-ibero-dark transition-colors" href="https://ibero.education/ibero-academy/" rel="noopener" target="_blank">IBERO Academy</a>
+<a class="whitespace-nowrap text-zinc-600 hover:text-ibero-dark transition-colors" href="https://ibero.education/artes-liberales/" rel="noopener" target="_blank">Artes Liberales</a>
+<a class="whitespace-nowrap text-zinc-600 hover:text-ibero-dark transition-colors" href="https://ibero.education/consultoria-en-educacion/" rel="noopener" target="_blank">Consultoría en Educación</a>
+<a class="whitespace-nowrap text-zinc-600 hover:text-ibero-dark transition-colors" href="https://ibero.education/english-courses/" rel="noopener" target="_blank">Inglés Continuo</a>
+<a class="whitespace-nowrap text-zinc-600 hover:text-ibero-dark transition-colors" href="https://ibero.education/registro-y-admisiones/" rel="noopener" target="_blank">Registro y Admisiones</a>
+<a class="whitespace-nowrap text-zinc-600 hover:text-ibero-dark transition-colors" href="https://ibero.education/contacto/" rel="noopener" target="_blank">Contactos</a></div>
+</div>
+</div>
+<!-- Mobile Menu Panel -->
+<div class="hidden md:hidden bg-white border-t border-zinc-100 absolute w-full shadow-lg max-h-[calc(100vh-105px)] overflow-y-auto top-[105px]" id="mobile-menu">
+<div class="px-4 pt-2 pb-6 space-y-1 flex flex-col">
+<div class="mb-2 px-3 pt-4">
+<span class="text-[10px] font-bold tracking-widest text-ibero-reddark uppercase">
        Programas
       </span>
-     </div>
-     <a class="mobile-link block px-3 py-3 text-base font-medium text-zinc-800 border-b border-zinc-50 hover:text-ibero-reddark" href="https://ibero.education/oferta-academica/">
-      Oferta Acad&eacute;mica
+</div>
+<a class="mobile-link block px-3 py-3 text-base font-medium text-zinc-800 border-b border-zinc-50 hover:text-ibero-reddark" href="https://ibero.education/oferta-academica/">
+      Oferta Académica
      </a>
-     <a class="mobile-link block px-3 py-3 text-base font-medium text-zinc-800 border-b border-zinc-50 hover:text-ibero-reddark" href="https://ibero.education/calendario-academico/">
-      Calendario Acad&eacute;mico
+<a class="mobile-link block px-3 py-3 text-base font-medium text-zinc-800 border-b border-zinc-50 hover:text-ibero-reddark" href="https://ibero.education/calendario-academico/">
+      Calendario Académico
      </a>
-     <a class="mobile-link block px-3 py-3 text-base font-medium text-zinc-800 border-b border-zinc-50 hover:text-ibero-reddark" href="https://ibero.education/certificaciones-intensivas/">
+<a class="mobile-link block px-3 py-3 text-base font-medium text-zinc-800 border-b border-zinc-50 hover:text-ibero-reddark" href="https://ibero.education/certificaciones-intensivas/">
       Certificaciones
      </a>
-     <a class="mobile-link block px-3 py-3 text-base font-medium text-zinc-800 border-b border-zinc-50 hover:text-ibero-reddark" href="https://ibero.education/diplomados-intensivos/">
+<a class="mobile-link block px-3 py-3 text-base font-medium text-zinc-800 border-b border-zinc-50 hover:text-ibero-reddark" href="https://ibero.education/diplomados-intensivos/">
       Diplomados
      </a>
-     <a class="mobile-link block px-3 py-3 text-base font-medium text-zinc-800 border-b border-zinc-50 hover:text-ibero-reddark" href="https://ibero.education/executive-master/">
+<a class="mobile-link block px-3 py-3 text-base font-medium text-zinc-800 border-b border-zinc-50 hover:text-ibero-reddark" href="https://ibero.education/executive-master/">
       Executive Masters
      </a>
-     <a class="mobile-link block px-3 py-3 text-base font-bold text-ibero-dark bg-zinc-50 border-b border-zinc-100" href="#">
+<a class="mobile-link block px-3 py-3 text-base font-bold text-ibero-dark bg-zinc-50 border-b border-zinc-100" href="#">
       Verificar Credencial
      </a>
-    </div>
-   </div>
-  </nav>
-
-  <!-- CONTENIDO PRINCIPAL -->
-  <main class="flex-grow flex flex-col items-center justify-start p-4 sm:p-8 relative overflow-hidden pt-8">
-    <!-- Decoración de fondo -->
-    <div class="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-bl from-zinc-100 to-transparent rounded-full blur-3xl -z-10 opacity-50 translate-x-1/2 -translate-y-1/2"></div>
-    
-    <div class="max-w-4xl w-full mx-auto relative z-10 flex flex-col items-center">
-      
-      <!-- CABECERA INICIAL (Se oculta al encontrar el diploma) -->
-      <div class="text-center mb-10 w-full transition-all duration-500 opacity-100" id="header-section">
-        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-zinc-200 bg-white shadow-sm text-[10px] sm:text-xs font-bold tracking-widest uppercase mb-6" id="status-badge">
-          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+</div>
+</div>
+</nav>
+<!-- CONTENIDO PRINCIPAL -->
+<main class="flex-grow flex flex-col items-center justify-start p-4 sm:p-8 relative overflow-hidden pt-8">
+<!-- Decoración de fondo -->
+<div class="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-bl from-zinc-100 to-transparent rounded-full blur-3xl -z-10 opacity-50 translate-x-1/2 -translate-y-1/2"></div>
+<div class="max-w-4xl w-full mx-auto relative z-10 flex flex-col items-center">
+<!-- CABECERA INICIAL (Se oculta al encontrar el diploma) -->
+<div class="text-center mb-10 w-full transition-all duration-500 opacity-100" id="header-section">
+<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-zinc-200 bg-white shadow-sm text-[10px] sm:text-xs font-bold tracking-widest uppercase mb-6" id="status-badge">
+<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
           Verificación Global Activa
         </div>
-        <h1 class="text-3xl sm:text-5xl font-extrabold text-ibero-dark tracking-tight mb-4 hero-shine-dark">
+<h1 class="text-3xl sm:text-5xl font-extrabold text-ibero-dark tracking-tight mb-4 hero-shine-dark">
           Validador de <span class="font-serif italic text-zinc-500 font-medium">Credenciales</span>
-        </h1>
-        <p class="text-zinc-500 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+</h1>
+<p class="text-zinc-500 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
           Ingresa tu nombre completo para acceder a tu diploma oficial. Las credenciales de IBERO están respaldadas y verificadas para tu perfil profesional.
         </p>
-      </div>
-
-      <!-- BUSCADOR -->
-      <div class="glass-card rounded-[2rem] p-6 sm:p-8 mb-12 max-w-2xl w-full mx-auto" id="search-section">
-        <form id="search-form" class="flex flex-col sm:flex-row gap-3 relative">
-          <div class="relative flex-grow">
-            <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 transform -translate-y-1/2 text-zinc-400"></i>
-            <input type="text" id="student-name-input" placeholder="Ej: Juan Perez Lopez" class="w-full bg-zinc-50 border border-zinc-200 rounded-xl py-4 pl-12 pr-4 text-sm font-medium text-ibero-dark focus:outline-none focus:ring-2 focus:ring-ibero-dark focus:border-transparent transition-all" required>
-          </div>
-          <button type="submit" class="bg-ibero-dark text-white px-8 py-4 rounded-xl font-bold text-sm hover:bg-black transition-all shadow-md flex justify-center items-center gap-2 whitespace-nowrap">
-            <span>Verificar</span>
-            <i class="fa-solid fa-arrow-right text-xs"></i>
-          </button>
-        </form>
-        <p class="text-[10px] text-zinc-400 mt-4 text-center">Escribe tu nombre completo, nosotros generaremos el formato correcto automáticamente.</p>
-      </div>
-
-      <!-- ESTADO DE CARGA -->
-      <div id="loading-state" class="hidden flex-col items-center justify-center py-12 w-full">
-        <div class="loader mb-4"></div>
-        <p class="text-sm font-bold text-zinc-500 animate-pulse">Verificando registro oficial...</p>
-      </div>
-
-      <!-- RESULTADO: DIPLOMA ENCONTRADO -->
-      <div id="result-success" class="hidden flex-col items-center opacity-0 transition-opacity duration-500 w-full max-w-4xl">
-        
-        <!-- CABECERA: TEXTO EMPODERADOR + SELLO VERDE AL LADO (Sello Oculto en Móvil) -->
-        <div class="w-full flex flex-col md:flex-row items-center md:items-center justify-between gap-8 mb-10 px-4">
-          
-          <!-- Texto Empoderador (Izquierda) -->
-          <div class="text-center md:text-left flex-1 max-w-xl">
-            <h2 class="text-4xl sm:text-5xl font-serif italic text-ibero-dark mb-4 hero-shine-dark">Credencial Oficial</h2>
-            <h3 class="text-2xl sm:text-3xl font-extrabold text-ibero-dark mb-3" id="cert-student-name">Nombre del Alumno</h3>
-            <p class="text-zinc-600 leading-relaxed text-sm sm:text-base">
+</div>
+<!-- BUSCADOR -->
+<div class="glass-card rounded-[2rem] p-6 sm:p-8 mb-12 max-w-2xl w-full mx-auto" id="search-section">
+<form class="flex flex-col sm:flex-row gap-3 relative" id="search-form">
+<div class="relative flex-grow">
+<i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 transform -translate-y-1/2 text-zinc-400"></i>
+<input class="w-full bg-zinc-50 border border-zinc-200 rounded-xl py-4 pl-12 pr-4 text-sm font-medium text-ibero-dark focus:outline-none focus:ring-2 focus:ring-ibero-dark focus:border-transparent transition-all" id="student-name-input" placeholder="Ej: Juan Perez Lopez" required="" type="text"/>
+</div>
+<button class="bg-ibero-dark text-white px-8 py-4 rounded-xl font-bold text-sm hover:bg-black transition-all shadow-md flex justify-center items-center gap-2 whitespace-nowrap" type="submit">
+<span>Verificar</span>
+<i class="fa-solid fa-arrow-right text-xs"></i>
+</button>
+</form>
+<p class="text-[10px] text-zinc-400 mt-4 text-center">Escribe tu nombre completo, nosotros generaremos el formato correcto automáticamente.</p>
+</div>
+<!-- ESTADO DE CARGA -->
+<div class="hidden flex-col items-center justify-center py-12 w-full" id="loading-state">
+<div class="loader mb-4"></div>
+<p class="text-sm font-bold text-zinc-500 animate-pulse">Verificando registro oficial...</p>
+</div>
+<!-- RESULTADO: DIPLOMA ENCONTRADO -->
+<div class="hidden flex-col items-center opacity-0 transition-opacity duration-500 w-full max-w-4xl" id="result-success">
+<!-- CABECERA: TEXTO EMPODERADOR + SELLO VERDE AL LADO (Sello Oculto en Móvil) -->
+<div class="w-full flex flex-col md:flex-row items-center md:items-center justify-between gap-8 mb-10 px-4">
+<!-- Texto Empoderador (Izquierda) -->
+<div class="text-center md:text-left flex-1 max-w-xl">
+<h2 class="text-4xl sm:text-5xl font-serif italic text-ibero-dark mb-4 hero-shine-dark">Credencial Oficial</h2>
+<h3 class="text-2xl sm:text-3xl font-extrabold text-ibero-dark mb-3" id="cert-student-name">Nombre del Alumno</h3>
+<p class="text-zinc-600 leading-relaxed text-sm sm:text-base">
               El <strong class="text-ibero-dark">Centro Iberoamericano (IBERO)</strong> avala institucionalmente que el alumno ha culminado con <strong class="text-zinc-800">excelencia académica</strong> el programa <strong class="text-ibero-purple" id="cert-course-name">Nombre del Programa</strong> y demuestra su <strong class="text-zinc-800">alto nivel de competencia</strong>, <strong class="text-zinc-800">rigor profesional</strong> y capacidad para <strong class="text-zinc-800">liderar en su entorno</strong>.
             </p>
-          </div>
-
-          <!-- Sello Verde Prominente y Pro (Derecha - Visible solo en Ordenador) -->
-          <div class="hidden md:flex shrink-0 w-auto max-w-[280px] md:max-w-none flex-col items-center bg-white border border-emerald-100 px-6 sm:px-8 py-5 sm:py-6 rounded-[2rem] shadow-[0_0_40px_rgba(16,185,129,0.15)] relative overflow-hidden group">
-            <div class="absolute inset-0 bg-gradient-to-tr from-emerald-50/80 to-transparent"></div>
-            <div class="relative z-10 flex flex-col items-center">
-              <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center text-emerald-500 text-3xl mb-3 shadow-[0_4px_15px_rgba(16,185,129,0.2)] border border-emerald-50">
-                <i class="fa-solid fa-qrcode"></i>
-              </div>
-              <h4 class="text-xl sm:text-2xl font-serif italic text-ibero-dark mb-1 leading-tight text-center hero-shine-dark whitespace-nowrap">Auténtica<br>& Avalada</h4>
-              <div class="mt-2 bg-emerald-50/80 px-4 py-1.5 rounded-md border border-emerald-100 backdrop-blur-sm shadow-inner">
-                <p class="text-[10px] text-emerald-700 font-mono font-bold tracking-widest" id="student-id-display">ID: ...</p>
-              </div>
-            </div>
-          </div>
-          
-        </div>
-
-        <!-- CONTENEDOR DEL DIPLOMA -->
-        <div class="relative w-full max-w-2xl flex flex-col items-center">
-          <div class="w-full flex justify-center">
-            <div class="diploma-frame w-full">
-              <img id="diploma-image" src="" alt="Diploma" class="w-full h-auto object-contain block" crossorigin="anonymous" />
-            </div>
-          </div>
-        </div>
-
-        <!-- TEXTO DE AVAL / SKILLS (Segundo Párrafo) -->
-        <div class="mt-10 bg-white border border-zinc-200 rounded-3xl p-6 sm:p-8 max-w-2xl w-full text-center shadow-[0_4px_24px_-8px_rgba(0,0,0,0.05)] relative overflow-hidden">
-          <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-ibero-purple via-ibero-red to-ibero-purple"></div>
-          <div class="w-14 h-14 bg-zinc-50 rounded-full border border-zinc-200 flex items-center justify-center mx-auto mb-5 shadow-sm">
-            <img src="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/3339294f71590eeeaa7f0b0b0591f5e09156ed96/fotos/logos%20ibero/ibero-favicon.svg" alt="IBERO" class="w-7 h-7 object-contain opacity-80" />
-          </div>
-          <p class="text-zinc-600 text-sm sm:text-base leading-relaxed font-medium">
-            El <strong class="text-ibero-dark font-bold">Centro Iberoamericano (IBERO)</strong> certifica que el estudiante <strong id="cert-student-name-2" class="text-ibero-dark font-black uppercase"></strong> aprobó satisfactoriamente y cuenta con habilidades blandas de alto nivel, conocimientos sólidos en <strong class="text-ibero-dark">Inteligencia Artificial</strong>, herramientas tecnológicas, comunicación estratégica y negocios.
+</div>
+<!-- Sello Verde Prominente y Pro (Derecha - Visible solo en Ordenador) -->
+<div class="hidden md:flex shrink-0 w-auto max-w-[280px] md:max-w-none flex-col items-center bg-white border border-emerald-100 px-6 sm:px-8 py-5 sm:py-6 rounded-[2rem] shadow-[0_0_40px_rgba(16,185,129,0.15)] relative overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-tr from-emerald-50/80 to-transparent"></div>
+<div class="relative z-10 flex flex-col items-center">
+<div class="w-14 h-14 bg-white rounded-full flex items-center justify-center text-emerald-500 text-3xl mb-3 shadow-[0_4px_15px_rgba(16,185,129,0.2)] border border-emerald-50">
+<i class="fa-solid fa-qrcode"></i>
+</div>
+<h4 class="text-xl sm:text-2xl font-serif italic text-ibero-dark mb-1 leading-tight text-center hero-shine-dark whitespace-nowrap">Auténtica<br/>&amp; Avalada</h4>
+<div class="mt-2 bg-emerald-50/80 px-4 py-1.5 rounded-md border border-emerald-100 backdrop-blur-sm shadow-inner">
+<p class="text-[10px] text-emerald-700 font-mono font-bold tracking-widest" id="student-id-display">ID: ...</p>
+</div>
+</div>
+</div>
+</div>
+<!-- CONTENEDOR DEL DIPLOMA -->
+<div class="relative w-full max-w-2xl flex flex-col items-center">
+<div class="w-full flex justify-center">
+<div class="diploma-frame w-full">
+<img alt="Diploma" class="w-full h-auto object-contain block" crossorigin="anonymous" id="diploma-image" src=""/>
+</div>
+</div>
+</div>
+<!-- TEXTO DE AVAL / SKILLS (Segundo Párrafo) -->
+<div class="mt-10 bg-white border border-zinc-200 rounded-3xl p-6 sm:p-8 max-w-2xl w-full text-center shadow-[0_4px_24px_-8px_rgba(0,0,0,0.05)] relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-ibero-purple via-ibero-red to-ibero-purple"></div>
+<div class="w-14 h-14 bg-zinc-50 rounded-full border border-zinc-200 flex items-center justify-center mx-auto mb-5 shadow-sm">
+<img alt="IBERO" class="w-7 h-7 object-contain opacity-80" src="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/3339294f71590eeeaa7f0b0b0591f5e09156ed96/fotos/logos%20ibero/ibero-favicon.svg"/>
+</div>
+<p class="text-zinc-600 text-sm sm:text-base leading-relaxed font-medium">
+            El <strong class="text-ibero-dark font-bold">Centro Iberoamericano (IBERO)</strong> certifica que el estudiante <strong class="text-ibero-dark font-black uppercase" id="cert-student-name-2"></strong> aprobó satisfactoriamente y cuenta con habilidades blandas de alto nivel, conocimientos sólidos en <strong class="text-ibero-dark">Inteligencia Artificial</strong>, herramientas tecnológicas, comunicación estratégica y negocios.
           </p>
-        </div>
-
-        <!-- Sello Verde Prominente y Pro (Móvil - Visible solo en Celular debajo del aval) -->
-        <div class="flex md:hidden shrink-0 w-full max-w-[280px] flex-col items-center bg-white border border-emerald-100 px-6 py-5 rounded-[2rem] shadow-[0_0_40px_rgba(16,185,129,0.15)] relative overflow-hidden group mt-6 mb-2 mx-auto">
-          <div class="absolute inset-0 bg-gradient-to-tr from-emerald-50/80 to-transparent"></div>
-          <div class="relative z-10 flex flex-col items-center">
-            <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center text-emerald-500 text-3xl mb-3 shadow-[0_4px_15px_rgba(16,185,129,0.2)] border border-emerald-50">
-              <i class="fa-solid fa-qrcode"></i>
-            </div>
-            <h4 class="text-xl font-serif italic text-ibero-dark mb-1 leading-tight text-center hero-shine-dark whitespace-nowrap">Auténtica<br>& Avalada</h4>
-            <div class="mt-2 bg-emerald-50/80 px-4 py-1.5 rounded-md border border-emerald-100 backdrop-blur-sm shadow-inner">
-              <p class="text-[10px] text-emerald-700 font-mono font-bold tracking-widest" id="student-id-display-mobile">ID: ...</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Botones de Acción -->
-        <div class="flex flex-wrap justify-center gap-3 sm:gap-4 mt-8 w-full max-w-2xl border-t border-zinc-200 pt-8">
-          <!-- Botón PDF -->
-          <button onclick="downloadPDF()" class="bg-[#09090B] text-white px-5 sm:px-6 py-3 rounded-xl font-bold text-[11px] sm:text-xs hover:bg-zinc-800 transition-all shadow-md flex items-center gap-2">
-            <i class="fa-solid fa-file-pdf"></i> Guardar en PDF Oficial
+</div>
+<!-- Sello Verde Prominente y Pro (Móvil - Visible solo en Celular debajo del aval) -->
+<div class="flex md:hidden shrink-0 w-full max-w-[280px] flex-col items-center bg-white border border-emerald-100 px-6 py-5 rounded-[2rem] shadow-[0_0_40px_rgba(16,185,129,0.15)] relative overflow-hidden group mt-6 mb-2 mx-auto">
+<div class="absolute inset-0 bg-gradient-to-tr from-emerald-50/80 to-transparent"></div>
+<div class="relative z-10 flex flex-col items-center">
+<div class="w-14 h-14 bg-white rounded-full flex items-center justify-center text-emerald-500 text-3xl mb-3 shadow-[0_4px_15px_rgba(16,185,129,0.2)] border border-emerald-50">
+<i class="fa-solid fa-qrcode"></i>
+</div>
+<h4 class="text-xl font-serif italic text-ibero-dark mb-1 leading-tight text-center hero-shine-dark whitespace-nowrap">Auténtica<br/>&amp; Avalada</h4>
+<div class="mt-2 bg-emerald-50/80 px-4 py-1.5 rounded-md border border-emerald-100 backdrop-blur-sm shadow-inner">
+<p class="text-[10px] text-emerald-700 font-mono font-bold tracking-widest" id="student-id-display-mobile">ID: ...</p>
+</div>
+</div>
+</div>
+<!-- Botones de Acción -->
+<div class="flex flex-wrap justify-center gap-3 sm:gap-4 mt-8 w-full max-w-2xl border-t border-zinc-200 pt-8">
+<!-- Botón PDF -->
+<button class="bg-[#09090B] text-white px-5 sm:px-6 py-3 rounded-xl font-bold text-[11px] sm:text-xs hover:bg-zinc-800 transition-all shadow-md flex items-center gap-2" onclick="downloadPDF()">
+<i class="fa-solid fa-file-pdf"></i> Guardar en PDF Oficial
           </button>
-          <a id="download-btn" href="#" target="_blank" download class="bg-white border border-zinc-300 text-ibero-dark px-5 sm:px-6 py-3 rounded-xl font-bold text-[11px] sm:text-xs hover:bg-zinc-50 transition-all shadow-sm flex items-center gap-2">
-            <i class="fa-solid fa-image"></i> Descargar Imagen
+<a class="bg-white border border-zinc-300 text-ibero-dark px-5 sm:px-6 py-3 rounded-xl font-bold text-[11px] sm:text-xs hover:bg-zinc-50 transition-all shadow-sm flex items-center gap-2" download="" href="#" id="download-btn" target="_blank">
+<i class="fa-solid fa-image"></i> Descargar Imagen
           </a>
-          <!-- Botón de LinkedIn Mejorado -->
-          <button id="linkedin-btn" class="bg-[#0077b5] text-white px-5 sm:px-6 py-3 rounded-xl font-bold text-[11px] sm:text-xs hover:bg-[#005e93] transition-all shadow-md flex items-center gap-2 group relative">
-            <i class="fa-brands fa-linkedin text-sm"></i> Publicar en LinkedIn
+<!-- Botón de LinkedIn Mejorado -->
+<button class="bg-[#0077b5] text-white px-5 sm:px-6 py-3 rounded-xl font-bold text-[11px] sm:text-xs hover:bg-[#005e93] transition-all shadow-md flex items-center gap-2 group relative" id="linkedin-btn">
+<i class="fa-brands fa-linkedin text-sm"></i> Publicar en LinkedIn
             <span class="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-black text-white text-[9px] py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
               Copia texto, abre LinkedIn y sube tu diploma
             </span>
-          </button>
-          <button onclick="resetSearch(true)" class="bg-white border border-transparent text-zinc-500 px-4 py-3 rounded-xl font-bold text-[11px] sm:text-xs hover:text-zinc-800 hover:bg-zinc-100 transition-all">
+</button>
+<button class="bg-white border border-transparent text-zinc-500 px-4 py-3 rounded-xl font-bold text-[11px] sm:text-xs hover:text-zinc-800 hover:bg-zinc-100 transition-all" onclick="resetSearch(true)">
             Buscar otro
           </button>
-        </div>
-
-      </div>
-
-      <!-- RESULTADO: NO ENCONTRADO -->
-      <div id="result-error" class="hidden flex-col items-center py-12 opacity-0 transition-opacity duration-500 w-full">
-        <div class="w-20 h-20 bg-zinc-100 rounded-full flex items-center justify-center mb-6">
-          <i class="fa-solid fa-file-circle-xmark text-3xl text-zinc-400"></i>
-        </div>
-        <h3 class="text-xl font-bold text-ibero-dark mb-2">Credencial no encontrada</h3>
-        <p class="text-zinc-500 text-sm text-center max-w-md mb-8">
-          No pudimos localizar un diploma para <strong id="error-name" class="text-zinc-800"></strong>. Asegúrate de haber escrito tu nombre exactamente como te registraste, o contacta a soporte.
+</div>
+</div>
+<!-- RESULTADO: NO ENCONTRADO -->
+<div class="hidden flex-col items-center py-12 opacity-0 transition-opacity duration-500 w-full" id="result-error">
+<div class="w-20 h-20 bg-zinc-100 rounded-full flex items-center justify-center mb-6">
+<i class="fa-solid fa-file-circle-xmark text-3xl text-zinc-400"></i>
+</div>
+<h3 class="text-xl font-bold text-ibero-dark mb-2">Credencial no encontrada</h3>
+<p class="text-zinc-500 text-sm text-center max-w-md mb-8">
+          No pudimos localizar un diploma para <strong class="text-zinc-800" id="error-name"></strong>. Asegúrate de haber escrito tu nombre exactamente como te registraste, o contacta a soporte.
         </p>
-        <button onclick="resetSearch(true)" class="bg-white border border-zinc-200 text-ibero-dark px-6 py-3 rounded-xl font-bold text-xs hover:bg-zinc-50 transition-all shadow-sm">
+<button class="bg-white border border-zinc-200 text-ibero-dark px-6 py-3 rounded-xl font-bold text-xs hover:bg-zinc-50 transition-all shadow-sm" onclick="resetSearch(true)">
           Intentar nuevamente
         </button>
-      </div>
-
-    </div>
-  </main>
-
-  <!-- ========================================================= -->
-  <!-- WRAPPER OCULTO PARA GENERACIÓN PERFECTA DEL PDF (CARTA)   -->
-  <!-- RE-DISEÑADO A NIVEL PRO Y EJECUTIVO                       -->
-  <!-- ========================================================= -->
-  <div id="pdf-wrapper" style="position: absolute; left: -9999px; top: 0; pointer-events: none; z-index: -9999; width: 816px; background-color: #ffffff;">
-    
-    <!-- Contenedor real que leerá html2canvas (Formato Carta Vertical 816x1056px) -->
-    <div id="pdf-export-container" style="width: 816px; min-height: 1056px; background: white; position: relative;">
-      
-      <!-- Barra decorativa superior -->
-      <div style="height: 6px; background: linear-gradient(to right, #6B21A8, #D91212, #09090B); width: 100%;"></div>
-
-      <div style="padding: 50px 60px; box-sizing: border-box; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; display: flex; flex-direction: column; min-height: 1050px;">
-        
-        <!-- Header del PDF (Membrete) -->
-        <div style="display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 2px solid #e4e4e7; padding-bottom: 20px; margin-bottom: 30px;">
-          <div>
-            <img src="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/1557a79470d9c26d1ad0f0b00243f9f03e55cf2f/fotos/svg/ibero-logo-black-redE.svg" alt="Centro Iberoamericano" style="height: 50px;" crossorigin="anonymous">
-          </div>
-          <div style="text-align: right;">
-            <h1 style="font-size: 16pt; color: #09090B; font-weight: 800; margin: 0 0 5px 0; text-transform: uppercase; letter-spacing: 1px;">Reporte de Validación Oficial</h1>
-            <p style="font-size: 10pt; color: #71717a; margin: 0;"><strong>Fecha de expedición:</strong> <span id="pdf-current-date"></span></p>
-          </div>
-        </div>
-        
-        <!-- Cuerpo del informe -->
-        <p style="font-size: 11pt; line-height: 1.6; color: #3f3f46; margin-bottom: 15px; text-align: justify;">
+</div>
+</div>
+</main>
+<!-- ========================================================= -->
+<!-- WRAPPER OCULTO PARA GENERACIÓN PERFECTA DEL PDF (CARTA)   -->
+<!-- RE-DISEÑADO A NIVEL PRO Y EJECUTIVO                       -->
+<!-- ========================================================= -->
+<div id="pdf-wrapper" style="position: absolute; left: -9999px; top: 0; pointer-events: none; z-index: -9999; width: 816px; background-color: #ffffff;">
+<!-- Contenedor real que leerá html2canvas (Formato Carta Vertical 816x1056px) -->
+<div id="pdf-export-container" style="width: 816px; min-height: 1056px; background: white; position: relative;">
+<!-- Barra decorativa superior -->
+<div style="height: 6px; background: linear-gradient(to right, #6B21A8, #D91212, #09090B); width: 100%;"></div>
+<div style="padding: 50px 60px; box-sizing: border-box; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; display: flex; flex-direction: column; min-height: 1050px;">
+<!-- Header del PDF (Membrete) -->
+<div style="display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 2px solid #e4e4e7; padding-bottom: 20px; margin-bottom: 30px;">
+<div>
+<img alt="Centro Iberoamericano" crossorigin="anonymous" src="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/1557a79470d9c26d1ad0f0b00243f9f03e55cf2f/fotos/svg/ibero-logo-black-redE.svg" style="height: 50px;"/>
+</div>
+<div style="text-align: right;">
+<h1 style="font-size: 16pt; color: #09090B; font-weight: 800; margin: 0 0 5px 0; text-transform: uppercase; letter-spacing: 1px;">Reporte de Validación Oficial</h1>
+<p style="font-size: 10pt; color: #71717a; margin: 0;"><strong>Fecha de expedición:</strong> <span id="pdf-current-date"></span></p>
+</div>
+</div>
+<!-- Cuerpo del informe -->
+<p style="font-size: 11pt; line-height: 1.6; color: #3f3f46; margin-bottom: 15px; text-align: justify;">
           A quien corresponda:
-          <br><br>
+          <br/><br/>
           Por medio de la presente, el <strong>Centro Iberoamericano (IBERO)</strong> certifica y valida la existencia, autenticidad y aprobación del documento académico detallado a continuación. El estudiante ha cumplido a cabalidad con las exigencias académicas, rigor profesional y evaluaciones requeridas por nuestra institución.
         </p>
-
-        <p style="font-size: 11pt; line-height: 1.6; color: #3f3f46; margin-bottom: 30px; text-align: justify;">
+<p style="font-size: 11pt; line-height: 1.6; color: #3f3f46; margin-bottom: 30px; text-align: justify;">
           Adicionalmente, se avala que el titular aprobó satisfactoriamente el programa, demostrando contar con habilidades blandas de alto nivel, conocimientos sólidos en <strong>Inteligencia Artificial</strong>, manejo de herramientas tecnológicas, comunicación estratégica y visión de negocios.
         </p>
-        
-        <!-- Caja de Datos del Estudiante -->
-        <div style="background-color: #fafafa; border: 1px solid #e4e4e7; border-radius: 8px; padding: 20px; margin-bottom: 30px;">
-          <table style="width: 100%; border-collapse: collapse;">
-            <tr>
-              <td style="padding: 8px 0; border-bottom: 1px solid #f4f4f5; width: 35%; color: #71717a; font-size: 11pt; font-weight: bold;">Nombre del Estudiante:</td>
-              <td style="padding: 8px 0; border-bottom: 1px solid #f4f4f5; width: 65%; color: #09090B; font-size: 12pt; font-weight: bold; text-transform: uppercase;" id="pdf-student-name"></td>
-            </tr>
-            <tr>
-              <td style="padding: 8px 0; border-bottom: 1px solid #f4f4f5; color: #71717a; font-size: 11pt; font-weight: bold;">Programa de Estudio:</td>
-              <td style="padding: 8px 0; border-bottom: 1px solid #f4f4f5; color: #6B21A8; font-size: 12pt; font-weight: bold;" id="pdf-course-name"></td>
-            </tr>
-            <tr>
-              <td style="padding: 8px 0; color: #71717a; font-size: 11pt; font-weight: bold;">ID de Verificación Global:</td>
-              <td style="padding: 8px 0; color: #166534; font-size: 12pt; font-family: monospace; font-weight: bold;" id="pdf-student-id"></td>
-            </tr>
-          </table>
-        </div>
-
-        <!-- Espaciador para mantener el diseño vertical -->
-        <div style="flex-grow: 1;"></div>
-        
-        <!-- Caja de Verificación con URL explícita (Para que sea linkeable) -->
-        <div style="background: #f8fafc; border-left: 4px solid #0ea5e9; padding: 15px 20px; margin-bottom: 25px;">
-          <p style="font-size: 11pt; color: #0f172a; margin: 0 0 5px 0;"><strong>🔍 Instrucciones de Verificación Externa:</strong></p>
-          <p style="font-size: 10pt; color: #334155; margin: 0; line-height: 1.5;">
+<!-- Caja de Datos del Estudiante -->
+<div style="background-color: #fafafa; border: 1px solid #e4e4e7; border-radius: 8px; padding: 20px; margin-bottom: 30px;">
+<table style="width: 100%; border-collapse: collapse;">
+<tr>
+<td style="padding: 8px 0; border-bottom: 1px solid #f4f4f5; width: 35%; color: #71717a; font-size: 11pt; font-weight: bold;">Nombre del Estudiante:</td>
+<td id="pdf-student-name" style="padding: 8px 0; border-bottom: 1px solid #f4f4f5; width: 65%; color: #09090B; font-size: 12pt; font-weight: bold; text-transform: uppercase;"></td>
+</tr>
+<tr>
+<td style="padding: 8px 0; border-bottom: 1px solid #f4f4f5; color: #71717a; font-size: 11pt; font-weight: bold;">Programa de Estudio:</td>
+<td id="pdf-course-name" style="padding: 8px 0; border-bottom: 1px solid #f4f4f5; color: #6B21A8; font-size: 12pt; font-weight: bold;"></td>
+</tr>
+<tr>
+<td style="padding: 8px 0; color: #71717a; font-size: 11pt; font-weight: bold;">ID de Verificación Global:</td>
+<td id="pdf-student-id" style="padding: 8px 0; color: #166534; font-size: 12pt; font-family: monospace; font-weight: bold;"></td>
+</tr>
+</table>
+</div>
+<!-- Espaciador para mantener el diseño vertical -->
+<div style="flex-grow: 1;"></div>
+<!-- Caja de Verificación con URL explícita (Para que sea linkeable) -->
+<div style="background: #f8fafc; border-left: 4px solid #0ea5e9; padding: 15px 20px; margin-bottom: 25px;">
+<p style="font-size: 11pt; color: #0f172a; margin: 0 0 5px 0;"><strong>🔍 Instrucciones de Verificación Externa:</strong></p>
+<p style="font-size: 10pt; color: #334155; margin: 0; line-height: 1.5;">
             Para verificar la validez de este reporte y credencial en línea, cualquier empleador o institución puede ingresar al portal oficial: <a href="https://ibero.education/diplomas" style="color: #0284c7; text-decoration: underline; font-weight: bold;">https://ibero.education/diplomas</a> e ingresar el código de verificación mencionado arriba.
           </p>
-        </div>
-
-        <!-- Footer del Informe con Links Claros -->
-        <div style="padding-top: 15px; border-top: 2px solid #e4e4e7; text-align: center;">
-           <p style="font-size: 12pt; color: #09090B; margin: 0 0 5px 0; font-weight: 800;">Centro Iberoamericano (IBERO)</p>
-           <p style="font-size: 9pt; color: #71717a; margin: 0 0 5px 0;">
-             <a href="https://ibero.education" style="color: #3f3f46; text-decoration: none;">https://ibero.education</a> &nbsp;|&nbsp; 
-             <a href="mailto:programas@ibero.education" style="color: #3f3f46; text-decoration: none;">programas@ibero.education</a> &nbsp;|&nbsp; 
+</div>
+<!-- Footer del Informe con Links Claros -->
+<div style="padding-top: 15px; border-top: 2px solid #e4e4e7; text-align: center;">
+<p style="font-size: 12pt; color: #09090B; margin: 0 0 5px 0; font-weight: 800;">Centro Iberoamericano (IBERO)</p>
+<p style="font-size: 9pt; color: #71717a; margin: 0 0 5px 0;">
+<a href="https://ibero.education" style="color: #3f3f46; text-decoration: none;">https://ibero.education</a>  |  
+             <a href="mailto:programas@ibero.education" style="color: #3f3f46; text-decoration: none;">programas@ibero.education</a>  |  
              <a href="https://linkedin.com/company/centro-iberoamericano" style="color: #3f3f46; text-decoration: none;">https://linkedin.com/company/centro-iberoamericano</a>
-           </p>
-           <p style="font-size: 8pt; color: #a1a1aa; margin: 0;">Este documento es un comprobante de validación digital generado por el sistema central de IBERO.</p>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-
-  <!-- MODAL ADMIN (OCULTO) -->
-  <div id="admin-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[100] hidden items-center justify-center p-4 opacity-0 transition-opacity duration-300">
-    <!-- LOGIN ADMIN -->
-    <div id="admin-login-box" class="bg-white rounded-[2rem] p-8 max-w-sm w-full shadow-2xl transform scale-95 transition-transform duration-300">
-      <div class="text-center mb-6">
-        <div class="w-12 h-12 bg-zinc-900 text-white rounded-xl flex items-center justify-center mx-auto mb-4">
-          <i class="fa-solid fa-user-shield text-xl"></i>
-        </div>
-        <h3 class="text-xl font-bold text-ibero-dark">Acceso Restringido</h3>
-        <p class="text-[11px] text-zinc-500 mt-1">Solo personal autorizado IBERO</p>
-      </div>
-      <input type="password" id="admin-pwd" placeholder="Código de acceso" class="w-full bg-zinc-50 border border-zinc-200 rounded-xl py-3 px-4 text-center text-lg font-bold tracking-widest mb-4 focus:outline-none focus:ring-2 focus:ring-ibero-dark">
-      <button onclick="verifyAdmin()" class="w-full bg-ibero-dark text-white py-3 rounded-xl font-bold text-sm hover:bg-black transition-all mb-3">Entrar</button>
-      <button onclick="closeAdmin()" class="w-full bg-transparent text-zinc-500 py-2 rounded-xl font-bold text-xs hover:text-zinc-800 transition-all">Cancelar</button>
-    </div>
-
-    <!-- PANEL ADMIN (GENERADOR DE CÓDIGO) -->
-    <div id="admin-panel-box" class="bg-white rounded-[2rem] p-6 sm:p-8 max-w-4xl w-full shadow-2xl hidden flex-col max-h-[90vh] overflow-y-auto relative">
-      <button onclick="closeAdmin()" class="absolute top-6 right-6 text-zinc-400 hover:text-zinc-800"><i class="fa-solid fa-xmark text-xl"></i></button>
-      
-      <div class="flex items-center gap-3 mb-6 border-b border-zinc-100 pb-4">
-        <i class="fa-solid fa-code text-ibero-purple text-2xl"></i>
-        <div>
-          <h2 class="text-2xl font-black text-ibero-dark tracking-tight">Generador de Base de Datos</h2>
-          <p class="text-xs font-bold text-zinc-400 uppercase tracking-widest">Solo GitHub (Sin Firebase)</p>
-        </div>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <!-- Contenedor Izquierdo: Formularios de Ingreso -->
-        <div class="flex flex-col gap-6">
-          
-          <!-- Carga Individual -->
-          <div class="bg-zinc-50 p-5 rounded-2xl border border-zinc-200">
-            <h4 class="font-bold text-sm mb-4 border-b border-zinc-200 pb-2"><i class="fa-solid fa-user-plus mr-2"></i>Carga Individual</h4>
-            <div class="space-y-3">
-              <div>
-                <label class="text-[10px] font-bold text-zinc-500 uppercase">Nombre Completo</label>
-                <input type="text" id="add-name" placeholder="Ej: Juan Perez Lopez" class="w-full mt-1 bg-white border border-zinc-200 rounded-lg py-2 px-3 text-xs focus:ring-2 focus:ring-ibero-dark outline-none">
-              </div>
-              <div>
-                <label class="text-[10px] font-bold text-zinc-500 uppercase">Ruta de la Foto</label>
-                <input type="text" id="add-url" placeholder="/fotos/diplomas/juan-perez.jpg" class="w-full mt-1 bg-white border border-zinc-200 rounded-lg py-2 px-3 text-xs focus:ring-2 focus:ring-ibero-dark outline-none">
-              </div>
-              <div>
-                <label class="text-[10px] font-bold text-zinc-500 uppercase">Programa</label>
-                <input type="text" id="add-course" placeholder="Ej: Diplomado IA" class="w-full mt-1 bg-white border border-zinc-200 rounded-lg py-2 px-3 text-xs focus:ring-2 focus:ring-ibero-dark outline-none">
-              </div>
-              <button onclick="generateSingleCode()" class="w-full bg-ibero-dark text-white py-2.5 rounded-lg font-bold text-xs hover:bg-black transition-all mt-2">
+</p>
+<p style="font-size: 8pt; color: #a1a1aa; margin: 0;">Este documento es un comprobante de validación digital generado por el sistema central de IBERO.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- MODAL ADMIN (OCULTO) -->
+<div class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[100] hidden items-center justify-center p-4 opacity-0 transition-opacity duration-300" id="admin-modal">
+<!-- LOGIN ADMIN -->
+<div class="bg-white rounded-[2rem] p-8 max-w-sm w-full shadow-2xl transform scale-95 transition-transform duration-300" id="admin-login-box">
+<div class="text-center mb-6">
+<div class="w-12 h-12 bg-zinc-900 text-white rounded-xl flex items-center justify-center mx-auto mb-4">
+<i class="fa-solid fa-user-shield text-xl"></i>
+</div>
+<h3 class="text-xl font-bold text-ibero-dark">Acceso Restringido</h3>
+<p class="text-[11px] text-zinc-500 mt-1">Solo personal autorizado IBERO</p>
+</div>
+<input class="w-full bg-zinc-50 border border-zinc-200 rounded-xl py-3 px-4 text-center text-lg font-bold tracking-widest mb-4 focus:outline-none focus:ring-2 focus:ring-ibero-dark" id="admin-pwd" placeholder="Código de acceso" type="password"/>
+<button class="w-full bg-ibero-dark text-white py-3 rounded-xl font-bold text-sm hover:bg-black transition-all mb-3" onclick="verifyAdmin()">Entrar</button>
+<button class="w-full bg-transparent text-zinc-500 py-2 rounded-xl font-bold text-xs hover:text-zinc-800 transition-all" onclick="closeAdmin()">Cancelar</button>
+</div>
+<!-- PANEL ADMIN (GENERADOR DE CÓDIGO) -->
+<div class="bg-white rounded-[2rem] p-6 sm:p-8 max-w-4xl w-full shadow-2xl hidden flex-col max-h-[90vh] overflow-y-auto relative" id="admin-panel-box">
+<button class="absolute top-6 right-6 text-zinc-400 hover:text-zinc-800" onclick="closeAdmin()"><i class="fa-solid fa-xmark text-xl"></i></button>
+<div class="flex items-center gap-3 mb-6 border-b border-zinc-100 pb-4">
+<i class="fa-solid fa-code text-ibero-purple text-2xl"></i>
+<div>
+<h2 class="text-2xl font-black text-ibero-dark tracking-tight">Generador de Base de Datos</h2>
+<p class="text-xs font-bold text-zinc-400 uppercase tracking-widest">Solo GitHub (Sin Firebase)</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Contenedor Izquierdo: Formularios de Ingreso -->
+<div class="flex flex-col gap-6">
+<!-- Carga Individual -->
+<div class="bg-zinc-50 p-5 rounded-2xl border border-zinc-200">
+<h4 class="font-bold text-sm mb-4 border-b border-zinc-200 pb-2"><i class="fa-solid fa-user-plus mr-2"></i>Carga Individual</h4>
+<div class="space-y-3">
+<div>
+<label class="text-[10px] font-bold text-zinc-500 uppercase">Nombre Completo</label>
+<input class="w-full mt-1 bg-white border border-zinc-200 rounded-lg py-2 px-3 text-xs focus:ring-2 focus:ring-ibero-dark outline-none" id="add-name" placeholder="Ej: Juan Perez Lopez" type="text"/>
+</div>
+<div>
+<label class="text-[10px] font-bold text-zinc-500 uppercase">Ruta de la Foto</label>
+<input class="w-full mt-1 bg-white border border-zinc-200 rounded-lg py-2 px-3 text-xs focus:ring-2 focus:ring-ibero-dark outline-none" id="add-url" placeholder="/fotos/diplomas/juan-perez.jpg" type="text"/>
+</div>
+<div>
+<label class="text-[10px] font-bold text-zinc-500 uppercase">Programa</label>
+<input class="w-full mt-1 bg-white border border-zinc-200 rounded-lg py-2 px-3 text-xs focus:ring-2 focus:ring-ibero-dark outline-none" id="add-course" placeholder="Ej: Diplomado IA" type="text"/>
+</div>
+<button class="w-full bg-ibero-dark text-white py-2.5 rounded-lg font-bold text-xs hover:bg-black transition-all mt-2" onclick="generateSingleCode()">
                 Agregar a la lista
               </button>
-            </div>
-          </div>
-
-          <!-- Carga Masiva (Bulk Upload) -->
-          <div class="bg-zinc-50 p-5 rounded-2xl border border-zinc-200 flex-grow flex flex-col">
-            <h4 class="font-bold text-sm mb-2 border-b border-zinc-200 pb-2"><i class="fa-solid fa-list-ol mr-2"></i>Carga Masiva (Pega desde Excel)</h4>
-            <p class="text-[10px] text-zinc-500 mb-3 leading-relaxed">
-              Copia y pega celdas directo de Excel o Google Sheets en este orden estricto:<br>
-              <strong class="text-ibero-dark">Nombre Completo | Ruta de la foto | Programa</strong>
-            </p>
-            <textarea id="bulk-input" class="w-full flex-grow bg-white border border-zinc-200 rounded-lg py-2 px-3 text-xs font-mono focus:ring-2 focus:ring-ibero-dark outline-none resize-none min-h-[100px]" placeholder="Juan Perez   /fotos/diplomas/juan.jpg   Curso IA&#10;Maria Gomez   /fotos/diplomas/maria.jpg   Diplomado..."></textarea>
-            <button onclick="generateBulkCode()" class="w-full bg-indigo-600 text-white py-2.5 rounded-lg font-bold text-xs hover:bg-indigo-700 transition-all mt-3 flex justify-center items-center gap-2">
-              <i class="fa-solid fa-bolt"></i> Procesar Lista Completa
+</div>
+</div>
+<!-- Carga Masiva (Bulk Upload) -->
+<div class="bg-zinc-50 p-5 rounded-2xl border border-zinc-200 flex-grow flex flex-col">
+<h4 class="font-bold text-sm mb-2 border-b border-zinc-200 pb-2"><i class="fa-solid fa-list-ol mr-2"></i>Carga Masiva (Pega desde Excel)</h4>
+<p class="text-[10px] text-zinc-500 mb-3 leading-relaxed">
+              Copia y pega celdas directo de Excel o Google Sheets en este orden estricto:<br/>
+<strong class="text-ibero-dark">Nombre Completo | Ruta de la foto | Programa</strong>
+</p>
+<textarea class="w-full flex-grow bg-white border border-zinc-200 rounded-lg py-2 px-3 text-xs font-mono focus:ring-2 focus:ring-ibero-dark outline-none resize-none min-h-[100px]" id="bulk-input" placeholder="Juan Perez   /fotos/diplomas/juan.jpg   Curso IA
+Maria Gomez   /fotos/diplomas/maria.jpg   Diplomado..."></textarea>
+<button class="w-full bg-indigo-600 text-white py-2.5 rounded-lg font-bold text-xs hover:bg-indigo-700 transition-all mt-3 flex justify-center items-center gap-2" onclick="generateBulkCode()">
+<i class="fa-solid fa-bolt"></i> Procesar Lista Completa
             </button>
-          </div>
-
-        </div>
-
-        <!-- Contenedor Derecho: Salida de Código -->
-        <div class="flex flex-col bg-zinc-900 rounded-2xl p-5 border border-zinc-800 shadow-inner h-full relative">
-          <div class="flex justify-between items-center mb-4">
-            <h4 class="font-bold text-sm text-white"><i class="fa-solid fa-terminal mr-2"></i>Código Generado</h4>
-            <span class="text-[10px] bg-zinc-800 text-zinc-400 px-2 py-1 rounded">JS Object</span>
-          </div>
-          
-          <p class="text-[10px] text-zinc-400 mb-4">Copia este código y <strong>reemplaza</strong> todo el contenido de tu archivo <code>data.js</code> en GitHub.</p>
-          
-          <textarea id="output-json" class="w-full flex-grow bg-[#050505] text-emerald-400 border border-zinc-700 rounded-lg py-3 px-4 text-[10px] font-mono focus:outline-none resize-none min-h-[200px]" readonly></textarea>
-          
-          <button onclick="copyGeneratedCode()" class="w-full bg-emerald-600 text-white py-3 rounded-lg font-bold text-xs hover:bg-emerald-500 transition-all mt-4 flex justify-center items-center gap-2">
-            <i class="fa-solid fa-clipboard"></i> Copiar Código para data.js
+</div>
+</div>
+<!-- Contenedor Derecho: Salida de Código -->
+<div class="flex flex-col bg-zinc-900 rounded-2xl p-5 border border-zinc-800 shadow-inner h-full relative">
+<div class="flex justify-between items-center mb-4">
+<h4 class="font-bold text-sm text-white"><i class="fa-solid fa-terminal mr-2"></i>Código Generado</h4>
+<span class="text-[10px] bg-zinc-800 text-zinc-400 px-2 py-1 rounded">JS Object</span>
+</div>
+<p class="text-[10px] text-zinc-400 mb-4">Copia este código y <strong>reemplaza</strong> todo el contenido de tu archivo <code>data.js</code> en GitHub.</p>
+<textarea class="w-full flex-grow bg-[#050505] text-emerald-400 border border-zinc-700 rounded-lg py-3 px-4 text-[10px] font-mono focus:outline-none resize-none min-h-[200px]" id="output-json" readonly=""></textarea>
+<button class="w-full bg-emerald-600 text-white py-3 rounded-lg font-bold text-xs hover:bg-emerald-500 transition-all mt-4 flex justify-center items-center gap-2" onclick="copyGeneratedCode()">
+<i class="fa-solid fa-clipboard"></i> Copiar Código para data.js
           </button>
-          <p id="copy-msg" class="text-[11px] text-center font-bold mt-3 text-emerald-400 opacity-0 transition-opacity">¡Copiado con éxito!</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- FOOTER PREMIUM EXACTO -->
-  <footer class="bg-[#050505] text-zinc-400 py-12 border-t border-zinc-900 mt-auto">
-   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 mb-8 border-b border-zinc-900 pb-12">
-     <!-- Col 1: Brand & Socials -->
-     <div class="lg:col-span-2 lg:pr-12">
-      <div class="mb-1">
-       <img alt="Logo IBERO Color" class="w-40 sm:w-48 h-auto object-contain object-left" src="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/8c1109d60abc984df0e47724b61bab75d49a6b12/fotos/svg/ibero-menu-purple.svg" title="Centro Iberoamericano IBERO"/>
-      </div>
-      <p class="text-xs sm:text-sm leading-relaxed mb-5">
-       Educaci&oacute;n Executive impulsada por Inteligencia Artificial. Formamos a los fundadores y creadores corporativos del ma&ntilde;ana.
+<p class="text-[11px] text-center font-bold mt-3 text-emerald-400 opacity-0 transition-opacity" id="copy-msg">¡Copiado con éxito!</p>
+</div>
+</div>
+</div>
+</div>
+<!-- FOOTER PREMIUM EXACTO -->
+<footer class="bg-[#050505] text-zinc-400 py-12 border-t border-zinc-900 mt-auto">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 mb-8 border-b border-zinc-900 pb-12">
+<!-- Col 1: Brand & Socials -->
+<div class="lg:col-span-2 lg:pr-12">
+<div class="mb-1">
+<img alt="Logo IBERO Color" class="w-40 sm:w-48 h-auto object-contain object-left" src="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/8c1109d60abc984df0e47724b61bab75d49a6b12/fotos/svg/ibero-menu-purple.svg" title="Centro Iberoamericano IBERO">
+</img></div>
+<p class="text-xs sm:text-sm leading-relaxed mb-5">
+       Educación Executive impulsada por Inteligencia Artificial. Formamos a los fundadores y creadores corporativos del mañana.
       </p>
-      <!-- Redes Sociales Correctas -->
-      <div class="flex flex-wrap gap-3 mb-4">
-       <a aria-label="LinkedIn IBERO" class="w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center hover:bg-[#0077b5] hover:text-white transition-colors border border-zinc-800" href="https://www.linkedin.com/company/centro-iberoamericano/" target="_blank">
-        <i class="fa-brands fa-linkedin-in text-sm">
-        </i>
-       </a>
-       <a aria-label="Instagram IBERO" class="w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center hover:bg-[#E1306C] hover:text-white transition-colors border border-zinc-800" href="https://www.instagram.com/centro.iberoamericano/" target="_blank">
-        <i class="fa-brands fa-instagram text-sm">
-        </i>
-       </a>
-       <a aria-label="Facebook IBERO" class="w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center hover:bg-[#1877F2] hover:text-white transition-colors border border-zinc-800" href="https://www.facebook.com/ibero.education/" target="_blank">
-        <i class="fa-brands fa-facebook-f text-sm">
-        </i>
-       </a>
-       <a aria-label="WhatsApp IBERO" class="w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center hover:bg-[#25D366] hover:text-white transition-colors border border-zinc-800" href="https://wa.me/19152854778" target="_blank">
-        <i class="fa-brands fa-whatsapp text-sm">
-        </i>
-       </a>
-      </div>
-      <!-- Correo Clickable -->
-      <div class="mt-4">
-       <a class="inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-zinc-300 hover:text-white transition-colors group" href="mailto:programas@ibero.education" title="Enviar correo a IBERO">
-        <div class="w-8 h-8 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center group-hover:bg-ibero-purple group-hover:border-ibero-purple transition-colors group-hover:text-theme-dark">
-         <i class="fa-solid fa-envelope text-xs">
-         </i>
-        </div>
-        <span class="border-b border-transparent group-hover:border-zinc-500 pb-0.5">
+<!-- Redes Sociales Correctas -->
+<div class="flex flex-wrap gap-3 mb-4">
+<a aria-label="LinkedIn IBERO" class="w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center hover:bg-[#0077b5] hover:text-white transition-colors border border-zinc-800" href="https://www.linkedin.com/company/centro-iberoamericano/" target="_blank">
+<i class="fa-brands fa-linkedin-in text-sm">
+</i>
+</a>
+<a aria-label="Instagram IBERO" class="w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center hover:bg-[#E1306C] hover:text-white transition-colors border border-zinc-800" href="https://www.instagram.com/centro.iberoamericano/" target="_blank">
+<i class="fa-brands fa-instagram text-sm">
+</i>
+</a>
+<a aria-label="Facebook IBERO" class="w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center hover:bg-[#1877F2] hover:text-white transition-colors border border-zinc-800" href="https://www.facebook.com/ibero.education/" target="_blank">
+<i class="fa-brands fa-facebook-f text-sm">
+</i>
+</a>
+<a aria-label="WhatsApp IBERO" class="w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center hover:bg-[#25D366] hover:text-white transition-colors border border-zinc-800" href="https://wa.me/19152854778" target="_blank">
+<i class="fa-brands fa-whatsapp text-sm">
+</i>
+</a>
+</div>
+<!-- Correo Clickable -->
+<div class="mt-4">
+<a class="inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-zinc-300 hover:text-white transition-colors group" href="mailto:programas@ibero.education" title="Enviar correo a IBERO">
+<div class="w-8 h-8 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center group-hover:bg-ibero-purple group-hover:border-ibero-purple transition-colors group-hover:text-theme-dark">
+<i class="fa-solid fa-envelope text-xs">
+</i>
+</div>
+<span class="border-b border-transparent group-hover:border-zinc-500 pb-0.5">
          programas@ibero.education
         </span>
-       </a>
-      </div>
-     </div>
-     <!-- Col 2: Programas -->
-     <div>
-      <h4 class="text-white font-bold mb-4 text-sm">
+</a>
+</div>
+</div>
+<!-- Col 2: Programas -->
+<div>
+<h4 class="text-white font-bold mb-4 text-sm">
        Programas
       </h4>
-      <ul class="space-y-2 text-xs sm:text-sm">
-       <li>
-        <a class="hover:text-white transition-colors" href="https://ibero.education/oferta-academica/" target="_blank">
-         Oferta Acad&eacute;mica
+<ul class="space-y-2 text-xs sm:text-sm">
+<li>
+<a class="hover:text-white transition-colors" href="https://ibero.education/oferta-academica/" target="_blank">
+         Oferta Académica
         </a>
-       </li>
-       <li>
-        <a class="hover:text-white transition-colors" href="https://ibero.education/calendario-academico/" target="_blank">
+</li>
+<li>
+<a class="hover:text-white transition-colors" href="https://ibero.education/calendario-academico/" target="_blank">
          Calendario Cursos
         </a>
-       </li>
-       <li>
-        <a class="hover:text-white transition-colors" href="https://ibero.education/certificaciones-intensivas/" target="_blank">
+</li>
+<li>
+<a class="hover:text-white transition-colors" href="https://ibero.education/certificaciones-intensivas/" target="_blank">
          Cursos Intensivos
         </a>
-       </li>
-       <li>
-        <a class="hover:text-white transition-colors" href="https://ibero.education/diplomados-intensivos/" target="_blank">
+</li>
+<li>
+<a class="hover:text-white transition-colors" href="https://ibero.education/diplomados-intensivos/" target="_blank">
          Diplomados Ejecutivos
         </a>
-       </li>
-       <li>
-        <a class="hover:text-white transition-colors" href="https://ibero.education/executive-master/" target="_blank">
+</li>
+<li>
+<a class="hover:text-white transition-colors" href="https://ibero.education/executive-master/" target="_blank">
          Executive Masters
         </a>
-       </li>
-       <li>
-        <a class="hover:text-white transition-colors" href="https://ibero.education/english-courses/" target="_blank">
-         Programas de Ingl&eacute;s
+</li>
+<li>
+<a class="hover:text-white transition-colors" href="https://ibero.education/english-courses/" target="_blank">
+         Programas de Inglés
         </a>
-       </li>
-      </ul>
-     </div>
-     <!-- Col 3: Ecosistema IBERO -->
-     <div>
-      <h4 class="text-white font-bold mb-4 text-sm">
+</li>
+</ul>
+</div>
+<!-- Col 3: Ecosistema IBERO -->
+<div>
+<h4 class="text-white font-bold mb-4 text-sm">
        Ecosistema
       </h4>
-      <ul class="space-y-2 text-xs sm:text-sm">
-       <li>
-        <a class="hover:text-white transition-colors" href="https://qlase.goatify.app/" target="_blank">
+<ul class="space-y-2 text-xs sm:text-sm">
+<li>
+<a class="hover:text-white transition-colors" href="https://qlase.goatify.app/" target="_blank">
          Campus Virtual
         </a>
-       </li>
-       <li>
-        <a class="hover:text-white transition-colors" href="https://ibero.education/ibero-academy/" target="_blank">
+</li>
+<li>
+<a class="hover:text-white transition-colors" href="https://ibero.education/ibero-academy/" target="_blank">
          IBERO Academy
         </a>
-       </li>
-       <li>
-        <a class="hover:text-white transition-colors" href="https://ibero.education/ibero-labs/" target="_blank">
+</li>
+<li>
+<a class="hover:text-white transition-colors" href="https://ibero.education/ibero-labs/" target="_blank">
          IBERO Labs
         </a>
-       </li>
-       <li>
-        <a class="hover:text-white transition-colors" href="https://ibero.education/artes-liberales/" target="_blank">
+</li>
+<li>
+<a class="hover:text-white transition-colors" href="https://ibero.education/artes-liberales/" target="_blank">
          Artes liberales
         </a>
-       </li>
-       <li>
-        <a class="hover:text-white transition-colors" href="https://www.ibero.education/goatify/" target="_blank">
+</li>
+<li>
+<a class="hover:text-white transition-colors" href="https://www.ibero.education/goatify/" target="_blank">
          Laboratorio Tech
         </a>
-       </li>
-       <li>
-        <a class="hover:text-white transition-colors" href="https://ibero.education/consultoria-en-educacion/" target="_blank">
-         Consultor&iacute;a B2B
+</li>
+<li>
+<a class="hover:text-white transition-colors" href="https://ibero.education/consultoria-en-educacion/" target="_blank">
+         Consultoría B2B
         </a>
-       </li>
-      </ul>
-     </div>
-     <!-- Col 4: Nosotros -->
-     <div>
-      <h4 class="text-white font-bold mb-4 text-sm">
+</li>
+</ul>
+</div>
+<!-- Col 4: Nosotros -->
+<div>
+<h4 class="text-white font-bold mb-4 text-sm">
        Nosotros
       </h4>
-      <ul class="space-y-2 text-xs sm:text-sm">
-       <li>
-        <a class="hover:text-white transition-colors" href="https://ibero.education/" target="_blank">
+<ul class="space-y-2 text-xs sm:text-sm">
+<li>
+<a class="hover:text-white transition-colors" href="https://ibero.education/" target="_blank">
          Inicio Institucional
         </a>
-       </li>
-       <li>
-        <a class="hover:text-white transition-colors" href="https://ibero.education/metodologia/" target="_blank">
-         Metodolog&iacute;a 360&deg;
+</li>
+<li>
+<a class="hover:text-white transition-colors" href="https://ibero.education/metodologia/" target="_blank">
+         Metodología 360°
         </a>
-       </li>
-       <li>
-        <a class="hover:text-white transition-colors" href="https://ibero.education/#colaboraciones" target="_blank">
+</li>
+<li>
+<a class="hover:text-white transition-colors" href="https://ibero.education/#colaboraciones" target="_blank">
          Alianzas y Avales
         </a>
-       </li>
-       <li>
-        <a class="hover:text-white transition-colors" href="https://ibero.education/trabaja-con-nosotros/" target="_blank">
+</li>
+<li>
+<a class="hover:text-white transition-colors" href="https://ibero.education/trabaja-con-nosotros/" target="_blank">
          Nuestro Claustro
         </a>
-       </li>
-       <li>
-        <a class="hover:text-white transition-colors" href="https://ibero.education/publicaciones/" target="_blank">
+</li>
+<li>
+<a class="hover:text-white transition-colors" href="https://ibero.education/publicaciones/" target="_blank">
          Publicaciones
         </a>
-       </li>
-       <li>
-        <a class="hover:text-white transition-colors" href="https://ibero.education/trabaja-con-nosotros/" target="_blank">
+</li>
+<li>
+<a class="hover:text-white transition-colors" href="https://ibero.education/trabaja-con-nosotros/" target="_blank">
          Trabaja con nosotros
         </a>
-       </li>
-       <li>
-        <a class="hover:text-white transition-colors" href="https://ibero.education/contacto/" target="_blank">
+</li>
+<li>
+<a class="hover:text-white transition-colors" href="https://ibero.education/contacto/" target="_blank">
          Contactos y Soporte
         </a>
-       </li>
-      </ul>
-     </div>
-     <!-- Col 5: Legal & Soporte -->
-     <div>
-      <h4 class="text-white font-bold mb-4 text-sm">
+</li>
+</ul>
+</div>
+<!-- Col 5: Legal & Soporte -->
+<div>
+<h4 class="text-white font-bold mb-4 text-sm">
        Legal &amp; Admisiones
       </h4>
-      <ul class="space-y-2 text-xs sm:text-sm">
-       <li>
-        <a class="hover:text-white transition-colors" href="https://ibero.education/registro-y-admisiones/" target="_blank">
+<ul class="space-y-2 text-xs sm:text-sm">
+<li>
+<a class="hover:text-white transition-colors" href="https://ibero.education/registro-y-admisiones/" target="_blank">
          Registro y admisiones
         </a>
-       </li>
-       <li>
-        <a class="hover:text-white transition-colors" href="https://ibero.education/ayuda-financiera/" target="_blank">
+</li>
+<li>
+<a class="hover:text-white transition-colors" href="https://ibero.education/ayuda-financiera/" target="_blank">
          Ayuda Financiera
         </a>
-       </li>
-       <li>
-        <a class="hover:text-white transition-colors" href="https://ibero.education/contacto/" target="_blank">
+</li>
+<li>
+<a class="hover:text-white transition-colors" href="https://ibero.education/contacto/" target="_blank">
          Soporte al Estudiante
         </a>
-       </li>
-       <li>
-        <a class="hover:text-white transition-colors" href="#">
+</li>
+<li>
+<a class="hover:text-white transition-colors" href="#">
          Verificar Certificado QR
         </a>
-       </li>
-       <li>
-        <a class="hover:text-white transition-colors" href="#">
-         T&eacute;rminos y Condiciones
+</li>
+<li>
+<a class="hover:text-white transition-colors" href="#">
+         Términos y Condiciones
         </a>
-       </li>
-       <li>
-        <a class="hover:text-white transition-colors" href="#">
-         Pol&iacute;ticas de Privacidad
+</li>
+<li>
+<a class="hover:text-white transition-colors" href="#">
+         Políticas de Privacidad
         </a>
-       </li>
-      </ul>
-     </div>
-    </div>
-    <div class="flex flex-col md:flex-row justify-between items-center text-[10px] sm:text-xs pt-6 pb-24 md:pb-4 md:px-16 border-t border-zinc-900/50">
-     <p class="text-zinc-500 mb-4 md:mb-0 text-center">
-      &copy; 2026 Centro Iberoamericano (IBERO). Todos los derechos reservados.
+</li>
+</ul>
+</div>
+</div>
+<div class="flex flex-col md:flex-row justify-between items-center text-[10px] sm:text-xs pt-6 pb-24 md:pb-4 md:px-16 border-t border-zinc-900/50">
+<p class="text-zinc-500 mb-4 md:mb-0 text-center">
+      © 2026 Centro Iberoamericano (IBERO). Todos los derechos reservados.
      </p>
-     <div class="flex flex-col items-center md:items-end gap-1.5 text-center md:text-right">
-      <p class="text-zinc-500">
-       Sitio desarrollado y dise&ntilde;ado por
+<div class="flex flex-col items-center md:items-end gap-1.5 text-center md:text-right">
+<p class="text-zinc-500">
+       Sitio desarrollado y diseñado por
        <a class="text-emerald-500 hover:text-white font-bold transition-colors" href="https://www.goatify.app" target="_blank" title="Goatify Desarrollo Tech">
         GOATIFY
        </a>
-      </p>
-     </div>
-    </div>
-   </div>
-  </footer>
-
-  <!-- ========================================================= -->
-  <!-- BASE DE DATOS ESTÁTICA EXTERNA                            -->
-  <!-- ========================================================= -->
-  <script>window.BASE_DE_DATOS_DIPLOMAS = window.BASE_DE_DATOS_DIPLOMAS || {};</script>
-  <script src="./data.js"></script>
-
-  <!-- LÓGICA DEL SITIO -->
-  <script>
+</p>
+</div>
+</div>
+</div>
+</footer>
+<!-- ========================================================= -->
+<!-- BASE DE DATOS ESTÁTICA EXTERNA                            -->
+<!-- ========================================================= -->
+<script>window.BASE_DE_DATOS_DIPLOMAS = window.BASE_DE_DATOS_DIPLOMAS || {};</script>
+<script src="./data.js"></script>
+<!-- LÓGICA DEL SITIO -->
+<script>
     // --- MENÚ MÓVIL Y SCROLL DEL HEADER ---
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
@@ -1140,5 +1325,135 @@
       });
     }
   </script>
+<!-- Unified menu wheel scroll -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const rows = document.querySelectorAll('.menu-scroll-row');
+  rows.forEach(function (row) {
+    row.addEventListener('wheel', function (event) {
+      const canScroll = row.scrollWidth > row.clientWidth + 2;
+      if (!canScroll) return;
+      if (Math.abs(event.deltaY) > Math.abs(event.deltaX)) {
+        row.scrollLeft += event.deltaY;
+        event.preventDefault();
+      }
+    }, { passive: false });
+  });
+});
+</script>
+<script id="desktop-dropdown-init">
+(function(){
+  function initDesktopDropdowns(){
+    var wrappers = document.querySelectorAll('.desktop-dropdown');
+    wrappers.forEach(function(wrapper){
+      var trigger = wrapper.querySelector('[data-dropdown-trigger="true"]');
+      var panel = wrapper.querySelector('.dropdown-panel');
+      if (!trigger || !panel || trigger.dataset.dropdownBound === 'true') return;
+      trigger.dataset.dropdownBound = 'true';
+
+      function setMobileDropdownLayerState(isOpen){
+        if (window.innerWidth >= 768) return;
+        var navbar = document.getElementById('navbar');
+        var row = wrapper.closest('.menu-scroll-row');
+        if (navbar) {
+          navbar.style.overflow = 'visible';
+          navbar.style.zIndex = '9999';
+        }
+        if (row) {
+          row.style.overflowX = isOpen ? 'visible' : '';
+          row.style.overflowY = 'visible';
+        }
+      }
+      function closeMenu(){
+        wrapper.classList.remove('open');
+        trigger.setAttribute('aria-expanded','false');
+        panel.style.display = 'none';
+        setMobileDropdownLayerState(false);
+      }
+      function openMenu(){
+        wrapper.classList.add('open');
+        trigger.setAttribute('aria-expanded','true');
+        panel.style.display = 'block';
+        setMobileDropdownLayerState(true);
+      }
+      function closeOthers(){
+        document.querySelectorAll('.desktop-dropdown.open').forEach(function(other){
+          if (other === wrapper) return;
+          other.classList.remove('open');
+          var otherTrigger = other.querySelector('[data-dropdown-trigger="true"]');
+          var otherPanel = other.querySelector('.dropdown-panel');
+          if (otherTrigger) otherTrigger.setAttribute('aria-expanded','false');
+          if (otherPanel) otherPanel.style.display = 'none';
+        });
+        setMobileDropdownLayerState(false);
+      }
+
+      closeMenu();
+      trigger.addEventListener('click', function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        var isOpen = wrapper.classList.contains('open');
+        closeOthers();
+        if (isOpen) closeMenu(); else openMenu();
+      });
+      panel.addEventListener('click', function(e){ e.stopPropagation(); });
+    });
+
+    document.addEventListener('click', function(){
+      document.querySelectorAll('.desktop-dropdown.open').forEach(function(wrapper){
+        wrapper.classList.remove('open');
+        var trigger = wrapper.querySelector('[data-dropdown-trigger="true"]');
+        var panel = wrapper.querySelector('.dropdown-panel');
+        if (trigger) trigger.setAttribute('aria-expanded','false');
+        if (panel) panel.style.display = 'none';
+      });
+    });
+  }
+
+  function initMobileAccordions(){
+    var accordions = document.querySelectorAll('.mobile-accordion');
+    accordions.forEach(function(accordion){
+      var button = accordion.querySelector('.mobile-accordion-toggle');
+      var panel = accordion.querySelector('.mobile-accordion-panel');
+      if (!button || !panel || button.dataset.bound === 'true') return;
+      button.dataset.bound = 'true';
+      function setOpen(open){
+        accordion.classList.toggle('is-open', open);
+        button.setAttribute('aria-expanded', open ? 'true' : 'false');
+        panel.classList.toggle('hidden', !open);
+        panel.style.display = open ? 'block' : 'none';
+      }
+      setOpen(false);
+      button.addEventListener('click', function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        var willOpen = !accordion.classList.contains('is-open');
+        accordions.forEach(function(other){
+          if (other === accordion) return;
+          var otherButton = other.querySelector('.mobile-accordion-toggle');
+          var otherPanel = other.querySelector('.mobile-accordion-panel');
+          if (otherButton) otherButton.setAttribute('aria-expanded','false');
+          if (otherPanel) {
+            other.classList.remove('is-open');
+            otherPanel.classList.add('hidden');
+            otherPanel.style.display = 'none';
+          }
+        });
+        setOpen(willOpen);
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function(){
+      initDesktopDropdowns();
+      initMobileAccordions();
+    });
+  } else {
+    initDesktopDropdowns();
+    initMobileAccordions();
+  }
+})();
+</script>
 </body>
 </html>

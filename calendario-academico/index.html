@@ -1,23 +1,24 @@
 <!DOCTYPE html>
+
 <html class="scroll-smooth" lang="es">
- <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
-  <title>
-   Calendario Acad&eacute;mico 2026 | Fechas de Inicio | IBERO
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>
+   Calendario Académico 2026 | Fechas de Inicio | IBERO
   </title>
-  <!-- FAVICON OFICIAL -->
-  <link href="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/3339294f71590eeeaa7f0b0b0591f5e09156ed96/fotos/logos%20ibero/ibero-favicon.svg" rel="icon" type="image/svg+xml"/>
-  <!-- Tailwind CSS via CDN -->
-  <script src="https://cdn.tailwindcss.com">
-  </script>
-  <!-- Google Fonts (Inter + Playfair para las cursivas elegantes) -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&amp;display=swap" rel="stylesheet"/>
-  <!-- Icons (FontAwesome y Phosphor) -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
-  <script src="https://unpkg.com/@phosphor-icons/web">
-  </script>
-  <script>
+<!-- FAVICON OFICIAL -->
+<link href="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/3339294f71590eeeaa7f0b0b0591f5e09156ed96/fotos/logos%20ibero/ibero-favicon.svg" rel="icon" type="image/svg+xml"/>
+<!-- Tailwind CSS via CDN -->
+<script src="https://cdn.tailwindcss.com">
+</script>
+<!-- Google Fonts (Inter + Playfair para las cursivas elegantes) -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&amp;display=swap" rel="stylesheet"/>
+<!-- Icons (FontAwesome y Phosphor) -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<script src="https://unpkg.com/@phosphor-icons/web">
+</script>
+<script>
    tailwind.config = {
       theme: {
         extend: {
@@ -54,7 +55,7 @@
       }
     }
   </script>
-  <style>
+<style>
    body { background-color: #0f172a; color: white; overflow-x: hidden; }
     
     /* Nav Glassmorphism (Para el menú principal unificado) */
@@ -185,418 +186,606 @@
       }
       #header-section { padding-top: 20px !important; padding-bottom: 20px !important; }
     }
-  </style>
-  <meta content="Consulta el Calendario Acad&eacute;mico 2026 de IBERO. Fechas de inicio, inscripciones y duraci&oacute;n de todos nuestros Executive Masters, Diplomados y Certificaciones." name="description"/>
-  <link href="https://ibero.education/calendario-academico/" rel="canonical"/>
-  <meta content="Calendario Acad&eacute;mico 2026 | Fechas de Inicio | IBERO" property="og:title"/>
-  <meta content="Consulta el Calendario Acad&eacute;mico 2026 de IBERO. Fechas de inicio, inscripciones y duraci&oacute;n de todos nuestros Executive Masters, Diplomados y Certificaciones." property="og:description"/>
-  <meta content="https://ibero.education/calendario-academico/" property="og:url"/>
-  <meta content="website" property="og:type"/>
-  <meta content="https://ibero.education/fotos/og-image.jpg" property="og:image"/>
-  <meta content="calendario acad&eacute;mico, fechas inicio clases, inscripciones, cronograma ibero 2026, matriculaci&oacute;n" name="keywords"/>
-  <meta content="index, follow" name="robots"/>
-  <meta content="Centro Iberoamericano (IBERO)" name="author"/>
-  <meta content="es_ES" property="og:locale"/>
-  <meta content="Centro Iberoamericano" property="og:site_name"/>
- </head>
- <body class="antialiased selection:bg-ibero-red selection:text-white pt-[144px] md:pt-[152px]">
-  <!-- Botón Scroll to Top -->
-  <button aria-label="Volver arriba" id="scroll-top-btn" onclick="scrollToTop()">
-   <i class="ph-fill ph-caret-up text-lg">
-   </i>
-  </button>
-  <!-- HEADER / NAVEGACIÓN ESTANDARIZADO -->
-  <nav class="fixed top-0 left-0 w-full z-[100] transition-all duration-300 shadow-sm flex flex-col" id="navbar">
-   <!-- Fila 1: Logo y ENLACES A CURSOS DIRECTOS -->
-   <div class="w-full nav-glass border-b border-zinc-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-     <div class="flex justify-between items-center h-14 md:h-16 gap-2 sm:gap-4">
-      <a class="flex-shrink-0 flex items-center cursor-pointer" href="https://ibero.education/" target="_blank">
-       <img alt="Logo IBERO" class="h-8 sm:h-10 md:h-10 w-auto object-contain" src="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/1557a79470d9c26d1ad0f0b00243f9f03e55cf2f/fotos/svg/ibero-logo-black-redE.svg"/>
-      </a>
-      <div class="flex flex-1 items-center justify-end gap-5 md:gap-8 overflow-x-auto hide-scrollbar px-2 sm:px-4">
-       <a class="text-[11px] md:text-[13px] font-bold text-zinc-600 hover:text-black transition-colors whitespace-nowrap" href="https://ibero.education/marketing-digital-con-ia/" target="_blank">
+  @media (max-width: 767px){
+  #navbar{
+    z-index:9999 !important;
+    overflow:visible !important;
+  }
+  #navbar .desktop-dropdown.open{
+    z-index:10001;
+  }
+  #navbar .dropdown-panel{
+    z-index:10002 !important;
+  }
+  #navbar .desktop-dropdown.open .dropdown-panel{
+    padding-top:0 !important;
+  }
+}
+</style>
+<meta content="Consulta el Calendario Académico 2026 de IBERO. Fechas de inicio, inscripciones y duración de todos nuestros Executive Masters, Diplomados y Certificaciones." name="description"/>
+<link href="https://ibero.education/calendario-academico/" rel="canonical"/>
+<meta content="Calendario Académico 2026 | Fechas de Inicio | IBERO" property="og:title"/>
+<meta content="Consulta el Calendario Académico 2026 de IBERO. Fechas de inicio, inscripciones y duración de todos nuestros Executive Masters, Diplomados y Certificaciones." property="og:description"/>
+<meta content="https://ibero.education/calendario-academico/" property="og:url"/>
+<meta content="website" property="og:type"/>
+<meta content="https://ibero.education/fotos/og-image.jpg" property="og:image"/>
+<meta content="calendario académico, fechas inicio clases, inscripciones, cronograma ibero 2026, matriculación" name="keywords"/>
+<meta content="index, follow" name="robots"/>
+<meta content="Centro Iberoamericano (IBERO)" name="author"/>
+<meta content="es_ES" property="og:locale"/>
+<meta content="Centro Iberoamericano" property="og:site_name"/>
+<style id="ibero-menu-interaction-fix">
+@media (min-width: 768px){
+  .desktop-dropdown .dropdown-panel{display:none;}
+  .desktop-dropdown.open .dropdown-panel{display:block !important;}
+}
+.desktop-dropdown-trigger-wrap{
+  display:inline-flex;
+  align-items:center;
+  gap:.3rem;
+  white-space:nowrap;
+}
+.desktop-dropdown-link{
+  white-space:nowrap;
+  color:#52525b;
+  transition:color .2s ease;
+}
+.desktop-dropdown-link:hover,
+.desktop-dropdown.open .desktop-dropdown-link{
+  color:#18181b;
+}
+.desktop-dropdown-toggle,
+.mobile-accordion-toggle{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:1rem;
+  height:1rem;
+  min-width:1rem;
+  padding:0;
+  border:none;
+  border-radius:0;
+  background:transparent;
+  font-size:11px;
+  line-height:1;
+  color:#71717a;
+  box-shadow:none;
+  flex-shrink:0;
+  opacity:.82;
+  transition:transform .2s ease,color .2s ease,opacity .2s ease;
+}
+.desktop-dropdown-toggle:hover,
+.desktop-dropdown.open .desktop-dropdown-toggle,
+.mobile-accordion.is-open .mobile-accordion-toggle,
+.mobile-accordion-toggle:hover{
+  color:#27272a;
+  opacity:1;
+  background:transparent;
+}
+.desktop-dropdown.open .desktop-dropdown-toggle,
+.mobile-accordion.is-open .mobile-accordion-toggle{
+  transform:rotate(180deg);
+}
+.mobile-accordion{border-bottom:1px solid rgb(244 244 245);}
+.mobile-accordion-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:.65rem;
+  padding:.625rem .75rem;
+}
+.mobile-accordion-link{
+  flex:1;
+  min-width:0;
+  display:block;
+  font-size:.875rem;
+  line-height:1.25rem;
+  font-weight:500;
+  color:#52525b;
+}
+.mobile-accordion-link:hover{color:#18181b;}
+.mobile-accordion-panel{
+  display:none;
+  position:relative;
+  padding:.1rem .75rem .65rem 1.65rem;
+}
+.mobile-accordion.is-open .mobile-accordion-panel{display:block;}
+.mobile-accordion-panel::before{
+  content:'';
+  position:absolute;
+  left:1.08rem;
+  top:.15rem;
+  bottom:.7rem;
+  width:1px;
+  background:linear-gradient(to bottom, rgba(113,113,122,.22), rgba(113,113,122,.06));
+}
+.mobile-accordion-sublink{
+  display:block;
+  margin:.28rem 0;
+  padding:.5rem .7rem;
+  font-size:12px;
+  line-height:1.15rem;
+  color:#52525b;
+  background:#ffffff;
+  border:1px solid #e4e4e7;
+  border-radius:.8rem;
+  box-shadow:0 4px 12px rgba(0,0,0,0.04);
+}
+.mobile-accordion-sublink:hover{
+  color:#18181b;
+  background:#fafafa;
+  border-color:#d4d4d8;
+}
+@media (max-width: 767px){
+  #navbar{
+    z-index:9999 !important;
+    overflow:visible !important;
+  }
+  #navbar .desktop-dropdown.open{
+    z-index:10001;
+  }
+  #navbar .dropdown-panel{
+    z-index:10002 !important;
+  }
+  #navbar .desktop-dropdown.open .dropdown-panel{
+    padding-top:0 !important;
+  }
+}
+</style>
+</head>
+<body class="antialiased selection:bg-ibero-red selection:text-white pt-[144px] md:pt-[152px]">
+<!-- Botón Scroll to Top -->
+<button aria-label="Volver arriba" id="scroll-top-btn" onclick="scrollToTop()">
+<i class="ph-fill ph-caret-up text-lg">
+</i>
+</button>
+<!-- HEADER / NAVEGACIÓN ESTANDARIZADO -->
+<nav class="fixed top-0 left-0 w-full z-[100] transition-all duration-300 shadow-sm flex flex-col" id="navbar">
+<!-- Fila 1: Logo y ENLACES A CURSOS DIRECTOS -->
+<div class="w-full nav-glass border-b border-zinc-200">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14 md:h-16 gap-2 sm:gap-4">
+<a class="flex-shrink-0 flex items-center cursor-pointer" href="https://ibero.education/" target="_blank">
+<img alt="Logo IBERO" class="h-8 sm:h-10 md:h-10 w-auto object-contain" src="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/1557a79470d9c26d1ad0f0b00243f9f03e55cf2f/fotos/svg/ibero-logo-black-redE.svg"/>
+</a>
+<div class="flex flex-1 items-center justify-end gap-5 md:gap-8 overflow-x-auto hide-scrollbar px-2 sm:px-4">
+<a class="text-[11px] md:text-[13px] font-bold text-zinc-600 hover:text-black transition-colors whitespace-nowrap" href="https://ibero.education/marketing-digital-con-ia/" target="_blank">
         MKT con IA
        </a>
-       <a class="text-[11px] md:text-[13px] font-bold text-zinc-600 hover:text-black transition-colors whitespace-nowrap" href="https://ibero.education/ia-para-docentes/" target="_blank">
+<a class="text-[11px] md:text-[13px] font-bold text-zinc-600 hover:text-black transition-colors whitespace-nowrap" href="https://ibero.education/ia-para-docentes/" target="_blank">
         IA Docentes
        </a>
-       <a class="text-[11px] md:text-[13px] font-bold text-zinc-600 hover:text-black transition-colors whitespace-nowrap" href="https://ibero.education/monetiza-tu-idea/" target="_blank">
+<a class="text-[11px] md:text-[13px] font-bold text-zinc-600 hover:text-black transition-colors whitespace-nowrap" href="https://ibero.education/monetiza-tu-idea/" target="_blank">
         Monetiza IA
        </a>
-       <a class="text-[11px] md:text-[13px] font-bold text-zinc-600 hover:text-black transition-colors whitespace-nowrap" href="https://ibero.education/crea-tu-academia/" target="_blank">
+<a class="text-[11px] md:text-[13px] font-bold text-zinc-600 hover:text-black transition-colors whitespace-nowrap" href="https://ibero.education/crea-tu-academia/" target="_blank">
         Crea tu Academia
        </a>
-       <a class="text-[11px] md:text-[13px] font-bold text-zinc-600 hover:text-black transition-colors whitespace-nowrap" href="https://ibero.education/comunicacion-efectiva/" target="_blank">
-        Comunicaci&oacute;n Efectiva
+<a class="text-[11px] md:text-[13px] font-bold text-zinc-600 hover:text-black transition-colors whitespace-nowrap" href="https://ibero.education/comunicacion-efectiva/" target="_blank">
+        Comunicación Efectiva
        </a>
-       <a class="text-[11px] md:text-[13px] font-bold text-zinc-600 hover:text-black transition-colors whitespace-nowrap" href="https://ibero.education/diplomado-ia-negocios-marketing/" target="_blank">
+<a class="text-[11px] md:text-[13px] font-bold text-zinc-600 hover:text-black transition-colors whitespace-nowrap" href="https://ibero.education/diplomado-ia-negocios-marketing/" target="_blank">
         Diplomado
        </a>
-       <a class="text-[11px] md:text-[13px] font-bold text-zinc-600 hover:text-black transition-colors whitespace-nowrap" href="https://ibero.education/master-ejecutivo-ia/" target="_blank">
+<a class="text-[11px] md:text-[13px] font-bold text-zinc-600 hover:text-black transition-colors whitespace-nowrap" href="https://ibero.education/master-ejecutivo-ia/" target="_blank">
         Executive Master
        </a>
-      </div>
-      <div class="md:hidden flex items-center shrink-0 border-l border-zinc-200 pl-2 ml-1">
-       <button class="text-zinc-600 hover:text-black focus:outline-none p-2 transition-colors" id="mobile-menu-btn">
-        <i class="fa-solid fa-bars text-xl">
-        </i>
-       </button>
-      </div>
-     </div>
-    </div>
-   </div>
-   <!-- Fila 2: Enlaces Institucionales -->
-   <div class="flex w-full bg-[#050505] text-white border-b border-zinc-900">
-    <div class="max-w-7xl mx-auto w-full flex justify-start lg:justify-end items-center h-10 text-[10px] md:text-[11px] font-semibold tracking-wider uppercase overflow-x-auto hide-scrollbar">
-     <div class="flex items-center gap-5 md:gap-7 min-w-max px-4 sm:px-6 lg:px-8">
-      <a class="text-white hover:text-zinc-300 transition-colors" href="https://ibero.education/" target="_blank">
-       Inicio
-      </a>
-      <a class="text-white hover:text-zinc-300 transition-colors" href="https://qlase.goatify.app/" target="_blank">
-       Campus Virtual
-      </a>
-      <a class="text-zinc-200 hover:text-white transition-colors border border-white/15 bg-white/5 hover:bg-white/10 rounded-full px-3 py-1 whitespace-nowrap" href="https://ibero.education/diplomas/#" target="_blank">
-       Verificar Diplomas
-      </a>
-      <a class="text-white hover:text-zinc-300 transition-colors" href="https://ibero.education/trabaja-con-nosotros/" target="_blank">
-       Docentes
-      </a>
-      <a class="text-white hover:text-zinc-300 transition-colors" href="https://ia.goatify.app/#discovery" target="_blank">
-       Publicaciones
-      </a>
-      <a class="text-white hover:text-zinc-300 transition-colors" href="https://ibero.education/trabaja-con-nosotros/" target="_blank">
-       Trabaja con nosotros
-      </a>
-      <a class="text-white hover:text-zinc-300 transition-colors" href="https://ibero.education/ayuda-financiera/" target="_blank">
-       Ayuda Financiera
-      </a>
-      <a class="text-white hover:text-zinc-300 transition-colors" href="https://ibero.education/contacto/" target="_blank">
-       Contactos
-      </a>
-     </div>
-    </div>
-   </div>
-   <!-- Fila 3: Ecosistema y Programas Académicos Externos -->
-   <div class="flex w-full bg-zinc-50/90 border-b border-zinc-200 backdrop-blur-md">
-    <div class="max-w-7xl mx-auto w-full flex justify-start items-center h-12 text-[11px] md:text-[12px] font-medium text-zinc-600 overflow-x-auto hide-scrollbar">
-     <div class="flex items-center gap-6 lg:gap-12 min-w-max px-4 sm:px-6 lg:px-8">
-      <a class="hover:text-black hover:font-bold transition-all" href="https://ibero.education/oferta-academica/" target="_blank">
-       Oferta Acad&eacute;mica
-      </a>
-      <a class="text-ibero-red font-bold border-b-2 border-ibero-red pb-0.5 pointer-events-none" href="#">
-       Calendario Cursos
-      </a>
-      <a class="hover:text-black hover:font-bold transition-all" href="https://ibero.education/certificaciones-intensivas/" target="_blank">
-       Certificaciones
-      </a>
-      <a class="hover:text-black hover:font-bold transition-all" href="https://ibero.education/diplomados-intensivos/" target="_blank">
-       Diplomados
-      </a>
-      <a class="hover:text-black hover:font-bold transition-all" href="https://ibero.education/executive-master/" target="_blank">
-       Executive Master
-      </a>
-      <a class="hover:text-black hover:font-bold transition-all" href="https://ibero.education/ibero-academy/" target="_blank">
-       IBERO Academy
-      </a>
-      <a class="hover:text-black hover:font-bold transition-all" href="https://ibero.education/ibero-labs/" target="_blank">
-       IBERO Labs
-      </a>
-      <a class="hover:text-black hover:font-bold transition-all" href="https://ibero.education/artes-liberales/" target="_blank">
-       Artes liberales
-      </a>
-      <a class="hover:text-black hover:font-bold transition-all" href="https://ibero.education/consultoria-en-educacion/" target="_blank">
-       Consultor&iacute;a Educaci&oacute;n
-      </a>
-     </div>
-    </div>
-   </div>
-   <!-- Mobile Menu Panel -->
-   <div class="hidden md:hidden bg-[#09090B] border-t border-zinc-800 absolute w-full shadow-2xl max-h-[calc(100vh-144px)] overflow-y-auto top-[144px]" id="mobile-menu">
-    <div class="px-4 pt-2 pb-6 space-y-1 flex flex-col">
-     <div class="mb-2 px-3 pt-2">
-      <span class="text-[10px] font-bold tracking-widest text-zinc-500 uppercase">
+</div>
+<div class="md:hidden flex items-center shrink-0 border-l border-zinc-200 pl-2 ml-1">
+<button class="text-zinc-600 hover:text-black focus:outline-none p-2 transition-colors" id="mobile-menu-btn">
+<i class="fa-solid fa-bars text-xl">
+</i>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Fila 2: Institucional / comunidad / soporte -->
+<div class="flex w-full bg-[#050505] text-white border-b border-zinc-900">
+<div class="menu-scroll-row max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 flex justify-start items-center h-10 text-[9px] md:text-[10px] xl:text-[11px] font-semibold tracking-[0.1em] uppercase overflow-x-auto md:overflow-visible overflow-y-visible hide-scrollbar">
+<div class="flex items-center gap-4 md:gap-6 xl:gap-8 min-w-max pr-4">
+<a class="text-white/95 hover:text-white transition-colors whitespace-nowrap" href="https://ibero.education/" rel="noopener" target="_blank">Inicio</a>
+<a class="text-white/95 hover:text-white transition-colors whitespace-nowrap" href="https://qlase.goatify.app/" rel="noopener" target="_blank">Campus Virtual</a>
+<a class="text-zinc-100 hover:text-white transition-colors border border-white/15 bg-white/5 hover:bg-white/10 rounded-full px-2 py-1 whitespace-nowrap" href="https://ibero.education/diplomas/#" rel="noopener" target="_blank">Verificar Diplomas</a>
+<a class="text-white/95 hover:text-white transition-colors whitespace-nowrap" href="https://ibero.education/trabaja-con-nosotros/#docentes" rel="noopener" target="_blank">Docentes</a>
+<a class="text-white/95 hover:text-white transition-colors whitespace-nowrap" href="https://ibero.education/metodologia/" rel="noopener" target="_blank">Metodología</a>
+<a class="text-white/95 hover:text-white transition-colors whitespace-nowrap" href="https://ibero.education/goatify/" rel="noopener" target="_blank">Laboratorio Tech</a>
+<a class="text-white/95 hover:text-white transition-colors whitespace-nowrap" href="https://ia.goatify.app/#discovery" rel="noopener" target="_blank">Blog</a>
+<a class="text-white/95 hover:text-white transition-colors whitespace-nowrap" href="https://ibero.education/publicaciones/" rel="noopener" target="_blank">Publicaciones</a>
+<a class="text-white/95 hover:text-white transition-colors whitespace-nowrap" href="https://ibero.education/trabaja-con-nosotros/" rel="noopener" target="_blank">Trabaja con Nosotros</a>
+<a class="text-white/95 hover:text-white transition-colors whitespace-nowrap" href="https://ibero.education/ayuda-financiera/" rel="noopener" target="_blank">Ayuda Financiera</a>
+</div>
+</div>
+</div>
+<!-- Fila 3: Oferta académica -->
+<div class="flex w-full bg-zinc-50/90 border-b border-zinc-200 backdrop-blur-md">
+<div class="menu-scroll-row max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 flex justify-start items-center h-12 text-[10px] md:text-[11px] xl:text-[12px] font-medium overflow-x-auto md:overflow-visible overflow-y-visible hide-scrollbar">
+<div class="flex items-center gap-4 md:gap-5 xl:gap-5 min-w-max pr-4">
+<div class="relative desktop-dropdown">
+<div class="desktop-dropdown-trigger-wrap">
+<a class="desktop-dropdown-link" href="https://ibero.education/oferta-academica/" rel="noopener" target="_blank">Oferta Académica</a>
+<button aria-expanded="false" aria-label="Mostrar submenú de Oferta Académica" class="desktop-dropdown-toggle" data-dropdown-trigger="true" type="button">▾</button>
+</div>
+<div class="absolute left-0 top-full z-[120] hidden pt-0 md:pt-3 group-hover:block dropdown-panel">
+<div class="min-w-[280px] overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-[0_16px_40px_rgba(0,0,0,0.12)]">
+<a class="block px-4 py-2.5 text-[11px] md:text-[12px] font-medium leading-snug text-zinc-700 hover:bg-zinc-50 hover:text-ibero-dark whitespace-nowrap" href="https://ibero.education/marketing-digital-con-ia/" rel="noopener" target="_blank">
+          Marketing Digital con IA
+         </a>
+<a class="block px-4 py-2.5 text-[11px] md:text-[12px] font-medium leading-snug text-zinc-700 hover:bg-zinc-50 hover:text-ibero-dark whitespace-nowrap" href="https://ibero.education/ia-para-docentes/" rel="noopener" target="_blank">
+          IA para Docentes
+         </a>
+<a class="block px-4 py-2.5 text-[11px] md:text-[12px] font-medium leading-snug text-zinc-700 hover:bg-zinc-50 hover:text-ibero-dark whitespace-nowrap" href="https://ibero.education/comunicacion-efectiva/" rel="noopener" target="_blank">
+          Hablar en Público
+         </a>
+<a class="block px-4 py-2.5 text-[11px] md:text-[12px] font-medium leading-snug text-zinc-700 hover:bg-zinc-50 hover:text-ibero-dark whitespace-nowrap" href="https://ibero.education/monetiza-tu-idea/" rel="noopener" target="_blank">
+          Monetiza tu Idea
+         </a>
+<a class="block px-4 py-2.5 text-[11px] md:text-[12px] font-medium leading-snug text-zinc-700 hover:bg-zinc-50 hover:text-ibero-dark whitespace-nowrap" href="https://ibero.education/crea-tu-academia/" rel="noopener" target="_blank">
+          Crea tu Academia
+         </a>
+<a class="block px-4 py-2.5 text-[11px] md:text-[12px] font-medium leading-snug text-zinc-700 hover:bg-zinc-50 hover:text-ibero-dark whitespace-nowrap" href="https://ibero.education/diplomado-ia-negocios-marketing/" rel="noopener" target="_blank">
+          Diplomado en IA aplicada a Negocios, Marketing y Comunicación
+         </a>
+<a class="block px-4 py-2.5 text-[11px] md:text-[12px] font-medium leading-snug text-zinc-700 hover:bg-zinc-50 hover:text-ibero-dark whitespace-nowrap" href="https://ibero.education/executive-master/" rel="noopener" target="_blank">
+          Executive Master
+         </a>
+<a class="block px-4 py-2.5 text-[11px] md:text-[12px] font-medium leading-snug text-zinc-700 hover:bg-zinc-50 hover:text-ibero-dark whitespace-nowrap" href="https://ibero.education/master-ejecutivo-ia/" rel="noopener" target="_blank">
+          Master Ejecutivo IA
+         </a>
+<a class="block px-4 py-2.5 text-[11px] md:text-[12px] font-medium leading-snug text-zinc-700 hover:bg-zinc-50 hover:text-ibero-dark whitespace-nowrap" href="https://ibero.education/ibero-labs/" rel="noopener" target="_blank">
+          IBERO Labs
+         </a>
+</div>
+</div>
+</div>
+<div class="relative desktop-dropdown">
+<div class="desktop-dropdown-trigger-wrap">
+<a class="desktop-dropdown-link" href="https://ibero.education/certificaciones-intensivas/" rel="noopener" target="_blank">Certificaciones</a>
+<button aria-expanded="false" aria-label="Mostrar submenú de Certificaciones" class="desktop-dropdown-toggle" data-dropdown-trigger="true" type="button">▾</button>
+</div>
+<div class="absolute left-0 top-full z-[120] hidden pt-0 md:pt-3 group-hover:block dropdown-panel">
+<div class="min-w-[280px] overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-[0_16px_40px_rgba(0,0,0,0.12)]">
+<a class="block px-4 py-2.5 text-[11px] md:text-[12px] font-medium leading-snug text-zinc-700 hover:bg-zinc-50 hover:text-ibero-dark whitespace-nowrap" href="https://ibero.education/marketing-digital-con-ia/" rel="noopener" target="_blank">
+          Marketing Digital con IA
+         </a>
+<a class="block px-4 py-2.5 text-[11px] md:text-[12px] font-medium leading-snug text-zinc-700 hover:bg-zinc-50 hover:text-ibero-dark whitespace-nowrap" href="https://ibero.education/ia-para-docentes/" rel="noopener" target="_blank">
+          IA para Docentes
+         </a>
+<a class="block px-4 py-2.5 text-[11px] md:text-[12px] font-medium leading-snug text-zinc-700 hover:bg-zinc-50 hover:text-ibero-dark whitespace-nowrap" href="https://ibero.education/comunicacion-efectiva/" rel="noopener" target="_blank">
+          Hablar en Público
+         </a>
+<a class="block px-4 py-2.5 text-[11px] md:text-[12px] font-medium leading-snug text-zinc-700 hover:bg-zinc-50 hover:text-ibero-dark whitespace-nowrap" href="https://ibero.education/monetiza-tu-idea/" rel="noopener" target="_blank">
+          Monetiza tu Idea
+         </a>
+<a class="block px-4 py-2.5 text-[11px] md:text-[12px] font-medium leading-snug text-zinc-700 hover:bg-zinc-50 hover:text-ibero-dark whitespace-nowrap" href="https://ibero.education/crea-tu-academia/" rel="noopener" target="_blank">
+          Crea tu Academia
+         </a>
+</div>
+</div>
+</div>
+<div class="relative desktop-dropdown">
+<div class="desktop-dropdown-trigger-wrap">
+<a class="desktop-dropdown-link" href="https://ibero.education/diplomados-intensivos/" rel="noopener" target="_blank">Diplomados</a>
+<button aria-expanded="false" aria-label="Mostrar submenú de Diplomados" class="desktop-dropdown-toggle" data-dropdown-trigger="true" type="button">▾</button>
+</div>
+<div class="absolute left-0 top-full z-[120] hidden pt-0 md:pt-3 group-hover:block dropdown-panel">
+<div class="min-w-[280px] overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-[0_16px_40px_rgba(0,0,0,0.12)]">
+<a class="block px-4 py-2.5 text-[11px] md:text-[12px] font-medium leading-snug text-zinc-700 hover:bg-zinc-50 hover:text-ibero-dark whitespace-nowrap" href="https://ibero.education/diplomado-ia-negocios-marketing/" rel="noopener" target="_blank">
+          Diplomado en IA aplicada a Negocios, Marketing y Comunicación
+         </a>
+</div>
+</div>
+</div>
+<div class="relative desktop-dropdown">
+<div class="desktop-dropdown-trigger-wrap">
+<a class="desktop-dropdown-link" href="https://ibero.education/executive-master/" rel="noopener" target="_blank">Executive Master</a>
+<button aria-expanded="false" aria-label="Mostrar submenú de Executive Master" class="desktop-dropdown-toggle" data-dropdown-trigger="true" type="button">▾</button>
+</div>
+<div class="absolute left-0 top-full z-[120] hidden pt-0 md:pt-3 group-hover:block dropdown-panel">
+<div class="min-w-[280px] overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-[0_16px_40px_rgba(0,0,0,0.12)]">
+<a class="block px-4 py-2.5 text-[11px] md:text-[12px] font-medium leading-snug text-zinc-700 hover:bg-zinc-50 hover:text-ibero-dark whitespace-nowrap" href="https://ibero.education/executive-master/" rel="noopener" target="_blank">
+          Executive Master
+         </a>
+<a class="block px-4 py-2.5 text-[11px] md:text-[12px] font-medium leading-snug text-zinc-700 hover:bg-zinc-50 hover:text-ibero-dark whitespace-nowrap" href="https://ibero.education/master-ejecutivo-ia/" rel="noopener" target="_blank">
+          Master Ejecutivo IA
+         </a>
+</div>
+</div>
+</div>
+<a class="whitespace-nowrap text-zinc-600 hover:text-ibero-dark transition-colors" href="https://ibero.education/ibero-academy/" rel="noopener" target="_blank">IBERO Academy</a>
+<a class="whitespace-nowrap text-zinc-600 hover:text-ibero-dark transition-colors" href="https://ibero.education/artes-liberales/" rel="noopener" target="_blank">Artes Liberales</a>
+<a class="whitespace-nowrap text-zinc-600 hover:text-ibero-dark transition-colors" href="https://ibero.education/consultoria-en-educacion/" rel="noopener" target="_blank">Consultoría en Educación</a>
+<a class="whitespace-nowrap text-zinc-600 hover:text-ibero-dark transition-colors" href="https://ibero.education/english-courses/" rel="noopener" target="_blank">Inglés Continuo</a>
+<a class="whitespace-nowrap text-zinc-600 hover:text-ibero-dark transition-colors" href="https://ibero.education/registro-y-admisiones/" rel="noopener" target="_blank">Registro y Admisiones</a>
+<a class="whitespace-nowrap text-zinc-600 hover:text-ibero-dark transition-colors" href="https://ibero.education/contacto/" rel="noopener" target="_blank">Contactos</a></div>
+</div>
+</div>
+<!-- Mobile Menu Panel -->
+<div class="hidden md:hidden bg-[#09090B] border-t border-zinc-800 absolute w-full shadow-2xl max-h-[calc(100vh-144px)] overflow-y-auto top-[144px]" id="mobile-menu">
+<div class="px-4 pt-2 pb-6 space-y-1 flex flex-col">
+<div class="mb-2 px-3 pt-2">
+<span class="text-[10px] font-bold tracking-widest text-zinc-500 uppercase">
        Programas Directos
       </span>
-     </div>
-     <a class="mobile-link block px-3 py-3 text-base font-medium text-zinc-300 border-b border-zinc-800 hover:text-white" href="https://ibero.education/marketing-digital-con-ia/" target="_blank">
+</div>
+<a class="mobile-link block px-3 py-3 text-base font-medium text-zinc-300 border-b border-zinc-800 hover:text-white" href="https://ibero.education/marketing-digital-con-ia/" target="_blank">
       Marketing con IA
      </a>
-     <a class="mobile-link block px-3 py-3 text-base font-medium text-zinc-300 border-b border-zinc-800 hover:text-white" href="https://ibero.education/ia-para-docentes/" target="_blank">
+<a class="mobile-link block px-3 py-3 text-base font-medium text-zinc-300 border-b border-zinc-800 hover:text-white" href="https://ibero.education/ia-para-docentes/" target="_blank">
       IA para Docentes
      </a>
-     <a class="mobile-link block px-3 py-3 text-base font-medium text-zinc-300 border-b border-zinc-800 hover:text-white" href="https://ibero.education/monetiza-tu-idea/" target="_blank">
+<a class="mobile-link block px-3 py-3 text-base font-medium text-zinc-300 border-b border-zinc-800 hover:text-white" href="https://ibero.education/monetiza-tu-idea/" target="_blank">
       Monetiza tu Idea IA
      </a>
-     <a class="mobile-link block px-3 py-3 text-base font-medium text-zinc-300 border-b border-zinc-800 hover:text-white" href="https://ibero.education/crea-tu-academia/" target="_blank">
+<a class="mobile-link block px-3 py-3 text-base font-medium text-zinc-300 border-b border-zinc-800 hover:text-white" href="https://ibero.education/crea-tu-academia/" target="_blank">
       Crea tu Academia
      </a>
-     <a class="mobile-link block px-3 py-3 text-base font-medium text-zinc-300 border-b border-zinc-800 hover:text-white" href="https://ibero.education/comunicacion-efectiva/" target="_blank">
-      Comunicaci&oacute;n Efectiva
+<a class="mobile-link block px-3 py-3 text-base font-medium text-zinc-300 border-b border-zinc-800 hover:text-white" href="https://ibero.education/comunicacion-efectiva/" target="_blank">
+      Comunicación Efectiva
      </a>
-     <a class="mobile-link block px-3 py-3 text-base font-medium text-zinc-300 border-b border-zinc-800 hover:text-white" href="https://ibero.education/diplomado-ia-negocios-marketing/" target="_blank">
+<a class="mobile-link block px-3 py-3 text-base font-medium text-zinc-300 border-b border-zinc-800 hover:text-white" href="https://ibero.education/diplomado-ia-negocios-marketing/" target="_blank">
       Diplomado en IA
      </a>
-     <a class="mobile-link block px-3 py-3 text-base font-medium text-zinc-300 border-b border-zinc-800 hover:text-white" href="https://ibero.education/master-ejecutivo-ia/" target="_blank">
+<a class="mobile-link block px-3 py-3 text-base font-medium text-zinc-300 border-b border-zinc-800 hover:text-white" href="https://ibero.education/master-ejecutivo-ia/" target="_blank">
       Executive Master
      </a>
+</div>
+</div>
+</nav>
+<!-- Background decorations (Detrás del calendario) -->
+<div class="fixed top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
+<div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-ibero-red/20 rounded-full blur-[120px] animate-pulse-slow">
+</div>
+<div class="absolute bottom-[-10%] right-[-10%] w-[30%] h-[30%] bg-blue-600/10 rounded-full blur-[100px]">
+</div>
+</div>
+<!-- Hero Section -->
+<header class="relative bg-black pt-12 md:pt-16 pb-12 text-center border-b border-white/10 overflow-hidden w-full" id="header-section">
+<!-- Video Background -->
+<div class="absolute inset-0 z-0">
+<video autoplay="" class="w-full h-full object-cover opacity-40" loop="" muted="" playsinline="">
+<source src="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/d83d4e1f5d31f07d6435c9256ee64e7e501d3673/fotos/AI_Business_Education_Hero_Video.mp4" type="video/mp4"/>
+</video>
+<div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black">
+</div>
+</div>
+<div class="w-full px-4 sm:px-8 relative z-10">
+<div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-xs sm:text-sm font-semibold text-red-200 mb-6 animate-fade-in-up" style="animation-delay: 0.1s;">
+<i class="ph-fill ph-rocket-launch text-ibero-red">
+</i>
+     Plan de Ejecución a 9 Meses
     </div>
-   </div>
-  </nav>
-  <!-- Background decorations (Detrás del calendario) -->
-  <div class="fixed top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
-   <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-ibero-red/20 rounded-full blur-[120px] animate-pulse-slow">
-   </div>
-   <div class="absolute bottom-[-10%] right-[-10%] w-[30%] h-[30%] bg-blue-600/10 rounded-full blur-[100px]">
-   </div>
-  </div>
-  <!-- Hero Section -->
-  <header class="relative bg-black pt-12 md:pt-16 pb-12 text-center border-b border-white/10 overflow-hidden w-full" id="header-section">
-   <!-- Video Background -->
-   <div class="absolute inset-0 z-0">
-    <video autoplay="" class="w-full h-full object-cover opacity-40" loop="" muted="" playsinline="">
-     <source src="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/d83d4e1f5d31f07d6435c9256ee64e7e501d3673/fotos/AI_Business_Education_Hero_Video.mp4" type="video/mp4"/>
-    </video>
-    <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black">
-    </div>
-   </div>
-   <div class="w-full px-4 sm:px-8 relative z-10">
-    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-xs sm:text-sm font-semibold text-red-200 mb-6 animate-fade-in-up" style="animation-delay: 0.1s;">
-     <i class="ph-fill ph-rocket-launch text-ibero-red">
-     </i>
-     Plan de Ejecuci&oacute;n a 9 Meses
-    </div>
-    <!-- Título con Cursivas (Playfair Display) Responsivo -->
-    <h1 class="text-3xl sm:text-4xl md:text-6xl font-extrabold mb-4 tracking-tight animate-fade-in-up px-2" style="animation-delay: 0.2s;">
+<!-- Título con Cursivas (Playfair Display) Responsivo -->
+<h1 class="text-3xl sm:text-4xl md:text-6xl font-extrabold mb-4 tracking-tight animate-fade-in-up px-2" style="animation-delay: 0.2s;">
      Calendario
      <span class="font-serif italic font-medium text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-red-600 block sm:inline mt-2 sm:mt-0">
-      Acad&eacute;mico 2026
+      Académico 2026
      </span>
-    </h1>
-    <!-- Horarios Elegantes Actualizados -->
-    <div class="text-sm sm:text-base md:text-lg text-ibero-gray max-w-5xl mx-auto mb-6 animate-fade-in-up space-y-4 px-2" style="animation-delay: 0.3s;">
-     <p class="md:text-xl mb-4">
+</h1>
+<!-- Horarios Elegantes Actualizados -->
+<div class="text-sm sm:text-base md:text-lg text-ibero-gray max-w-5xl mx-auto mb-6 animate-fade-in-up space-y-4 px-2" style="animation-delay: 0.3s;">
+<p class="md:text-xl mb-4">
       Cronograma oficial Abril - Diciembre.
      </p>
-     <div class="flex flex-col sm:flex-row justify-center items-stretch gap-3 md:gap-4 text-sm md:text-base">
-      <div class="bg-white/10 border border-white/20 px-5 py-3 rounded-xl backdrop-blur-md w-full sm:w-auto flex-1 text-center sm:text-left shadow-lg">
-       <span class="text-white font-bold block mb-1">
+<div class="flex flex-col sm:flex-row justify-center items-stretch gap-3 md:gap-4 text-sm md:text-base">
+<div class="bg-white/10 border border-white/20 px-5 py-3 rounded-xl backdrop-blur-md w-full sm:w-auto flex-1 text-center sm:text-left shadow-lg">
+<span class="text-white font-bold block mb-1">
         Cursos y Diplomados
         <span class="text-white/70 font-normal text-xs">
          (Lun - Jue)
         </span>
-       </span>
-       <span class="text-white/90 text-xs sm:text-sm font-medium tracking-wide">
+</span>
+<span class="text-white/90 text-xs sm:text-sm font-medium tracking-wide">
         7:00 PM a 9:00 PM EC/CO/PE
         <span class="text-white/40 mx-1 hidden lg:inline">
          |
         </span>
-        <br class="lg:hidden"/>
+<br class="lg:hidden"/>
         6:00 PM a 8:00 PM MX
        </span>
-      </div>
-      <div class="bg-white/10 border border-white/20 px-5 py-3 rounded-xl backdrop-blur-md w-full sm:w-auto flex-1 text-center sm:text-left shadow-lg">
-       <span class="text-white font-bold block mb-1">
+</div>
+<div class="bg-white/10 border border-white/20 px-5 py-3 rounded-xl backdrop-blur-md w-full sm:w-auto flex-1 text-center sm:text-left shadow-lg">
+<span class="text-white font-bold block mb-1">
         Executive Master
         <span class="text-white/70 font-normal text-xs">
          (Lun - Vie)
         </span>
-       </span>
-       <span class="text-white/90 text-xs sm:text-sm font-medium tracking-wide">
+</span>
+<span class="text-white/90 text-xs sm:text-sm font-medium tracking-wide">
         9:00 PM a 10:00 PM EC/CO/PE
         <span class="text-white/40 mx-1 hidden lg:inline">
          |
         </span>
-        <br class="lg:hidden"/>
+<br class="lg:hidden"/>
         8:00 PM a 9:00 PM MX
        </span>
-      </div>
-     </div>
-     <div class="flex justify-center mt-3">
-      <div class="bg-white/10 border border-white/20 px-5 py-3 rounded-xl backdrop-blur-md inline-flex flex-col sm:flex-row items-center gap-1 sm:gap-3 shadow-lg">
-       <span class="text-white font-bold text-sm text-center">
-        Talleres Pr&aacute;cticos Presenciales
+</div>
+</div>
+<div class="flex justify-center mt-3">
+<div class="bg-white/10 border border-white/20 px-5 py-3 rounded-xl backdrop-blur-md inline-flex flex-col sm:flex-row items-center gap-1 sm:gap-3 shadow-lg">
+<span class="text-white font-bold text-sm text-center">
+        Talleres Prácticos Presenciales
         <span class="text-white/70 font-normal text-xs">
-         (S&aacute;bados)
+         (Sábados)
         </span>
-       </span>
-       <span class="text-white/90 text-xs sm:text-sm font-medium tracking-wide">
+</span>
+<span class="text-white/90 text-xs sm:text-sm font-medium tracking-wide">
         9:00 AM a 1:00 PM Hora EC
        </span>
-      </div>
-     </div>
-    </div>
-   </div>
-  </header>
-  <!-- Controles y Filtros (FULL WIDTH) -->
-  <section class="w-full px-4 sm:px-6 lg:px-8 py-8 no-print relative z-40" id="controls-section">
-   <div class="bg-ibero-card/90 backdrop-blur-md border border-white/10 p-5 rounded-2xl shadow-2xl flex flex-col gap-4 animate-fade-in-up" style="animation-delay: 0.4s;">
-    <div class="flex flex-col md:flex-row gap-4 items-end w-full">
-     <!-- Controles Base -->
-     <div class="flex-1 w-full grid grid-cols-1 md:grid-cols-3 gap-4">
-      <div>
-       <label class="block text-sm font-semibold text-ibero-gray mb-2">
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Controles y Filtros (FULL WIDTH) -->
+<section class="w-full px-4 sm:px-6 lg:px-8 py-8 no-print relative z-40" id="controls-section">
+<div class="bg-ibero-card/90 backdrop-blur-md border border-white/10 p-5 rounded-2xl shadow-2xl flex flex-col gap-4 animate-fade-in-up" style="animation-delay: 0.4s;">
+<div class="flex flex-col md:flex-row gap-4 items-end w-full">
+<!-- Controles Base -->
+<div class="flex-1 w-full grid grid-cols-1 md:grid-cols-3 gap-4">
+<div>
+<label class="block text-sm font-semibold text-ibero-gray mb-2">
         Vista del Calendario
        </label>
-       <div class="flex bg-ibero-dark rounded-lg p-1 border border-white/10">
-        <button class="flex-1 py-2 px-4 rounded-md bg-ibero-red text-white font-semibold transition-colors flex items-center justify-center gap-2 shadow-lg" id="btn-view-list" onclick="setView('list')">
-         <i class="ph ph-list-dashes text-lg">
-         </i>
+<div class="flex bg-ibero-dark rounded-lg p-1 border border-white/10">
+<button class="flex-1 py-2 px-4 rounded-md bg-ibero-red text-white font-semibold transition-colors flex items-center justify-center gap-2 shadow-lg" id="btn-view-list" onclick="setView('list')">
+<i class="ph ph-list-dashes text-lg">
+</i>
          Lista
         </button>
-        <button class="flex-1 py-2 px-4 rounded-md text-ibero-gray hover:text-white transition-colors flex items-center justify-center gap-2" id="btn-view-cal" onclick="setView('calendar')">
-         <i class="ph ph-calendar-blank text-lg">
-         </i>
+<button class="flex-1 py-2 px-4 rounded-md text-ibero-gray hover:text-white transition-colors flex items-center justify-center gap-2" id="btn-view-cal" onclick="setView('calendar')">
+<i class="ph ph-calendar-blank text-lg">
+</i>
          Mes
         </button>
-       </div>
-      </div>
-      <!-- Programas Dropdown Multiple -->
-      <div class="relative w-full" id="programs-dropdown-container">
-       <label class="block text-sm font-semibold text-ibero-gray mb-2">
-        <i class="ph ph-check-square-offset">
-        </i>
+</div>
+</div>
+<!-- Programas Dropdown Multiple -->
+<div class="relative w-full" id="programs-dropdown-container">
+<label class="block text-sm font-semibold text-ibero-gray mb-2">
+<i class="ph ph-check-square-offset">
+</i>
         Filtrar Programa
        </label>
-       <button class="w-full p-3 rounded-lg bg-ibero-dark border border-white/10 text-white flex justify-between items-center focus:outline-none focus:border-ibero-red transition-colors" id="prog-dropdown-btn" onclick="toggleProgramDropdown()">
-        <span class="truncate pr-2" id="prog-dropdown-text">
+<button class="w-full p-3 rounded-lg bg-ibero-dark border border-white/10 text-white flex justify-between items-center focus:outline-none focus:border-ibero-red transition-colors" id="prog-dropdown-btn" onclick="toggleProgramDropdown()">
+<span class="truncate pr-2" id="prog-dropdown-text">
          Todos los programas
         </span>
-        <i class="ph ph-caret-down">
-        </i>
-       </button>
-       <div class="absolute z-50 hidden w-full mt-1 bg-ibero-card border border-white/10 rounded-lg shadow-2xl max-h-64 overflow-y-auto p-2 flex flex-col gap-1" id="prog-dropdown-menu">
-        <!-- Checkboxes inyectados por JS -->
-       </div>
-      </div>
-      <div>
-       <label class="block text-sm font-semibold text-ibero-gray mb-2">
-        <i class="ph ph-funnel">
-        </i>
-        Categor&iacute;a
+<i class="ph ph-caret-down">
+</i>
+</button>
+<div class="absolute z-50 hidden w-full mt-1 bg-ibero-card border border-white/10 rounded-lg shadow-2xl max-h-64 overflow-y-auto p-2 flex flex-col gap-1" id="prog-dropdown-menu">
+<!-- Checkboxes inyectados por JS -->
+</div>
+</div>
+<div>
+<label class="block text-sm font-semibold text-ibero-gray mb-2">
+<i class="ph ph-funnel">
+</i>
+        Categoría
        </label>
-       <select class="w-full p-3 rounded-lg bg-ibero-dark border border-white/10 text-white focus:outline-none focus:border-ibero-red transition-colors appearance-none" id="filter-type" onchange="renderApp()">
-        <option value="all">
-         Todas las categor&iacute;as
+<select class="w-full p-3 rounded-lg bg-ibero-dark border border-white/10 text-white focus:outline-none focus:border-ibero-red transition-colors appearance-none" id="filter-type" onchange="renderApp()">
+<option value="all">
+         Todas las categorías
         </option>
-        <option value="curso">
+<option value="curso">
          Cursos
         </option>
-        <option value="diplomado">
+<option value="diplomado">
          Diplomados
         </option>
-        <option value="master">
+<option value="master">
          Executive Master
         </option>
-        <option value="taller">
+<option value="taller">
          Talleres
         </option>
-        <option value="inscripcion">
+<option value="inscripcion">
          Apertura Inscripciones
         </option>
-        <option value="gratis">
+<option value="gratis">
          Clases Gratis
         </option>
-       </select>
-      </div>
-     </div>
-     <div class="w-full md:w-auto">
-      <button class="w-full md:w-auto bg-gradient-to-r from-zinc-700 to-zinc-800 hover:from-ibero-red hover:to-ibero-darkRed text-white py-3 px-6 rounded-lg font-semibold flex items-center justify-center gap-2 transition-all shadow-lg hover:shadow-red-500/25" id="pdf-btn" onclick="downloadPDF()">
-       <i class="ph ph-printer text-xl">
-       </i>
+</select>
+</div>
+</div>
+<div class="w-full md:w-auto">
+<button class="w-full md:w-auto bg-gradient-to-r from-zinc-700 to-zinc-800 hover:from-ibero-red hover:to-ibero-darkRed text-white py-3 px-6 rounded-lg font-semibold flex items-center justify-center gap-2 transition-all shadow-lg hover:shadow-red-500/25" id="pdf-btn" onclick="downloadPDF()">
+<i class="ph ph-printer text-xl">
+</i>
        Guardar PDF
       </button>
-     </div>
-    </div>
-   </div>
-  </section>
-  <!-- Contenedor Principal Calendario (FULL WIDTH) -->
-  <main class="w-full px-2 sm:px-6 lg:px-8 pb-20 min-h-screen" id="app-container">
-   <!-- Vista de Lista (Ajustada al 90% en desktop) -->
-   <div class="space-y-6 md:w-[90%] lg:w-[85%] mx-auto" id="view-list">
-   </div>
-   <!-- Vista de Calendario Mensual (Ajustada al 90% en desktop) -->
-   <div class="hidden md:w-[95%] lg:w-[90%] mx-auto" id="view-calendar">
-    <div class="bg-ibero-card border border-white/10 rounded-xl md:rounded-2xl p-1 sm:p-2 md:p-6 shadow-2xl">
-     <div class="flex items-center justify-between mb-4 md:mb-8 no-print px-2 md:px-0">
-      <button class="p-2 rounded-full hover:bg-white/10 transition-colors text-white" onclick="changeMonth(-1)">
-       <i class="ph ph-caret-left text-2xl">
-       </i>
-      </button>
-      <h2 class="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white capitalize" id="calendar-month-title">
+</div>
+</div>
+</div>
+</section>
+<!-- Contenedor Principal Calendario (FULL WIDTH) -->
+<main class="w-full px-2 sm:px-6 lg:px-8 pb-20 min-h-screen" id="app-container">
+<!-- Vista de Lista (Ajustada al 90% en desktop) -->
+<div class="space-y-6 md:w-[90%] lg:w-[85%] mx-auto" id="view-list">
+</div>
+<!-- Vista de Calendario Mensual (Ajustada al 90% en desktop) -->
+<div class="hidden md:w-[95%] lg:w-[90%] mx-auto" id="view-calendar">
+<div class="bg-ibero-card border border-white/10 rounded-xl md:rounded-2xl p-1 sm:p-2 md:p-6 shadow-2xl">
+<div class="flex items-center justify-between mb-4 md:mb-8 no-print px-2 md:px-0">
+<button class="p-2 rounded-full hover:bg-white/10 transition-colors text-white" onclick="changeMonth(-1)">
+<i class="ph ph-caret-left text-2xl">
+</i>
+</button>
+<h2 class="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white capitalize" id="calendar-month-title">
        Abril 2026
       </h2>
-      <button class="p-2 rounded-full hover:bg-white/10 transition-colors text-white" onclick="changeMonth(1)">
-       <i class="ph ph-caret-right text-2xl">
-       </i>
-      </button>
-     </div>
-     <div class="calendar-grid mb-1 md:mb-2">
-      <div class="text-center font-bold text-ibero-gray text-[10px] md:text-sm py-1 md:py-2">
+<button class="p-2 rounded-full hover:bg-white/10 transition-colors text-white" onclick="changeMonth(1)">
+<i class="ph ph-caret-right text-2xl">
+</i>
+</button>
+</div>
+<div class="calendar-grid mb-1 md:mb-2">
+<div class="text-center font-bold text-ibero-gray text-[10px] md:text-sm py-1 md:py-2">
        LUN
       </div>
-      <div class="text-center font-bold text-ibero-gray text-[10px] md:text-sm py-1 md:py-2">
+<div class="text-center font-bold text-ibero-gray text-[10px] md:text-sm py-1 md:py-2">
        MAR
       </div>
-      <div class="text-center font-bold text-ibero-gray text-[10px] md:text-sm py-1 md:py-2">
-       MI&Eacute;
+<div class="text-center font-bold text-ibero-gray text-[10px] md:text-sm py-1 md:py-2">
+       MIÉ
       </div>
-      <div class="text-center font-bold text-ibero-gray text-[10px] md:text-sm py-1 md:py-2">
+<div class="text-center font-bold text-ibero-gray text-[10px] md:text-sm py-1 md:py-2">
        JUE
       </div>
-      <div class="text-center font-bold text-ibero-gray text-[10px] md:text-sm py-1 md:py-2">
+<div class="text-center font-bold text-ibero-gray text-[10px] md:text-sm py-1 md:py-2">
        VIE
       </div>
-      <div class="text-center font-bold text-ibero-gray text-[10px] md:text-sm py-1 md:py-2">
-       S&Aacute;B
+<div class="text-center font-bold text-ibero-gray text-[10px] md:text-sm py-1 md:py-2">
+       SÁB
       </div>
-      <div class="text-center font-bold text-ibero-gray text-[10px] md:text-sm py-1 md:py-2">
+<div class="text-center font-bold text-ibero-gray text-[10px] md:text-sm py-1 md:py-2">
        DOM
       </div>
-     </div>
-     <div class="calendar-grid" id="calendar-grid-days">
-     </div>
-    </div>
-   </div>
-  </main>
-  <!-- ========================================== -->
-  <!-- CHATBOT PRO COOL (AGENTE IA FLOTANTE)      -->
-  <!-- ========================================== -->
-  <div class="fixed bottom-6 right-6 z-[110] flex items-end gap-3 group no-print" id="chatbot-wrapper">
-   <!-- Chatbot Window -->
-   <div class="absolute bottom-20 right-0 w-[90vw] max-w-[440px] max-h-[75vh] bg-[#0f172a] border border-red-500/30 rounded-2xl shadow-[0_0_40px_rgba(220,38,38,0.2)] overflow-hidden flex flex-col transition-all duration-300 opacity-0 translate-y-10 pointer-events-none origin-bottom-right" id="chatbot-container">
-    <!-- Header Chatbot -->
-    <div class="bg-gradient-to-r from-[#1e293b] to-red-900/30 p-4 border-b border-red-500/20 flex justify-between items-center shrink-0">
-     <div class="flex items-center gap-3">
-      <div class="relative">
-       <div class="w-10 h-10 rounded-full bg-zinc-900 border border-red-500/50 flex items-center justify-center text-red-400">
-        <i class="ph-fill ph-robot text-xl">
-        </i>
-       </div>
-       <span class="absolute bottom-0 right-0 w-3 h-3 bg-emerald-500 border-2 border-[#0f172a] rounded-full">
-       </span>
-      </div>
-      <div>
-       <h4 class="text-white font-bold text-sm leading-tight">
+</div>
+<div class="calendar-grid" id="calendar-grid-days">
+</div>
+</div>
+</div>
+</main>
+<!-- ========================================== -->
+<!-- CHATBOT PRO COOL (AGENTE IA FLOTANTE)      -->
+<!-- ========================================== -->
+<div class="fixed bottom-6 right-6 z-[110] flex items-end gap-3 group no-print" id="chatbot-wrapper">
+<!-- Chatbot Window -->
+<div class="absolute bottom-20 right-0 w-[90vw] max-w-[440px] max-h-[75vh] bg-[#0f172a] border border-red-500/30 rounded-2xl shadow-[0_0_40px_rgba(220,38,38,0.2)] overflow-hidden flex flex-col transition-all duration-300 opacity-0 translate-y-10 pointer-events-none origin-bottom-right" id="chatbot-container">
+<!-- Header Chatbot -->
+<div class="bg-gradient-to-r from-[#1e293b] to-red-900/30 p-4 border-b border-red-500/20 flex justify-between items-center shrink-0">
+<div class="flex items-center gap-3">
+<div class="relative">
+<div class="w-10 h-10 rounded-full bg-zinc-900 border border-red-500/50 flex items-center justify-center text-red-400">
+<i class="ph-fill ph-robot text-xl">
+</i>
+</div>
+<span class="absolute bottom-0 right-0 w-3 h-3 bg-emerald-500 border-2 border-[#0f172a] rounded-full">
+</span>
+</div>
+<div>
+<h4 class="text-white font-bold text-sm leading-tight">
         Asistente IBERO
        </h4>
-       <p class="text-[10px] text-emerald-400 font-mono tracking-widest uppercase">
-        Online &bull; Sincronizado
+<p class="text-[10px] text-emerald-400 font-mono tracking-widest uppercase">
+        Online • Sincronizado
        </p>
-      </div>
+</div>
+</div>
+<button class="text-zinc-500 hover:text-white transition-colors focus:outline-none" onclick="toggleChatbot(event)">
+<i class="ph ph-x text-xl">
+</i>
+</button>
+</div>
+<!-- Body Chatbot -->
+<div class="flex-grow p-4 overflow-y-auto flex flex-col hide-scrollbar bg-[#050505]" id="chatbot-body">
+<div class="chat-bubble-bot animate-fade-in-up">
+      ¡Hola! 👋 Soy el agente de inteligencia académica de IBERO. Tengo acceso en tiempo real a todo el cronograma oficial 2026.
      </div>
-     <button class="text-zinc-500 hover:text-white transition-colors focus:outline-none" onclick="toggleChatbot(event)">
-      <i class="ph ph-x text-xl">
-      </i>
-     </button>
-    </div>
-    <!-- Body Chatbot -->
-    <div class="flex-grow p-4 overflow-y-auto flex flex-col hide-scrollbar bg-[#050505]" id="chatbot-body">
-     <div class="chat-bubble-bot animate-fade-in-up">
-      &iexcl;Hola! 👋 Soy el agente de inteligencia acad&eacute;mica de IBERO. Tengo acceso en tiempo real a todo el cronograma oficial 2026.
-     </div>
-     <div class="chat-bubble-bot animate-fade-in-up" style="animation-delay: 0.1s;">
-      Selecciona una opci&oacute;n para brindarte informaci&oacute;n detallada de nuestros programas,
+<div class="chat-bubble-bot animate-fade-in-up" style="animation-delay: 0.1s;">
+      Selecciona una opción para brindarte información detallada de nuestros programas,
       <em>
        fechas
       </em>
@@ -606,352 +795,352 @@
       </em>
       .
      </div>
-    </div>
-    <!-- Opciones / Footer Chatbot (3 Columnas en Móvil, 2 en PC) -->
-    <div class="p-3 border-t border-white/5 bg-[#0f172a] shrink-0">
-     <div class="grid grid-cols-3 sm:grid-cols-2 gap-1.5 sm:gap-2" id="chatbot-options">
-      <button class="chat-option" onclick="botAnswer('fechas')">
-       <i class="ph-fill ph-calendar-check text-red-400 text-lg shrink-0">
-       </i>
-       <span>
+</div>
+<!-- Opciones / Footer Chatbot (3 Columnas en Móvil, 2 en PC) -->
+<div class="p-3 border-t border-white/5 bg-[#0f172a] shrink-0">
+<div class="grid grid-cols-3 sm:grid-cols-2 gap-1.5 sm:gap-2" id="chatbot-options">
+<button class="chat-option" onclick="botAnswer('fechas')">
+<i class="ph-fill ph-calendar-check text-red-400 text-lg shrink-0">
+</i>
+<span>
         Inicios
        </span>
-      </button>
-      <button class="chat-option" onclick="botAnswer('precios')">
-       <i class="ph-fill ph-tag text-red-400 text-lg shrink-0">
-       </i>
-       <span>
+</button>
+<button class="chat-option" onclick="botAnswer('precios')">
+<i class="ph-fill ph-tag text-red-400 text-lg shrink-0">
+</i>
+<span>
         Precios
        </span>
-      </button>
-      <button class="chat-option" onclick="botAnswer('diplomado')">
-       <i class="ph-fill ph-graduation-cap text-red-400 text-lg shrink-0">
-       </i>
-       <span>
+</button>
+<button class="chat-option" onclick="botAnswer('diplomado')">
+<i class="ph-fill ph-graduation-cap text-red-400 text-lg shrink-0">
+</i>
+<span>
         Diplomado
        </span>
-      </button>
-      <button class="chat-option" onclick="botAnswer('master')">
-       <i class="ph-fill ph-crown text-red-400 text-lg shrink-0">
-       </i>
-       <span>
+</button>
+<button class="chat-option" onclick="botAnswer('master')">
+<i class="ph-fill ph-crown text-red-400 text-lg shrink-0">
+</i>
+<span>
         Master
        </span>
-      </button>
-      <button class="chat-option" onclick="botAnswer('cursos')">
-       <i class="ph-fill ph-book-open text-red-400 text-lg shrink-0">
-       </i>
-       <span>
+</button>
+<button class="chat-option" onclick="botAnswer('cursos')">
+<i class="ph-fill ph-book-open text-red-400 text-lg shrink-0">
+</i>
+<span>
         Cursos
        </span>
-      </button>
-      <button class="chat-option" onclick="botAnswer('gratis')">
-       <i class="ph-fill ph-gift text-red-400 text-lg shrink-0">
-       </i>
-       <span>
+</button>
+<button class="chat-option" onclick="botAnswer('gratis')">
+<i class="ph-fill ph-gift text-red-400 text-lg shrink-0">
+</i>
+<span>
         Gratis
        </span>
-      </button>
-     </div>
-    </div>
-   </div>
-   <!-- Asistente Label + Botón Flotante -->
-   <span class="bg-zinc-800 border border-zinc-700 text-zinc-300 text-[11px] font-bold px-3 py-1.5 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-4 group-hover:translate-x-0 hidden sm:block whitespace-nowrap mb-2">
+</button>
+</div>
+</div>
+</div>
+<!-- Asistente Label + Botón Flotante -->
+<span class="bg-zinc-800 border border-zinc-700 text-zinc-300 text-[11px] font-bold px-3 py-1.5 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-4 group-hover:translate-x-0 hidden sm:block whitespace-nowrap mb-2">
     Asistente 24/7
    </span>
-   <button class="w-14 h-14 bg-ibero-red rounded-full shadow-[0_0_20px_rgba(220,38,38,0.4)] flex items-center justify-center text-white hover:scale-110 hover:bg-ibero-darkRed transition-all duration-300 animate-bot-bounce focus:outline-none relative" id="chatbot-toggle" onclick="toggleChatbot(event)">
-    <i class="ph-fill ph-robot text-3xl chatbot-icon-open">
-    </i>
-    <i class="ph-fill ph-chats-circle text-3xl hidden chatbot-icon-close">
-    </i>
-    <span class="absolute -top-1 -right-1 flex h-4 w-4">
-     <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75">
-     </span>
-     <span class="relative inline-flex rounded-full h-4 w-4 bg-white border-2 border-ibero-red">
-     </span>
-    </span>
-   </button>
-  </div>
-  <!-- Modal de Detalles del Calendario -->
-  <div class="fixed inset-0 z-[150] flex items-center justify-center hidden opacity-0 transition-opacity duration-300" id="program-modal">
-   <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="closeEventModal()">
-   </div>
-   <div class="bg-ibero-card border border-white/10 rounded-2xl w-full max-w-2xl m-4 relative z-10 shadow-2xl flex flex-col max-h-[90vh] transform scale-95 transition-transform duration-300" id="modal-content-box">
-    <!-- Modal Header -->
-    <div class="relative bg-gradient-to-r from-ibero-red to-ibero-darkRed p-4 sm:p-6 shrink-0 rounded-t-2xl">
-     <button class="absolute top-4 right-4 text-white/80 hover:text-white transition-colors" onclick="closeEventModal()">
-      <i class="ph ph-x text-2xl">
-      </i>
-     </button>
-     <div class="inline-block px-3 py-1 rounded-full text-[0.70rem] sm:text-xs font-bold uppercase tracking-wider mb-2 sm:mb-3 bg-white/20 text-white backdrop-blur-sm" id="modal-badge">
-     </div>
-     <h3 class="text-xl sm:text-2xl md:text-3xl font-bold text-white leading-tight font-serif italic" id="modal-title">
-     </h3>
-    </div>
-    <!-- Modal Body -->
-    <div class="p-4 sm:p-6 overflow-y-auto">
-     <p class="text-ibero-gray text-base sm:text-lg mb-6 leading-relaxed" id="modal-desc">
-     </p>
-     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-      <div class="flex items-center gap-3 bg-ibero-dark p-4 rounded-xl border border-white/5">
-       <div class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400">
-        <i class="ph-fill ph-calendar-blank text-xl">
-        </i>
-       </div>
-       <div>
-        <p class="text-sm text-ibero-gray font-semibold">
+<button class="w-14 h-14 bg-ibero-red rounded-full shadow-[0_0_20px_rgba(220,38,38,0.4)] flex items-center justify-center text-white hover:scale-110 hover:bg-ibero-darkRed transition-all duration-300 animate-bot-bounce focus:outline-none relative" id="chatbot-toggle" onclick="toggleChatbot(event)">
+<i class="ph-fill ph-robot text-3xl chatbot-icon-open">
+</i>
+<i class="ph-fill ph-chats-circle text-3xl hidden chatbot-icon-close">
+</i>
+<span class="absolute -top-1 -right-1 flex h-4 w-4">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75">
+</span>
+<span class="relative inline-flex rounded-full h-4 w-4 bg-white border-2 border-ibero-red">
+</span>
+</span>
+</button>
+</div>
+<!-- Modal de Detalles del Calendario -->
+<div class="fixed inset-0 z-[150] flex items-center justify-center hidden opacity-0 transition-opacity duration-300" id="program-modal">
+<div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="closeEventModal()">
+</div>
+<div class="bg-ibero-card border border-white/10 rounded-2xl w-full max-w-2xl m-4 relative z-10 shadow-2xl flex flex-col max-h-[90vh] transform scale-95 transition-transform duration-300" id="modal-content-box">
+<!-- Modal Header -->
+<div class="relative bg-gradient-to-r from-ibero-red to-ibero-darkRed p-4 sm:p-6 shrink-0 rounded-t-2xl">
+<button class="absolute top-4 right-4 text-white/80 hover:text-white transition-colors" onclick="closeEventModal()">
+<i class="ph ph-x text-2xl">
+</i>
+</button>
+<div class="inline-block px-3 py-1 rounded-full text-[0.70rem] sm:text-xs font-bold uppercase tracking-wider mb-2 sm:mb-3 bg-white/20 text-white backdrop-blur-sm" id="modal-badge">
+</div>
+<h3 class="text-xl sm:text-2xl md:text-3xl font-bold text-white leading-tight font-serif italic" id="modal-title">
+</h3>
+</div>
+<!-- Modal Body -->
+<div class="p-4 sm:p-6 overflow-y-auto">
+<p class="text-ibero-gray text-base sm:text-lg mb-6 leading-relaxed" id="modal-desc">
+</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+<div class="flex items-center gap-3 bg-ibero-dark p-4 rounded-xl border border-white/5">
+<div class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400">
+<i class="ph-fill ph-calendar-blank text-xl">
+</i>
+</div>
+<div>
+<p class="text-sm text-ibero-gray font-semibold">
          Fechas
         </p>
-        <p class="font-bold text-white" id="modal-dates">
+<p class="font-bold text-white" id="modal-dates">
+</p>
+</div>
+</div>
+<div class="flex items-center gap-3 bg-ibero-dark p-4 rounded-xl border border-white/5">
+<div class="w-10 h-10 rounded-full bg-amber-500/20 flex items-center justify-center text-amber-400">
+<i class="ph-fill ph-clock text-xl">
+</i>
+</div>
+<div>
+<p class="text-sm text-ibero-gray font-semibold">
+         Horarios por País
         </p>
-       </div>
-      </div>
-      <div class="flex items-center gap-3 bg-ibero-dark p-4 rounded-xl border border-white/5">
-       <div class="w-10 h-10 rounded-full bg-amber-500/20 flex items-center justify-center text-amber-400">
-        <i class="ph-fill ph-clock text-xl">
-        </i>
-       </div>
-       <div>
-        <p class="text-sm text-ibero-gray font-semibold">
-         Horarios por Pa&iacute;s
-        </p>
-        <p class="font-bold text-white leading-snug" id="modal-schedule">
-        </p>
-       </div>
-      </div>
-     </div>
-     <!-- Inversión / Precios -->
-     <div id="investment-section">
-      <h4 class="text-sm font-bold text-ibero-gray uppercase tracking-wider mb-3 flex items-center gap-2">
-       <i class="ph ph-wallet">
-       </i>
-       Inversi&oacute;n por pa&iacute;s (30% OFF Aplicado)
+<p class="font-bold text-white leading-snug" id="modal-schedule">
+</p>
+</div>
+</div>
+</div>
+<!-- Inversión / Precios -->
+<div id="investment-section">
+<h4 class="text-sm font-bold text-ibero-gray uppercase tracking-wider mb-3 flex items-center gap-2">
+<i class="ph ph-wallet">
+</i>
+       Inversión por país (30% OFF Aplicado)
       </h4>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6" id="modal-prices">
-       <!-- Precios inyectados por JS -->
-      </div>
-     </div>
-     <!-- Acciones -->
-     <div class="flex flex-col sm:flex-row gap-3 border-t border-white/10 pt-6">
-      <a class="hidden flex-1 bg-ibero-red hover:bg-ibero-darkRed text-white font-bold py-3 px-4 rounded-lg items-center justify-center gap-2 transition-colors shadow-lg shadow-red-500/25" href="#" id="btn-inscribete" target="_blank">
-       <i class="ph-fill ph-link text-xl">
-       </i>
-       Inscr&iacute;bete Aqu&iacute;
+<div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6" id="modal-prices">
+<!-- Precios inyectados por JS -->
+</div>
+</div>
+<!-- Acciones -->
+<div class="flex flex-col sm:flex-row gap-3 border-t border-white/10 pt-6">
+<a class="hidden flex-1 bg-ibero-red hover:bg-ibero-darkRed text-white font-bold py-3 px-4 rounded-lg items-center justify-center gap-2 transition-colors shadow-lg shadow-red-500/25" href="#" id="btn-inscribete" target="_blank">
+<i class="ph-fill ph-link text-xl">
+</i>
+       Inscríbete Aquí
       </a>
-      <a class="flex-1 bg-white text-ibero-dark font-bold py-3 px-4 rounded-lg flex items-center justify-center gap-2 hover:bg-gray-200 transition-colors" href="#" id="btn-gcal" target="_blank">
-       <i class="ph-fill ph-google-logo text-xl">
-       </i>
+<a class="flex-1 bg-white text-ibero-dark font-bold py-3 px-4 rounded-lg flex items-center justify-center gap-2 hover:bg-gray-200 transition-colors" href="#" id="btn-gcal" target="_blank">
+<i class="ph-fill ph-google-logo text-xl">
+</i>
        Guardar en Calendar
       </a>
-      <button class="flex-1 border border-white/20 text-white hover:bg-white/10 font-bold py-3 px-4 rounded-lg transition-colors" onclick="closeEventModal()">
+<button class="flex-1 border border-white/20 text-white hover:bg-white/10 font-bold py-3 px-4 rounded-lg transition-colors" onclick="closeEventModal()">
        Cerrar
       </button>
-     </div>
-    </div>
-   </div>
-  </div>
-  <!-- FOOTER PREMIUM EXACTO -->
-  <footer class="bg-[#050505] text-zinc-400 py-12 border-t border-zinc-900 mt-10 no-print">
-   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <!-- Grid ampliado a 6 columnas para consistencia -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 mb-8 border-b border-zinc-900 pb-12">
-     <!-- Col 1: Brand & Socials -->
-     <div class="lg:col-span-2 lg:pr-12">
-      <div class="mb-1">
-       <img alt="Logo IBERO" class="w-40 sm:w-48 h-auto object-contain object-left" src="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/8c1109d60abc984df0e47724b61bab75d49a6b12/fotos/svg/ibero-menu-purple.svg"/>
-      </div>
-      <p class="text-xs sm:text-sm leading-relaxed mb-5">
-       Educaci&oacute;n Executive impulsada por Inteligencia Artificial. Formamos a los fundadores y creadores corporativos del ma&ntilde;ana.
+</div>
+</div>
+</div>
+</div>
+<!-- FOOTER PREMIUM EXACTO -->
+<footer class="bg-[#050505] text-zinc-400 py-12 border-t border-zinc-900 mt-10 no-print">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<!-- Grid ampliado a 6 columnas para consistencia -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 mb-8 border-b border-zinc-900 pb-12">
+<!-- Col 1: Brand & Socials -->
+<div class="lg:col-span-2 lg:pr-12">
+<div class="mb-1">
+<img alt="Logo IBERO" class="w-40 sm:w-48 h-auto object-contain object-left" src="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/8c1109d60abc984df0e47724b61bab75d49a6b12/fotos/svg/ibero-menu-purple.svg"/>
+</div>
+<p class="text-xs sm:text-sm leading-relaxed mb-5">
+       Educación Executive impulsada por Inteligencia Artificial. Formamos a los fundadores y creadores corporativos del mañana.
       </p>
-      <div class="flex flex-wrap gap-3 mb-4">
-       <a class="w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center hover:bg-[#0077b5] hover:text-white transition-colors border border-zinc-800" href="https://www.linkedin.com/company/centro-iberoamericano/" target="_blank">
-        <i class="fa-brands fa-linkedin-in text-sm">
-        </i>
-       </a>
-       <a class="w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center hover:bg-[#E1306C] hover:text-white transition-colors border border-zinc-800" href="https://www.instagram.com/centro.iberoamericano/" target="_blank">
-        <i class="fa-brands fa-instagram text-sm">
-        </i>
-       </a>
-       <a class="w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center hover:bg-[#1877F2] hover:text-white transition-colors border border-zinc-800" href="https://www.facebook.com/ibero.education/" target="_blank">
-        <i class="fa-brands fa-facebook-f text-sm">
-        </i>
-       </a>
-       <a class="w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center hover:bg-[#25D366] hover:text-white transition-colors border border-zinc-800" href="https://wa.me/19152854778" target="_blank">
-        <i class="fa-brands fa-whatsapp text-sm">
-        </i>
-       </a>
-      </div>
-      <div class="mt-4">
-       <a class="inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-zinc-300 hover:text-white transition-colors group" href="mailto:programas@ibero.education">
-        <div class="w-8 h-8 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center group-hover:bg-ibero-purple group-hover:border-ibero-purple transition-colors">
-         <i class="fa-solid fa-envelope text-xs">
-         </i>
-        </div>
-        <span class="border-b border-transparent group-hover:border-zinc-500 pb-0.5">
+<div class="flex flex-wrap gap-3 mb-4">
+<a class="w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center hover:bg-[#0077b5] hover:text-white transition-colors border border-zinc-800" href="https://www.linkedin.com/company/centro-iberoamericano/" target="_blank">
+<i class="fa-brands fa-linkedin-in text-sm">
+</i>
+</a>
+<a class="w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center hover:bg-[#E1306C] hover:text-white transition-colors border border-zinc-800" href="https://www.instagram.com/centro.iberoamericano/" target="_blank">
+<i class="fa-brands fa-instagram text-sm">
+</i>
+</a>
+<a class="w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center hover:bg-[#1877F2] hover:text-white transition-colors border border-zinc-800" href="https://www.facebook.com/ibero.education/" target="_blank">
+<i class="fa-brands fa-facebook-f text-sm">
+</i>
+</a>
+<a class="w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center hover:bg-[#25D366] hover:text-white transition-colors border border-zinc-800" href="https://wa.me/19152854778" target="_blank">
+<i class="fa-brands fa-whatsapp text-sm">
+</i>
+</a>
+</div>
+<div class="mt-4">
+<a class="inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-zinc-300 hover:text-white transition-colors group" href="mailto:programas@ibero.education">
+<div class="w-8 h-8 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center group-hover:bg-ibero-purple group-hover:border-ibero-purple transition-colors">
+<i class="fa-solid fa-envelope text-xs">
+</i>
+</div>
+<span class="border-b border-transparent group-hover:border-zinc-500 pb-0.5">
          programas@ibero.education
         </span>
-       </a>
-      </div>
-     </div>
-     <!-- Col 2: Programas -->
-     <div>
-      <h4 class="text-white font-bold mb-4 text-sm">
+</a>
+</div>
+</div>
+<!-- Col 2: Programas -->
+<div>
+<h4 class="text-white font-bold mb-4 text-sm">
        Programas
       </h4>
-      <ul class="space-y-2 text-xs sm:text-sm">
-       <li>
-        <a class="hover:text-white transition-colors" href="https://ibero.education/oferta-academica/" target="_blank">
-         Oferta Acad&eacute;mica
+<ul class="space-y-2 text-xs sm:text-sm">
+<li>
+<a class="hover:text-white transition-colors" href="https://ibero.education/oferta-academica/" target="_blank">
+         Oferta Académica
         </a>
-       </li>
-       <li>
-        <a class="text-white font-bold transition-colors" href="#">
+</li>
+<li>
+<a class="text-white font-bold transition-colors" href="#">
          Calendario Cursos
         </a>
-       </li>
-       <li>
-        <a class="hover:text-white transition-colors" href="https://ibero.education/certificaciones-intensivas/" target="_blank">
+</li>
+<li>
+<a class="hover:text-white transition-colors" href="https://ibero.education/certificaciones-intensivas/" target="_blank">
          Cursos Intensivos
         </a>
-       </li>
-       <li>
-        <a class="hover:text-white transition-colors" href="https://ibero.education/diplomados-intensivos/" target="_blank">
+</li>
+<li>
+<a class="hover:text-white transition-colors" href="https://ibero.education/diplomados-intensivos/" target="_blank">
          Diplomados Ejecutivos
         </a>
-       </li>
-       <li>
-        <a class="hover:text-white transition-colors" href="https://ibero.education/executive-master/" target="_blank">
+</li>
+<li>
+<a class="hover:text-white transition-colors" href="https://ibero.education/executive-master/" target="_blank">
          Executive Masters
         </a>
-       </li>
-       <li>
-        <a class="hover:text-white transition-colors" href="https://ibero.education/english-courses/" target="_blank">
-         Programas de Ingl&eacute;s
+</li>
+<li>
+<a class="hover:text-white transition-colors" href="https://ibero.education/english-courses/" target="_blank">
+         Programas de Inglés
         </a>
-       </li>
-      </ul>
-     </div>
-     <!-- Col 3: Ecosistema IBERO -->
-     <div>
-      <h4 class="text-white font-bold mb-4 text-sm">
+</li>
+</ul>
+</div>
+<!-- Col 3: Ecosistema IBERO -->
+<div>
+<h4 class="text-white font-bold mb-4 text-sm">
        Ecosistema
       </h4>
-      <ul class="space-y-2 text-xs sm:text-sm">
-       <li>
-        <a class="hover:text-white transition-colors" href="https://qlase.goatify.app/" target="_blank">
+<ul class="space-y-2 text-xs sm:text-sm">
+<li>
+<a class="hover:text-white transition-colors" href="https://qlase.goatify.app/" target="_blank">
          Campus Virtual
         </a>
-       </li>
-       <li>
-        <a class="hover:text-white transition-colors" href="https://ibero.education/ibero-academy/" target="_blank">
+</li>
+<li>
+<a class="hover:text-white transition-colors" href="https://ibero.education/ibero-academy/" target="_blank">
          IBERO Academy
         </a>
-       </li>
-       <li>
-        <a class="hover:text-white transition-colors" href="https://ibero.education/ibero-labs/" target="_blank">
+</li>
+<li>
+<a class="hover:text-white transition-colors" href="https://ibero.education/ibero-labs/" target="_blank">
          IBERO Labs
         </a>
-       </li>
-       <li>
-        <a class="hover:text-white transition-colors" href="https://ibero.education/artes-liberales/" target="_blank">
+</li>
+<li>
+<a class="hover:text-white transition-colors" href="https://ibero.education/artes-liberales/" target="_blank">
          Artes liberales
         </a>
-       </li>
-       <li>
-        <a class="hover:text-white transition-colors" href="https://ibero.education/consultoria-en-educacion/" target="_blank">
-         Consultor&iacute;a B2B
+</li>
+<li>
+<a class="hover:text-white transition-colors" href="https://ibero.education/consultoria-en-educacion/" target="_blank">
+         Consultoría B2B
         </a>
-       </li>
-       <li>
-        <a class="hover:text-white transition-colors" href="https://ia.goatify.app/#discovery" target="_blank">
+</li>
+<li>
+<a class="hover:text-white transition-colors" href="https://ia.goatify.app/#discovery" target="_blank">
          Portal de Publicaciones
         </a>
-       </li>
-      </ul>
-     </div>
-     <!-- Col 4: Nosotros -->
-     <div>
-      <h4 class="text-white font-bold mb-4 text-sm">
+</li>
+</ul>
+</div>
+<!-- Col 4: Nosotros -->
+<div>
+<h4 class="text-white font-bold mb-4 text-sm">
        Nosotros
       </h4>
-      <ul class="space-y-2 text-xs sm:text-sm">
-       <li>
-        <a class="hover:text-white transition-colors" href="https://ibero.education/" target="_blank">
+<ul class="space-y-2 text-xs sm:text-sm">
+<li>
+<a class="hover:text-white transition-colors" href="https://ibero.education/" target="_blank">
          Inicio Institucional
         </a>
-       </li>
-       <li>
-        <a class="hover:text-white transition-colors" href="https://ibero.education/metodologia/" target="_blank">
-         Metodolog&iacute;a 360&deg;
+</li>
+<li>
+<a class="hover:text-white transition-colors" href="https://ibero.education/metodologia/" target="_blank">
+         Metodología 360°
         </a>
-       </li>
-       <li>
-        <a class="hover:text-white transition-colors" href="https://ibero.education/#colaboraciones" target="_blank">
+</li>
+<li>
+<a class="hover:text-white transition-colors" href="https://ibero.education/#colaboraciones" target="_blank">
          Alianzas y Avales
         </a>
-       </li>
-       <li>
-        <a class="hover:text-white transition-colors" href="https://ibero.education/trabaja-con-nosotros/" target="_blank">
+</li>
+<li>
+<a class="hover:text-white transition-colors" href="https://ibero.education/trabaja-con-nosotros/" target="_blank">
          Nuestro Claustro
         </a>
-       </li>
-       <li>
-        <a class="hover:text-white transition-colors" href="https://ibero.education/trabaja-con-nosotros/" target="_blank">
+</li>
+<li>
+<a class="hover:text-white transition-colors" href="https://ibero.education/trabaja-con-nosotros/" target="_blank">
          Trabaja con nosotros
         </a>
-       </li>
-       <li>
-        <a class="hover:text-white transition-colors" href="https://ibero.education/contacto/" target="_blank">
+</li>
+<li>
+<a class="hover:text-white transition-colors" href="https://ibero.education/contacto/" target="_blank">
          Contactos y Soporte
         </a>
-       </li>
-      </ul>
-     </div>
-     <!-- Col 5: Legal & Soporte -->
-     <div>
-      <h4 class="text-white font-bold mb-4 text-sm">
+</li>
+</ul>
+</div>
+<!-- Col 5: Legal & Soporte -->
+<div>
+<h4 class="text-white font-bold mb-4 text-sm">
        Legal &amp; Admisiones
       </h4>
-      <ul class="space-y-2 text-xs sm:text-sm">
-       <li>
-        <a class="hover:text-white transition-colors" href="https://ibero.education/registro-y-admisiones/" target="_blank">
+<ul class="space-y-2 text-xs sm:text-sm">
+<li>
+<a class="hover:text-white transition-colors" href="https://ibero.education/registro-y-admisiones/" target="_blank">
          Registro y admisiones
         </a>
-       </li>
-       <li>
-        <a class="hover:text-white transition-colors" href="https://ibero.education/ayuda-financiera/" target="_blank">
+</li>
+<li>
+<a class="hover:text-white transition-colors" href="https://ibero.education/ayuda-financiera/" target="_blank">
          Ayuda Financiera
         </a>
-       </li>
-       <li>
-        <a class="hover:text-white transition-colors" href="https://ibero.education/contacto/" target="_blank">
+</li>
+<li>
+<a class="hover:text-white transition-colors" href="https://ibero.education/contacto/" target="_blank">
          Soporte al Estudiante
         </a>
-       </li>
-      </ul>
-     </div>
-    </div>
-    <!-- Incrementado el padding bottom en móvil (pb-32) para que el chatbot no tape el texto -->
-    <div class="flex flex-col md:flex-row justify-between items-center text-[10px] sm:text-xs pt-6 pb-32 md:pb-4 border-t border-zinc-900/50">
-     <p class="text-zinc-500 mb-4 md:mb-0 text-center">
-      &copy; 2026 Centro Iberoamericano (IBERO). Todos los derechos reservados.
+</li>
+</ul>
+</div>
+</div>
+<!-- Incrementado el padding bottom en móvil (pb-32) para que el chatbot no tape el texto -->
+<div class="flex flex-col md:flex-row justify-between items-center text-[10px] sm:text-xs pt-6 pb-32 md:pb-4 border-t border-zinc-900/50">
+<p class="text-zinc-500 mb-4 md:mb-0 text-center">
+      © 2026 Centro Iberoamericano (IBERO). Todos los derechos reservados.
       <br/>
-      <span class="text-xs text-ibero-gray/60 block mt-1">
-       Calendario Acad&eacute;mico Institucional
+<span class="text-xs text-ibero-gray/60 block mt-1">
+       Calendario Académico Institucional
       </span>
-     </p>
-     <div class="flex flex-col items-center md:items-end gap-1.5 text-center md:text-right">
-      <p class="text-zinc-500">
-       Sitio desarrollado y dise&ntilde;ado por
+</p>
+<div class="flex flex-col items-center md:items-end gap-1.5 text-center md:text-right">
+<p class="text-zinc-500">
+       Sitio desarrollado y diseñado por
        <a class="text-ibero-purple hover:text-white font-bold transition-colors" href="https://www.goatify.app" target="_blank">
         GOATIFY
        </a>
-      </p>
-     </div>
-    </div>
-   </div>
-  </footer>
-  <script>
+</p>
+</div>
+</div>
+</div>
+</footer>
+<script>
    // --- LÓGICA DEL BOTÓN SCROLL TO TOP ---
     const scrollTopBtn = document.getElementById('scroll-top-btn');
     
@@ -1778,5 +1967,135 @@
 
     document.addEventListener('DOMContentLoaded', init);
   </script>
- </body>
+<!-- Unified menu wheel scroll -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const rows = document.querySelectorAll('.menu-scroll-row');
+  rows.forEach(function (row) {
+    row.addEventListener('wheel', function (event) {
+      const canScroll = row.scrollWidth > row.clientWidth + 2;
+      if (!canScroll) return;
+      if (Math.abs(event.deltaY) > Math.abs(event.deltaX)) {
+        row.scrollLeft += event.deltaY;
+        event.preventDefault();
+      }
+    }, { passive: false });
+  });
+});
+</script>
+<script id="desktop-dropdown-init">
+(function(){
+  function initDesktopDropdowns(){
+    var wrappers = document.querySelectorAll('.desktop-dropdown');
+    wrappers.forEach(function(wrapper){
+      var trigger = wrapper.querySelector('[data-dropdown-trigger="true"]');
+      var panel = wrapper.querySelector('.dropdown-panel');
+      if (!trigger || !panel || trigger.dataset.dropdownBound === 'true') return;
+      trigger.dataset.dropdownBound = 'true';
+
+      function setMobileDropdownLayerState(isOpen){
+        if (window.innerWidth >= 768) return;
+        var navbar = document.getElementById('navbar');
+        var row = wrapper.closest('.menu-scroll-row');
+        if (navbar) {
+          navbar.style.overflow = 'visible';
+          navbar.style.zIndex = '9999';
+        }
+        if (row) {
+          row.style.overflowX = isOpen ? 'visible' : '';
+          row.style.overflowY = 'visible';
+        }
+      }
+      function closeMenu(){
+        wrapper.classList.remove('open');
+        trigger.setAttribute('aria-expanded','false');
+        panel.style.display = 'none';
+        setMobileDropdownLayerState(false);
+      }
+      function openMenu(){
+        wrapper.classList.add('open');
+        trigger.setAttribute('aria-expanded','true');
+        panel.style.display = 'block';
+        setMobileDropdownLayerState(true);
+      }
+      function closeOthers(){
+        document.querySelectorAll('.desktop-dropdown.open').forEach(function(other){
+          if (other === wrapper) return;
+          other.classList.remove('open');
+          var otherTrigger = other.querySelector('[data-dropdown-trigger="true"]');
+          var otherPanel = other.querySelector('.dropdown-panel');
+          if (otherTrigger) otherTrigger.setAttribute('aria-expanded','false');
+          if (otherPanel) otherPanel.style.display = 'none';
+        });
+        setMobileDropdownLayerState(false);
+      }
+
+      closeMenu();
+      trigger.addEventListener('click', function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        var isOpen = wrapper.classList.contains('open');
+        closeOthers();
+        if (isOpen) closeMenu(); else openMenu();
+      });
+      panel.addEventListener('click', function(e){ e.stopPropagation(); });
+    });
+
+    document.addEventListener('click', function(){
+      document.querySelectorAll('.desktop-dropdown.open').forEach(function(wrapper){
+        wrapper.classList.remove('open');
+        var trigger = wrapper.querySelector('[data-dropdown-trigger="true"]');
+        var panel = wrapper.querySelector('.dropdown-panel');
+        if (trigger) trigger.setAttribute('aria-expanded','false');
+        if (panel) panel.style.display = 'none';
+      });
+    });
+  }
+
+  function initMobileAccordions(){
+    var accordions = document.querySelectorAll('.mobile-accordion');
+    accordions.forEach(function(accordion){
+      var button = accordion.querySelector('.mobile-accordion-toggle');
+      var panel = accordion.querySelector('.mobile-accordion-panel');
+      if (!button || !panel || button.dataset.bound === 'true') return;
+      button.dataset.bound = 'true';
+      function setOpen(open){
+        accordion.classList.toggle('is-open', open);
+        button.setAttribute('aria-expanded', open ? 'true' : 'false');
+        panel.classList.toggle('hidden', !open);
+        panel.style.display = open ? 'block' : 'none';
+      }
+      setOpen(false);
+      button.addEventListener('click', function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        var willOpen = !accordion.classList.contains('is-open');
+        accordions.forEach(function(other){
+          if (other === accordion) return;
+          var otherButton = other.querySelector('.mobile-accordion-toggle');
+          var otherPanel = other.querySelector('.mobile-accordion-panel');
+          if (otherButton) otherButton.setAttribute('aria-expanded','false');
+          if (otherPanel) {
+            other.classList.remove('is-open');
+            otherPanel.classList.add('hidden');
+            otherPanel.style.display = 'none';
+          }
+        });
+        setOpen(willOpen);
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function(){
+      initDesktopDropdowns();
+      initMobileAccordions();
+    });
+  } else {
+    initDesktopDropdowns();
+    initMobileAccordions();
+  }
+})();
+</script>
+</body>
 </html>
