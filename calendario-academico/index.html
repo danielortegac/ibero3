@@ -163,6 +163,67 @@
     .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
     @keyframes typing { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
 
+
+    /* Horarios: solo en celular, las 3 cards quedan en una sola fila */
+    @media (max-width: 639px) {
+      .schedule-times-block {
+        display: grid !important;
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+        column-gap: 0.42rem !important;
+        row-gap: 0.55rem !important;
+        align-items: stretch !important;
+      }
+      .schedule-times-block > :not([hidden]) ~ :not([hidden]) {
+        margin-top: 0 !important;
+      }
+      .schedule-times-block > p {
+        grid-column: 1 / -1 !important;
+        margin-bottom: 0.15rem !important;
+      }
+      .schedule-times-block > div:nth-of-type(1),
+      .schedule-times-block > div:nth-of-type(2) {
+        display: contents !important;
+      }
+      .schedule-times-block > div:nth-of-type(1) > div,
+      .schedule-times-block > div:nth-of-type(2) > div {
+        width: 100% !important;
+        min-width: 0 !important;
+        padding: 0.58rem 0.34rem !important;
+        border-radius: 0.82rem !important;
+        text-align: center !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 0.18rem !important;
+        box-shadow: 0 12px 28px rgba(0,0,0,0.18) !important;
+      }
+      .schedule-times-block span {
+        max-width: 100% !important;
+      }
+      .schedule-times-block > div:nth-of-type(1) > div > span:first-child,
+      .schedule-times-block > div:nth-of-type(2) > div > span:first-child {
+        font-size: 0.56rem !important;
+        line-height: 0.72rem !important;
+        letter-spacing: -0.015em !important;
+        margin-bottom: 0.06rem !important;
+      }
+      .schedule-times-block > div:nth-of-type(1) > div > span:first-child span,
+      .schedule-times-block > div:nth-of-type(2) > div > span:first-child span {
+        display: block !important;
+        font-size: 0.48rem !important;
+        line-height: 0.62rem !important;
+        margin-top: 0.04rem !important;
+      }
+      .schedule-times-block > div:nth-of-type(1) > div > span:last-child,
+      .schedule-times-block > div:nth-of-type(2) > div > span:last-child {
+        font-size: 0.48rem !important;
+        line-height: 0.66rem !important;
+        letter-spacing: 0 !important;
+        font-weight: 500 !important;
+      }
+    }
+
     /* MOTOR DE IMPRESIÓN NATIVO PARA PDF PERFECTO */
     @media print {
       @page { size: A4; margin: 12mm; }
@@ -563,7 +624,7 @@
      </span>
 </h1>
 <!-- Horarios Elegantes Actualizados -->
-<div class="text-sm sm:text-base md:text-lg text-ibero-gray max-w-5xl mx-auto mb-6 animate-fade-in-up space-y-4 px-2" style="animation-delay: 0.3s;">
+<div class="schedule-times-block text-sm sm:text-base md:text-lg text-ibero-gray max-w-5xl mx-auto mb-6 animate-fade-in-up space-y-4 px-2" style="animation-delay: 0.3s;">
 <p class="md:text-xl mb-4">
       Cronograma oficial Mayo 2026 - Enero 2027.
      </p>
