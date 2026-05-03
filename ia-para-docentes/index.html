@@ -306,6 +306,65 @@
   }
 }
 </style>
+
+<style id="ibero-herramientas-sobrio-final">
+/* Ajuste final: herramientas sobrias, semánticas y sin colores chillones */
+#herramientas .tool-color-legend span{
+  opacity:.92;
+  box-shadow:none!important;
+  letter-spacing:.105em!important;
+}
+#herramientas [data-tool-type="true"]{
+  font-size:7px!important;
+  line-height:1!important;
+  padding:.16rem .38rem!important;
+  letter-spacing:.08em!important;
+  font-weight:600!important;
+  opacity:.88!important;
+  box-shadow:none!important;
+}
+#herramientas a.group.block.rounded-xl,
+#herramientas a.tool-card-v2{
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.035)!important;
+  filter:saturate(.82)!important;
+}
+#herramientas a.group.block.rounded-xl:hover,
+#herramientas a.tool-card-v2:hover{
+  transform:translateY(-1px)!important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.06), 0 10px 24px rgba(0,0,0,.18)!important;
+  filter:saturate(.95)!important;
+}
+#herramientas .text-amber-200\/90,
+#herramientas .text-amber-200,
+#herramientas .text-amber-300\/60,
+#herramientas .group-hover\:text-amber-200:hover{
+  color:rgba(226,232,240,.9)!important;
+}
+@media (max-width: 767px){
+  #herramientas .grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;}
+  #herramientas a.group.block.rounded-xl,
+  #herramientas a.tool-card-v2{
+    min-height:86px!important;
+    padding:.62rem .52rem!important;
+  }
+  #herramientas a.group.block.rounded-xl span:first-child,
+  #herramientas a.tool-card-v2 span:first-child{
+    font-size:9.5px!important;
+    line-height:1.12!important;
+  }
+  #herramientas [data-tool-type="true"]{
+    font-size:6.1px!important;
+    padding:.12rem .26rem!important;
+    letter-spacing:.055em!important;
+    margin-top:.42rem!important;
+  }
+  #herramientas a.group.block.rounded-xl span.block,
+  #herramientas a.tool-card-v2 span.block{
+    font-size:7.6px!important;
+    line-height:1.18!important;
+  }
+}
+</style>
 </head>
 <body class="bg-theme-dark text-zinc-300 font-sans antialiased overflow-x-hidden selection:bg-theme-accent selection:text-white pt-[144px] md:pt-[152px]">
 <!-- BOTONES FLOTANTES Y CHATBOT -->
@@ -382,7 +441,7 @@
       📚 Temario
      </button>
 <button class="bg-sky-950/40 hover:bg-sky-900/60 border border-sky-800/50 text-sky-400 font-medium text-[10px] px-2.5 py-1.5 rounded-full transition-colors" onclick="sendChatMessage('Precios')">
-      💰 Precio $47 USD
+      💰 Inversión
      </button>
 <button class="bg-teal-950/40 hover:bg-teal-900/60 border border-teal-800/50 text-teal-400 font-medium text-[10px] px-2.5 py-1.5 rounded-full transition-colors" onclick="sendChatMessage('Web')">
       🌐 Web / Proyecto
@@ -409,7 +468,7 @@
 <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="window.location.href='https://ibero.education/'">
 <img alt="Logo IBERO" class="h-8 sm:h-10 md:h-10 w-auto object-contain" src="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/1557a79470d9c26d1ad0f0b00243f9f03e55cf2f/fotos/svg/ibero-logo-black-redE.svg"/>
 </div>
-<div class="flex flex-1 items-center justify-start lg:justify-end gap-4 md:gap-10 overflow-x-auto hide-scrollbar px-2 sm:px-4">
+<div class="flex flex-1 items-center justify-start gap-4 md:gap-6 overflow-x-auto hide-scrollbar px-2 sm:px-4 ml-0 lg:ml-6 scroll-smooth">
 <a class="text-[11px] md:text-[13px] font-bold text-zinc-600 hover:text-sky-600 transition-colors whitespace-nowrap" href="#presentacion">
         Propósito
        </a>
@@ -592,7 +651,7 @@
 </div>
 </nav>
 <!-- HERO SECTION: DEEP NAVY & SKY -->
-<section class="relative pt-12 pb-20 lg:pt-20 lg:pb-28 overflow-hidden bg-[#050B14] min-h-[85vh] flex items-center border-b border-zinc-900/50">
+<section class="relative pt-8 pb-20 lg:pt-12 lg:pb-28 overflow-hidden bg-[#050B14] min-h-[85vh] flex items-center border-b border-zinc-900/50">
 <div class="absolute inset-0 z-0">
 <video aria-hidden="true" autoplay="" class="absolute inset-0 w-full h-full object-cover pointer-events-none opacity-20 filter grayscale mix-blend-luminosity" loop="" muted="" playsinline="" preload="auto">
 <source src="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/284767d23c4cd5793b419e4625bb7707aa42b4f4/fotos/AI_Business_Education_Hero_Video.mp4" type="video/mp4"/>
@@ -602,7 +661,7 @@
 <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(14,165,233,0.15)_0%,transparent_60%)]">
 </div>
 </div>
-<div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center mt-6 md:mt-10 reveal active">
+<div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center mt-2 md:mt-4 reveal active">
 <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-sky-500/30 bg-sky-900/20 text-sky-300 text-[10px] sm:text-xs font-bold tracking-widest uppercase shadow-xl backdrop-blur-md mb-5">
 <span class="w-2 h-2 rounded-full bg-sky-400 animate-pulse">
 </span>
@@ -668,7 +727,7 @@
 <div class="flex flex-col sm:flex-row gap-4 justify-center w-full max-w-md mx-auto">
 <a class="w-full bg-sky-600 text-white px-8 py-4 rounded-xl font-black text-sm lg:text-base hover:bg-sky-500 transition-all shadow-[0_0_30px_rgba(14,165,233,0.3)] text-center flex items-center justify-center gap-2 group" href="#inversion">
 <span>
-       Inscripción: $47 USD
+       Asegurar Cupo
       </span>
 <i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition-transform">
 </i>
@@ -1105,6 +1164,9 @@
           - Correo electrónico activo.
          </li>
 <li>
+          - Cuenta creada en ia.goatify.app y accesos listos a NotebookLM, Canva, Grok y Flow de Google.
+         </li>
+<li>
           - No se exige experiencia avanzada en IA, pero sí disposición de aprendizaje.
          </li>
 </ul>
@@ -1133,6 +1195,51 @@
 </div>
 </section>
 <!-- TEMARIO COMPLETO CON PALOMITAS DE ACORDEÓN -->
+
+<!-- RUTA ACADÉMICA APLICADA DEL PROGRAMA -->
+<section class="py-12 lg:py-16 bg-zinc-50 border-b border-zinc-200 relative overflow-hidden">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-8 lg:mb-10">
+<h2 class="text-[10px] sm:text-xs font-bold tracking-widest text-zinc-500 uppercase mb-3">Ruta académica aplicada</h2>
+<h3 class="text-2xl sm:text-4xl font-black text-zinc-900 tracking-tight mb-4">Qué construyes durante <span class="font-serif italic text-sky-600 font-medium">IA para Docentes</span></h3>
+<p class="text-zinc-600 text-sm sm:text-base max-w-3xl mx-auto leading-relaxed">El programa conecta teoría breve, demostración aplicada y construcción guiada. Está diseñado para producir evidencias útiles, fortalecer competencias profesionales y apoyar procesos de emprendimiento, monetización, empleabilidad, capacitación interna o mejora de servicios. La meta es salir con una planificación docente aplicable, recursos creados con IA, evaluación organizada y un proyecto educativo listo para usar en aula.</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-2 xl:grid-cols-4 gap-3 sm:gap-6">
+<div class="bg-white border border-zinc-200 rounded-2xl p-4 sm:p-5 shadow-sm hover:shadow-md transition-all">
+<h4 class="font-black text-zinc-900 text-[12px] sm:text-base mb-2">Día 1 · Fundamentos, criterio pedagógico y uso responsable</h4>
+<p class="text-zinc-600 text-[10px] sm:text-sm leading-relaxed">Comprensión práctica de la IA en educación: oportunidades, límites, sesgos, ética, privacidad, criterio docente y decisiones sobre cuándo usar IA y cuándo no. Se trabaja una guía personal de uso responsable para el aula.</p>
+</div>
+
+<div class="bg-white border border-zinc-200 rounded-2xl p-4 sm:p-5 shadow-sm hover:shadow-md transition-all">
+<h4 class="font-black text-zinc-900 text-[12px] sm:text-base mb-2">Día 2 · Planificación didáctica y recursos de clase</h4>
+<p class="text-zinc-600 text-[10px] sm:text-sm leading-relaxed">Diseño de secuencias didácticas, objetivos de aprendizaje, actividades, guías, presentaciones, ejemplos, ejercicios diferenciados y recursos de apoyo adaptados a edad, nivel, asignatura y contexto institucional.</p>
+</div>
+
+<div class="bg-white border border-zinc-200 rounded-2xl p-4 sm:p-5 shadow-sm hover:shadow-md transition-all">
+<h4 class="font-black text-zinc-900 text-[12px] sm:text-base mb-2">Día 3 · Evaluación, rúbricas y retroalimentación</h4>
+<p class="text-zinc-600 text-[10px] sm:text-sm leading-relaxed">Construcción de rúbricas, formularios, instrumentos de evaluación, criterios de desempeño, retroalimentación personalizada y seguimiento de evidencias sin reemplazar el juicio pedagógico del docente.</p>
+</div>
+
+<div class="bg-white border border-zinc-200 rounded-2xl p-4 sm:p-5 shadow-sm hover:shadow-md transition-all">
+<h4 class="font-black text-zinc-900 text-[12px] sm:text-base mb-2">Día 4 · Proyecto docente aplicado</h4>
+<p class="text-zinc-600 text-[10px] sm:text-sm leading-relaxed">Integración de planificación, materiales, evaluación y reflexión docente en un proyecto final aplicable a una asignatura real, con presentación de evidencias y plan de implementación en aula.</p>
+</div></div>
+</div>
+</section>
+
+<!-- NOTAS ACADÉMICAS: QLASE Y TEAMS -->
+<section class="py-8 bg-white border-b border-zinc-200 relative overflow-hidden">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-2 md:grid-cols-2 gap-3 sm:gap-4">
+<div class="bg-zinc-50 border border-zinc-200 rounded-2xl p-3 sm:p-5 shadow-sm">
+<div class="flex flex-col sm:flex-row items-start gap-3 sm:gap-4"><div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center shrink-0"><i class="fa-solid fa-graduation-cap"></i></div><div><h4 class="text-zinc-900 font-black text-[12px] sm:text-base mb-1 leading-tight">Gestión académica en QLASE LMS</h4><p class="text-zinc-600 text-[10px] sm:text-sm leading-relaxed">Las tareas, recursos, evidencias, actividades, calificaciones, retroalimentación y seguimiento académico del programa se gestionan en nuestra plataforma educativa QLASE.</p><a href="https://qlase.goatify.app/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 mt-3 bg-zinc-900 text-white px-2.5 sm:px-4 py-2 rounded-xl text-[10px] sm:text-xs font-black hover:bg-zinc-800 transition-colors">Ingresar a QLASE LMS <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i></a></div></div>
+</div>
+<div class="bg-zinc-50 border border-zinc-200 rounded-2xl p-3 sm:p-5 shadow-sm">
+<div class="flex flex-col sm:flex-row items-start gap-3 sm:gap-4"><div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center shrink-0"><i class="fa-brands fa-microsoft"></i></div><div><h4 class="text-zinc-900 font-black text-[12px] sm:text-base mb-1 leading-tight">Clases en vivo por Microsoft Teams</h4><p class="text-zinc-600 text-[10px] sm:text-sm leading-relaxed">Las sesiones sincrónicas se transmiten por Microsoft Teams. Los accesos se comparten con participantes inscritos desde el aula del programa.</p><a href="https://teams.microsoft.com/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 mt-3 bg-sky-600 text-white px-2.5 sm:px-4 py-2 rounded-xl text-[10px] sm:text-xs font-black hover:bg-sky-500 transition-colors">Abrir Microsoft Teams <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i></a></div></div>
+</div>
+</div>
+</div>
+</section>
 <section class="py-16 lg:py-28 bg-zinc-50 relative border-b border-zinc-200" id="temario">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
 <div class="text-center mb-16 lg:mb-24">
@@ -1193,7 +1300,7 @@
 <strong class="text-zinc-900">
          Propósito:
         </strong>
-        Dar una base sólida para comprender cómo funciona hoy la IA aplicada a educación y cómo cambia el rol del docente en ese contexto.
+        Construir una base clara para entender cómo funciona la IA aplicada a educación, qué oportunidades abre, qué riesgos exige controlar y cómo evoluciona el rol docente cuando la tecnología entra al aula sin reemplazar el criterio humano.
        </p>
 <h5 class="text-xs font-bold text-zinc-500 uppercase tracking-widest mb-4 flex items-center gap-2">
 <i class="fa-solid fa-chalkboard-user text-sky-500 text-base">
@@ -1207,13 +1314,13 @@
 <div class="mb-3 text-[10px] font-bold text-zinc-600 flex items-center gap-1.5 bg-zinc-100 px-2 py-1 rounded border border-zinc-200 w-fit">
 <i class="fa-regular fa-clock text-sky-600">
 </i>
-          19:00 a 21:00 (EC/CO/PE)
+          19:00 a 21:00 (EC/CO/PE) · 18:00 a 20:00 (MX)
          </div>
 <h6 class="text-[14px] font-bold text-zinc-900 mb-2 leading-tight">
           Panorama Actual y Ética
          </h6>
 <p class="text-[12px] text-zinc-500 leading-relaxed">
-          Tipos de herramientas. Límites, sesgos y riesgos. Ética, autoría y la diferencia entre apoyo legítimo y plagio por parte de los estudiantes.
+          Tipos de herramientas, usos reales en educación, límites, sesgos, privacidad, autoría académica y diferencia práctica entre apoyo legítimo, dependencia tecnológica y plagio estudiantil.
          </p>
 </div>
 <div class="bg-white border border-zinc-200 rounded-xl p-5 shadow-sm hover:border-sky-300 transition-colors relative overflow-hidden">
@@ -1228,7 +1335,7 @@
           Rediseño y Planificación
          </h6>
 <p class="text-[12px] text-zinc-500 leading-relaxed">
-          Qué debe cambiar en la planificación y consignas. Prompts para docentes. Planificación inicial de clases y secuencias usando Goatify IA, ChatGPT, Gemini, Claude y Perplexity.
+          Cómo rediseñar consignas, actividades y secuencias para que la IA no facilite respuestas vacías, sino pensamiento, argumentación y producción auténtica. Uso guiado de Goatify IA, ChatGPT, Gemini, Claude, Grok y Perplexity.
          </p>
 </div>
 </div>
@@ -1246,7 +1353,7 @@
 <strong class="text-zinc-700 w-16 shrink-0">
             1 Hora:
            </strong>
-           Completar diagnóstico de su contexto, mapa de herramientas y planificación base.
+           Completar diagnóstico de aula, mapa de herramientas, criterios de uso responsable, riesgos de plagio y una planificación base con prompts docentes iniciales.
           </li>
 </ul>
 </div>
@@ -1264,7 +1371,7 @@
 <strong>
            Diagnóstico docente:
           </strong>
-          mapa de herramientas + criterios de uso + diagnóstico de riesgos + planificación base + prompt pack inicial.
+          mapa de herramientas + criterios de uso responsable + diagnóstico de riesgos + planificación base + prompt pack docente inicial.
          </p>
 </div>
 </div>
@@ -1309,7 +1416,7 @@
 <strong class="text-zinc-900">
          Propósito:
         </strong>
-        Aprender a construir materiales y procesos de evaluación más eficientes, claros y pertinentes en tiempos de IA.
+        Diseñar materiales, actividades y evaluaciones más útiles, claras y adaptables, usando IA para ahorrar tiempo sin perder profundidad pedagógica ni intención formativa.
        </p>
 <h5 class="text-xs font-bold text-zinc-500 uppercase tracking-widest mb-4 flex items-center gap-2">
 <i class="fa-solid fa-chalkboard-user text-sky-500 text-base">
@@ -1323,13 +1430,13 @@
 <div class="mb-3 text-[10px] font-bold text-zinc-600 flex items-center gap-1.5 bg-zinc-100 px-2 py-1 rounded border border-zinc-200 w-fit">
 <i class="fa-regular fa-clock text-sky-600">
 </i>
-          19:00 a 21:00 (EC/CO/PE)
+          19:00 a 21:00 (EC/CO/PE) · 18:00 a 20:00 (MX)
          </div>
 <h6 class="text-[14px] font-bold text-zinc-900 mb-2 leading-tight">
           Rediseño de Tareas y Evaluación
          </h6>
 <p class="text-[12px] text-zinc-500 leading-relaxed">
-          Evidencia de proceso, reflexión y argumentación como nuevas prioridades. Diseño de rúbricas y modelos de retroalimentación con IA.
+          Evidencia de proceso, reflexión, argumentación y producción original como nuevas prioridades. Diseño de rúbricas, criterios de desempeño y modelos de retroalimentación asistidos por IA.
          </p>
 </div>
 <div class="bg-white border border-zinc-200 rounded-xl p-5 shadow-sm hover:border-sky-300 transition-colors relative overflow-hidden">
@@ -1344,7 +1451,7 @@
           Producción de Materiales Visuales
          </h6>
 <p class="text-[12px] text-zinc-500 leading-relaxed">
-          Diseño de guías, fichas y recursos audiovisuales adaptativos utilizando Canva, Nano Banana, CapCut y HeyGen.
+          Diseño de guías, fichas, presentaciones, ejemplos, recursos visuales y piezas audiovisuales adaptadas al nivel del estudiante usando Canva, Nano Banana, CapCut, HeyGen y Goatify.
          </p>
 </div>
 </div>
@@ -1362,7 +1469,7 @@
 <strong class="text-zinc-700 w-16 shrink-0">
             1 Hora:
            </strong>
-           Construir material didáctico base, esquema de evaluación y modelo de retroalimentación.
+           Construir material didáctico base, actividad rediseñada, esquema de evaluación, rúbrica y modelo de retroalimentación aplicable a una clase real.
           </li>
 </ul>
 </div>
@@ -1380,7 +1487,7 @@
 <strong>
            Kit académico aplicado:
           </strong>
-          material base + rúbrica + modelo de retroalimentación + actividad rediseñada frente al uso de IA.
+          material base + actividad rediseñada + rúbrica + modelo de retroalimentación + criterios para uso transparente de IA.
          </p>
 </div>
 </div>
@@ -1425,7 +1532,7 @@
 <strong class="text-zinc-900">
          Propósito:
         </strong>
-        Reducir fricción en tareas repetitivas y construir apoyos iniciales útiles para la práctica docente y el acompañamiento.
+        Reducir carga operativa en tareas repetitivas y construir apoyos iniciales que ayuden a organizar dudas, seguimiento, agenda, comunicación y acompañamiento sin deshumanizar la relación educativa.
        </p>
 <h5 class="text-xs font-bold text-zinc-500 uppercase tracking-widest mb-4 flex items-center gap-2">
 <i class="fa-solid fa-chalkboard-user text-sky-500 text-base">
@@ -1439,13 +1546,13 @@
 <div class="mb-3 text-[10px] font-bold text-zinc-600 flex items-center gap-1.5 bg-zinc-100 px-2 py-1 rounded border border-zinc-200 w-fit">
 <i class="fa-regular fa-clock text-sky-600">
 </i>
-          19:00 a 21:00 (EC/CO/PE)
+          19:00 a 21:00 (EC/CO/PE) · 18:00 a 20:00 (MX)
          </div>
 <h6 class="text-[14px] font-bold text-zinc-900 mb-2 leading-tight">
           Organización Académica
          </h6>
 <p class="text-[12px] text-zinc-500 leading-relaxed">
-          Qué automatizar y qué no en educación. Organización de tareas, seguimiento y comunicación fluida con los estudiantes liberando tiempo.
+          Qué automatizar y qué no en educación. Organización de tareas, seguimiento, comunicación con estudiantes, recordatorios, respuestas frecuentes y gestión de evidencias liberando tiempo docente.
          </p>
 </div>
 <div class="bg-white border border-zinc-200 rounded-xl p-5 shadow-sm hover:border-sky-300 transition-colors relative overflow-hidden">
@@ -1460,7 +1567,7 @@
           Despliegue de Asistentes
          </h6>
 <p class="text-[12px] text-zinc-500 leading-relaxed">
-          Flujos de apoyo para dudas frecuentes o tutoría inicial usando ManyChat. Configuración de agenda y reservas de mentorías con Calendly.
+          Flujos de apoyo para dudas frecuentes, tutoría inicial, orientación académica y seguimiento usando ManyChat, Calendly y agentes básicos de Goatify IA.
          </p>
 </div>
 </div>
@@ -1478,7 +1585,7 @@
 <strong class="text-zinc-700 w-16 shrink-0">
             1 Hora:
            </strong>
-           Diseñar el flujo de apoyo docente o configurar tu primer asistente educativo.
+           Diseñar el flujo de apoyo docente, organizar preguntas frecuentes y configurar el esquema inicial de un asistente educativo o sistema de seguimiento.
           </li>
 </ul>
 </div>
@@ -1496,7 +1603,7 @@
 <strong>
            Sistema de apoyo:
           </strong>
-          mapa de tareas repetitivas + flujo básico de automatización + esquema de asistente educativo + guion de atención.
+          mapa de tareas repetitivas + flujo básico de automatización + esquema de asistente educativo + guion de atención y seguimiento.
          </p>
 </div>
 </div>
@@ -1541,7 +1648,7 @@
 <strong class="text-zinc-900">
          Propósito:
         </strong>
-        Cerrar la certificación articulando la mejora de la práctica docente con una propuesta concreta de innovación aplicable a tu realidad.
+        Cerrar la certificación integrando planificación, materiales, evaluación, automatización y presentación profesional en una propuesta concreta de innovación aplicable a tu realidad educativa.
        </p>
 <h5 class="text-xs font-bold text-zinc-500 uppercase tracking-widest mb-4 flex items-center gap-2">
 <i class="fa-solid fa-chalkboard-user text-sky-500 text-base">
@@ -1555,13 +1662,13 @@
 <div class="mb-3 text-[10px] font-bold text-zinc-600 flex items-center gap-1.5 bg-zinc-100 px-2 py-1 rounded border border-zinc-200 w-fit">
 <i class="fa-regular fa-clock text-teal-600">
 </i>
-          19:00 a 21:00 (EC/CO/PE)
+          19:00 a 21:00 (EC/CO/PE) · 18:00 a 20:00 (MX)
          </div>
 <h6 class="text-[14px] font-bold text-zinc-900 mb-2 leading-tight">
           Perfil Profesional y LinkedIn
          </h6>
 <p class="text-[12px] text-zinc-500 leading-relaxed">
-          Autoridad profesional en entornos digitales. Estructuración de propuestas educativas propias (cursos, mentorías). Ruta de crecimiento hacia programas robustos.
+          Autoridad profesional en entornos digitales. Estructuración de propuestas educativas propias, cursos, mentorías, talleres o mejoras institucionales con narrativa clara y valor visible.
          </p>
 </div>
 <div class="bg-white border border-zinc-200 rounded-xl p-5 shadow-sm hover:border-teal-300 transition-colors relative overflow-hidden">
@@ -1576,7 +1683,7 @@
           Activo de Presentación (Netlify)
          </h6>
 <p class="text-[12px] text-zinc-500 leading-relaxed">
-          Uso de Google AI Studio y publicación de tu activo base en Netlify (Landing de programa) integrando punto de contacto o cobro inicial.
+          Uso de Google AI Studio y publicación de un activo base en Netlify para presentar tu propuesta, explicar tu solución educativa, captar interesados o documentar la innovación aplicada.
          </p>
 </div>
 </div>
@@ -1594,7 +1701,7 @@
 <strong class="text-zinc-700 w-16 shrink-0">
             1 Hora:
            </strong>
-           Consolidar el proyecto final aplicado y su plan de implementación a 30 días.
+           Consolidar el proyecto final aplicado, sus evidencias, presentación digital y plan de implementación a 30 días.
           </li>
 </ul>
 </div>
@@ -1609,7 +1716,7 @@
           Proyecto Final Aplicado
          </h5>
 <p class="text-[14px] text-white font-bold relative z-10 leading-relaxed">
-          Rediseño de asignatura, Diseño de programa propio, Sistema de apoyo automatizado o Propuesta educativa derivada.
+          Rediseño de asignatura, diseño de programa propio, sistema de apoyo automatizado o propuesta educativa aplicada lista para presentar, validar o implementar.
          </p>
 </div>
 </div>
@@ -1619,193 +1726,332 @@
 </div>
 </section>
 <!-- STACK DE HERRAMIENTAS (TECH) - HIGHLIGHTED GOATIFY IA -->
-<section class="py-20 lg:py-24 bg-[#050B14] relative border-b border-zinc-900 overflow-hidden" id="herramientas">
-<div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(14,165,233,0.05)_0%,transparent_70%)] pointer-events-none">
-</div>
+
+<!-- REFUERZO ACADÉMICO APLICADO - MALLA OPERATIVA -->
+<section class="py-16 lg:py-20 bg-zinc-50 relative border-b border-zinc-200 overflow-hidden" id="ruta-academica-aplicada">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+    <div class="text-center mb-10">
+      <p class="text-[10px] sm:text-xs font-black tracking-widest uppercase text-sky-600 mb-3">25 al 28 de mayo de 2026</p>
+      <h2 class="text-3xl sm:text-5xl font-black text-zinc-900 tracking-tight leading-tight">Ruta académica día a día<br/><span class="font-serif italic font-medium text-zinc-500">planificación, evaluación, recursos y práctica educativa real</span></h2>
+      <p class="text-sm sm:text-base text-zinc-600 max-w-3xl mx-auto mt-4 leading-relaxed">4 días para rediseñar una práctica docente concreta con IA, ética y entregables aplicables.</p>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-2 xl:grid-cols-4 gap-4">
+      <div class="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm hover:shadow-lg transition-all">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="inline-flex items-center justify-center min-w-16 h-8 px-3 rounded-full bg-sky-50 text-sky-700 text-[11px] font-black uppercase tracking-widest border border-sky-100">Día 1</span>
+            <h4 class="text-zinc-900 font-black text-sm sm:text-base leading-tight">Criterio, ética y mapa de uso</h4>
+          </div>
+          <p class="text-[12px] sm:text-sm text-zinc-600 leading-relaxed">Panorama de IA educativa, límites, sesgos, autoría, plagio, diagnóstico del contexto y mapa de herramientas.</p>
+        </div><div class="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm hover:shadow-lg transition-all">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="inline-flex items-center justify-center min-w-16 h-8 px-3 rounded-full bg-sky-50 text-sky-700 text-[11px] font-black uppercase tracking-widest border border-sky-100">Día 2</span>
+            <h4 class="text-zinc-900 font-black text-sm sm:text-base leading-tight">Planificación y diseño instruccional</h4>
+          </div>
+          <p class="text-[12px] sm:text-sm text-zinc-600 leading-relaxed">Rediseño de objetivos, secuencias, actividades, consignas, materiales y prompts docentes con Goatify IA y NotebookLM.</p>
+        </div><div class="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm hover:shadow-lg transition-all">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="inline-flex items-center justify-center min-w-16 h-8 px-3 rounded-full bg-sky-50 text-sky-700 text-[11px] font-black uppercase tracking-widest border border-sky-100">Día 3</span>
+            <h4 class="text-zinc-900 font-black text-sm sm:text-base leading-tight">Evaluación, retroalimentación y personalización</h4>
+          </div>
+          <p class="text-[12px] sm:text-sm text-zinc-600 leading-relaxed">Rúbricas, bancos de preguntas, feedback, adaptaciones por nivel, seguimiento y apoyo al estudiante.</p>
+        </div><div class="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm hover:shadow-lg transition-all">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="inline-flex items-center justify-center min-w-16 h-8 px-3 rounded-full bg-sky-50 text-sky-700 text-[11px] font-black uppercase tracking-widest border border-sky-100">Día 4</span>
+            <h4 class="text-zinc-900 font-black text-sm sm:text-base leading-tight">Proyecto final aplicado</h4>
+          </div>
+          <p class="text-[12px] sm:text-sm text-zinc-600 leading-relaxed">Asignatura, módulo, taller o programa rediseñado con materiales, rúbrica, secuencia y plan de implementación a 30 días.</p>
+        </div>
+    </div>
+  </div>
+</section>
+
+<!-- KIT DE HERRAMIENTAS Y CUENTAS LISTAS - REFUERZO GOATIFY IA -->
+<section class="py-16 lg:py-20 bg-[#050505] relative border-b border-zinc-900 overflow-hidden" id="kit-herramientas-goatify">
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.06)_0%,transparent_70%)] pointer-events-none"></div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 reveal">
+    <div class="text-center mb-10">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-sky-400/30 bg-sky-500/10 text-sky-200 text-[10px] font-black uppercase tracking-widest mb-5">
+        <i class="fa-solid fa-screwdriver-wrench"></i> Kit operativo antes de clase
+      </div>
+      <h2 class="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">Herramientas listas para <span class="font-serif italic font-medium text-sky-300">trabajar de verdad</span></h2>
+      <p class="text-sm sm:text-base text-zinc-400 max-w-3xl mx-auto mt-4 leading-relaxed">Goatify IA funciona como centro de planeación docente: diagnóstico, secuencias, rúbricas, materiales, prompts, proyecto final y documentación del rediseño académico.</p>
+      <div class="mt-6 max-w-4xl mx-auto rounded-2xl border border-sky-400/25 bg-sky-500/10 p-4 text-left">
+        <p class="text-[12px] sm:text-sm text-zinc-200 leading-relaxed"><strong class="text-white">Nota obligatoria de preparación:</strong> antes de iniciar <strong>IA para Docentes</strong>, crea tu cuenta en <a class="underline font-black text-sky-200 hover:text-white" href="https://ia.goatify.app" target="_blank" rel="noopener">ia.goatify.app</a>, descarga o deja listas las apps necesarias y ten cuentas activas en las demás herramientas del programa. La idea es llegar a clase listo para construir, no perder tiempo creando accesos.</p>
+      </div>
+    </div>
+    <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <a class="block rounded-2xl border border-white/10 bg-white/[0.04] p-4 hover:bg-white/[0.08] hover:border-sky-400/50 transition-all group" href="https://ia.goatify.app" target="_blank" rel="noopener">
+          <h4 class="text-white font-black text-sm flex items-center justify-between gap-2">Goatify IA<i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-zinc-500 group-hover:text-sky-300"></i></h4>
+          <p class="text-[11px] text-zinc-400 leading-relaxed mt-2">Centro del proyecto: chat, documentos, tablas, notas, Drive, tablero y seguimiento.</p>
+        </a><a class="block rounded-2xl border border-white/10 bg-white/[0.04] p-4 hover:bg-white/[0.08] hover:border-sky-400/50 transition-all group" href="https://ia.goatify.app" target="_blank" rel="noopener">
+          <h4 class="text-white font-black text-sm flex items-center justify-between gap-2">Gemini en Goatify IA<i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-zinc-500 group-hover:text-sky-300"></i></h4>
+          <p class="text-[11px] text-zinc-400 leading-relaxed mt-2">Análisis, apoyo del ecosistema Google y producción dentro del laboratorio.</p>
+        </a><a class="block rounded-2xl border border-white/10 bg-white/[0.04] p-4 hover:bg-white/[0.08] hover:border-sky-400/50 transition-all group" href="https://ia.goatify.app" target="_blank" rel="noopener">
+          <h4 class="text-white font-black text-sm flex items-center justify-between gap-2">Perplexity en Goatify IA<i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-zinc-500 group-hover:text-sky-300"></i></h4>
+          <p class="text-[11px] text-zinc-400 leading-relaxed mt-2">Investigación y contraste de información desde el ecosistema Goatify.</p>
+        </a><a class="block rounded-2xl border border-white/10 bg-white/[0.04] p-4 hover:bg-white/[0.08] hover:border-sky-400/50 transition-all group" href="https://notebooklm.google.com" target="_blank" rel="noopener">
+          <h4 class="text-white font-black text-sm flex items-center justify-between gap-2">NotebookLM<i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-zinc-500 group-hover:text-sky-300"></i></h4>
+          <p class="text-[11px] text-zinc-400 leading-relaxed mt-2">Fuentes, notas, síntesis y organización de materiales.</p>
+        </a><a class="block rounded-2xl border border-white/10 bg-white/[0.04] p-4 hover:bg-white/[0.08] hover:border-sky-400/50 transition-all group" href="https://grok.com" target="_blank" rel="noopener">
+          <h4 class="text-white font-black text-sm flex items-center justify-between gap-2">Grok<i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-zinc-500 group-hover:text-sky-300"></i></h4>
+          <p class="text-[11px] text-zinc-400 leading-relaxed mt-2">Tono social, ideas rápidas y lectura de conversación digital.</p>
+        </a><a class="block rounded-2xl border border-white/10 bg-white/[0.04] p-4 hover:bg-white/[0.08] hover:border-sky-400/50 transition-all group" href="https://www.canva.com" target="_blank" rel="noopener">
+          <h4 class="text-white font-black text-sm flex items-center justify-between gap-2">Canva<i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-zinc-500 group-hover:text-sky-300"></i></h4>
+          <p class="text-[11px] text-zinc-400 leading-relaxed mt-2">Diseño de piezas, presentaciones, recursos y assets visuales.</p>
+        </a><a class="block rounded-2xl border border-white/10 bg-white/[0.04] p-4 hover:bg-white/[0.08] hover:border-sky-400/50 transition-all group" href="https://labs.google/fx/tools/flow" target="_blank" rel="noopener">
+          <h4 class="text-white font-black text-sm flex items-center justify-between gap-2">Flow de Google<i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-zinc-500 group-hover:text-sky-300"></i></h4>
+          <p class="text-[11px] text-zinc-400 leading-relaxed mt-2">Exploración audiovisual, prototipos creativos y narrativa visual.</p>
+        </a><a class="block rounded-2xl border border-white/10 bg-white/[0.04] p-4 hover:bg-white/[0.08] hover:border-sky-400/50 transition-all group" href="https://chatgpt.com/" target="_blank" rel="noopener">
+          <h4 class="text-white font-black text-sm flex items-center justify-between gap-2">ChatGPT / Claude<i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-zinc-500 group-hover:text-sky-300"></i></h4>
+          <p class="text-[11px] text-zinc-400 leading-relaxed mt-2">Estructura, copy, prompts, análisis y profundidad estratégica.</p>
+        </a>
+    </div>
+  </div>
+</section>
+
+<!-- STACK DE HERRAMIENTAS DEL PROGRAMA - V3 COMPACTO -->
+<section class="py-12 lg:py-16 bg-[#050B14] relative border-b border-zinc-900 overflow-hidden" id="herramientas">
+<div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(14,165,233,0.08)_0%,transparent_70%)] pointer-events-none"></div>
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 reveal">
-<div class="text-center mb-12">
-<h2 class="text-[10px] sm:text-xs font-bold tracking-widest text-zinc-500 uppercase mb-2">
-      Tecnología Operativa
-     </h2>
-<h3 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-      El Tech
-      <span class="font-serif italic text-sky-400 font-medium">
-       Stack
-      </span>
-</h3>
-<p class="text-zinc-400 text-sm mt-3 max-w-2xl mx-auto">
-      Domina el ecosistema actual de herramientas aplicadas a la educación e innovación.
-     </p>
+<div class="text-center mb-8">
+<div class="inline-flex items-center justify-center gap-2 border border-zinc-700 bg-zinc-900/80 px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest text-zinc-300 mb-5 shadow-sm backdrop-blur-md"><i class="fa-solid fa-toolbox text-sky-400"></i> Stack del programa</div>
+<h3 class="text-3xl sm:text-5xl font-black text-white tracking-tight mb-4 leading-tight">Herramientas del <span class="font-serif italic text-sky-400 font-medium">programa</span></h3>
+<p class="text-zinc-400 text-sm sm:text-base max-w-3xl mx-auto leading-relaxed">Herramientas de trabajo y módulos de laboratorio usados para investigar, documentar, crear, publicar, captar, automatizar, vender, medir y presentar entregables reales durante el programa.</p>
+<div class="mt-5 flex flex-wrap justify-center gap-1.5 sm:gap-2 max-w-4xl mx-auto tool-color-legend">
+<span class="inline-flex items-center rounded-full border border-teal-400/20 bg-teal-400/10 px-2 py-0.5 text-[8px] sm:text-[9px] font-semibold uppercase tracking-[0.12em] text-teal-200/90">Aula</span>
+<span class="inline-flex items-center rounded-full border border-sky-400/20 bg-sky-400/10 px-2 py-0.5 text-[8px] sm:text-[9px] font-semibold uppercase tracking-[0.12em] text-sky-200/90">IA</span>
+<span class="inline-flex items-center rounded-full border border-cyan-400/20 bg-cyan-400/10 px-2 py-0.5 text-[8px] sm:text-[9px] font-semibold uppercase tracking-[0.12em] text-cyan-200/90">Investigación</span>
+<span class="inline-flex items-center rounded-full border border-violet-400/20 bg-violet-400/10 px-2 py-0.5 text-[8px] sm:text-[9px] font-semibold uppercase tracking-[0.12em] text-violet-200/90">Diseño</span>
+<span class="inline-flex items-center rounded-full border border-rose-400/18 bg-rose-400/10 px-2 py-0.5 text-[8px] sm:text-[9px] font-semibold uppercase tracking-[0.12em] text-rose-200/85">Video</span>
+<span class="inline-flex items-center rounded-full border border-emerald-400/20 bg-emerald-400/10 px-2 py-0.5 text-[8px] sm:text-[9px] font-semibold uppercase tracking-[0.12em] text-emerald-200/90">Automatización</span>
+<span class="inline-flex items-center rounded-full border border-slate-400/20 bg-slate-400/10 px-2 py-0.5 text-[8px] sm:text-[9px] font-semibold uppercase tracking-[0.12em] text-slate-200/90">Operación</span>
 </div>
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-<!-- NÚCLEO ESTRATÉGICO -->
-<div class="bg-zinc-900/40 border border-zinc-800 p-6 rounded-[2rem] backdrop-blur-sm shadow-xl flex flex-col h-full hover:border-sky-500/50 transition-colors">
-<div class="flex items-center gap-3 mb-4 border-b border-zinc-800/50 pb-3">
-<i class="fa-solid fa-brain text-lg text-sky-400">
-</i>
-<h4 class="text-white font-bold text-xs uppercase tracking-wider">
-        Ideación e Investigación
-       </h4>
 </div>
-<div class="space-y-2 flex-grow">
-<a class="block p-3 rounded-xl bg-gradient-to-r from-sky-500/10 to-teal-500/10 hover:from-sky-500/20 hover:to-teal-500/20 transition-all border border-sky-400/50 hover:border-teal-400 group relative overflow-hidden shadow-[0_0_15px_rgba(14,165,233,0.15)]" href="https://www.goatify.app" target="_blank">
-<span class="absolute top-0 right-0 bg-gradient-to-r from-sky-500 to-teal-500 text-white text-[8px] font-bold px-1.5 py-0.5 rounded-bl-lg uppercase tracking-wider shadow-md">
-         Principal
-        </span>
-<h5 class="text-white font-bold text-sm flex items-center gap-2">
-         Goatify IA
-         <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-sky-400 group-hover:text-white">
-</i>
-</h5>
-<p class="text-[10px] text-zinc-300 mt-1">
-         El motor estratégico para organización, investigación académica y planeación docente de alto nivel.
-        </p>
+<div class="rounded-2xl border border-zinc-800/80 bg-[#07111f]/75 p-4 mb-5 shadow-[0_15px_40px_rgba(0,0,0,0.22)]">
+<div class="mb-3 flex items-center gap-2"><span class="w-8 h-8 rounded-lg bg-white/10 text-white border border-white/10 flex items-center justify-center"><i class="fa-solid fa-screwdriver-wrench text-xs"></i></span><h4 class="text-white font-black text-sm">Herramientas generales, aula y sesiones en vivo</h4></div>
+<div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-2.5"><a class="group block rounded-xl border border-teal-500/20 bg-teal-950/15 hover:bg-teal-950/35 hover:border-teal-400/50 transition-all px-2.5 sm:px-3 py-2.5 shadow-sm" href="https://qlase.goatify.app/" rel="noopener" target="_blank" title="Aula académica para recursos, tareas, evidencias, calificaciones y seguimiento.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[10px] sm:text-[12px] leading-tight">QLASE LMS<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-teal-300/60 group-hover:text-teal-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-teal-400/20 bg-teal-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-teal-200/90" data-tool-type="true">Aula / LMS</span>
+<span class="block text-[8.5px] sm:text-[9px] text-zinc-500 group-hover:text-zinc-300 mt-1 leading-snug">Aula académica para recursos, tareas, evidencias, calificaciones y seguimiento.</span>
 </a>
-<a class="block p-3 rounded-xl bg-sky-500/10 hover:bg-sky-500/20 transition-all border border-sky-500/30 group relative overflow-hidden" href="https://notebooklm.google.com" target="_blank">
-<span class="absolute top-0 right-0 bg-sky-500 text-white text-[8px] font-bold px-1.5 py-0.5 rounded-bl-lg uppercase tracking-wider">
-         Destacado
-        </span>
-<h5 class="text-white font-bold text-sm flex items-center gap-2">
-         NotebookLM
-         <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-sky-400 group-hover:text-white">
-</i>
-</h5>
-<p class="text-[10px] text-zinc-300 mt-1">
-         Herramienta de acompañamiento intelectual para analizar fuentes y convertir complejidad en claridad.
-        </p>
+<a class="group block rounded-xl border border-teal-500/20 bg-teal-950/15 hover:bg-teal-950/35 hover:border-teal-400/50 transition-all px-2.5 sm:px-3 py-2.5 shadow-sm" href="https://teams.microsoft.com/" rel="noopener" target="_blank" title="Clases en vivo y encuentros sincrónicos del programa.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[10px] sm:text-[12px] leading-tight">Microsoft Teams<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-teal-300/60 group-hover:text-teal-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-teal-400/20 bg-teal-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-teal-200/90" data-tool-type="true">Clase en vivo</span>
+<span class="block text-[8.5px] sm:text-[9px] text-zinc-500 group-hover:text-zinc-300 mt-1 leading-snug">Clases en vivo y encuentros sincrónicos del programa.</span>
 </a>
-<a class="block p-3 rounded-xl bg-zinc-800/30 hover:bg-zinc-800/60 transition-all border border-transparent hover:border-white/20 group" href="https://chat.openai.com" target="_blank">
-<h5 class="text-white font-bold text-sm flex items-center gap-2">
-         ChatGPT &amp; Claude
-         <i class="fa-solid fa-link text-[10px] text-zinc-500">
-</i>
-</h5>
-<p class="text-[10px] text-zinc-400 mt-1">
-         Diseño de secuencias, rúbricas, personalización de materiales y feedback a estudiantes.
-        </p>
+<a class="group block rounded-xl border border-sky-500/20 bg-sky-950/15 hover:bg-sky-950/35 hover:border-sky-400/50 transition-all px-2.5 sm:px-3 py-2.5 shadow-sm" href="https://ia.goatify.app/" rel="noopener" target="_blank" title="Ecosistema operativo de productividad, creación, automatización y gestión digital.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[10px] sm:text-[12px] leading-tight">Goatify IA<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-sky-300/60 group-hover:text-sky-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-sky-400/20 bg-sky-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-sky-200/90" data-tool-type="true">IA generativa</span>
+<span class="block text-[8.5px] sm:text-[9px] text-zinc-500 group-hover:text-zinc-300 mt-1 leading-snug">Ecosistema operativo de productividad, creación, automatización y gestión digital.</span>
 </a>
-</div>
-</div>
-<!-- DISEÑO Y PRODUCCIÓN -->
-<div class="bg-zinc-900/40 border border-zinc-800 p-6 rounded-[2rem] backdrop-blur-sm shadow-xl flex flex-col h-full hover:border-teal-500/50 transition-colors">
-<div class="flex items-center gap-3 mb-4 border-b border-zinc-800/50 pb-3">
-<i class="fa-solid fa-photo-film text-lg text-teal-400">
-</i>
-<h4 class="text-white font-bold text-xs uppercase tracking-wider">
-        Diseño y Materiales
-       </h4>
-</div>
-<div class="space-y-2 flex-grow">
-<a class="block p-3 rounded-xl bg-zinc-800/30 hover:bg-zinc-800/60 transition-all border border-transparent hover:border-white/20 group" href="https://www.canva.com" target="_blank">
-<h5 class="text-white font-bold text-sm flex items-center gap-2">
-         Canva &amp; Nano Banana
-         <i class="fa-solid fa-link text-[10px] text-zinc-500">
-</i>
-</h5>
-<p class="text-[10px] text-zinc-400 mt-1">
-         Creación de guías, fichas, presentaciones interactivas y recursos visuales adaptativos.
-        </p>
+<a class="group block rounded-xl border border-sky-500/20 bg-sky-950/15 hover:bg-sky-950/35 hover:border-sky-400/50 transition-all px-2.5 sm:px-3 py-2.5 shadow-sm" href="https://chatgpt.com/" rel="noopener" target="_blank" title="Ideación, escritura, análisis, prompts y apoyo creativo.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[10px] sm:text-[12px] leading-tight">ChatGPT<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-sky-300/60 group-hover:text-sky-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-sky-400/20 bg-sky-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-sky-200/90" data-tool-type="true">IA generativa</span>
+<span class="block text-[8.5px] sm:text-[9px] text-zinc-500 group-hover:text-zinc-300 mt-1 leading-snug">Ideación, escritura, análisis, prompts y apoyo creativo.</span>
 </a>
-<a class="block p-3 rounded-xl bg-zinc-800/30 hover:bg-zinc-800/60 transition-all border border-transparent hover:border-white/20 group" href="https://www.capcut.com" target="_blank">
-<h5 class="text-white font-bold text-sm flex items-center gap-2">
-         CapCut &amp; Veo 3
-         <i class="fa-solid fa-link text-[10px] text-zinc-500">
-</i>
-</h5>
-<p class="text-[10px] text-zinc-400 mt-1">
-         Desarrollo de micro-cápsulas audiovisuales educativas y edición dinámica.
-        </p>
+<a class="group block rounded-xl border border-sky-500/20 bg-sky-950/15 hover:bg-sky-950/35 hover:border-sky-400/50 transition-all px-2.5 sm:px-3 py-2.5 shadow-sm" href="https://claude.ai/" rel="noopener" target="_blank" title="Organización, profundidad, documentos extensos y razonamiento.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[10px] sm:text-[12px] leading-tight">Claude<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-sky-300/60 group-hover:text-sky-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-sky-400/20 bg-sky-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-sky-200/90" data-tool-type="true">IA generativa</span>
+<span class="block text-[8.5px] sm:text-[9px] text-zinc-500 group-hover:text-zinc-300 mt-1 leading-snug">Organización, profundidad, documentos extensos y razonamiento.</span>
 </a>
-<a class="block p-3 rounded-xl bg-zinc-800/30 hover:bg-zinc-800/60 transition-all border border-transparent hover:border-white/20 group" href="https://www.heygen.com" target="_blank">
-<h5 class="text-white font-bold text-sm flex items-center gap-2">
-         HeyGen
-         <i class="fa-solid fa-link text-[10px] text-zinc-500">
-</i>
-</h5>
-<p class="text-[10px] text-zinc-400 mt-1">
-         Generación de introducciones o explicaciones teóricas complejas apoyadas con avatares.
-        </p>
+<a class="group block rounded-xl border border-sky-500/20 bg-sky-950/15 hover:bg-sky-950/35 hover:border-sky-400/50 transition-all px-2.5 sm:px-3 py-2.5 shadow-sm" href="https://gemini.google.com/" rel="noopener" target="_blank" title="Ecosistema Google, análisis, investigación y soporte multimodal.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[10px] sm:text-[12px] leading-tight">Gemini<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-sky-300/60 group-hover:text-sky-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-sky-400/20 bg-sky-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-sky-200/90" data-tool-type="true">IA generativa</span>
+<span class="block text-[8.5px] sm:text-[9px] text-zinc-500 group-hover:text-zinc-300 mt-1 leading-snug">Ecosistema Google, análisis, investigación y soporte multimodal.</span>
 </a>
-</div>
-</div>
-<!-- OPERACIÓN Y EXPANSIÓN -->
-<div class="bg-zinc-900/40 border border-zinc-800 p-6 rounded-[2rem] backdrop-blur-sm shadow-xl flex flex-col h-full hover:border-sky-500/50 transition-colors">
-<div class="flex items-center gap-3 mb-4 border-b border-zinc-800/50 pb-3">
-<i class="fa-solid fa-gears text-lg text-sky-400">
-</i>
-<h4 class="text-white font-bold text-xs uppercase tracking-wider">
-        Construcción &amp; Expansión
-       </h4>
-</div>
-<div class="space-y-2 flex-grow">
-<a class="block p-3 rounded-xl bg-sky-500/10 hover:bg-sky-500/20 transition-all border border-sky-500/30 group relative overflow-hidden" href="https://aistudio.google.com" target="_blank">
-<span class="absolute top-0 right-0 bg-sky-500 text-white text-[8px] font-bold px-1.5 py-0.5 rounded-bl-lg uppercase tracking-wider">
-         Escalabilidad
-        </span>
-<h5 class="text-white font-bold text-sm flex items-center gap-2">
-         Google AI Studio
-         <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-sky-400 group-hover:text-white">
-</i>
-</h5>
-<p class="text-[10px] text-zinc-300 mt-1">
-         El espacio para prototipado rápido, experimentación de prompts y creación de aplicaciones AI-first en el aula.
-        </p>
+<a class="group block rounded-xl border border-cyan-500/20 bg-cyan-950/15 hover:bg-cyan-950/35 hover:border-cyan-400/50 transition-all px-2.5 sm:px-3 py-2.5 shadow-sm" href="https://aistudio.google.com/" rel="noopener" target="_blank" title="Prototipado, pruebas y exploración avanzada de IA.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[10px] sm:text-[12px] leading-tight">Google AI Studio<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-cyan-300/60 group-hover:text-cyan-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-cyan-400/20 bg-cyan-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-cyan-200/90" data-tool-type="true">Construcción IA</span>
+<span class="block text-[8.5px] sm:text-[9px] text-zinc-500 group-hover:text-zinc-300 mt-1 leading-snug">Prototipado, pruebas y exploración avanzada de IA.</span>
 </a>
-<a class="block p-3 rounded-xl bg-zinc-800/30 hover:bg-zinc-800/60 transition-all border border-transparent hover:border-white/20 group" href="https://netlify.com" target="_blank">
-<h5 class="text-white font-bold text-sm flex items-center gap-2">
-         Netlify
-         <i class="fa-solid fa-link text-[10px] text-zinc-500">
-</i>
-</h5>
-<p class="text-[10px] text-zinc-400 mt-1">
-         Despliegue rápido de la página funcional para presentar tu perfil o tu propia oferta educativa.
-        </p>
+<a class="group block rounded-xl border border-sky-500/20 bg-sky-950/15 hover:bg-sky-950/35 hover:border-sky-400/50 transition-all px-2.5 sm:px-3 py-2.5 shadow-sm" href="https://grok.com/" rel="noopener" target="_blank" title="Tono social, ideas rápidas, tendencias y contenido conversacional.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[10px] sm:text-[12px] leading-tight">Grok<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-sky-300/60 group-hover:text-sky-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-sky-400/20 bg-sky-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-sky-200/90" data-tool-type="true">IA generativa</span>
+<span class="block text-[8.5px] sm:text-[9px] text-zinc-500 group-hover:text-zinc-300 mt-1 leading-snug">Tono social, ideas rápidas, tendencias y contenido conversacional.</span>
 </a>
-</div>
-</div>
-<!-- AUTOMATIZACIÓN ACADÉMICA -->
-<div class="bg-zinc-900/40 border border-zinc-800 p-6 rounded-[2rem] backdrop-blur-sm shadow-xl flex flex-col h-full hover:border-teal-500/50 transition-colors">
-<div class="flex items-center gap-3 mb-4 border-b border-zinc-800/50 pb-3">
-<i class="fa-solid fa-bolt text-lg text-teal-400">
-</i>
-<h4 class="text-white font-bold text-xs uppercase tracking-wider">
-        Automatización Docente
-       </h4>
-</div>
-<div class="space-y-2 flex-grow">
-<a class="block p-3 rounded-xl bg-zinc-800/30 hover:bg-zinc-800/60 transition-all border border-transparent hover:border-white/20 group" href="https://manychat.com" target="_blank">
-<h5 class="text-white font-bold text-sm flex items-center gap-2">
-         ManyChat
-         <i class="fa-solid fa-link text-[10px] text-zinc-500">
-</i>
-</h5>
-<p class="text-[10px] text-zinc-400 mt-1">
-         Desarrollo de asistentes educativos para dudas frecuentes y soporte inicial al estudiante.
-        </p>
+<a class="group block rounded-xl border border-cyan-500/20 bg-cyan-950/15 hover:bg-cyan-950/35 hover:border-cyan-400/50 transition-all px-2.5 sm:px-3 py-2.5 shadow-sm" href="https://notebooklm.google.com/" rel="noopener" target="_blank" title="Investigación, fuentes, documentos, estudio guiado y síntesis.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[10px] sm:text-[12px] leading-tight">NotebookLM<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-cyan-300/60 group-hover:text-cyan-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-cyan-400/20 bg-cyan-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-cyan-200/90" data-tool-type="true">Investigación</span>
+<span class="block text-[8.5px] sm:text-[9px] text-zinc-500 group-hover:text-zinc-300 mt-1 leading-snug">Investigación, fuentes, documentos, estudio guiado y síntesis.</span>
 </a>
-<a class="block p-3 rounded-xl bg-zinc-800/30 hover:bg-zinc-800/60 transition-all border border-transparent hover:border-white/20 group" href="https://calendly.com" target="_blank">
-<h5 class="text-white font-bold text-sm flex items-center gap-2">
-         Calendly
-         <i class="fa-solid fa-link text-[10px] text-zinc-500">
-</i>
-</h5>
-<p class="text-[10px] text-zinc-400 mt-1">
-         Automatización de tutorías, horas de oficina (office hours) o citas para mentorías.
-        </p>
+<a class="group block rounded-xl border border-violet-500/20 bg-violet-950/15 hover:bg-violet-950/35 hover:border-violet-400/50 transition-all px-2.5 sm:px-3 py-2.5 shadow-sm" href="https://www.canva.com/" rel="noopener" target="_blank" title="Diseño visual, presentaciones, piezas gráficas y marca.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[10px] sm:text-[12px] leading-tight">Canva<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-violet-300/60 group-hover:text-violet-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-violet-400/20 bg-violet-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-violet-200/90" data-tool-type="true">Diseño visual</span>
+<span class="block text-[8.5px] sm:text-[9px] text-zinc-500 group-hover:text-zinc-300 mt-1 leading-snug">Diseño visual, presentaciones, piezas gráficas y marca.</span>
 </a>
-<a class="block p-3 rounded-xl bg-zinc-800/30 hover:bg-zinc-800/60 transition-all border border-transparent hover:border-white/20 group" href="https://www.perplexity.ai" target="_blank">
-<h5 class="text-white font-bold text-sm flex items-center gap-2">
-         Perplexity &amp; DeepSeek
-         <i class="fa-solid fa-link text-[10px] text-zinc-500">
-</i>
-</h5>
-<p class="text-[10px] text-zinc-400 mt-1">
-         Contraste de información, actualización de sílabos e investigación profunda frente al plagio.
-        </p>
+<a class="group block rounded-xl border border-rose-500/20 bg-rose-950/15 hover:bg-rose-950/35 hover:border-rose-400/50 transition-all px-2.5 sm:px-3 py-2.5 shadow-sm" href="https://labs.google/fx/tools/flow" rel="noopener" target="_blank" title="Video creativo, storytelling audiovisual y piezas de campaña.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[10px] sm:text-[12px] leading-tight">Flow de Google<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-rose-300/60 group-hover:text-rose-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-rose-400/20 bg-rose-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-rose-200/90" data-tool-type="true">Video IA</span>
+<span class="block text-[8.5px] sm:text-[9px] text-zinc-500 group-hover:text-zinc-300 mt-1 leading-snug">Video creativo, storytelling audiovisual y piezas de campaña.</span>
 </a>
+<a class="group block rounded-xl border border-rose-500/20 bg-rose-950/15 hover:bg-rose-950/35 hover:border-rose-400/50 transition-all px-2.5 sm:px-3 py-2.5 shadow-sm" href="https://www.capcut.com/" rel="noopener" target="_blank" title="Edición rápida de video, clips, subtítulos y contenido corto.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[10px] sm:text-[12px] leading-tight">CapCut<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-rose-300/60 group-hover:text-rose-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-rose-400/20 bg-rose-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-rose-200/90" data-tool-type="true">Edición video</span>
+<span class="block text-[8.5px] sm:text-[9px] text-zinc-500 group-hover:text-zinc-300 mt-1 leading-snug">Edición rápida de video, clips, subtítulos y contenido corto.</span>
+</a>
+<a class="group block rounded-xl border border-rose-500/20 bg-rose-950/15 hover:bg-rose-950/35 hover:border-rose-400/50 transition-all px-2.5 sm:px-3 py-2.5 shadow-sm" href="https://labs.google/fx/tools/flow" rel="noopener" target="_blank" title="Generación de video dentro del ecosistema creativo de Google.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[10px] sm:text-[12px] leading-tight">Veo<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-rose-300/60 group-hover:text-rose-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-rose-400/20 bg-rose-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-rose-200/90" data-tool-type="true">Video IA</span>
+<span class="block text-[8.5px] sm:text-[9px] text-zinc-500 group-hover:text-zinc-300 mt-1 leading-snug">Generación de video dentro del ecosistema creativo de Google.</span>
+</a>
+<a class="group block rounded-xl border border-rose-500/20 bg-rose-950/15 hover:bg-rose-950/35 hover:border-rose-400/50 transition-all px-2.5 sm:px-3 py-2.5 shadow-sm" href="https://www.heygen.com/" rel="noopener" target="_blank" title="Avatares, videos con presentador y contenido explicativo.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[10px] sm:text-[12px] leading-tight">HeyGen<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-rose-300/60 group-hover:text-rose-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-rose-400/20 bg-rose-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-rose-200/90" data-tool-type="true">Avatar video</span>
+<span class="block text-[8.5px] sm:text-[9px] text-zinc-500 group-hover:text-zinc-300 mt-1 leading-snug">Avatares, videos con presentador y contenido explicativo.</span>
+</a>
+<a class="group block rounded-xl border border-rose-500/20 bg-rose-950/15 hover:bg-rose-950/35 hover:border-rose-400/50 transition-all px-2.5 sm:px-3 py-2.5 shadow-sm" href="https://www.topview.ai/" rel="noopener" target="_blank" title="Videos comerciales, anuncios y piezas de venta con IA.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[10px] sm:text-[12px] leading-tight">TopView<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-rose-300/60 group-hover:text-rose-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-rose-400/20 bg-rose-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-rose-200/90" data-tool-type="true">Video comercial</span>
+<span class="block text-[8.5px] sm:text-[9px] text-zinc-500 group-hover:text-zinc-300 mt-1 leading-snug">Videos comerciales, anuncios y piezas de venta con IA.</span>
+</a>
+<a class="group block rounded-xl border border-slate-500/20 bg-slate-950/15 hover:bg-slate-950/35 hover:border-slate-400/50 transition-all px-2.5 sm:px-3 py-2.5 shadow-sm" href="https://ads.google.com/" rel="noopener" target="_blank" title="Campañas, tráfico y captación pagada.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[10px] sm:text-[12px] leading-tight">Google Ads<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-slate-300/60 group-hover:text-slate-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-slate-400/20 bg-slate-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-slate-200/90" data-tool-type="true">Publicidad</span>
+<span class="block text-[8.5px] sm:text-[9px] text-zinc-500 group-hover:text-zinc-300 mt-1 leading-snug">Campañas, tráfico y captación pagada.</span>
+</a>
+<a class="group block rounded-xl border border-slate-500/20 bg-slate-950/15 hover:bg-slate-950/35 hover:border-slate-400/50 transition-all px-2.5 sm:px-3 py-2.5 shadow-sm" href="https://business.facebook.com/" rel="noopener" target="_blank" title="Gestión comercial de Facebook, Instagram y campañas.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[10px] sm:text-[12px] leading-tight">Meta Business<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-slate-300/60 group-hover:text-slate-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-slate-400/20 bg-slate-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-slate-200/90" data-tool-type="true">Publicidad</span>
+<span class="block text-[8.5px] sm:text-[9px] text-zinc-500 group-hover:text-zinc-300 mt-1 leading-snug">Gestión comercial de Facebook, Instagram y campañas.</span>
+</a>
+<a class="group block rounded-xl border border-emerald-500/20 bg-emerald-950/15 hover:bg-emerald-950/35 hover:border-emerald-400/50 transition-all px-2.5 sm:px-3 py-2.5 shadow-sm" href="https://manychat.com/" rel="noopener" target="_blank" title="Automatización conversacional en redes y mensajería.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[10px] sm:text-[12px] leading-tight">ManyChat<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-emerald-300/60 group-hover:text-emerald-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-emerald-400/20 bg-emerald-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-emerald-200/90" data-tool-type="true">Automatización</span>
+<span class="block text-[8.5px] sm:text-[9px] text-zinc-500 group-hover:text-zinc-300 mt-1 leading-snug">Automatización conversacional en redes y mensajería.</span>
+</a>
+<a class="group block rounded-xl border border-slate-500/20 bg-slate-950/15 hover:bg-slate-950/35 hover:border-slate-400/50 transition-all px-2.5 sm:px-3 py-2.5 shadow-sm" href="https://www.paypal.com/" rel="noopener" target="_blank" title="Cobros, pagos internacionales y validación comercial.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[10px] sm:text-[12px] leading-tight">PayPal<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-slate-300/60 group-hover:text-slate-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-slate-400/20 bg-slate-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-slate-200/90" data-tool-type="true">Pagos</span>
+<span class="block text-[8.5px] sm:text-[9px] text-zinc-500 group-hover:text-zinc-300 mt-1 leading-snug">Cobros, pagos internacionales y validación comercial.</span>
+</a>
+<a class="group block rounded-xl border border-emerald-500/20 bg-emerald-950/15 hover:bg-emerald-950/35 hover:border-emerald-400/50 transition-all px-2.5 sm:px-3 py-2.5 shadow-sm" href="https://calendly.com/" rel="noopener" target="_blank" title="Agenda de reuniones, asesorías y llamadas comerciales.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[10px] sm:text-[12px] leading-tight">Calendly<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-emerald-300/60 group-hover:text-emerald-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-emerald-400/20 bg-emerald-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-emerald-200/90" data-tool-type="true">Agenda</span>
+<span class="block text-[8.5px] sm:text-[9px] text-zinc-500 group-hover:text-zinc-300 mt-1 leading-snug">Agenda de reuniones, asesorías y llamadas comerciales.</span>
+</a></div>
+<p class="text-[11px] text-zinc-500 mt-3 leading-relaxed">Se recomienda tener activas las cuentas indicadas para aprovechar mejor las prácticas y no perder tiempo creando accesos durante la clase.</p>
 </div>
+<div class="grid grid-cols-2 lg:grid-cols-2 gap-5">
+<div class="rounded-2xl border border-zinc-800 bg-zinc-950/40 p-4">
+<div class="mb-3 flex items-center gap-2">
+<span class="w-8 h-8 rounded-lg bg-blue-500/10 text-sky-400 border border-blue-500/20 flex items-center justify-center"><i class="fa-solid fa-layer-group text-xs"></i></span>
+<h4 class="text-white font-black text-sm">Gestión y documentos</h4>
 </div>
+<div class="grid grid-cols-2 sm:grid-cols-2 gap-2"><a class="group block rounded-xl border border-teal-500/20 bg-teal-950/15 hover:bg-teal-950/35 hover:border-teal-400/50 transition-all px-2.5 sm:px-3 py-2.5 shadow-sm" href="https://ia.goatify.app/" rel="noopener" target="_blank" title="Kanban, tareas, calendario, documentos, chat, CRM, finanzas, viabilidad, tablas y enlaces públicos.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[10px] sm:text-[12px] leading-tight">Proyectos Goatify<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-teal-300/60 group-hover:text-teal-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-teal-400/20 bg-teal-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-teal-200/90" data-tool-type="true">Gestión</span>
+<span class="block text-[8.5px] sm:text-[9px] text-zinc-500 group-hover:text-zinc-300 mt-1 leading-snug">Kanban, tareas, calendario, documentos, chat, CRM, finanzas, viabilidad, tablas y enlaces públicos.</span>
+</a>
+<a class="group block rounded-xl border border-teal-500/20 bg-teal-950/15 hover:bg-teal-950/35 hover:border-teal-400/50 transition-all px-2.5 sm:px-3 py-2.5 shadow-sm" href="https://ia.goatify.app/" rel="noopener" target="_blank" title="Planificación de clases, tareas, reuniones, entregas y seguimiento.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[10px] sm:text-[12px] leading-tight">Calendario Global<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-teal-300/60 group-hover:text-teal-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-teal-400/20 bg-teal-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-teal-200/90" data-tool-type="true">Gestión</span>
+<span class="block text-[8.5px] sm:text-[9px] text-zinc-500 group-hover:text-zinc-300 mt-1 leading-snug">Planificación de clases, tareas, reuniones, entregas y seguimiento.</span>
+</a>
+<a class="group block rounded-xl border border-cyan-500/20 bg-cyan-950/15 hover:bg-cyan-950/35 hover:border-cyan-400/50 transition-all px-2.5 sm:px-3 py-2.5 shadow-sm" href="https://ia.goatify.app/" rel="noopener" target="_blank" title="Archivos, documentos, imágenes, artifacts y recursos generados en un solo lugar.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[10px] sm:text-[12px] leading-tight">Goatify Drive<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-cyan-300/60 group-hover:text-cyan-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-cyan-400/20 bg-cyan-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-cyan-200/90" data-tool-type="true">Documentos</span>
+<span class="block text-[8.5px] sm:text-[9px] text-zinc-500 group-hover:text-zinc-300 mt-1 leading-snug">Archivos, documentos, imágenes, artifacts y recursos generados en un solo lugar.</span>
+</a>
+<a class="group block rounded-xl border border-cyan-500/20 bg-cyan-950/15 hover:bg-cyan-950/35 hover:border-cyan-400/50 transition-all px-2.5 sm:px-3 py-2.5 shadow-sm" href="https://ia.goatify.app/" rel="noopener" target="_blank" title="Documentos reales: PDF, Word, Excel, CSV, variantes, envío a proyecto y guardado en Drive.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[10px] sm:text-[12px] leading-tight">Goatify Docs / Artifacts<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-cyan-300/60 group-hover:text-cyan-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-cyan-400/20 bg-cyan-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-cyan-200/90" data-tool-type="true">Documentos</span>
+<span class="block text-[8.5px] sm:text-[9px] text-zinc-500 group-hover:text-zinc-300 mt-1 leading-snug">Documentos reales: PDF, Word, Excel, CSV, variantes, envío a proyecto y guardado en Drive.</span>
+</a>
+<a class="group block rounded-xl border border-sky-500/20 bg-sky-950/15 hover:bg-sky-950/35 hover:border-sky-400/50 transition-all px-2.5 sm:px-3 py-2.5 shadow-sm" href="https://ia.goatify.app/" rel="noopener" target="_blank" title="IA operativa para crear documentos, tareas, proyectos, estrategias, campañas y entregables.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[10px] sm:text-[12px] leading-tight">Shivo Chat Avanzado<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-sky-300/60 group-hover:text-sky-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-sky-400/20 bg-sky-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-sky-200/90" data-tool-type="true">IA asistente</span>
+<span class="block text-[8.5px] sm:text-[9px] text-zinc-500 group-hover:text-zinc-300 mt-1 leading-snug">IA operativa para crear documentos, tareas, proyectos, estrategias, campañas y entregables.</span>
+</a>
+<a class="group block rounded-xl border border-sky-500/20 bg-sky-950/15 hover:bg-sky-950/35 hover:border-sky-400/50 transition-all px-2.5 sm:px-3 py-2.5 shadow-sm" href="https://ia.goatify.app/" rel="noopener" target="_blank" title="Acciones rápidas desde cualquier parte de la plataforma.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[10px] sm:text-[12px] leading-tight">Asistente Rápido<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-sky-300/60 group-hover:text-sky-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-sky-400/20 bg-sky-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-sky-200/90" data-tool-type="true">IA asistente</span>
+<span class="block text-[8.5px] sm:text-[9px] text-zinc-500 group-hover:text-zinc-300 mt-1 leading-snug">Acciones rápidas desde cualquier parte de la plataforma.</span>
+</a></div>
 </div>
+<div class="rounded-2xl border border-zinc-800 bg-zinc-950/40 p-4">
+<div class="mb-3 flex items-center gap-2">
+<span class="w-8 h-8 rounded-lg bg-blue-500/10 text-sky-400 border border-blue-500/20 flex items-center justify-center"><i class="fa-solid fa-layer-group text-xs"></i></span>
+<h4 class="text-white font-black text-sm">Producción y activos digitales</h4>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-2 gap-2"><a class="group block rounded-xl border border-cyan-500/20 bg-cyan-950/15 hover:bg-cyan-950/35 hover:border-cyan-400/50 transition-all px-2.5 sm:px-3 py-2.5 shadow-sm" href="https://ia.goatify.app/" rel="noopener" target="_blank" title="Centro de herramientas IA para chat, agentes, multimedia, imagen, audio, video, formularios y web.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[10px] sm:text-[12px] leading-tight">AI Studio Goatify<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-cyan-300/60 group-hover:text-cyan-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-cyan-400/20 bg-cyan-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-cyan-200/90" data-tool-type="true">Construcción IA</span>
+<span class="block text-[8.5px] sm:text-[9px] text-zinc-500 group-hover:text-zinc-300 mt-1 leading-snug">Centro de herramientas IA para chat, agentes, multimedia, imagen, audio, video, formularios y web.</span>
+</a>
+<a class="group block rounded-xl border border-violet-500/20 bg-violet-950/15 hover:bg-violet-950/35 hover:border-violet-400/50 transition-all px-2.5 sm:px-3 py-2.5 shadow-sm" href="https://ia.goatify.app/" rel="noopener" target="_blank" title="Recursos visuales y multimedia para campañas, clases o proyectos.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[10px] sm:text-[12px] leading-tight">Media Generator<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-violet-300/60 group-hover:text-violet-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-violet-400/20 bg-violet-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-violet-200/90" data-tool-type="true">Producción IA</span>
+<span class="block text-[8.5px] sm:text-[9px] text-zinc-500 group-hover:text-zinc-300 mt-1 leading-snug">Recursos visuales y multimedia para campañas, clases o proyectos.</span>
+</a>
+<a class="group block rounded-xl border border-violet-500/20 bg-violet-950/15 hover:bg-violet-950/35 hover:border-violet-400/50 transition-all px-2.5 sm:px-3 py-2.5 shadow-sm" href="https://ia.goatify.app/" rel="noopener" target="_blank" title="Edición, mejora y adaptación de imágenes.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[10px] sm:text-[12px] leading-tight">Image Editor<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-violet-300/60 group-hover:text-violet-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-violet-400/20 bg-violet-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-violet-200/90" data-tool-type="true">Imagen IA</span>
+<span class="block text-[8.5px] sm:text-[9px] text-zinc-500 group-hover:text-zinc-300 mt-1 leading-snug">Edición, mejora y adaptación de imágenes.</span>
+</a>
+<a class="group block rounded-xl border border-rose-500/20 bg-rose-950/15 hover:bg-rose-950/35 hover:border-rose-400/50 transition-all px-2.5 sm:px-3 py-2.5 shadow-sm" href="https://ia.goatify.app/" rel="noopener" target="_blank" title="Recursos de audio, guiones sonoros y apoyos multimedia.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[10px] sm:text-[12px] leading-tight">Audio Generator<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-rose-300/60 group-hover:text-rose-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-rose-400/20 bg-rose-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-rose-200/90" data-tool-type="true">Audio IA</span>
+<span class="block text-[8.5px] sm:text-[9px] text-zinc-500 group-hover:text-zinc-300 mt-1 leading-snug">Recursos de audio, guiones sonoros y apoyos multimedia.</span>
+</a>
+<a class="group block rounded-xl border border-rose-500/20 bg-rose-950/15 hover:bg-rose-950/35 hover:border-rose-400/50 transition-all px-2.5 sm:px-3 py-2.5 shadow-sm" href="https://ia.goatify.app/" rel="noopener" target="_blank" title="Producción de videos cortos, clips y material explicativo.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[10px] sm:text-[12px] leading-tight">Video Generator<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-rose-300/60 group-hover:text-rose-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-rose-400/20 bg-rose-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-rose-200/90" data-tool-type="true">Video IA</span>
+<span class="block text-[8.5px] sm:text-[9px] text-zinc-500 group-hover:text-zinc-300 mt-1 leading-snug">Producción de videos cortos, clips y material explicativo.</span>
+</a>
+<a class="group block rounded-xl border border-violet-500/20 bg-violet-950/15 hover:bg-violet-950/35 hover:border-violet-400/50 transition-all px-2.5 sm:px-3 py-2.5 shadow-sm" href="https://ia.goatify.app/" rel="noopener" target="_blank" title="Presentaciones web, clases, pitches y materiales profesionales.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[10px] sm:text-[12px] leading-tight">Presentation Builder<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-violet-300/60 group-hover:text-violet-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-violet-400/20 bg-violet-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-violet-200/90" data-tool-type="true">Presentaciones</span>
+<span class="block text-[8.5px] sm:text-[9px] text-zinc-500 group-hover:text-zinc-300 mt-1 leading-snug">Presentaciones web, clases, pitches y materiales profesionales.</span>
+</a>
+<a class="group block rounded-xl border border-slate-500/20 bg-slate-950/15 hover:bg-slate-950/35 hover:border-slate-400/50 transition-all px-2.5 sm:px-3 py-2.5 shadow-sm" href="https://ia.goatify.app/" rel="noopener" target="_blank" title="Organización de publicaciones, calendario editorial y contenido para redes.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[10px] sm:text-[12px] leading-tight">Social Media Manager<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-slate-300/60 group-hover:text-slate-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-slate-400/20 bg-slate-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-slate-200/90" data-tool-type="true">Contenido</span>
+<span class="block text-[8.5px] sm:text-[9px] text-zinc-500 group-hover:text-zinc-300 mt-1 leading-snug">Organización de publicaciones, calendario editorial y contenido para redes.</span>
+</a>
+<a class="group block rounded-xl border border-cyan-500/20 bg-cyan-950/15 hover:bg-cyan-950/35 hover:border-cyan-400/50 transition-all px-2.5 sm:px-3 py-2.5 shadow-sm" href="https://ia.goatify.app/" rel="noopener" target="_blank" title="Creación de páginas, componentes, prototipos y soluciones web.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[10px] sm:text-[12px] leading-tight">Web Programmer<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-cyan-300/60 group-hover:text-cyan-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-cyan-400/20 bg-cyan-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-cyan-200/90" data-tool-type="true">Web</span>
+<span class="block text-[8.5px] sm:text-[9px] text-zinc-500 group-hover:text-zinc-300 mt-1 leading-snug">Creación de páginas, componentes, prototipos y soluciones web.</span>
+</a>
+<a class="group block rounded-xl border border-cyan-500/20 bg-cyan-950/15 hover:bg-cyan-950/35 hover:border-cyan-400/50 transition-all px-2.5 sm:px-3 py-2.5 shadow-sm" href="https://ia.goatify.app/" rel="noopener" target="_blank" title="Páginas públicas, smart pages, landing pages y enlaces compartibles.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[10px] sm:text-[12px] leading-tight">Public Sites<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-cyan-300/60 group-hover:text-cyan-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-cyan-400/20 bg-cyan-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-cyan-200/90" data-tool-type="true">Publicación</span>
+<span class="block text-[8.5px] sm:text-[9px] text-zinc-500 group-hover:text-zinc-300 mt-1 leading-snug">Páginas públicas, smart pages, landing pages y enlaces compartibles.</span>
+</a>
+<a class="group block rounded-xl border border-emerald-500/20 bg-emerald-950/15 hover:bg-emerald-950/35 hover:border-emerald-400/50 transition-all px-2.5 sm:px-3 py-2.5 shadow-sm" href="https://ia.goatify.app/" rel="noopener" target="_blank" title="Formularios de registro, captación, evaluación y feedback.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[10px] sm:text-[12px] leading-tight">Forms<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-emerald-300/60 group-hover:text-emerald-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-emerald-400/20 bg-emerald-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-emerald-200/90" data-tool-type="true">Formularios</span>
+<span class="block text-[8.5px] sm:text-[9px] text-zinc-500 group-hover:text-zinc-300 mt-1 leading-snug">Formularios de registro, captación, evaluación y feedback.</span>
+</a></div>
+</div>
+<div class="rounded-2xl border border-zinc-800 bg-zinc-950/40 p-4">
+<div class="mb-3 flex items-center gap-2">
+<span class="w-8 h-8 rounded-lg bg-blue-500/10 text-sky-400 border border-blue-500/20 flex items-center justify-center"><i class="fa-solid fa-layer-group text-xs"></i></span>
+<h4 class="text-white font-black text-sm">Ventas, agenda y automatización</h4>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-2 gap-2"><a class="group block rounded-xl border border-slate-500/20 bg-slate-950/15 hover:bg-slate-950/35 hover:border-slate-400/50 transition-all px-2.5 sm:px-3 py-2.5 shadow-sm" href="https://ia.goatify.app/" rel="noopener" target="_blank" title="Leads, clientes, oportunidades, seguimiento y pipeline comercial.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[10px] sm:text-[12px] leading-tight">CRM Goatify<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-slate-300/60 group-hover:text-slate-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-slate-400/20 bg-slate-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-slate-200/90" data-tool-type="true">CRM</span>
+<span class="block text-[8.5px] sm:text-[9px] text-zinc-500 group-hover:text-zinc-300 mt-1 leading-snug">Leads, clientes, oportunidades, seguimiento y pipeline comercial.</span>
+</a>
+<a class="group block rounded-xl border border-emerald-500/20 bg-emerald-950/15 hover:bg-emerald-950/35 hover:border-emerald-400/50 transition-all px-2.5 sm:px-3 py-2.5 shadow-sm" href="https://ia.goatify.app/" rel="noopener" target="_blank" title="Agenda pública para reuniones, asesorías y llamadas.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[10px] sm:text-[12px] leading-tight">Scheduler<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-emerald-300/60 group-hover:text-emerald-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-emerald-400/20 bg-emerald-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-emerald-200/90" data-tool-type="true">Agenda</span>
+<span class="block text-[8.5px] sm:text-[9px] text-zinc-500 group-hover:text-zinc-300 mt-1 leading-snug">Agenda pública para reuniones, asesorías y llamadas.</span>
+</a>
+<a class="group block rounded-xl border border-emerald-500/20 bg-emerald-950/15 hover:bg-emerald-950/35 hover:border-emerald-400/50 transition-all px-2.5 sm:px-3 py-2.5 shadow-sm" href="https://ia.goatify.app/" rel="noopener" target="_blank" title="Correos, campañas, drafts, plantillas, programación y cuentas conectadas.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[10px] sm:text-[12px] leading-tight">Goatify Mail<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-emerald-300/60 group-hover:text-emerald-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-emerald-400/20 bg-emerald-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-emerald-200/90" data-tool-type="true">Email</span>
+<span class="block text-[8.5px] sm:text-[9px] text-zinc-500 group-hover:text-zinc-300 mt-1 leading-snug">Correos, campañas, drafts, plantillas, programación y cuentas conectadas.</span>
+</a>
+<a class="group block rounded-xl border border-emerald-500/20 bg-emerald-950/15 hover:bg-emerald-950/35 hover:border-emerald-400/50 transition-all px-2.5 sm:px-3 py-2.5 shadow-sm" href="https://ia.goatify.app/" rel="noopener" target="_blank" title="Campañas, secuencias, comunicación comercial y automatización.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[10px] sm:text-[12px] leading-tight">Email Marketing<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-emerald-300/60 group-hover:text-emerald-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-emerald-400/20 bg-emerald-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-emerald-200/90" data-tool-type="true">Email marketing</span>
+<span class="block text-[8.5px] sm:text-[9px] text-zinc-500 group-hover:text-zinc-300 mt-1 leading-snug">Campañas, secuencias, comunicación comercial y automatización.</span>
+</a>
+<a class="group block rounded-xl border border-sky-500/20 bg-sky-950/15 hover:bg-sky-950/35 hover:border-sky-400/50 transition-all px-2.5 sm:px-3 py-2.5 shadow-sm" href="https://ia.goatify.app/" rel="noopener" target="_blank" title="Agentes IA para atención, soporte, seguimiento o procesos.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[10px] sm:text-[12px] leading-tight">AiAgent<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-sky-300/60 group-hover:text-sky-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-sky-400/20 bg-sky-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-sky-200/90" data-tool-type="true">Agente IA</span>
+<span class="block text-[8.5px] sm:text-[9px] text-zinc-500 group-hover:text-zinc-300 mt-1 leading-snug">Agentes IA para atención, soporte, seguimiento o procesos.</span>
+</a>
+<a class="group block rounded-xl border border-slate-500/20 bg-slate-950/15 hover:bg-slate-950/35 hover:border-slate-400/50 transition-all px-2.5 sm:px-3 py-2.5 shadow-sm" href="https://ia.goatify.app/" rel="noopener" target="_blank" title="Vendedores IA para apoyar captación, respuesta y cierre.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[10px] sm:text-[12px] leading-tight">AI Sellers<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-slate-300/60 group-hover:text-slate-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-slate-400/20 bg-slate-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-slate-200/90" data-tool-type="true">Ventas IA</span>
+<span class="block text-[8.5px] sm:text-[9px] text-zinc-500 group-hover:text-zinc-300 mt-1 leading-snug">Vendedores IA para apoyar captación, respuesta y cierre.</span>
+</a>
+<a class="group block rounded-xl border border-slate-500/20 bg-slate-950/15 hover:bg-slate-950/35 hover:border-slate-400/50 transition-all px-2.5 sm:px-3 py-2.5 shadow-sm" href="https://ia.goatify.app/" rel="noopener" target="_blank" title="Sala comercial para organizar leads, cierres, propuestas y próximos pasos.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[10px] sm:text-[12px] leading-tight">Sales Room<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-slate-300/60 group-hover:text-slate-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-slate-400/20 bg-slate-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-slate-200/90" data-tool-type="true">Ventas</span>
+<span class="block text-[8.5px] sm:text-[9px] text-zinc-500 group-hover:text-zinc-300 mt-1 leading-snug">Sala comercial para organizar leads, cierres, propuestas y próximos pasos.</span>
+</a>
+<a class="group block rounded-xl border border-slate-500/20 bg-slate-950/15 hover:bg-slate-950/35 hover:border-slate-400/50 transition-all px-2.5 sm:px-3 py-2.5 shadow-sm" href="https://ia.goatify.app/" rel="noopener" target="_blank" title="Cotizaciones, propuestas comerciales y presupuestos estructurados.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[10px] sm:text-[12px] leading-tight">Cotizador Automático<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-slate-300/60 group-hover:text-slate-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-slate-400/20 bg-slate-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-slate-200/90" data-tool-type="true">Cotización</span>
+<span class="block text-[8.5px] sm:text-[9px] text-zinc-500 group-hover:text-zinc-300 mt-1 leading-snug">Cotizaciones, propuestas comerciales y presupuestos estructurados.</span>
+</a>
+<a class="group block rounded-xl border border-slate-500/20 bg-slate-950/15 hover:bg-slate-950/35 hover:border-slate-400/50 transition-all px-2.5 sm:px-3 py-2.5 shadow-sm" href="https://ia.goatify.app/" rel="noopener" target="_blank" title="Ventas, pagos, punto de venta y monetización operativa.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[10px] sm:text-[12px] leading-tight">Smart POS<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-slate-300/60 group-hover:text-slate-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-slate-400/20 bg-slate-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-slate-200/90" data-tool-type="true">Pagos</span>
+<span class="block text-[8.5px] sm:text-[9px] text-zinc-500 group-hover:text-zinc-300 mt-1 leading-snug">Ventas, pagos, punto de venta y monetización operativa.</span>
+</a></div>
+</div>
+<div class="rounded-2xl border border-zinc-800 bg-zinc-950/40 p-4">
+<div class="mb-3 flex items-center gap-2">
+<span class="w-8 h-8 rounded-lg bg-blue-500/10 text-sky-400 border border-blue-500/20 flex items-center justify-center"><i class="fa-solid fa-layer-group text-xs"></i></span>
+<h4 class="text-white font-black text-sm">Crecimiento y ecosistema</h4>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-2 gap-2"><a class="group block rounded-xl border border-slate-500/20 bg-slate-950/15 hover:bg-slate-950/35 hover:border-slate-400/50 transition-all px-2.5 sm:px-3 py-2.5 shadow-sm" href="https://ia.goatify.app/" rel="noopener" target="_blank" title="Proyección, control financiero, viabilidad y métricas de negocio.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[10px] sm:text-[12px] leading-tight">Financials<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-slate-300/60 group-hover:text-slate-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-slate-400/20 bg-slate-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-slate-200/90" data-tool-type="true">Finanzas</span>
+<span class="block text-[8.5px] sm:text-[9px] text-zinc-500 group-hover:text-zinc-300 mt-1 leading-snug">Proyección, control financiero, viabilidad y métricas de negocio.</span>
+</a>
+<a class="group block rounded-xl border border-slate-500/20 bg-slate-950/15 hover:bg-slate-950/35 hover:border-slate-400/50 transition-all px-2.5 sm:px-3 py-2.5 shadow-sm" href="https://ia.goatify.app/" rel="noopener" target="_blank" title="Puntos, recompensas, gamificación y economía interna.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[10px] sm:text-[12px] leading-tight">Wallet / Intis<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-slate-300/60 group-hover:text-slate-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-slate-400/20 bg-slate-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-slate-200/90" data-tool-type="true">Wallet</span>
+<span class="block text-[8.5px] sm:text-[9px] text-zinc-500 group-hover:text-zinc-300 mt-1 leading-snug">Puntos, recompensas, gamificación y economía interna.</span>
+</a>
+<a class="group block rounded-xl border border-emerald-500/20 bg-emerald-950/15 hover:bg-emerald-950/35 hover:border-emerald-400/50 transition-all px-2.5 sm:px-3 py-2.5 shadow-sm" href="https://ia.goatify.app/" rel="noopener" target="_blank" title="Aliados, afiliados, red comercial y expansión.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[10px] sm:text-[12px] leading-tight">Partners<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-emerald-300/60 group-hover:text-emerald-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-emerald-400/20 bg-emerald-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-emerald-200/90" data-tool-type="true">Crecimiento</span>
+<span class="block text-[8.5px] sm:text-[9px] text-zinc-500 group-hover:text-zinc-300 mt-1 leading-snug">Aliados, afiliados, red comercial y expansión.</span>
+</a>
+<a class="group block rounded-xl border border-teal-500/20 bg-teal-950/15 hover:bg-teal-950/35 hover:border-teal-400/50 transition-all px-2.5 sm:px-3 py-2.5 shadow-sm" href="https://ia.goatify.app/" rel="noopener" target="_blank" title="Bienestar, pausas, foco y balance productivo dentro del ecosistema.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[10px] sm:text-[12px] leading-tight">Chill<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-teal-300/60 group-hover:text-teal-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-teal-400/20 bg-teal-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-teal-200/90" data-tool-type="true">Bienestar</span>
+<span class="block text-[8.5px] sm:text-[9px] text-zinc-500 group-hover:text-zinc-300 mt-1 leading-snug">Bienestar, pausas, foco y balance productivo dentro del ecosistema.</span>
+</a></div>
+</div></div>
 </div>
 </section>
 <!-- PERFIL DEL DOCENTE (MINIMALISTA Y RECTANGULAR) -->
@@ -1908,7 +2154,7 @@
      </p>
 </div>
 <!-- Criterios Base -->
-<div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-16 max-w-5xl mx-auto">
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6 mb-16 max-w-5xl mx-auto">
 <div class="glass-deep p-6 sm:p-8 rounded-2xl text-center shadow-lg hover:border-sky-500/50 transition-colors">
 <p class="text-sky-400 font-black text-4xl sm:text-5xl mb-3 drop-shadow-md">
        20%
@@ -1931,7 +2177,7 @@
        Claridad, coherencia, utilidad y aplicabilidad de lo construido cada día.
       </p>
 </div>
-<div class="glass-deep p-6 sm:p-8 rounded-2xl text-center shadow-lg hover:border-sky-500/50 transition-colors border-t-2 border-t-teal-400 relative overflow-hidden">
+<div class="glass-deep col-span-2 sm:col-span-1 p-6 sm:p-8 rounded-2xl text-center shadow-lg hover:border-sky-500/50 transition-colors border-t-2 border-t-teal-400 relative overflow-hidden">
 <div class="absolute top-0 right-0 w-24 h-24 bg-teal-400/10 blur-[30px] rounded-full pointer-events-none">
 </div>
 <p class="text-teal-400 font-black text-4xl sm:text-5xl mb-3 drop-shadow-md">
@@ -2785,7 +3031,7 @@
 <div class="flex flex-col items-center md:items-end gap-1.5 text-center md:text-right">
 <p class="text-zinc-500">
        Sitio desarrollado y diseñado por
-       <a class="text-sky-400 hover:text-white font-bold transition-colors" href="https://www.goatify.app" target="_blank">
+       <a class="text-sky-400 hover:text-white font-bold transition-colors" href="https://ia.goatify.app" target="_blank">
         GOATIFY
        </a>
 </p>
@@ -2844,7 +3090,7 @@
     const chatInput = document.getElementById('chat-input');
 
     const botKnowledge = [
-      { keys: ['marketing', 'certificacion', 'curso', 'docentes', 'ia'], text: `La <strong>Certificación IA para Docentes</strong> es intensiva (4 días / 12h totales). <br>Precio Promo: $47 USD. <br><a href="#inversion" class="text-sky-400 underline font-bold mt-1 inline-block">Asegurar Cupo</a>` },
+      { keys: ['marketing', 'certificacion', 'curso', 'docentes', 'ia'], text: `La <strong>Certificación IA para Docentes</strong> es intensiva (4 días / 12h totales) e inicia el <strong>25 de mayo de 2026</strong>. Trabajas planificación, recursos, evaluación y proyecto final con Goatify IA como centro operativo. <br><a href="#inversion" class="text-sky-400 underline font-bold mt-1 inline-block">Asegurar Cupo</a>` },
       { keys: ['precio', 'costo', 'valor', 'cuanto'], text: `La inversión con promoción es de <strong>$47 USD</strong> (Pago Único). <br>Puedes pagar con Tarjeta, Transferencia Bancaria o Tokens INTIS.` },
       { keys: ['hora', 'horario', 'fechas', 'cuando'], text: `El programa tiene cohortes en <strong>25 al 28 de Mayo, 27 al 30 de Julio, 21 al 24 de Septiembre y 26 al 29 de Octubre de 2026</strong>. Las clases en vivo son de Lunes a Jueves de <strong>7:00 PM a 9:00 PM</strong> (Ecuador/Colombia/Perú). Se graba todo y queda en tu Campus.` },
       { keys: ['pago', 'pagar', 'tarjeta', 'transferencia', 'intis'], text: `<strong>Métodos de Pago:</strong><br>1. PayPal/Tarjetas <a href="https://www.paypal.com/ncp/payment/QTZE28XP3MUT8" target="_blank" class="text-sky-400 underline">AQUÍ</a>.<br>2. INTIS (Wallet Educativo).<br>3. Banco Bolivariano (Ecuador) Cta. 5015025433.` },
