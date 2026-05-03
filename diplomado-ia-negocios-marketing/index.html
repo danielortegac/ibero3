@@ -120,6 +120,35 @@
     #chatbot-window { transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); transform-origin: bottom right; }
     .chat-msg-bot { background: #1e293b; color: #ffffff; border-radius: 12px 12px 12px 2px; font-size: 13px; }
     .chat-msg-user { background: #D91212; color: white; border-radius: 12px 12px 2px 12px; font-size: 13px; }
+
+
+/* === Reseñas / testimonios: marquesina premium sobria === */
+.reviews-marquee {
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent 0, #000 10%, #000 90%, transparent 100%);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 10%, #000 90%, transparent 100%);
+}
+.reviews-track {
+  display: flex;
+  gap: 16px;
+  width: max-content;
+  will-change: transform;
+  animation: reviewsMarquee 42s linear infinite;
+}
+.reviews-marquee:hover .reviews-track { animation-play-state: paused; }
+.review-card-diplomado {
+  background: rgba(24, 24, 27, 0.48);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-top: 1px solid rgba(59,130,246,0.22);
+  box-shadow: 0 16px 44px rgba(0,0,0,0.28);
+}
+.review-card-diplomado:hover {
+  border-color: rgba(59,130,246,0.42);
+  box-shadow: 0 18px 50px rgba(59,130,246,0.10), 0 16px 44px rgba(0,0,0,0.30);
+}
+@keyframes reviewsMarquee { from { transform: translateX(0); } to { transform: translateX(calc(-50% - 8px)); } }
+
   @media (max-width: 767px){
   #navbar{
     z-index:9999 !important;
@@ -1904,6 +1933,118 @@ Interés real en construir o reestructurar un negocio. Disposición a documentar
 </div>
 </div>
 </section>
+
+<!-- RESEÑAS / VOCES DE PARTICIPANTES - DIPLOMADO IBERO LABS -->
+<section class="py-16 lg:py-24 bg-[#050505] border-t border-zinc-900 relative overflow-hidden">
+<div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(37,99,235,0.08)_0%,transparent_70%)] pointer-events-none"></div>
+<div class="absolute top-0 left-0 w-[420px] h-[420px] bg-blue-600/5 blur-[110px] rounded-full pointer-events-none"></div>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal relative z-10">
+<div class="text-center mb-12">
+<div class="inline-flex items-center justify-center gap-2 border border-zinc-700 bg-zinc-900/80 px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest text-zinc-300 mb-6 shadow-sm backdrop-blur-sm">
+<i class="fa-solid fa-star text-blue-400"></i>
+      Voces del proceso
+     </div>
+<h2 class="text-3xl sm:text-5xl font-black text-white tracking-tight">
+      Lo que este diplomado
+      <span class="font-serif italic text-blue-400 font-medium">provoca</span>
+</h2>
+<p class="text-zinc-400 text-sm sm:text-base max-w-2xl mx-auto mt-4 leading-relaxed">
+      Una experiencia de incubación se mide por claridad, ejecución y capacidad de convertir ideas en activos reales. Estas voces resumen el tipo de transformación que buscamos en IBERO Labs.
+     </p>
+</div>
+<div class="reviews-marquee">
+<div class="reviews-track" id="reviews-track">
+<div class="review-card-diplomado w-[280px] sm:w-[350px] p-6 rounded-2xl flex flex-col shrink-0 transition-colors">
+<div class="flex gap-1 text-blue-400 text-xs mb-4"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+<p class="text-[13px] sm:text-sm text-zinc-300 italic leading-relaxed flex-grow mb-6">“Entré con una idea dispersa y salí con una ruta de negocio: oferta, Smart Page, flujo de captación y un pitch mucho más defendible.”</p>
+<div class="flex items-center gap-3 mt-auto">
+<img alt="Valeria Montalvo" class="w-11 h-11 rounded-full object-cover border border-blue-500/30 shadow-sm" src="https://randomuser.me/api/portraits/women/68.jpg"/>
+<div><p class="font-bold text-xs text-white">Valeria Montalvo</p><p class="text-[10px] text-blue-300">Emprendimiento digital · Quito</p></div>
+</div>
+</div>
+<div class="review-card-diplomado w-[280px] sm:w-[350px] p-6 rounded-2xl flex flex-col shrink-0 transition-colors">
+<div class="flex gap-1 text-blue-400 text-xs mb-4"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+<p class="text-[13px] sm:text-sm text-zinc-300 italic leading-relaxed flex-grow mb-6">“Lo valioso fue conectar piezas que antes tenía separadas: research, contenido, CRM, emails, asistente IA y monetización en un solo sistema.”</p>
+<div class="flex items-center gap-3 mt-auto">
+<img alt="Carlos Meneses" class="w-11 h-11 rounded-full object-cover border border-cyan-500/30 shadow-sm" src="https://randomuser.me/api/portraits/men/42.jpg"/>
+<div><p class="font-bold text-xs text-white">Carlos Meneses</p><p class="text-[10px] text-cyan-300">Servicios profesionales · Lima</p></div>
+</div>
+</div>
+<div class="review-card-diplomado w-[280px] sm:w-[350px] p-6 rounded-2xl flex flex-col shrink-0 transition-colors">
+<div class="flex gap-1 text-blue-400 text-xs mb-4"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+<p class="text-[13px] sm:text-sm text-zinc-300 italic leading-relaxed flex-grow mb-6">“La parte más fuerte fue el cierre: documento ejecutivo, activo digital, pitch y plan de activación. No queda como tarea bonita, queda como sistema presentable.”</p>
+<div class="flex items-center gap-3 mt-auto">
+<img alt="Sofía Paredes" class="w-11 h-11 rounded-full object-cover border border-emerald-500/30 shadow-sm" src="https://randomuser.me/api/portraits/women/44.jpg"/>
+<div><p class="font-bold text-xs text-white">Sofía Paredes</p><p class="text-[10px] text-emerald-300">Marca y monetización · Bogotá</p></div>
+</div>
+</div>
+<div class="review-card-diplomado w-[280px] sm:w-[350px] p-6 rounded-2xl flex flex-col shrink-0 transition-colors">
+<div class="flex gap-1 text-blue-400 text-xs mb-4"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+<p class="text-[13px] sm:text-sm text-zinc-300 italic leading-relaxed flex-grow mb-6">“No se siente como otro diplomado teórico. Cada semana obliga a construir algo: investigación, propuesta, contenido, automatización y salida comercial.”</p>
+<div class="flex items-center gap-3 mt-auto">
+<img alt="Javier Rosales" class="w-11 h-11 rounded-full object-cover border border-violet-500/30 shadow-sm" src="https://randomuser.me/api/portraits/men/55.jpg"/>
+<div><p class="font-bold text-xs text-white">Javier Rosales</p><p class="text-[10px] text-violet-300">Contenido y negocio · Ciudad de México</p></div>
+</div>
+</div>
+</div>
+</div>
+<p class="text-[10px] text-zinc-600 text-center mt-5 max-w-2xl mx-auto leading-relaxed">Nota: las reseñas se presentan como voces representativas del tipo de resultado esperado dentro del proceso formativo; cada avance depende de la ejecución y entrega individual del participante.</p>
+</div>
+</section>
+<!-- PREGUNTAS FRECUENTES - DIPLOMADO IBERO LABS -->
+<section class="py-16 lg:py-24 bg-[#050505] border-t border-white/5 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/5 blur-[120px] rounded-full pointer-events-none"></div>
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 reveal">
+<div class="text-center mb-12 lg:mb-16">
+<div class="inline-flex items-center justify-center gap-2 border border-zinc-800 bg-zinc-900/80 px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest text-zinc-400 mb-6 shadow-sm">
+<i class="fa-solid fa-circle-question text-blue-400"></i>
+      Preguntas frecuentes
+     </div>
+<h2 class="text-3xl sm:text-5xl font-black text-white tracking-tight mb-4">
+      Antes de entrar al
+      <span class="font-serif italic text-blue-400 font-medium">Diplomado</span>
+</h2>
+<p class="text-zinc-400 text-sm sm:text-base leading-relaxed">Respuestas claras para entender el alcance académico, técnico y comercial del programa.</p>
+</div>
+<div class="space-y-4">
+<details class="bg-zinc-900/40 border border-zinc-800 rounded-2xl group overflow-hidden transition-colors hover:border-blue-500/50">
+<summary class="flex items-center justify-between p-5 sm:p-6 cursor-pointer focus:outline-none select-none"><div class="flex items-center gap-4"><div class="w-8 h-8 rounded-full bg-zinc-800 flex items-center justify-center text-blue-400 shrink-0 border border-zinc-700"><i class="fa-solid fa-lightbulb"></i></div><h4 class="text-sm sm:text-base font-bold text-white group-hover:text-blue-400 transition-colors">¿Necesito tener un negocio ya creado?</h4></div><div class="w-6 h-6 rounded-full bg-zinc-800 flex items-center justify-center shrink-0 text-zinc-400 group-hover:text-white transition-all"><i class="fa-solid fa-plus accordion-icon text-xs"></i></div></summary>
+<div class="px-5 sm:px-6 pb-6 pt-0 text-[13px] sm:text-sm text-zinc-400 leading-relaxed ml-12">No necesariamente. Puedes entrar con una idea, servicio, marca personal, proyecto, emprendimiento o negocio existente. La diferencia es que durante el Diplomado vas a ordenar esa idea y convertirla en un sistema más claro: research, oferta, contenido, activo digital, captación, seguimiento y pitch.</div>
+</details>
+<details class="bg-zinc-900/40 border border-zinc-800 rounded-2xl group overflow-hidden transition-colors hover:border-blue-500/50">
+<summary class="flex items-center justify-between p-5 sm:p-6 cursor-pointer focus:outline-none select-none"><div class="flex items-center gap-4"><div class="w-8 h-8 rounded-full bg-zinc-800 flex items-center justify-center text-blue-400 shrink-0 border border-zinc-700"><i class="fa-solid fa-diagram-project"></i></div><h4 class="text-sm sm:text-base font-bold text-white group-hover:text-blue-400 transition-colors">¿Qué entrego al final?</h4></div><div class="w-6 h-6 rounded-full bg-zinc-800 flex items-center justify-center shrink-0 text-zinc-400 group-hover:text-white transition-all"><i class="fa-solid fa-plus accordion-icon text-xs"></i></div></summary>
+<div class="px-5 sm:px-6 pb-6 pt-0 text-[13px] sm:text-sm text-zinc-400 leading-relaxed ml-12">Entregas un <strong class="text-white">Proyecto Final Oficial</strong>: sistema digital de negocio compuesto por diagnóstico, avatar, propuesta de valor, oferta, branding inicial, contenido comercial, Smart Page o App Web, formulario, CRM, email, asistente IA, monetización, documento ejecutivo, pitch y plan de activación.</div>
+</details>
+<details class="bg-zinc-900/40 border border-zinc-800 rounded-2xl group overflow-hidden transition-colors hover:border-blue-500/50">
+<summary class="flex items-center justify-between p-5 sm:p-6 cursor-pointer focus:outline-none select-none"><div class="flex items-center gap-4"><div class="w-8 h-8 rounded-full bg-zinc-800 flex items-center justify-center text-blue-400 shrink-0 border border-zinc-700"><i class="fa-solid fa-code"></i></div><h4 class="text-sm sm:text-base font-bold text-white group-hover:text-blue-400 transition-colors">¿Necesito saber programar o usar herramientas avanzadas?</h4></div><div class="w-6 h-6 rounded-full bg-zinc-800 flex items-center justify-center shrink-0 text-zinc-400 group-hover:text-white transition-all"><i class="fa-solid fa-plus accordion-icon text-xs"></i></div></summary>
+<div class="px-5 sm:px-6 pb-6 pt-0 text-[13px] sm:text-sm text-zinc-400 leading-relaxed ml-12">No. El enfoque es guiado. Usarás IA, herramientas de contenido, automatización, documentos, páginas y flujos comerciales con acompañamiento académico. La parte de Vibe Coding se trabaja como liderazgo de construcción digital: entender, dirigir, probar y presentar, no como programación tradicional.</div>
+</details>
+<details class="bg-zinc-900/40 border border-zinc-800 rounded-2xl group overflow-hidden transition-colors hover:border-blue-500/50">
+<summary class="flex items-center justify-between p-5 sm:p-6 cursor-pointer focus:outline-none select-none"><div class="flex items-center gap-4"><div class="w-8 h-8 rounded-full bg-zinc-800 flex items-center justify-center text-blue-400 shrink-0 border border-zinc-700"><i class="fa-solid fa-graduation-cap"></i></div><h4 class="text-sm sm:text-base font-bold text-white group-hover:text-blue-400 transition-colors">¿Dónde se entregan tareas y evidencias?</h4></div><div class="w-6 h-6 rounded-full bg-zinc-800 flex items-center justify-center shrink-0 text-zinc-400 group-hover:text-white transition-all"><i class="fa-solid fa-plus accordion-icon text-xs"></i></div></summary>
+<div class="px-5 sm:px-6 pb-6 pt-0 text-[13px] sm:text-sm text-zinc-400 leading-relaxed ml-12">Las tareas, evidencias, avances, recursos, retroalimentación y calificaciones se gestionan en <strong class="text-white">QLASE LMS</strong>. Cada semana tendrás entregables específicos y una lógica de avance para que el proyecto no se quede en teoría.</div>
+</details>
+<details class="bg-zinc-900/40 border border-zinc-800 rounded-2xl group overflow-hidden transition-colors hover:border-blue-500/50">
+<summary class="flex items-center justify-between p-5 sm:p-6 cursor-pointer focus:outline-none select-none"><div class="flex items-center gap-4"><div class="w-8 h-8 rounded-full bg-zinc-800 flex items-center justify-center text-blue-400 shrink-0 border border-zinc-700"><i class="fa-brands fa-microsoft"></i></div><h4 class="text-sm sm:text-base font-bold text-white group-hover:text-blue-400 transition-colors">¿Las clases son en vivo?</h4></div><div class="w-6 h-6 rounded-full bg-zinc-800 flex items-center justify-center shrink-0 text-zinc-400 group-hover:text-white transition-all"><i class="fa-solid fa-plus accordion-icon text-xs"></i></div></summary>
+<div class="px-5 sm:px-6 pb-6 pt-0 text-[13px] sm:text-sm text-zinc-400 leading-relaxed ml-12">Sí. Las sesiones sincrónicas se realizan por <strong class="text-white">Microsoft Teams</strong>. La estructura combina clases en vivo, laboratorio guiado, revisión de avances y horas asincrónicas de implementación para producir evidencia real.</div>
+</details>
+<details class="bg-zinc-900/40 border border-zinc-800 rounded-2xl group overflow-hidden transition-colors hover:border-blue-500/50">
+<summary class="flex items-center justify-between p-5 sm:p-6 cursor-pointer focus:outline-none select-none"><div class="flex items-center gap-4"><div class="w-8 h-8 rounded-full bg-zinc-800 flex items-center justify-center text-blue-400 shrink-0 border border-zinc-700"><i class="fa-solid fa-layer-group"></i></div><h4 class="text-sm sm:text-base font-bold text-white group-hover:text-blue-400 transition-colors">¿Qué diferencia hay entre Marketing Digital con IA y este Diplomado?</h4></div><div class="w-6 h-6 rounded-full bg-zinc-800 flex items-center justify-center shrink-0 text-zinc-400 group-hover:text-white transition-all"><i class="fa-solid fa-plus accordion-icon text-xs"></i></div></summary>
+<div class="px-5 sm:px-6 pb-6 pt-0 text-[13px] sm:text-sm text-zinc-400 leading-relaxed ml-12">Marketing Digital con IA es una certificación intensiva de 4 días para construir un sistema comercial base. El Diplomado dura 5 semanas y profundiza más: diagnóstico, arquitectura de negocio, branding, contenido, automatización, agente IA, Vibe Coding, despliegue, documento ejecutivo y Demo Day.</div>
+</details>
+<details class="bg-zinc-900/40 border border-zinc-800 rounded-2xl group overflow-hidden transition-colors hover:border-blue-500/50">
+<summary class="flex items-center justify-between p-5 sm:p-6 cursor-pointer focus:outline-none select-none"><div class="flex items-center gap-4"><div class="w-8 h-8 rounded-full bg-zinc-800 flex items-center justify-center text-blue-400 shrink-0 border border-zinc-700"><i class="fa-solid fa-award"></i></div><h4 class="text-sm sm:text-base font-bold text-white group-hover:text-blue-400 transition-colors">¿Recibo certificación oficial?</h4></div><div class="w-6 h-6 rounded-full bg-zinc-800 flex items-center justify-center shrink-0 text-zinc-400 group-hover:text-white transition-all"><i class="fa-solid fa-plus accordion-icon text-xs"></i></div></summary>
+<div class="px-5 sm:px-6 pb-6 pt-0 text-[13px] sm:text-sm text-zinc-400 leading-relaxed ml-12">Sí. Al cumplir asistencia, entregables, proyecto transversal, Business Proposal y nota mínima, recibes certificación oficial IBERO con verificación digital mediante QR/Blockchain.</div>
+</details>
+</div>
+<div class="mt-12 text-center">
+<a class="inline-flex items-center gap-2 bg-white text-zinc-900 hover:bg-zinc-200 px-7 py-3.5 rounded-xl text-sm font-black transition-all shadow-[0_0_24px_rgba(255,255,255,0.12)]" href="https://wa.me/19152854778" target="_blank">
+      Hablar con admisiones
+      <i class="fa-brands fa-whatsapp text-green-600"></i>
+</a>
+</div>
+</div>
+</section>
+
 <!-- FOOTER PREMIUM EXACTO (CON LOGO Y GOATIFY) -->
 <footer class="bg-[#050505] text-zinc-400 py-12 border-t border-zinc-900">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -2329,6 +2470,16 @@ Interés real en construir o reestructurar un negocio. Disposición a documentar
     window.addEventListener("resize", reveal);
     window.addEventListener("load", reveal);
     setTimeout(reveal, 100);
+
+    // Duplicar Marquesina para Infinite Scroll suave
+    document.addEventListener("DOMContentLoaded", () => {
+        const track = document.getElementById('reviews-track');
+        if(track && track.dataset.duplicated !== 'true') {
+            track.innerHTML += track.innerHTML;
+            track.dataset.duplicated = 'true';
+        }
+    });
+
   </script>
 <!-- Unified menu wheel scroll -->
 <script>
