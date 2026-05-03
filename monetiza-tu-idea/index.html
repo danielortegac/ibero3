@@ -320,6 +320,371 @@
   }
 }
 </style>
+<style id="ibero-surgical-mobile-polish">
+/* Ajuste solicitado: menú desktop más compacto y hero más cercano al menú */
+@media (min-width: 1024px){
+  #navbar .flex.flex-1.items-center{ gap: 1rem !important; }
+  #navbar .menu-scroll-row > div{ gap: 1rem !important; }
+  #navbar .menu-scroll-row{ letter-spacing: .075em !important; }
+}
+
+/* Cards móviles solicitadas */
+@media (max-width: 767px){
+  section:has(h2) .grid.grid-cols-2 > div{ min-width: 0; }
+  #datos-oficiales ul.grid{ grid-template-columns: repeat(2, minmax(0,1fr)) !important; }
+  /* Temario: mantener 1 card por fila en celular; solo las secciones solicitadas usan 2 por fila. */
+
+  #datos-oficiales + section .grid.grid-cols-2 > div,
+  #datos-oficiales + section .grid.grid-cols-2 > div *{ min-width:0; }
+  section.py-8.bg-white .grid.grid-cols-2 h4{ font-size: 12px !important; line-height: 1.2 !important; }
+  section.py-8.bg-white .grid.grid-cols-2 p{ font-size: 10px !important; line-height: 1.35 !important; }
+  section.py-8.bg-white .grid.grid-cols-2 a{ font-size: 9px !important; padding: .55rem .6rem !important; }
+  section.py-8.bg-white .grid.grid-cols-2 .flex.items-start{ flex-direction: column; }
+
+  #herramientas .grid.grid-cols-1{ grid-template-columns: repeat(2, minmax(0,1fr)) !important; }
+  #herramientas .grid.grid-cols-1.lg\:grid-cols-2{ grid-template-columns: repeat(1, minmax(0,1fr)) !important; }
+  #herramientas a.group.block.rounded-xl{ padding: .7rem .65rem !important; min-height: 78px; }
+  #herramientas a.group.block.rounded-xl span:first-child{ font-size: 10.5px !important; line-height: 1.15 !important; }
+  #herramientas a.group.block.rounded-xl span:nth-child(2){ font-size: 8.5px !important; line-height: 1.22 !important; }
+
+  #evaluacion .glass-deep{ padding: 1.1rem !important; }
+  #evaluacion .glass-deep p.text-indigo-400,
+  #evaluacion .glass-deep p.text-amber-400{ font-size: 2rem !important; }
+}
+
+/* Herramientas: diferenciación visual sin cambiar la base dark */
+#herramientas .rounded-2xl.border.border-zinc-800{
+  background:
+    linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.018)),
+    rgba(10,10,22,.72) !important;
+  border-color: rgba(99,102,241,.22) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.06), 0 18px 50px rgba(0,0,0,.22);
+}
+#herramientas .rounded-2xl.border.border-zinc-800:nth-of-type(2){ border-color: rgba(99,102,241,.32) !important; }
+#herramientas .rounded-2xl.border.border-zinc-800:nth-of-type(3){ border-color: rgba(217,70,239,.28) !important; }
+#herramientas .rounded-2xl.border.border-zinc-800:nth-of-type(4){ border-color: rgba(20,184,166,.26) !important; }
+#herramientas a.group.block.rounded-xl{
+  background: linear-gradient(135deg, rgba(255,255,255,.065), rgba(255,255,255,.018)) !important;
+  border-color: rgba(255,255,255,.105) !important;
+  position: relative;
+  overflow: hidden;
+}
+#herramientas a.group.block.rounded-xl::before{
+  content:'';
+  position:absolute;
+  left:0; top:0; bottom:0;
+  width:3px;
+  background: linear-gradient(to bottom, #818cf8, #d946ef);
+  opacity:.78;
+}
+#herramientas a.group.block.rounded-xl:hover{
+  border-color: rgba(129,140,248,.55) !important;
+  transform: translateY(-2px);
+}
+
+
+
+/* Tags/chips de herramientas: colores semánticos + tipo visible */
+#herramientas .tool-legend{ margin-bottom: 1.35rem; }
+#herramientas .legend-pill{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:.35rem;
+  padding:.42rem .68rem;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.045);
+  color:#e5e7eb;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.07);
+}
+#herramientas .legend-pill::before{
+  content:'';
+  width:.5rem;
+  height:.5rem;
+  border-radius:999px;
+  background:var(--legend-color,#818cf8);
+  box-shadow:0 0 14px var(--legend-glow,rgba(129,140,248,.45));
+}
+#herramientas .legend-aula{ --legend-color:#38bdf8; --legend-glow:rgba(56,189,248,.45); }
+#herramientas .legend-ia{ --legend-color:#a78bfa; --legend-glow:rgba(167,139,250,.45); }
+#herramientas .legend-creative{ --legend-color:#f472b6; --legend-glow:rgba(244,114,182,.42); }
+#herramientas .legend-web{ --legend-color:#22d3ee; --legend-glow:rgba(34,211,238,.42); }
+#herramientas .legend-marketing{ --legend-color:#fb923c; --legend-glow:rgba(251,146,60,.42); }
+#herramientas .legend-sales{ --legend-color:#34d399; --legend-glow:rgba(52,211,153,.42); }
+#herramientas .legend-finance{ --legend-color:#facc15; --legend-glow:rgba(250,204,21,.38); }
+
+#herramientas .tools-category{
+  position:relative;
+}
+#herramientas .tools-category::before{
+  content:'';
+  position:absolute;
+  inset:0 auto 0 0;
+  width:4px;
+  border-radius:2rem 0 0 2rem;
+  background:linear-gradient(to bottom,var(--cat-a,#818cf8),var(--cat-b,#d946ef));
+  opacity:.95;
+}
+#herramientas .tools-category .mb-3 span:first-child{
+  background:rgba(var(--cat-rgb,129,140,248),.13) !important;
+  color:var(--cat-a,#818cf8) !important;
+  border-color:rgba(var(--cat-rgb,129,140,248),.30) !important;
+}
+#herramientas .tools-cat-general{ --cat-a:#38bdf8; --cat-b:#60a5fa; --cat-rgb:56,189,248; border-color: rgba(56,189,248,.26) !important; }
+#herramientas .tools-cat-docs{ --cat-a:#22d3ee; --cat-b:#818cf8; --cat-rgb:34,211,238; border-color: rgba(34,211,238,.24) !important; }
+#herramientas .tools-cat-production{ --cat-a:#f472b6; --cat-b:#fb7185; --cat-rgb:244,114,182; border-color: rgba(244,114,182,.24) !important; }
+#herramientas .tools-cat-sales{ --cat-a:#34d399; --cat-b:#22c55e; --cat-rgb:52,211,153; border-color: rgba(52,211,153,.26) !important; }
+#herramientas .tools-cat-growth{ --cat-a:#facc15; --cat-b:#34d399; --cat-rgb:250,204,21; border-color: rgba(250,204,21,.22) !important; }
+
+#herramientas a.tool-chip{
+  --tool-a:#818cf8;
+  --tool-b:#d946ef;
+  --tool-rgb:129,140,248;
+  background:
+    radial-gradient(circle at top right, rgba(var(--tool-rgb),.20), transparent 48%),
+    linear-gradient(135deg, rgba(var(--tool-rgb),.12), rgba(255,255,255,.018)) !important;
+  border-color: rgba(var(--tool-rgb),.34) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.055);
+}
+#herramientas a.tool-chip::before{
+  background: linear-gradient(to bottom, var(--tool-a), var(--tool-b)) !important;
+  opacity: 1;
+}
+#herramientas a.tool-chip:hover{
+  border-color: rgba(var(--tool-rgb),.70) !important;
+  box-shadow: 0 14px 28px rgba(var(--tool-rgb),.15), inset 0 1px 0 rgba(255,255,255,.08);
+}
+#herramientas a.tool-chip:hover span:first-child i{
+  color: var(--tool-a) !important;
+}
+#herramientas .tool-type-badge{
+  display:inline-flex !important;
+  width:max-content;
+  max-width:100%;
+  align-items:center;
+  justify-content:center;
+  margin:0 0 .34rem 0;
+  padding:.16rem .38rem;
+  border-radius:999px;
+  border:1px solid rgba(var(--tool-rgb),.34);
+  background:linear-gradient(135deg, rgba(var(--tool-rgb),.14), rgba(255,255,255,.025));
+  color:rgba(255,255,255,.82);
+  font-size:7.2px !important;
+  line-height:1 !important;
+  font-weight:800 !important;
+  letter-spacing:.075em;
+  text-transform:uppercase;
+  text-shadow:none;
+  box-shadow:0 0 0 1px rgba(255,255,255,.025) inset;
+}
+
+/* Paleta por tipo: cada color comunica una familia de uso */
+#herramientas a.tool-aula{ --tool-a:#38bdf8; --tool-b:#60a5fa; --tool-rgb:56,189,248; }
+#herramientas a.tool-core{ --tool-a:#818cf8; --tool-b:#a78bfa; --tool-rgb:129,140,248; }
+#herramientas a.tool-ai{ --tool-a:#a78bfa; --tool-b:#d946ef; --tool-rgb:167,139,250; }
+#herramientas a.tool-ai-google{ --tool-a:#60a5fa; --tool-b:#818cf8; --tool-rgb:96,165,250; }
+#herramientas a.tool-research{ --tool-a:#2dd4bf; --tool-b:#38bdf8; --tool-rgb:45,212,191; }
+#herramientas a.tool-docs{ --tool-a:#22d3ee; --tool-b:#818cf8; --tool-rgb:34,211,238; }
+
+#herramientas a.tool-design{ --tool-a:#f472b6; --tool-b:#fb7185; --tool-rgb:244,114,182; }
+#herramientas a.tool-video{ --tool-a:#fb7185; --tool-b:#f97316; --tool-rgb:251,113,133; }
+#herramientas a.tool-audio{ --tool-a:#22d3ee; --tool-b:#14b8a6; --tool-rgb:34,211,238; }
+#herramientas a.tool-production{ --tool-a:#e879f9; --tool-b:#a78bfa; --tool-rgb:232,121,249; }
+#herramientas a.tool-presentations{ --tool-a:#f59e0b; --tool-b:#f472b6; --tool-rgb:245,158,11; }
+
+#herramientas a.tool-web{ --tool-a:#38bdf8; --tool-b:#2563eb; --tool-rgb:56,189,248; }
+#herramientas a.tool-forms{ --tool-a:#34d399; --tool-b:#22c55e; --tool-rgb:52,211,153; }
+#herramientas a.tool-ads{ --tool-a:#fb923c; --tool-b:#ef4444; --tool-rgb:251,146,60; }
+#herramientas a.tool-marketing{ --tool-a:#f97316; --tool-b:#ec4899; --tool-rgb:249,115,22; }
+#herramientas a.tool-automation{ --tool-a:#34d399; --tool-b:#10b981; --tool-rgb:52,211,153; }
+#herramientas a.tool-sales{ --tool-a:#22c55e; --tool-b:#84cc16; --tool-rgb:34,197,94; }
+#herramientas a.tool-email{ --tool-a:#06b6d4; --tool-b:#3b82f6; --tool-rgb:6,182,212; }
+#herramientas a.tool-payments{ --tool-a:#facc15; --tool-b:#f59e0b; --tool-rgb:250,204,21; }
+#herramientas a.tool-finance{ --tool-a:#facc15; --tool-b:#22c55e; --tool-rgb:250,204,21; }
+#herramientas a.tool-growth{ --tool-a:#c084fc; --tool-b:#22c55e; --tool-rgb:192,132,252; }
+#herramientas a.tool-wellness{ --tool-a:#14b8a6; --tool-b:#84cc16; --tool-rgb:20,184,166; }
+
+@media (max-width: 767px){
+  #herramientas .tool-legend{ gap:.35rem; margin-top:1rem; margin-bottom:1.1rem; }
+  #herramientas .legend-pill{ font-size:8px !important; padding:.34rem .48rem; letter-spacing:.08em; }
+  #herramientas .tool-type-badge{ font-size:6.45px !important; padding:.13rem .3rem; letter-spacing:.06em; margin-bottom:.28rem; }
+  #herramientas a.group.block.rounded-xl{ min-height:92px; }
+}
+
+
+
+/* Ajuste final Monetiza: separación hero + herramientas con diseño tipo Docentes */
+.pb-18{ padding-bottom:4.5rem; }
+#herramientas .tools-category-v2{
+  position:relative;
+  background:rgba(10,10,22,.72) !important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.06), 0 18px 50px rgba(0,0,0,.22);
+}
+#herramientas .tools-category-v2::before{
+  content:'';
+  position:absolute;
+  inset:0 auto 0 0;
+  width:4px;
+  border-radius:2rem 0 0 2rem;
+  background:linear-gradient(to bottom,var(--cat-a,#818cf8),var(--cat-b,#d946ef));
+  opacity:.95;
+}
+#herramientas .tools-category-v2 .mb-3 span:first-child{
+  background:rgba(var(--cat-rgb,129,140,248),.13) !important;
+  color:var(--cat-a,#818cf8) !important;
+  border-color:rgba(var(--cat-rgb,129,140,248),.30) !important;
+}
+#herramientas .tools-cat-general-v2{ --cat-a:#818cf8; --cat-b:#38bdf8; --cat-rgb:129,140,248; border-color:rgba(129,140,248,.28) !important; }
+#herramientas .tools-cat-docs-v2{ --cat-a:#22d3ee; --cat-b:#818cf8; --cat-rgb:34,211,238; border-color:rgba(34,211,238,.24) !important; }
+#herramientas .tools-cat-production-v2{ --cat-a:#f472b6; --cat-b:#fb7185; --cat-rgb:244,114,182; border-color:rgba(244,114,182,.24) !important; }
+#herramientas .tools-cat-sales-v2{ --cat-a:#34d399; --cat-b:#facc15; --cat-rgb:52,211,153; border-color:rgba(52,211,153,.26) !important; }
+#herramientas .tools-cat-growth-v2{ --cat-a:#facc15; --cat-b:#34d399; --cat-rgb:250,204,21; border-color:rgba(250,204,21,.22) !important; }
+#herramientas a.tool-card-v2{
+  position:relative;
+  overflow:hidden;
+  transform:translateY(0);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.045) !important;
+}
+#herramientas a.tool-card-v2::before{
+  content:'';
+  position:absolute;
+  left:0; top:0; bottom:0;
+  width:3px;
+  background:linear-gradient(to bottom, currentColor, transparent) !important;
+  opacity:.72;
+}
+#herramientas a.tool-card-v2:hover{
+  transform:translateY(-2px);
+}
+#herramientas a.tool-card-v2 span[data-tool-type="true"]{
+  font-size:7.5px !important;
+  line-height:1 !important;
+  padding:.12rem .34rem !important;
+  letter-spacing:.08em !important;
+  margin-top:.45rem !important;
+  margin-bottom:.05rem !important;
+  font-weight:650 !important;
+}
+@media (max-width:767px){
+  #herramientas a.tool-card-v2{ min-height:92px; padding:.72rem .65rem !important; }
+  #herramientas a.tool-card-v2 span[data-tool-type="true"]{ font-size:6.8px !important; padding:.1rem .28rem !important; }
+}
+
+
+/* Override final: color real en tarjetas de herramientas Monetiza */
+#herramientas a.tool-card-v2{
+  background:
+    radial-gradient(circle at top right, rgba(var(--tool-rgb),.20), transparent 48%),
+    linear-gradient(135deg, rgba(var(--tool-rgb),.12), rgba(255,255,255,.018)) !important;
+  border-color:rgba(var(--tool-rgb),.34) !important;
+  color:var(--tool-a) !important;
+}
+#herramientas a.tool-card-v2::before{
+  background:linear-gradient(to bottom,var(--tool-a),var(--tool-b)) !important;
+  opacity:.9 !important;
+}
+#herramientas a.tool-card-v2:hover{
+  border-color:rgba(var(--tool-rgb),.68) !important;
+  box-shadow:0 14px 28px rgba(var(--tool-rgb),.15), inset 0 1px 0 rgba(255,255,255,.08) !important;
+}
+</style>
+
+<style id="ibero-herramientas-sobrio-final">
+/* Ajuste final: herramientas sobrias, semánticas y sin colores chillones */
+#herramientas .tool-color-legend span{
+  opacity:.92;
+  box-shadow:none!important;
+  letter-spacing:.105em!important;
+}
+#herramientas [data-tool-type="true"]{
+  font-size:7px!important;
+  line-height:1!important;
+  padding:.16rem .38rem!important;
+  letter-spacing:.08em!important;
+  font-weight:600!important;
+  opacity:.88!important;
+  box-shadow:none!important;
+}
+#herramientas a.group.block.rounded-xl,
+#herramientas a.tool-card-v2{
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.035)!important;
+  filter:saturate(.82)!important;
+}
+#herramientas a.group.block.rounded-xl:hover,
+#herramientas a.tool-card-v2:hover{
+  transform:translateY(-1px)!important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.06), 0 10px 24px rgba(0,0,0,.18)!important;
+  filter:saturate(.95)!important;
+}
+#herramientas .text-amber-200\/90,
+#herramientas .text-amber-200,
+#herramientas .text-amber-300\/60,
+#herramientas .group-hover\:text-amber-200:hover{
+  color:rgba(226,232,240,.9)!important;
+}
+@media (max-width: 767px){
+  #herramientas .grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;}
+  #herramientas a.group.block.rounded-xl,
+  #herramientas a.tool-card-v2{
+    min-height:86px!important;
+    padding:.62rem .52rem!important;
+  }
+  #herramientas a.group.block.rounded-xl span:first-child,
+  #herramientas a.tool-card-v2 span:first-child{
+    font-size:9.5px!important;
+    line-height:1.12!important;
+  }
+  #herramientas [data-tool-type="true"]{
+    font-size:6.1px!important;
+    padding:.12rem .26rem!important;
+    letter-spacing:.055em!important;
+    margin-top:.42rem!important;
+  }
+  #herramientas a.group.block.rounded-xl span.block,
+  #herramientas a.tool-card-v2 span.block{
+    font-size:7.6px!important;
+    line-height:1.18!important;
+  }
+}
+</style>
+
+<style id="ibero-herramientas-contenedores-neutros-final">
+/* Corrección solicitada: el color queda SOLO en cada app/herramienta;
+   los contenedores de grupos vuelven a ser sobrios y neutros. */
+#herramientas .tools-category,
+#herramientas .tools-category-v2{
+  border-color: rgba(255,255,255,.105) !important;
+  background: rgba(10,10,22,.72) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.055), 0 18px 50px rgba(0,0,0,.22) !important;
+}
+#herramientas .tools-category::before,
+#herramientas .tools-category-v2::before{
+  display:none !important;
+  content:none !important;
+}
+#herramientas .tools-category .mb-3 span:first-child,
+#herramientas .tools-category-v2 .mb-3 span:first-child{
+  background: rgba(255,255,255,.055) !important;
+  color: rgba(244,244,245,.92) !important;
+  border-color: rgba(255,255,255,.12) !important;
+  box-shadow: none !important;
+}
+#herramientas .tools-category .mb-3,
+#herramientas .tools-category-v2 .mb-3{
+  border-color: rgba(255,255,255,.075) !important;
+}
+/* Mantener los colores semánticos únicamente en cada tarjeta de herramienta */
+#herramientas a.tool-card-v2,
+#herramientas a.tool-chip{
+  color: var(--tool-a) !important;
+}
+#herramientas a.tool-card-v2::before,
+#herramientas a.tool-chip::before{
+  display:block !important;
+}
+</style>
+
 </head>
 <body class="bg-theme-dark text-zinc-300 font-sans antialiased overflow-x-hidden selection:bg-theme-accent selection:text-white pt-[144px] md:pt-[152px]">
 <!-- BOTONES FLOTANTES Y CHATBOT -->
@@ -380,7 +745,7 @@
       .
       <br/>
 <br/>
-      Fechas, temario, costos o detalles del proyecto final. ¿Qué deseas saber?
+      Fechas, temario, Teams, QLASE, costos o detalles del proyecto final. ¿Qué deseas saber?
      </div>
 <span class="text-[9px] text-zinc-500 ml-1">
       Ahora mismo
@@ -396,7 +761,7 @@
       📚 Temario
      </button>
 <button class="bg-indigo-950/40 hover:bg-indigo-900/60 border border-indigo-800/50 text-indigo-400 font-medium text-[10px] px-2.5 py-1.5 rounded-full transition-colors" onclick="sendChatMessage('Precios')">
-      💰 Precio $47 USD
+      💰 Inversión
      </button>
 <button class="bg-amber-950/40 hover:bg-amber-900/60 border border-amber-800/50 text-amber-400 font-medium text-[10px] px-2.5 py-1.5 rounded-full transition-colors" onclick="sendChatMessage('Web')">
       🌐 Web Incluida
@@ -423,7 +788,7 @@
 <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="window.location.href='https://ibero.education/'">
 <img alt="Logo IBERO" class="h-8 sm:h-10 md:h-10 w-auto object-contain" src="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/1557a79470d9c26d1ad0f0b00243f9f03e55cf2f/fotos/svg/ibero-logo-black-redE.svg"/>
 </div>
-<div class="flex flex-1 items-center justify-start gap-4 md:gap-6 overflow-x-auto hide-scrollbar px-2 sm:px-4 ml-0 lg:ml-6 scroll-smooth">
+<div class="flex flex-1 items-center justify-start gap-4 md:gap-7 lg:gap-8 overflow-x-auto hide-scrollbar px-2 sm:px-4 ml-0 lg:ml-6 scroll-smooth">
 <a class="text-[11px] md:text-[13px] font-bold text-zinc-600 hover:text-indigo-600 transition-colors whitespace-nowrap" href="#presentacion">
         Propósito
        </a>
@@ -638,7 +1003,7 @@
 </div>
 </nav>
 <!-- HERO SECTION: DEEP INDIGO -->
-<section class="relative pt-12 pb-20 lg:pt-20 lg:pb-28 overflow-hidden bg-[#05050A] min-h-[85vh] flex items-center border-b border-zinc-900/50">
+<section class="relative pt-10 pb-18 lg:pt-16 lg:pb-24 overflow-hidden bg-[#05050A] min-h-[78vh] flex items-start border-b border-zinc-900/50">
 <div class="absolute inset-0 z-0">
 <video aria-hidden="true" autoplay="" class="absolute inset-0 w-full h-full object-cover pointer-events-none opacity-20 filter grayscale mix-blend-luminosity" loop="" muted="" playsinline="" preload="auto">
 <source src="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/284767d23c4cd5793b419e4625bb7707aa42b4f4/fotos/AI_Business_Education_Hero_Video.mp4" type="video/mp4"/>
@@ -648,7 +1013,7 @@
 <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(99,102,241,0.15)_0%,transparent_60%)]">
 </div>
 </div>
-<div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center mt-6 md:mt-10 reveal active">
+<div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center mt-4 md:mt-6 reveal active">
 <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-indigo-500/30 bg-indigo-900/20 text-indigo-300 text-[10px] sm:text-xs font-bold tracking-widest uppercase shadow-xl backdrop-blur-md mb-5">
 <span class="w-2 h-2 rounded-full bg-indigo-400 animate-pulse">
 </span>
@@ -714,7 +1079,7 @@
 <div class="flex flex-col sm:flex-row gap-4 justify-center w-full max-w-md mx-auto">
 <a class="w-full bg-indigo-600 text-white px-8 py-4 rounded-xl font-black text-sm lg:text-base hover:bg-indigo-500 transition-all shadow-[0_0_30px_rgba(99,102,241,0.3)] text-center flex items-center justify-center gap-2 group" href="#inversion">
 <span>
-       Inscripción: $47 USD
+       Asegurar Cupo
       </span>
 <i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition-transform">
 </i>
@@ -1181,6 +1546,46 @@
 </div>
 </section>
 <!-- TEMARIO COMPLETO (4 DÍAS INTENSIVOS) FONDO GRIS CLARO -->
+<!-- RUTA ACADÉMICA APLICADA DEL PROGRAMA -->
+<section class="py-12 lg:py-16 bg-zinc-50 border-b border-zinc-200 relative overflow-hidden">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-8 lg:mb-10">
+<h2 class="text-[10px] sm:text-xs font-bold tracking-widest text-zinc-500 uppercase mb-3">Ruta académica aplicada</h2>
+<h3 class="text-2xl sm:text-4xl font-black text-zinc-900 tracking-tight mb-4">Qué construyes durante <span class="font-serif italic text-indigo-600 font-medium">Monetiza tu Idea con IA</span></h3>
+<p class="text-zinc-600 text-sm sm:text-base max-w-3xl mx-auto leading-relaxed">El programa conecta teoría breve, demostración aplicada y construcción guiada. Está diseñado para producir evidencias útiles, fortalecer competencias profesionales y apoyar procesos de emprendimiento, monetización, empleabilidad, capacitación interna o mejora de servicios. La meta es convertir una idea, servicio, conocimiento o proyecto en una propuesta visible, validable y con primeros pasos de monetización.</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-2 xl:grid-cols-4 gap-3 sm:gap-6">
+<div class="bg-white border border-zinc-200 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all">
+<h4 class="font-black text-zinc-900 text-sm sm:text-base mb-2">Día 1 · Idea, problema y oportunidad comercial</h4>
+<p class="text-zinc-600 text-xs sm:text-sm leading-relaxed">Aterrizaje de la idea, problema real, cliente potencial, necesidad, deseo, objeciones, contexto de mercado y propuesta inicial. El participante convierte una intuición en una hipótesis comercial clara.</p>
+</div>
+<div class="bg-white border border-zinc-200 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all">
+<h4 class="font-black text-zinc-900 text-sm sm:text-base mb-2">Día 2 · Oferta, narrativa y contenido inicial</h4>
+<p class="text-zinc-600 text-xs sm:text-sm leading-relaxed">Construcción de oferta simple, promesa, beneficios, pitch, mensaje central, piezas iniciales de contenido y recursos visuales para explicar la idea sin sonar genérico ni improvisado.</p>
+</div>
+<div class="bg-white border border-zinc-200 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all">
+<h4 class="font-black text-zinc-900 text-sm sm:text-base mb-2">Día 3 · Presencia digital y captación</h4>
+<p class="text-zinc-600 text-xs sm:text-sm leading-relaxed">Diseño de una página pública o recurso de presentación, formulario de interés, canal de contacto, agenda y flujo básico de seguimiento para recibir señales reales del mercado.</p>
+</div>
+<div class="bg-white border border-zinc-200 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all">
+<h4 class="font-black text-zinc-900 text-sm sm:text-base mb-2">Día 4 · Validación, precio y primeros ingresos</h4>
+<p class="text-zinc-600 text-xs sm:text-sm leading-relaxed">Definición de precio inicial, modelo de monetización, cotización, método de cobro, seguimiento de interesados, indicadores de validación y próximos pasos de venta.</p>
+</div></div>
+</div>
+</section>
+<!-- NOTAS ACADÉMICAS: QLASE Y TEAMS -->
+<section class="py-8 bg-white border-b border-zinc-200 relative overflow-hidden">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-2 md:grid-cols-2 gap-3 sm:gap-4">
+<div class="bg-zinc-50 border border-zinc-200 rounded-2xl p-3 sm:p-5 shadow-sm">
+<div class="flex items-start gap-3 sm:gap-4"><div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center shrink-0"><i class="fa-solid fa-graduation-cap"></i></div><div><h4 class="text-zinc-900 font-black text-base mb-1">Gestión académica en QLASE LMS</h4><p class="text-zinc-600 text-sm leading-relaxed">Las tareas, recursos, evidencias, actividades, calificaciones, retroalimentación y seguimiento académico del programa se gestionan en nuestra plataforma educativa QLASE.</p><a class="inline-flex items-center gap-2 mt-3 bg-zinc-900 text-white px-4 py-2 rounded-xl text-xs font-black hover:bg-zinc-800 transition-colors" href="https://qlase.goatify.app/" rel="noopener" target="_blank">Ingresar a QLASE LMS <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i></a></div></div>
+</div>
+<div class="bg-zinc-50 border border-zinc-200 rounded-2xl p-3 sm:p-5 shadow-sm">
+<div class="flex items-start gap-3 sm:gap-4"><div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center shrink-0"><i class="fa-brands fa-microsoft"></i></div><div><h4 class="text-zinc-900 font-black text-base mb-1">Clases en vivo por Microsoft Teams</h4><p class="text-zinc-600 text-sm leading-relaxed">Las sesiones sincrónicas se transmiten por Microsoft Teams. Los accesos se comparten con participantes inscritos desde el aula del programa.</p><a class="inline-flex items-center gap-2 mt-3 bg-blue-600 text-white px-4 py-2 rounded-xl text-xs font-black hover:bg-blue-500 transition-colors" href="https://teams.microsoft.com/" rel="noopener" target="_blank">Abrir Microsoft Teams <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i></a></div></div>
+</div>
+</div>
+</div>
+</section>
 <section class="py-16 lg:py-28 bg-zinc-50 relative border-b border-zinc-200" id="temario">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
 <div class="text-center mb-16 lg:mb-24">
@@ -1194,11 +1599,11 @@
       </span>
 </h3>
 <p class="text-sm sm:text-lg text-zinc-600 max-w-3xl mx-auto leading-relaxed">
-      La certificación combina explicación en vivo, demostración con herramientas, práctica guiada y tareas aplicadas.
+      La certificación combina explicación en vivo, demostración con herramientas, práctica guiada, plantillas de trabajo y tareas aplicadas con IA.
       <strong class="text-zinc-900">
        4 días de inmersión total
       </strong>
-      para pasar de una idea difusa a una propuesta estructurada.
+      para pasar de una idea difusa a una propuesta estructurada, visible, defendible y preparada para captar interés real.
      </p>
 </div>
 <div class="space-y-6 max-w-6xl mx-auto">
@@ -1236,7 +1641,7 @@
 <strong class="text-zinc-900">
          Propósito:
         </strong>
-        Convertir una idea suelta en una oportunidad más clara y con mayor potencial comercial desde el primer día.
+        Convertir una idea suelta en una oportunidad comercial clara: entender qué problema resuelve, para quién existe, cómo se diferencia y qué primer camino de monetización puede tener.
        </p>
 <h5 class="text-xs font-bold text-zinc-500 uppercase tracking-widest mb-4 flex items-center gap-2">
 <i class="fa-solid fa-chalkboard-user text-indigo-500 text-base">
@@ -1250,13 +1655,13 @@
 <div class="mb-3 text-[10px] font-bold text-zinc-600 flex items-center gap-1.5 bg-zinc-100 px-2 py-1 rounded border border-zinc-200 w-fit">
 <i class="fa-regular fa-clock text-indigo-600">
 </i>
-          19:00 a 21:00 (EC/CO/PE)
+          19:00 a 21:00 (EC/CO/PE) · 18:00 a 20:00 (MX)
          </div>
 <h6 class="text-[14px] font-bold text-zinc-900 mb-2 leading-tight">
           Clarificación de la Idea
          </h6>
 <p class="text-[12px] text-zinc-500 leading-relaxed">
-          Diferencia entre idea, proyecto, oferta y negocio. Detección de valor real. Análisis de problema, deseo y transformación del cliente.
+          Diferencia entre idea, proyecto, oferta y negocio. Detección de valor real, problema urgente, deseo del cliente, transformación prometida, competencia básica, señales de mercado y errores que hacen que una idea no venda.
          </p>
 </div>
 <div class="bg-white border border-zinc-200 rounded-xl p-5 shadow-sm hover:border-indigo-300 transition-colors relative overflow-hidden">
@@ -1271,7 +1676,7 @@
           Formulación de Propuesta
          </h6>
 <p class="text-[12px] text-zinc-500 leading-relaxed">
-          Estructuración del buyer persona, naming, ángulo comercial inicial, pitch corto y dirección de marca con Goatify IA, ChatGPT, Gemini, Grok y Canva.
+          Estructuración del buyer persona, propuesta de valor, naming, ángulo comercial inicial, pitch corto, promesa central y dirección visual con Goatify IA, ChatGPT, Gemini, Grok, NotebookLM y Canva.
          </p>
 </div>
 </div>
@@ -1289,7 +1694,7 @@
 <strong class="text-zinc-700 w-16 shrink-0">
             1 Hora:
            </strong>
-           Completar propuesta de valor, buyer persona y armar el pitch comercial.
+           Completar propuesta de valor, buyer persona, mapa de dolores/deseos, promesa principal, pitch de 30 segundos y banco inicial de prompts para seguir refinando la idea.
           </li>
 </ul>
 </div>
@@ -1307,7 +1712,7 @@
 <strong>
            Base conceptual y comercial:
           </strong>
-          idea definida + propuesta de valor + buyer persona + pitch corto + dirección de marca.
+          idea definida + hipótesis de cliente + propuesta de valor + buyer persona + pitch corto + promesa comercial + dirección inicial de marca.
          </p>
 </div>
 </div>
@@ -1347,7 +1752,7 @@
 <strong class="text-zinc-900">
          Propósito:
         </strong>
-        Traducir la idea en una marca más visible y en mensajes que puedan atraer, explicar y vender tu concepto.
+        Traducir la idea en una marca más visible, mensajes más memorables y contenido inicial capaz de atraer, explicar, diferenciar y abrir conversaciones comerciales.
        </p>
 <h5 class="text-xs font-bold text-zinc-500 uppercase tracking-widest mb-4 flex items-center gap-2">
 <i class="fa-solid fa-chalkboard-user text-indigo-500 text-base">
@@ -1361,13 +1766,13 @@
 <div class="mb-3 text-[10px] font-bold text-zinc-600 flex items-center gap-1.5 bg-zinc-100 px-2 py-1 rounded border border-zinc-200 w-fit">
 <i class="fa-regular fa-clock text-indigo-600">
 </i>
-          19:00 a 21:00 (EC/CO/PE)
+          19:00 a 21:00 (EC/CO/PE) · 18:00 a 20:00 (MX)
          </div>
 <h6 class="text-[14px] font-bold text-zinc-900 mb-2 leading-tight">
           Narrativa y Storytelling Comercial
          </h6>
 <p class="text-[12px] text-zinc-500 leading-relaxed">
-          Definición de tono de voz, mensaje madre, pilares de contenido. Redacción de hooks y titulares con IA.
+          Definición de tono de voz, mensaje madre, storytelling comercial, pilares de contenido, objeciones frecuentes, llamados a la acción, hooks, titulares y copys con apoyo de IA.
          </p>
 </div>
 <div class="bg-white border border-zinc-200 rounded-xl p-5 shadow-sm hover:border-indigo-300 transition-colors relative overflow-hidden">
@@ -1382,7 +1787,7 @@
           Producción de Piezas Iniciales
          </h6>
 <p class="text-[12px] text-zinc-500 leading-relaxed">
-          Creación guiada de guiones cortos, piezas visuales y avatares explicativos usando CapCut, HeyGen, TopView y Nano Banana.
+          Creación guiada de guiones cortos, piezas visuales, carruseles, captions, avatares explicativos y videos breves usando Canva, CapCut, HeyGen, TopView, Flow/Veo y Nano Banana.
          </p>
 </div>
 </div>
@@ -1400,7 +1805,7 @@
 <strong class="text-zinc-700 w-16 shrink-0">
             1 Hora:
            </strong>
-           Construir el kit inicial de contenido y diseñar los primeros mensajes visuales/textuales.
+           Construir el kit inicial de contenido: mensaje madre, 10 hooks, 3 copys, 1 guion corto, 1 pieza visual, CTA principal y adaptación del mensaje para redes o WhatsApp.
           </li>
 </ul>
 </div>
@@ -1418,7 +1823,7 @@
 <strong>
            Kit inicial de comunicación:
           </strong>
-          mensaje madre + banco de hooks + copys base + pieza visual + guion corto y línea preliminar.
+          mensaje madre + banco de hooks + copys base + pieza visual + guion corto + CTA + línea editorial preliminar para publicar o vender.
          </p>
 </div>
 </div>
@@ -1458,7 +1863,7 @@
 <strong class="text-zinc-900">
          Propósito:
         </strong>
-        Construir el activo digital mínimo del proyecto y activar su primera lógica de venta, atención y captación automática.
+        Construir el activo digital mínimo del proyecto y activar su primera lógica de captación, atención, seguimiento y venta con herramientas web y automatización.
        </p>
 <h5 class="text-xs font-bold text-zinc-500 uppercase tracking-widest mb-4 flex items-center gap-2">
 <i class="fa-solid fa-chalkboard-user text-indigo-500 text-base">
@@ -1472,13 +1877,13 @@
 <div class="mb-3 text-[10px] font-bold text-zinc-600 flex items-center gap-1.5 bg-zinc-100 px-2 py-1 rounded border border-zinc-200 w-fit">
 <i class="fa-regular fa-clock text-indigo-600">
 </i>
-          19:00 a 21:00 (EC/CO/PE)
+          19:00 a 21:00 (EC/CO/PE) · 18:00 a 20:00 (MX)
          </div>
 <h6 class="text-[14px] font-bold text-zinc-900 mb-2 leading-tight">
           Embudo Digital y Aplicación Web
          </h6>
 <p class="text-[12px] text-zinc-500 leading-relaxed">
-          Estructura de una aplicación orientada a conversión (CTA, captación). Rol de cada red (Instagram, Meta Ads, TikTok) y publicación base con Netlify / Vibe Coding.
+          Estructura de una aplicación o smart page orientada a conversión: titular, promesa, beneficios, CTA, formulario, WhatsApp, agenda, captación de leads, rol de cada canal digital y publicación base con Netlify / Vibe Coding.
          </p>
 </div>
 <div class="bg-white border border-zinc-200 rounded-xl p-5 shadow-sm hover:border-indigo-300 transition-colors relative overflow-hidden">
@@ -1493,7 +1898,7 @@
           Agentes de Atención y Ventas
          </h6>
 <p class="text-[12px] text-zinc-500 leading-relaxed">
-          Configuración de agentes vendedores con ManyChat. Guiones de venta, automatización inicial y reserva en Calendly.
+          Configuración de agentes vendedores y flujos de atención con ManyChat, Goatify IA y Calendly: preguntas frecuentes, respuestas rápidas, guiones de venta, seguimiento inicial, reserva de citas y ruta de cierre.
          </p>
 </div>
 </div>
@@ -1511,7 +1916,7 @@
 <strong class="text-zinc-700 w-16 shrink-0">
             1 Hora:
            </strong>
-           Revisar canales, definir CTA, dejar lista la estructura de la aplicación funcional y el flujo base de ManyChat.
+           Revisar canales, definir CTA, crear estructura de la aplicación funcional, preparar formulario o contacto, configurar flujo base de ManyChat/WhatsApp y dejar armado el camino de captación.
           </li>
 </ul>
 </div>
@@ -1529,7 +1934,7 @@
 <strong>
            Sistema inicial:
           </strong>
-          mapa de canales + aplicación funcional en estructura + CTA definido + agente vendedor configurado con guiones.
+          mapa de canales + smart page/aplicación funcional en estructura + CTA definido + formulario/contacto + agente vendedor configurado con guiones y seguimiento.
          </p>
 </div>
 </div>
@@ -1569,7 +1974,7 @@
 <strong class="text-zinc-900">
          Propósito:
         </strong>
-        Cerrar la certificación con una propuesta concreta, bien enfocada y lista para validarse, mejorarse o lanzarse al mercado.
+        Cerrar la certificación con una propuesta concreta, defendible y lista para validarse: precio inicial, mecanismo de cobro, mensaje de venta, activo digital y próximos pasos de lanzamiento.
        </p>
 <h5 class="text-xs font-bold text-zinc-500 uppercase tracking-widest mb-4 flex items-center gap-2">
 <i class="fa-solid fa-chalkboard-user text-indigo-500 text-base">
@@ -1583,13 +1988,13 @@
 <div class="mb-3 text-[10px] font-bold text-zinc-600 flex items-center gap-1.5 bg-zinc-100 px-2 py-1 rounded border border-zinc-200 w-fit">
 <i class="fa-regular fa-clock text-orange-600">
 </i>
-          19:00 a 21:00 (EC/CO/PE)
+          19:00 a 21:00 (EC/CO/PE) · 18:00 a 20:00 (MX)
          </div>
 <h6 class="text-[14px] font-bold text-zinc-900 mb-2 leading-tight">
           Pricing y Validación
          </h6>
 <p class="text-[12px] text-zinc-500 leading-relaxed">
-          Monetización de ideas. Estructura de precios, formatos y ruta básica de venta. Formas de validar antes de un gran lanzamiento.
+          Monetización de ideas: estructura de precios, paquetes, oferta de entrada, anclajes de valor, método de cobro, cotización simple, ruta básica de venta y formas de validar antes de invertir en grande.
          </p>
 </div>
 <div class="bg-white border border-zinc-200 rounded-xl p-5 shadow-sm hover:border-orange-300 transition-colors relative overflow-hidden">
@@ -1608,7 +2013,7 @@
           <strong>
            Google AI Studio
           </strong>
-          como espacio de prototipado rápido para escalar. Revisión final del proyecto aplicado e integración de PayPal.
+          como espacio de prototipado rápido para escalar. Revisión final del proyecto aplicado, mejora del flujo de venta, publicación/ajuste del activo digital e integración básica de PayPal u otro método de cobro disponible.
          </p>
 </div>
 </div>
@@ -1626,7 +2031,7 @@
 <strong class="text-zinc-700 w-16 shrink-0">
             1 Hora:
            </strong>
-           Consolidar el proyecto final en el formato elegido y establecer el plan de implementación.
+           Consolidar el proyecto final en el formato elegido: oferta, contenido, smart page, agente/flujo de atención, precio inicial, método de cobro, próximos 7 días de acción y métrica principal de validación.
           </li>
 </ul>
 </div>
@@ -1641,7 +2046,7 @@
           Proyecto Final Aplicado
          </h5>
 <p class="text-[14px] text-white font-bold relative z-10 leading-relaxed">
-          Mini propuesta lista: Oferta estructurada, contenido base, aplicación funcional, agente vendedor inicial y punto de monetización configurado.
+          Mini propuesta lista: oferta estructurada, contenido base, aplicación funcional, agente vendedor inicial, CTA, punto de monetización, método de cobro y plan inmediato de validación.
          </p>
 </div>
 </div>
@@ -1651,213 +2056,249 @@
 </div>
 </section>
 <!-- STACK DE HERRAMIENTAS (TECH) - NOTEBOOKLM & GOOGLE AI STUDIO HIGHLIGHTED -->
-<section class="py-20 lg:py-24 bg-[#05050A] relative border-b border-zinc-900 overflow-hidden" id="herramientas">
-<div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(99,102,241,0.05)_0%,transparent_70%)] pointer-events-none">
-</div>
+<!-- STACK DE HERRAMIENTAS DEL PROGRAMA - V3 COMPACTO -->
+<section class="py-12 lg:py-16 bg-[#050505] relative border-b border-zinc-900 overflow-hidden" id="herramientas">
+<div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.04)_0%,transparent_70%)] pointer-events-none"></div>
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 reveal">
-<div class="text-center mb-12">
-<h2 class="text-[10px] sm:text-xs font-bold tracking-widest text-zinc-500 uppercase mb-2">
-      Tecnología Operativa
-     </h2>
-<h3 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-      El Tech
-      <span class="font-serif italic text-indigo-400 font-medium">
-       Stack
-      </span>
-</h3>
-<p class="text-zinc-400 text-sm mt-3 max-w-2xl mx-auto">
-      Estas son las herramientas de IA y No-Code con las que construiremos tu ecosistema comercial.
-     </p>
+<div class="text-center mb-8">
+<div class="inline-flex items-center justify-center gap-2 border border-zinc-700 bg-zinc-900/80 px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest text-zinc-300 mb-5 shadow-sm backdrop-blur-md"><i class="fa-solid fa-toolbox text-indigo-400"></i> Stack del programa</div>
+<h3 class="text-3xl sm:text-5xl font-black text-white tracking-tight mb-4 leading-tight">Herramientas del <span class="font-serif italic text-indigo-400 font-medium">programa</span></h3>
+<p class="text-zinc-400 text-sm sm:text-base max-w-3xl mx-auto leading-relaxed">Herramientas de trabajo y módulos de laboratorio usados para investigar, documentar, crear, publicar, captar, automatizar, vender, medir y presentar entregables reales durante el programa.</p>
+<div class="mt-5 flex flex-wrap justify-center gap-1.5 sm:gap-2 max-w-4xl mx-auto tool-color-legend">
+<span class="inline-flex items-center rounded-full border border-indigo-400/20 bg-indigo-400/10 px-2 py-0.5 text-[8px] sm:text-[9px] font-semibold uppercase tracking-[0.12em] text-indigo-200/90">Aula</span>
+<span class="inline-flex items-center rounded-full border border-sky-400/20 bg-sky-400/10 px-2 py-0.5 text-[8px] sm:text-[9px] font-semibold uppercase tracking-[0.12em] text-sky-200/90">IA</span>
+<span class="inline-flex items-center rounded-full border border-cyan-400/20 bg-cyan-400/10 px-2 py-0.5 text-[8px] sm:text-[9px] font-semibold uppercase tracking-[0.12em] text-cyan-200/90">Investigación</span>
+<span class="inline-flex items-center rounded-full border border-violet-400/20 bg-violet-400/10 px-2 py-0.5 text-[8px] sm:text-[9px] font-semibold uppercase tracking-[0.12em] text-violet-200/90">Diseño</span>
+<span class="inline-flex items-center rounded-full border border-rose-400/18 bg-rose-400/10 px-2 py-0.5 text-[8px] sm:text-[9px] font-semibold uppercase tracking-[0.12em] text-rose-200/85">Video</span>
+<span class="inline-flex items-center rounded-full border border-emerald-400/20 bg-emerald-400/10 px-2 py-0.5 text-[8px] sm:text-[9px] font-semibold uppercase tracking-[0.12em] text-emerald-200/90">Automatización</span>
+<span class="inline-flex items-center rounded-full border border-slate-400/20 bg-slate-400/10 px-2 py-0.5 text-[8px] sm:text-[9px] font-semibold uppercase tracking-[0.12em] text-slate-200/90">Comercial</span>
 </div>
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-<!-- NÚCLEO ESTRATÉGICO -->
-<div class="bg-zinc-900/40 border border-zinc-800 p-6 rounded-[2rem] backdrop-blur-sm shadow-xl flex flex-col h-full hover:border-indigo-500/50 transition-colors">
-<div class="flex items-center gap-3 mb-4 border-b border-zinc-800/50 pb-3">
-<i class="fa-solid fa-brain text-lg text-indigo-400">
-</i>
-<h4 class="text-white font-bold text-xs uppercase tracking-wider">
-        Ideación e Investigación
-       </h4>
 </div>
-<div class="space-y-2 flex-grow">
-<a class="block p-3 rounded-xl bg-zinc-800/30 hover:bg-zinc-800/60 transition-all border border-transparent hover:border-indigo-500/30 group relative overflow-hidden" href="https://www.goatify.app" target="_blank">
-<span class="absolute top-0 right-0 bg-indigo-500 text-white text-[8px] font-bold px-1.5 py-0.5 rounded-bl-lg uppercase tracking-wider">
-         Principal
-        </span>
-<h5 class="text-white font-bold text-sm flex items-center gap-2">
-         Goatify IA
-         <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-zinc-500 group-hover:text-indigo-400 transition-colors">
-</i>
-</h5>
-<p class="text-[10px] text-zinc-400 mt-1">
-         Organización de flujos, planeación estratégica y ecosistema central.
-        </p>
+<div class="rounded-2xl border border-zinc-800 bg-zinc-950/40 p-4 mb-5 tools-category tools-category-v2 tools-cat-general-v2">
+<div class="mb-3 flex items-center gap-2"><span class="w-8 h-8 rounded-lg bg-white/10 text-white border border-white/10 flex items-center justify-center"><i class="fa-solid fa-screwdriver-wrench text-xs"></i></span><h4 class="text-white font-black text-sm">Herramientas generales, aula y sesiones en vivo</h4></div>
+<div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-2"><a class="group tool-card-v2 block rounded-xl border border-indigo-500/20 bg-indigo-950/15 hover:bg-indigo-950/35 hover:border-indigo-400/50 transition-all px-3 py-2.5 shadow-sm" href="https://qlase.goatify.app/" rel="noopener" style="--tool-a:#818cf8;--tool-b:#a78bfa;--tool-rgb:129,140,248;" target="_blank" title="Aula académica para recursos, tareas, evidencias, calificaciones y seguimiento.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[11px] sm:text-[12px] leading-tight">QLASE LMS<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-indigo-300/60 group-hover:text-indigo-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-indigo-400/20 bg-indigo-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-indigo-200/90" data-tool-type="true">Aula / LMS</span>
+<span class="block text-[9px] text-zinc-400 group-hover:text-zinc-200 mt-1.5 leading-snug">Aula académica para recursos, tareas, evidencias, calificaciones y seguimiento.</span>
 </a>
-<a class="block p-3 rounded-xl bg-indigo-500/10 hover:bg-indigo-500/20 transition-all border border-indigo-500/30 group relative overflow-hidden" href="https://notebooklm.google.com" target="_blank">
-<span class="absolute top-0 right-0 bg-indigo-500 text-white text-[8px] font-bold px-1.5 py-0.5 rounded-bl-lg uppercase tracking-wider">
-         Destacado
-        </span>
-<h5 class="text-white font-bold text-sm flex items-center gap-2">
-         NotebookLM
-         <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-indigo-400 transition-colors">
-</i>
-</h5>
-<p class="text-[10px] text-zinc-300 mt-1">
-         El <em>Thinking Partner</em> de Google para investigar y organizar tu conocimiento.
-        </p>
+<a class="group tool-card-v2 block rounded-xl border border-indigo-500/20 bg-indigo-950/15 hover:bg-indigo-950/35 hover:border-indigo-400/50 transition-all px-3 py-2.5 shadow-sm" href="https://teams.microsoft.com/" rel="noopener" style="--tool-a:#818cf8;--tool-b:#a78bfa;--tool-rgb:129,140,248;" target="_blank" title="Clases en vivo y encuentros sincrónicos del programa.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[11px] sm:text-[12px] leading-tight">Microsoft Teams<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-indigo-300/60 group-hover:text-indigo-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-indigo-400/20 bg-indigo-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-indigo-200/90" data-tool-type="true">Clase en vivo</span>
+<span class="block text-[9px] text-zinc-400 group-hover:text-zinc-200 mt-1.5 leading-snug">Clases en vivo y encuentros sincrónicos del programa.</span>
 </a>
-<a class="block p-3 rounded-xl bg-zinc-800/30 hover:bg-zinc-800/60 transition-all border border-transparent hover:border-white/20 group" href="https://chat.openai.com" target="_blank">
-<h5 class="text-white font-bold text-sm flex items-center gap-2">
-         ChatGPT &amp; Claude
-         <i class="fa-solid fa-link text-[10px] text-zinc-500">
-</i>
-</h5>
-<p class="text-[10px] text-zinc-400 mt-1">
-         Naming, copy, storytelling y razonamiento estructurado.
-        </p>
+<a class="group tool-card-v2 block rounded-xl border border-sky-500/20 bg-sky-950/15 hover:bg-sky-950/35 hover:border-sky-400/50 transition-all px-3 py-2.5 shadow-sm" href="https://ia.goatify.app/" rel="noopener" style="--tool-a:#38bdf8;--tool-b:#60a5fa;--tool-rgb:56,189,248;" target="_blank" title="Ecosistema operativo de productividad, creación, automatización y gestión digital.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[11px] sm:text-[12px] leading-tight">Goatify IA<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-sky-300/60 group-hover:text-sky-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-sky-400/20 bg-sky-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-sky-200/90" data-tool-type="true">IA central</span>
+<span class="block text-[9px] text-zinc-400 group-hover:text-zinc-200 mt-1.5 leading-snug">Ecosistema operativo de productividad, creación, automatización y gestión digital.</span>
 </a>
-</div>
-</div>
-<!-- DISEÑO Y PRODUCCIÓN -->
-<div class="bg-zinc-900/40 border border-zinc-800 p-6 rounded-[2rem] backdrop-blur-sm shadow-xl flex flex-col h-full hover:border-purple-500/50 transition-colors">
-<div class="flex items-center gap-3 mb-4 border-b border-zinc-800/50 pb-3">
-<i class="fa-solid fa-paint-brush text-lg text-purple-400">
-</i>
-<h4 class="text-white font-bold text-xs uppercase tracking-wider">
-        Diseño y Materiales
-       </h4>
-</div>
-<div class="space-y-2 flex-grow">
-<a class="block p-3 rounded-xl bg-zinc-800/30 hover:bg-zinc-800/60 transition-all border border-transparent hover:border-white/20 group" href="https://www.canva.com" target="_blank">
-<h5 class="text-white font-bold text-sm flex items-center gap-2">
-         Canva &amp; Nano Banana
-         <i class="fa-solid fa-link text-[10px] text-zinc-500">
-</i>
-</h5>
-<p class="text-[10px] text-zinc-400 mt-1">
-         Branding visual, mockups y generación multimodal.
-        </p>
+<a class="group tool-card-v2 block rounded-xl border border-sky-500/20 bg-sky-950/15 hover:bg-sky-950/35 hover:border-sky-400/50 transition-all px-3 py-2.5 shadow-sm" href="https://chatgpt.com/" rel="noopener" style="--tool-a:#38bdf8;--tool-b:#60a5fa;--tool-rgb:56,189,248;" target="_blank" title="Ideación, escritura, análisis, prompts y apoyo creativo.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[11px] sm:text-[12px] leading-tight">ChatGPT<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-sky-300/60 group-hover:text-sky-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-sky-400/20 bg-sky-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-sky-200/90" data-tool-type="true">IA generativa</span>
+<span class="block text-[9px] text-zinc-400 group-hover:text-zinc-200 mt-1.5 leading-snug">Ideación, escritura, análisis, prompts y apoyo creativo.</span>
 </a>
-<a class="block p-3 rounded-xl bg-zinc-800/30 hover:bg-zinc-800/60 transition-all border border-transparent hover:border-white/20 group" href="https://www.capcut.com" target="_blank">
-<h5 class="text-white font-bold text-sm flex items-center gap-2">
-         CapCut &amp; Veo 3
-         <i class="fa-solid fa-link text-[10px] text-zinc-500">
-</i>
-</h5>
-<p class="text-[10px] text-zinc-400 mt-1">
-         Edición vertical y exploración audiovisual con IA.
-        </p>
+<a class="group tool-card-v2 block rounded-xl border border-sky-500/20 bg-sky-950/15 hover:bg-sky-950/35 hover:border-sky-400/50 transition-all px-3 py-2.5 shadow-sm" href="https://claude.ai/" rel="noopener" style="--tool-a:#38bdf8;--tool-b:#60a5fa;--tool-rgb:56,189,248;" target="_blank" title="Organización, profundidad, documentos extensos y razonamiento.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[11px] sm:text-[12px] leading-tight">Claude<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-sky-300/60 group-hover:text-sky-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-sky-400/20 bg-sky-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-sky-200/90" data-tool-type="true">IA generativa</span>
+<span class="block text-[9px] text-zinc-400 group-hover:text-zinc-200 mt-1.5 leading-snug">Organización, profundidad, documentos extensos y razonamiento.</span>
 </a>
-<a class="block p-3 rounded-xl bg-zinc-800/30 hover:bg-zinc-800/60 transition-all border border-transparent hover:border-white/20 group" href="https://www.heygen.com" target="_blank">
-<h5 class="text-white font-bold text-sm flex items-center gap-2">
-         HeyGen &amp; TopView
-         <i class="fa-solid fa-link text-[10px] text-zinc-500">
-</i>
-</h5>
-<p class="text-[10px] text-zinc-400 mt-1">
-         Piezas explicativas con avatares y anuncios sociales.
-        </p>
+<a class="group tool-card-v2 block rounded-xl border border-sky-500/20 bg-sky-950/15 hover:bg-sky-950/35 hover:border-sky-400/50 transition-all px-3 py-2.5 shadow-sm" href="https://gemini.google.com/" rel="noopener" style="--tool-a:#38bdf8;--tool-b:#60a5fa;--tool-rgb:56,189,248;" target="_blank" title="Ecosistema Google, análisis, investigación y soporte multimodal.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[11px] sm:text-[12px] leading-tight">Gemini<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-sky-300/60 group-hover:text-sky-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-sky-400/20 bg-sky-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-sky-200/90" data-tool-type="true">IA Google</span>
+<span class="block text-[9px] text-zinc-400 group-hover:text-zinc-200 mt-1.5 leading-snug">Ecosistema Google, análisis, investigación y soporte multimodal.</span>
 </a>
-</div>
-</div>
-<!-- OPERACIÓN Y EXPANSIÓN -->
-<div class="bg-zinc-900/40 border border-zinc-800 p-6 rounded-[2rem] backdrop-blur-sm shadow-xl flex flex-col h-full hover:border-blue-500/50 transition-colors">
-<div class="flex items-center gap-3 mb-4 border-b border-zinc-800/50 pb-3">
-<i class="fa-solid fa-gears text-lg text-blue-400">
-</i>
-<h4 class="text-white font-bold text-xs uppercase tracking-wider">
-        Construcción &amp; Expansión
-       </h4>
-</div>
-<div class="space-y-2 flex-grow">
-<a class="block p-3 rounded-xl bg-blue-500/10 hover:bg-blue-500/20 transition-all border border-blue-500/30 group relative overflow-hidden" href="https://aistudio.google.com" target="_blank">
-<span class="absolute top-0 right-0 bg-blue-500 text-white text-[8px] font-bold px-1.5 py-0.5 rounded-bl-lg uppercase tracking-wider">
-         Escalabilidad
-        </span>
-<h5 class="text-white font-bold text-sm flex items-center gap-2">
-         Google AI Studio &amp; Pomeli
-         <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-blue-400 group-hover:text-white">
-</i>
-</h5>
-<p class="text-[10px] text-zinc-300 mt-1">
-         Entornos para prototipado rápido, experimentación de prompts e integración para aplicaciones web interactivas.
-        </p>
+<a class="group tool-card-v2 block rounded-xl border border-cyan-500/20 bg-cyan-950/15 hover:bg-cyan-950/35 hover:border-cyan-400/50 transition-all px-3 py-2.5 shadow-sm" href="https://aistudio.google.com/" rel="noopener" style="--tool-a:#22d3ee;--tool-b:#818cf8;--tool-rgb:34,211,238;" target="_blank" title="Prototipado, pruebas y exploración avanzada de IA.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[11px] sm:text-[12px] leading-tight">Google AI Studio<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-cyan-300/60 group-hover:text-cyan-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-cyan-400/20 bg-cyan-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-cyan-200/90" data-tool-type="true">Construcción IA</span>
+<span class="block text-[9px] text-zinc-400 group-hover:text-zinc-200 mt-1.5 leading-snug">Prototipado, pruebas y exploración avanzada de IA.</span>
 </a>
-<a class="block p-3 rounded-xl bg-zinc-800/30 hover:bg-zinc-800/60 transition-all border border-transparent hover:border-white/20 group" href="https://deepseek.com" target="_blank">
-<h5 class="text-white font-bold text-sm flex items-center gap-2">
-         DeepSeek / OpenAI Codex
-         <i class="fa-solid fa-link text-[10px] text-zinc-500">
-</i>
-</h5>
-<p class="text-[10px] text-zinc-400 mt-1">
-         Asistencia técnica, generación de código, soporte PWA y vibe coding avanzado.
-        </p>
+<a class="group tool-card-v2 block rounded-xl border border-sky-500/20 bg-sky-950/15 hover:bg-sky-950/35 hover:border-sky-400/50 transition-all px-3 py-2.5 shadow-sm" href="https://grok.com/" rel="noopener" style="--tool-a:#38bdf8;--tool-b:#60a5fa;--tool-rgb:56,189,248;" target="_blank" title="Tono social, ideas rápidas, tendencias y contenido conversacional.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[11px] sm:text-[12px] leading-tight">Grok<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-sky-300/60 group-hover:text-sky-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-sky-400/20 bg-sky-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-sky-200/90" data-tool-type="true">IA generativa</span>
+<span class="block text-[9px] text-zinc-400 group-hover:text-zinc-200 mt-1.5 leading-snug">Tono social, ideas rápidas, tendencias y contenido conversacional.</span>
 </a>
-<a class="block p-3 rounded-xl bg-zinc-800/30 hover:bg-zinc-800/60 transition-all border border-transparent hover:border-white/20 group" href="https://netlify.com" target="_blank">
-<h5 class="text-white font-bold text-sm flex items-center gap-2">
-         Netlify / Antigravity
-         <i class="fa-solid fa-link text-[10px] text-zinc-500">
-</i>
-</h5>
-<p class="text-[10px] text-zinc-400 mt-1">
-         Plataformas de hosting ágil, publicación veloz y despliegue de Aplicaciones Web.
-        </p>
+<a class="group tool-card-v2 block rounded-xl border border-cyan-500/20 bg-cyan-950/15 hover:bg-cyan-950/35 hover:border-cyan-400/50 transition-all px-3 py-2.5 shadow-sm" href="https://notebooklm.google.com/" rel="noopener" style="--tool-a:#22d3ee;--tool-b:#818cf8;--tool-rgb:34,211,238;" target="_blank" title="Investigación, fuentes, documentos, estudio guiado y síntesis.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[11px] sm:text-[12px] leading-tight">NotebookLM<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-cyan-300/60 group-hover:text-cyan-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-cyan-400/20 bg-cyan-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-cyan-200/90" data-tool-type="true">Investigación</span>
+<span class="block text-[9px] text-zinc-400 group-hover:text-zinc-200 mt-1.5 leading-snug">Investigación, fuentes, documentos, estudio guiado y síntesis.</span>
 </a>
-</div>
-</div>
-<!-- AUTOMATIZACIÓN Y VENTAS -->
-<div class="bg-zinc-900/40 border border-zinc-800 p-6 rounded-[2rem] backdrop-blur-sm shadow-xl flex flex-col h-full hover:border-orange-500/50 transition-colors">
-<div class="flex items-center gap-3 mb-4 border-b border-zinc-800/50 pb-3">
-<i class="fa-solid fa-cart-shopping text-lg text-orange-400">
-</i>
-<h4 class="text-white font-bold text-xs uppercase tracking-wider">
-        Venta y Automatización
-       </h4>
-</div>
-<div class="space-y-2 flex-grow">
-<a class="block p-3 rounded-xl bg-zinc-800/30 hover:bg-zinc-800/60 transition-all border border-transparent hover:border-white/20 group" href="https://manychat.com" target="_blank">
-<h5 class="text-white font-bold text-sm flex items-center gap-2">
-         ManyChat &amp; Meta
-         <i class="fa-solid fa-link text-[10px] text-zinc-500">
-</i>
-</h5>
-<p class="text-[10px] text-zinc-400 mt-1">
-         Automatización de atención, captación de leads y campañas.
-        </p>
+<a class="group tool-card-v2 block rounded-xl border border-violet-500/20 bg-violet-950/15 hover:bg-violet-950/35 hover:border-violet-400/50 transition-all px-3 py-2.5 shadow-sm" href="https://www.canva.com/" rel="noopener" style="--tool-a:#a78bfa;--tool-b:#e879f9;--tool-rgb:167,139,250;" target="_blank" title="Diseño visual, presentaciones, piezas gráficas y marca.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[11px] sm:text-[12px] leading-tight">Canva<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-violet-300/60 group-hover:text-violet-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-violet-400/20 bg-violet-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-violet-200/90" data-tool-type="true">Diseño visual</span>
+<span class="block text-[9px] text-zinc-400 group-hover:text-zinc-200 mt-1.5 leading-snug">Diseño visual, presentaciones, piezas gráficas y marca.</span>
 </a>
-<a class="block p-3 rounded-xl bg-zinc-800/30 hover:bg-zinc-800/60 transition-all border border-transparent hover:border-white/20 group" href="https://calendly.com" target="_blank">
-<h5 class="text-white font-bold text-sm flex items-center gap-2">
-         Zapier / Calendly
-         <i class="fa-solid fa-link text-[10px] text-zinc-500">
-</i>
-</h5>
-<p class="text-[10px] text-zinc-400 mt-1">
-         Agenda automatizada, conexión de triggers e integración de datos.
-        </p>
+<a class="group tool-card-v2 block rounded-xl border border-rose-500/20 bg-rose-950/15 hover:bg-rose-950/35 hover:border-rose-400/50 transition-all px-3 py-2.5 shadow-sm" href="https://labs.google/fx/tools/flow" rel="noopener" style="--tool-a:#fb7185;--tool-b:#f472b6;--tool-rgb:251,113,133;" target="_blank" title="Video creativo, storytelling audiovisual y piezas de campaña.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[11px] sm:text-[12px] leading-tight">Flow de Google<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-rose-300/60 group-hover:text-rose-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-rose-400/20 bg-rose-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-rose-200/90" data-tool-type="true">Video IA</span>
+<span class="block text-[9px] text-zinc-400 group-hover:text-zinc-200 mt-1.5 leading-snug">Video creativo, storytelling audiovisual y piezas de campaña.</span>
 </a>
-<a class="block p-3 rounded-xl bg-zinc-800/30 hover:bg-zinc-800/60 transition-all border border-transparent hover:border-white/20 group" href="#" target="_blank">
-<h5 class="text-white font-bold text-sm flex items-center gap-2">
-         Flow de Google &amp; Stich
-         <i class="fa-solid fa-link text-[10px] text-zinc-500">
-</i>
-</h5>
-<p class="text-[10px] text-zinc-400 mt-1">
-         Orquestación de flujos cognitivos y ecosistemas.
-        </p>
+<a class="group tool-card-v2 block rounded-xl border border-rose-500/20 bg-rose-950/15 hover:bg-rose-950/35 hover:border-rose-400/50 transition-all px-3 py-2.5 shadow-sm" href="https://www.capcut.com/" rel="noopener" style="--tool-a:#fb7185;--tool-b:#f472b6;--tool-rgb:251,113,133;" target="_blank" title="Edición rápida de video, clips, subtítulos y contenido corto.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[11px] sm:text-[12px] leading-tight">CapCut<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-rose-300/60 group-hover:text-rose-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-rose-400/20 bg-rose-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-rose-200/90" data-tool-type="true">Edición video</span>
+<span class="block text-[9px] text-zinc-400 group-hover:text-zinc-200 mt-1.5 leading-snug">Edición rápida de video, clips, subtítulos y contenido corto.</span>
 </a>
-<a class="block p-3 rounded-xl bg-zinc-800/30 hover:bg-zinc-800/60 transition-all border border-transparent hover:border-white/20 group" href="https://paypal.com" target="_blank">
-<h5 class="text-white font-bold text-sm flex items-center gap-2">
-         PayPal / Stripe
-         <i class="fa-solid fa-link text-[10px] text-zinc-500">
-</i>
-</h5>
-<p class="text-[10px] text-zinc-400 mt-1">
-         Lógica de cobro y validación comercial en internet.
-        </p>
+<a class="group tool-card-v2 block rounded-xl border border-rose-500/20 bg-rose-950/15 hover:bg-rose-950/35 hover:border-rose-400/50 transition-all px-3 py-2.5 shadow-sm" href="https://labs.google/fx/tools/flow" rel="noopener" style="--tool-a:#fb7185;--tool-b:#f472b6;--tool-rgb:251,113,133;" target="_blank" title="Generación de video dentro del ecosistema creativo de Google.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[11px] sm:text-[12px] leading-tight">Veo<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-rose-300/60 group-hover:text-rose-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-rose-400/20 bg-rose-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-rose-200/90" data-tool-type="true">Video IA</span>
+<span class="block text-[9px] text-zinc-400 group-hover:text-zinc-200 mt-1.5 leading-snug">Generación de video dentro del ecosistema creativo de Google.</span>
 </a>
+<a class="group tool-card-v2 block rounded-xl border border-rose-500/20 bg-rose-950/15 hover:bg-rose-950/35 hover:border-rose-400/50 transition-all px-3 py-2.5 shadow-sm" href="https://www.heygen.com/" rel="noopener" style="--tool-a:#fb7185;--tool-b:#f472b6;--tool-rgb:251,113,133;" target="_blank" title="Avatares, videos con presentador y contenido explicativo.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[11px] sm:text-[12px] leading-tight">HeyGen<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-rose-300/60 group-hover:text-rose-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-rose-400/20 bg-rose-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-rose-200/90" data-tool-type="true">Avatar video</span>
+<span class="block text-[9px] text-zinc-400 group-hover:text-zinc-200 mt-1.5 leading-snug">Avatares, videos con presentador y contenido explicativo.</span>
+</a>
+<a class="group tool-card-v2 block rounded-xl border border-rose-500/20 bg-rose-950/15 hover:bg-rose-950/35 hover:border-rose-400/50 transition-all px-3 py-2.5 shadow-sm" href="https://www.topview.ai/" rel="noopener" style="--tool-a:#fb7185;--tool-b:#f472b6;--tool-rgb:251,113,133;" target="_blank" title="Videos comerciales, anuncios y piezas de venta con IA.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[11px] sm:text-[12px] leading-tight">TopView<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-rose-300/60 group-hover:text-rose-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-rose-400/20 bg-rose-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-rose-200/90" data-tool-type="true">Video comercial</span>
+<span class="block text-[9px] text-zinc-400 group-hover:text-zinc-200 mt-1.5 leading-snug">Videos comerciales, anuncios y piezas de venta con IA.</span>
+</a>
+<a class="group tool-card-v2 block rounded-xl border border-slate-500/20 bg-slate-950/15 hover:bg-slate-950/35 hover:border-slate-400/50 transition-all px-3 py-2.5 shadow-sm" href="https://ads.google.com/" rel="noopener" style="--tool-a:#94a3b8;--tool-b:#64748b;--tool-rgb:148,163,184;" target="_blank" title="Campañas, tráfico y captación pagada.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[11px] sm:text-[12px] leading-tight">Google Ads<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-slate-300/60 group-hover:text-slate-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-slate-400/20 bg-slate-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-slate-200/90" data-tool-type="true">Publicidad</span>
+<span class="block text-[9px] text-zinc-400 group-hover:text-zinc-200 mt-1.5 leading-snug">Campañas, tráfico y captación pagada.</span>
+</a>
+<a class="group tool-card-v2 block rounded-xl border border-slate-500/20 bg-slate-950/15 hover:bg-slate-950/35 hover:border-slate-400/50 transition-all px-3 py-2.5 shadow-sm" href="https://business.facebook.com/" rel="noopener" style="--tool-a:#94a3b8;--tool-b:#64748b;--tool-rgb:148,163,184;" target="_blank" title="Gestión comercial de Facebook, Instagram y campañas.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[11px] sm:text-[12px] leading-tight">Meta Business<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-slate-300/60 group-hover:text-slate-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-slate-400/20 bg-slate-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-slate-200/90" data-tool-type="true">Publicidad</span>
+<span class="block text-[9px] text-zinc-400 group-hover:text-zinc-200 mt-1.5 leading-snug">Gestión comercial de Facebook, Instagram y campañas.</span>
+</a>
+<a class="group tool-card-v2 block rounded-xl border border-emerald-500/20 bg-emerald-950/15 hover:bg-emerald-950/35 hover:border-emerald-400/50 transition-all px-3 py-2.5 shadow-sm" href="https://manychat.com/" rel="noopener" style="--tool-a:#34d399;--tool-b:#22c55e;--tool-rgb:52,211,153;" target="_blank" title="Automatización conversacional en redes y mensajería.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[11px] sm:text-[12px] leading-tight">ManyChat<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-emerald-300/60 group-hover:text-emerald-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-emerald-400/20 bg-emerald-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-emerald-200/90" data-tool-type="true">Automatización</span>
+<span class="block text-[9px] text-zinc-400 group-hover:text-zinc-200 mt-1.5 leading-snug">Automatización conversacional en redes y mensajería.</span>
+</a>
+<a class="group tool-card-v2 block rounded-xl border border-slate-500/20 bg-slate-950/15 hover:bg-slate-950/35 hover:border-slate-400/50 transition-all px-3 py-2.5 shadow-sm" href="https://www.paypal.com/" rel="noopener" style="--tool-a:#94a3b8;--tool-b:#64748b;--tool-rgb:148,163,184;" target="_blank" title="Cobros, pagos internacionales y validación comercial.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[11px] sm:text-[12px] leading-tight">PayPal<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-slate-300/60 group-hover:text-slate-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-slate-400/20 bg-slate-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-slate-200/90" data-tool-type="true">Pagos</span>
+<span class="block text-[9px] text-zinc-400 group-hover:text-zinc-200 mt-1.5 leading-snug">Cobros, pagos internacionales y validación comercial.</span>
+</a>
+<a class="group tool-card-v2 block rounded-xl border border-emerald-500/20 bg-emerald-950/15 hover:bg-emerald-950/35 hover:border-emerald-400/50 transition-all px-3 py-2.5 shadow-sm" href="https://calendly.com/" rel="noopener" style="--tool-a:#34d399;--tool-b:#22c55e;--tool-rgb:52,211,153;" target="_blank" title="Agenda de reuniones, asesorías y llamadas comerciales.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[11px] sm:text-[12px] leading-tight">Calendly<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-emerald-300/60 group-hover:text-emerald-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-emerald-400/20 bg-emerald-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-emerald-200/90" data-tool-type="true">Agenda</span>
+<span class="block text-[9px] text-zinc-400 group-hover:text-zinc-200 mt-1.5 leading-snug">Agenda de reuniones, asesorías y llamadas comerciales.</span>
+</a></div>
+<p class="text-[11px] text-zinc-500 mt-3 leading-relaxed">Se recomienda tener activas las cuentas indicadas para aprovechar mejor las prácticas y no perder tiempo creando accesos durante la clase.</p>
 </div>
+<div class="grid grid-cols-2 lg:grid-cols-2 gap-5">
+<div class="rounded-2xl border border-zinc-800 bg-zinc-950/40 p-4 tools-category tools-category-v2 tools-cat-docs-v2">
+<div class="mb-3 flex items-center gap-2">
+<span class="w-8 h-8 rounded-lg bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 flex items-center justify-center"><i class="fa-solid fa-layer-group text-xs"></i></span>
+<h4 class="text-white font-black text-sm">Gestión y documentos</h4>
 </div>
+<div class="grid grid-cols-2 sm:grid-cols-2 gap-2"><a class="group tool-card-v2 block rounded-xl border border-indigo-500/20 bg-indigo-950/15 hover:bg-indigo-950/35 hover:border-indigo-400/50 transition-all px-3 py-2.5 shadow-sm" href="https://ia.goatify.app/" rel="noopener" style="--tool-a:#818cf8;--tool-b:#a78bfa;--tool-rgb:129,140,248;" target="_blank" title="Kanban, tareas, calendario, documentos, chat, CRM, finanzas, viabilidad, tablas y enlaces públicos.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[11px] sm:text-[12px] leading-tight">Proyectos Goatify<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-indigo-300/60 group-hover:text-indigo-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-indigo-400/20 bg-indigo-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-indigo-200/90" data-tool-type="true">Gestión</span>
+<span class="block text-[9px] text-zinc-400 group-hover:text-zinc-200 mt-1.5 leading-snug">Kanban, tareas, calendario, documentos, chat, CRM, finanzas, viabilidad, tablas y enlaces públicos.</span>
+</a>
+<a class="group tool-card-v2 block rounded-xl border border-indigo-500/20 bg-indigo-950/15 hover:bg-indigo-950/35 hover:border-indigo-400/50 transition-all px-3 py-2.5 shadow-sm" href="https://ia.goatify.app/" rel="noopener" style="--tool-a:#818cf8;--tool-b:#a78bfa;--tool-rgb:129,140,248;" target="_blank" title="Planificación de clases, tareas, reuniones, entregas y seguimiento.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[11px] sm:text-[12px] leading-tight">Calendario Global<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-indigo-300/60 group-hover:text-indigo-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-indigo-400/20 bg-indigo-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-indigo-200/90" data-tool-type="true">Gestión</span>
+<span class="block text-[9px] text-zinc-400 group-hover:text-zinc-200 mt-1.5 leading-snug">Planificación de clases, tareas, reuniones, entregas y seguimiento.</span>
+</a>
+<a class="group tool-card-v2 block rounded-xl border border-cyan-500/20 bg-cyan-950/15 hover:bg-cyan-950/35 hover:border-cyan-400/50 transition-all px-3 py-2.5 shadow-sm" href="https://ia.goatify.app/" rel="noopener" style="--tool-a:#22d3ee;--tool-b:#818cf8;--tool-rgb:34,211,238;" target="_blank" title="Archivos, documentos, imágenes, artifacts y recursos generados en un solo lugar.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[11px] sm:text-[12px] leading-tight">Goatify Drive<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-cyan-300/60 group-hover:text-cyan-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-cyan-400/20 bg-cyan-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-cyan-200/90" data-tool-type="true">Documentos</span>
+<span class="block text-[9px] text-zinc-400 group-hover:text-zinc-200 mt-1.5 leading-snug">Archivos, documentos, imágenes, artifacts y recursos generados en un solo lugar.</span>
+</a>
+<a class="group tool-card-v2 block rounded-xl border border-cyan-500/20 bg-cyan-950/15 hover:bg-cyan-950/35 hover:border-cyan-400/50 transition-all px-3 py-2.5 shadow-sm" href="https://ia.goatify.app/" rel="noopener" style="--tool-a:#22d3ee;--tool-b:#818cf8;--tool-rgb:34,211,238;" target="_blank" title="Documentos reales: PDF, Word, Excel, CSV, variantes, envío a proyecto y guardado en Drive.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[11px] sm:text-[12px] leading-tight">Goatify Docs / Artifacts<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-cyan-300/60 group-hover:text-cyan-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-cyan-400/20 bg-cyan-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-cyan-200/90" data-tool-type="true">Documentos</span>
+<span class="block text-[9px] text-zinc-400 group-hover:text-zinc-200 mt-1.5 leading-snug">Documentos reales: PDF, Word, Excel, CSV, variantes, envío a proyecto y guardado en Drive.</span>
+</a>
+<a class="group tool-card-v2 block rounded-xl border border-sky-500/20 bg-sky-950/15 hover:bg-sky-950/35 hover:border-sky-400/50 transition-all px-3 py-2.5 shadow-sm" href="https://ia.goatify.app/" rel="noopener" style="--tool-a:#38bdf8;--tool-b:#60a5fa;--tool-rgb:56,189,248;" target="_blank" title="IA operativa para crear documentos, tareas, proyectos, estrategias, campañas y entregables.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[11px] sm:text-[12px] leading-tight">Shivo Chat Avanzado<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-sky-300/60 group-hover:text-sky-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-sky-400/20 bg-sky-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-sky-200/90" data-tool-type="true">IA asistente</span>
+<span class="block text-[9px] text-zinc-400 group-hover:text-zinc-200 mt-1.5 leading-snug">IA operativa para crear documentos, tareas, proyectos, estrategias, campañas y entregables.</span>
+</a>
+<a class="group tool-card-v2 block rounded-xl border border-sky-500/20 bg-sky-950/15 hover:bg-sky-950/35 hover:border-sky-400/50 transition-all px-3 py-2.5 shadow-sm" href="https://ia.goatify.app/" rel="noopener" style="--tool-a:#38bdf8;--tool-b:#60a5fa;--tool-rgb:56,189,248;" target="_blank" title="Acciones rápidas desde cualquier parte de la plataforma.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[11px] sm:text-[12px] leading-tight">Asistente Rápido<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-sky-300/60 group-hover:text-sky-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-sky-400/20 bg-sky-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-sky-200/90" data-tool-type="true">IA asistente</span>
+<span class="block text-[9px] text-zinc-400 group-hover:text-zinc-200 mt-1.5 leading-snug">Acciones rápidas desde cualquier parte de la plataforma.</span>
+</a></div>
 </div>
+<div class="rounded-2xl border border-zinc-800 bg-zinc-950/40 p-4 tools-category tools-category-v2 tools-cat-production-v2">
+<div class="mb-3 flex items-center gap-2">
+<span class="w-8 h-8 rounded-lg bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 flex items-center justify-center"><i class="fa-solid fa-layer-group text-xs"></i></span>
+<h4 class="text-white font-black text-sm">Producción y activos digitales</h4>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-2 gap-2"><a class="group tool-card-v2 block rounded-xl border border-cyan-500/20 bg-cyan-950/15 hover:bg-cyan-950/35 hover:border-cyan-400/50 transition-all px-3 py-2.5 shadow-sm" href="https://ia.goatify.app/" rel="noopener" style="--tool-a:#22d3ee;--tool-b:#818cf8;--tool-rgb:34,211,238;" target="_blank" title="Centro de herramientas IA para chat, agentes, multimedia, imagen, audio, video, formularios y web.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[11px] sm:text-[12px] leading-tight">AI Studio Goatify<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-cyan-300/60 group-hover:text-cyan-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-cyan-400/20 bg-cyan-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-cyan-200/90" data-tool-type="true">Construcción IA</span>
+<span class="block text-[9px] text-zinc-400 group-hover:text-zinc-200 mt-1.5 leading-snug">Centro de herramientas IA para chat, agentes, multimedia, imagen, audio, video, formularios y web.</span>
+</a>
+<a class="group tool-card-v2 block rounded-xl border border-violet-500/20 bg-violet-950/15 hover:bg-violet-950/35 hover:border-violet-400/50 transition-all px-3 py-2.5 shadow-sm" href="https://ia.goatify.app/" rel="noopener" style="--tool-a:#a78bfa;--tool-b:#e879f9;--tool-rgb:167,139,250;" target="_blank" title="Recursos visuales y multimedia para campañas, clases o proyectos.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[11px] sm:text-[12px] leading-tight">Media Generator<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-violet-300/60 group-hover:text-violet-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-violet-400/20 bg-violet-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-violet-200/90" data-tool-type="true">Producción IA</span>
+<span class="block text-[9px] text-zinc-400 group-hover:text-zinc-200 mt-1.5 leading-snug">Recursos visuales y multimedia para campañas, clases o proyectos.</span>
+</a>
+<a class="group tool-card-v2 block rounded-xl border border-violet-500/20 bg-violet-950/15 hover:bg-violet-950/35 hover:border-violet-400/50 transition-all px-3 py-2.5 shadow-sm" href="https://ia.goatify.app/" rel="noopener" style="--tool-a:#a78bfa;--tool-b:#e879f9;--tool-rgb:167,139,250;" target="_blank" title="Edición, mejora y adaptación de imágenes.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[11px] sm:text-[12px] leading-tight">Image Editor<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-violet-300/60 group-hover:text-violet-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-violet-400/20 bg-violet-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-violet-200/90" data-tool-type="true">Imagen IA</span>
+<span class="block text-[9px] text-zinc-400 group-hover:text-zinc-200 mt-1.5 leading-snug">Edición, mejora y adaptación de imágenes.</span>
+</a>
+<a class="group tool-card-v2 block rounded-xl border border-rose-500/20 bg-rose-950/15 hover:bg-rose-950/35 hover:border-rose-400/50 transition-all px-3 py-2.5 shadow-sm" href="https://ia.goatify.app/" rel="noopener" style="--tool-a:#fb7185;--tool-b:#f472b6;--tool-rgb:251,113,133;" target="_blank" title="Recursos de audio, guiones sonoros y apoyos multimedia.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[11px] sm:text-[12px] leading-tight">Audio Generator<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-rose-300/60 group-hover:text-rose-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-rose-400/20 bg-rose-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-rose-200/90" data-tool-type="true">Audio IA</span>
+<span class="block text-[9px] text-zinc-400 group-hover:text-zinc-200 mt-1.5 leading-snug">Recursos de audio, guiones sonoros y apoyos multimedia.</span>
+</a>
+<a class="group tool-card-v2 block rounded-xl border border-rose-500/20 bg-rose-950/15 hover:bg-rose-950/35 hover:border-rose-400/50 transition-all px-3 py-2.5 shadow-sm" href="https://ia.goatify.app/" rel="noopener" style="--tool-a:#fb7185;--tool-b:#f472b6;--tool-rgb:251,113,133;" target="_blank" title="Producción de videos cortos, clips y material explicativo.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[11px] sm:text-[12px] leading-tight">Video Generator<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-rose-300/60 group-hover:text-rose-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-rose-400/20 bg-rose-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-rose-200/90" data-tool-type="true">Video IA</span>
+<span class="block text-[9px] text-zinc-400 group-hover:text-zinc-200 mt-1.5 leading-snug">Producción de videos cortos, clips y material explicativo.</span>
+</a>
+<a class="group tool-card-v2 block rounded-xl border border-violet-500/20 bg-violet-950/15 hover:bg-violet-950/35 hover:border-violet-400/50 transition-all px-3 py-2.5 shadow-sm" href="https://ia.goatify.app/" rel="noopener" style="--tool-a:#a78bfa;--tool-b:#e879f9;--tool-rgb:167,139,250;" target="_blank" title="Presentaciones web, clases, pitches y materiales profesionales.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[11px] sm:text-[12px] leading-tight">Presentation Builder<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-violet-300/60 group-hover:text-violet-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-violet-400/20 bg-violet-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-violet-200/90" data-tool-type="true">Presentaciones</span>
+<span class="block text-[9px] text-zinc-400 group-hover:text-zinc-200 mt-1.5 leading-snug">Presentaciones web, clases, pitches y materiales profesionales.</span>
+</a>
+<a class="group tool-card-v2 block rounded-xl border border-slate-500/20 bg-slate-950/15 hover:bg-slate-950/35 hover:border-slate-400/50 transition-all px-3 py-2.5 shadow-sm" href="https://ia.goatify.app/" rel="noopener" style="--tool-a:#94a3b8;--tool-b:#64748b;--tool-rgb:148,163,184;" target="_blank" title="Organización de publicaciones, calendario editorial y contenido para redes.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[11px] sm:text-[12px] leading-tight">Social Media Manager<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-slate-300/60 group-hover:text-slate-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-slate-400/20 bg-slate-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-slate-200/90" data-tool-type="true">Contenido</span>
+<span class="block text-[9px] text-zinc-400 group-hover:text-zinc-200 mt-1.5 leading-snug">Organización de publicaciones, calendario editorial y contenido para redes.</span>
+</a>
+<a class="group tool-card-v2 block rounded-xl border border-cyan-500/20 bg-cyan-950/15 hover:bg-cyan-950/35 hover:border-cyan-400/50 transition-all px-3 py-2.5 shadow-sm" href="https://ia.goatify.app/" rel="noopener" style="--tool-a:#22d3ee;--tool-b:#818cf8;--tool-rgb:34,211,238;" target="_blank" title="Creación de páginas, componentes, prototipos y soluciones web.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[11px] sm:text-[12px] leading-tight">Web Programmer<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-cyan-300/60 group-hover:text-cyan-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-cyan-400/20 bg-cyan-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-cyan-200/90" data-tool-type="true">Web</span>
+<span class="block text-[9px] text-zinc-400 group-hover:text-zinc-200 mt-1.5 leading-snug">Creación de páginas, componentes, prototipos y soluciones web.</span>
+</a>
+<a class="group tool-card-v2 block rounded-xl border border-cyan-500/20 bg-cyan-950/15 hover:bg-cyan-950/35 hover:border-cyan-400/50 transition-all px-3 py-2.5 shadow-sm" href="https://ia.goatify.app/" rel="noopener" style="--tool-a:#22d3ee;--tool-b:#818cf8;--tool-rgb:34,211,238;" target="_blank" title="Páginas públicas, smart pages, landing pages y enlaces compartibles.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[11px] sm:text-[12px] leading-tight">Public Sites<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-cyan-300/60 group-hover:text-cyan-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-cyan-400/20 bg-cyan-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-cyan-200/90" data-tool-type="true">Publicación</span>
+<span class="block text-[9px] text-zinc-400 group-hover:text-zinc-200 mt-1.5 leading-snug">Páginas públicas, smart pages, landing pages y enlaces compartibles.</span>
+</a>
+<a class="group tool-card-v2 block rounded-xl border border-emerald-500/20 bg-emerald-950/15 hover:bg-emerald-950/35 hover:border-emerald-400/50 transition-all px-3 py-2.5 shadow-sm" href="https://ia.goatify.app/" rel="noopener" style="--tool-a:#34d399;--tool-b:#22c55e;--tool-rgb:52,211,153;" target="_blank" title="Formularios de registro, captación, evaluación y feedback.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[11px] sm:text-[12px] leading-tight">Forms<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-emerald-300/60 group-hover:text-emerald-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-emerald-400/20 bg-emerald-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-emerald-200/90" data-tool-type="true">Formularios</span>
+<span class="block text-[9px] text-zinc-400 group-hover:text-zinc-200 mt-1.5 leading-snug">Formularios de registro, captación, evaluación y feedback.</span>
+</a></div>
+</div>
+<div class="rounded-2xl border border-zinc-800 bg-zinc-950/40 p-4 tools-category tools-category-v2 tools-cat-sales-v2">
+<div class="mb-3 flex items-center gap-2">
+<span class="w-8 h-8 rounded-lg bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 flex items-center justify-center"><i class="fa-solid fa-layer-group text-xs"></i></span>
+<h4 class="text-white font-black text-sm">Ventas, agenda y automatización</h4>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-2 gap-2"><a class="group tool-card-v2 block rounded-xl border border-slate-500/20 bg-slate-950/15 hover:bg-slate-950/35 hover:border-slate-400/50 transition-all px-3 py-2.5 shadow-sm" href="https://ia.goatify.app/" rel="noopener" style="--tool-a:#94a3b8;--tool-b:#64748b;--tool-rgb:148,163,184;" target="_blank" title="Leads, clientes, oportunidades, seguimiento y pipeline comercial.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[11px] sm:text-[12px] leading-tight">CRM Goatify<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-slate-300/60 group-hover:text-slate-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-slate-400/20 bg-slate-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-slate-200/90" data-tool-type="true">CRM</span>
+<span class="block text-[9px] text-zinc-400 group-hover:text-zinc-200 mt-1.5 leading-snug">Leads, clientes, oportunidades, seguimiento y pipeline comercial.</span>
+</a>
+<a class="group tool-card-v2 block rounded-xl border border-emerald-500/20 bg-emerald-950/15 hover:bg-emerald-950/35 hover:border-emerald-400/50 transition-all px-3 py-2.5 shadow-sm" href="https://ia.goatify.app/" rel="noopener" style="--tool-a:#34d399;--tool-b:#22c55e;--tool-rgb:52,211,153;" target="_blank" title="Agenda pública para reuniones, asesorías y llamadas.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[11px] sm:text-[12px] leading-tight">Scheduler<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-emerald-300/60 group-hover:text-emerald-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-emerald-400/20 bg-emerald-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-emerald-200/90" data-tool-type="true">Agenda</span>
+<span class="block text-[9px] text-zinc-400 group-hover:text-zinc-200 mt-1.5 leading-snug">Agenda pública para reuniones, asesorías y llamadas.</span>
+</a>
+<a class="group tool-card-v2 block rounded-xl border border-emerald-500/20 bg-emerald-950/15 hover:bg-emerald-950/35 hover:border-emerald-400/50 transition-all px-3 py-2.5 shadow-sm" href="https://ia.goatify.app/" rel="noopener" style="--tool-a:#34d399;--tool-b:#22c55e;--tool-rgb:52,211,153;" target="_blank" title="Correos, campañas, drafts, plantillas, programación y cuentas conectadas.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[11px] sm:text-[12px] leading-tight">Goatify Mail<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-emerald-300/60 group-hover:text-emerald-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-emerald-400/20 bg-emerald-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-emerald-200/90" data-tool-type="true">Email</span>
+<span class="block text-[9px] text-zinc-400 group-hover:text-zinc-200 mt-1.5 leading-snug">Correos, campañas, drafts, plantillas, programación y cuentas conectadas.</span>
+</a>
+<a class="group tool-card-v2 block rounded-xl border border-emerald-500/20 bg-emerald-950/15 hover:bg-emerald-950/35 hover:border-emerald-400/50 transition-all px-3 py-2.5 shadow-sm" href="https://ia.goatify.app/" rel="noopener" style="--tool-a:#34d399;--tool-b:#22c55e;--tool-rgb:52,211,153;" target="_blank" title="Campañas, secuencias, comunicación comercial y automatización.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[11px] sm:text-[12px] leading-tight">Email Marketing<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-emerald-300/60 group-hover:text-emerald-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-emerald-400/20 bg-emerald-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-emerald-200/90" data-tool-type="true">Email marketing</span>
+<span class="block text-[9px] text-zinc-400 group-hover:text-zinc-200 mt-1.5 leading-snug">Campañas, secuencias, comunicación comercial y automatización.</span>
+</a>
+<a class="group tool-card-v2 block rounded-xl border border-sky-500/20 bg-sky-950/15 hover:bg-sky-950/35 hover:border-sky-400/50 transition-all px-3 py-2.5 shadow-sm" href="https://ia.goatify.app/" rel="noopener" style="--tool-a:#38bdf8;--tool-b:#60a5fa;--tool-rgb:56,189,248;" target="_blank" title="Agentes IA para atención, soporte, seguimiento o procesos.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[11px] sm:text-[12px] leading-tight">AiAgent<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-sky-300/60 group-hover:text-sky-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-sky-400/20 bg-sky-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-sky-200/90" data-tool-type="true">Agente IA</span>
+<span class="block text-[9px] text-zinc-400 group-hover:text-zinc-200 mt-1.5 leading-snug">Agentes IA para atención, soporte, seguimiento o procesos.</span>
+</a>
+<a class="group tool-card-v2 block rounded-xl border border-slate-500/20 bg-slate-950/15 hover:bg-slate-950/35 hover:border-slate-400/50 transition-all px-3 py-2.5 shadow-sm" href="https://ia.goatify.app/" rel="noopener" style="--tool-a:#94a3b8;--tool-b:#64748b;--tool-rgb:148,163,184;" target="_blank" title="Vendedores IA para apoyar captación, respuesta y cierre.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[11px] sm:text-[12px] leading-tight">AI Sellers<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-slate-300/60 group-hover:text-slate-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-slate-400/20 bg-slate-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-slate-200/90" data-tool-type="true">Ventas IA</span>
+<span class="block text-[9px] text-zinc-400 group-hover:text-zinc-200 mt-1.5 leading-snug">Vendedores IA para apoyar captación, respuesta y cierre.</span>
+</a>
+<a class="group tool-card-v2 block rounded-xl border border-slate-500/20 bg-slate-950/15 hover:bg-slate-950/35 hover:border-slate-400/50 transition-all px-3 py-2.5 shadow-sm" href="https://ia.goatify.app/" rel="noopener" style="--tool-a:#94a3b8;--tool-b:#64748b;--tool-rgb:148,163,184;" target="_blank" title="Sala comercial para organizar leads, cierres, propuestas y próximos pasos.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[11px] sm:text-[12px] leading-tight">Sales Room<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-slate-300/60 group-hover:text-slate-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-slate-400/20 bg-slate-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-slate-200/90" data-tool-type="true">Ventas</span>
+<span class="block text-[9px] text-zinc-400 group-hover:text-zinc-200 mt-1.5 leading-snug">Sala comercial para organizar leads, cierres, propuestas y próximos pasos.</span>
+</a>
+<a class="group tool-card-v2 block rounded-xl border border-slate-500/20 bg-slate-950/15 hover:bg-slate-950/35 hover:border-slate-400/50 transition-all px-3 py-2.5 shadow-sm" href="https://ia.goatify.app/" rel="noopener" style="--tool-a:#94a3b8;--tool-b:#64748b;--tool-rgb:148,163,184;" target="_blank" title="Cotizaciones, propuestas comerciales y presupuestos estructurados.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[11px] sm:text-[12px] leading-tight">Cotizador Automático<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-slate-300/60 group-hover:text-slate-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-slate-400/20 bg-slate-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-slate-200/90" data-tool-type="true">Cotización</span>
+<span class="block text-[9px] text-zinc-400 group-hover:text-zinc-200 mt-1.5 leading-snug">Cotizaciones, propuestas comerciales y presupuestos estructurados.</span>
+</a>
+<a class="group tool-card-v2 block rounded-xl border border-slate-500/20 bg-slate-950/15 hover:bg-slate-950/35 hover:border-slate-400/50 transition-all px-3 py-2.5 shadow-sm" href="https://ia.goatify.app/" rel="noopener" style="--tool-a:#94a3b8;--tool-b:#64748b;--tool-rgb:148,163,184;" target="_blank" title="Ventas, pagos, punto de venta y monetización operativa.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[11px] sm:text-[12px] leading-tight">Smart POS<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-slate-300/60 group-hover:text-slate-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-slate-400/20 bg-slate-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-slate-200/90" data-tool-type="true">Pagos</span>
+<span class="block text-[9px] text-zinc-400 group-hover:text-zinc-200 mt-1.5 leading-snug">Ventas, pagos, punto de venta y monetización operativa.</span>
+</a></div>
+</div>
+<div class="rounded-2xl border border-zinc-800 bg-zinc-950/40 p-4 tools-category tools-category-v2 tools-cat-growth-v2">
+<div class="mb-3 flex items-center gap-2">
+<span class="w-8 h-8 rounded-lg bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 flex items-center justify-center"><i class="fa-solid fa-layer-group text-xs"></i></span>
+<h4 class="text-white font-black text-sm">Crecimiento y ecosistema</h4>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-2 gap-2"><a class="group tool-card-v2 block rounded-xl border border-slate-500/20 bg-slate-950/15 hover:bg-slate-950/35 hover:border-slate-400/50 transition-all px-3 py-2.5 shadow-sm" href="https://ia.goatify.app/" rel="noopener" style="--tool-a:#94a3b8;--tool-b:#64748b;--tool-rgb:148,163,184;" target="_blank" title="Proyección, control financiero, viabilidad y métricas de negocio.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[11px] sm:text-[12px] leading-tight">Financials<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-slate-300/60 group-hover:text-slate-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-slate-400/20 bg-slate-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-slate-200/90" data-tool-type="true">Finanzas</span>
+<span class="block text-[9px] text-zinc-400 group-hover:text-zinc-200 mt-1.5 leading-snug">Proyección, control financiero, viabilidad y métricas de negocio.</span>
+</a>
+<a class="group tool-card-v2 block rounded-xl border border-slate-500/20 bg-slate-950/15 hover:bg-slate-950/35 hover:border-slate-400/50 transition-all px-3 py-2.5 shadow-sm" href="https://ia.goatify.app/" rel="noopener" style="--tool-a:#94a3b8;--tool-b:#64748b;--tool-rgb:148,163,184;" target="_blank" title="Puntos, recompensas, gamificación y economía interna.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[11px] sm:text-[12px] leading-tight">Wallet / Intis<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-slate-300/60 group-hover:text-slate-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-slate-400/20 bg-slate-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-slate-200/90" data-tool-type="true">Wallet</span>
+<span class="block text-[9px] text-zinc-400 group-hover:text-zinc-200 mt-1.5 leading-snug">Puntos, recompensas, gamificación y economía interna.</span>
+</a>
+<a class="group tool-card-v2 block rounded-xl border border-emerald-500/20 bg-emerald-950/15 hover:bg-emerald-950/35 hover:border-emerald-400/50 transition-all px-3 py-2.5 shadow-sm" href="https://ia.goatify.app/" rel="noopener" style="--tool-a:#34d399;--tool-b:#22c55e;--tool-rgb:52,211,153;" target="_blank" title="Aliados, afiliados, red comercial y expansión.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[11px] sm:text-[12px] leading-tight">Partners<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-emerald-300/60 group-hover:text-emerald-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-emerald-400/20 bg-emerald-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-emerald-200/90" data-tool-type="true">Crecimiento</span>
+<span class="block text-[9px] text-zinc-400 group-hover:text-zinc-200 mt-1.5 leading-snug">Aliados, afiliados, red comercial y expansión.</span>
+</a>
+<a class="group tool-card-v2 block rounded-xl border border-indigo-500/20 bg-indigo-950/15 hover:bg-indigo-950/35 hover:border-indigo-400/50 transition-all px-3 py-2.5 shadow-sm" href="https://ia.goatify.app/" rel="noopener" style="--tool-a:#818cf8;--tool-b:#a78bfa;--tool-rgb:129,140,248;" target="_blank" title="Bienestar, pausas, foco y balance productivo dentro del ecosistema.">
+<span class="flex items-center justify-between gap-2 text-white font-bold text-[11px] sm:text-[12px] leading-tight">Chill<i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-indigo-300/60 group-hover:text-indigo-200"></i></span><span class="mt-2 inline-flex w-fit rounded-full border border-indigo-400/20 bg-indigo-400/10 px-1.5 py-[1px] text-[7.5px] sm:text-[8px] font-semibold uppercase tracking-[0.13em] text-indigo-200/90" data-tool-type="true">Bienestar</span>
+<span class="block text-[9px] text-zinc-400 group-hover:text-zinc-200 mt-1.5 leading-snug">Bienestar, pausas, foco y balance productivo dentro del ecosistema.</span>
+</a></div>
+</div></div>
 </div>
 </section>
 <!-- PERFIL DEL DOCENTE (MINIMALISTA Y RECTANGULAR) -->
@@ -1964,7 +2405,7 @@
 <p class="text-sm sm:text-base text-zinc-400 leading-relaxed mb-12 max-w-3xl mx-auto">
      En IBERO requerimos compromiso, ejecución y resultados en tus asignaciones asincrónicas para aprobar el programa.
     </p>
-<div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-6">
 <div class="glass-deep p-6 sm:p-8 rounded-2xl text-center shadow-lg hover:border-indigo-500/50 transition-colors">
 <p class="text-indigo-400 font-black text-4xl sm:text-5xl mb-3 drop-shadow-md">
        20%
@@ -1987,7 +2428,7 @@
        Claridad, coherencia, aplicabilidad y calidad de construcción en miniproyectos.
       </p>
 </div>
-<div class="glass-deep p-6 sm:p-8 rounded-2xl text-center shadow-lg hover:border-indigo-500/50 transition-colors border-t-2 border-t-amber-400 relative overflow-hidden">
+<div class="glass-deep p-6 sm:p-8 rounded-2xl text-center shadow-lg hover:border-indigo-500/50 transition-colors border-t-2 border-t-amber-400 relative overflow-hidden col-span-2 sm:col-span-1">
 <div class="absolute top-0 right-0 w-24 h-24 bg-amber-400/10 blur-[30px] rounded-full pointer-events-none">
 </div>
 <p class="text-amber-400 font-black text-4xl sm:text-5xl mb-3 drop-shadow-md">
@@ -2784,7 +3225,7 @@
 <div class="flex flex-col items-center md:items-end gap-1.5 text-center md:text-right">
 <p class="text-zinc-500">
        Sitio desarrollado y diseñado por
-       <a class="text-indigo-400 hover:text-white font-bold transition-colors" href="https://www.goatify.app" target="_blank" title="Goatify Desarrollo Tech">
+       <a class="text-indigo-400 hover:text-white font-bold transition-colors" href="https://ia.goatify.app/" target="_blank" title="Goatify Desarrollo Tech">
         GOATIFY
        </a>
 </p>
