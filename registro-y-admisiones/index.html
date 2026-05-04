@@ -731,7 +731,7 @@
 <div class="w-8 h-8 rounded-full bg-zinc-800/80 backdrop-blur-md text-white font-semibold text-xs flex items-center justify-center shrink-0 border border-zinc-600 mt-1 shadow-md">
           1
          </div>
-<div class="w-full">
+<div class="w-full min-w-0">
 <p class="text-white font-bold text-sm sm:text-base">
            Realiza la inversión en tu futuro.
           </p>
@@ -797,7 +797,7 @@
       <span class="rounded-full border border-emerald-300/35 bg-emerald-300/10 px-3 py-1.5 text-[10px] font-medium uppercase tracking-[0.13em] text-emerald-100">Clase Gratis</span>
     </div>
 
-    <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4" id="admission-payment-grid">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4" id="admission-payment-grid">
     <a class="admission-pay-link group rounded-[1.2rem] border border-zinc-700/70 bg-zinc-900/92 hover:bg-zinc-900 hover:border-zinc-400/80 p-3.5 sm:p-4 transition-all duration-300 flex flex-col gap-3 min-h-[184px] shadow-[0_14px_35px_rgba(0,0,0,0.20)] " href="https://www.paypal.com/ncp/payment/QTZE28XP3MUT8" data-general-link="https://www.paypal.com/ncp/payment/QTZE28XP3MUT8" data-mx-link="https://www.paypal.com/ncp/payment/32WN5J9QBL6EN" data-price-general="USD $37 · 35% OFF" data-price-mx="$645 MXN · 35% OFF" data-price-co="$137.000 COP · 35% OFF" data-price-pe="S/130 PEN · 35% OFF" target="_blank" rel="noopener">
       <div class="flex items-start justify-between gap-2">
         <span class="inline-flex items-center rounded-full border border-amber-300/35 bg-amber-300/10 text-amber-100 px-2.5 py-1 text-[9.5px] font-medium uppercase tracking-[0.13em] leading-none">Certificación</span>
@@ -1756,6 +1756,75 @@ document.addEventListener('DOMContentLoaded', function () {
     .admission-price-label .price-main { font-size: 0.62rem; padding: 0.16rem 0.36rem; }
     .admission-price-label .price-note { font-size: 0.52rem; padding: 0.14rem 0.34rem; }
   }
+
+  #admission-payment-grid,
+  #admission-payment-grid .admission-pay-link {
+    max-width: 100%;
+    min-width: 0;
+  }
+  #admission-payment-grid .admission-pay-link {
+    overflow: hidden;
+  }
+  #admission-payment-grid .admission-pay-link > div,
+  #admission-payment-grid .admission-pay-link p,
+  #admission-payment-grid .admission-pay-link span {
+    min-width: 0;
+  }
+  #admission-payment-grid .admission-pay-link p {
+    overflow-wrap: anywhere;
+  }
+  @media (max-width: 640px) {
+    #admission-payment-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      gap: 0.5rem !important;
+    }
+    #admission-payment-grid .admission-pay-link {
+      padding: 0.62rem !important;
+      border-radius: 1rem !important;
+      min-height: 164px !important;
+      gap: 0.55rem !important;
+    }
+    #admission-payment-grid .admission-pay-link > div:first-child {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.35rem;
+    }
+    #admission-payment-grid .admission-pay-link .admission-price-label {
+      align-items: flex-start !important;
+      text-align: left !important;
+      min-width: 0 !important;
+      max-width: 100% !important;
+    }
+    #admission-payment-grid .admission-pay-link .price-main,
+    #admission-payment-grid .admission-pay-link .price-note {
+      white-space: normal !important;
+      line-height: 1.05;
+    }
+    #admission-payment-grid .admission-pay-link .w-8.h-8 {
+      width: 1.75rem !important;
+      height: 1.75rem !important;
+      border-radius: 0.75rem !important;
+    }
+    #admission-payment-grid .admission-pay-link p.text-zinc-50 {
+      font-size: 0.68rem !important;
+      line-height: 1.16 !important;
+    }
+    #admission-payment-grid .admission-pay-link p.text-zinc-400 {
+      font-size: 0.60rem !important;
+      line-height: 1.15 !important;
+    }
+    #admission-payment-grid .admission-pay-link span.mt-auto {
+      padding: 0.55rem 0.35rem !important;
+      font-size: 0.62rem !important;
+      border-radius: 0.75rem !important;
+    }
+    #admission-payment-grid .admission-pay-link .inline-flex.items-center.rounded-full {
+      font-size: 0.50rem !important;
+      padding: 0.24rem 0.42rem !important;
+      letter-spacing: 0.08em !important;
+    }
+  }
+
 </style>
 
 <script id="ibero-admisiones-payment-guard">
