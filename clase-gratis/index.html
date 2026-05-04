@@ -123,22 +123,52 @@
       background: rgba(var(--accent-rgb, 34,211,238), .12);
       border:1px solid rgba(var(--accent-rgb, 34,211,238), .26);
     }
-    .countdown-pill {
-      display:inline-flex;
+    .countdown-shell {
+      padding:.75rem;
+      border-radius:1.25rem;
+      background:linear-gradient(180deg, rgba(var(--accent-rgb,34,211,238),.12), rgba(255,255,255,.035));
+      border:1px solid rgba(var(--accent-rgb,34,211,238),.22);
+      box-shadow:0 14px 34px rgba(0,0,0,.22);
+    }
+    .countdown-label {
+      display:flex;
       align-items:center;
-      gap:.4rem;
-      min-width:0;
-      padding:.42rem .72rem;
-      border-radius:999px;
+      gap:.45rem;
+      color:rgb(var(--accent-light-rgb,125,211,252));
       font-size:10px;
-      line-height:1;
       font-weight:900;
-      letter-spacing:.05em;
+      letter-spacing:.12em;
       text-transform:uppercase;
+      margin-bottom:.55rem;
       white-space:nowrap;
-      color: rgb(var(--accent-light-rgb, 125,211,252));
-      background: rgba(var(--accent-rgb, 34,211,238), .10);
-      border:1px solid rgba(var(--accent-rgb, 34,211,238), .22);
+    }
+    .countdown-grid {
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:.45rem;
+    }
+    .countdown-unit {
+      border-radius:.85rem;
+      padding:.55rem .35rem;
+      text-align:center;
+      background:rgba(0,0,0,.22);
+      border:1px solid rgba(255,255,255,.08);
+    }
+    .countdown-number {
+      display:block;
+      color:#fff;
+      font-weight:1000;
+      font-size:1rem;
+      line-height:1;
+    }
+    .countdown-name {
+      display:block;
+      margin-top:.25rem;
+      color:rgba(255,255,255,.55);
+      font-size:.55rem;
+      font-weight:800;
+      letter-spacing:.09em;
+      text-transform:uppercase;
     }
     .class-counter {
       white-space:nowrap;
@@ -155,9 +185,96 @@
       color: rgb(var(--accent-light-rgb, 125,211,252));
     }
     @media (max-width: 767px) {
-      .top-badge-row { gap:.35rem; }
-      .proxima-badge, .countdown-pill { font-size:8.5px; padding:.38rem .52rem; letter-spacing:.045em; }
-      .class-counter { min-width:2.85rem; font-size:9px !important; }
+      .top-badge-row { gap:.35rem; flex-wrap:wrap; padding-right:0 !important; }
+      .proxima-badge { font-size:8.5px; padding:.38rem .52rem; letter-spacing:.045em; }
+      .class-counter { min-width:auto; font-size:9px !important; text-align:left; }
+      .countdown-shell { padding:.6rem; border-radius:1rem; }
+      .countdown-grid { gap:.32rem; }
+      .countdown-unit { padding:.45rem .18rem; border-radius:.7rem; }
+      .countdown-number { font-size:.82rem; }
+      .countdown-name { font-size:.48rem; letter-spacing:.04em; }
+      .class-header-row { flex-direction:column; align-items:flex-start !important; gap:.65rem !important; }
+    }
+
+
+    .modal-backdrop {
+      position:fixed;
+      inset:0;
+      z-index:9999;
+      display:none;
+      background:#05070d;
+      overflow-y:auto;
+    }
+    .modal-backdrop.open { display:block; }
+    .modal-panel {
+      width:100%;
+      min-height:100vh;
+      overflow-y:auto;
+      border-radius:0;
+      background:
+        radial-gradient(circle at top right, rgba(var(--accent-rgb,34,211,238),.14), transparent 38%),
+        radial-gradient(circle at bottom left, rgba(var(--accent-rgb,34,211,238),.08), transparent 34%),
+        linear-gradient(180deg, rgba(10,12,18,.99), rgba(5,7,13,1));
+      border:none;
+      box-shadow:none;
+    }
+    .content-hero-card {
+      background:linear-gradient(180deg, rgba(255,255,255,.052), rgba(255,255,255,.025));
+      border:1px solid rgba(var(--accent-rgb,34,211,238),.18);
+      box-shadow:0 18px 50px rgba(0,0,0,.28);
+    }
+    .content-mini-card,
+    .content-clean-card {
+      background:rgba(255,255,255,.035);
+      border:1px solid rgba(255,255,255,.09);
+    }
+    .content-soft-card {
+      background:rgba(var(--accent-rgb,34,211,238),.055);
+      border:1px solid rgba(var(--accent-rgb,34,211,238),.16);
+    }
+    .content-chip {
+      display:inline-flex;
+      align-items:center;
+      gap:.45rem;
+      padding:.46rem .72rem;
+      border-radius:999px;
+      color:rgb(var(--accent-light-rgb,125,211,252));
+      background:rgba(var(--accent-rgb,34,211,238),.1);
+      border:1px solid rgba(var(--accent-rgb,34,211,238),.22);
+      font-size:9.5px;
+      font-weight:900;
+      letter-spacing:.09em;
+      text-transform:uppercase;
+      width:max-content;
+      max-width:100%;
+    }
+    .content-number {
+      width:2.35rem;
+      height:2.35rem;
+      border-radius:1rem;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:950;
+      color:#05070d;
+      flex-shrink:0;
+      background:rgb(var(--accent-light-rgb,125,211,252));
+    }
+    .content-two-cols { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+    @media (max-width: 767px){
+      .modal-title-wrap h2 { font-size:1.55rem !important; line-height:1.1 !important; }
+      .modal-title-wrap { margin-bottom:1rem !important; }
+      .content-two-cols { grid-template-columns:repeat(2,minmax(0,1fr)); gap:.65rem; }
+      .content-two-cols > * { padding:.85rem !important; border-radius:1.15rem !important; }
+      .content-two-cols h3,
+      .content-two-cols p { overflow-wrap:anywhere; }
+      .content-compact-grid { grid-template-columns:repeat(2,minmax(0,1fr)) !important; gap:.65rem !important; }
+      .content-compact-card { padding:.85rem !important; border-radius:1.15rem !important; }
+      .content-compact-card h3 { font-size:.82rem !important; line-height:1.08 !important; }
+      .content-compact-card li,
+      .content-compact-card p { font-size:.69rem !important; line-height:1.28 !important; }
+      .content-number { width:1.75rem; height:1.75rem; border-radius:.65rem; font-size:.72rem; }
+      .content-chip { font-size:8px; padding:.38rem .55rem; }
     }
 
     .soft-card {
@@ -344,16 +461,30 @@
               <i class="fa-solid fa-calendar-days"></i>
             </a>
           </div>
+          <div class="rounded-2xl border border-emerald-500/15 bg-emerald-500/5 p-4 mt-5 flex items-start gap-3 max-w-3xl">
+            <div class="w-10 h-10 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 flex items-center justify-center shrink-0"><i class="fa-brands fa-whatsapp"></i></div>
+            <div>
+              <p class="text-[10px] uppercase tracking-[0.18em] font-bold text-emerald-300/80 mb-1">Acceso por WhatsApp</p>
+              <p class="text-sm text-zinc-200 font-semibold leading-relaxed">Al inscribirte entrarás al grupo oficial. Por ahí enviaremos el enlace para entrar a la clase gratis, recordatorios y avisos importantes.</p>
+            </div>
+          </div>
+          <div class="rounded-2xl border border-cyan-500/15 bg-cyan-500/5 p-4 mt-3 flex items-start gap-3 max-w-3xl">
+            <div class="w-10 h-10 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 flex items-center justify-center shrink-0"><i class="fa-solid fa-lightbulb"></i></div>
+            <div>
+              <p class="text-[10px] uppercase tracking-[0.18em] font-bold text-cyan-300/80 mb-1">Comunidad de aprendizaje continuo</p>
+              <p class="text-sm text-zinc-200 font-semibold leading-relaxed">El grupo no es solo para recibir el enlace de la clase. También compartiremos ideas, recursos y contenido de valor sobre inteligencia artificial, marketing y negocios, porque creemos en la capacitación constante y en democratizar el acceso a la IA de forma práctica, clara y útil.</p>
+            </div>
+          </div>
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-10 mobile-two-grid">
             <div class="glass-card rounded-2xl p-4">
-              <p class="text-[10px] uppercase tracking-[0.18em] text-zinc-400 font-bold mb-2">Siguiente sesión</p>
-              <p class="text-lg font-black text-white">12 mayo 2026</p>
-              <p class="text-sm text-cyan-300">Marketing Digital con IA</p>
+              <p class="text-[10px] uppercase tracking-[0.18em] text-zinc-400 font-bold mb-2">Próxima clase gratis</p>
+              <p id="hero-next-date" class="text-lg font-black text-white">12 mayo 2026</p>
+              <p id="hero-next-title" class="text-sm text-cyan-300">Marketing Digital con IA</p>
             </div>
             <div class="glass-card rounded-2xl p-4">
               <p class="text-[10px] uppercase tracking-[0.18em] text-zinc-400 font-bold mb-2">Horario</p>
-              <p class="text-lg font-black text-white">9 PM – 10 PM</p>
-              <p class="text-sm text-zinc-300">EC / CO / PE · 8 PM – 9 PM MX</p>
+              <p id="hero-next-time" class="text-lg font-black text-white leading-tight"><span class="block text-[10px] uppercase tracking-[0.16em] text-cyan-300 mb-1">EC / CO / PE</span>9:00 PM – 10:00 PM</p>
+              <p id="hero-next-time-mx" class="text-sm text-zinc-300 leading-tight mt-2"><span class="block text-[10px] uppercase tracking-[0.16em] text-emerald-300 mb-1">MX</span>8:00 PM – 9:00 PM</p>
             </div>
             <div class="glass-card rounded-2xl p-4">
               <p class="text-[10px] uppercase tracking-[0.18em] text-zinc-400 font-bold mb-2">Acceso</p>
@@ -364,19 +495,24 @@
         </div>
         <div id="proxima" class="reveal">
           <div id="proxima-card" class="glass-card proxima-card-shell rounded-[2rem] p-6 sm:p-8 shadow-glow border border-cyan-400/20 relative overflow-hidden" style="--accent-rgb:34,211,238;--accent-light-rgb:125,211,252;">
-            <div class="absolute top-4 right-4 free-tab"><i class="fa-solid fa-gift"></i> Gratis</div>
-            <div class="flex items-center justify-between gap-3 mb-6 pr-0 sm:pr-24">
+            <div class="flex items-center justify-between gap-3 mb-4 class-header-row">
               <div class="top-badge-row">
                 <span id="proxima-badge" class="proxima-badge">
                   <i class="fa-solid fa-bolt accent-icon"></i>
                   Próxima Clase Gratis
                 </span>
-                <span class="countdown-pill">
-                  <i class="fa-solid fa-clock accent-icon"></i>
-                  <span id="countdown-badge">Calculando...</span>
-                </span>
+                <span class="free-tab"><i class="fa-solid fa-gift"></i> Gratis</span>
               </div>
               <span id="proxima-counter" class="class-counter text-[11px] text-zinc-400 font-semibold uppercase tracking-widest">01/13</span>
+            </div>
+            <div class="countdown-shell mb-6">
+              <div class="countdown-label"><i class="fa-solid fa-clock accent-icon"></i> Cuenta regresiva</div>
+              <div id="countdown-badge" class="countdown-grid">
+                <div class="countdown-unit"><span class="countdown-number">--</span><span class="countdown-name">Días</span></div>
+                <div class="countdown-unit"><span class="countdown-number">--</span><span class="countdown-name">Horas</span></div>
+                <div class="countdown-unit"><span class="countdown-number">--</span><span class="countdown-name">Min</span></div>
+                <div class="countdown-unit"><span class="countdown-number">--</span><span class="countdown-name">Seg</span></div>
+              </div>
             </div>
 
             <div class="flex items-center justify-between gap-3 mb-4">
@@ -400,8 +536,8 @@
               </div>
               <div class="soft-card rounded-2xl p-4">
                 <p class="text-[10px] font-bold uppercase tracking-[0.18em] text-zinc-500 mb-2">Hora</p>
-                <p id="proxima-time" class="text-lg font-black text-white">9:00 PM – 10:00 PM</p>
-                <p id="proxima-time-mx" class="text-sm text-zinc-400">EC / CO / PE · 8:00 PM – 9:00 PM MX</p>
+                <p id="proxima-time" class="text-lg font-black text-white leading-tight"><span class="block text-[10px] uppercase tracking-[0.16em] text-cyan-300 mb-1">EC / CO / PE</span>9:00 PM – 10:00 PM</p>
+                <p id="proxima-time-mx" class="text-sm text-zinc-400 leading-tight mt-2"><span class="block text-[10px] uppercase tracking-[0.16em] text-emerald-300 mb-1">MX</span>8:00 PM – 9:00 PM</p>
               </div>
               <div class="soft-card rounded-2xl p-4">
                 <p class="text-[10px] font-bold uppercase tracking-[0.18em] text-zinc-500 mb-2">Programa completo inicia</p>
@@ -412,13 +548,6 @@
                 <p class="text-[10px] font-bold uppercase tracking-[0.18em] text-zinc-500 mb-2">Acceso</p>
                 <p class="text-lg font-black text-emerald-300">Gratis</p>
                 <p class="text-sm text-zinc-400">Acceso por grupo oficial</p>
-              </div>
-            </div>
-            <div class="rounded-2xl border border-emerald-500/15 bg-emerald-500/5 p-4 mb-4 flex items-start gap-3">
-              <div class="w-10 h-10 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 flex items-center justify-center shrink-0"><i class="fa-brands fa-whatsapp"></i></div>
-              <div>
-                <p class="text-[10px] uppercase tracking-[0.18em] font-bold text-emerald-300/80 mb-1">Acceso por WhatsApp</p>
-                <p class="text-sm text-zinc-200 font-semibold">Únete al grupo oficial: allí enviaremos el enlace para entrar a la clase gratis, recordatorios y avisos importantes.</p>
               </div>
             </div>
             <div class="rounded-2xl border border-cyan-500/15 bg-cyan-500/5 p-4 mb-4 flex items-start gap-3 next-flow">
@@ -436,9 +565,10 @@
                 <li class="flex items-start gap-3"><i class="fa-solid fa-check text-cyan-300 mt-1"></i><span>Cómo se conecta contenido, Smart Page, CRM, email y automatización.</span></li>
               </ul>
             </div>
-            <div class="flex flex-col sm:flex-row gap-3">
-              <a href="https://chat.whatsapp.com/Gyb5EfKq5zJHpV3OybJPrK?mode=gi_t" target="_blank" class="flex-1 bg-cyan-400 hover:bg-cyan-300 text-black px-5 py-4 rounded-xl font-black text-sm text-center transition-all">Inscribirme Gratis</a>
-              <a href="https://ibero.education/calendario-academico/" target="_blank" class="flex-1 bg-white/5 hover:bg-white/10 border border-white/10 text-white px-5 py-4 rounded-xl font-bold text-sm text-center transition-all">Ver Calendario</a>
+            <div class="grid sm:grid-cols-3 gap-3">
+              <a href="https://chat.whatsapp.com/Gyb5EfKq5zJHpV3OybJPrK?mode=gi_t" target="_blank" class="bg-cyan-400 hover:bg-cyan-300 text-black px-5 py-4 rounded-xl font-black text-sm text-center transition-all">Inscribirme Gratis</a>
+              <button id="open-content-btn" type="button" class="bg-white/10 hover:bg-white/15 border border-white/10 text-white px-5 py-4 rounded-xl font-bold text-sm text-center transition-all">Contenido</button>
+              <a href="https://ibero.education/calendario-academico/" target="_blank" class="bg-white/5 hover:bg-white/10 border border-white/10 text-white px-5 py-4 rounded-xl font-bold text-sm text-center transition-all">Ver Calendario</a>
             </div>
           </div>
         </div>      </div>
@@ -569,7 +699,7 @@
       <div class="space-y-4">
         <details class="soft-card rounded-3xl p-5 reveal" open>
           <summary class="flex items-center justify-between gap-4 cursor-pointer"><h3 class="text-base sm:text-lg font-black text-white">¿Cuál es la siguiente clase gratis?</h3><i class="fa-solid fa-chevron-down faq-icon text-zinc-400"></i></summary>
-          <p class="text-sm text-zinc-400 leading-relaxed mt-4">La siguiente es <strong class="text-white">Marketing Digital con IA</strong>, el <strong class="text-white">martes 12 de mayo de 2026</strong>, de <strong class="text-white">9:00 PM a 10:00 PM (EC/CO/PE)</strong> y <strong class="text-white">8:00 PM a 9:00 PM (MX)</strong>.</p>
+          <p class="text-sm text-zinc-400 leading-relaxed mt-4">La siguiente es <strong class="text-white">Marketing Digital con IA</strong>, el <strong class="text-white">martes 12 de mayo de 2026</strong>, en horario <strong class="text-white">EC/CO/PE: 9:00 PM a 10:00 PM</strong> y <strong class="text-white">MX: 8:00 PM a 9:00 PM</strong>.</p>
         </details>
         <details class="soft-card rounded-3xl p-5 reveal">
           <summary class="flex items-center justify-between gap-4 cursor-pointer"><h3 class="text-base sm:text-lg font-black text-white">¿Todas las clases gratis duran una hora?</h3><i class="fa-solid fa-chevron-down faq-icon text-zinc-400"></i></summary>
@@ -577,7 +707,7 @@
         </details>
         <details class="soft-card rounded-3xl p-5 reveal">
           <summary class="flex items-center justify-between gap-4 cursor-pointer"><h3 class="text-base sm:text-lg font-black text-white">¿En qué horario son para Ecuador, Colombia, Perú y México?</h3><i class="fa-solid fa-chevron-down faq-icon text-zinc-400"></i></summary>
-          <p class="text-sm text-zinc-400 leading-relaxed mt-4">Las clases gratis se manejan en horario de la noche para LATAM: <strong class="text-white">9:00 PM a 10:00 PM para EC/CO/PE</strong> y <strong class="text-white">8:00 PM a 9:00 PM para México</strong>.</p>
+          <p class="text-sm text-zinc-400 leading-relaxed mt-4">Las clases gratis se manejan en horario de la noche para LATAM: <strong class="text-white">EC/CO/PE: 9:00 PM a 10:00 PM</strong> y <strong class="text-white">MX: 8:00 PM a 9:00 PM</strong>.</p>
         </details>
         <details class="soft-card rounded-3xl p-5 reveal">
           <summary class="flex items-center justify-between gap-4 cursor-pointer"><h3 class="text-base sm:text-lg font-black text-white">¿La clase gratis me obliga a matricularme?</h3><i class="fa-solid fa-chevron-down faq-icon text-zinc-400"></i></summary>
@@ -607,6 +737,32 @@
       </div>
     </div>
   </section>
+
+
+  <div id="content-modal" class="modal-backdrop" aria-hidden="true">
+    <div id="content-modal-panel" class="modal-panel" style="--accent-rgb:34,211,238;--accent-light-rgb:125,211,252;">
+      <div class="sticky top-0 z-20 bg-[#05070d]/92 backdrop-blur-xl border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between gap-4">
+          <button id="close-content-modal" type="button" class="inline-flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 text-white px-4 py-3 font-black text-sm transition-all">
+            <i class="fa-solid fa-arrow-left"></i>
+            Regresar
+          </button>
+          <div class="hidden sm:flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.18em] text-zinc-500">
+            <i class="fa-solid fa-list-check" style="color:rgb(var(--accent-light-rgb,125,211,252))"></i>
+            Contenido de la clase gratis
+          </div>
+        </div>
+      </div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
+        <div class="modal-title-wrap mb-5 sm:mb-8 text-center max-w-4xl mx-auto">
+          <div class="flex flex-wrap justify-center gap-2 mb-4"><span class="content-chip"><i class="fa-solid fa-list-check"></i> Contenido de la clase gratis</span><span class="content-chip" style="background:rgba(16,185,129,.14);border-color:rgba(16,185,129,.28);color:#6ee7b7"><i class="fa-solid fa-gift"></i> GRATIS</span></div>
+          <h2 id="modal-title" class="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight">Marketing Digital con IA</h2>
+          <p id="modal-subtitle" class="text-sm sm:text-base text-zinc-400 mt-3">Sesión introductoria en vivo · 1 hora</p>
+        </div>
+        <div id="modal-content"></div>
+      </div>
+    </div>
+  </div>
 
   <footer class="bg-black border-t border-white/5 py-8">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
@@ -640,6 +796,8 @@
       }
     });
 
+    const WHATSAPP_GROUP = 'https://chat.whatsapp.com/Gyb5EfKq5zJHpV3OybJPrK?mode=gi_t';
+
     const freeClasses = [
       { title:'Marketing Digital con IA', accent:'34,211,238', accentLight:'125,211,252', date:'Martes 12 de mayo', iso:'2026-05-12T21:00:00-05:00', year:'2026', time:'9:00 PM – 10:00 PM', timeMx:'EC / CO / PE · 8:00 PM – 9:00 PM MX', starts:'18 mayo 2026', duration:'Duración del programa: 4 días intensivos', link:'https://ibero.education/marketing-digital-con-ia', desc:'Una clase de entrada para entender cómo construir una presencia digital inteligente, crear contenido con criterio, organizar un embudo simple y visualizar el sistema comercial del programa completo.', bullets:['Cómo ordenar una oferta digital clara con apoyo de IA.','Qué piezas mínimas necesitas para captar leads y empezar a vender.','Cómo se conecta contenido, Smart Page, CRM, email y automatización.'] },
       { title:'Monetiza tu Idea con IA', accent:'250,204,21', accentLight:'253,224,71', date:'Martes 26 de mayo', iso:'2026-05-26T21:00:00-05:00', year:'2026', time:'9:00 PM – 10:00 PM', timeMx:'EC / CO / PE · 8:00 PM – 9:00 PM MX', starts:'1 junio 2026', duration:'Duración del programa: 4 días intensivos', link:'https://ibero.education/monetiza-tu-idea', desc:'Una sesión introductoria para ayudarte a convertir una idea en una oferta más clara, más vendible y mejor estructurada con apoyo de IA.', bullets:['Cómo validar rápidamente una idea antes de invertir demasiado tiempo.','Qué debe tener una oferta simple para verse seria y monetizable.','Cómo usar IA para ordenar propuesta, mensaje y ruta comercial inicial.'] },
@@ -670,22 +828,78 @@
     const nextInLine = document.getElementById('next-in-line');
     const countdownBadge = document.getElementById('countdown-badge');
     const proximaCard = document.getElementById('proxima-card');
+    const heroNextDate = document.getElementById('hero-next-date');
+    const heroNextTitle = document.getElementById('hero-next-title');
+    const heroNextTime = document.getElementById('hero-next-time');
+    const heroNextTimeMx = document.getElementById('hero-next-time-mx');
+
+    function getClassStart(item) {
+      return new Date(item.iso).getTime();
+    }
+
+    function getClassEnd(item) {
+      return getClassStart(item) + (60 * 60 * 1000);
+    }
+
+    function findUpcomingClassIndex() {
+      const now = Date.now();
+      const foundIndex = freeClasses.findIndex(item => getClassEnd(item) > now);
+      return foundIndex >= 0 ? foundIndex : freeClasses.length - 1;
+    }
+
+    function renderScheduleHTML(compact = false) {
+      const ec = compact ? '9 PM – 10 PM' : '9:00 PM – 10:00 PM';
+      const mx = compact ? '8 PM – 9 PM' : '8:00 PM – 9:00 PM';
+      return {
+        ec: `<span class="block text-[10px] uppercase tracking-[0.16em] text-cyan-300 mb-1">EC / CO / PE</span>${ec}`,
+        mx: `<span class="block text-[10px] uppercase tracking-[0.16em] text-emerald-300 mb-1">MX</span>${mx}`
+      };
+    }
+
+    function syncHeroNextClass(item) {
+      if (!item) return;
+      if (heroNextDate) heroNextDate.textContent = `${item.date.replace('Martes ', '')} ${item.year}`;
+      if (heroNextTitle) heroNextTitle.textContent = item.title;
+      const heroSchedule = renderScheduleHTML(true);
+      if (heroNextTime) heroNextTime.innerHTML = heroSchedule.ec;
+      if (heroNextTimeMx) heroNextTimeMx.innerHTML = heroSchedule.mx;
+    }
 
     function updateCountdown() {
       const item = freeClasses[currentClassIndex];
-      const target = new Date(item.iso).getTime();
+      const target = getClassStart(item);
+      const end = getClassEnd(item);
       const now = Date.now();
-      const diff = target - now;
       if (!countdownBadge) return;
+
+      if (now > end) {
+        const nextIndex = findUpcomingClassIndex();
+        if (nextIndex !== currentClassIndex) {
+          currentClassIndex = nextIndex;
+          renderFreeClass(currentClassIndex);
+          return;
+        }
+      }
+
+      if (now >= target && now <= end) {
+        countdownBadge.innerHTML = '<div class="countdown-unit" style="grid-column:span 4"><span class="countdown-number">EN VIVO</span><span class="countdown-name">La clase está en curso</span></div>';
+        return;
+      }
+
+      const diff = target - now;
       if (diff <= 0) {
-        countdownBadge.textContent = 'Clase en curso';
+        countdownBadge.innerHTML = '<div class="countdown-unit" style="grid-column:span 4"><span class="countdown-number">FINALIZÓ</span><span class="countdown-name">Mostrando próxima clase disponible</span></div>';
         return;
       }
       const days = Math.floor(diff / (1000 * 60 * 60 * 24));
       const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
       const minutes = Math.floor((diff / (1000 * 60)) % 60);
       const seconds = Math.floor((diff / 1000) % 60);
-      countdownBadge.textContent = `${days}d ${String(hours).padStart(2,'0')}h ${String(minutes).padStart(2,'0')}m ${String(seconds).padStart(2,'0')}s`;
+      countdownBadge.innerHTML = `
+        <div class="countdown-unit"><span class="countdown-number">${days}</span><span class="countdown-name">Días</span></div>
+        <div class="countdown-unit"><span class="countdown-number">${String(hours).padStart(2,'0')}</span><span class="countdown-name">Horas</span></div>
+        <div class="countdown-unit"><span class="countdown-number">${String(minutes).padStart(2,'0')}</span><span class="countdown-name">Min</span></div>
+        <div class="countdown-unit"><span class="countdown-number">${String(seconds).padStart(2,'0')}</span><span class="countdown-name">Seg</span></div>`;
     }
 
     function renderFreeClass(index) {
@@ -699,15 +913,227 @@
       proximaDesc.textContent = item.desc;
       proximaDate.textContent = item.date;
       proximaYear.textContent = item.year;
-      proximaTime.textContent = item.time;
-      proximaTimeMx.textContent = item.timeMx;
+      const scheduleHTML = renderScheduleHTML(false);
+      proximaTime.innerHTML = scheduleHTML.ec;
+      proximaTimeMx.innerHTML = scheduleHTML.mx;
       proximaStart.textContent = item.starts;
       proximaDuration.textContent = item.duration;
       proximaCounter.textContent = `${String(index + 1).padStart(2,'0')}/${String(freeClasses.length).padStart(2,'0')}`;
       proximaBullets.innerHTML = item.bullets.map(b => `<li class="flex items-start gap-3"><i class="fa-solid fa-check text-cyan-300 mt-1"></i><span>${b}</span></li>`).join('');
       nextInLine.textContent = `Luego sigue: ${next.title} · ${next.date} ${next.year}`;
+      syncHeroNextClass(item);
       updateCountdown();
     }
+
+    const modal = document.getElementById('content-modal');
+    const modalPanel = document.getElementById('content-modal-panel');
+    const modalTitle = document.getElementById('modal-title');
+    const modalSubtitle = document.getElementById('modal-subtitle');
+    const modalContent = document.getElementById('modal-content');
+    const openContentBtn = document.getElementById('open-content-btn');
+    const closeContentModal = document.getElementById('close-content-modal');
+
+    function getClassContent(item) {
+      const title = item.title.toUpperCase();
+      if (title.includes('MARKETING')) {
+        return {
+          eyebrow: 'Inteligencia Artificial & Marketing',
+          promise: 'Esta clase gratis te muestra cómo unir inteligencia artificial y marketing para crear una presencia digital más seria: marca clara, página web funcional, contenido atractivo, chatbot comercial y recursos visuales capaces de generar interés real.',
+          objective: 'Que entiendas cómo una marca puede pasar de improvisar publicaciones a construir un sistema básico de captación: identidad, mensaje, página, contenido, video y conversación comercial automatizada.',
+          spotlight: {
+            title: 'En esta clase gratuita vas a ver cómo se conecta IA + Marketing para vender mejor',
+            points: [
+              'Crea una marca sólida con una propuesta clara y diferenciada.',
+              'Diseña tu página web con código o apoyo de IA, orientada a captar interesados.',
+              'Programa tu chatbot para responder dudas y apoyar el cierre de ventas.',
+              'Edita videos con avatares realistas para crear contenido más profesional.',
+              'Incluye Ebook como recurso complementario para reforzar lo aprendido.'
+            ]
+          },
+          agenda: [
+            ['1. Inteligencia Artificial & Marketing', ['Qué cambia cuando usas IA para investigar, crear mensajes y ordenar campañas.', 'Cómo evitar usar IA solo para copiar textos y empezar a usarla con criterio comercial.', 'Qué piezas mínimas necesita una marca para comunicar mejor y captar interesados.']],
+            ['2. Marca sólida y propuesta de valor', ['Cómo definir una promesa entendible para tu público.', 'Cómo transformar beneficios, objeciones y diferenciales en mensajes de venta.', 'Cómo usar IA para explorar nombres, tono, ángulos y narrativa de marca.']],
+            ['3. Página web, chatbot y captación', ['Qué debe tener una página web simple para presentar una oferta y recibir contactos.', 'Cómo conectar formulario, WhatsApp, agenda o CRM en un flujo básico.', 'Cómo un chatbot puede responder preguntas frecuentes y preparar el cierre.']],
+            ['4. Contenido, videos y avatares', ['Cómo crear ideas de reels, guiones y piezas visuales con IA.', 'Qué rol tienen los avatares realistas en contenido educativo y comercial.', 'Cómo conectar contenido con una llamada a la acción clara: inscríbete, reserva o compra.']]
+          ],
+          practical: ['Mapa inicial de marca y propuesta de valor.', 'Checklist para una página web simple orientada a conversión.', 'Idea base de chatbot vendedor o asistente comercial.', 'Ruta de contenido con videos, avatares y CTA.', 'Ebook incluido como apoyo complementario de la clase.'],
+          result: 'Sales con una visión clara de cómo usar IA para construir una marca más sólida, una página más útil, contenido más profesional y un sistema inicial de captación.'
+        };
+      }
+      if (title.includes('MONETIZA')) {
+        return {
+          eyebrow: 'Ideas, oferta y monetización',
+          promise: 'Esta clase te ayuda a mirar una idea con ojos de negocio: qué problema resuelve, para quién puede tener valor, cómo se comunica y cuál podría ser su primera ruta de monetización.',
+          objective: 'Que puedas diferenciar una idea interesante de una idea vendible, y que entiendas qué elementos mínimos necesitas para convertirla en una oferta clara.',
+          agenda: [
+            ['1. Claridad de idea y oportunidad', ['Cómo detectar si una idea está demasiado amplia, confusa o poco aterrizada.', 'Qué preguntas ayudan a definir problema, público, deseo y urgencia.', 'Cómo usar IA para explorar escenarios, segmentos y posibles aplicaciones.']],
+            ['2. Propuesta de valor y promesa', ['Cómo explicar tu idea en una frase que otra persona entienda rápido.', 'Cómo distinguir características, beneficios y transformación esperada.', 'Cómo evitar promesas genéricas que no generan interés.']],
+            ['3. Primer modelo de monetización', ['Formas iniciales de monetizar una idea: servicio, producto digital, asesoría, curso, comunidad o automatización.', 'Qué activos simples pueden ayudarte a validar interés.', 'Cómo pensar precio, oferta inicial y siguiente paso.']],
+            ['4. Ruta hacia el programa completo', ['Qué se construye durante la certificación.', 'Cómo se trabaja la idea con herramientas de IA.', 'Qué entregable final permite presentar la propuesta con más fuerza.']]
+          ],
+          practical: ['Diagnóstico inicial de la idea.', 'Primer borrador de propuesta de valor.', 'Mapa simple de público, problema y solución.', 'Ruta inicial de monetización y validación.'],
+          result: 'Sales con una visión más clara de cómo convertir una idea en una oferta inicial con potencial comercial.'
+        };
+      }
+      if (title.includes('CREA TU CURSO')) {
+        return {
+          eyebrow: 'Educación digital, cursos y academias',
+          promise: 'En esta clase verás cómo transformar conocimiento, experiencia o una habilidad en una propuesta educativa digital más clara, estructurada y vendible.',
+          objective: 'Que entiendas cómo se diseña una oferta educativa: promesa, público, módulos, metodología, experiencia del estudiante y ruta de monetización.',
+          agenda: [
+            ['1. De conocimiento a producto educativo', ['Cómo identificar qué sabes enseñar y a quién podría servirle.', 'Diferencia entre clase suelta, curso, taller, certificación y academia.', 'Qué hace que una propuesta educativa se perciba profesional.']],
+            ['2. Estructura del curso', ['Cómo definir resultado esperado, módulos, actividades y recursos.', 'Cómo usar IA para acelerar temarios, guías, ejercicios y materiales.', 'Cómo evitar cursos demasiado largos, confusos o difíciles de vender.']],
+            ['3. Venta y experiencia del estudiante', ['Qué debe comunicar una página o ficha de curso.', 'Cómo organizar comunidad, recordatorios, entregables y seguimiento.', 'Qué plataformas y herramientas pueden apoyar el proceso.']],
+            ['4. Ruta hacia el programa completo', ['Qué se construye durante la certificación.', 'Cómo se arma la oferta educativa completa.', 'Qué entregables ayudan a salir con una academia o curso mejor presentado.']]
+          ],
+          practical: ['Idea de curso más aterrizada.', 'Promesa educativa inicial.', 'Mapa de módulos y resultado esperado.', 'Checklist de activos para vender y operar el curso.'],
+          result: 'Sales entendiendo cómo empaquetar tu conocimiento como un activo educativo con estructura y potencial de venta.'
+        };
+      }
+      return {
+        eyebrow: 'IA, negocios, marketing y comunicación',
+        promise: 'Esta clase gratuita presenta la lógica del Diplomado IBERO Labs: una ruta para convertir una idea, proyecto o negocio en un sistema digital más claro, presentable y orientado a monetización.',
+        objective: 'Que comprendas qué se construye durante el diplomado, cómo se articulan las semanas y cuál es el proyecto final esperado.',
+        agenda: [
+          ['1. Visión del diplomado', ['Qué significa incubar una idea o negocio con IA.', 'Cómo se conecta investigación, oferta, marca, contenido y monetización.', 'Qué perfil aprovecha mejor una ruta intensiva de 5 semanas.']],
+          ['2. Sistema digital aplicado', ['Cómo se trabaja una Smart Page, contenido comercial, CRM, email y asistente IA.', 'Por qué el entregable final no es una tarea teórica sino un sistema presentable.', 'Cómo QLASE LMS organiza tareas, evidencias, retroalimentación y seguimiento.']],
+          ['3. Proyecto final oficial', ['Documento ejecutivo, activo digital, pitch y plan de activación.', 'Qué se evalúa: claridad, viabilidad, ejecución y presentación.', 'Cómo se prepara el cierre tipo Demo Day.']],
+          ['4. Ruta hacia la inscripción', ['Cómo revisar fechas, horarios y exigencia académica.', 'Qué diferencia al diplomado de una certificación corta.', 'Qué debe tener listo una persona para aprovechar mejor el proceso.']]
+        ],
+        practical: ['Mapa general del proyecto final.', 'Claridad sobre la malla de 5 semanas.', 'Comprensión del sistema digital que se construye.', 'Criterios para decidir si el diplomado es la ruta adecuada.'],
+        result: 'Sales con una visión clara del proyecto final, la metodología y la exigencia aplicada del Diplomado.'
+      };
+    }
+
+    function openContentModal() {
+      const item = freeClasses[currentClassIndex];
+      const data = getClassContent(item);
+      if (modalPanel) {
+        modalPanel.style.setProperty('--accent-rgb', item.accent || '34,211,238');
+        modalPanel.style.setProperty('--accent-light-rgb', item.accentLight || '125,211,252');
+      }
+      modalTitle.textContent = item.title;
+      modalSubtitle.textContent = `${item.date} ${item.year} · EC/CO/PE: 9:00 PM – 10:00 PM · MX: 8:00 PM – 9:00 PM`;
+      modalContent.innerHTML = `
+        <div class="grid lg:grid-cols-[.98fr_1.02fr] gap-5 lg:gap-6 items-start">
+          <aside class="content-hero-card rounded-[1.65rem] sm:rounded-[2rem] p-5 sm:p-7">
+            <div class="flex flex-wrap items-center gap-2 mb-5">
+              <span class="content-chip"><i class="fa-solid fa-wand-magic-sparkles"></i> ${data.eyebrow}</span>
+              <span class="content-chip"><i class="fa-solid fa-video"></i> 1 hora en vivo</span>
+            </div>
+            <h3 class="text-2xl sm:text-3xl font-black text-white tracking-tight leading-tight mb-3">¿De qué trata?</h3>
+            <p class="text-zinc-300 text-sm sm:text-base leading-relaxed font-medium mb-5">${data.promise}</p>
+
+            <div class="content-two-cols mb-5">
+              <div class="content-mini-card rounded-2xl p-4">
+                <p class="text-[9px] uppercase tracking-[0.16em] font-bold text-zinc-500 mb-2">Fecha</p>
+                <p class="text-white font-black leading-tight">${item.date}</p>
+                <p class="text-zinc-400 text-xs mt-1">${item.year}</p>
+              </div>
+              <div class="content-mini-card rounded-2xl p-4">
+                <p class="text-[9px] uppercase tracking-[0.16em] font-bold text-zinc-500 mb-2">Horario</p>
+                <p class="text-white font-black leading-tight">EC/CO/PE</p>
+                <p class="text-zinc-300 text-xs mt-1">9:00 PM – 10:00 PM</p>
+                <p class="text-white font-black leading-tight mt-2">MX</p>
+                <p class="text-zinc-300 text-xs mt-1">8:00 PM – 9:00 PM</p>
+              </div>
+              <div class="content-mini-card rounded-2xl p-4">
+                <p class="text-[9px] uppercase tracking-[0.16em] font-bold text-zinc-500 mb-2">Modalidad</p>
+                <p class="text-white font-black leading-tight">Online en vivo</p>
+                <p class="text-zinc-400 text-xs mt-1">Con registro gratuito</p>
+              </div>
+              <div class="content-mini-card rounded-2xl p-4">
+                <p class="text-[9px] uppercase tracking-[0.16em] font-bold text-zinc-500 mb-2">Acceso</p>
+                <p class="text-emerald-300 font-black leading-tight">Gratis</p>
+                <p class="text-zinc-400 text-xs mt-1">Por WhatsApp</p>
+              </div>
+            </div>
+
+            <div class="content-soft-card rounded-2xl p-4 mb-5">
+              <p class="text-[9px] uppercase tracking-[0.16em] font-bold mb-2" style="color:rgb(var(--accent-light-rgb,125,211,252))">Objetivo de la sesión</p>
+              <p class="text-white text-sm sm:text-base font-bold leading-relaxed">${data.objective}</p>
+            </div>
+
+            <div class="flex flex-col sm:flex-row lg:flex-col gap-3">
+              <a href="${WHATSAPP_GROUP}" target="_blank" class="bg-emerald-400 hover:bg-emerald-300 text-black px-5 py-3.5 rounded-xl font-black text-sm text-center transition-all inline-flex items-center justify-center gap-2">Inscribirme Gratis <i class="fa-brands fa-whatsapp"></i></a>
+              <a href="${item.link}" target="_blank" class="bg-white/6 hover:bg-white/10 border border-white/10 text-white px-5 py-3.5 rounded-xl font-bold text-sm text-center transition-all inline-flex items-center justify-center gap-2">Ir al programa completo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+              <a href="https://ibero.education/calendario-academico/" target="_blank" class="bg-white/6 hover:bg-white/10 border border-white/10 text-white px-5 py-3.5 rounded-xl font-bold text-sm text-center transition-all inline-flex items-center justify-center gap-2">Ver Calendario <i class="fa-solid fa-calendar-days"></i></a>
+            </div>
+          </aside>
+
+          <main class="space-y-5">
+            ${data.spotlight ? `<section class="content-soft-card rounded-[1.6rem] p-5 sm:p-6 border border-emerald-500/20 bg-emerald-500/5">
+              <div class="flex flex-wrap items-center gap-2 mb-4">
+                <span class="content-chip" style="background:rgba(16,185,129,.14);border-color:rgba(16,185,129,.28);color:#6ee7b7"><i class="fa-solid fa-gift"></i> GRATIS</span>
+                <span class="content-chip"><i class="fa-solid fa-bolt"></i> Clase introductoria</span>
+              </div>
+              <h3 class="text-xl sm:text-2xl font-black text-white mb-4 leading-tight">${data.spotlight.title}</h3>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 content-compact-grid">
+                ${data.spotlight.points.map(point => `<div class="content-clean-card content-compact-card rounded-2xl p-4 flex gap-3"><i class="fa-solid fa-check accent-icon mt-1"></i><p class="text-sm text-zinc-300 leading-relaxed">${point}</p></div>`).join('')}
+              </div>
+              <div class="mt-5 flex flex-col sm:flex-row gap-3">
+                <a href="${WHATSAPP_GROUP}" target="_blank" class="bg-emerald-400 hover:bg-emerald-300 text-black px-5 py-3 rounded-xl font-black text-sm text-center transition-all inline-flex items-center justify-center gap-2">¡Inscríbete Gratis! <i class="fa-brands fa-whatsapp"></i></a>
+                <a href="${item.link}" target="_blank" class="bg-white/6 hover:bg-white/10 border border-white/10 text-white px-5 py-3 rounded-xl font-bold text-sm text-center transition-all inline-flex items-center justify-center gap-2">Ir al programa completo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+              </div>
+            </section>` : ''}
+            <section class="grid grid-cols-1 sm:grid-cols-2 gap-4 content-compact-grid">
+              ${data.agenda.map(([heading, points], idx) => `
+                <article class="content-clean-card content-compact-card rounded-[1.6rem] p-5 sm:p-6">
+                  <div class="flex items-start gap-3 mb-4">
+                    <div class="content-number">${idx + 1}</div>
+                    <h3 class="text-lg sm:text-xl font-black text-white leading-tight">${heading}</h3>
+                  </div>
+                  <ul class="space-y-2.5 text-sm text-zinc-300">
+                    ${points.slice(0,3).map(point => `<li class="flex gap-2.5"><i class="fa-solid fa-check accent-icon mt-1"></i><span>${point}</span></li>`).join('')}
+                  </ul>
+                </article>`).join('')}
+            </section>
+
+            <section class="grid sm:grid-cols-2 gap-4 content-compact-grid">
+              <div class="content-clean-card content-compact-card rounded-[1.6rem] p-5 sm:p-6">
+                <p class="text-[10px] uppercase tracking-[0.16em] font-bold text-zinc-500 mb-4">Qué te llevas</p>
+                <ul class="space-y-2.5 text-sm text-zinc-300">
+                  ${data.practical.map(point => `<li class="flex gap-2.5"><i class="fa-solid fa-circle-check accent-icon mt-1"></i><span>${point}</span></li>`).join('')}
+                </ul>
+              </div>
+              <div class="content-soft-card content-compact-card rounded-[1.6rem] p-5 sm:p-6">
+                <p class="text-[10px] uppercase tracking-[0.16em] font-bold mb-3" style="color:rgb(var(--accent-light-rgb,125,211,252))">Resultado esperado</p>
+                <p class="text-white text-base sm:text-lg font-black leading-relaxed">${data.result}</p>
+                <div class="mt-5 pt-5 border-t border-white/10">
+                  <p class="text-zinc-400 text-sm leading-relaxed">La inscripción se realiza por el grupo oficial de WhatsApp. Ahí se enviará el enlace de acceso, recordatorios y avisos importantes.</p>
+                </div>
+              </div>
+            </section>
+
+            <section class="rounded-[1.6rem] bg-black/25 border border-white/10 p-4 sm:p-5 flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between">
+              <div>
+                <h3 class="text-white font-black text-lg mb-1">¿Quieres asistir?</h3>
+                <p class="text-zinc-400 text-sm">Reserva gratis y revisa también el calendario completo.</p>
+              </div>
+              <div class="flex flex-col sm:flex-row gap-3 shrink-0">
+                <a href="${WHATSAPP_GROUP}" target="_blank" class="bg-emerald-400 hover:bg-emerald-300 text-black px-5 py-3 rounded-xl font-black text-sm text-center transition-all">Inscribirme Gratis</a>
+                <a href="${item.link}" target="_blank" class="bg-white/6 hover:bg-white/10 border border-white/10 text-white px-5 py-3 rounded-xl font-bold text-sm text-center transition-all">Ir al programa completo</a>
+                <a href="https://ibero.education/calendario-academico/" target="_blank" class="bg-white/6 hover:bg-white/10 border border-white/10 text-white px-5 py-3 rounded-xl font-bold text-sm text-center transition-all">Calendario</a>
+              </div>
+            </section>
+          </main>
+        </div>`;
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden','false');
+      document.body.style.overflow = 'hidden';
+      modal.scrollTop = 0;
+    }
+
+    function closeModal() {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden','true');
+      document.body.style.overflow = '';
+    }
+
+    if (openContentBtn) openContentBtn.addEventListener('click', openContentModal);
+    if (closeContentModal) closeContentModal.addEventListener('click', closeModal);
+    if (modal) modal.addEventListener('click', (event) => { if (event.target === modal) closeModal(); });
+    document.addEventListener('keydown', (event) => { if (event.key === 'Escape' && modal && modal.classList.contains('open')) closeModal(); });
 
     document.getElementById('prev-class-btn').addEventListener('click', () => {
       currentClassIndex = (currentClassIndex - 1 + freeClasses.length) % freeClasses.length;
@@ -717,6 +1143,7 @@
       currentClassIndex = (currentClassIndex + 1) % freeClasses.length;
       renderFreeClass(currentClassIndex);
     });
+    currentClassIndex = findUpcomingClassIndex();
     renderFreeClass(currentClassIndex);
     setInterval(updateCountdown, 1000);
   </script>
