@@ -975,18 +975,30 @@
 <h4 class="text-sm font-bold text-ibero-gray uppercase tracking-wider mb-3 flex items-center gap-2">
 <i class="ph ph-wallet">
 </i>
-       Inversión por país (30% OFF Aplicado)
+       Inversión por país (35% OFF Aplicado)
       </h4>
 <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6" id="modal-prices">
 <!-- Precios inyectados por JS -->
 </div>
+</div>
+<div class="mb-5 bg-ibero-dark/40 border border-white/10 rounded-xl p-3" id="calendar-payment-country-box">
+  <p class="text-[0.65rem] uppercase tracking-widest text-ibero-gray font-bold mb-2">País para el botón de registro</p>
+  <div class="flex flex-wrap gap-2">
+    <button type="button" data-calendar-pay-country="general" class="calendar-pay-country-btn bg-ibero-red text-white rounded-full px-3 py-1.5 text-[0.65rem] font-black uppercase tracking-widest">General USD</button>
+    <button type="button" data-calendar-pay-country="mx" class="calendar-pay-country-btn bg-white/10 hover:bg-white/15 text-ibero-gray rounded-full px-3 py-1.5 text-[0.65rem] font-black uppercase tracking-widest border border-white/10">México MXN</button>
+  </div>
 </div>
 <!-- Acciones -->
 <div class="flex flex-col sm:flex-row gap-3 border-t border-white/10 pt-6">
 <a class="hidden flex-1 bg-ibero-red hover:bg-ibero-darkRed text-white font-bold py-3 px-4 rounded-lg items-center justify-center gap-2 transition-colors shadow-lg shadow-red-500/25" href="#" id="btn-inscribete" target="_blank">
 <i class="ph-fill ph-link text-xl">
 </i>
-       Inscríbete Aquí
+       Registrarte Aquí
+      </a>
+<a class="hidden flex-1 bg-white/10 border border-white/15 text-white font-bold py-3 px-4 rounded-lg items-center justify-center gap-2 hover:bg-white/15 transition-colors" href="#" id="btn-ver-programa" target="_blank">
+<i class="ph-fill ph-book-open text-xl">
+</i>
+       Ver Programa
       </a>
 <a class="flex-1 bg-white text-ibero-dark font-bold py-3 px-4 rounded-lg flex items-center justify-center gap-2 hover:bg-gray-200 transition-colors" href="#" id="btn-gcal" target="_blank">
 <i class="ph-fill ph-google-logo text-xl">
@@ -1319,16 +1331,16 @@
                 addMessage('¡Claro! 🚀 Aquí tienes los <em>próximos arranques confirmados</em>:<br><br>• <strong>MKT Digital con IA:</strong> <em>18 de Mayo</em><br>• <strong>IA para Docentes:</strong> <em>25 de Mayo</em><br>• <strong>Aprende a Hablar en Público:</strong> <em>30 de Mayo</em><br>• <strong>Monetiza tu Idea con IA:</strong> <em>1 de Junio</em><br>• <strong>Crea tu Academia:</strong> <em>8 de Junio</em><br>• <strong>Diplomado Integral IA:</strong> <em>15 de Junio</em><br><br>💡 <em>Navega por el calendario y haz clic en cualquier programa para inscribirte directamente.</em>');
             }
             if(type === 'precios') {
-                addMessage('💸 <strong>Inversión y Descuentos (30% OFF pre-aplicado):</strong><br><br>• <strong>Cursos (1 Semana):</strong> <em>USD $47</em> (Aprox. MXN $850 / PEN S/185 / COP $190k)<br>• <strong>Talleres Presenciales:</strong> <em>USD $37</em><br>• <strong>Diplomado Integral (5 Semanas):</strong> <em>USD $197</em><br>• <strong>Executive Master (6 Meses):</strong> <em>USD $367</em><br><br>✨ <em>Todos los programas incluyen certificado oficial y acceso a grabaciones. ¡Elige tu programa y asegura tu lugar hoy!</em>');
+                addMessage('💸 <strong>Inversión y Descuentos (35% OFF aplicado):</strong><br><br>• <strong>Cursos (1 Semana):</strong> <em>USD $37</em> (Aprox. MXN $645 / PEN S/130 / COP $137k)<br>• <strong>Talleres Presenciales:</strong> <em>USD $37</em><br>• <strong>Diplomado Integral (5 Semanas):</strong> <em>USD $167</em><br>• <strong>Executive Master (6 Meses):</strong> <em>USD $457</em><br><br>✨ <em>Todos los programas incluyen certificado oficial y acceso a grabaciones. ¡Elige tu programa y asegura tu lugar hoy!</em>');
             }
             if(type === 'master') {
-                addMessage('👑 <strong>Executive Master en IA Aplicada</strong><br><br>Nuestro programa de élite, diseñado para transformar tu perfil profesional a nivel directivo. Aprenderás a liderar la integración de IA en corporativos y startups.<br><br>• <strong>Inicia:</strong> <em>13 de Julio de 2026</em><br>• <strong>Duración:</strong> <em>6 meses intensivos, hasta enero 2027</em><br>• <strong>Inversión:</strong> <em>USD $367</em><br><br><a href="https://ibero.education/master-ejecutivo-ia" target="_blank" class="inline-flex items-center gap-1 mt-3 px-4 py-2 bg-ibero-red text-white text-[13px] font-bold rounded-lg hover:bg-ibero-darkRed transition-all shadow-lg shadow-red-500/30">Postular al Master <i class="ph-bold ph-arrow-right"></i></a>');
+                addMessage('👑 <strong>Executive Master en IA Aplicada</strong><br><br>Nuestro programa de élite, diseñado para transformar tu perfil profesional a nivel directivo. Aprenderás a liderar la integración de IA en corporativos y startups.<br><br>• <strong>Inicia:</strong> <em>13 de Julio de 2026</em><br>• <strong>Duración:</strong> <em>6 meses intensivos, hasta enero 2027</em><br>• <strong>Inversión:</strong> <em>USD $457</em><br><br><a href="https://ibero.education/master-ejecutivo-ia" target="_blank" class="inline-flex items-center gap-1 mt-3 px-4 py-2 bg-ibero-red text-white text-[13px] font-bold rounded-lg hover:bg-ibero-darkRed transition-all shadow-lg shadow-red-500/30">Postular al Master <i class="ph-bold ph-arrow-right"></i></a>');
             }
             if(type === 'diplomado') {
-                addMessage('🎓 <strong>Diplomado en IA Aplicada a Negocios y MKT</strong><br><br>5 semanas intensivas para dominar la IA. Crearás contenido automatizado, embudos de venta y escalarás tu negocio con herramientas de vanguardia.<br><br>• <strong>Inicia:</strong> <em>15 de Junio</em><br>• <strong>Inversión:</strong> <em>USD $197</em> (Ahorras 30%)<br><br><a href="https://ibero.education/diplomado-ia-negocios-marketing" target="_blank" class="inline-flex items-center gap-1 mt-3 px-4 py-2 bg-ibero-red text-white text-[13px] font-bold rounded-lg hover:bg-ibero-darkRed transition-all shadow-lg shadow-red-500/30">Inscribirme al Diplomado <i class="ph-bold ph-arrow-right"></i></a>');
+                addMessage('🎓 <strong>Diplomado en IA Aplicada a Negocios y MKT</strong><br><br>5 semanas intensivas para dominar la IA. Crearás contenido automatizado, embudos de venta y escalarás tu negocio con herramientas de vanguardia.<br><br>• <strong>Inicia:</strong> <em>15 de Junio</em><br>• <strong>Inversión:</strong> <em>USD $167</em> (35% OFF)<br><br><a href="https://ibero.education/diplomado-ia-negocios-marketing" target="_blank" class="inline-flex items-center gap-1 mt-3 px-4 py-2 bg-ibero-red text-white text-[13px] font-bold rounded-lg hover:bg-ibero-darkRed transition-all shadow-lg shadow-red-500/30">Inscribirme al Diplomado <i class="ph-bold ph-arrow-right"></i></a>');
             }
             if(type === 'cursos') {
-                addMessage('📘 <strong>Certificaciones y Talleres de 1 Semana:</strong><br><br>Especialízate rápido con nuestros cursos (USD $47 c/u):<br><br>• <a href="https://ibero.education/marketing-digital-con-ia" target="_blank" class="text-blue-400 hover:text-blue-300 underline font-semibold">Marketing Digital con IA</a><br>• <a href="https://ibero.education/ia-para-docentes" target="_blank" class="text-blue-400 hover:text-blue-300 underline font-semibold">IA para Docentes</a><br>• <a href="https://ibero.education/monetiza-tu-idea" target="_blank" class="text-blue-400 hover:text-blue-300 underline font-semibold">Monetiza tu Idea</a><br>• <a href="https://ibero.education/crea-tu-academia" target="_blank" class="text-blue-400 hover:text-blue-300 underline font-semibold">Crea tu Academia</a><br>• <a href="https://ibero.education/comunicacion-efectiva" target="_blank" class="text-blue-400 hover:text-blue-300 underline font-semibold">Hablar en Público (Taller Presencial USD $37)</a>');
+                addMessage('📘 <strong>Certificaciones y Talleres de 1 Semana:</strong><br><br>Especialízate rápido con nuestros cursos (USD $37 c/u · 35% OFF):<br><br>• <a href="https://ibero.education/marketing-digital-con-ia" target="_blank" class="text-blue-400 hover:text-blue-300 underline font-semibold">Marketing Digital con IA</a><br>• <a href="https://ibero.education/ia-para-docentes" target="_blank" class="text-blue-400 hover:text-blue-300 underline font-semibold">IA para Docentes</a><br>• <a href="https://ibero.education/monetiza-tu-idea" target="_blank" class="text-blue-400 hover:text-blue-300 underline font-semibold">Monetiza tu Idea</a><br>• <a href="https://ibero.education/crea-tu-academia" target="_blank" class="text-blue-400 hover:text-blue-300 underline font-semibold">Crea tu Academia</a><br>• <a href="https://ibero.education/comunicacion-efectiva" target="_blank" class="text-blue-400 hover:text-blue-300 underline font-semibold">Hablar en Público (Taller Presencial USD $37)</a>');
             }
             if(type === 'gratis') {
                 addMessage('🟢 <strong>Clases de Prueba Gratuitas</strong><br><br>Ofrecemos una <em>Clase Introductoria en Vivo y sin costo</em> exactamente una semana antes del inicio oficial de casi todos nuestros programas.<br><br>Busca en el calendario los eventos marcados en verde con <strong>🟢 Clase Gratis</strong> y dale clic para reservar tu cupo.');
@@ -1353,12 +1365,65 @@
       master: 'https://ibero.education/master-ejecutivo-ia'
     };
 
+    const paymentLinks = {
+      marketing: { general: 'https://www.paypal.com/ncp/payment/QTZE28XP3MUT8', mx: 'https://www.paypal.com/ncp/payment/32WN5J9QBL6EN' },
+      docentes: { general: 'https://www.paypal.com/ncp/payment/WC5BEUAQCU2MQ', mx: 'https://www.paypal.com/ncp/payment/H6N57S4L9ZNMN' },
+      monetiza: { general: 'https://www.paypal.com/ncp/payment/ZFBTV9DRC2BCC', mx: 'https://www.paypal.com/ncp/payment/BUF4ZVGNTJMWW' },
+      creaCurso: { general: 'https://www.paypal.com/ncp/payment/2HLLBTVGWX4VQ', mx: 'https://www.paypal.com/ncp/payment/QFJ3TUMT56MNY' },
+      hablar: { general: 'https://www.paypal.com/ncp/payment/RFRUU69FS2BLL', mx: '' },
+      diplomado: { general: 'https://www.paypal.com/ncp/payment/K6J3EQ7ZN2B52', mx: 'https://www.paypal.com/ncp/payment/XVNZBAL8R4SM2' },
+      master: { general: 'https://www.paypal.com/ncp/payment/MDDJTPR2DXMQJ', mx: 'https://www.paypal.com/ncp/payment/FR87TPYFFWU4N' }
+    };
+    let calendarPaymentCountry = 'general';
+    let calendarCurrentEvent = null;
+
+    const FREE_CLASS_DIRECT_LINK = 'https://chat.whatsapp.com/Gyb5EfKq5zJHpV3OybJPrK?mode=gi_t';
+    const FREE_CLASS_INFO_LINK = 'https://ibero.education/clase-gratis/';
+
+    function isFreeClassEvent(ev) {
+      const title = `${ev?.title || ''} ${ev?.type || ''} ${ev?.relatedType || ''}`.toUpperCase();
+      return ev?.type === 'gratis' || ev?.relatedType === 'gratis' || title.includes('CLASE GRATIS');
+    }
+
+    function getPaymentKey(ev) {
+      const title = (ev?.title || '').toUpperCase();
+      const related = ev?.relatedType || ev?.type;
+      if (related === 'master' || title.includes('EXECUTIVE MASTER')) return 'master';
+      if (related === 'diplomado' || title.includes('DIPLOMADO')) return 'diplomado';
+      if (title.includes('DOCENTES')) return 'docentes';
+      if (title.includes('MARKETING DIGITAL')) return 'marketing';
+      if (title.includes('MONETIZA')) return 'monetiza';
+      if (title.includes('CREA TU CURSO')) return 'creaCurso';
+      if (title.includes('HABLAR EN PÚBLICO')) return 'hablar';
+      return 'marketing';
+    }
+
+    function getRegistrationLink(ev) {
+      if (isFreeClassEvent(ev)) return FREE_CLASS_DIRECT_LINK;
+      const key = getPaymentKey(ev);
+      const linkSet = paymentLinks[key];
+      if (linkSet) {
+        return (calendarPaymentCountry === 'mx' && linkSet.mx) ? linkSet.mx : linkSet.general;
+      }
+      return links[key] || links.marketing;
+    }
+
+    function getProgramLink(ev) {
+      if (!ev) return '';
+      if (isFreeClassEvent(ev)) return FREE_CLASS_INFO_LINK;
+      return ev.link || '';
+    }
+
+    function getRegistrationButtonLabel(ev) {
+      return isFreeClassEvent(ev) ? 'Registrarte Gratis' : 'Registrarte Aquí';
+    }
+
     const pricing = {
       gratis: { usd: 'Gratis', mxn: 'Gratis', pen: 'Gratis', cop: 'Gratis' },
-      curso: { usd: '$47', mxn: '$850', pen: 'S/ 185', cop: '$190,000', originalUsd: '$67', originalMxn: '$1,214', originalPen: 'S/ 264', originalCop: '$271,428' },
-      taller: { usd: '$37', mxn: '$680', pen: 'S/ 150', cop: '$150,000', originalUsd: '$53', originalMxn: '$971', originalPen: 'S/ 214', originalCop: '$214,285' },
-      diplomado: { usd: '$197', mxn: '$3,500', pen: 'S/ 750', cop: '$790,000', originalUsd: '$281', originalMxn: '$5,000', originalPen: 'S/ 1,071', originalCop: '$1,128,571' },
-      master: { usd: '$367', mxn: '$6,600', pen: 'S/ 1,400', cop: '$1,470,000', originalUsd: '$524', originalMxn: '$9,430', originalPen: 'S/ 2,000', originalCop: '$2,100,000' },
+      curso: { usd: '$37', mxn: '$645', pen: 'S/ 130', cop: '$137,000', originalUsd: '$57', originalMxn: '$995', originalPen: 'S/ 200', originalCop: '$211,000', discount: '35% OFF' },
+      taller: { usd: '$37', mxn: '$645', pen: 'S/ 130', cop: '$137,000', originalUsd: '$57', originalMxn: '$995', originalPen: 'S/ 200', originalCop: '$211,000', discount: '35% OFF' },
+      diplomado: { usd: '$167', mxn: '$2,920', pen: 'S/ 586', cop: '$617,000', originalUsd: '$257', originalMxn: '$4,490', originalPen: 'S/ 902', originalCop: '$950,000', discount: '35% OFF' },
+      master: { usd: '$457', mxn: '$7,990', pen: 'S/ 1,603', cop: '$1,689,000', originalUsd: '$703', originalMxn: '$12,290', originalPen: 'S/ 2,466', originalCop: '$2,598,000', discount: '35% OFF' },
       inscripcion: null,
       comercial: null
     };
@@ -1656,7 +1721,7 @@
             const startDate = new Date(ev.start + 'T12:00:00');
             startDate.setDate(startDate.getDate() - diasAntesInsc);
             const isoDate = startDate.toISOString().split('T')[0];
-            newEvents.push({ title: `${getProgramEmoji(ev.title)} Inscripciones: ${ev.title}`, type: 'inscripcion', start: isoDate, end: isoDate, schedule: `Inicia el ${formatDate(ev.start)}`, desc: `Apertura oficial de inscripciones. Asegura tu lugar con un 30% de descuento especial pre-aplicado.`, link: ev.link, relatedType: ev.type });
+            newEvents.push({ title: `${getProgramEmoji(ev.title)} Inscripciones: ${ev.title}`, type: 'inscripcion', start: isoDate, end: isoDate, schedule: `Inicia el ${formatDate(ev.start)}`, desc: `Apertura oficial de inscripciones. Asegura tu lugar con un 35% de descuento promocional aplicado.`, link: ev.link, relatedType: ev.type });
           }
           if ((ev.type === 'curso' || isDiplomadoKickoff) && !ev.title.includes('DOCENTES') && !ev.title.includes('HABLAR EN PÚBLICO')) {
             const freeClassDate = new Date(ev.start + 'T12:00:00');
@@ -1861,7 +1926,8 @@
                   <p class="text-sm text-ibero-gray mt-1"><i class="ph-fill ph-clock"></i> ${formatScheduleDisplay(ev.schedule)}</p>
                 </div>
                 <div class="flex flex-col sm:flex-row gap-2 w-full sm:w-auto mt-4 sm:mt-0 shrink-0">
-                  ${ev.link && ev.type !== 'inscripcion' ? `<a href="${ev.link}" target="_blank" class="text-sm font-bold text-white bg-ibero-red hover:bg-ibero-darkRed px-4 py-2 rounded-lg transition-all flex items-center justify-center gap-2 shadow-lg shadow-red-500/20">Inscríbete Aquí <i class="ph ph-arrow-right"></i></a>` : ''}
+                  <a href="${getRegistrationLink(ev)}" target="_blank" class="text-sm font-bold text-white bg-ibero-red hover:bg-ibero-darkRed px-4 py-2 rounded-lg transition-all flex items-center justify-center gap-2 shadow-lg shadow-red-500/20">${getRegistrationButtonLabel(ev)} <i class="ph ph-arrow-right"></i></a>
+                  ${getProgramLink(ev) ? `<a href="${getProgramLink(ev)}" target="_blank" class="text-sm font-semibold text-white bg-white/5 hover:bg-white/10 border border-white/10 px-4 py-2 rounded-lg transition-all flex items-center justify-center gap-2">Ver Programa <i class="ph ph-book-open"></i></a>` : ''}
                   <button onclick="openEventModal('${encodeURIComponent(JSON.stringify(ev))}')" class="text-sm font-semibold text-white bg-white/5 hover:bg-white/10 border border-white/10 px-4 py-2 rounded-lg transition-all flex items-center justify-center gap-2">
                     Ver Detalles <i class="ph ph-info"></i>
                   </button>
@@ -1925,6 +1991,7 @@
 
     function openEventModal(dataEncoded) {
       const ev = JSON.parse(decodeURIComponent(dataEncoded));
+      calendarCurrentEvent = ev;
       document.getElementById('modal-title').textContent = ev.title;
       document.getElementById('modal-desc').textContent = ev.desc;
       
@@ -1942,13 +2009,21 @@
       badge.innerHTML = `${getIconForType(ev.type)} ${ev.type}`;
 
       const btnInscribete = document.getElementById('btn-inscribete');
-      if(ev.link) {
-        btnInscribete.href = ev.link;
-        btnInscribete.classList.remove('hidden');
-        btnInscribete.classList.add('flex');
+      const registrationUrl = getRegistrationLink(ev);
+      btnInscribete.href = registrationUrl;
+      btnInscribete.innerHTML = `<i class="ph-fill ph-link text-xl"></i> ${getRegistrationButtonLabel(ev)}`;
+      btnInscribete.classList.remove('hidden');
+      btnInscribete.classList.add('flex');
+
+      const btnVerPrograma = document.getElementById('btn-ver-programa');
+      const programUrl = getProgramLink(ev);
+      if(programUrl) {
+        btnVerPrograma.href = programUrl;
+        btnVerPrograma.classList.remove('hidden');
+        btnVerPrograma.classList.add('flex');
       } else {
-        btnInscribete.classList.add('hidden');
-        btnInscribete.classList.remove('flex');
+        btnVerPrograma.classList.add('hidden');
+        btnVerPrograma.classList.remove('flex');
       }
 
       const pricesContainer = document.getElementById('modal-prices');
@@ -1961,6 +2036,7 @@
         pricesContainer.innerHTML = `
           <div class="bg-ibero-dark/50 p-2 sm:p-3 rounded-lg border border-white/5 text-center relative flex flex-col min-w-0 break-words h-full">
             <p class="text-xl mb-1">🇪🇨</p>
+            ${p.discount ? `<span class="absolute top-2 right-2 text-[0.55rem] font-black text-red-400 bg-red-950/40 border border-red-500/30 rounded px-1.5 py-0.5">${p.discount}</span>` : ''}
             <p class="text-[0.65rem] sm:text-xs text-ibero-gray mb-1 leading-none uppercase tracking-wider">Ecuador</p>
             <div class="mt-auto flex flex-col items-center justify-end w-full overflow-hidden">
               ${p.originalUsd ? `<span class="line-through text-ibero-gray/60 text-[0.65rem] sm:text-xs font-normal leading-none mb-1">${p.originalUsd}</span>` : ''}
@@ -2158,5 +2234,33 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 })();
 </script>
+
+<script id="ibero-calendar-payment-country">
+document.addEventListener('DOMContentLoaded', function () {
+  const buttons = document.querySelectorAll('.calendar-pay-country-btn');
+  function paint(country) {
+    buttons.forEach(function (btn) {
+      const active = btn.dataset.calendarPayCountry === country;
+      btn.classList.toggle('bg-ibero-red', active);
+      btn.classList.toggle('text-white', active);
+      btn.classList.toggle('bg-white/10', !active);
+      btn.classList.toggle('text-ibero-gray', !active);
+    });
+  }
+  function refreshRegistrationLink(country) {
+    calendarPaymentCountry = country || 'general';
+    paint(calendarPaymentCountry);
+    const btn = document.getElementById('btn-inscribete');
+    if (btn && calendarCurrentEvent && typeof getRegistrationLink === 'function') {
+      btn.href = getRegistrationLink(calendarCurrentEvent);
+    }
+  }
+  buttons.forEach(function (btn) {
+    btn.addEventListener('click', function () { refreshRegistrationLink(btn.dataset.calendarPayCountry); });
+  });
+  refreshRegistrationLink('general');
+});
+</script>
+
 </body>
 </html>

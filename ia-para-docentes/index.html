@@ -46,7 +46,7 @@
     },
     "offers": {
       "@type": "Offer",
-      "price": "47.00",
+      "price": "37.00",
       "priceCurrency": "USD",
       "category": "Paid"
     }
@@ -2405,13 +2405,13 @@
 <button class="currency-btn bg-sky-500 text-white px-4 sm:px-6 py-2.5 rounded-full text-[11px] sm:text-xs font-bold transition-all whitespace-nowrap" data-currency="USD" data-rate="1" data-symbol="$">
        🇪🇨 USD (Ecuador)
       </button>
-<button class="currency-btn text-zinc-400 hover:text-white px-4 sm:px-6 py-2.5 rounded-full text-[11px] sm:text-xs font-bold transition-all whitespace-nowrap" data-currency="MXN" data-rate="17.00" data-symbol="$">
+<button class="currency-btn text-zinc-400 hover:text-white px-4 sm:px-6 py-2.5 rounded-full text-[11px] sm:text-xs font-bold transition-all whitespace-nowrap" data-currency="MXN" data-rate="17.48" data-symbol="$">
        🇲🇽 MXN (México)
       </button>
-<button class="currency-btn text-zinc-400 hover:text-white px-4 sm:px-6 py-2.5 rounded-full text-[11px] sm:text-xs font-bold transition-all whitespace-nowrap" data-currency="COP" data-rate="3900" data-symbol="$">
+<button class="currency-btn text-zinc-400 hover:text-white px-4 sm:px-6 py-2.5 rounded-full text-[11px] sm:text-xs font-bold transition-all whitespace-nowrap" data-currency="COP" data-rate="3696" data-symbol="$">
        🇨🇴 COP (Colombia)
       </button>
-<button class="currency-btn text-zinc-400 hover:text-white px-4 sm:px-6 py-2.5 rounded-full text-[11px] sm:text-xs font-bold transition-all whitespace-nowrap" data-currency="PEN" data-rate="3.75" data-symbol="S/ ">
+<button class="currency-btn text-zinc-400 hover:text-white px-4 sm:px-6 py-2.5 rounded-full text-[11px] sm:text-xs font-bold transition-all whitespace-nowrap" data-currency="PEN" data-rate="3.51" data-symbol="S/ ">
        🇵🇪 PEN (Perú)
       </button>
 </div>
@@ -2435,7 +2435,7 @@
 <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-gradient-to-r from-sky-600 to-sky-500 text-white text-[10px] font-bold uppercase tracking-widest rounded-full mb-6 shadow-[0_0_20px_rgba(14,165,233,0.4)] animate-pulse border border-sky-400/50">
 <i class="fa-solid fa-bolt text-teal-300">
 </i>
-         Pronto Pago Especial
+         Oferta exclusiva · 35% OFF
         </div>
 <h3 class="text-2xl sm:text-3xl font-black text-white mb-2">
          IA para Docentes
@@ -2444,11 +2444,11 @@
          Certificación Intensiva (12 Horas Totales)
         </p>
 <div class="flex flex-col items-center justify-center gap-1 pb-6 border-b border-zinc-800 relative">
-<span class="text-lg text-zinc-500 line-through price-display-normal" data-base="67">
-          $67.00
+<span class="text-lg text-zinc-500 line-through price-display-normal" data-base="57">
+          $57.00
          </span>
-<span class="text-5xl sm:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-teal-300 tracking-tighter price-display drop-shadow-md" data-base="47">
-          $47.00
+<span class="text-5xl sm:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-teal-300 tracking-tighter price-display drop-shadow-md" data-base="37">
+          $37.00
          </span>
 </div>
 </div>
@@ -2495,7 +2495,7 @@
 </ul>
 </div>
 <div class="flex flex-col gap-3 w-full relative z-10 mt-auto pt-4">
-<a class="w-full text-center bg-gradient-to-r from-sky-600 to-sky-500 hover:from-sky-500 hover:to-sky-400 text-white font-black py-4 rounded-xl transition-all shadow-[0_0_20px_rgba(14,165,233,0.3)] transform hover:-translate-y-1" href="https://www.paypal.com/ncp/payment/QTZE28XP3MUT8" target="_blank">
+<a class="w-full text-center bg-gradient-to-r from-sky-600 to-sky-500 hover:from-sky-500 hover:to-sky-400 text-white font-black py-4 rounded-xl transition-all shadow-[0_0_20px_rgba(14,165,233,0.3)] transform hover:-translate-y-1" href="https://www.paypal.com/ncp/payment/WC5BEUAQCU2MQ" data-paypal-general="https://www.paypal.com/ncp/payment/WC5BEUAQCU2MQ" data-paypal-mx="https://www.paypal.com/ncp/payment/H6N57S4L9ZNMN" target="_blank">
          Pagar con Tarjeta Segura
         </a>
 <a class="w-full text-center bg-[#070b14] border border-teal-500/30 hover:border-teal-500/80 text-teal-400 font-bold py-3.5 rounded-xl transition-all flex items-center justify-center gap-2 shadow-[0_0_15px_rgba(20,184,166,0.1)] group" href="https://ia.goatify.app/#wallet" target="_blank">
@@ -2507,6 +2507,10 @@
 <i class="fa-solid fa-building-columns text-zinc-400">
 </i>
          Transferencia Bancaria
+        </button>
+<button class="w-full text-center bg-amber-500/10 border border-amber-400/40 hover:bg-amber-400/15 hover:border-amber-300 text-amber-200 font-bold py-3.5 rounded-xl transition-all flex items-center justify-center gap-2" id="toggle-western">
+<i class="fa-solid fa-money-bill-transfer text-amber-300"></i>
+         Pagar con Western Union
         </button>
 </div>
 <!-- Datos Bancarios Ocultos -->
@@ -2549,6 +2553,20 @@
          </a>
          .
         </p>
+</div>
+<!-- Datos Western Union Ocultos -->
+<div class="hidden mt-6 bg-[#050505] border border-amber-400/30 rounded-xl p-5 relative z-10 text-sm text-zinc-300 space-y-2.5 text-left shadow-inner" id="western-details">
+<p class="text-center font-bold text-white mb-2 pb-2 border-b border-amber-400/20 flex items-center justify-center gap-2">
+<i class="fa-solid fa-money-bill-transfer text-amber-300"></i>
+         Datos para pagar por Western Union
+        </p>
+<p><strong class="text-white">Nombre:</strong> Daniel Eduardo Ortega Corella</p>
+<p><strong class="text-white">ID:</strong> 1721935854</p>
+<p><strong class="text-white">País:</strong> Ecuador</p>
+<p><strong class="text-white">Ciudad:</strong> Quito</p>
+<a class="mt-4 w-full inline-flex items-center justify-center gap-2 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-black font-black px-4 py-3 text-xs transition-all" href="https://wa.me/19152854778?text=Hola%20IBERO%2C%20realic%C3%A9%20mi%20pago%20y%20quiero%20enviar%20mi%20comprobante%20para%20finalizar%20mi%20inscripci%C3%B3n." target="_blank" rel="noopener">
+<i class="fa-brands fa-whatsapp"></i> Enviar comprobante por WhatsApp
+</a>
 </div>
 </div>
 </div>
@@ -2811,7 +2829,7 @@
 <div class="px-5 sm:px-6 pb-6 pt-0 text-[13px] sm:text-sm text-zinc-400 leading-relaxed ml-12">
        No, es un
        <strong>
-        único pago total de $47 USD
+        único pago total de $37 USD
        </strong>
        (con el descuento promocional aplicado). Este pago cubre los 4 días de inmersión técnica, tu diploma verificado por Blockchain, todos los recursos pedagógicos y el acceso a las grabaciones por un mes.
       </div>
@@ -3061,6 +3079,12 @@
           const symbol = btn.dataset.symbol;
           const currency = btn.dataset.currency;
 
+          document.querySelectorAll('[data-paypal-general]').forEach(link => {
+            const generalLink = link.dataset.paypalGeneral;
+            const mxLink = link.dataset.paypalMx;
+            link.href = (currency === 'MXN' && mxLink) ? mxLink : generalLink;
+          });
+
           const formatPrice = (price, currencyCode) => {
             if(currencyCode === 'COP') return price.toLocaleString('es-CO', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
             return price.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
@@ -3076,11 +3100,22 @@
       });
 
       // Toggle Banco
-      document.getElementById('toggle-bank').addEventListener('click', function() {
-        const bd = document.getElementById('bank-details');
-        if(bd.classList.contains('hidden')) bd.classList.remove('hidden');
-        else bd.classList.add('hidden');
-      });
+      const bankBtn = document.getElementById('toggle-bank');
+      if (bankBtn) {
+        bankBtn.addEventListener('click', function() {
+          const bd = document.getElementById('bank-details');
+          if (bd) bd.classList.toggle('hidden');
+        });
+      }
+
+      // Toggle Western Union
+      const westernBtn = document.getElementById('toggle-western');
+      if (westernBtn) {
+        westernBtn.addEventListener('click', function() {
+          const wd = document.getElementById('western-details');
+          if (wd) wd.classList.toggle('hidden');
+        });
+      }
     });
 
     // --- CHATBOT LOGIC ---
@@ -3091,9 +3126,9 @@
 
     const botKnowledge = [
       { keys: ['marketing', 'certificacion', 'curso', 'docentes', 'ia'], text: `La <strong>Certificación IA para Docentes</strong> es intensiva (4 días / 12h totales) e inicia el <strong>25 de mayo de 2026</strong>. Trabajas planificación, recursos, evaluación y proyecto final con Goatify IA como centro operativo. <br><a href="#inversion" class="text-sky-400 underline font-bold mt-1 inline-block">Asegurar Cupo</a>` },
-      { keys: ['precio', 'costo', 'valor', 'cuanto'], text: `La inversión con promoción es de <strong>$47 USD</strong> (Pago Único). <br>Puedes pagar con Tarjeta, Transferencia Bancaria o Tokens INTIS.` },
+      { keys: ['precio', 'costo', 'valor', 'cuanto'], text: `La inversión con promoción es de <strong>$37 USD</strong> (Pago Único). <br>Puedes pagar con Tarjeta, Transferencia Bancaria o Tokens INTIS.` },
       { keys: ['hora', 'horario', 'fechas', 'cuando'], text: `El programa tiene cohortes en <strong>25 al 28 de Mayo, 27 al 30 de Julio, 21 al 24 de Septiembre y 26 al 29 de Octubre de 2026</strong>. Las clases en vivo son de Lunes a Jueves de <strong>7:00 PM a 9:00 PM</strong> (Ecuador/Colombia/Perú). Se graba todo y queda en tu Campus.` },
-      { keys: ['pago', 'pagar', 'tarjeta', 'transferencia', 'intis'], text: `<strong>Métodos de Pago:</strong><br>1. PayPal/Tarjetas <a href="https://www.paypal.com/ncp/payment/QTZE28XP3MUT8" target="_blank" class="text-sky-400 underline">AQUÍ</a>.<br>2. INTIS (Wallet Educativo).<br>3. Banco Bolivariano (Ecuador) Cta. 5015025433.` },
+      { keys: ['pago', 'pagar', 'tarjeta', 'transferencia', 'intis'], text: `<strong>Métodos de Pago:</strong><br>1. PayPal/Tarjetas <a href="https://www.paypal.com/ncp/payment/WC5BEUAQCU2MQ" data-paypal-general="https://www.paypal.com/ncp/payment/WC5BEUAQCU2MQ" data-paypal-mx="https://www.paypal.com/ncp/payment/H6N57S4L9ZNMN" target="_blank" class="text-sky-400 underline">AQUÍ</a>.<br>2. INTIS (Wallet Educativo).<br>3. Banco Bolivariano (Ecuador) Cta. 5015025433.` },
       { keys: ['temario', 'aprender', 'contenido'], text: `Aprenderás a usar IA en el aula sin plagio, rediseñar evaluación, crear materiales visuales, usar NotebookLM para investigar y automatizar tareas docentes.` },
       { keys: ['metodologia', 'entregable', 'proyecto'], text: `Es 100% práctico. Entregarás el rediseño de tu materia, el esquema de un nuevo taller o la creación de asistentes educativos automatizados.` },
       { keys: ['web', 'pagina', 'incluye'], text: `¡Sí! Al final te enseñamos a publicar tu propia <strong>Landing Page (Sitio Web)</strong> en Netlify para que presentes tu perfil o tu propia propuesta formativa al mundo.` }
@@ -3366,5 +3401,59 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 })();
 </script>
+
+<script id="ibero-payment-currency-guard">
+document.addEventListener('DOMContentLoaded', function () {
+  let currentCurrency = 'USD';
+
+  function detectCurrency() {
+    const activeBtn = Array.from(document.querySelectorAll('.currency-btn')).find(btn =>
+      btn.classList.contains('bg-theme-accent') ||
+      btn.classList.contains('bg-emerald-500') ||
+      btn.classList.contains('bg-sky-500') ||
+      btn.classList.contains('bg-indigo-600') ||
+      btn.classList.contains('bg-rose-600') ||
+      btn.classList.contains('bg-blue-600') ||
+      btn.classList.contains('bg-red-600') ||
+      btn.classList.contains('bg-ibero-purple')
+    );
+    return (activeBtn && activeBtn.dataset.currency) ? activeBtn.dataset.currency : currentCurrency;
+  }
+
+  function syncPaymentOptions(currency) {
+    currentCurrency = currency || detectCurrency() || 'USD';
+
+    document.querySelectorAll('[data-paypal-general]').forEach(function (link) {
+      const generalLink = link.dataset.paypalGeneral;
+      const mxLink = link.dataset.paypalMx;
+      link.href = (currentCurrency === 'MXN' && mxLink) ? mxLink : generalLink;
+    });
+
+    const showBankTransfer = currentCurrency === 'USD';
+    document.querySelectorAll('#toggle-bank').forEach(function (btn) {
+      btn.classList.toggle('hidden', !showBankTransfer);
+      btn.style.display = showBankTransfer ? '' : 'none';
+    });
+    document.querySelectorAll('#bank-details').forEach(function (box) {
+      if (!showBankTransfer) box.classList.add('hidden');
+    });
+  }
+
+  document.querySelectorAll('.currency-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      syncPaymentOptions(btn.dataset.currency || 'USD');
+    });
+  });
+
+  document.querySelectorAll('[data-paypal-general]').forEach(function (link) {
+    link.addEventListener('click', function () {
+      syncPaymentOptions(currentCurrency || detectCurrency());
+    });
+  });
+
+  syncPaymentOptions(detectCurrency());
+});
+</script>
+
 </body>
 </html>

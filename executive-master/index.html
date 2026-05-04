@@ -43,7 +43,7 @@
     },
     "offers": {
       "@type": "Offer",
-      "price": "367.00",
+      "price": "457.00",
       "priceCurrency": "USD",
       "category": "Paid"
     }
@@ -1278,13 +1278,13 @@
 <button class="currency-btn bg-ibero-purple text-white px-4 sm:px-6 py-2.5 rounded-full text-[11px] sm:text-xs font-bold transition-all whitespace-nowrap" data-currency="USD" data-rate="1" data-symbol="$">
        🇪🇨 USD (Ecuador)
       </button>
-<button class="currency-btn text-zinc-400 hover:text-white px-4 sm:px-6 py-2.5 rounded-full text-[11px] sm:text-xs font-bold transition-all whitespace-nowrap" data-currency="MXN" data-rate="17.00" data-symbol="$">
+<button class="currency-btn text-zinc-400 hover:text-white px-4 sm:px-6 py-2.5 rounded-full text-[11px] sm:text-xs font-bold transition-all whitespace-nowrap" data-currency="MXN" data-rate="17.48" data-symbol="$">
        🇲🇽 MXN (México)
       </button>
-<button class="currency-btn text-zinc-400 hover:text-white px-4 sm:px-6 py-2.5 rounded-full text-[11px] sm:text-xs font-bold transition-all whitespace-nowrap" data-currency="COP" data-rate="3900" data-symbol="$">
+<button class="currency-btn text-zinc-400 hover:text-white px-4 sm:px-6 py-2.5 rounded-full text-[11px] sm:text-xs font-bold transition-all whitespace-nowrap" data-currency="COP" data-rate="3696" data-symbol="$">
        🇨🇴 COP (Colombia)
       </button>
-<button class="currency-btn text-zinc-400 hover:text-white px-4 sm:px-6 py-2.5 rounded-full text-[11px] sm:text-xs font-bold transition-all whitespace-nowrap" data-currency="PEN" data-rate="3.75" data-symbol="S/ ">
+<button class="currency-btn text-zinc-400 hover:text-white px-4 sm:px-6 py-2.5 rounded-full text-[11px] sm:text-xs font-bold transition-all whitespace-nowrap" data-currency="PEN" data-rate="3.51" data-symbol="S/ ">
        🇵🇪 PEN (Perú)
       </button>
 </div>
@@ -1415,8 +1415,8 @@
         Asegura tu incubación completa con un solo pago y obtén máxima prioridad y ahorro.
        </p>
 <div class="flex items-end gap-1 pb-6 border-b border-ibero-purple/30">
-<span class="text-5xl sm:text-6xl font-black text-white tracking-tighter price-display" data-base="367">
-         $367.00
+<span class="text-5xl sm:text-6xl font-black text-white tracking-tighter price-display" data-base="457">
+         $457.00
         </span>
 <span class="text-ibero-purple text-sm mb-2 font-bold">
          /6 meses
@@ -1430,8 +1430,8 @@
 <p class="text-sm text-white">
 <strong class="leading-tight">
           Ahorro Directo de
-          <span class="price-display-inline text-yellow-400" data-base="95">
-           $95.00 USD
+          <span class="price-display-inline text-yellow-400" data-base="246">
+           $246.00 USD
           </span>
 </strong>
 </p>
@@ -1831,7 +1831,7 @@
             display.innerText = `${symbol}${formatPrice(basePrice * rate, currency)}`;
           });
 
-          // 4. Actualizar precios en línea (como el Ahorro de $95)
+          // 4. Actualizar precios en línea (como el ahorro promocional)
           priceDisplaysInline.forEach(display => {
             const basePrice = parseFloat(display.dataset.base);
             const currText = currency === 'USD' ? 'USD' : currency;
