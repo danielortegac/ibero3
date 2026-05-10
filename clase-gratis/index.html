@@ -3,21 +3,21 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>Clase Gratis IBERO | IA, Marketing, Negocios y Educación Online</title>
-  <meta name="description" content="Reserva tu cupo en la próxima clase gratis de IBERO. Sesiones introductorias en vivo sobre inteligencia artificial, marketing digital, negocios, monetización y educación online." />
+  <title>Sesiones Gratuitas IBERO | IA, Marketing, Negocios y Educación Online</title>
+  <meta name="description" content="Únete a las sesiones gratuitas de IBERO: clases abiertas y laboratorios prácticos sobre inteligencia artificial, marketing, negocios y educación digital." />
   <meta name="keywords" content="clase gratis IBERO, clases gratuitas IBERO, clase gratis inteligencia artificial, clase gratis marketing digital, IA para negocios, monetiza tu idea, crea tu curso online, diplomado IA" />
   <meta name="author" content="Centro Iberoamericano (IBERO)" />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <link rel="canonical" href="https://ibero.education/clase-gratis/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Centro Iberoamericano" />
-  <meta property="og:title" content="Clase Gratis IBERO | Próximas sesiones en vivo" />
-  <meta property="og:description" content="Conoce la próxima clase gratis de IBERO y reserva tu cupo en sesiones introductorias en vivo sobre IA, marketing, negocios y educación online." />
+  <meta property="og:title" content="Sesiones Gratuitas IBERO | Próximas clases y laboratorios en vivo" />
+  <meta property="og:description" content="Conoce las próximas sesiones gratuitas de IBERO: clases abiertas, laboratorios prácticos y comunidad de IA, marketing y negocios." />
   <meta property="og:url" content="https://ibero.education/clase-gratis/" />
   <meta property="og:image" content="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/c5441036666eabf17beca05e22852761e9ae4cdd/fotos/AI_Business_Education_Hero_Video_poster.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Clase Gratis IBERO | Próximas sesiones en vivo" />
-  <meta name="twitter:description" content="Reserva tu cupo en la próxima clase gratis de IBERO y revisa el calendario completo de sesiones introductorias." />
+  <meta name="twitter:title" content="Sesiones Gratuitas IBERO | Próximas clases y laboratorios en vivo" />
+  <meta name="twitter:description" content="Reserva tu cupo en las sesiones gratuitas de IBERO y revisa el calendario completo de clases abiertas y laboratorios." />
   <meta name="twitter:image" content="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/c5441036666eabf17beca05e22852761e9ae4cdd/fotos/AI_Business_Education_Hero_Video_poster.jpg" />
   <script type="application/ld+json">
   {
@@ -27,8 +27,8 @@
     "description": "Sesión introductoria gratuita en vivo del Centro Iberoamericano para conocer la metodología IBERO y explorar programas en IA, marketing digital, negocios y educación online.",
     "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
     "eventStatus": "https://schema.org/EventScheduled",
-    "startDate": "2026-05-12T21:00:00-05:00",
-    "endDate": "2026-05-12T22:00:00-05:00",
+    "startDate": "2026-05-19T21:00:00-05:00",
+    "endDate": "2026-05-19T22:00:00-05:00",
     "location": {
       "@type": "VirtualLocation",
       "url": "https://ibero.education/clase-gratis/"
@@ -196,6 +196,56 @@
       .class-header-row { flex-direction:column; align-items:flex-start !important; gap:.65rem !important; }
     }
 
+
+    .agenda-session-row {
+      position:relative;
+      overflow:hidden;
+      transition:transform .22s ease, border-color .22s ease, background .22s ease;
+    }
+    .agenda-session-row:hover { transform:translateY(-2px); border-color:rgba(var(--row-accent-rgb,34,211,238),.32); }
+    .agenda-session-row::before {
+      content:'';
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      background:radial-gradient(circle at top left, rgba(var(--row-accent-rgb,34,211,238),.11), transparent 34%);
+      opacity:.9;
+    }
+    .agenda-date-pill {
+      min-width:5.25rem;
+      border-radius:1rem;
+      padding:.75rem .55rem;
+      text-align:center;
+      background:rgba(var(--row-accent-rgb,34,211,238),.10);
+      border:1px solid rgba(var(--row-accent-rgb,34,211,238),.22);
+    }
+    .agenda-date-day { display:block; color:rgb(var(--row-accent-light-rgb,125,211,252)); font-weight:1000; font-size:.68rem; text-transform:uppercase; letter-spacing:.08em; }
+    .agenda-date-main { display:block; color:#fff; font-weight:1000; font-size:1.05rem; line-height:1.05; margin-top:.16rem; }
+    .agenda-date-year { display:block; color:rgba(255,255,255,.48); font-weight:800; font-size:.62rem; margin-top:.16rem; }
+    .agenda-type-chip {
+      display:inline-flex;
+      align-items:center;
+      gap:.35rem;
+      padding:.34rem .56rem;
+      border-radius:999px;
+      color:rgb(var(--row-accent-light-rgb,125,211,252));
+      background:rgba(var(--row-accent-rgb,34,211,238),.10);
+      border:1px solid rgba(var(--row-accent-rgb,34,211,238),.18);
+      font-size:.62rem;
+      line-height:1;
+      font-weight:900;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+      white-space:nowrap;
+    }
+    @media (max-width: 640px) {
+      .agenda-session-row { padding:1rem !important; }
+      .agenda-session-inner { flex-direction:column; align-items:flex-start !important; gap:.85rem !important; }
+      .agenda-date-pill { min-width:auto; width:100%; display:flex; align-items:center; justify-content:space-between; padding:.65rem .8rem; }
+      .agenda-date-day,.agenda-date-main,.agenda-date-year { margin:0; }
+      .agenda-session-actions { width:100%; grid-template-columns:1fr 1fr; }
+      .agenda-session-title { font-size:1rem !important; }
+    }
 
     .modal-backdrop {
       position:fixed;
@@ -441,15 +491,15 @@
         <div class="reveal">
           <div class="inline-flex items-center justify-center gap-2 border border-zinc-700 bg-zinc-900/80 px-4 py-1.5 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-widest text-zinc-200 mb-6 shadow-sm backdrop-blur-sm">
             <i class="fa-solid fa-gift text-emerald-400"></i>
-            Clases Gratis IBERO 2026
+            Sesiones Gratuitas IBERO 2026
           </div>
           <h1 class="text-[2.2rem] sm:text-5xl md:text-6xl lg:text-7xl font-sans font-extrabold tracking-tighter mb-6 leading-[1.02]">
-            Aprende gratis
-            <span class="font-serif italic hero-shine-light block mt-2">antes de elegir</span>
-            tu programa.
+            IA, Marketing & Negocios
+            <span class="font-serif italic hero-shine-light block mt-2">en sesiones gratis</span>
+            cada semana.
           </h1>
           <p class="text-base sm:text-xl md:text-2xl text-zinc-300 font-medium max-w-3xl leading-relaxed mb-8">
-            Asiste a nuestras clases introductorias en vivo, conoce la metodología IBERO y descubre qué programa se adapta mejor a tus objetivos profesionales, académicos o empresariales.
+            Participa en clases abiertas y laboratorios prácticos para conocer la metodología IBERO, practicar con IA y descubrir si tu ruta ideal es una certificación, un diplomado o un programa ejecutivo.
           </p>
           <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
             <a href="https://chat.whatsapp.com/Gyb5EfKq5zJHpV3OybJPrK?mode=gi_t" target="_blank" class="bg-emerald-400 hover:bg-emerald-300 text-black px-7 py-4 rounded-xl font-black text-sm sm:text-base transition-all shadow-[0_0_34px_rgba(16,185,129,0.22)] inline-flex items-center justify-center gap-3">
@@ -465,20 +515,20 @@
             <div class="w-10 h-10 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 flex items-center justify-center shrink-0"><i class="fa-brands fa-whatsapp"></i></div>
             <div>
               <p class="text-[10px] uppercase tracking-[0.18em] font-bold text-emerald-300/80 mb-1">Acceso por WhatsApp</p>
-              <p class="text-sm text-zinc-200 font-semibold leading-relaxed">Al inscribirte entrarás al grupo oficial. Por ahí enviaremos el enlace para entrar a la clase gratis, recordatorios y avisos importantes.</p>
+              <p class="text-sm text-zinc-200 font-semibold leading-relaxed">Al inscribirte entrarás al grupo oficial. Por ahí enviaremos enlaces de cada sesión, recordatorios, recursos prácticos y avisos importantes.</p>
             </div>
           </div>
           <div class="rounded-2xl border border-cyan-500/15 bg-cyan-500/5 p-4 mt-3 flex items-start gap-3 max-w-3xl">
             <div class="w-10 h-10 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 flex items-center justify-center shrink-0"><i class="fa-solid fa-lightbulb"></i></div>
             <div>
               <p class="text-[10px] uppercase tracking-[0.18em] font-bold text-cyan-300/80 mb-1">Comunidad de aprendizaje continuo</p>
-              <p class="text-sm text-zinc-200 font-semibold leading-relaxed">El grupo no es solo para recibir el enlace de la clase. También compartiremos ideas, recursos y contenido de valor sobre inteligencia artificial, marketing y negocios, porque creemos en la capacitación constante y en democratizar el acceso a la IA de forma práctica, clara y útil.</p>
+              <p class="text-sm text-zinc-200 font-semibold leading-relaxed">El grupo funciona como comunidad viva: publicamos enlaces, recursos, ideas y contenido útil sobre inteligencia artificial, marketing y negocios. Las sesiones son una puerta de entrada; la profundidad, seguimiento y certificación viven en los programas completos.</p>
             </div>
           </div>
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-10 mobile-two-grid">
             <div class="glass-card rounded-2xl p-4">
-              <p class="text-[10px] uppercase tracking-[0.18em] text-zinc-400 font-bold mb-2">Próxima clase gratis</p>
-              <p id="hero-next-date" class="text-lg font-black text-white">12 mayo 2026</p>
+              <p class="text-[10px] uppercase tracking-[0.18em] text-zinc-400 font-bold mb-2">Próxima sesión gratis</p>
+              <p id="hero-next-date" class="text-lg font-black text-white">19 mayo 2026</p>
               <p id="hero-next-title" class="text-sm text-cyan-300">Marketing Digital con IA</p>
             </div>
             <div class="glass-card rounded-2xl p-4">
@@ -499,11 +549,11 @@
               <div class="top-badge-row">
                 <span id="proxima-badge" class="proxima-badge">
                   <i class="fa-solid fa-bolt accent-icon"></i>
-                  Próxima Clase Gratis
+                  Próxima Sesión Gratis
                 </span>
                 <span class="free-tab"><i class="fa-solid fa-gift"></i> Gratis</span>
               </div>
-              <span id="proxima-counter" class="class-counter text-[11px] text-zinc-400 font-semibold uppercase tracking-widest">01/13</span>
+              <span id="proxima-counter" class="class-counter text-[11px] text-zinc-400 font-semibold uppercase tracking-widest">01/25</span>
             </div>
             <div class="countdown-shell mb-6">
               <div class="countdown-label"><i class="fa-solid fa-clock accent-icon"></i> Cuenta regresiva</div>
@@ -520,7 +570,7 @@
                 <i class="fa-solid fa-chevron-left"></i>
               </button>
               <div class="flex-1 min-w-0">
-                <p class="text-[10px] uppercase tracking-[0.18em] font-bold text-zinc-500 mb-2">Ver próxima clase gratis</p>
+                <p class="text-[10px] uppercase tracking-[0.18em] font-bold text-zinc-500 mb-2">Ver próxima sesión</p>
                 <h2 id="proxima-title" class="text-2xl sm:text-3xl font-black text-white tracking-tight leading-tight">Marketing Digital con IA</h2>
               </div>
               <button id="next-class-btn" type="button" aria-label="Siguiente clase" class="w-11 h-11 rounded-2xl border border-white/10 bg-white/5 text-white accent-button transition-all flex items-center justify-center shrink-0">
@@ -531,7 +581,7 @@
             <div class="grid sm:grid-cols-2 gap-3 mb-4 mobile-two-grid">
               <div class="soft-card rounded-2xl p-4">
                 <p class="text-[10px] font-bold uppercase tracking-[0.18em] text-zinc-500 mb-2">Fecha</p>
-                <p id="proxima-date" class="text-lg font-black text-white">Martes 12 de mayo</p>
+                <p id="proxima-date" class="text-lg font-black text-white">Martes 19 de mayo</p>
                 <p id="proxima-year" class="text-sm text-zinc-400">2026</p>
               </div>
               <div class="soft-card rounded-2xl p-4">
@@ -540,8 +590,8 @@
                 <p id="proxima-time-mx" class="text-sm text-zinc-400 leading-tight mt-2"><span class="block text-[10px] uppercase tracking-[0.16em] text-emerald-300 mb-1">MX</span>8:00 PM – 9:00 PM</p>
               </div>
               <div class="soft-card rounded-2xl p-4">
-                <p class="text-[10px] font-bold uppercase tracking-[0.18em] text-zinc-500 mb-2">Programa completo inicia</p>
-                <p id="proxima-start" class="text-lg font-black text-white">18 mayo 2026</p>
+                <p class="text-[10px] font-bold uppercase tracking-[0.18em] text-zinc-500 mb-2">Ruta sugerida</p>
+                <p id="proxima-start" class="text-lg font-black text-white">25 mayo 2026</p>
                 <p id="proxima-duration" class="text-sm text-zinc-400">Duración del programa: 4 días intensivos</p>
               </div>
               <div class="soft-card rounded-2xl p-4">
@@ -554,11 +604,11 @@
               <div class="w-10 h-10 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 flex items-center justify-center shrink-0"><i class="fa-solid fa-arrow-right"></i></div>
               <div>
                 <p class="text-[10px] uppercase tracking-[0.18em] font-bold text-cyan-300/80 mb-1">La que sigue en el calendario</p>
-                <p id="next-in-line" class="text-sm text-zinc-200 font-semibold">Luego sigue: Monetiza tu Idea con IA · Martes 26 de mayo 2026</p>
+                <p id="next-in-line" class="text-sm text-zinc-200 font-semibold">Luego sigue: Monetiza tu Idea con IA · Martes 2 de junio 2026</p>
               </div>
             </div>
             <div class="rounded-2xl border border-white/8 bg-white/[0.03] p-4 mb-6">
-              <p class="text-[11px] uppercase tracking-[0.18em] font-bold text-zinc-500 mb-3">Qué verás en esta clase</p>
+              <p class="text-[11px] uppercase tracking-[0.18em] font-bold text-zinc-500 mb-3">Qué verás en esta sesión</p>
               <ul id="proxima-bullets" class="space-y-2 text-sm text-zinc-300">
                 <li class="flex items-start gap-3"><i class="fa-solid fa-check text-cyan-300 mt-1"></i><span>Cómo ordenar una oferta digital clara con apoyo de IA.</span></li>
                 <li class="flex items-start gap-3"><i class="fa-solid fa-check text-cyan-300 mt-1"></i><span>Qué piezas mínimas necesitas para captar leads y empezar a vender.</span></li>
@@ -580,64 +630,39 @@
       <div class="text-center mb-12 reveal">
         <div class="inline-flex items-center justify-center gap-2 border border-zinc-800 bg-zinc-900/70 px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest text-zinc-400 mb-6 shadow-sm">
           <i class="fa-solid fa-calendar-days text-cyan-300"></i>
-          Agenda de clases gratis
+          Agenda de sesiones gratuitas
         </div>
-        <h2 class="text-3xl sm:text-5xl font-black text-white tracking-tight">Todas las próximas <span class="font-serif italic text-cyan-300 font-medium">sesiones</span></h2>
-        <p class="text-zinc-400 text-sm sm:text-base max-w-3xl mx-auto mt-4 leading-relaxed">La siguiente clase gratuita es Marketing Digital con IA. Debajo encuentras el calendario de sesiones introductorias para que cada persona pueda elegir el programa que más conecta con su proyecto, idea o necesidad profesional.</p>
+        <h2 class="text-3xl sm:text-5xl font-black text-white tracking-tight">Ruta gratuita de <span class="font-serif italic text-cyan-300 font-medium">clases y laboratorios</span></h2>
+        <p class="text-zinc-400 text-sm sm:text-base max-w-3xl mx-auto mt-4 leading-relaxed">Cada semana abrimos sesiones gratuitas de IA, Marketing & Negocios. Los martes son clases abiertas y los miércoles laboratorios prácticos: cada sesión funciona sola, pero juntas construyen una ruta para nuevos y antiguos miembros del grupo.</p>
       </div>
 
-      <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-5 mobile-two-grid">
-        <div class="soft-card program-marketing rounded-3xl p-6 reveal mobile-card-tight">
-          <div class="flex items-center justify-between gap-3 mb-4"><span class="tag-marketing inline-flex px-3 py-1 rounded-full text-[10px] uppercase tracking-widest font-bold">Marketing</span><span class="free-tab"><i class="fa-solid fa-gift"></i> Gratis</span></div>
-          <h3 class="text-xl font-black text-white mb-2">Marketing Digital con IA</h3>
-          <p class="text-sm text-zinc-400 mb-4">12 mayo · 14 julio · 13 octubre</p>
-          <div class="space-y-2 text-sm text-zinc-300 mb-5">
-            <p><i class="fa-regular fa-clock text-cyan-300 mr-2"></i>9:00 PM – 10:00 PM (EC/CO/PE)</p>
-            <p><i class="fa-regular fa-clock text-cyan-300 mr-2"></i>8:00 PM – 9:00 PM (MX)</p>
-            <p><i class="fa-regular fa-calendar text-cyan-300 mr-2"></i>Programa inicia: 18 mayo / 20 julio / 19 octubre</p>
+      <div class="grid lg:grid-cols-[0.9fr_1.1fr] gap-5 mb-8 reveal">
+        <div class="soft-card rounded-3xl p-5 sm:p-6 border border-cyan-500/15 bg-cyan-500/[0.04]">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-11 h-11 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 flex items-center justify-center shrink-0"><i class="fa-solid fa-route"></i></div>
+            <div>
+              <p class="text-[10px] uppercase tracking-[0.18em] font-bold text-cyan-300/80">Ruta abierta</p>
+              <h3 class="text-xl sm:text-2xl font-black text-white leading-tight">Martes clase + miércoles laboratorio</h3>
+            </div>
           </div>
-          <a href="https://chat.whatsapp.com/Gyb5EfKq5zJHpV3OybJPrK?mode=gi_t" target="_blank" class="inline-flex items-center gap-2 text-cyan-300 hover:text-cyan-200 font-bold text-sm">Inscribirme Gratis <i class="fa-brands fa-whatsapp"></i></a>
-          <div class="next-flow"><span>Siguiente: Monetiza · 26 mayo</span><i class="fa-solid fa-arrow-right"></i></div>
+          <p class="text-sm sm:text-base text-zinc-300 leading-relaxed">Del 26 de mayo al 14 de julio la agenda funciona como comunidad viva: los martes abrimos un tema fuerte y los miércoles lo aterrizamos en práctica. Cada sesión funciona sola, pero juntas construyen continuidad.</p>
         </div>
+        <div class="soft-card rounded-3xl p-5 sm:p-6 border border-white/10">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-11 h-11 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 flex items-center justify-center shrink-0"><i class="fa-solid fa-list-check"></i></div>
+            <div>
+              <p class="text-[10px] uppercase tracking-[0.18em] font-bold text-emerald-300/80">Agenda completa</p>
+              <h3 class="text-xl sm:text-2xl font-black text-white leading-tight">Todas las sesiones visibles y ordenadas</h3>
+            </div>
+          </div>
+          <p class="text-sm sm:text-base text-zinc-300 leading-relaxed">Aquí se muestran todas las próximas sesiones gratuitas desde la data real de la página: primera clase, ruta semanal, laboratorios y sesiones posteriores por cohorte.</p>
+        </div>
+      </div>
 
-        <div class="soft-card program-monetiza rounded-3xl p-6 reveal mobile-card-tight">
-          <div class="flex items-center justify-between gap-3 mb-4"><span class="tag-monetiza inline-flex px-3 py-1 rounded-full text-[10px] uppercase tracking-widest font-bold">Monetiza</span><span class="free-tab"><i class="fa-solid fa-gift"></i> Gratis</span></div>
-          <h3 class="text-xl font-black text-white mb-2">Monetiza tu Idea con IA</h3>
-          <p class="text-sm text-zinc-400 mb-4">26 mayo · 28 julio · 29 septiembre · 27 octubre</p>
-          <div class="space-y-2 text-sm text-zinc-300 mb-5">
-            <p><i class="fa-regular fa-clock text-yellow-300 mr-2"></i>9:00 PM – 10:00 PM (EC/CO/PE)</p>
-            <p><i class="fa-regular fa-clock text-yellow-300 mr-2"></i>8:00 PM – 9:00 PM (MX)</p>
-            <p><i class="fa-regular fa-calendar text-yellow-300 mr-2"></i>Programa inicia: 1 junio / 3 agosto / 5 octubre / 2 noviembre</p>
-          </div>
-          <a href="https://chat.whatsapp.com/Gyb5EfKq5zJHpV3OybJPrK?mode=gi_t" target="_blank" class="inline-flex items-center gap-2 text-yellow-300 hover:text-yellow-200 font-bold text-sm">Inscribirme Gratis <i class="fa-brands fa-whatsapp"></i></a>
-          <div class="next-flow"><span>Siguiente: Crea tu Curso · 2 junio</span><i class="fa-solid fa-arrow-right"></i></div>
-        </div>
-
-        <div class="soft-card program-crea rounded-3xl p-6 reveal mobile-card-tight">
-          <div class="flex items-center justify-between gap-3 mb-4"><span class="tag-crea inline-flex px-3 py-1 rounded-full text-[10px] uppercase tracking-widest font-bold">Crea tu academia</span><span class="free-tab"><i class="fa-solid fa-gift"></i> Gratis</span></div>
-          <h3 class="text-xl font-black text-white mb-2">Crea tu Curso Online y Monetiza</h3>
-          <p class="text-sm text-zinc-400 mb-4">2 junio · 4 agosto · 6 octubre · 3 noviembre</p>
-          <div class="space-y-2 text-sm text-zinc-300 mb-5">
-            <p><i class="fa-regular fa-clock text-zinc-200 mr-2"></i>9:00 PM – 10:00 PM (EC/CO/PE)</p>
-            <p><i class="fa-regular fa-clock text-zinc-200 mr-2"></i>8:00 PM – 9:00 PM (MX)</p>
-            <p><i class="fa-regular fa-calendar text-zinc-200 mr-2"></i>Programa inicia: 8 junio / 10 agosto / 12 octubre / 9 noviembre</p>
-          </div>
-          <a href="https://chat.whatsapp.com/Gyb5EfKq5zJHpV3OybJPrK?mode=gi_t" target="_blank" class="inline-flex items-center gap-2 text-zinc-200 hover:text-white font-bold text-sm">Inscribirme Gratis <i class="fa-brands fa-whatsapp"></i></a>
-          <div class="next-flow"><span>Siguiente: Diplomado · 9 junio</span><i class="fa-solid fa-arrow-right"></i></div>
-        </div>
-
-        <div class="soft-card program-diplomado rounded-3xl p-6 reveal md:col-span-2 xl:col-span-3 mobile-card-tight">
-          <div class="flex flex-col md:flex-row md:items-start justify-between gap-3 mb-4"><span class="tag-diplomado inline-flex w-fit px-3 py-1 rounded-full text-[10px] uppercase tracking-widest font-bold">Diplomado</span><span class="free-tab w-fit"><i class="fa-solid fa-gift"></i> Gratis</span></div>
-          <h3 class="text-2xl font-black text-white mb-2">Diplomado en IA aplicada a Negocios, Marketing y Comunicación</h3>
-          <p class="text-sm text-zinc-400 mb-4">9 junio · 11 agosto</p>
-          <div class="grid md:grid-cols-3 gap-4 text-sm text-zinc-300 mb-5">
-            <div class="rounded-2xl bg-white/[0.03] border border-white/8 p-4"><p class="text-zinc-500 text-[10px] font-bold uppercase tracking-[0.18em] mb-2">Horario</p><p>9:00 PM – 10:00 PM (EC/CO/PE)</p><p>8:00 PM – 9:00 PM (MX)</p></div>
-            <div class="rounded-2xl bg-white/[0.03] border border-white/8 p-4"><p class="text-zinc-500 text-[10px] font-bold uppercase tracking-[0.18em] mb-2">Cohortes</p><p>Inicia 15 junio 2026</p><p>Inicia 17 agosto 2026</p></div>
-            <div class="rounded-2xl bg-white/[0.03] border border-white/8 p-4"><p class="text-zinc-500 text-[10px] font-bold uppercase tracking-[0.18em] mb-2">Enfoque</p><p>Incubación, activos digitales, monetización, IA y sistema comercial.</p></div>
-          </div>
-          <a href="https://chat.whatsapp.com/Gyb5EfKq5zJHpV3OybJPrK?mode=gi_t" target="_blank" class="inline-flex items-center gap-2 text-red-300 hover:text-red-200 font-bold text-sm">Inscribirme Gratis <i class="fa-brands fa-whatsapp"></i></a>
-          <div class="next-flow"><span>Luego vuelve Marketing · 14 julio</span><i class="fa-solid fa-rotate-right"></i></div>
-        </div>
+      <div id="all-free-sessions-list" class="space-y-3 reveal"></div>
+      <div class="rounded-3xl border border-cyan-500/20 bg-cyan-500/5 p-5 sm:p-6 mt-8 reveal">
+        <h3 class="text-xl sm:text-2xl font-black text-white mb-3">Cómo leer esta ruta</h3>
+        <p class="text-zinc-300 text-sm sm:text-base leading-relaxed">No es un curso completo gratuito. Es una serie abierta para conocer la metodología, practicar con IA y decidir qué ruta te conviene: certificación, diplomado o programa ejecutivo. Cada sesión funciona por separado para nuevos miembros, pero quienes asisten varias semanas sienten continuidad real.</p>
       </div>
     </div>
   </section>
@@ -698,24 +723,24 @@
       </div>
       <div class="space-y-4">
         <details class="soft-card rounded-3xl p-5 reveal" open>
-          <summary class="flex items-center justify-between gap-4 cursor-pointer"><h3 class="text-base sm:text-lg font-black text-white">¿Cuál es la siguiente clase gratis?</h3><i class="fa-solid fa-chevron-down faq-icon text-zinc-400"></i></summary>
-          <p class="text-sm text-zinc-400 leading-relaxed mt-4">La siguiente es <strong class="text-white">Marketing Digital con IA</strong>, el <strong class="text-white">martes 12 de mayo de 2026</strong>, en horario <strong class="text-white">EC/CO/PE: 9:00 PM a 10:00 PM</strong> y <strong class="text-white">MX: 8:00 PM a 9:00 PM</strong>.</p>
+          <summary class="flex items-center justify-between gap-4 cursor-pointer"><h3 class="text-base sm:text-lg font-black text-white">¿Cuál es la siguiente sesión gratuita?</h3><i class="fa-solid fa-chevron-down faq-icon text-zinc-400"></i></summary>
+          <p class="text-sm text-zinc-400 leading-relaxed mt-4">La siguiente es <strong class="text-white">Marketing Digital con IA</strong>, el <strong class="text-white">martes 19 de mayo de 2026</strong>, en horario <strong class="text-white">EC/CO/PE: 9:00 PM a 10:00 PM</strong> y <strong class="text-white">MX: 8:00 PM a 9:00 PM</strong>.</p>
         </details>
         <details class="soft-card rounded-3xl p-5 reveal">
-          <summary class="flex items-center justify-between gap-4 cursor-pointer"><h3 class="text-base sm:text-lg font-black text-white">¿Todas las clases gratis duran una hora?</h3><i class="fa-solid fa-chevron-down faq-icon text-zinc-400"></i></summary>
+          <summary class="flex items-center justify-between gap-4 cursor-pointer"><h3 class="text-base sm:text-lg font-black text-white">¿Todas las sesiones gratuitas duran una hora?</h3><i class="fa-solid fa-chevron-down faq-icon text-zinc-400"></i></summary>
           <p class="text-sm text-zinc-400 leading-relaxed mt-4">Sí. Las clases introductorias gratuitas están planteadas como sesiones en vivo de 1 hora para explicar el enfoque del programa, entregar valor real y resolver preguntas clave.</p>
         </details>
         <details class="soft-card rounded-3xl p-5 reveal">
           <summary class="flex items-center justify-between gap-4 cursor-pointer"><h3 class="text-base sm:text-lg font-black text-white">¿En qué horario son para Ecuador, Colombia, Perú y México?</h3><i class="fa-solid fa-chevron-down faq-icon text-zinc-400"></i></summary>
-          <p class="text-sm text-zinc-400 leading-relaxed mt-4">Las clases gratis se manejan en horario de la noche para LATAM: <strong class="text-white">EC/CO/PE: 9:00 PM a 10:00 PM</strong> y <strong class="text-white">MX: 8:00 PM a 9:00 PM</strong>.</p>
+          <p class="text-sm text-zinc-400 leading-relaxed mt-4">Las sesiones gratuitas se manejan en horario de la noche para LATAM: <strong class="text-white">EC/CO/PE: 9:00 PM a 10:00 PM</strong> y <strong class="text-white">MX: 8:00 PM a 9:00 PM</strong>.</p>
         </details>
         <details class="soft-card rounded-3xl p-5 reveal">
-          <summary class="flex items-center justify-between gap-4 cursor-pointer"><h3 class="text-base sm:text-lg font-black text-white">¿La clase gratis me obliga a matricularme?</h3><i class="fa-solid fa-chevron-down faq-icon text-zinc-400"></i></summary>
+          <summary class="flex items-center justify-between gap-4 cursor-pointer"><h3 class="text-base sm:text-lg font-black text-white">¿La sesión gratuita me obliga a matricularme?</h3><i class="fa-solid fa-chevron-down faq-icon text-zinc-400"></i></summary>
           <p class="text-sm text-zinc-400 leading-relaxed mt-4">No. La clase es una experiencia introductoria. Si te gusta el enfoque, puedes continuar con el programa completo. Si no, al menos te llevas una visión útil del tema.</p>
         </details>
         <details class="soft-card rounded-3xl p-5 reveal">
           <summary class="flex items-center justify-between gap-4 cursor-pointer"><h3 class="text-base sm:text-lg font-black text-white">¿Dónde reservo mi cupo?</h3><i class="fa-solid fa-chevron-down faq-icon text-zinc-400"></i></summary>
-          <p class="text-sm text-zinc-400 leading-relaxed mt-4">El acceso se coordina por el <a href="https://chat.whatsapp.com/Gyb5EfKq5zJHpV3OybJPrK?mode=gi_t" target="_blank" class="text-cyan-300 underline">grupo oficial de WhatsApp de la clase gratis</a>. Ahí se enviará el enlace de la sesión, recordatorios y avisos importantes.</p>
+          <p class="text-sm text-zinc-400 leading-relaxed mt-4">El acceso se coordina por el <a href="https://chat.whatsapp.com/Gyb5EfKq5zJHpV3OybJPrK?mode=gi_t" target="_blank" class="text-cyan-300 underline">grupo oficial de WhatsApp</a>. Ahí se enviarán enlaces de sesiones, recordatorios, recursos y avisos importantes.</p>
         </details>
       </div>
     </div>
@@ -728,7 +753,7 @@
           <i class="fa-solid fa-rocket text-cyan-300"></i>
           Listo para activar captación
         </div>
-        <h2 class="text-3xl sm:text-5xl font-black text-white tracking-tight mb-5">Reserva tu próxima <span class="font-serif italic text-cyan-300 font-medium">clase gratis</span></h2>
+        <h2 class="text-3xl sm:text-5xl font-black text-white tracking-tight mb-5">Reserva tu próxima <span class="font-serif italic text-cyan-300 font-medium">sesión gratis</span></h2>
         <p class="text-zinc-400 text-base sm:text-lg leading-relaxed max-w-3xl mx-auto mb-8">Elige la clase que más se conecta con tu momento actual, reserva tu cupo y conoce el enfoque aplicado de IBERO antes de ingresar a un programa completo.</p>
         <div class="flex flex-col sm:flex-row justify-center gap-4">
           <a href="https://chat.whatsapp.com/Gyb5EfKq5zJHpV3OybJPrK?mode=gi_t" target="_blank" class="bg-emerald-400 hover:bg-emerald-300 text-black px-8 py-4 rounded-xl font-black text-sm sm:text-base transition-all shadow-[0_0_34px_rgba(16,185,129,0.22)] inline-flex items-center justify-center gap-3">Inscribirme Gratis <i class="fa-solid fa-arrow-right"></i></a>
@@ -768,7 +793,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
       <div>
         <p class="text-sm font-bold text-white">Centro Iberoamericano de Formación Profesional</p>
-        <p class="text-xs text-zinc-500 mt-1">Página informativa de Clases Gratis IBERO 2026</p>
+        <p class="text-xs text-zinc-500 mt-1">Página informativa de Sesiones Gratuitas IBERO 2026</p>
       </div>
       <div class="flex flex-wrap justify-center gap-4 text-xs text-zinc-400">
         <a href="https://ibero.education/" target="_blank" class="hover:text-white">Inicio</a>
@@ -799,20 +824,1632 @@
     const WHATSAPP_GROUP = 'https://chat.whatsapp.com/Gyb5EfKq5zJHpV3OybJPrK?mode=gi_t';
 
     const freeClasses = [
-      { title:'Marketing Digital con IA', accent:'34,211,238', accentLight:'125,211,252', date:'Martes 12 de mayo', iso:'2026-05-12T21:00:00-05:00', year:'2026', time:'9:00 PM – 10:00 PM', timeMx:'EC / CO / PE · 8:00 PM – 9:00 PM MX', starts:'18 mayo 2026', duration:'Duración del programa: 4 días intensivos', link:'https://ibero.education/marketing-digital-con-ia', desc:'Una clase de entrada para entender cómo construir una presencia digital inteligente, crear contenido con criterio, organizar un embudo simple y visualizar el sistema comercial del programa completo.', bullets:['Cómo ordenar una oferta digital clara con apoyo de IA.','Qué piezas mínimas necesitas para captar leads y empezar a vender.','Cómo se conecta contenido, Smart Page, CRM, email y automatización.'] },
-      { title:'Monetiza tu Idea con IA', accent:'250,204,21', accentLight:'253,224,71', date:'Martes 26 de mayo', iso:'2026-05-26T21:00:00-05:00', year:'2026', time:'9:00 PM – 10:00 PM', timeMx:'EC / CO / PE · 8:00 PM – 9:00 PM MX', starts:'1 junio 2026', duration:'Duración del programa: 4 días intensivos', link:'https://ibero.education/monetiza-tu-idea', desc:'Una sesión introductoria para ayudarte a convertir una idea en una oferta más clara, más vendible y mejor estructurada con apoyo de IA.', bullets:['Cómo validar rápidamente una idea antes de invertir demasiado tiempo.','Qué debe tener una oferta simple para verse seria y monetizable.','Cómo usar IA para ordenar propuesta, mensaje y ruta comercial inicial.'] },
-      { title:'Crea tu Curso Online y Monetiza', accent:'226,232,240', accentLight:'244,244,245', date:'Martes 2 de junio', iso:'2026-06-02T21:00:00-05:00', year:'2026', time:'9:00 PM – 10:00 PM', timeMx:'EC / CO / PE · 8:00 PM – 9:00 PM MX', starts:'8 junio 2026', duration:'Duración del programa: 4 días intensivos', link:'https://ibero.education/crea-tu-academia', desc:'Una clase para entender cómo transformar conocimiento en un producto educativo digital más estructurado, claro y vendible.', bullets:['Cómo pasar de saber algo a empaquetarlo como curso o academia.','Qué elementos mínimos necesitas para vender un curso online con criterio.','Cómo apoyarte en IA para diseñar contenidos, oferta y estructura.'] },
-      { title:'Diplomado en IA aplicada a Negocios, Marketing y Comunicación', accent:'248,113,113', accentLight:'252,165,165', date:'Martes 9 de junio', iso:'2026-06-09T21:00:00-05:00', year:'2026', time:'9:00 PM – 10:00 PM', timeMx:'EC / CO / PE · 8:00 PM – 9:00 PM MX', starts:'15 junio 2026', duration:'Duración del programa: 5 semanas intensivas', link:'https://ibero.education/diplomado-ia-negocios-marketing', desc:'Una sesión introductoria para visualizar la lógica del diplomado: incubación, negocio, sistema digital, monetización y claridad ejecutiva.', bullets:['Qué construye realmente una persona durante el diplomado.','Cómo se articula research, branding, contenido, automatización y pitch.','Por qué el entregable final se piensa como sistema y no como teoría.'] },
-      { title:'Marketing Digital con IA', accent:'34,211,238', accentLight:'125,211,252', date:'Martes 14 de julio', iso:'2026-07-14T21:00:00-05:00', year:'2026', time:'9:00 PM – 10:00 PM', timeMx:'EC / CO / PE · 8:00 PM – 9:00 PM MX', starts:'20 julio 2026', duration:'Duración del programa: 4 días intensivos', link:'https://ibero.education/marketing-digital-con-ia', desc:'Segunda edición gratuita de Marketing para quienes entran por la cohorte de julio.', bullets:['Contenido, embudos y activos digitales con una lógica comercial clara.','Qué montar primero y qué no para vender con menos caos.','Cómo se conectan oferta, CRM, email y automatización.'] },
-      { title:'Monetiza tu Idea con IA', accent:'250,204,21', accentLight:'253,224,71', date:'Martes 28 de julio', iso:'2026-07-28T21:00:00-05:00', year:'2026', time:'9:00 PM – 10:00 PM', timeMx:'EC / CO / PE · 8:00 PM – 9:00 PM MX', starts:'3 agosto 2026', duration:'Duración del programa: 4 días intensivos', link:'https://ibero.education/monetiza-tu-idea', desc:'Nueva cohorte gratuita para quienes quieran aterrizar idea, mensaje y monetización.', bullets:['Cómo definir una promesa inicial que sí se entienda.','Cómo detectar rápidamente si una idea tiene tracción potencial.','Cómo convertir intuición en una ruta más comercial.'] },
-      { title:'Crea tu Curso Online y Monetiza', accent:'226,232,240', accentLight:'244,244,245', date:'Martes 4 de agosto', iso:'2026-08-04T21:00:00-05:00', year:'2026', time:'9:00 PM – 10:00 PM', timeMx:'EC / CO / PE · 8:00 PM – 9:00 PM MX', starts:'10 agosto 2026', duration:'Duración del programa: 4 días intensivos', link:'https://ibero.education/crea-tu-academia', desc:'Sesión gratuita de agosto para quienes desean crear y vender productos educativos.', bullets:['Qué diferencia a un curso suelto de una academia vendible.','Qué activos debes construir primero para salir al mercado.','Cómo usar IA para acelerar estructura, copy y materiales.'] },
-      { title:'Diplomado en IA aplicada a Negocios, Marketing y Comunicación', accent:'248,113,113', accentLight:'252,165,165', date:'Martes 11 de agosto', iso:'2026-08-11T21:00:00-05:00', year:'2026', time:'9:00 PM – 10:00 PM', timeMx:'EC / CO / PE · 8:00 PM – 9:00 PM MX', starts:'17 agosto 2026', duration:'Duración del programa: 5 semanas intensivas', link:'https://ibero.education/diplomado-ia-negocios-marketing', desc:'Segunda sesión introductoria del diplomado para la cohorte de agosto.', bullets:['Vista completa de la lógica académica y del entregable final.','Cómo el diplomado combina negocio, IA, marketing y ejecución.','Qué tipo de perfil aprovecha mejor esta ruta intensiva.'] },
-      { title:'Monetiza tu Idea con IA', accent:'250,204,21', accentLight:'253,224,71', date:'Martes 29 de septiembre', iso:'2026-09-29T21:00:00-05:00', year:'2026', time:'9:00 PM – 10:00 PM', timeMx:'EC / CO / PE · 8:00 PM – 9:00 PM MX', starts:'5 octubre 2026', duration:'Duración del programa: 4 días intensivos', link:'https://ibero.education/monetiza-tu-idea', desc:'Clase gratuita previa a la cohorte de octubre.', bullets:['Validación de idea, valor y ruta inicial de monetización.','Errores comunes al lanzar algo sin propuesta clara.','Cómo apoyarte en IA para reducir fricción al comenzar.'] },
-      { title:'Crea tu Curso Online y Monetiza', accent:'226,232,240', accentLight:'244,244,245', date:'Martes 6 de octubre', iso:'2026-10-06T21:00:00-05:00', year:'2026', time:'9:00 PM – 10:00 PM', timeMx:'EC / CO / PE · 8:00 PM – 9:00 PM MX', starts:'12 octubre 2026', duration:'Duración del programa: 4 días intensivos', link:'https://ibero.education/crea-tu-academia', desc:'Clase introductoria para la cohorte de octubre.', bullets:['Cómo estructurar una oferta educativa más clara.','Qué módulos, promesa y experiencia debes pensar primero.','Cómo conectar contenido, ventas y automatización.'] },
-      { title:'Marketing Digital con IA', accent:'34,211,238', accentLight:'125,211,252', date:'Martes 13 de octubre', iso:'2026-10-13T21:00:00-05:00', year:'2026', time:'9:00 PM – 10:00 PM', timeMx:'EC / CO / PE · 8:00 PM – 9:00 PM MX', starts:'19 octubre 2026', duration:'Duración del programa: 4 días intensivos', link:'https://ibero.education/marketing-digital-con-ia', desc:'Clase gratuita previa a la cohorte de octubre.', bullets:['Cómo pensar marketing con IA sin improvisar.','Qué activos digitales ayudan más a vender.','Cómo ordenar contenido, captación y seguimiento.'] },
-      { title:'Monetiza tu Idea con IA', accent:'250,204,21', accentLight:'253,224,71', date:'Martes 27 de octubre', iso:'2026-10-27T21:00:00-05:00', year:'2026', time:'9:00 PM – 10:00 PM', timeMx:'EC / CO / PE · 8:00 PM – 9:00 PM MX', starts:'2 noviembre 2026', duration:'Duración del programa: 4 días intensivos', link:'https://ibero.education/monetiza-tu-idea', desc:'Clase gratuita previa a la cohorte de noviembre.', bullets:['Idea, oferta, claridad y monetización inicial.','Cómo evitar lanzar algo sin estructura.','Cómo usar IA para ordenar tu primera salida comercial.'] },
-      { title:'Crea tu Curso Online y Monetiza', accent:'226,232,240', accentLight:'244,244,245', date:'Martes 3 de noviembre', iso:'2026-11-03T21:00:00-05:00', year:'2026', time:'9:00 PM – 10:00 PM', timeMx:'EC / CO / PE · 8:00 PM – 9:00 PM MX', starts:'9 noviembre 2026', duration:'Duración del programa: 4 días intensivos', link:'https://ibero.education/crea-tu-academia', desc:'Última clase gratuita de la secuencia anual en el calendario actual.', bullets:['Cómo empaquetar conocimiento como activo digital vendible.','Cómo construir una oferta educativa más seria con IA.','Qué piezas mínimas necesitas para lanzar y monetizar.'] }
-    ];
+      {
+            "title": "Marketing Digital con IA",
+            "track": "Marketing",
+            "color": "cyan",
+            "accent": "34,211,238",
+            "accentLight": "125,211,252",
+            "date": "Martes 19 de mayo",
+            "iso": "2026-05-19T21:00:00-05:00",
+            "year": "2026",
+            "starts": "Marketing inicia: 25 mayo 2026",
+            "duration": "Clase introductoria · 1 hora en vivo",
+            "link": "https://ibero.education/marketing-digital-con-ia",
+            "desc": "Clase introductoria para entender cómo construir presencia digital inteligente, contenido con criterio y una ruta comercial inicial con IA.",
+            "bullets": [
+                  "Cómo ordenar una oferta digital clara con apoyo de IA.",
+                  "Qué piezas mínimas necesitas para captar leads y empezar a vender.",
+                  "Cómo se conecta contenido, Smart Page, CRM, email y automatización."
+            ],
+            "content": {
+                  "eyebrow": "IA, marketing, negocios y educación",
+                  "promise": "Esta sesión gratuita no es un curso completo: es una puerta de entrada para conocer la metodología IBERO, practicar con IA y descubrir qué ruta te conviene.",
+                  "objective": "Que puedas entender una aplicación concreta de IA y decidir si tu siguiente paso es una certificación, un diplomado o una ruta ejecutiva más personalizada.",
+                  "agenda": [
+                        [
+                              "1. Problema real",
+                              [
+                                    "Qué suele bloquear a personas y negocios al usar IA.",
+                                    "Cómo evitar herramientas sueltas sin estrategia.",
+                                    "Qué cambia cuando existe metodología."
+                              ]
+                        ],
+                        [
+                              "2. Aplicación práctica",
+                              [
+                                    "Ejemplo concreto según el tema de la sesión.",
+                                    "Cómo llevarlo a marketing, educación, ventas o negocio.",
+                                    "Qué puede hacer una persona con apoyo de IA y criterio."
+                              ]
+                        ],
+                        [
+                              "3. Mini ejercicio",
+                              [
+                                    "Actividad sencilla para aterrizar la idea.",
+                                    "Recomendaciones para adaptar el ejercicio a distintos perfiles.",
+                                    "Cómo identificar oportunidades de mejora."
+                              ]
+                        ],
+                        [
+                              "4. Ruta IBERO",
+                              [
+                                    "Qué certificación se relaciona con el tema.",
+                                    "Cuándo conviene diplomado o master.",
+                                    "Cómo seguir en el grupo y recibir enlaces."
+                              ]
+                        ]
+                  ],
+                  "practical": [
+                        "Claridad sobre el tema central.",
+                        "Mini ejercicio aplicable.",
+                        "Opciones de ruta según nivel.",
+                        "Acceso a comunidad y próximas sesiones."
+                  ],
+                  "result": "Sales con claridad, una práctica inicial y una ruta posible para profundizar sin sentir que tienes que decidir a ciegas."
+            }
+      },
+      {
+            "title": "Cómo usar IA para enseñar, crear contenido y vender mejor",
+            "track": "IA práctica",
+            "color": "emerald",
+            "accent": "16,185,129",
+            "accentLight": "110,231,183",
+            "date": "Martes 26 de mayo",
+            "iso": "2026-05-26T21:00:00-05:00",
+            "year": "2026",
+            "starts": "Ruta sugerida: IA para Docentes + Marketing",
+            "duration": "Sesión abierta · 1 hora en vivo",
+            "link": "https://ibero.education/ia-para-docentes",
+            "desc": "Sesión abierta para mostrar cómo la IA puede servir a docentes, emprendedores y creadores para producir materiales, contenido y mensajes más claros.",
+            "bullets": [
+                  "Cómo crear materiales, posts o mini clases con IA.",
+                  "Cómo convertir una idea en contenido útil para comunidad o clientes.",
+                  "Cómo esta metodología conecta con certificaciones, diplomados y rutas ejecutivas."
+            ],
+            "content": {
+                  "eyebrow": "IA, marketing, negocios y educación",
+                  "promise": "Esta sesión gratuita no es un curso completo: es una puerta de entrada para conocer la metodología IBERO, practicar con IA y descubrir qué ruta te conviene.",
+                  "objective": "Que puedas entender una aplicación concreta de IA y decidir si tu siguiente paso es una certificación, un diplomado o una ruta ejecutiva más personalizada.",
+                  "agenda": [
+                        [
+                              "1. Problema real",
+                              [
+                                    "Qué suele bloquear a personas y negocios al usar IA.",
+                                    "Cómo evitar herramientas sueltas sin estrategia.",
+                                    "Qué cambia cuando existe metodología."
+                              ]
+                        ],
+                        [
+                              "2. Aplicación práctica",
+                              [
+                                    "Ejemplo concreto según el tema de la sesión.",
+                                    "Cómo llevarlo a marketing, educación, ventas o negocio.",
+                                    "Qué puede hacer una persona con apoyo de IA y criterio."
+                              ]
+                        ],
+                        [
+                              "3. Mini ejercicio",
+                              [
+                                    "Actividad sencilla para aterrizar la idea.",
+                                    "Recomendaciones para adaptar el ejercicio a distintos perfiles.",
+                                    "Cómo identificar oportunidades de mejora."
+                              ]
+                        ],
+                        [
+                              "4. Ruta IBERO",
+                              [
+                                    "Qué certificación se relaciona con el tema.",
+                                    "Cuándo conviene diplomado o master.",
+                                    "Cómo seguir en el grupo y recibir enlaces."
+                              ]
+                        ]
+                  ],
+                  "practical": [
+                        "Claridad sobre el tema central.",
+                        "Mini ejercicio aplicable.",
+                        "Opciones de ruta según nivel.",
+                        "Acceso a comunidad y próximas sesiones."
+                  ],
+                  "result": "Sales con claridad, una práctica inicial y una ruta posible para profundizar sin sentir que tienes que decidir a ciegas."
+            }
+      },
+      {
+            "title": "Laboratorio: crea tu primera guía, post o mini clase con IA",
+            "track": "Laboratorio",
+            "color": "emerald",
+            "accent": "16,185,129",
+            "accentLight": "110,231,183",
+            "date": "Miércoles 27 de mayo",
+            "iso": "2026-05-27T21:00:00-05:00",
+            "year": "2026",
+            "starts": "Práctica guiada: recursos con IA",
+            "duration": "Laboratorio práctico · 1 hora en vivo",
+            "link": "https://ibero.education/ia-para-docentes",
+            "desc": "Laboratorio práctico para que cada persona salga con un recurso inicial: guía, post, mini clase o idea estructurada con IA.",
+            "bullets": [
+                  "Plantilla simple para convertir ideas en recursos útiles.",
+                  "Ejercicio guiado para crear una pieza concreta.",
+                  "Cierre con rutas recomendadas según el perfil de cada participante."
+            ],
+            "content": {
+                  "eyebrow": "Laboratorio práctico guiado",
+                  "promise": "Esta sesión funciona como práctica abierta: no repite la clase anterior, la aterriza en un ejercicio simple para que nuevos y antiguos puedan participar sin perderse.",
+                  "objective": "Que cada participante salga con un avance concreto: una guía, una idea, una estructura, un mensaje, un calendario, un flujo o un sistema básico aplicable a su proyecto.",
+                  "agenda": [
+                        [
+                              "1. Entrada rápida",
+                              [
+                                    "Contexto de la sesión en menos de 10 minutos.",
+                                    "Explicación del objetivo práctico del día.",
+                                    "Cómo participar aunque no hayas asistido a la clase anterior."
+                              ]
+                        ],
+                        [
+                              "2. Ejercicio guiado",
+                              [
+                                    "Uso de IA con instrucciones simples y aplicables.",
+                                    "Construcción de una pieza real según el tema del laboratorio.",
+                                    "Ajustes para docentes, emprendedores, creadores o negocios."
+                              ]
+                        ],
+                        [
+                              "3. Revisión y mejora",
+                              [
+                                    "Cómo detectar si la respuesta de IA sirve o está genérica.",
+                                    "Cómo mejorar claridad, intención y utilidad.",
+                                    "Cómo convertir el ejercicio en siguiente acción."
+                              ]
+                        ],
+                        [
+                              "4. Ruta recomendada",
+                              [
+                                    "Qué programa puede ayudarte a profundizar según tu objetivo.",
+                                    "Diferencia entre certificación, diplomado y ruta ejecutiva.",
+                                    "Próximo paso para inscribirte o seguir en comunidad."
+                              ]
+                        ]
+                  ],
+                  "practical": [
+                        "Un entregable práctico inicial.",
+                        "Plantilla o estructura reutilizable.",
+                        "Claridad sobre el siguiente paso recomendado.",
+                        "Entrada fácil para nuevos miembros del grupo."
+                  ],
+                  "result": "Sales con una pieza inicial trabajada y con una ruta clara para seguir practicando o pasar a un programa completo."
+            }
+      },
+      {
+            "title": "Cómo convertir una idea en una oferta vendible con IA",
+            "track": "Monetiza",
+            "color": "amber",
+            "accent": "250,204,21",
+            "accentLight": "253,224,71",
+            "date": "Martes 2 de junio",
+            "iso": "2026-06-02T21:00:00-05:00",
+            "year": "2026",
+            "starts": "Monetiza inicia: 8 junio 2026",
+            "duration": "Sesión abierta · 1 hora en vivo",
+            "link": "https://ibero.education/monetiza-tu-idea",
+            "desc": "Clase para entender cómo una idea puede convertirse en una oferta más clara, vendible y comunicable con apoyo de IA.",
+            "bullets": [
+                  "Cómo detectar si una idea tiene potencial comercial.",
+                  "Cómo explicar una propuesta en una frase clara.",
+                  "Cómo usar IA para ordenar problema, público y solución."
+            ],
+            "content": {
+                  "eyebrow": "IA, marketing, negocios y educación",
+                  "promise": "Esta sesión gratuita no es un curso completo: es una puerta de entrada para conocer la metodología IBERO, practicar con IA y descubrir qué ruta te conviene.",
+                  "objective": "Que puedas entender una aplicación concreta de IA y decidir si tu siguiente paso es una certificación, un diplomado o una ruta ejecutiva más personalizada.",
+                  "agenda": [
+                        [
+                              "1. Problema real",
+                              [
+                                    "Qué suele bloquear a personas y negocios al usar IA.",
+                                    "Cómo evitar herramientas sueltas sin estrategia.",
+                                    "Qué cambia cuando existe metodología."
+                              ]
+                        ],
+                        [
+                              "2. Aplicación práctica",
+                              [
+                                    "Ejemplo concreto según el tema de la sesión.",
+                                    "Cómo llevarlo a marketing, educación, ventas o negocio.",
+                                    "Qué puede hacer una persona con apoyo de IA y criterio."
+                              ]
+                        ],
+                        [
+                              "3. Mini ejercicio",
+                              [
+                                    "Actividad sencilla para aterrizar la idea.",
+                                    "Recomendaciones para adaptar el ejercicio a distintos perfiles.",
+                                    "Cómo identificar oportunidades de mejora."
+                              ]
+                        ],
+                        [
+                              "4. Ruta IBERO",
+                              [
+                                    "Qué certificación se relaciona con el tema.",
+                                    "Cuándo conviene diplomado o master.",
+                                    "Cómo seguir en el grupo y recibir enlaces."
+                              ]
+                        ]
+                  ],
+                  "practical": [
+                        "Claridad sobre el tema central.",
+                        "Mini ejercicio aplicable.",
+                        "Opciones de ruta según nivel.",
+                        "Acceso a comunidad y próximas sesiones."
+                  ],
+                  "result": "Sales con claridad, una práctica inicial y una ruta posible para profundizar sin sentir que tienes que decidir a ciegas."
+            }
+      },
+      {
+            "title": "Laboratorio: define tu oferta, público y primer mensaje de venta",
+            "track": "Laboratorio",
+            "color": "amber",
+            "accent": "250,204,21",
+            "accentLight": "253,224,71",
+            "date": "Miércoles 3 de junio",
+            "iso": "2026-06-03T21:00:00-05:00",
+            "year": "2026",
+            "starts": "Práctica guiada: oferta inicial",
+            "duration": "Laboratorio práctico · 1 hora en vivo",
+            "link": "https://ibero.education/monetiza-tu-idea",
+            "desc": "Laboratorio para aterrizar una oferta inicial con público, promesa y primer mensaje comercial.",
+            "bullets": [
+                  "Define público, problema y deseo principal.",
+                  "Crea un primer mensaje de venta con IA.",
+                  "Aprende cómo validar sin regalar todo tu trabajo."
+            ],
+            "content": {
+                  "eyebrow": "Laboratorio práctico guiado",
+                  "promise": "Esta sesión funciona como práctica abierta: no repite la clase anterior, la aterriza en un ejercicio simple para que nuevos y antiguos puedan participar sin perderse.",
+                  "objective": "Que cada participante salga con un avance concreto: una guía, una idea, una estructura, un mensaje, un calendario, un flujo o un sistema básico aplicable a su proyecto.",
+                  "agenda": [
+                        [
+                              "1. Entrada rápida",
+                              [
+                                    "Contexto de la sesión en menos de 10 minutos.",
+                                    "Explicación del objetivo práctico del día.",
+                                    "Cómo participar aunque no hayas asistido a la clase anterior."
+                              ]
+                        ],
+                        [
+                              "2. Ejercicio guiado",
+                              [
+                                    "Uso de IA con instrucciones simples y aplicables.",
+                                    "Construcción de una pieza real según el tema del laboratorio.",
+                                    "Ajustes para docentes, emprendedores, creadores o negocios."
+                              ]
+                        ],
+                        [
+                              "3. Revisión y mejora",
+                              [
+                                    "Cómo detectar si la respuesta de IA sirve o está genérica.",
+                                    "Cómo mejorar claridad, intención y utilidad.",
+                                    "Cómo convertir el ejercicio en siguiente acción."
+                              ]
+                        ],
+                        [
+                              "4. Ruta recomendada",
+                              [
+                                    "Qué programa puede ayudarte a profundizar según tu objetivo.",
+                                    "Diferencia entre certificación, diplomado y ruta ejecutiva.",
+                                    "Próximo paso para inscribirte o seguir en comunidad."
+                              ]
+                        ]
+                  ],
+                  "practical": [
+                        "Un entregable práctico inicial.",
+                        "Plantilla o estructura reutilizable.",
+                        "Claridad sobre el siguiente paso recomendado.",
+                        "Entrada fácil para nuevos miembros del grupo."
+                  ],
+                  "result": "Sales con una pieza inicial trabajada y con una ruta clara para seguir practicando o pasar a un programa completo."
+            }
+      },
+      {
+            "title": "Cómo convertir tu conocimiento en un curso digital",
+            "track": "Educación digital",
+            "color": "slate",
+            "accent": "226,232,240",
+            "accentLight": "244,244,245",
+            "date": "Martes 9 de junio",
+            "iso": "2026-06-09T21:00:00-05:00",
+            "year": "2026",
+            "starts": "Crea tu Curso inicia: 15 junio 2026",
+            "duration": "Sesión abierta · 1 hora en vivo",
+            "link": "https://ibero.education/crea-tu-academia",
+            "desc": "Sesión para transformar experiencia, conocimiento o metodología en una propuesta educativa digital más clara y vendible.",
+            "bullets": [
+                  "Cómo pasar de saber algo a estructurarlo como curso.",
+                  "Qué diferencia una clase suelta de una oferta educativa.",
+                  "Cómo IA ayuda a crear módulos, guías y recursos."
+            ],
+            "content": {
+                  "eyebrow": "IA, marketing, negocios y educación",
+                  "promise": "Esta sesión gratuita no es un curso completo: es una puerta de entrada para conocer la metodología IBERO, practicar con IA y descubrir qué ruta te conviene.",
+                  "objective": "Que puedas entender una aplicación concreta de IA y decidir si tu siguiente paso es una certificación, un diplomado o una ruta ejecutiva más personalizada.",
+                  "agenda": [
+                        [
+                              "1. Problema real",
+                              [
+                                    "Qué suele bloquear a personas y negocios al usar IA.",
+                                    "Cómo evitar herramientas sueltas sin estrategia.",
+                                    "Qué cambia cuando existe metodología."
+                              ]
+                        ],
+                        [
+                              "2. Aplicación práctica",
+                              [
+                                    "Ejemplo concreto según el tema de la sesión.",
+                                    "Cómo llevarlo a marketing, educación, ventas o negocio.",
+                                    "Qué puede hacer una persona con apoyo de IA y criterio."
+                              ]
+                        ],
+                        [
+                              "3. Mini ejercicio",
+                              [
+                                    "Actividad sencilla para aterrizar la idea.",
+                                    "Recomendaciones para adaptar el ejercicio a distintos perfiles.",
+                                    "Cómo identificar oportunidades de mejora."
+                              ]
+                        ],
+                        [
+                              "4. Ruta IBERO",
+                              [
+                                    "Qué certificación se relaciona con el tema.",
+                                    "Cuándo conviene diplomado o master.",
+                                    "Cómo seguir en el grupo y recibir enlaces."
+                              ]
+                        ]
+                  ],
+                  "practical": [
+                        "Claridad sobre el tema central.",
+                        "Mini ejercicio aplicable.",
+                        "Opciones de ruta según nivel.",
+                        "Acceso a comunidad y próximas sesiones."
+                  ],
+                  "result": "Sales con claridad, una práctica inicial y una ruta posible para profundizar sin sentir que tienes que decidir a ciegas."
+            }
+      },
+      {
+            "title": "Laboratorio: estructura tu primera clase, módulo o programa",
+            "track": "Laboratorio",
+            "color": "slate",
+            "accent": "226,232,240",
+            "accentLight": "244,244,245",
+            "date": "Miércoles 10 de junio",
+            "iso": "2026-06-10T21:00:00-05:00",
+            "year": "2026",
+            "starts": "Práctica guiada: estructura educativa",
+            "duration": "Laboratorio práctico · 1 hora en vivo",
+            "link": "https://ibero.education/crea-tu-academia",
+            "desc": "Laboratorio para crear el primer mapa de una clase, módulo o programa usando una estructura simple y profesional.",
+            "bullets": [
+                  "Diseña un resultado de aprendizaje claro.",
+                  "Ordena contenidos en una ruta sencilla.",
+                  "Conecta metodología, entregables y venta."
+            ],
+            "content": {
+                  "eyebrow": "Laboratorio práctico guiado",
+                  "promise": "Esta sesión funciona como práctica abierta: no repite la clase anterior, la aterriza en un ejercicio simple para que nuevos y antiguos puedan participar sin perderse.",
+                  "objective": "Que cada participante salga con un avance concreto: una guía, una idea, una estructura, un mensaje, un calendario, un flujo o un sistema básico aplicable a su proyecto.",
+                  "agenda": [
+                        [
+                              "1. Entrada rápida",
+                              [
+                                    "Contexto de la sesión en menos de 10 minutos.",
+                                    "Explicación del objetivo práctico del día.",
+                                    "Cómo participar aunque no hayas asistido a la clase anterior."
+                              ]
+                        ],
+                        [
+                              "2. Ejercicio guiado",
+                              [
+                                    "Uso de IA con instrucciones simples y aplicables.",
+                                    "Construcción de una pieza real según el tema del laboratorio.",
+                                    "Ajustes para docentes, emprendedores, creadores o negocios."
+                              ]
+                        ],
+                        [
+                              "3. Revisión y mejora",
+                              [
+                                    "Cómo detectar si la respuesta de IA sirve o está genérica.",
+                                    "Cómo mejorar claridad, intención y utilidad.",
+                                    "Cómo convertir el ejercicio en siguiente acción."
+                              ]
+                        ],
+                        [
+                              "4. Ruta recomendada",
+                              [
+                                    "Qué programa puede ayudarte a profundizar según tu objetivo.",
+                                    "Diferencia entre certificación, diplomado y ruta ejecutiva.",
+                                    "Próximo paso para inscribirte o seguir en comunidad."
+                              ]
+                        ]
+                  ],
+                  "practical": [
+                        "Un entregable práctico inicial.",
+                        "Plantilla o estructura reutilizable.",
+                        "Claridad sobre el siguiente paso recomendado.",
+                        "Entrada fácil para nuevos miembros del grupo."
+                  ],
+                  "result": "Sales con una pieza inicial trabajada y con una ruta clara para seguir practicando o pasar a un programa completo."
+            }
+      },
+      {
+            "title": "Cómo aplicar IA en marketing, educación y ventas",
+            "track": "Diplomado",
+            "color": "rose",
+            "accent": "248,113,113",
+            "accentLight": "252,165,165",
+            "date": "Martes 16 de junio",
+            "iso": "2026-06-16T21:00:00-05:00",
+            "year": "2026",
+            "starts": "Diplomado inicia: 22 junio 2026",
+            "duration": "Sesión abierta · 1 hora en vivo",
+            "link": "https://ibero.education/diplomado-ia-negocios-marketing",
+            "desc": "Clase de entrada a la lógica del Diplomado: usar IA para ordenar negocio, marketing, comunicación, educación y ejecución práctica.",
+            "bullets": [
+                  "Cómo se conecta IA con estrategia, contenido y ventas.",
+                  "Qué tipo de proyecto puede trabajarse en una ruta aplicada.",
+                  "Cómo elegir entre certificación, diplomado o master según tu objetivo."
+            ],
+            "content": {
+                  "eyebrow": "IA, marketing, negocios y educación",
+                  "promise": "Esta sesión gratuita no es un curso completo: es una puerta de entrada para conocer la metodología IBERO, practicar con IA y descubrir qué ruta te conviene.",
+                  "objective": "Que puedas entender una aplicación concreta de IA y decidir si tu siguiente paso es una certificación, un diplomado o una ruta ejecutiva más personalizada.",
+                  "agenda": [
+                        [
+                              "1. Problema real",
+                              [
+                                    "Qué suele bloquear a personas y negocios al usar IA.",
+                                    "Cómo evitar herramientas sueltas sin estrategia.",
+                                    "Qué cambia cuando existe metodología."
+                              ]
+                        ],
+                        [
+                              "2. Aplicación práctica",
+                              [
+                                    "Ejemplo concreto según el tema de la sesión.",
+                                    "Cómo llevarlo a marketing, educación, ventas o negocio.",
+                                    "Qué puede hacer una persona con apoyo de IA y criterio."
+                              ]
+                        ],
+                        [
+                              "3. Mini ejercicio",
+                              [
+                                    "Actividad sencilla para aterrizar la idea.",
+                                    "Recomendaciones para adaptar el ejercicio a distintos perfiles.",
+                                    "Cómo identificar oportunidades de mejora."
+                              ]
+                        ],
+                        [
+                              "4. Ruta IBERO",
+                              [
+                                    "Qué certificación se relaciona con el tema.",
+                                    "Cuándo conviene diplomado o master.",
+                                    "Cómo seguir en el grupo y recibir enlaces."
+                              ]
+                        ]
+                  ],
+                  "practical": [
+                        "Claridad sobre el tema central.",
+                        "Mini ejercicio aplicable.",
+                        "Opciones de ruta según nivel.",
+                        "Acceso a comunidad y próximas sesiones."
+                  ],
+                  "result": "Sales con claridad, una práctica inicial y una ruta posible para profundizar sin sentir que tienes que decidir a ciegas."
+            }
+      },
+      {
+            "title": "Laboratorio: arma tu flujo básico de trabajo con IA",
+            "track": "Laboratorio",
+            "color": "rose",
+            "accent": "248,113,113",
+            "accentLight": "252,165,165",
+            "date": "Miércoles 17 de junio",
+            "iso": "2026-06-17T21:00:00-05:00",
+            "year": "2026",
+            "starts": "Práctica guiada: sistema básico con IA",
+            "duration": "Laboratorio práctico · 1 hora en vivo",
+            "link": "https://ibero.education/diplomado-ia-negocios-marketing",
+            "desc": "Laboratorio para diseñar un flujo básico de IA aplicable a contenido, ventas, educación o gestión de proyectos.",
+            "bullets": [
+                  "Mapa simple de tareas que puedes automatizar o mejorar.",
+                  "Selección de herramientas según objetivo.",
+                  "Primer flujo de trabajo para llevar al programa adecuado."
+            ],
+            "content": {
+                  "eyebrow": "Laboratorio práctico guiado",
+                  "promise": "Esta sesión funciona como práctica abierta: no repite la clase anterior, la aterriza en un ejercicio simple para que nuevos y antiguos puedan participar sin perderse.",
+                  "objective": "Que cada participante salga con un avance concreto: una guía, una idea, una estructura, un mensaje, un calendario, un flujo o un sistema básico aplicable a su proyecto.",
+                  "agenda": [
+                        [
+                              "1. Entrada rápida",
+                              [
+                                    "Contexto de la sesión en menos de 10 minutos.",
+                                    "Explicación del objetivo práctico del día.",
+                                    "Cómo participar aunque no hayas asistido a la clase anterior."
+                              ]
+                        ],
+                        [
+                              "2. Ejercicio guiado",
+                              [
+                                    "Uso de IA con instrucciones simples y aplicables.",
+                                    "Construcción de una pieza real según el tema del laboratorio.",
+                                    "Ajustes para docentes, emprendedores, creadores o negocios."
+                              ]
+                        ],
+                        [
+                              "3. Revisión y mejora",
+                              [
+                                    "Cómo detectar si la respuesta de IA sirve o está genérica.",
+                                    "Cómo mejorar claridad, intención y utilidad.",
+                                    "Cómo convertir el ejercicio en siguiente acción."
+                              ]
+                        ],
+                        [
+                              "4. Ruta recomendada",
+                              [
+                                    "Qué programa puede ayudarte a profundizar según tu objetivo.",
+                                    "Diferencia entre certificación, diplomado y ruta ejecutiva.",
+                                    "Próximo paso para inscribirte o seguir en comunidad."
+                              ]
+                        ]
+                  ],
+                  "practical": [
+                        "Un entregable práctico inicial.",
+                        "Plantilla o estructura reutilizable.",
+                        "Claridad sobre el siguiente paso recomendado.",
+                        "Entrada fácil para nuevos miembros del grupo."
+                  ],
+                  "result": "Sales con una pieza inicial trabajada y con una ruta clara para seguir practicando o pasar a un programa completo."
+            }
+      },
+      {
+            "title": "Cómo crear contenido semanal con IA sin quedarte sin ideas",
+            "track": "Contenido",
+            "color": "cyan",
+            "accent": "34,211,238",
+            "accentLight": "125,211,252",
+            "date": "Martes 23 de junio",
+            "iso": "2026-06-23T21:00:00-05:00",
+            "year": "2026",
+            "starts": "Comunidad IA, Marketing & Negocios",
+            "duration": "Sesión abierta · 1 hora en vivo",
+            "link": "https://ibero.education/diplomado-ia-negocios-marketing",
+            "desc": "Sesión de continuidad para la comunidad: crear contenido útil, constante y conectado a objetivos reales, sin depender solo de inspiración.",
+            "bullets": [
+                  "Cómo generar ideas con criterio y no solo copiar prompts.",
+                  "Cómo organizar contenido por objetivos: educar, atraer, vender.",
+                  "Cómo convertir una semana de contenido en un sistema repetible."
+            ],
+            "content": {
+                  "eyebrow": "Contenido, IA y comunidad",
+                  "promise": "Esta sesión ayuda a crear contenido semanal con criterio, sin depender de inspiración ni usar IA de forma genérica.",
+                  "objective": "Que puedas ordenar ideas, formatos y llamadas a la acción para mantener una presencia digital más constante y estratégica.",
+                  "agenda": [
+                        [
+                              "1. Pilares de contenido",
+                              [
+                                    "Qué publicar según objetivo.",
+                                    "Cómo evitar contenido vacío.",
+                                    "Cómo usar IA para ampliar ideas."
+                              ]
+                        ],
+                        [
+                              "2. Calendario simple",
+                              [
+                                    "Cómo ordenar 7 días de contenido.",
+                                    "Qué formatos combinar.",
+                                    "Cómo conectar cada pieza con una intención."
+                              ]
+                        ],
+                        [
+                              "3. Ejecución con IA",
+                              [
+                                    "Prompts útiles sin complicarse.",
+                                    "Adaptación a marca, curso o servicio.",
+                                    "Cómo revisar calidad antes de publicar."
+                              ]
+                        ],
+                        [
+                              "4. Ruta de continuidad",
+                              [
+                                    "Cómo seguir en comunidad.",
+                                    "Qué programa profundiza esta habilidad.",
+                                    "Cómo convertir contenido en captación."
+                              ]
+                        ]
+                  ],
+                  "practical": [
+                        "Ideas para contenido semanal.",
+                        "Pilares iniciales.",
+                        "Mini calendario editable.",
+                        "CTA para conectar con ventas."
+                  ],
+                  "result": "Sales con una forma más clara de generar contenido útil y conectarlo con una ruta comercial."
+            }
+      },
+      {
+            "title": "Laboratorio: calendario de contenido para 7 días",
+            "track": "Laboratorio",
+            "color": "cyan",
+            "accent": "34,211,238",
+            "accentLight": "125,211,252",
+            "date": "Miércoles 24 de junio",
+            "iso": "2026-06-24T21:00:00-05:00",
+            "year": "2026",
+            "starts": "Práctica guiada: calendario de contenido",
+            "duration": "Laboratorio práctico · 1 hora en vivo",
+            "link": "https://ibero.education/diplomado-ia-negocios-marketing",
+            "desc": "Laboratorio para salir con una mini parrilla de contenido de 7 días lista para adaptar a marca, proyecto o idea.",
+            "bullets": [
+                  "Define pilares de contenido simples.",
+                  "Crea ideas para 7 días con intención comercial.",
+                  "Conecta cada pieza con llamada a la acción."
+            ],
+            "content": {
+                  "eyebrow": "Laboratorio práctico guiado",
+                  "promise": "Esta sesión funciona como práctica abierta: no repite la clase anterior, la aterriza en un ejercicio simple para que nuevos y antiguos puedan participar sin perderse.",
+                  "objective": "Que cada participante salga con un avance concreto: una guía, una idea, una estructura, un mensaje, un calendario, un flujo o un sistema básico aplicable a su proyecto.",
+                  "agenda": [
+                        [
+                              "1. Entrada rápida",
+                              [
+                                    "Contexto de la sesión en menos de 10 minutos.",
+                                    "Explicación del objetivo práctico del día.",
+                                    "Cómo participar aunque no hayas asistido a la clase anterior."
+                              ]
+                        ],
+                        [
+                              "2. Ejercicio guiado",
+                              [
+                                    "Uso de IA con instrucciones simples y aplicables.",
+                                    "Construcción de una pieza real según el tema del laboratorio.",
+                                    "Ajustes para docentes, emprendedores, creadores o negocios."
+                              ]
+                        ],
+                        [
+                              "3. Revisión y mejora",
+                              [
+                                    "Cómo detectar si la respuesta de IA sirve o está genérica.",
+                                    "Cómo mejorar claridad, intención y utilidad.",
+                                    "Cómo convertir el ejercicio en siguiente acción."
+                              ]
+                        ],
+                        [
+                              "4. Ruta recomendada",
+                              [
+                                    "Qué programa puede ayudarte a profundizar según tu objetivo.",
+                                    "Diferencia entre certificación, diplomado y ruta ejecutiva.",
+                                    "Próximo paso para inscribirte o seguir en comunidad."
+                              ]
+                        ]
+                  ],
+                  "practical": [
+                        "Un entregable práctico inicial.",
+                        "Plantilla o estructura reutilizable.",
+                        "Claridad sobre el siguiente paso recomendado.",
+                        "Entrada fácil para nuevos miembros del grupo."
+                  ],
+                  "result": "Sales con una pieza inicial trabajada y con una ruta clara para seguir practicando o pasar a un programa completo."
+            }
+      },
+      {
+            "title": "Cómo vender mejor con IA, WhatsApp y mensajes persuasivos",
+            "track": "Ventas",
+            "color": "amber",
+            "accent": "250,204,21",
+            "accentLight": "253,224,71",
+            "date": "Martes 30 de junio",
+            "iso": "2026-06-30T21:00:00-05:00",
+            "year": "2026",
+            "starts": "Comunidad IA, Marketing & Negocios",
+            "duration": "Sesión abierta · 1 hora en vivo",
+            "link": "https://ibero.education/diplomado-ia-negocios-marketing",
+            "desc": "Sesión para entender cómo la IA puede ayudarte a responder mejor, ordenar objeciones y convertir conversaciones en oportunidades reales.",
+            "bullets": [
+                  "Cómo crear mensajes claros sin sonar robótico.",
+                  "Cómo ordenar objeciones frecuentes con IA.",
+                  "Cómo usar WhatsApp como canal de seguimiento y cierre."
+            ],
+            "content": {
+                  "eyebrow": "IA, marketing, negocios y educación",
+                  "promise": "Esta sesión gratuita no es un curso completo: es una puerta de entrada para conocer la metodología IBERO, practicar con IA y descubrir qué ruta te conviene.",
+                  "objective": "Que puedas entender una aplicación concreta de IA y decidir si tu siguiente paso es una certificación, un diplomado o una ruta ejecutiva más personalizada.",
+                  "agenda": [
+                        [
+                              "1. Problema real",
+                              [
+                                    "Qué suele bloquear a personas y negocios al usar IA.",
+                                    "Cómo evitar herramientas sueltas sin estrategia.",
+                                    "Qué cambia cuando existe metodología."
+                              ]
+                        ],
+                        [
+                              "2. Aplicación práctica",
+                              [
+                                    "Ejemplo concreto según el tema de la sesión.",
+                                    "Cómo llevarlo a marketing, educación, ventas o negocio.",
+                                    "Qué puede hacer una persona con apoyo de IA y criterio."
+                              ]
+                        ],
+                        [
+                              "3. Mini ejercicio",
+                              [
+                                    "Actividad sencilla para aterrizar la idea.",
+                                    "Recomendaciones para adaptar el ejercicio a distintos perfiles.",
+                                    "Cómo identificar oportunidades de mejora."
+                              ]
+                        ],
+                        [
+                              "4. Ruta IBERO",
+                              [
+                                    "Qué certificación se relaciona con el tema.",
+                                    "Cuándo conviene diplomado o master.",
+                                    "Cómo seguir en el grupo y recibir enlaces."
+                              ]
+                        ]
+                  ],
+                  "practical": [
+                        "Claridad sobre el tema central.",
+                        "Mini ejercicio aplicable.",
+                        "Opciones de ruta según nivel.",
+                        "Acceso a comunidad y próximas sesiones."
+                  ],
+                  "result": "Sales con claridad, una práctica inicial y una ruta posible para profundizar sin sentir que tienes que decidir a ciegas."
+            }
+      },
+      {
+            "title": "Laboratorio: crea respuestas y cierres para tus clientes",
+            "track": "Laboratorio",
+            "color": "amber",
+            "accent": "250,204,21",
+            "accentLight": "253,224,71",
+            "date": "Miércoles 1 de julio",
+            "iso": "2026-07-01T21:00:00-05:00",
+            "year": "2026",
+            "starts": "Práctica guiada: mensajes de venta",
+            "duration": "Laboratorio práctico · 1 hora en vivo",
+            "link": "https://ibero.education/diplomado-ia-negocios-marketing",
+            "desc": "Laboratorio para construir respuestas, seguimientos y cierres básicos adaptados a un producto, servicio, curso o idea.",
+            "bullets": [
+                  "Crea respuestas para dudas comunes.",
+                  "Diseña seguimientos sin sonar intenso.",
+                  "Arma un cierre simple con propuesta clara."
+            ],
+            "content": {
+                  "eyebrow": "Laboratorio práctico guiado",
+                  "promise": "Esta sesión funciona como práctica abierta: no repite la clase anterior, la aterriza en un ejercicio simple para que nuevos y antiguos puedan participar sin perderse.",
+                  "objective": "Que cada participante salga con un avance concreto: una guía, una idea, una estructura, un mensaje, un calendario, un flujo o un sistema básico aplicable a su proyecto.",
+                  "agenda": [
+                        [
+                              "1. Entrada rápida",
+                              [
+                                    "Contexto de la sesión en menos de 10 minutos.",
+                                    "Explicación del objetivo práctico del día.",
+                                    "Cómo participar aunque no hayas asistido a la clase anterior."
+                              ]
+                        ],
+                        [
+                              "2. Ejercicio guiado",
+                              [
+                                    "Uso de IA con instrucciones simples y aplicables.",
+                                    "Construcción de una pieza real según el tema del laboratorio.",
+                                    "Ajustes para docentes, emprendedores, creadores o negocios."
+                              ]
+                        ],
+                        [
+                              "3. Revisión y mejora",
+                              [
+                                    "Cómo detectar si la respuesta de IA sirve o está genérica.",
+                                    "Cómo mejorar claridad, intención y utilidad.",
+                                    "Cómo convertir el ejercicio en siguiente acción."
+                              ]
+                        ],
+                        [
+                              "4. Ruta recomendada",
+                              [
+                                    "Qué programa puede ayudarte a profundizar según tu objetivo.",
+                                    "Diferencia entre certificación, diplomado y ruta ejecutiva.",
+                                    "Próximo paso para inscribirte o seguir en comunidad."
+                              ]
+                        ]
+                  ],
+                  "practical": [
+                        "Un entregable práctico inicial.",
+                        "Plantilla o estructura reutilizable.",
+                        "Claridad sobre el siguiente paso recomendado.",
+                        "Entrada fácil para nuevos miembros del grupo."
+                  ],
+                  "result": "Sales con una pieza inicial trabajada y con una ruta clara para seguir practicando o pasar a un programa completo."
+            }
+      },
+      {
+            "title": "Cómo usar IA para dirigir proyectos, equipos y negocios",
+            "track": "Ruta ejecutiva",
+            "color": "violet",
+            "accent": "168,85,247",
+            "accentLight": "216,180,254",
+            "date": "Martes 7 de julio",
+            "iso": "2026-07-07T21:00:00-05:00",
+            "year": "2026",
+            "starts": "Ruta ejecutiva hacia Diplomado / Master",
+            "duration": "Sesión abierta · 1 hora en vivo",
+            "link": "https://ibero.education/master-ejecutivo-ia",
+            "desc": "Sesión para perfilar la IA como herramienta ejecutiva: dirección, productividad, toma de decisiones, proyectos y sistemas de trabajo.",
+            "bullets": [
+                  "Cómo usar IA para ordenar tareas, equipos y prioridades.",
+                  "Cómo conectar productividad con estrategia comercial.",
+                  "Cómo escalar de certificación a ruta ejecutiva."
+            ],
+            "content": {
+                  "eyebrow": "Ruta ejecutiva con IA",
+                  "promise": "Esta sesión muestra cómo la IA puede pasar de herramienta suelta a sistema de dirección, productividad, estrategia y crecimiento aplicado a negocios, marketing y educación.",
+                  "objective": "Que entiendas cómo se organiza una ruta ejecutiva: claridad de proyecto, toma de decisiones, productividad, automatización, marketing y acompañamiento académico.",
+                  "agenda": [
+                        [
+                              "1. IA como sistema ejecutivo",
+                              [
+                                    "Cómo dejar de usar IA solo para textos sueltos.",
+                                    "Qué áreas puede ordenar: proyectos, ventas, contenido, educación y gestión.",
+                                    "Por qué una ruta ejecutiva necesita método y seguimiento."
+                              ]
+                        ],
+                        [
+                              "2. Negocio, marketing y educación",
+                              [
+                                    "Cómo conectar oferta, comunicación y operación.",
+                                    "Qué cambia cuando una persona trabaja con entregables reales.",
+                                    "Cómo se diferencia una certificación corta de un proceso profundo."
+                              ]
+                        ],
+                        [
+                              "3. Ruta de crecimiento",
+                              [
+                                    "Cuándo conviene una certificación.",
+                                    "Cuándo conviene un diplomado.",
+                                    "Cuándo tiene sentido subir a un Master ejecutivo."
+                              ]
+                        ],
+                        [
+                              "4. Siguiente paso",
+                              [
+                                    "Cómo entrar a la comunidad.",
+                                    "Cómo revisar fechas y programas.",
+                                    "Cómo elegir la ruta más personalizada según nivel y objetivo."
+                              ]
+                        ]
+                  ],
+                  "practical": [
+                        "Mapa de ruta personal.",
+                        "Criterios para elegir programa.",
+                        "Ideas de aplicación ejecutiva con IA.",
+                        "Claridad sobre la metodología IBERO."
+                  ],
+                  "result": "Sales entendiendo qué camino te conviene y cómo la IA puede convertirse en un sistema de trabajo más serio."
+            }
+      },
+      {
+            "title": "Laboratorio: diseña tu sistema personal de productividad con IA",
+            "track": "Laboratorio",
+            "color": "violet",
+            "accent": "168,85,247",
+            "accentLight": "216,180,254",
+            "date": "Miércoles 8 de julio",
+            "iso": "2026-07-08T21:00:00-05:00",
+            "year": "2026",
+            "starts": "Práctica guiada: sistema personal",
+            "duration": "Laboratorio práctico · 1 hora en vivo",
+            "link": "https://ibero.education/master-ejecutivo-ia",
+            "desc": "Laboratorio para armar un sistema personal simple de productividad con IA: prioridades, tareas, contenido, ventas o aprendizaje.",
+            "bullets": [
+                  "Define tus áreas de trabajo principales.",
+                  "Crea una estructura simple para organizar acciones.",
+                  "Conecta IA con seguimiento y mejora semanal."
+            ],
+            "content": {
+                  "eyebrow": "Laboratorio práctico guiado",
+                  "promise": "Esta sesión funciona como práctica abierta: no repite la clase anterior, la aterriza en un ejercicio simple para que nuevos y antiguos puedan participar sin perderse.",
+                  "objective": "Que cada participante salga con un avance concreto: una guía, una idea, una estructura, un mensaje, un calendario, un flujo o un sistema básico aplicable a su proyecto.",
+                  "agenda": [
+                        [
+                              "1. Entrada rápida",
+                              [
+                                    "Contexto de la sesión en menos de 10 minutos.",
+                                    "Explicación del objetivo práctico del día.",
+                                    "Cómo participar aunque no hayas asistido a la clase anterior."
+                              ]
+                        ],
+                        [
+                              "2. Ejercicio guiado",
+                              [
+                                    "Uso de IA con instrucciones simples y aplicables.",
+                                    "Construcción de una pieza real según el tema del laboratorio.",
+                                    "Ajustes para docentes, emprendedores, creadores o negocios."
+                              ]
+                        ],
+                        [
+                              "3. Revisión y mejora",
+                              [
+                                    "Cómo detectar si la respuesta de IA sirve o está genérica.",
+                                    "Cómo mejorar claridad, intención y utilidad.",
+                                    "Cómo convertir el ejercicio en siguiente acción."
+                              ]
+                        ],
+                        [
+                              "4. Ruta recomendada",
+                              [
+                                    "Qué programa puede ayudarte a profundizar según tu objetivo.",
+                                    "Diferencia entre certificación, diplomado y ruta ejecutiva.",
+                                    "Próximo paso para inscribirte o seguir en comunidad."
+                              ]
+                        ]
+                  ],
+                  "practical": [
+                        "Un entregable práctico inicial.",
+                        "Plantilla o estructura reutilizable.",
+                        "Claridad sobre el siguiente paso recomendado.",
+                        "Entrada fácil para nuevos miembros del grupo."
+                  ],
+                  "result": "Sales con una pieza inicial trabajada y con una ruta clara para seguir practicando o pasar a un programa completo."
+            }
+      },
+      {
+            "title": "Clase especial: Ruta ejecutiva para aplicar IA en negocios, marketing y educación",
+            "track": "Especial Master",
+            "color": "violet",
+            "accent": "168,85,247",
+            "accentLight": "216,180,254",
+            "date": "Martes 14 de julio",
+            "iso": "2026-07-14T21:00:00-05:00",
+            "year": "2026",
+            "starts": "Master inicia: 20 julio 2026",
+            "duration": "Clase especial · 1 hora en vivo",
+            "link": "https://ibero.education/master-ejecutivo-ia",
+            "desc": "Clase especial para entender cómo una persona puede pasar de usar IA como herramienta suelta a integrarla en una ruta ejecutiva de negocio, marketing y educación.",
+            "bullets": [
+                  "Qué diferencia una ruta ejecutiva de una clase suelta.",
+                  "Cómo decidir entre certificación, diplomado y Master.",
+                  "Qué se construye en un proceso más profundo y personalizado."
+            ],
+            "content": {
+                  "eyebrow": "Ruta ejecutiva con IA",
+                  "promise": "Esta sesión muestra cómo la IA puede pasar de herramienta suelta a sistema de dirección, productividad, estrategia y crecimiento aplicado a negocios, marketing y educación.",
+                  "objective": "Que entiendas cómo se organiza una ruta ejecutiva: claridad de proyecto, toma de decisiones, productividad, automatización, marketing y acompañamiento académico.",
+                  "agenda": [
+                        [
+                              "1. IA como sistema ejecutivo",
+                              [
+                                    "Cómo dejar de usar IA solo para textos sueltos.",
+                                    "Qué áreas puede ordenar: proyectos, ventas, contenido, educación y gestión.",
+                                    "Por qué una ruta ejecutiva necesita método y seguimiento."
+                              ]
+                        ],
+                        [
+                              "2. Negocio, marketing y educación",
+                              [
+                                    "Cómo conectar oferta, comunicación y operación.",
+                                    "Qué cambia cuando una persona trabaja con entregables reales.",
+                                    "Cómo se diferencia una certificación corta de un proceso profundo."
+                              ]
+                        ],
+                        [
+                              "3. Ruta de crecimiento",
+                              [
+                                    "Cuándo conviene una certificación.",
+                                    "Cuándo conviene un diplomado.",
+                                    "Cuándo tiene sentido subir a un Master ejecutivo."
+                              ]
+                        ],
+                        [
+                              "4. Siguiente paso",
+                              [
+                                    "Cómo entrar a la comunidad.",
+                                    "Cómo revisar fechas y programas.",
+                                    "Cómo elegir la ruta más personalizada según nivel y objetivo."
+                              ]
+                        ]
+                  ],
+                  "practical": [
+                        "Mapa de ruta personal.",
+                        "Criterios para elegir programa.",
+                        "Ideas de aplicación ejecutiva con IA.",
+                        "Claridad sobre la metodología IBERO."
+                  ],
+                  "result": "Sales entendiendo qué camino te conviene y cómo la IA puede convertirse en un sistema de trabajo más serio."
+            }
+      },
+      {
+            "title": "Marketing Digital con IA",
+            "track": "Marketing",
+            "color": "cyan",
+            "accent": "34,211,238",
+            "accentLight": "125,211,252",
+            "date": "Martes 21 de julio",
+            "iso": "2026-07-21T21:00:00-05:00",
+            "year": "2026",
+            "starts": "Marketing inicia: 27 julio 2026",
+            "duration": "Clase introductoria · 1 hora en vivo",
+            "link": "https://ibero.education/marketing-digital-con-ia",
+            "desc": "Sesión gratuita de Marketing para quienes desean entrar a la cohorte de julio con una visión clara del programa.",
+            "bullets": [
+                  "Contenido, embudos y activos digitales con lógica comercial.",
+                  "Qué montar primero y qué no para vender con menos caos.",
+                  "Cómo se conectan oferta, CRM, email y automatización."
+            ],
+            "content": {
+                  "eyebrow": "IA, marketing, negocios y educación",
+                  "promise": "Esta sesión gratuita no es un curso completo: es una puerta de entrada para conocer la metodología IBERO, practicar con IA y descubrir qué ruta te conviene.",
+                  "objective": "Que puedas entender una aplicación concreta de IA y decidir si tu siguiente paso es una certificación, un diplomado o una ruta ejecutiva más personalizada.",
+                  "agenda": [
+                        [
+                              "1. Problema real",
+                              [
+                                    "Qué suele bloquear a personas y negocios al usar IA.",
+                                    "Cómo evitar herramientas sueltas sin estrategia.",
+                                    "Qué cambia cuando existe metodología."
+                              ]
+                        ],
+                        [
+                              "2. Aplicación práctica",
+                              [
+                                    "Ejemplo concreto según el tema de la sesión.",
+                                    "Cómo llevarlo a marketing, educación, ventas o negocio.",
+                                    "Qué puede hacer una persona con apoyo de IA y criterio."
+                              ]
+                        ],
+                        [
+                              "3. Mini ejercicio",
+                              [
+                                    "Actividad sencilla para aterrizar la idea.",
+                                    "Recomendaciones para adaptar el ejercicio a distintos perfiles.",
+                                    "Cómo identificar oportunidades de mejora."
+                              ]
+                        ],
+                        [
+                              "4. Ruta IBERO",
+                              [
+                                    "Qué certificación se relaciona con el tema.",
+                                    "Cuándo conviene diplomado o master.",
+                                    "Cómo seguir en el grupo y recibir enlaces."
+                              ]
+                        ]
+                  ],
+                  "practical": [
+                        "Claridad sobre el tema central.",
+                        "Mini ejercicio aplicable.",
+                        "Opciones de ruta según nivel.",
+                        "Acceso a comunidad y próximas sesiones."
+                  ],
+                  "result": "Sales con claridad, una práctica inicial y una ruta posible para profundizar sin sentir que tienes que decidir a ciegas."
+            }
+      },
+      {
+            "title": "Monetiza tu Idea con IA",
+            "track": "Monetiza",
+            "color": "amber",
+            "accent": "250,204,21",
+            "accentLight": "253,224,71",
+            "date": "Martes 4 de agosto",
+            "iso": "2026-08-04T21:00:00-05:00",
+            "year": "2026",
+            "starts": "Monetiza inicia: 10 agosto 2026",
+            "duration": "Clase introductoria · 1 hora en vivo",
+            "link": "https://ibero.education/monetiza-tu-idea",
+            "desc": "Nueva clase gratuita para aterrizar idea, mensaje, propuesta de valor y ruta inicial de monetización.",
+            "bullets": [
+                  "Cómo definir una promesa inicial que sí se entienda.",
+                  "Cómo detectar rápidamente si una idea tiene tracción potencial.",
+                  "Cómo convertir intuición en una ruta más comercial."
+            ],
+            "content": {
+                  "eyebrow": "IA, marketing, negocios y educación",
+                  "promise": "Esta sesión gratuita no es un curso completo: es una puerta de entrada para conocer la metodología IBERO, practicar con IA y descubrir qué ruta te conviene.",
+                  "objective": "Que puedas entender una aplicación concreta de IA y decidir si tu siguiente paso es una certificación, un diplomado o una ruta ejecutiva más personalizada.",
+                  "agenda": [
+                        [
+                              "1. Problema real",
+                              [
+                                    "Qué suele bloquear a personas y negocios al usar IA.",
+                                    "Cómo evitar herramientas sueltas sin estrategia.",
+                                    "Qué cambia cuando existe metodología."
+                              ]
+                        ],
+                        [
+                              "2. Aplicación práctica",
+                              [
+                                    "Ejemplo concreto según el tema de la sesión.",
+                                    "Cómo llevarlo a marketing, educación, ventas o negocio.",
+                                    "Qué puede hacer una persona con apoyo de IA y criterio."
+                              ]
+                        ],
+                        [
+                              "3. Mini ejercicio",
+                              [
+                                    "Actividad sencilla para aterrizar la idea.",
+                                    "Recomendaciones para adaptar el ejercicio a distintos perfiles.",
+                                    "Cómo identificar oportunidades de mejora."
+                              ]
+                        ],
+                        [
+                              "4. Ruta IBERO",
+                              [
+                                    "Qué certificación se relaciona con el tema.",
+                                    "Cuándo conviene diplomado o master.",
+                                    "Cómo seguir en el grupo y recibir enlaces."
+                              ]
+                        ]
+                  ],
+                  "practical": [
+                        "Claridad sobre el tema central.",
+                        "Mini ejercicio aplicable.",
+                        "Opciones de ruta según nivel.",
+                        "Acceso a comunidad y próximas sesiones."
+                  ],
+                  "result": "Sales con claridad, una práctica inicial y una ruta posible para profundizar sin sentir que tienes que decidir a ciegas."
+            }
+      },
+      {
+            "title": "Crea tu Curso Online y Monetiza",
+            "track": "Crea tu academia",
+            "color": "slate",
+            "accent": "226,232,240",
+            "accentLight": "244,244,245",
+            "date": "Martes 11 de agosto",
+            "iso": "2026-08-11T21:00:00-05:00",
+            "year": "2026",
+            "starts": "Crea tu Curso inicia: 17 agosto 2026",
+            "duration": "Clase introductoria · 1 hora en vivo",
+            "link": "https://ibero.education/crea-tu-academia",
+            "desc": "Sesión de agosto para quienes quieren convertir experiencia, conocimiento o metodología en una oferta educativa digital.",
+            "bullets": [
+                  "Qué diferencia a un curso suelto de una academia vendible.",
+                  "Qué activos debes construir primero para salir al mercado.",
+                  "Cómo usar IA para acelerar estructura, copy y materiales."
+            ],
+            "content": {
+                  "eyebrow": "IA, marketing, negocios y educación",
+                  "promise": "Esta sesión gratuita no es un curso completo: es una puerta de entrada para conocer la metodología IBERO, practicar con IA y descubrir qué ruta te conviene.",
+                  "objective": "Que puedas entender una aplicación concreta de IA y decidir si tu siguiente paso es una certificación, un diplomado o una ruta ejecutiva más personalizada.",
+                  "agenda": [
+                        [
+                              "1. Problema real",
+                              [
+                                    "Qué suele bloquear a personas y negocios al usar IA.",
+                                    "Cómo evitar herramientas sueltas sin estrategia.",
+                                    "Qué cambia cuando existe metodología."
+                              ]
+                        ],
+                        [
+                              "2. Aplicación práctica",
+                              [
+                                    "Ejemplo concreto según el tema de la sesión.",
+                                    "Cómo llevarlo a marketing, educación, ventas o negocio.",
+                                    "Qué puede hacer una persona con apoyo de IA y criterio."
+                              ]
+                        ],
+                        [
+                              "3. Mini ejercicio",
+                              [
+                                    "Actividad sencilla para aterrizar la idea.",
+                                    "Recomendaciones para adaptar el ejercicio a distintos perfiles.",
+                                    "Cómo identificar oportunidades de mejora."
+                              ]
+                        ],
+                        [
+                              "4. Ruta IBERO",
+                              [
+                                    "Qué certificación se relaciona con el tema.",
+                                    "Cuándo conviene diplomado o master.",
+                                    "Cómo seguir en el grupo y recibir enlaces."
+                              ]
+                        ]
+                  ],
+                  "practical": [
+                        "Claridad sobre el tema central.",
+                        "Mini ejercicio aplicable.",
+                        "Opciones de ruta según nivel.",
+                        "Acceso a comunidad y próximas sesiones."
+                  ],
+                  "result": "Sales con claridad, una práctica inicial y una ruta posible para profundizar sin sentir que tienes que decidir a ciegas."
+            }
+      },
+      {
+            "title": "Diplomado en IA aplicada a Negocios, Marketing y Comunicación",
+            "track": "Diplomado",
+            "color": "rose",
+            "accent": "248,113,113",
+            "accentLight": "252,165,165",
+            "date": "Martes 18 de agosto",
+            "iso": "2026-08-18T21:00:00-05:00",
+            "year": "2026",
+            "starts": "Diplomado inicia: 24 agosto 2026",
+            "duration": "Clase introductoria · 1 hora en vivo",
+            "link": "https://ibero.education/diplomado-ia-negocios-marketing",
+            "desc": "Sesión introductoria del diplomado para la cohorte de agosto, enfocada en proyecto final, metodología y resultados esperados.",
+            "bullets": [
+                  "Vista completa de la lógica académica y del entregable final.",
+                  "Cómo el diplomado combina negocio, IA, marketing y ejecución.",
+                  "Qué perfil aprovecha mejor esta ruta intensiva."
+            ],
+            "content": {
+                  "eyebrow": "IA, marketing, negocios y educación",
+                  "promise": "Esta sesión gratuita no es un curso completo: es una puerta de entrada para conocer la metodología IBERO, practicar con IA y descubrir qué ruta te conviene.",
+                  "objective": "Que puedas entender una aplicación concreta de IA y decidir si tu siguiente paso es una certificación, un diplomado o una ruta ejecutiva más personalizada.",
+                  "agenda": [
+                        [
+                              "1. Problema real",
+                              [
+                                    "Qué suele bloquear a personas y negocios al usar IA.",
+                                    "Cómo evitar herramientas sueltas sin estrategia.",
+                                    "Qué cambia cuando existe metodología."
+                              ]
+                        ],
+                        [
+                              "2. Aplicación práctica",
+                              [
+                                    "Ejemplo concreto según el tema de la sesión.",
+                                    "Cómo llevarlo a marketing, educación, ventas o negocio.",
+                                    "Qué puede hacer una persona con apoyo de IA y criterio."
+                              ]
+                        ],
+                        [
+                              "3. Mini ejercicio",
+                              [
+                                    "Actividad sencilla para aterrizar la idea.",
+                                    "Recomendaciones para adaptar el ejercicio a distintos perfiles.",
+                                    "Cómo identificar oportunidades de mejora."
+                              ]
+                        ],
+                        [
+                              "4. Ruta IBERO",
+                              [
+                                    "Qué certificación se relaciona con el tema.",
+                                    "Cuándo conviene diplomado o master.",
+                                    "Cómo seguir en el grupo y recibir enlaces."
+                              ]
+                        ]
+                  ],
+                  "practical": [
+                        "Claridad sobre el tema central.",
+                        "Mini ejercicio aplicable.",
+                        "Opciones de ruta según nivel.",
+                        "Acceso a comunidad y próximas sesiones."
+                  ],
+                  "result": "Sales con claridad, una práctica inicial y una ruta posible para profundizar sin sentir que tienes que decidir a ciegas."
+            }
+      },
+      {
+            "title": "Monetiza tu Idea con IA",
+            "track": "Monetiza",
+            "color": "amber",
+            "accent": "250,204,21",
+            "accentLight": "253,224,71",
+            "date": "Martes 6 de octubre",
+            "iso": "2026-10-06T21:00:00-05:00",
+            "year": "2026",
+            "starts": "Monetiza inicia: 12 octubre 2026",
+            "duration": "Clase introductoria · 1 hora en vivo",
+            "link": "https://ibero.education/monetiza-tu-idea",
+            "desc": "Clase gratuita previa a la cohorte de octubre para ordenar idea, valor y salida comercial inicial.",
+            "bullets": [
+                  "Validación de idea, valor y ruta inicial de monetización.",
+                  "Errores comunes al lanzar algo sin propuesta clara.",
+                  "Cómo apoyarte en IA para reducir fricción al comenzar."
+            ],
+            "content": {
+                  "eyebrow": "IA, marketing, negocios y educación",
+                  "promise": "Esta sesión gratuita no es un curso completo: es una puerta de entrada para conocer la metodología IBERO, practicar con IA y descubrir qué ruta te conviene.",
+                  "objective": "Que puedas entender una aplicación concreta de IA y decidir si tu siguiente paso es una certificación, un diplomado o una ruta ejecutiva más personalizada.",
+                  "agenda": [
+                        [
+                              "1. Problema real",
+                              [
+                                    "Qué suele bloquear a personas y negocios al usar IA.",
+                                    "Cómo evitar herramientas sueltas sin estrategia.",
+                                    "Qué cambia cuando existe metodología."
+                              ]
+                        ],
+                        [
+                              "2. Aplicación práctica",
+                              [
+                                    "Ejemplo concreto según el tema de la sesión.",
+                                    "Cómo llevarlo a marketing, educación, ventas o negocio.",
+                                    "Qué puede hacer una persona con apoyo de IA y criterio."
+                              ]
+                        ],
+                        [
+                              "3. Mini ejercicio",
+                              [
+                                    "Actividad sencilla para aterrizar la idea.",
+                                    "Recomendaciones para adaptar el ejercicio a distintos perfiles.",
+                                    "Cómo identificar oportunidades de mejora."
+                              ]
+                        ],
+                        [
+                              "4. Ruta IBERO",
+                              [
+                                    "Qué certificación se relaciona con el tema.",
+                                    "Cuándo conviene diplomado o master.",
+                                    "Cómo seguir en el grupo y recibir enlaces."
+                              ]
+                        ]
+                  ],
+                  "practical": [
+                        "Claridad sobre el tema central.",
+                        "Mini ejercicio aplicable.",
+                        "Opciones de ruta según nivel.",
+                        "Acceso a comunidad y próximas sesiones."
+                  ],
+                  "result": "Sales con claridad, una práctica inicial y una ruta posible para profundizar sin sentir que tienes que decidir a ciegas."
+            }
+      },
+      {
+            "title": "Crea tu Curso Online y Monetiza",
+            "track": "Crea tu academia",
+            "color": "slate",
+            "accent": "226,232,240",
+            "accentLight": "244,244,245",
+            "date": "Martes 13 de octubre",
+            "iso": "2026-10-13T21:00:00-05:00",
+            "year": "2026",
+            "starts": "Crea tu Curso inicia: 19 octubre 2026",
+            "duration": "Clase introductoria · 1 hora en vivo",
+            "link": "https://ibero.education/crea-tu-academia",
+            "desc": "Clase introductoria para estructurar una oferta educativa más clara, con contenidos, promesa y ruta de venta.",
+            "bullets": [
+                  "Cómo estructurar una oferta educativa más clara.",
+                  "Qué módulos, promesa y experiencia debes pensar primero.",
+                  "Cómo conectar contenido, ventas y automatización."
+            ],
+            "content": {
+                  "eyebrow": "IA, marketing, negocios y educación",
+                  "promise": "Esta sesión gratuita no es un curso completo: es una puerta de entrada para conocer la metodología IBERO, practicar con IA y descubrir qué ruta te conviene.",
+                  "objective": "Que puedas entender una aplicación concreta de IA y decidir si tu siguiente paso es una certificación, un diplomado o una ruta ejecutiva más personalizada.",
+                  "agenda": [
+                        [
+                              "1. Problema real",
+                              [
+                                    "Qué suele bloquear a personas y negocios al usar IA.",
+                                    "Cómo evitar herramientas sueltas sin estrategia.",
+                                    "Qué cambia cuando existe metodología."
+                              ]
+                        ],
+                        [
+                              "2. Aplicación práctica",
+                              [
+                                    "Ejemplo concreto según el tema de la sesión.",
+                                    "Cómo llevarlo a marketing, educación, ventas o negocio.",
+                                    "Qué puede hacer una persona con apoyo de IA y criterio."
+                              ]
+                        ],
+                        [
+                              "3. Mini ejercicio",
+                              [
+                                    "Actividad sencilla para aterrizar la idea.",
+                                    "Recomendaciones para adaptar el ejercicio a distintos perfiles.",
+                                    "Cómo identificar oportunidades de mejora."
+                              ]
+                        ],
+                        [
+                              "4. Ruta IBERO",
+                              [
+                                    "Qué certificación se relaciona con el tema.",
+                                    "Cuándo conviene diplomado o master.",
+                                    "Cómo seguir en el grupo y recibir enlaces."
+                              ]
+                        ]
+                  ],
+                  "practical": [
+                        "Claridad sobre el tema central.",
+                        "Mini ejercicio aplicable.",
+                        "Opciones de ruta según nivel.",
+                        "Acceso a comunidad y próximas sesiones."
+                  ],
+                  "result": "Sales con claridad, una práctica inicial y una ruta posible para profundizar sin sentir que tienes que decidir a ciegas."
+            }
+      },
+      {
+            "title": "Marketing Digital con IA",
+            "track": "Marketing",
+            "color": "cyan",
+            "accent": "34,211,238",
+            "accentLight": "125,211,252",
+            "date": "Martes 20 de octubre",
+            "iso": "2026-10-20T21:00:00-05:00",
+            "year": "2026",
+            "starts": "Marketing inicia: 26 octubre 2026",
+            "duration": "Clase introductoria · 1 hora en vivo",
+            "link": "https://ibero.education/marketing-digital-con-ia",
+            "desc": "Clase gratuita previa a la cohorte de octubre para ordenar contenido, captación, activos digitales y seguimiento.",
+            "bullets": [
+                  "Cómo pensar marketing con IA sin improvisar.",
+                  "Qué activos digitales ayudan más a vender.",
+                  "Cómo ordenar contenido, captación y seguimiento."
+            ],
+            "content": {
+                  "eyebrow": "IA, marketing, negocios y educación",
+                  "promise": "Esta sesión gratuita no es un curso completo: es una puerta de entrada para conocer la metodología IBERO, practicar con IA y descubrir qué ruta te conviene.",
+                  "objective": "Que puedas entender una aplicación concreta de IA y decidir si tu siguiente paso es una certificación, un diplomado o una ruta ejecutiva más personalizada.",
+                  "agenda": [
+                        [
+                              "1. Problema real",
+                              [
+                                    "Qué suele bloquear a personas y negocios al usar IA.",
+                                    "Cómo evitar herramientas sueltas sin estrategia.",
+                                    "Qué cambia cuando existe metodología."
+                              ]
+                        ],
+                        [
+                              "2. Aplicación práctica",
+                              [
+                                    "Ejemplo concreto según el tema de la sesión.",
+                                    "Cómo llevarlo a marketing, educación, ventas o negocio.",
+                                    "Qué puede hacer una persona con apoyo de IA y criterio."
+                              ]
+                        ],
+                        [
+                              "3. Mini ejercicio",
+                              [
+                                    "Actividad sencilla para aterrizar la idea.",
+                                    "Recomendaciones para adaptar el ejercicio a distintos perfiles.",
+                                    "Cómo identificar oportunidades de mejora."
+                              ]
+                        ],
+                        [
+                              "4. Ruta IBERO",
+                              [
+                                    "Qué certificación se relaciona con el tema.",
+                                    "Cuándo conviene diplomado o master.",
+                                    "Cómo seguir en el grupo y recibir enlaces."
+                              ]
+                        ]
+                  ],
+                  "practical": [
+                        "Claridad sobre el tema central.",
+                        "Mini ejercicio aplicable.",
+                        "Opciones de ruta según nivel.",
+                        "Acceso a comunidad y próximas sesiones."
+                  ],
+                  "result": "Sales con claridad, una práctica inicial y una ruta posible para profundizar sin sentir que tienes que decidir a ciegas."
+            }
+      },
+      {
+            "title": "Monetiza tu Idea con IA",
+            "track": "Monetiza",
+            "color": "amber",
+            "accent": "250,204,21",
+            "accentLight": "253,224,71",
+            "date": "Martes 3 de noviembre",
+            "iso": "2026-11-03T21:00:00-05:00",
+            "year": "2026",
+            "starts": "Monetiza inicia: 9 noviembre 2026",
+            "duration": "Clase introductoria · 1 hora en vivo",
+            "link": "https://ibero.education/monetiza-tu-idea",
+            "desc": "Clase previa a la cohorte de noviembre para trabajar claridad, oferta y monetización inicial con IA.",
+            "bullets": [
+                  "Idea, oferta, claridad y monetización inicial.",
+                  "Cómo evitar lanzar algo sin estructura.",
+                  "Cómo usar IA para ordenar tu primera salida comercial."
+            ],
+            "content": {
+                  "eyebrow": "IA, marketing, negocios y educación",
+                  "promise": "Esta sesión gratuita no es un curso completo: es una puerta de entrada para conocer la metodología IBERO, practicar con IA y descubrir qué ruta te conviene.",
+                  "objective": "Que puedas entender una aplicación concreta de IA y decidir si tu siguiente paso es una certificación, un diplomado o una ruta ejecutiva más personalizada.",
+                  "agenda": [
+                        [
+                              "1. Problema real",
+                              [
+                                    "Qué suele bloquear a personas y negocios al usar IA.",
+                                    "Cómo evitar herramientas sueltas sin estrategia.",
+                                    "Qué cambia cuando existe metodología."
+                              ]
+                        ],
+                        [
+                              "2. Aplicación práctica",
+                              [
+                                    "Ejemplo concreto según el tema de la sesión.",
+                                    "Cómo llevarlo a marketing, educación, ventas o negocio.",
+                                    "Qué puede hacer una persona con apoyo de IA y criterio."
+                              ]
+                        ],
+                        [
+                              "3. Mini ejercicio",
+                              [
+                                    "Actividad sencilla para aterrizar la idea.",
+                                    "Recomendaciones para adaptar el ejercicio a distintos perfiles.",
+                                    "Cómo identificar oportunidades de mejora."
+                              ]
+                        ],
+                        [
+                              "4. Ruta IBERO",
+                              [
+                                    "Qué certificación se relaciona con el tema.",
+                                    "Cuándo conviene diplomado o master.",
+                                    "Cómo seguir en el grupo y recibir enlaces."
+                              ]
+                        ]
+                  ],
+                  "practical": [
+                        "Claridad sobre el tema central.",
+                        "Mini ejercicio aplicable.",
+                        "Opciones de ruta según nivel.",
+                        "Acceso a comunidad y próximas sesiones."
+                  ],
+                  "result": "Sales con claridad, una práctica inicial y una ruta posible para profundizar sin sentir que tienes que decidir a ciegas."
+            }
+      },
+      {
+            "title": "Crea tu Curso Online y Monetiza",
+            "track": "Crea tu academia",
+            "color": "slate",
+            "accent": "226,232,240",
+            "accentLight": "244,244,245",
+            "date": "Martes 10 de noviembre",
+            "iso": "2026-11-10T21:00:00-05:00",
+            "year": "2026",
+            "starts": "Crea tu Curso inicia: 16 noviembre 2026",
+            "duration": "Clase introductoria · 1 hora en vivo",
+            "link": "https://ibero.education/crea-tu-academia",
+            "desc": "Última clase gratuita de la secuencia anual actual para empaquetar conocimiento como activo digital vendible.",
+            "bullets": [
+                  "Cómo empaquetar conocimiento como activo digital vendible.",
+                  "Cómo construir una oferta educativa más seria con IA.",
+                  "Qué piezas mínimas necesitas para lanzar y monetizar."
+            ],
+            "content": {
+                  "eyebrow": "IA, marketing, negocios y educación",
+                  "promise": "Esta sesión gratuita no es un curso completo: es una puerta de entrada para conocer la metodología IBERO, practicar con IA y descubrir qué ruta te conviene.",
+                  "objective": "Que puedas entender una aplicación concreta de IA y decidir si tu siguiente paso es una certificación, un diplomado o una ruta ejecutiva más personalizada.",
+                  "agenda": [
+                        [
+                              "1. Problema real",
+                              [
+                                    "Qué suele bloquear a personas y negocios al usar IA.",
+                                    "Cómo evitar herramientas sueltas sin estrategia.",
+                                    "Qué cambia cuando existe metodología."
+                              ]
+                        ],
+                        [
+                              "2. Aplicación práctica",
+                              [
+                                    "Ejemplo concreto según el tema de la sesión.",
+                                    "Cómo llevarlo a marketing, educación, ventas o negocio.",
+                                    "Qué puede hacer una persona con apoyo de IA y criterio."
+                              ]
+                        ],
+                        [
+                              "3. Mini ejercicio",
+                              [
+                                    "Actividad sencilla para aterrizar la idea.",
+                                    "Recomendaciones para adaptar el ejercicio a distintos perfiles.",
+                                    "Cómo identificar oportunidades de mejora."
+                              ]
+                        ],
+                        [
+                              "4. Ruta IBERO",
+                              [
+                                    "Qué certificación se relaciona con el tema.",
+                                    "Cuándo conviene diplomado o master.",
+                                    "Cómo seguir en el grupo y recibir enlaces."
+                              ]
+                        ]
+                  ],
+                  "practical": [
+                        "Claridad sobre el tema central.",
+                        "Mini ejercicio aplicable.",
+                        "Opciones de ruta según nivel.",
+                        "Acceso a comunidad y próximas sesiones."
+                  ],
+                  "result": "Sales con claridad, una práctica inicial y una ruta posible para profundizar sin sentir que tienes que decidir a ciegas."
+            }
+      }
+];
 
     let currentClassIndex = 0;
     const proximaTitle = document.getElementById('proxima-title');
@@ -925,6 +2562,66 @@
       updateCountdown();
     }
 
+    function getAgendaDateParts(item) {
+      const clean = item.date.replace('Martes ', 'Mar|').replace('Miércoles ', 'Mié|');
+      const parts = clean.split('|');
+      const day = parts.length > 1 ? parts[0] : item.date.split(' ')[0].slice(0,3);
+      const dateText = parts.length > 1 ? parts[1] : item.date.replace(/^\S+\s+/, '');
+      return { day, dateText };
+    }
+
+    function getAgendaType(item) {
+      if (item.date.startsWith('Miércoles')) return 'Laboratorio';
+      if (item.title.toLowerCase().includes('especial')) return 'Especial';
+      if ((item.track || '').toLowerCase().includes('marketing')) return 'Clase abierta';
+      return item.date.startsWith('Martes') ? 'Clase abierta' : 'Sesión';
+    }
+
+    function renderAllFreeSessionsList() {
+      const container = document.getElementById('all-free-sessions-list');
+      if (!container) return;
+      const now = Date.now();
+      const upcoming = freeClasses
+        .map((item, index) => ({ item, index }))
+        .filter(({ item }) => getClassEnd(item) > now);
+      const list = upcoming.length ? upcoming : freeClasses.map((item, index) => ({ item, index }));
+      const nextIndex = findUpcomingClassIndex();
+      container.innerHTML = list.map(({ item, index }) => {
+        const dateParts = getAgendaDateParts(item);
+        const type = getAgendaType(item);
+        const isNext = index === nextIndex;
+        const borderClass = isNext ? 'border-cyan-400/35 bg-cyan-500/[0.055]' : 'border-white/10 bg-white/[0.035]';
+        const nextBadge = isNext ? '<span class="agenda-type-chip"><i class="fa-solid fa-location-dot"></i> Próxima</span>' : '';
+        return `
+          <article id="agenda-free-${index}" class="agenda-session-row soft-card rounded-3xl p-4 sm:p-5 ${borderClass}" style="--row-accent-rgb:${item.accent || '34,211,238'};--row-accent-light-rgb:${item.accentLight || '125,211,252'};">
+            <div class="agenda-session-inner relative z-10 flex items-center gap-4">
+              <div class="agenda-date-pill shrink-0">
+                <span class="agenda-date-day">${dateParts.day}</span>
+                <span class="agenda-date-main">${dateParts.dateText}</span>
+                <span class="agenda-date-year">${item.year}</span>
+              </div>
+              <div class="min-w-0 flex-1">
+                <div class="flex flex-wrap items-center gap-2 mb-2">
+                  <span class="agenda-type-chip"><i class="fa-solid ${type === 'Laboratorio' ? 'fa-screwdriver-wrench' : type === 'Especial' ? 'fa-star' : 'fa-video'}"></i> ${type}</span>
+                  <span class="agenda-type-chip"><i class="fa-solid fa-gift"></i> Gratis</span>
+                  ${nextBadge}
+                </div>
+                <h3 class="agenda-session-title text-lg sm:text-xl font-black text-white leading-tight">${item.title}</h3>
+                <p class="text-sm text-zinc-400 mt-1 leading-relaxed">${item.starts}</p>
+                <div class="flex flex-wrap gap-x-4 gap-y-1 mt-3 text-xs sm:text-sm text-zinc-300">
+                  <span><i class="fa-regular fa-clock mr-1" style="color:rgb(var(--row-accent-light-rgb,125,211,252))"></i>EC/CO/PE: 9:00 PM – 10:00 PM</span>
+                  <span><i class="fa-regular fa-clock mr-1 text-emerald-300"></i>MX: 8:00 PM – 9:00 PM</span>
+                </div>
+              </div>
+              <div class="agenda-session-actions grid gap-2 shrink-0 sm:min-w-[210px]">
+                <button type="button" data-select-free-class="${index}" class="bg-white/8 hover:bg-white/12 border border-white/10 text-white px-4 py-3 rounded-xl font-bold text-xs sm:text-sm transition-all">Ver arriba</button>
+                <a href="${WHATSAPP_GROUP}" target="_blank" class="bg-emerald-400 hover:bg-emerald-300 text-black px-4 py-3 rounded-xl font-black text-xs sm:text-sm text-center transition-all">Inscribirme</a>
+              </div>
+            </div>
+          </article>`;
+      }).join('');
+    }
+
     const modal = document.getElementById('content-modal');
     const modalPanel = document.getElementById('content-modal-panel');
     const modalTitle = document.getElementById('modal-title');
@@ -934,6 +2631,7 @@
     const closeContentModal = document.getElementById('close-content-modal');
 
     function getClassContent(item) {
+      if (item.content) return item.content;
       const title = item.title.toUpperCase();
       if (title.includes('MARKETING')) {
         return {
@@ -1143,8 +2841,17 @@
       currentClassIndex = (currentClassIndex + 1) % freeClasses.length;
       renderFreeClass(currentClassIndex);
     });
+    document.addEventListener('click', (event) => {
+      const btn = event.target.closest('[data-select-free-class]');
+      if (!btn) return;
+      currentClassIndex = Number(btn.dataset.selectFreeClass);
+      renderFreeClass(currentClassIndex);
+      document.getElementById('proxima')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
     currentClassIndex = findUpcomingClassIndex();
     renderFreeClass(currentClassIndex);
+    renderAllFreeSessionsList();
     setInterval(updateCountdown, 1000);
   </script>
 </body>

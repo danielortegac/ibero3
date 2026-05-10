@@ -1825,12 +1825,115 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
+  /* Mejora visual controlada: programas más distintivos en Proceso de Inversión */
+  #admission-payment-grid {
+    grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+    gap: 0.85rem !important;
+  }
+  @media (min-width: 640px) {
+    #admission-payment-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  }
+  @media (min-width: 1180px) {
+    #admission-payment-grid { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+  }
+  #admission-payment-grid .admission-pay-link {
+    position: relative;
+    isolation: isolate;
+    border-radius: 1.35rem !important;
+    min-height: 205px !important;
+    padding: 1rem !important;
+    border-color: rgba(255,255,255,0.13) !important;
+    background: linear-gradient(145deg, rgba(255,255,255,0.055), rgba(9,9,11,0.96) 52%) !important;
+    box-shadow: 0 18px 45px rgba(0,0,0,0.28) !important;
+  }
+  #admission-payment-grid .admission-pay-link::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    z-index: -1;
+    opacity: .72;
+  }
+  #admission-payment-grid .admission-pay-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 24px 60px rgba(0,0,0,0.34) !important;
+  }
+  #admission-payment-grid .admission-pay-link[data-admission-type="certificacion"] {
+    border-color: rgba(251,191,36,0.35) !important;
+    background: linear-gradient(145deg, rgba(251,191,36,0.13), rgba(9,9,11,0.96) 54%) !important;
+  }
+  #admission-payment-grid .admission-pay-link[data-admission-type="certificacion"]::before {
+    background: radial-gradient(circle at top right, rgba(251,191,36,0.22), transparent 46%);
+  }
+  #admission-payment-grid .admission-pay-link[data-admission-type="diplomado"] {
+    border-color: rgba(167,139,250,0.42) !important;
+    background: linear-gradient(145deg, rgba(124,58,237,0.18), rgba(9,9,11,0.96) 54%) !important;
+  }
+  #admission-payment-grid .admission-pay-link[data-admission-type="diplomado"]::before {
+    background: radial-gradient(circle at top right, rgba(167,139,250,0.28), transparent 46%);
+  }
+  #admission-payment-grid .admission-pay-link[data-admission-type="master"] {
+    border-color: rgba(129,140,248,0.42) !important;
+    background: linear-gradient(145deg, rgba(79,70,229,0.20), rgba(9,9,11,0.96) 54%) !important;
+  }
+  #admission-payment-grid .admission-pay-link[data-admission-type="master"]::before {
+    background: radial-gradient(circle at top right, rgba(129,140,248,0.30), transparent 46%);
+  }
+  #admission-payment-grid .admission-pay-link[data-admission-type="gratis"] {
+    border-color: rgba(52,211,153,0.42) !important;
+    background: linear-gradient(145deg, rgba(16,185,129,0.18), rgba(9,9,11,0.96) 54%) !important;
+  }
+  #admission-payment-grid .admission-pay-link[data-admission-type="gratis"]::before {
+    background: radial-gradient(circle at top right, rgba(52,211,153,0.28), transparent 46%);
+  }
+  #admission-payment-grid .admission-pay-link .w-8.h-8 {
+    width: 2.25rem !important;
+    height: 2.25rem !important;
+    border-radius: 1rem !important;
+    background: rgba(0,0,0,0.42) !important;
+  }
+  #admission-payment-grid .admission-pay-link p.text-zinc-50 {
+    font-size: 0.82rem !important;
+    line-height: 1.22 !important;
+    letter-spacing: -0.01em;
+  }
+  #admission-payment-grid .admission-pay-link p.text-zinc-400 {
+    font-size: 0.68rem !important;
+    line-height: 1.25 !important;
+  }
+  #admission-payment-grid .admission-pay-link span.mt-auto {
+    border-color: rgba(255,255,255,0.14) !important;
+    background: rgba(255,255,255,0.07) !important;
+  }
+  #admission-payment-grid .admission-pay-link span.mt-auto:hover {
+    background: rgba(255,255,255,0.14) !important;
+  }
+  @media (max-width: 640px) {
+    #admission-payment-grid { grid-template-columns: 1fr !important; }
+    #admission-payment-grid .admission-pay-link {
+      min-height: 168px !important;
+      padding: 0.82rem !important;
+    }
+  }
+
+
 </style>
 
 <script id="ibero-admisiones-payment-guard">
 document.addEventListener('DOMContentLoaded', function () {
   const countryButtons = document.querySelectorAll('.pay-country-btn');
   const paymentCards = document.querySelectorAll('.admission-pay-link');
+  paymentCards.forEach(function (card) {
+    const typeBadge = card.querySelector('div:first-child span');
+    const typeText = typeBadge ? typeBadge.textContent.toLowerCase() : '';
+    const type = typeText.includes('cert') ? 'certificacion'
+      : typeText.includes('diplomado') ? 'diplomado'
+      : typeText.includes('master') ? 'master'
+      : typeText.includes('gratis') ? 'gratis'
+      : 'programa';
+    card.dataset.admissionType = type;
+  });
   const bankBlock = document.getElementById('ecuador-bank-transfer-block');
   const countryNote = document.getElementById('payment-country-note');
   const westernBtn = document.getElementById('toggle-western-admisiones');

@@ -860,14 +860,14 @@
         <div class="p-6 sm:p-7 lg:p-8 bg-gradient-to-br from-zinc-50 via-white to-emerald-50/40 border-b lg:border-b-0 lg:border-r border-zinc-200 flex flex-col justify-start">
           <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-emerald-200 bg-emerald-50 text-emerald-800 text-[10px] font-black uppercase tracking-[0.16em] mb-5">
             <i class="fa-solid fa-gift"></i>
-            Clases gratuitas
+            Sesiones gratuitas
           </div>
           <h2 class="text-2xl sm:text-4xl lg:text-4xl font-extrabold tracking-tight text-ibero-dark leading-tight mb-4">
-            Accede a nuestras
-            <span class="font-serif italic text-emerald-700 font-medium">clases gratuitas</span>
+            IA, Marketing & Negocios
+            <span class="font-serif italic text-emerald-700 font-medium">gratis cada semana</span>
           </h2>
           <p class="text-sm sm:text-base text-zinc-600 leading-relaxed max-w-xl mb-6">
-            Participa en sesiones introductorias en vivo para conocer la metodología IBERO, explorar nuestros programas y recibir orientación práctica en inteligencia artificial, marketing, negocios y educación digital.
+            Participa en clases abiertas y laboratorios prácticos para conocer la metodología IBERO, practicar con IA y descubrir si tu ruta ideal es una certificación, un diplomado o un programa ejecutivo.
           </p>
           <div class="rounded-2xl border border-emerald-200 bg-emerald-50/70 p-4 mb-5">
             <div class="flex items-start gap-3">
@@ -877,7 +877,7 @@
               <div>
                 <h3 class="text-sm font-black text-emerald-950 mb-1">Únete al grupo gratuito de WhatsApp</h3>
                 <p class="text-xs sm:text-[13px] text-emerald-900/80 leading-relaxed">
-                  Además del enlace para ingresar a cada clase gratis, compartiremos recursos, ideas y contenido de valor sobre inteligencia artificial, marketing y negocios. Es un espacio gratuito para aprender de forma constante, recibir avisos importantes y acercar la IA práctica a más personas.
+                  Además del enlace para cada sesión, compartiremos recursos, ideas y contenido de valor sobre inteligencia artificial, marketing y negocios. Es una comunidad gratuita para aprender, recibir avisos y conocer la metodología IBERO.
                 </p>
               </div>
             </div>
@@ -910,7 +910,7 @@
             <div class="flex items-center justify-between gap-3 mb-5">
               <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-white/5 text-cyan-200 text-[10px] font-black uppercase tracking-[0.16em] whitespace-nowrap">
                 <i class="fa-solid fa-bolt"></i>
-                Próxima clase gratis
+                Próxima sesión gratis
               </div>
               <div class="flex items-center gap-2 shrink-0">
                 <button id="home-free-prev" type="button" aria-label="Clase gratuita anterior" class="w-10 h-10 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition-colors flex items-center justify-center">
@@ -927,7 +927,7 @@
                   <p id="home-free-badge" class="inline-flex px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-200 text-[10px] font-black uppercase tracking-[0.16em] mb-3">Marketing</p>
                   <h3 id="home-free-title" class="text-xl sm:text-3xl font-black tracking-tight leading-tight">Marketing Digital con IA</h3>
                 </div>
-                <span id="home-free-count" class="text-[11px] text-white/50 font-bold whitespace-nowrap">01 / 13</span>
+                <span id="home-free-count" class="text-[11px] text-white/50 font-bold whitespace-nowrap">01 / 25</span>
               </div>
               <p id="home-free-desc" class="text-sm sm:text-base text-zinc-300 leading-relaxed mb-4">
                 Clase introductoria para entender cómo construir presencia digital inteligente, contenido con criterio y una ruta comercial inicial con IA.
@@ -947,7 +947,7 @@
               <div class="grid grid-cols-2 gap-3 mb-5">
                 <div class="rounded-2xl border border-white/10 bg-black/20 p-4">
                   <p class="text-[10px] uppercase tracking-[0.16em] font-black text-white/40 mb-2">Fecha</p>
-                  <p id="home-free-date-card" class="text-base sm:text-lg font-black text-white leading-tight">12 mayo 2026</p>
+                  <p id="home-free-date-card" class="text-base sm:text-lg font-black text-white leading-tight">19 mayo 2026</p>
                 </div>
                 <div class="rounded-2xl border border-white/10 bg-black/20 p-4">
                   <p class="text-[10px] uppercase tracking-[0.16em] font-black text-white/40 mb-2">Hora</p>
@@ -963,7 +963,7 @@
               </div>
             </div>
             <div class="mt-4 flex items-center justify-end gap-3 text-[11px] text-zinc-500">
-              <span id="home-free-next-line" class="hidden sm:inline text-zinc-400">Luego: Monetiza tu Idea · 26 mayo</span>
+              <span id="home-free-next-line" class="hidden sm:inline text-zinc-400">Luego: Monetiza tu Idea · 2 junio</span>
             </div>
           </div>
         </div>
@@ -2909,13 +2909,13 @@
     const chatInput = document.getElementById('chat-input');
 
     const botKnowledge = [
-      { keys: ['clase gratis', 'clases gratis', 'gratis', 'gratuita', 'gratuitas'], text: `🟢 <strong>Clases Gratis IBERO</strong><br><br>Tenemos clases introductorias gratuitas en vivo para que conozcas nuestros programas antes de inscribirte. La próxima clase es <strong>Marketing Digital con IA</strong> el <strong>12 de mayo de 2026</strong>.<br><br>🕘 <strong>Horario:</strong><br>• EC / CO / PE: 9:00 PM a 10:00 PM<br>• MX: 8:00 PM a 9:00 PM<br><br>El acceso se comparte por nuestro grupo gratuito de WhatsApp. Ahí también enviamos recordatorios y contenido de valor sobre IA, marketing y negocios.<br><br><a href="https://chat.whatsapp.com/Gyb5EfKq5zJHpV3OybJPrK?mode=gi_t" target="_blank" class="inline-block bg-emerald-600 text-white px-3 py-2 rounded-lg font-bold mt-2 no-underline">Inscribirme Gratis</a><br><a href="https://ibero.education/clase-gratis/" target="_blank" class="text-blue-500 underline font-bold mt-2 inline-block">Ver página de clases gratis</a>` },
-      { keys: ['marketing', 'digital'], text: `El curso <strong>Marketing Digital con IA</strong> es una certificación de 12h. <br><br>💰 <strong>Precios Promo:</strong><br>• USD: $37<br>• MXN: $645<br>• PEN: S/ 130<br>• COP: $137.000<br><br>📅 Inicios: 18 Mayo, 20 Julio, 19 Octubre. <br><a href="https://ibero.education/marketing-digital-con-ia" target="_blank" class="text-blue-500 underline font-bold mt-2 inline-block">Ver y Postular</a>` },
-      { keys: ['docentes', 'profesores', 'educacion'], text: `La certificación <strong>IA para Docentes</strong> dura 12h. <br><br>💰 <strong>Precios Promo:</strong><br>• USD: $37<br>• MXN: $645<br>• PEN: S/ 130<br>• COP: $137.000<br><br>📅 Inicios: 25 Mayo, 27 Julio, 21 Septiembre y 26 Octubre. <br><a href="https://ibero.education/ia-para-docentes" target="_blank" class="text-blue-500 underline font-bold mt-2 inline-block">Ver y Postular</a>` },
-      { keys: ['monetiza', 'idea', 'asistente'], text: `El curso <strong>Monetiza tu Idea con IA</strong> dura 12h. <br><br>💰 <strong>Precios Promo:</strong><br>• USD: $37<br>• MXN: $645<br>• PEN: S/ 130<br>• COP: $137.000<br><br>📅 Inicios: 1 Junio, 3 Agosto, 5 Octubre, 2 Noviembre. <br><a href="https://ibero.education/monetiza-tu-idea" target="_blank" class="text-blue-500 underline font-bold mt-2 inline-block">Postular</a>` },
-      { keys: ['crea', 'curso', 'online'], text: `El programa <strong>Crea tu Curso Online y Monetiza</strong> dura 12h. <br><br>💰 <strong>Precios Promo:</strong><br>• USD: $37<br>• MXN: $645<br>• PEN: S/ 130<br>• COP: $137.000<br><br>📅 Inicios: 8 Junio, 10 Agosto, 12 Octubre, 9 Noviembre. <br><a href="https://ibero.education/crea-tu-academia" target="_blank" class="text-blue-500 underline font-bold mt-2 inline-block">Postular</a>` },
-      { keys: ['diplomado', 'ia aplicada'], text: `El <strong>Diplomado Intensivo en IA</strong> dura 5 semanas (60h). Es nuestro programa bandera. <br><br>💰 <strong>Precios Promo:</strong><br>• USD: $167<br>• MXN: $2,920<br>• PEN: S/ 586<br>• COP: $617.000<br><br>📅 Inicios: 15 Junio, 17 Agosto. <br><a href="https://ibero.education/diplomado-ia-negocios-marketing" target="_blank" class="text-blue-500 underline font-bold mt-2 inline-block">Ver Diplomado</a>` },
-      { keys: ['master', 'executive'], text: `El <strong>Executive Master</strong> dura 6 meses y es la élite de IBERO. Sales con un negocio real (PWA). <br><br>💰 <strong>Inversión Semestral:</strong><br>• USD: $457<br>• MXN: $7,990<br>• PEN: S/ 1,603<br>• COP: $1.689.000<br><br>💰 <strong>Mensualidades:</strong> USD $77 / MXN $1,350 / PEN S/270 / COP $285.000.<br><br>📅 Inicio: 13 de Julio. Finaliza en enero de 2027. <br><a href="https://ibero.education/master-ejecutivo-ia" target="_blank" class="text-blue-500 underline font-bold mt-2 inline-block">Postular al Master</a>` },
+      { keys: ['clase gratis', 'clases gratis', 'gratis', 'gratuita', 'gratuitas'], text: `🟢 <strong>Sesiones Gratuitas IBERO</strong><br><br>Tenemos una comunidad gratuita de <strong>IA, Marketing & Negocios</strong> con clases abiertas y laboratorios prácticos. La próxima sesión es <strong>Marketing Digital con IA</strong> el <strong>19 de mayo de 2026</strong>. Desde el 26 de mayo abrimos una ruta semanal con martes de clase y miércoles de laboratorio hasta el 14 de julio.<br><br>🕘 <strong>Horario:</strong><br>• EC / CO / PE: 9:00 PM a 10:00 PM<br>• MX: 8:00 PM a 9:00 PM<br><br>No es un curso completo gratuito: es una puerta de entrada para conocer la metodología, practicar con IA y elegir entre certificaciones, diplomados o programa ejecutivo según tu nivel.<br><br><a href="https://chat.whatsapp.com/Gyb5EfKq5zJHpV3OybJPrK?mode=gi_t" target="_blank" class="inline-block bg-emerald-600 text-white px-3 py-2 rounded-lg font-bold mt-2 no-underline">Inscribirme Gratis</a><br><a href="https://ibero.education/clase-gratis/" target="_blank" class="text-blue-500 underline font-bold mt-2 inline-block">Ver página de sesiones gratis</a>` },
+      { keys: ['marketing', 'digital'], text: `El curso <strong>Marketing Digital con IA</strong> es una certificación de 12h. <br><br>💰 <strong>Precios Promo:</strong><br>• USD: $37<br>• MXN: $645<br>• PEN: S/ 130<br>• COP: $137.000<br><br>📅 Inicios: 25 Mayo, 27 Julio, 26 Octubre. <br><a href="https://ibero.education/marketing-digital-con-ia" target="_blank" class="text-blue-500 underline font-bold mt-2 inline-block">Ver y Postular</a>` },
+      { keys: ['docentes', 'profesores', 'educacion'], text: `La certificación <strong>IA para Docentes</strong> dura 12h. <br><br>💰 <strong>Precios Promo:</strong><br>• USD: $37<br>• MXN: $645<br>• PEN: S/ 130<br>• COP: $137.000<br><br>📅 Inicios: 1 Junio, 3 Agosto, 28 Septiembre y 2 Noviembre. <br><a href="https://ibero.education/ia-para-docentes" target="_blank" class="text-blue-500 underline font-bold mt-2 inline-block">Ver y Postular</a>` },
+      { keys: ['monetiza', 'idea', 'asistente'], text: `El curso <strong>Monetiza tu Idea con IA</strong> dura 12h. <br><br>💰 <strong>Precios Promo:</strong><br>• USD: $37<br>• MXN: $645<br>• PEN: S/ 130<br>• COP: $137.000<br><br>📅 Inicios: 8 Junio, 10 Agosto, 12 Octubre, 9 Noviembre. <br><a href="https://ibero.education/monetiza-tu-idea" target="_blank" class="text-blue-500 underline font-bold mt-2 inline-block">Postular</a>` },
+      { keys: ['crea', 'curso', 'online'], text: `El programa <strong>Crea tu Curso Online y Monetiza</strong> dura 12h. <br><br>💰 <strong>Precios Promo:</strong><br>• USD: $37<br>• MXN: $645<br>• PEN: S/ 130<br>• COP: $137.000<br><br>📅 Inicios: 15 Junio, 17 Agosto, 19 Octubre, 16 Noviembre. <br><a href="https://ibero.education/crea-tu-academia" target="_blank" class="text-blue-500 underline font-bold mt-2 inline-block">Postular</a>` },
+      { keys: ['diplomado', 'ia aplicada'], text: `El <strong>Diplomado Intensivo en IA</strong> dura 5 semanas (60h). Es nuestro programa bandera. <br><br>💰 <strong>Precios Promo:</strong><br>• USD: $167<br>• MXN: $2,920<br>• PEN: S/ 586<br>• COP: $617.000<br><br>📅 Inicios: 22 Junio, 24 Agosto. <br><a href="https://ibero.education/diplomado-ia-negocios-marketing" target="_blank" class="text-blue-500 underline font-bold mt-2 inline-block">Ver Diplomado</a>` },
+      { keys: ['master', 'executive'], text: `El <strong>Executive Master</strong> dura 6 meses y es la élite de IBERO. Sales con un negocio real (PWA). <br><br>💰 <strong>Inversión Semestral:</strong><br>• USD: $457<br>• MXN: $7,990<br>• PEN: S/ 1,603<br>• COP: $1.689.000<br><br>💰 <strong>Mensualidades:</strong> USD $77 / MXN $1,350 / PEN S/270 / COP $285.000.<br><br>📅 Inicio: 20 de Julio. Finaliza en enero de 2027. <br><a href="https://ibero.education/master-ejecutivo-ia" target="_blank" class="text-blue-500 underline font-bold mt-2 inline-block">Postular al Master</a>` },
       { keys: ['taller', 'presencial', 'hablar', 'publico'], text: `El taller presencial <strong>Aprende a Hablar en Público</strong> (Quito, Ecuador) se dicta los sábados de 9am a 1pm. <br><br>💰 <strong>Precio Promo:</strong> $37 USD.<br><br><a href="https://ibero.education/comunicacion-efectiva" target="_blank" class="text-blue-500 underline font-bold mt-2 inline-block">Reservar Cupo</a>` },
       { keys: ['precio', 'costo', 'valor', 'cuanto', 'precios'], text: `Nuestros precios (con 35% OFF aplicado) varían según el programa:<br><br>🔹 <strong>Cursos/Certificaciones 12h:</strong> $37 USD (MXN $645 | PEN S/130 | COP $137K)<br>🔹 <strong>Diplomado 60h:</strong> $167 USD (MXN $2,920 | PEN S/586 | COP $617K)<br>🔹 <strong>Executive Master:</strong> $457 USD Semestral o $77 USD Mensual.<br>🔹 <strong>Talleres Presenciales:</strong> $37 USD.<br><br>¿De cuál programa te gustaría conocer más detalles?` },
       { keys: ['hora', 'horario', 'cuando', 'calendario', 'fechas'], text: `🕒 <strong>Horarios de clases online sincrónicas:</strong><br><br>• <strong>Cursos y Diplomados:</strong> Lunes a Jueves de 7:00 PM a 9:00 PM (Hora Ecuador/Colombia/Perú) - 6:00 PM (México).<br>• <strong>Executive Master:</strong> Lunes a Viernes a las 9:00 PM (Ecuador) - 8:00 PM (México).<br><br>Todas las clases quedan grabadas en el Campus Virtual.` },
@@ -3231,25 +3231,264 @@ document.addEventListener('DOMContentLoaded', function () {
 <script id="home-free-classes-carousel-script">
 (function(){
   const freeClasses = [
-    {title:'Marketing Digital con IA', type:'Marketing', color:'cyan', dateText:'12 mayo 2026', shortDate:'12 mayo', target:'2026-05-12T21:00:00-05:00', end:'2026-05-12T22:00:00-05:00', desc:'Clase introductoria para entender cómo construir presencia digital inteligente, contenido con criterio y una ruta comercial inicial con IA.'},
-    {title:'Monetiza tu Idea con IA', type:'Monetiza', color:'amber', dateText:'26 mayo 2026', shortDate:'26 mayo', target:'2026-05-26T21:00:00-05:00', end:'2026-05-26T22:00:00-05:00', desc:'Sesión para descubrir cómo convertir una idea en una oferta clara, vendible y mejor estructurada con apoyo de IA.'},
-    {title:'Crea tu Curso Online y Monetiza', type:'Crea tu academia', color:'slate', dateText:'2 junio 2026', shortDate:'2 junio', target:'2026-06-02T21:00:00-05:00', end:'2026-06-02T22:00:00-05:00', desc:'Clase gratuita para conocer cómo transformar conocimiento en un producto educativo digital más claro, útil y monetizable.'},
-    {title:'Diplomado en IA aplicada a Negocios, Marketing y Comunicación', type:'Diplomado', color:'rose', dateText:'9 junio 2026', shortDate:'9 junio', target:'2026-06-09T21:00:00-05:00', end:'2026-06-09T22:00:00-05:00', desc:'Encuentro introductorio para visualizar la lógica del diplomado: incubación, sistema digital, monetización y claridad ejecutiva.'},
-    {title:'Marketing Digital con IA', type:'Marketing', color:'cyan', dateText:'14 julio 2026', shortDate:'14 julio', target:'2026-07-14T21:00:00-05:00', end:'2026-07-14T22:00:00-05:00', desc:'Segunda sesión gratuita de Marketing para quienes desean entrar a la cohorte de julio con una visión clara del programa.'},
-    {title:'Monetiza tu Idea con IA', type:'Monetiza', color:'amber', dateText:'28 julio 2026', shortDate:'28 julio', target:'2026-07-28T21:00:00-05:00', end:'2026-07-28T22:00:00-05:00', desc:'Nueva clase gratuita para aterrizar idea, mensaje, propuesta de valor y ruta inicial de monetización.'},
-    {title:'Crea tu Curso Online y Monetiza', type:'Crea tu academia', color:'slate', dateText:'4 agosto 2026', shortDate:'4 agosto', target:'2026-08-04T21:00:00-05:00', end:'2026-08-04T22:00:00-05:00', desc:'Sesión de agosto para quienes quieren convertir experiencia, conocimiento o metodología en una oferta educativa digital.'},
-    {title:'Diplomado en IA aplicada a Negocios, Marketing y Comunicación', type:'Diplomado', color:'rose', dateText:'11 agosto 2026', shortDate:'11 agosto', target:'2026-08-11T21:00:00-05:00', end:'2026-08-11T22:00:00-05:00', desc:'Clase previa a la segunda cohorte del diplomado, enfocada en el proyecto final, metodología y resultados esperados.'},
-    {title:'Monetiza tu Idea con IA', type:'Monetiza', color:'amber', dateText:'29 septiembre 2026', shortDate:'29 septiembre', target:'2026-09-29T21:00:00-05:00', end:'2026-09-29T22:00:00-05:00', desc:'Clase gratuita previa a la cohorte de octubre para ordenar idea, valor y salida comercial inicial.'},
-    {title:'Crea tu Curso Online y Monetiza', type:'Crea tu academia', color:'slate', dateText:'6 octubre 2026', shortDate:'6 octubre', target:'2026-10-06T21:00:00-05:00', end:'2026-10-06T22:00:00-05:00', desc:'Clase introductoria para estructurar una oferta educativa más clara, con contenidos, promesa y ruta de venta.'},
-    {title:'Marketing Digital con IA', type:'Marketing', color:'cyan', dateText:'13 octubre 2026', shortDate:'13 octubre', target:'2026-10-13T21:00:00-05:00', end:'2026-10-13T22:00:00-05:00', desc:'Clase gratuita previa a la cohorte de octubre para ordenar contenido, captación, activos digitales y seguimiento.'},
-    {title:'Monetiza tu Idea con IA', type:'Monetiza', color:'amber', dateText:'27 octubre 2026', shortDate:'27 octubre', target:'2026-10-27T21:00:00-05:00', end:'2026-10-27T22:00:00-05:00', desc:'Clase previa a la cohorte de noviembre para trabajar claridad, oferta y monetización inicial con IA.'},
-    {title:'Crea tu Curso Online y Monetiza', type:'Crea tu academia', color:'slate', dateText:'3 noviembre 2026', shortDate:'3 noviembre', target:'2026-11-03T21:00:00-05:00', end:'2026-11-03T22:00:00-05:00', desc:'Última clase gratuita de la secuencia anual actual para empaquetar conocimiento como activo digital vendible.'}
-  ];
+    {
+        "title": "Marketing Digital con IA",
+        "type": "Marketing",
+        "color": "cyan",
+        "dateText": "19 de mayo 2026",
+        "shortDate": "19 de mayo",
+        "target": "2026-05-19T21:00:00-05:00",
+        "end": "2026-05-19T22:00:00-05:00",
+        "desc": "Clase introductoria para entender cómo construir presencia digital inteligente, contenido con criterio y una ruta comercial inicial con IA."
+    },
+    {
+        "title": "Cómo usar IA para enseñar, crear contenido y vender mejor",
+        "type": "IA práctica",
+        "color": "emerald",
+        "dateText": "26 de mayo 2026",
+        "shortDate": "26 de mayo",
+        "target": "2026-05-26T21:00:00-05:00",
+        "end": "2026-05-26T22:00:00-05:00",
+        "desc": "Sesión abierta para mostrar cómo la IA puede servir a docentes, emprendedores y creadores para producir materiales, contenido y mensajes más claros."
+    },
+    {
+        "title": "Laboratorio: crea tu primera guía, post o mini clase con IA",
+        "type": "Laboratorio",
+        "color": "emerald",
+        "dateText": "27 de mayo 2026",
+        "shortDate": "27 de mayo",
+        "target": "2026-05-27T21:00:00-05:00",
+        "end": "2026-05-27T22:00:00-05:00",
+        "desc": "Laboratorio práctico para que cada persona salga con un recurso inicial: guía, post, mini clase o idea estructurada con IA."
+    },
+    {
+        "title": "Cómo convertir una idea en una oferta vendible con IA",
+        "type": "Monetiza",
+        "color": "amber",
+        "dateText": "2 de junio 2026",
+        "shortDate": "2 de junio",
+        "target": "2026-06-02T21:00:00-05:00",
+        "end": "2026-06-02T22:00:00-05:00",
+        "desc": "Clase para entender cómo una idea puede convertirse en una oferta más clara, vendible y comunicable con apoyo de IA."
+    },
+    {
+        "title": "Laboratorio: define tu oferta, público y primer mensaje de venta",
+        "type": "Laboratorio",
+        "color": "amber",
+        "dateText": "3 de junio 2026",
+        "shortDate": "3 de junio",
+        "target": "2026-06-03T21:00:00-05:00",
+        "end": "2026-06-03T22:00:00-05:00",
+        "desc": "Laboratorio para aterrizar una oferta inicial con público, promesa y primer mensaje comercial."
+    },
+    {
+        "title": "Cómo convertir tu conocimiento en un curso digital",
+        "type": "Educación digital",
+        "color": "slate",
+        "dateText": "9 de junio 2026",
+        "shortDate": "9 de junio",
+        "target": "2026-06-09T21:00:00-05:00",
+        "end": "2026-06-09T22:00:00-05:00",
+        "desc": "Sesión para transformar experiencia, conocimiento o metodología en una propuesta educativa digital más clara y vendible."
+    },
+    {
+        "title": "Laboratorio: estructura tu primera clase, módulo o programa",
+        "type": "Laboratorio",
+        "color": "slate",
+        "dateText": "10 de junio 2026",
+        "shortDate": "10 de junio",
+        "target": "2026-06-10T21:00:00-05:00",
+        "end": "2026-06-10T22:00:00-05:00",
+        "desc": "Laboratorio para crear el primer mapa de una clase, módulo o programa usando una estructura simple y profesional."
+    },
+    {
+        "title": "Cómo aplicar IA en marketing, educación y ventas",
+        "type": "Diplomado",
+        "color": "rose",
+        "dateText": "16 de junio 2026",
+        "shortDate": "16 de junio",
+        "target": "2026-06-16T21:00:00-05:00",
+        "end": "2026-06-16T22:00:00-05:00",
+        "desc": "Clase de entrada a la lógica del Diplomado: usar IA para ordenar negocio, marketing, comunicación, educación y ejecución práctica."
+    },
+    {
+        "title": "Laboratorio: arma tu flujo básico de trabajo con IA",
+        "type": "Laboratorio",
+        "color": "rose",
+        "dateText": "17 de junio 2026",
+        "shortDate": "17 de junio",
+        "target": "2026-06-17T21:00:00-05:00",
+        "end": "2026-06-17T22:00:00-05:00",
+        "desc": "Laboratorio para diseñar un flujo básico de IA aplicable a contenido, ventas, educación o gestión de proyectos."
+    },
+    {
+        "title": "Cómo crear contenido semanal con IA sin quedarte sin ideas",
+        "type": "Contenido",
+        "color": "cyan",
+        "dateText": "23 de junio 2026",
+        "shortDate": "23 de junio",
+        "target": "2026-06-23T21:00:00-05:00",
+        "end": "2026-06-23T22:00:00-05:00",
+        "desc": "Sesión de continuidad para la comunidad: crear contenido útil, constante y conectado a objetivos reales, sin depender solo de inspiración."
+    },
+    {
+        "title": "Laboratorio: calendario de contenido para 7 días",
+        "type": "Laboratorio",
+        "color": "cyan",
+        "dateText": "24 de junio 2026",
+        "shortDate": "24 de junio",
+        "target": "2026-06-24T21:00:00-05:00",
+        "end": "2026-06-24T22:00:00-05:00",
+        "desc": "Laboratorio para salir con una mini parrilla de contenido de 7 días lista para adaptar a marca, proyecto o idea."
+    },
+    {
+        "title": "Cómo vender mejor con IA, WhatsApp y mensajes persuasivos",
+        "type": "Ventas",
+        "color": "amber",
+        "dateText": "30 de junio 2026",
+        "shortDate": "30 de junio",
+        "target": "2026-06-30T21:00:00-05:00",
+        "end": "2026-06-30T22:00:00-05:00",
+        "desc": "Sesión para entender cómo la IA puede ayudarte a responder mejor, ordenar objeciones y convertir conversaciones en oportunidades reales."
+    },
+    {
+        "title": "Laboratorio: crea respuestas y cierres para tus clientes",
+        "type": "Laboratorio",
+        "color": "amber",
+        "dateText": "1 de julio 2026",
+        "shortDate": "1 de julio",
+        "target": "2026-07-01T21:00:00-05:00",
+        "end": "2026-07-01T22:00:00-05:00",
+        "desc": "Laboratorio para construir respuestas, seguimientos y cierres básicos adaptados a un producto, servicio, curso o idea."
+    },
+    {
+        "title": "Cómo usar IA para dirigir proyectos, equipos y negocios",
+        "type": "Ruta ejecutiva",
+        "color": "violet",
+        "dateText": "7 de julio 2026",
+        "shortDate": "7 de julio",
+        "target": "2026-07-07T21:00:00-05:00",
+        "end": "2026-07-07T22:00:00-05:00",
+        "desc": "Sesión para perfilar la IA como herramienta ejecutiva: dirección, productividad, toma de decisiones, proyectos y sistemas de trabajo."
+    },
+    {
+        "title": "Laboratorio: diseña tu sistema personal de productividad con IA",
+        "type": "Laboratorio",
+        "color": "violet",
+        "dateText": "8 de julio 2026",
+        "shortDate": "8 de julio",
+        "target": "2026-07-08T21:00:00-05:00",
+        "end": "2026-07-08T22:00:00-05:00",
+        "desc": "Laboratorio para armar un sistema personal simple de productividad con IA: prioridades, tareas, contenido, ventas o aprendizaje."
+    },
+    {
+        "title": "Clase especial: Ruta ejecutiva para aplicar IA en negocios, marketing y educación",
+        "type": "Especial Master",
+        "color": "violet",
+        "dateText": "14 de julio 2026",
+        "shortDate": "14 de julio",
+        "target": "2026-07-14T21:00:00-05:00",
+        "end": "2026-07-14T22:00:00-05:00",
+        "desc": "Clase especial para entender cómo una persona puede pasar de usar IA como herramienta suelta a integrarla en una ruta ejecutiva de negocio, marketing y educación."
+    },
+    {
+        "title": "Marketing Digital con IA",
+        "type": "Marketing",
+        "color": "cyan",
+        "dateText": "21 de julio 2026",
+        "shortDate": "21 de julio",
+        "target": "2026-07-21T21:00:00-05:00",
+        "end": "2026-07-21T22:00:00-05:00",
+        "desc": "Sesión gratuita de Marketing para quienes desean entrar a la cohorte de julio con una visión clara del programa."
+    },
+    {
+        "title": "Monetiza tu Idea con IA",
+        "type": "Monetiza",
+        "color": "amber",
+        "dateText": "4 de agosto 2026",
+        "shortDate": "4 de agosto",
+        "target": "2026-08-04T21:00:00-05:00",
+        "end": "2026-08-04T22:00:00-05:00",
+        "desc": "Nueva clase gratuita para aterrizar idea, mensaje, propuesta de valor y ruta inicial de monetización."
+    },
+    {
+        "title": "Crea tu Curso Online y Monetiza",
+        "type": "Crea tu academia",
+        "color": "slate",
+        "dateText": "11 de agosto 2026",
+        "shortDate": "11 de agosto",
+        "target": "2026-08-11T21:00:00-05:00",
+        "end": "2026-08-11T22:00:00-05:00",
+        "desc": "Sesión de agosto para quienes quieren convertir experiencia, conocimiento o metodología en una oferta educativa digital."
+    },
+    {
+        "title": "Diplomado en IA aplicada a Negocios, Marketing y Comunicación",
+        "type": "Diplomado",
+        "color": "rose",
+        "dateText": "18 de agosto 2026",
+        "shortDate": "18 de agosto",
+        "target": "2026-08-18T21:00:00-05:00",
+        "end": "2026-08-18T22:00:00-05:00",
+        "desc": "Sesión introductoria del diplomado para la cohorte de agosto, enfocada en proyecto final, metodología y resultados esperados."
+    },
+    {
+        "title": "Monetiza tu Idea con IA",
+        "type": "Monetiza",
+        "color": "amber",
+        "dateText": "6 de octubre 2026",
+        "shortDate": "6 de octubre",
+        "target": "2026-10-06T21:00:00-05:00",
+        "end": "2026-10-06T22:00:00-05:00",
+        "desc": "Clase gratuita previa a la cohorte de octubre para ordenar idea, valor y salida comercial inicial."
+    },
+    {
+        "title": "Crea tu Curso Online y Monetiza",
+        "type": "Crea tu academia",
+        "color": "slate",
+        "dateText": "13 de octubre 2026",
+        "shortDate": "13 de octubre",
+        "target": "2026-10-13T21:00:00-05:00",
+        "end": "2026-10-13T22:00:00-05:00",
+        "desc": "Clase introductoria para estructurar una oferta educativa más clara, con contenidos, promesa y ruta de venta."
+    },
+    {
+        "title": "Marketing Digital con IA",
+        "type": "Marketing",
+        "color": "cyan",
+        "dateText": "20 de octubre 2026",
+        "shortDate": "20 de octubre",
+        "target": "2026-10-20T21:00:00-05:00",
+        "end": "2026-10-20T22:00:00-05:00",
+        "desc": "Clase gratuita previa a la cohorte de octubre para ordenar contenido, captación, activos digitales y seguimiento."
+    },
+    {
+        "title": "Monetiza tu Idea con IA",
+        "type": "Monetiza",
+        "color": "amber",
+        "dateText": "3 de noviembre 2026",
+        "shortDate": "3 de noviembre",
+        "target": "2026-11-03T21:00:00-05:00",
+        "end": "2026-11-03T22:00:00-05:00",
+        "desc": "Clase previa a la cohorte de noviembre para trabajar claridad, oferta y monetización inicial con IA."
+    },
+    {
+        "title": "Crea tu Curso Online y Monetiza",
+        "type": "Crea tu academia",
+        "color": "slate",
+        "dateText": "10 de noviembre 2026",
+        "shortDate": "10 de noviembre",
+        "target": "2026-11-10T21:00:00-05:00",
+        "end": "2026-11-10T22:00:00-05:00",
+        "desc": "Última clase gratuita de la secuencia anual actual para empaquetar conocimiento como activo digital vendible."
+    }
+];
   const tone = {
     cyan: {badge:'bg-cyan-500/10 border-cyan-500/20 text-cyan-200', line:'text-cyan-700'},
     amber: {badge:'bg-amber-500/10 border-amber-500/20 text-amber-200', line:'text-amber-700'},
     slate: {badge:'bg-zinc-500/10 border-zinc-500/20 text-zinc-100', line:'text-zinc-700'},
-    rose: {badge:'bg-rose-500/10 border-rose-500/20 text-rose-200', line:'text-rose-700'}
+    rose: {badge:'bg-rose-500/10 border-rose-500/20 text-rose-200', line:'text-rose-700'},
+    emerald: {badge:'bg-emerald-500/10 border-emerald-500/20 text-emerald-200', line:'text-emerald-700'},
+    violet: {badge:'bg-violet-500/10 border-violet-500/20 text-violet-200', line:'text-violet-700'}
   };
   const $ = id => document.getElementById(id);
   const title = $('home-free-title');
