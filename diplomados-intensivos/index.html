@@ -654,10 +654,10 @@
         </p>
 <div class="flex flex-wrap gap-2">
 <span class="bg-white border border-ibero-purple/20 text-ibero-dark px-3 py-1.5 rounded-lg text-xs font-bold shadow-sm">
-          📅 22 Jun 2026
+          📅 6 Jul 2026
          </span>
 <span class="bg-white border border-ibero-purple/20 text-ibero-dark px-3 py-1.5 rounded-lg text-xs font-bold shadow-sm">
-          📅 17 Aug 2026
+          📅 7 Sep 2026
          </span>
 </div>
 </div>
@@ -684,11 +684,8 @@
 <div class="flex flex-col mt-auto border-t border-zinc-100 pt-6">
 <div class="flex justify-between items-end mb-5">
 <div>
-<p class="text-[11px] sm:text-xs text-zinc-400 line-through price-display-normal" data-cop="COP $950.000" data-mxn="MXN $4.490" data-pen="PEN S/ 902" data-usd="USD $257">
-           USD $257
-          </p>
-<p class="text-[20px] sm:text-3xl font-black text-emerald-600 leading-none mt-1 price-display-discount" data-cop="COP $617.000" data-mxn="MXN $2.920" data-pen="PEN S/ 586" data-usd="USD $167">
-           USD $167
+<p class="text-[20px] sm:text-3xl font-black text-emerald-600 leading-none mt-1 price-display-discount" data-cop="COP $1.025.000" data-mxn="MXN $4.850" data-pen="PEN S/ 975" data-usd="USD $277">
+           USD $277
           </p>
 </div>
 </div>
@@ -716,7 +713,7 @@
 <strong>
          Información de Horarios:
         </strong>
-        Los horarios indicados corresponden a la jornada regular de formación. Las fechas exactas de inicio para 2026 son <strong>22 de Junio</strong> y <strong>24 de Agosto</strong>, según la cohorte que elijas con tu asesor académico.
+        Los horarios indicados corresponden a la jornada regular de formación. Las fechas exactas de inicio para 2026 son <strong>6 de julio</strong> y <strong>7 de septiembre</strong>, según la cohorte que elijas con tu asesor académico.
        </p>
 </div>
 <div class="flex gap-4 items-start md:w-1/2">
@@ -726,11 +723,7 @@
 <strong>
          Nota de Precios:
         </strong>
-        El valor promocional resaltado en verde ya incluye el
-        <strong class="text-ibero-reddark">
-         35% de descuento
-        </strong>
-        aplicado sobre la tarifa regular, disponible por tiempo limitado.
+        El valor publicado corresponde al precio oficial fijo del diplomado.
        </p>
 </div>
 </div>
@@ -1411,14 +1404,14 @@
 
           const currency = btn.dataset.currency;
 
-          // Actualizar Precios Normales
+          // Actualizar precios base
           normalPrices.forEach(display => {
             if(display.dataset[currency]) {
                display.innerText = display.dataset[currency];
             }
           });
 
-          // Actualizar Precios con Descuento
+          // Actualizar precios destacados
           discountPrices.forEach(display => {
             if(display.dataset[currency]) {
                display.innerText = display.dataset[currency];

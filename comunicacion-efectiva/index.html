@@ -47,7 +47,7 @@
     },
     "offers": {
       "@type": "Offer",
-      "price": "37.00",
+      "price": "57.00",
       "priceCurrency": "USD",
       "category": "Paid"
     }
@@ -384,7 +384,7 @@
       📚 Temario
      </button>
 <button class="bg-rose-950/40 hover:bg-rose-900/60 border border-rose-700/50 text-theme-accent font-medium text-[10px] px-2.5 py-1.5 rounded-full transition-colors" onclick="sendChatMessage('Precios')">
-      💰 Precio $37 USD
+      💰 Precio $57 USD
      </button>
 <button class="bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 text-zinc-300 font-medium text-[10px] px-2.5 py-1.5 rounded-full transition-colors" onclick="sendChatMessage('Pago')">
       💳 Cómo Pagar
@@ -671,7 +671,7 @@
 <div class="flex flex-col sm:flex-row gap-4 justify-center w-full max-w-md mx-auto">
 <a class="w-full bg-theme-accent text-white px-8 py-4 rounded-xl font-black text-sm lg:text-base hover:bg-rose-700 transition-all shadow-[0_0_30px_rgba(225,29,72,0.4)] text-center flex items-center justify-center gap-2 group" href="#inversion">
 <span>
-       Inscripción: $37 USD
+       Inscripción: $57 USD
       </span>
 <i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition-transform">
 </i>
@@ -1839,7 +1839,7 @@ Ver rutas de inscripción
 <span class="text-lg">🇪🇨</span>
 <div class="text-left">
 <p class="text-[10px] uppercase tracking-[0.18em] text-zinc-500 font-bold">Programa presencial Ecuador</p>
-<p class="text-xs sm:text-sm text-white font-bold">Inversión oficial en dólares americanos: USD $37</p>
+<p class="text-xs sm:text-sm text-white font-bold">Inversión oficial en dólares americanos: USD $57</p>
 </div>
 </div>
 <p class="text-[10px] text-zinc-600 mt-3">Disponible con tarjeta, transferencia bancaria Ecuador, INTIS o Western Union.</p>
@@ -1866,11 +1866,8 @@ Ver rutas de inscripción
          100% In Situ (Campus IBERO)
         </p>
 <div class="flex flex-col items-center justify-center gap-1 pb-6 border-b border-zinc-800 relative">
-<span class="text-lg text-zinc-500 line-through price-display-normal" data-base="57">
+<span class="text-5xl sm:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-theme-accent to-rose-300 tracking-tighter price-display drop-shadow-md" data-base="57">
           $57.00
-         </span>
-<span class="text-5xl sm:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-theme-accent to-rose-300 tracking-tighter price-display drop-shadow-md" data-base="37">
-          $37.00
          </span>
 </div>
 </div>
@@ -1887,10 +1884,7 @@ Ver rutas de inscripción
 <i class="fa-solid fa-gift text-theme-secondary text-lg">
 </i>
 <span class="leading-tight font-medium">
-           Ahorro Directo de
-           <span class="price-display-inline font-bold text-theme-secondary" data-base="20">
-            $20.00 USD
-           </span>
+           Precio oficial fijo
 </span>
 </li>
 <li class="flex items-center gap-3 text-[13px] text-zinc-300 px-2.5">
@@ -2489,8 +2483,8 @@ Ver rutas de inscripción
     const chatInput = document.getElementById('chat-input');
 
     const botKnowledge = [
-      { keys: ['oratoria', 'certificacion', 'curso', 'presencial'], text: `El Taller <strong>Comunicación Efectiva y Oratoria</strong> es 100% presencial en Valle de los Chillos (4h). <br>Precio Promo: $37 USD. <br><a href="#inversion" class="text-theme-accent underline font-bold mt-1 inline-block">Asegurar Cupo</a>` },
-      { keys: ['precio', 'costo', 'valor', 'cuanto'], text: `La inversión promocional es de <strong>$37 USD</strong> (Pago Único). Precio regular: <strong>$57 USD</strong>; ahorro directo: <strong>$20 USD</strong>. <br>Este taller presencial aplica para Ecuador.` },
+      { keys: ['oratoria', 'certificacion', 'curso', 'presencial'], text: `El Taller <strong>Comunicación Efectiva y Oratoria</strong> es 100% presencial en Valle de los Chillos (4h). <br>Precio oficial fijo: $57 USD. <br><a href="#inversion" class="text-theme-accent underline font-bold mt-1 inline-block">Asegurar Cupo</a>` },
+      { keys: ['precio', 'costo', 'valor', 'cuanto'], text: `La inversión final es de <strong>$57 USD</strong> (Pago Único). Precio oficial fijo. <br>Este taller presencial aplica para Ecuador.` },
       { keys: ['hora', 'horario', 'fechas', 'cuando'], text: `El taller se dicta los <strong>Sábados de 9:00 AM a 1:00 PM</strong> en Campus IBERO. <br>Fechas 2026: 6 Junio | 20 Junio | 4 Julio | 1 Agosto | 15 Agosto | 12 Septiembre | 26 Septiembre | 10 Octubre | 24 Octubre | 7 Noviembre.` },
       { keys: ['pago', 'pagar', 'tarjeta', 'transferencia', 'intis'], text: `<strong>Métodos de Pago para Ecuador:</strong><br>1. Tarjeta vía PayPal <a href="https://www.paypal.com/ncp/payment/RFRUU69FS2BLL" target="_blank" class="text-theme-accent underline">AQUÍ</a>.<br>2. <strong>INTIS:</strong> paga con tu saldo virtual <a href="https://ia.goatify.app/#wallet" target="_blank" class="text-theme-accent underline">AQUÍ</a>.<br>3. Transferencia Banco Bolivariano.<br>4. Western Union, enviando comprobante por WhatsApp.` },
       { keys: ['temario', 'aprender', 'contenido'], text: `En 4 horas aprenderás: Postura, proyección de voz, eliminación de muletillas, estructura persuasiva y manejo de preguntas. Cierra con la dinámica 'Oratory Arena'.` },
@@ -2763,8 +2757,7 @@ document.addEventListener('DOMContentLoaded', function () {
       btn.classList.contains('bg-rose-600') ||
       btn.classList.contains('bg-blue-600') ||
       btn.classList.contains('bg-red-600') ||
-      btn.classList.contains('bg-ibero-purple')
-    );
+      btn.classList.contains('bg-ibero-purple'));
     return (activeBtn && activeBtn.dataset.currency) ? activeBtn.dataset.currency : currentCurrency;
   }
 
