@@ -38,5 +38,10 @@ window.BASE_DE_DATOS_DIPLOMAS = {
     "nombre": "Maria Duque",
     "url": "/fotos/diplomas/certificado-marketing-digital-ia-maria-duque.png",
     "curso": "Marketing Digital e Inteligencia Artificial · Certificado 12 horas"
+  },
+  "saida-yarahuan": {
+    "nombre": "Saida Yarahuan",
+    "url": "/fotos/diplomas/certificado-marketing-digital-ia-saida-yarahuan.png",
+    "curso": "Marketing Digital e Inteligencia Artificial · Certificado 12 horas"
   }
 };

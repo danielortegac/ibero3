@@ -286,6 +286,29 @@
     .calendar-day {
       scroll-margin-top: 170px;
     }
+    .calendar-week-card {
+      scroll-margin-top: 170px;
+    }
+    .calendar-week-card.is-current-week {
+      border-color: rgba(220, 38, 38, 0.85) !important;
+      box-shadow: 0 0 0 1px rgba(220, 38, 38, 0.42), 0 18px 42px rgba(220, 38, 38, 0.12) !important;
+    }
+    .calendar-week-card.is-current-week::after {
+      content: 'Semana actual';
+      position: absolute;
+      top: 0.75rem;
+      right: 0.75rem;
+      z-index: 2;
+      padding: 0.35rem 0.55rem;
+      border-radius: 9999px;
+      background: rgba(220, 38, 38, 0.16);
+      border: 1px solid rgba(220, 38, 38, 0.45);
+      color: #fecaca;
+      font-size: 0.62rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
     .program-status-pulse {
       animation: programStatusPulse 1.8s ease-in-out infinite;
     }
@@ -2338,9 +2361,66 @@
       }
     }
 
+    let iberoTodayFocusTimer = null;
+
+    function getCalendarFocusDate() {
+      const today = getIberoTodayStr();
+      const [y, m] = today.split('-').map(Number);
+      if (y < 2026 || (y === 2026 && m < 5)) return '2026-05-01';
+      if (y > 2027 || (y === 2027 && m > 1)) return '2027-01-31';
+      return today;
+    }
+
+    function getVisibleEventsSorted() {
+      return getFilteredEvents()
+        .flatMap(w => w.events)
+        .sort((a, b) => a.start.localeCompare(b.start) || a.title.localeCompare(b.title));
+    }
+
+    function getCurrentWeekElement() {
+      const today = getCalendarFocusDate();
+      return Array.from(document.querySelectorAll('.calendar-week-card')).find(card => {
+        return card.dataset.startWeek && card.dataset.endWeek && today >= card.dataset.startWeek && today <= card.dataset.endWeek;
+      }) || null;
+    }
+
+    function getBestListFocusElement() {
+      const today = getCalendarFocusDate();
+      const visibleEvents = getVisibleEventsSorted();
+      const activeVisible = visibleEvents.find(ev => isEventActiveOnDate(ev, today));
+      if (activeVisible) {
+        const activeEl = document.getElementById(getEventDomId(activeVisible));
+        if (activeEl) return activeEl;
+      }
+      const currentWeekEl = getCurrentWeekElement();
+      if (currentWeekEl) return currentWeekEl;
+      const nextVisible = visibleEvents.find(ev => ev.end >= today);
+      if (nextVisible) {
+        const nextEl = document.getElementById(getEventDomId(nextVisible));
+        if (nextEl) return nextEl;
+      }
+      return document.querySelector('.calendar-week-card');
+    }
+
+    function focusTodayInCurrentView(behavior = 'smooth') {
+      const today = getCalendarFocusDate();
+      const target = currentView === 'calendar'
+        ? document.getElementById(`calendar-day-${today}`)
+        : getBestListFocusElement();
+      if (!target) return;
+      target.scrollIntoView({ behavior, block: 'center', inline: 'nearest' });
+      target.classList.add('program-status-pulse');
+      setTimeout(() => target.classList.remove('program-status-pulse'), 1800);
+    }
+
+    function scheduleTodayFocus(behavior = 'smooth', delay = 120) {
+      if (iberoTodayFocusTimer) clearTimeout(iberoTodayFocusTimer);
+      iberoTodayFocusTimer = setTimeout(() => focusTodayInCurrentView(behavior), delay);
+    }
+
     function init() {
       dbSchedule = processDynamicEvents(injectMaster(baseSchedule));
-      setCalendarToDate(getIberoTodayStr());
+      setCalendarToDate(getCalendarFocusDate());
       const allEvents = dbSchedule.flatMap(w => w.events);
       const uniqueTitles = [...new Set(allEvents.map(e => e.title))].filter(t => !t.includes('Semana de Cierre') && !t.includes('Inscripciones:') && !t.includes('Clase Gratis:'));
       
@@ -2363,6 +2443,7 @@
       });
       updateDropdownText();
       renderApp();
+      scheduleTodayFocus('auto', 160);
     }
 
     function renderApp() {
@@ -2390,7 +2471,9 @@
         btnCal.className = 'flex-1 py-2 px-4 rounded-md bg-ibero-red text-white font-semibold transition-colors flex items-center justify-center gap-2 shadow-lg';
         btnList.className = 'flex-1 py-2 px-4 rounded-md text-ibero-gray hover:text-white transition-colors flex items-center justify-center gap-2';
       }
+      if (view === 'calendar') setCalendarToDate(getCalendarFocusDate());
       renderApp();
+      scheduleTodayFocus('smooth', 120);
     }
 
     function getFilteredEvents() {
@@ -2445,7 +2528,12 @@
 
       data.forEach((weekData, index) => {
         const card = document.createElement('div');
-        card.className = `calendar-week-card bg-ibero-card border border-white/5 p-6 rounded-2xl shadow-xl animate-fade-in-up hover:-translate-y-1 hover:border-white/20 transition-all duration-300 relative overflow-hidden group`;
+        const todayStr = getCalendarFocusDate();
+        const isCurrentWeek = todayStr >= weekData.startWeek && todayStr <= weekData.endWeek;
+        card.id = `calendar-week-${weekData.startWeek}`;
+        card.dataset.startWeek = weekData.startWeek;
+        card.dataset.endWeek = weekData.endWeek;
+        card.className = `calendar-week-card bg-ibero-card border border-white/5 p-6 rounded-2xl shadow-xl animate-fade-in-up hover:-translate-y-1 hover:border-white/20 transition-all duration-300 relative overflow-hidden group ${isCurrentWeek ? 'is-current-week' : ''}`;
         card.style.animationDelay = `${index * 0.05}s`;
 
         const isDiplo = weekData.events.some(e => e.type === 'diplomado');
@@ -2526,7 +2614,7 @@
       for (let d = 1; d <= daysInMonth; d++) {
         const dayDiv = document.createElement('div');
         const currentStr = `${calYear}-${String(calMonth+1).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
-        const todayStr = getIberoTodayStr();
+        const todayStr = getCalendarFocusDate();
         const dayEvents = flatEvents.filter(ev => currentStr >= ev.start && currentStr <= ev.end);
         const hasActiveProgramToday = dayEvents.some(ev => isEventActiveOnDate(ev, todayStr) && currentStr === todayStr);
         dayDiv.id = `calendar-day-${currentStr}`;
