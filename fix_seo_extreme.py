@@ -9,7 +9,7 @@ SEO_DATA = {
     "": {
         "title": "Centro Iberoamericano (IBERO) | Educación Executive e Inteligencia Artificial",
         "description": "Líderes en Educación Executive. Transforma tu carrera con el Centro Iberoamericano. Domina la Inteligencia Artificial, Marketing Digital y Negocios en tiempo récord.",
-        "keywords": "educación executive, inteligencia artificial, marketing digital, negocios, ibero, centro iberoamericano, diplomados, maestría, executive master"
+        "keywords": "educación executive, inteligencia artificial, marketing digital, negocios, ibero, centro iberoamericano, diplomados, programa ejecutivo, executive master program"
     },
     "artes-liberales": {
         "title": "Artes Liberales | Pensamiento Crítico e Innovación | IBERO",
@@ -69,7 +69,7 @@ SEO_DATA = {
     "executive-master": {
         "title": "Executive Masters | Posgrados de Élite en IA | IBERO",
         "description": "Programas de alto nivel ejecutivo. Da el siguiente paso con nuestros Executive Masters en Inteligencia Artificial aplicada a los negocios.",
-        "keywords": "executive master, maestría ejecutiva, posgrados en ia, educación de élite, centro iberoamericano"
+        "keywords": "executive master, programa ejecutivo, programas ejecutivos en ia, educación de élite, centro iberoamericano"
     },
     "goatify": {
         "title": "GOATIFY | Tecnología y Desarrollo de Software | IBERO",
@@ -99,7 +99,7 @@ SEO_DATA = {
     "master-ejecutivo-ia": {
         "title": "Executive Master IA Aplicada a Negocios y Marketing | IBERO",
         "description": "Incubación ejecutiva de 6 meses. Sistematiza y escala empresas reales dominando la Inteligencia Artificial, arquitectura digital y Vibe Coding.",
-        "keywords": "master ia, executive master inteligencia artificial, negocios ia, maestría marketing digital, automatización"
+        "keywords": "master ia, executive master inteligencia artificial, negocios ia, programa ejecutivo marketing digital, automatización"
     },
     "metodologia": {
         "title": "Metodología IBERO 360° | Cómo Enseñamos | IBERO",
@@ -107,9 +107,9 @@ SEO_DATA = {
         "keywords": "metodología ibero, sistema de enseñanza, educación práctica, proyectos reales, aprendizaje 360"
     },
     "monetiza-tu-idea": {
-        "title": "Certificación Monetiza tu Idea con IA | Emprendimiento | IBERO",
+        "title": "Certificación Vende tu App y Consigue Clientes | Software y MVP | IBERO",
         "description": "Haz realidad tus proyectos. Transforma tu idea en un negocio viable y escalable utilizando herramientas de Inteligencia Artificial en tiempo récord.",
-        "keywords": "monetizar idea, emprender con ia, creación de negocios, validación de ideas, certificación ibero"
+        "keywords": "vender app, monetizar software, MVP con IA, SaaS, conseguir clientes, ventas de software, certificación ibero"
     },
     "oferta-academica": {
         "title": "Oferta Académica | Catálogo de Cursos y Maestrias | IBERO",

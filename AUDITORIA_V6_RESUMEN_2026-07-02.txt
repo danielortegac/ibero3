@@ -1,0 +1,1 @@
+V6 aplicado sobre V5. Se corrigieron nombres formales de certificados/diplomado/máster, navegación, chatbot, calendario, meta SEO, schema JSON-LD Course/ItemList/EducationalOrganization, geo tags, sitemap, robots y llms.txt. No se movieron fechas, horarios ni precios aprobados.

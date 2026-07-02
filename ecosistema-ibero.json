@@ -1,0 +1,737 @@
+{
+  "generated_at": "2026-07-02",
+  "base_url": "https://ibero.education",
+  "pages": [
+    {
+      "title": "Ecosistema IBERO",
+      "slug": "ecosistema-ibero",
+      "url": "https://ibero.education/ecosistema-ibero/",
+      "category": "Hub"
+    },
+    {
+      "title": "Desarrollo de Software con Inteligencia Artificial",
+      "slug": "desarrollo-de-software-con-ia",
+      "url": "https://ibero.education/desarrollo-de-software-con-ia/",
+      "category": "Pilar"
+    },
+    {
+      "title": "Cómo crear una App con Inteligencia Artificial",
+      "slug": "crear-app-con-inteligencia-artificial",
+      "url": "https://ibero.education/crear-app-con-inteligencia-artificial/",
+      "category": "Pilar"
+    },
+    {
+      "title": "MVP con Inteligencia Artificial",
+      "slug": "mvp-con-inteligencia-artificial",
+      "url": "https://ibero.education/mvp-con-inteligencia-artificial/",
+      "category": "Pilar"
+    },
+    {
+      "title": "Producto Digital con Inteligencia Artificial",
+      "slug": "producto-digital-con-ia",
+      "url": "https://ibero.education/producto-digital-con-ia/",
+      "category": "Pilar"
+    },
+    {
+      "title": "Cómo vender una App o Producto Digital",
+      "slug": "como-vender-una-app",
+      "url": "https://ibero.education/como-vender-una-app/",
+      "category": "Pilar"
+    },
+    {
+      "title": "Vibe Coding: crear software con IA",
+      "slug": "vibe-coding",
+      "url": "https://ibero.education/vibe-coding/",
+      "category": "Pilar"
+    },
+    {
+      "title": "IA para Emprendedores",
+      "slug": "ia-para-emprendedores",
+      "url": "https://ibero.education/ia-para-emprendedores/",
+      "category": "Perfil"
+    },
+    {
+      "title": "IA para Docentes y Formadores",
+      "slug": "ia-para-docentes-y-formadores",
+      "url": "https://ibero.education/ia-para-docentes-y-formadores/",
+      "category": "Perfil"
+    },
+    {
+      "title": "IA para Marketing y Ventas",
+      "slug": "ia-para-marketing-y-ventas",
+      "url": "https://ibero.education/ia-para-marketing-y-ventas/",
+      "category": "Perfil"
+    },
+    {
+      "title": "Cursos de Inteligencia Artificial en Ecuador",
+      "slug": "ecuador",
+      "url": "https://ibero.education/ecuador/",
+      "category": "País"
+    },
+    {
+      "title": "Cursos de Inteligencia Artificial en México",
+      "slug": "mexico",
+      "url": "https://ibero.education/mexico/",
+      "category": "País"
+    },
+    {
+      "title": "Cursos de Inteligencia Artificial en Colombia",
+      "slug": "colombia",
+      "url": "https://ibero.education/colombia/",
+      "category": "País"
+    },
+    {
+      "title": "Cursos de Inteligencia Artificial en Perú",
+      "slug": "peru",
+      "url": "https://ibero.education/peru/",
+      "category": "País"
+    },
+    {
+      "title": "Certificado vs Diplomado: cuál elegir",
+      "slug": "certificado-vs-diplomado",
+      "url": "https://ibero.education/certificado-vs-diplomado/",
+      "category": "Comparativa"
+    },
+    {
+      "title": "Diplomado vs Máster Ejecutivo",
+      "slug": "diplomado-vs-master-ejecutivo",
+      "url": "https://ibero.education/diplomado-vs-master-ejecutivo/",
+      "category": "Comparativa"
+    },
+    {
+      "title": "Qué programa IBERO elegir según tu objetivo",
+      "slug": "que-programa-elegir",
+      "url": "https://ibero.education/que-programa-elegir/",
+      "category": "Comparativa"
+    },
+    {
+      "title": "Plantilla para definir tu MVP con IA",
+      "slug": "recursos/plantilla-mvp",
+      "url": "https://ibero.education/recursos/plantilla-mvp/",
+      "category": "Recurso"
+    },
+    {
+      "title": "Checklist para lanzar una App",
+      "slug": "recursos/checklist-app",
+      "url": "https://ibero.education/recursos/checklist-app/",
+      "category": "Recurso"
+    },
+    {
+      "title": "Ruta para crear y vender Apps con IA",
+      "slug": "rutas/crear-y-vender-apps-con-ia",
+      "url": "https://ibero.education/rutas/crear-y-vender-apps-con-ia/",
+      "category": "Ruta"
+    },
+    {
+      "title": "Cómo vender software a PYMES",
+      "slug": "casos-de-uso/vender-software-a-pymes",
+      "url": "https://ibero.education/casos-de-uso/vender-software-a-pymes/",
+      "category": "Caso de uso"
+    },
+    {
+      "title": "Cursos de Inteligencia Artificial en Argentina",
+      "slug": "argentina",
+      "url": "https://ibero.education/argentina/",
+      "category": "País"
+    },
+    {
+      "title": "Cursos de Inteligencia Artificial en Chile",
+      "slug": "chile",
+      "url": "https://ibero.education/chile/",
+      "category": "País"
+    },
+    {
+      "title": "Cursos de Inteligencia Artificial en Bolivia",
+      "slug": "bolivia",
+      "url": "https://ibero.education/bolivia/",
+      "category": "País"
+    },
+    {
+      "title": "Cursos de Inteligencia Artificial en Uruguay",
+      "slug": "uruguay",
+      "url": "https://ibero.education/uruguay/",
+      "category": "País"
+    },
+    {
+      "title": "Cursos de Inteligencia Artificial en Paraguay",
+      "slug": "paraguay",
+      "url": "https://ibero.education/paraguay/",
+      "category": "País"
+    },
+    {
+      "title": "Cursos de Inteligencia Artificial en Venezuela",
+      "slug": "venezuela",
+      "url": "https://ibero.education/venezuela/",
+      "category": "País"
+    },
+    {
+      "title": "Cursos de Inteligencia Artificial en Panamá",
+      "slug": "panama",
+      "url": "https://ibero.education/panama/",
+      "category": "País"
+    },
+    {
+      "title": "Cursos de Inteligencia Artificial en Costa Rica",
+      "slug": "costa-rica",
+      "url": "https://ibero.education/costa-rica/",
+      "category": "País"
+    },
+    {
+      "title": "Cursos de Inteligencia Artificial en Guatemala",
+      "slug": "guatemala",
+      "url": "https://ibero.education/guatemala/",
+      "category": "País"
+    },
+    {
+      "title": "Cursos de Inteligencia Artificial en El Salvador",
+      "slug": "el-salvador",
+      "url": "https://ibero.education/el-salvador/",
+      "category": "País"
+    },
+    {
+      "title": "Cursos de Inteligencia Artificial en Honduras",
+      "slug": "honduras",
+      "url": "https://ibero.education/honduras/",
+      "category": "País"
+    },
+    {
+      "title": "Cursos de Inteligencia Artificial en Nicaragua",
+      "slug": "nicaragua",
+      "url": "https://ibero.education/nicaragua/",
+      "category": "País"
+    },
+    {
+      "title": "Cursos de Inteligencia Artificial en República Dominicana",
+      "slug": "republica-dominicana",
+      "url": "https://ibero.education/republica-dominicana/",
+      "category": "País"
+    },
+    {
+      "title": "Cursos de Inteligencia Artificial en Puerto Rico",
+      "slug": "puerto-rico",
+      "url": "https://ibero.education/puerto-rico/",
+      "category": "País"
+    },
+    {
+      "title": "Cursos de Inteligencia Artificial en España",
+      "slug": "espana",
+      "url": "https://ibero.education/espana/",
+      "category": "País"
+    },
+    {
+      "title": "Cursos de Inteligencia Artificial en Estados Unidos",
+      "slug": "estados-unidos",
+      "url": "https://ibero.education/estados-unidos/",
+      "category": "País"
+    },
+    {
+      "title": "Cursos de IA en Español en Estados Unidos",
+      "slug": "cursos-ia-en-espanol-estados-unidos",
+      "url": "https://ibero.education/cursos-ia-en-espanol-estados-unidos/",
+      "category": "País"
+    },
+    {
+      "title": "IA para Latinos en Estados Unidos",
+      "slug": "ia-para-latinos-en-usa",
+      "url": "https://ibero.education/ia-para-latinos-en-usa/",
+      "category": "País"
+    },
+    {
+      "title": "Formación Online para Hispanos",
+      "slug": "formacion-online-para-hispanos",
+      "url": "https://ibero.education/formacion-online-para-hispanos/",
+      "category": "País"
+    },
+    {
+      "title": "Cursos de IA para Latinos en Miami",
+      "slug": "miami",
+      "url": "https://ibero.education/miami/",
+      "category": "Ciudad"
+    },
+    {
+      "title": "Cursos de IA para Latinos en Orlando",
+      "slug": "orlando",
+      "url": "https://ibero.education/orlando/",
+      "category": "Ciudad"
+    },
+    {
+      "title": "Cursos de IA para Latinos en Houston",
+      "slug": "houston",
+      "url": "https://ibero.education/houston/",
+      "category": "Ciudad"
+    },
+    {
+      "title": "Cursos de IA para Latinos en Dallas",
+      "slug": "dallas",
+      "url": "https://ibero.education/dallas/",
+      "category": "Ciudad"
+    },
+    {
+      "title": "Cursos de IA para Latinos en Los Ángeles",
+      "slug": "los-angeles",
+      "url": "https://ibero.education/los-angeles/",
+      "category": "Ciudad"
+    },
+    {
+      "title": "Cursos de IA para Latinos en Nueva York",
+      "slug": "nueva-york",
+      "url": "https://ibero.education/nueva-york/",
+      "category": "Ciudad"
+    },
+    {
+      "title": "Cursos de IA para Latinos en Chicago",
+      "slug": "chicago",
+      "url": "https://ibero.education/chicago/",
+      "category": "Ciudad"
+    },
+    {
+      "title": "Certificado en Marketing Digital con Inteligencia Artificial",
+      "slug": "certificado-marketing-digital-inteligencia-artificial",
+      "url": "https://ibero.education/certificado-marketing-digital-inteligencia-artificial/",
+      "category": "Certificado"
+    },
+    {
+      "title": "Certificado en Inteligencia Artificial Aplicada a la Docencia",
+      "slug": "certificado-inteligencia-artificial-docencia",
+      "url": "https://ibero.education/certificado-inteligencia-artificial-docencia/",
+      "category": "Certificado"
+    },
+    {
+      "title": "Certificado en Gestión de Producto Digital y Estrategia con IA",
+      "slug": "certificado-producto-digital-estrategia-ia",
+      "url": "https://ibero.education/certificado-producto-digital-estrategia-ia/",
+      "category": "Certificado"
+    },
+    {
+      "title": "Certificado en Diseño y Producción de Cursos Online con IA",
+      "slug": "certificado-diseno-produccion-cursos-online-ia",
+      "url": "https://ibero.education/certificado-diseno-produccion-cursos-online-ia/",
+      "category": "Certificado"
+    },
+    {
+      "title": "Certificado en Comunicación Efectiva y Oratoria Profesional",
+      "slug": "certificado-comunicacion-efectiva-oratoria-profesional",
+      "url": "https://ibero.education/certificado-comunicacion-efectiva-oratoria-profesional/",
+      "category": "Certificado"
+    },
+    {
+      "title": "Diplomado en Desarrollo de Aplicaciones y Gestión de Productos Digitales con IA",
+      "slug": "diplomado-desarrollo-aplicaciones-productos-digitales-ia",
+      "url": "https://ibero.education/diplomado-desarrollo-aplicaciones-productos-digitales-ia/",
+      "category": "Diplomado"
+    },
+    {
+      "title": "Máster Ejecutivo en Inteligencia Artificial Aplicada y Dirección de Productos Digitales",
+      "slug": "master-ejecutivo-inteligencia-artificial-direccion-productos-digitales",
+      "url": "https://ibero.education/master-ejecutivo-inteligencia-artificial-direccion-productos-digitales/",
+      "category": "Máster Ejecutivo"
+    },
+    {
+      "title": "Curso de Inteligencia Artificial Online con Certificado",
+      "slug": "curso-inteligencia-artificial-online-certificado",
+      "url": "https://ibero.education/curso-inteligencia-artificial-online-certificado/",
+      "category": "Guía práctica"
+    },
+    {
+      "title": "Cursos de Inteligencia Artificial en Español",
+      "slug": "cursos-inteligencia-artificial-en-espanol",
+      "url": "https://ibero.education/cursos-inteligencia-artificial-en-espanol/",
+      "category": "Guía práctica"
+    },
+    {
+      "title": "Certificado Privado en Inteligencia Artificial",
+      "slug": "certificado-privado-inteligencia-artificial",
+      "url": "https://ibero.education/certificado-privado-inteligencia-artificial/",
+      "category": "Guía práctica"
+    },
+    {
+      "title": "Diplomado de Inteligencia Artificial Aplicada",
+      "slug": "diplomado-inteligencia-artificial-aplicada",
+      "url": "https://ibero.education/diplomado-inteligencia-artificial-aplicada/",
+      "category": "Guía práctica"
+    },
+    {
+      "title": "Máster Ejecutivo en Inteligencia Artificial",
+      "slug": "master-ejecutivo-inteligencia-artificial",
+      "url": "https://ibero.education/master-ejecutivo-inteligencia-artificial/",
+      "category": "Guía práctica"
+    },
+    {
+      "title": "Aprender Inteligencia Artificial desde Cero",
+      "slug": "aprender-inteligencia-artificial-desde-cero",
+      "url": "https://ibero.education/aprender-inteligencia-artificial-desde-cero/",
+      "category": "Guía práctica"
+    },
+    {
+      "title": "Inteligencia Artificial para Negocios",
+      "slug": "inteligencia-artificial-para-negocios",
+      "url": "https://ibero.education/inteligencia-artificial-para-negocios/",
+      "category": "Guía práctica"
+    },
+    {
+      "title": "Inteligencia Artificial para Emprender",
+      "slug": "inteligencia-artificial-para-emprender",
+      "url": "https://ibero.education/inteligencia-artificial-para-emprender/",
+      "category": "Guía práctica"
+    },
+    {
+      "title": "Tengo una App y no sé venderla",
+      "slug": "tengo-una-app-y-no-se-venderla",
+      "url": "https://ibero.education/tengo-una-app-y-no-se-venderla/",
+      "category": "Problema"
+    },
+    {
+      "title": "Cómo conseguir clientes para mi software",
+      "slug": "conseguir-clientes-para-software",
+      "url": "https://ibero.education/conseguir-clientes-para-software/",
+      "category": "Problema"
+    },
+    {
+      "title": "Cómo crear un MVP sin programar",
+      "slug": "crear-mvp-sin-programar",
+      "url": "https://ibero.education/crear-mvp-sin-programar/",
+      "category": "Problema"
+    },
+    {
+      "title": "Cómo usar IA para crear aplicaciones",
+      "slug": "usar-ia-para-crear-aplicaciones",
+      "url": "https://ibero.education/usar-ia-para-crear-aplicaciones/",
+      "category": "Problema"
+    },
+    {
+      "title": "Cómo lanzar un producto digital",
+      "slug": "como-lanzar-un-producto-digital",
+      "url": "https://ibero.education/como-lanzar-un-producto-digital/",
+      "category": "Problema"
+    },
+    {
+      "title": "Cómo poner precio a una app",
+      "slug": "como-poner-precio-a-una-app",
+      "url": "https://ibero.education/como-poner-precio-a-una-app/",
+      "category": "Problema"
+    },
+    {
+      "title": "Cómo presentar una app a clientes",
+      "slug": "como-presentar-una-app-a-clientes",
+      "url": "https://ibero.education/como-presentar-una-app-a-clientes/",
+      "category": "Problema"
+    },
+    {
+      "title": "IA para Emprendedores Digitales",
+      "slug": "ia-para-emprendedores-digitales",
+      "url": "https://ibero.education/ia-para-emprendedores-digitales/",
+      "category": "Perfil"
+    },
+    {
+      "title": "IA para Coaches y Consultores",
+      "slug": "ia-para-coaches-y-consultores",
+      "url": "https://ibero.education/ia-para-coaches-y-consultores/",
+      "category": "Perfil"
+    },
+    {
+      "title": "IA para Agencias de Marketing",
+      "slug": "ia-para-agencias-de-marketing",
+      "url": "https://ibero.education/ia-para-agencias-de-marketing/",
+      "category": "Perfil"
+    },
+    {
+      "title": "IA para Creadores de Contenido",
+      "slug": "ia-para-creadores-de-contenido",
+      "url": "https://ibero.education/ia-para-creadores-de-contenido/",
+      "category": "Perfil"
+    },
+    {
+      "title": "IA para Freelancers",
+      "slug": "ia-para-freelancers",
+      "url": "https://ibero.education/ia-para-freelancers/",
+      "category": "Perfil"
+    },
+    {
+      "title": "IA para Pymes",
+      "slug": "ia-para-pymes",
+      "url": "https://ibero.education/ia-para-pymes/",
+      "category": "Perfil"
+    },
+    {
+      "title": "IA para Ventas",
+      "slug": "ia-para-ventas",
+      "url": "https://ibero.education/ia-para-ventas/",
+      "category": "Perfil"
+    },
+    {
+      "title": "IA para Líderes y Directivos",
+      "slug": "ia-para-lideres-y-directivos",
+      "url": "https://ibero.education/ia-para-lideres-y-directivos/",
+      "category": "Perfil"
+    },
+    {
+      "title": "IA para Restaurantes",
+      "slug": "ia-para-restaurantes",
+      "url": "https://ibero.education/ia-para-restaurantes/",
+      "category": "Industria"
+    },
+    {
+      "title": "IA para Inmobiliarias",
+      "slug": "ia-para-inmobiliarias",
+      "url": "https://ibero.education/ia-para-inmobiliarias/",
+      "category": "Industria"
+    },
+    {
+      "title": "IA para Instituciones Educativas",
+      "slug": "ia-para-instituciones-educativas",
+      "url": "https://ibero.education/ia-para-instituciones-educativas/",
+      "category": "Industria"
+    },
+    {
+      "title": "IA para Turismo y Hoteles",
+      "slug": "ia-para-turismo-y-hoteles",
+      "url": "https://ibero.education/ia-para-turismo-y-hoteles/",
+      "category": "Industria"
+    },
+    {
+      "title": "IA para Construcción",
+      "slug": "ia-para-construccion",
+      "url": "https://ibero.education/ia-para-construccion/",
+      "category": "Industria"
+    },
+    {
+      "title": "IA para Comercio Local",
+      "slug": "ia-para-comercio-local",
+      "url": "https://ibero.education/ia-para-comercio-local/",
+      "category": "Industria"
+    },
+    {
+      "title": "IA para Servicios Profesionales",
+      "slug": "ia-para-servicios-profesionales",
+      "url": "https://ibero.education/ia-para-servicios-profesionales/",
+      "category": "Industria"
+    },
+    {
+      "title": "Qué es IA Aplicada",
+      "slug": "glosario/ia-aplicada",
+      "url": "https://ibero.education/glosario/ia-aplicada/",
+      "category": "Glosario"
+    },
+    {
+      "title": "Qué es Producto Digital",
+      "slug": "glosario/producto-digital",
+      "url": "https://ibero.education/glosario/producto-digital/",
+      "category": "Glosario"
+    },
+    {
+      "title": "Qué es un MVP",
+      "slug": "glosario/mvp",
+      "url": "https://ibero.education/glosario/mvp/",
+      "category": "Glosario"
+    },
+    {
+      "title": "Qué es Vibe Coding",
+      "slug": "glosario/vibe-coding",
+      "url": "https://ibero.education/glosario/vibe-coding/",
+      "category": "Glosario"
+    },
+    {
+      "title": "Qué es Prompt Engineering",
+      "slug": "glosario/prompt-engineering",
+      "url": "https://ibero.education/glosario/prompt-engineering/",
+      "category": "Glosario"
+    },
+    {
+      "title": "Qué es Automatización con IA",
+      "slug": "glosario/automatizacion-con-ia",
+      "url": "https://ibero.education/glosario/automatizacion-con-ia/",
+      "category": "Glosario"
+    },
+    {
+      "title": "Qué es un Agente de IA",
+      "slug": "glosario/agente-de-ia",
+      "url": "https://ibero.education/glosario/agente-de-ia/",
+      "category": "Glosario"
+    },
+    {
+      "title": "Qué es una PWA",
+      "slug": "glosario/pwa",
+      "url": "https://ibero.education/glosario/pwa/",
+      "category": "Glosario"
+    },
+    {
+      "title": "Qué es SaaS",
+      "slug": "glosario/saas",
+      "url": "https://ibero.education/glosario/saas/",
+      "category": "Glosario"
+    },
+    {
+      "title": "Qué es Product Management",
+      "slug": "glosario/product-management",
+      "url": "https://ibero.education/glosario/product-management/",
+      "category": "Glosario"
+    },
+    {
+      "title": "Qué es Go-to-Market",
+      "slug": "glosario/go-to-market",
+      "url": "https://ibero.education/glosario/go-to-market/",
+      "category": "Glosario"
+    },
+    {
+      "title": "Qué es un Embudo de Ventas",
+      "slug": "glosario/embudo-de-ventas",
+      "url": "https://ibero.education/glosario/embudo-de-ventas/",
+      "category": "Glosario"
+    },
+    {
+      "title": "Calculadora de Precio para Apps",
+      "slug": "recursos/calculadora-precio-app",
+      "url": "https://ibero.education/recursos/calculadora-precio-app/",
+      "category": "Recurso"
+    },
+    {
+      "title": "Plantilla de Landing para Vender una App",
+      "slug": "recursos/plantilla-landing-app",
+      "url": "https://ibero.education/recursos/plantilla-landing-app/",
+      "category": "Recurso"
+    },
+    {
+      "title": "Guion para Demo Comercial de Software",
+      "slug": "recursos/guion-demo-software",
+      "url": "https://ibero.education/recursos/guion-demo-software/",
+      "category": "Recurso"
+    },
+    {
+      "title": "Prompts de Marketing con IA",
+      "slug": "recursos/prompts-marketing-ia",
+      "url": "https://ibero.education/recursos/prompts-marketing-ia/",
+      "category": "Recurso"
+    },
+    {
+      "title": "Prompts de IA para Docentes",
+      "slug": "recursos/prompts-docentes-ia",
+      "url": "https://ibero.education/recursos/prompts-docentes-ia/",
+      "category": "Recurso"
+    },
+    {
+      "title": "Rúbrica para Evaluar Proyectos con IA",
+      "slug": "recursos/rubrica-proyectos-ia",
+      "url": "https://ibero.education/recursos/rubrica-proyectos-ia/",
+      "category": "Recurso"
+    },
+    {
+      "title": "Guion para Hablar en Público",
+      "slug": "recursos/guion-hablar-en-publico",
+      "url": "https://ibero.education/recursos/guion-hablar-en-publico/",
+      "category": "Recurso"
+    },
+    {
+      "title": "Plantilla para Pitch de App",
+      "slug": "recursos/plantilla-pitch-app",
+      "url": "https://ibero.education/recursos/plantilla-pitch-app/",
+      "category": "Recurso"
+    }
+  ],
+  "programs": [
+    {
+      "type": "Certificado",
+      "name": "Marketing Digital con Inteligencia Artificial",
+      "commercial": "Marketing Digital con IA",
+      "url": "/marketing-digital-con-ia/",
+      "date": "27 al 30 de julio de 2026",
+      "hours": "12 horas académicas",
+      "schedule": "7:00 PM–9:00 PM EC/CO/PE · 6:00 PM–8:00 PM MX",
+      "prices": {
+        "USD": "57",
+        "MXN": "995",
+        "PEN": "200",
+        "COP": "211.000"
+      }
+    },
+    {
+      "type": "Certificado",
+      "name": "Inteligencia Artificial Aplicada a la Docencia",
+      "commercial": "IA para Docentes",
+      "url": "/ia-para-docentes/",
+      "date": "3 al 6 de agosto de 2026",
+      "hours": "12 horas académicas",
+      "schedule": "7:00 PM–9:00 PM EC/CO/PE · 6:00 PM–8:00 PM MX",
+      "prices": {
+        "USD": "57",
+        "MXN": "995",
+        "PEN": "200",
+        "COP": "211.000"
+      }
+    },
+    {
+      "type": "Certificado",
+      "name": "Gestión de Producto Digital y Estrategia con Inteligencia Artificial",
+      "commercial": "Vende tu App y Consigue Clientes",
+      "url": "/monetiza-tu-idea/",
+      "date": "10 al 13 de agosto de 2026",
+      "hours": "12 horas académicas",
+      "schedule": "7:00 PM–9:00 PM EC/CO/PE · 6:00 PM–8:00 PM MX",
+      "prices": {
+        "USD": "57",
+        "MXN": "995",
+        "PEN": "200",
+        "COP": "211.000"
+      }
+    },
+    {
+      "type": "Certificado",
+      "name": "Diseño y Producción de Cursos Online con Inteligencia Artificial",
+      "commercial": "Crea tu Curso Online y Monetiza",
+      "url": "/crea-tu-academia/",
+      "date": "17 al 20 de agosto de 2026",
+      "hours": "12 horas académicas",
+      "schedule": "7:00 PM–9:00 PM EC/CO/PE · 6:00 PM–8:00 PM MX",
+      "prices": {
+        "USD": "57",
+        "MXN": "995",
+        "PEN": "200",
+        "COP": "211.000"
+      }
+    },
+    {
+      "type": "Certificado",
+      "name": "Comunicación Efectiva y Oratoria Profesional",
+      "commercial": "Aprende a Hablar en Público",
+      "url": "/comunicacion-efectiva/",
+      "date": "Fechas sábado según calendario",
+      "hours": "4 horas intensivas",
+      "schedule": "9:00 AM–1:00 PM EC",
+      "prices": {
+        "USD": "57",
+        "MXN": "995",
+        "PEN": "200",
+        "COP": "211.000"
+      }
+    },
+    {
+      "type": "Diplomado",
+      "name": "Desarrollo de Aplicaciones y Gestión de Productos Digitales con Inteligencia Artificial",
+      "commercial": "Diplomado de Apps y Producto Digital con IA",
+      "url": "/diplomado-ia-negocios-marketing/",
+      "date": "5 de octubre al 5 de noviembre de 2026",
+      "hours": "60 horas académicas",
+      "schedule": "Lun–Jue · 7:00 PM–9:00 PM EC/CO/PE · 6:00 PM–8:00 PM MX",
+      "prices": {
+        "USD": "277",
+        "MXN": "4.850",
+        "PEN": "975",
+        "COP": "1.025.000"
+      }
+    },
+    {
+      "type": "Máster Ejecutivo",
+      "name": "Inteligencia Artificial Aplicada y Dirección de Productos Digitales",
+      "commercial": "Máster Ejecutivo en IA Aplicada y Dirección de Productos Digitales",
+      "url": "/master-ejecutivo-ia/",
+      "date": "19 de octubre de 2026 a abril de 2027",
+      "hours": "234 horas académicas",
+      "schedule": "Lun–Vie · 9:00 PM–10:00 PM EC/CO/PE · 8:00 PM–9:00 PM MX",
+      "prices": {
+        "USD": "926.25",
+        "MXN": "16.191",
+        "PEN": "3.251",
+        "COP": "3.423.420"
+      }
+    }
+  ]
+}

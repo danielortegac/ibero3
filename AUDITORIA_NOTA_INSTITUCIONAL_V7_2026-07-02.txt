@@ -1,0 +1,21 @@
+AUDITORÍA V7 - Nota institucional, nombres formales y SEO/GEO/AEO
+Fecha: 2026-07-02
+
+Cambios aplicados:
+- Se agregó nota institucional discreta debajo de los bloques de credencial en páginas principales de programas.
+- Se agregó nota institucional general en páginas de catálogo/calendario/registro.
+- Se alinearon nombres formales visibles de certificados, diplomado y Máster Ejecutivo.
+- Se añadió meta ibero:institutional-note en páginas HTML para mejorar entendimiento AEO/GEO/SEO.
+- Se actualizó llms.txt con el aval privado y actualización permanente.
+
+Criterio de redacción:
+- No se ataca a instituciones ni gobiernos.
+- No se usa lenguaje de título oficial ni ministerial.
+- Se mantiene el enfoque en formación privada aplicada, aval IBERO, red educativa/tecnológica/profesional y actualización continua.
+
+No se modificó:
+- Fechas aprobadas.
+- Horarios aprobados.
+- Precios aprobados.
+- Links de pago.
+- Histórico de clases pasadas.

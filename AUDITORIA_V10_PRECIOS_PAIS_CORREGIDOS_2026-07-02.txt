@@ -1,0 +1,1 @@
+V10: corrección de selección automática de país/moneda en páginas nuevas y previsualización local. No se cambiaron precios, fechas, horarios ni programas.

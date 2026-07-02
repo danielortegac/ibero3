@@ -1,0 +1,107 @@
+[
+  {
+    "programa_comercial": "Marketing Digital con IA",
+    "nombre_formal_documento": "Certificado en Marketing Digital con Inteligencia Artificial",
+    "tipo": "CERTIFICADO",
+    "inicio": "2026-07-27",
+    "fin": "2026-07-30",
+    "horas": 12,
+    "precios": {
+      "USD": "57",
+      "MXN": "995",
+      "PEN": "200",
+      "COP": "211000"
+    },
+    "diferenciador": "Ayuda a vender mejor lo que la persona ya ofrece o está creando: marca, servicio, producto, curso, app o negocio."
+  },
+  {
+    "programa_comercial": "IA para Docentes",
+    "nombre_formal_documento": "Certificado en Inteligencia Artificial Aplicada a la Docencia",
+    "tipo": "CERTIFICADO",
+    "inicio": "2026-08-03",
+    "fin": "2026-08-06",
+    "horas": 12,
+    "precios": {
+      "USD": "57",
+      "MXN": "995",
+      "PEN": "200",
+      "COP": "211000"
+    },
+    "diferenciador": "Convierte la IA en una herramienta práctica para planificar, enseñar, evaluar y producir mejores experiencias educativas."
+  },
+  {
+    "programa_comercial": "Vende tu App y Consigue Clientes",
+    "nombre_formal_documento": "Certificado en Gestión de Producto Digital y Estrategia con Inteligencia Artificial",
+    "tipo": "CERTIFICADO",
+    "inicio": "2026-08-10",
+    "fin": "2026-08-13",
+    "horas": 12,
+    "precios": {
+      "USD": "57",
+      "MXN": "995",
+      "PEN": "200",
+      "COP": "211000"
+    },
+    "diferenciador": "No se queda en vender por vender: ordena el producto digital, la propuesta, la demo y la estrategia para salir a mercado."
+  },
+  {
+    "programa_comercial": "Crea tu Curso Online y Monetiza",
+    "nombre_formal_documento": "Certificado en Diseño y Producción de Cursos Online con Inteligencia Artificial",
+    "tipo": "CERTIFICADO",
+    "inicio": "2026-08-17",
+    "fin": "2026-08-20",
+    "horas": 12,
+    "precios": {
+      "USD": "57",
+      "MXN": "995",
+      "PEN": "200",
+      "COP": "211000"
+    },
+    "diferenciador": "Transforma conocimiento en un curso online estructurado, producible y vendible, no solo en clases sueltas."
+  },
+  {
+    "programa_comercial": "Aprende a Hablar en Público",
+    "nombre_formal_documento": "Certificado en Comunicación Efectiva y Oratoria Profesional",
+    "tipo": "CERTIFICADO",
+    "inicio": "2026-08-08",
+    "fin": "2026-08-08",
+    "horas": 4,
+    "precios": {
+      "USD": "57",
+      "MXN": "995",
+      "PEN": "200",
+      "COP": "211000"
+    },
+    "diferenciador": "Fortalece la capacidad de explicar, vender, enseñar y liderar con presencia real frente a otras personas."
+  },
+  {
+    "programa_comercial": "Diplomado en Desarrollo de Aplicaciones y Gestión de Productos Digitales con IA",
+    "nombre_formal_documento": "Diplomado en Desarrollo de Aplicaciones y Gestión de Productos Digitales con Inteligencia Artificial",
+    "tipo": "DIPLOMADO",
+    "inicio": "2026-10-05",
+    "fin": "2026-11-05",
+    "horas": 60,
+    "precios": {
+      "USD": "277",
+      "MXN": "4850",
+      "PEN": "975",
+      "COP": "1025000"
+    },
+    "diferenciador": "A diferencia del certificado corto, aquí el participante trabaja durante 5 semanas el desarrollo, validación, presentación y lanzamiento de un producto digital completo."
+  },
+  {
+    "programa_comercial": "Máster Ejecutivo en IA Aplicada y Dirección de Productos Digitales",
+    "nombre_formal_documento": "Máster Ejecutivo en Inteligencia Artificial Aplicada y Dirección de Productos Digitales",
+    "tipo": "MÁSTER EJECUTIVO",
+    "inicio": "2026-10-19",
+    "fin": "2027-04-30",
+    "horas": 234,
+    "precios": {
+      "USD": "926.25",
+      "MXN": "16191",
+      "PEN": "3251",
+      "COP": "3423420"
+    },
+    "diferenciador": "Es el nivel ejecutivo: no solo crea una app, sino que dirige productos digitales, equipos, sistemas comerciales y escalamiento con IA."
+  }
+]

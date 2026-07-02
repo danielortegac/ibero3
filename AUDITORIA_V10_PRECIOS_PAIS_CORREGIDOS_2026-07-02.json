@@ -1,0 +1,13 @@
+{
+  "version": "v10",
+  "date": "2026-07-02",
+  "html_files": 131,
+  "changed_files": 131,
+  "fixes": [
+    "Router de país/moneda detecta la carpeta correcta incluso en previsualización local tipo /uploads/ibero3-main/houston/index.html.",
+    "Páginas de país/ciudad fuerzan su país correcto: Houston/Miami/USA => Estados Unidos/USD; Colombia => COP; México => MXN; Perú => PEN; Ecuador => USD.",
+    "La detección del navegador queda como respaldo para páginas generales, sin depender de una preferencia vieja guardada.",
+    "Las tarjetas de precio por país quedan clicables para revisión manual sin romper la selección automática.",
+    "Se cambió copy visible técnico por texto público: Precios de referencia por país."
+  ]
+}

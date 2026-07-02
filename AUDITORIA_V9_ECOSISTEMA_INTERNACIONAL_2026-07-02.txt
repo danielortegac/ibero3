@@ -1,0 +1,20 @@
+AUDITORIA V9 ECOSISTEMA INTERNACIONAL — 2026-07-02
+
+Cambios principales:
+- Eliminado de la interfaz pública el lenguaje interno de optimización. En cliente se usan etiquetas como País, Guía práctica, Ruta profesional, Recurso, Caso práctico y Programas online.
+- Corregido router de país/moneda: /colombia/ fuerza COP, /mexico/ MXN, /peru/ PEN, /ecuador/ USD, páginas USA USD y otros países pago internacional USD.
+- Agregado script público robusto que corre después de scripts anteriores para evitar que una preferencia vieja deje Colombia en USD.
+- Creadas 83 páginas nuevas de expansión internacional, intención comercial, perfiles, industrias, problemas, recursos, conceptos y páginas formales.
+- Actualizado botón flotante Ecosistema IBERO con grupos públicos, sin términos internos.
+- Actualizado sitemap.xml, llms.txt y ecosistema-ibero.json.
+
+No se cambiaron precios oficiales, fechas, horarios ni programas aprobados.
+
+Total de páginas en ecosistema: 104
+
+Validación adicional:
+- HTML revisados: 131.
+- JSON-LD: 0 errores.
+- Scripts inline: 515 revisados, 0 errores de sintaxis.
+- Términos internos SEO/GEO/AEO: 0 apariciones visibles en páginas HTML.
+- Colombia: página fuerza COP y card Colombia/COP disponible.

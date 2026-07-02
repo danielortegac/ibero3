@@ -1,0 +1,24 @@
+IBERO v5 · Revisión y mejora académica de programas Apps/IA
+Fecha: 2026-07-01
+
+Revisión aplicada:
+1. Calendario: se mantienen fechas, horarios y precios aprobados. Se corrigieron microtextos del calendario y del chatbot para que el diplomado y el Máster Ejecutivo reflejen Apps/MVP, ventas, monetización y negocios digitales.
+2. Sesiones gratis: se conserva la estructura acordada. Sesión 11 queda el miércoles 1 de julio; sesiones 12 y 13 quedan martes 7 y martes 14; desde sesión 14 se retoma martes/miércoles hasta sesión 25.
+3. Vende tu App y Consigue Clientes: se agregó marco académico aplicado con perfil de entrada, entregables, herramientas IBERO/IA y credencial de 12 horas.
+4. Diplomado: se reforzó como programa de 5 semanas para desarrollar, lanzar y vender App Web/PWA o MVP con IA; se agregó mapa académico de producto, construcción, marketing, ventas y monetización.
+5. Máster Ejecutivo: se ajustó el enfoque hacia construcción, sistematización, venta y escalamiento de Apps, PWAs, automatizaciones y negocios digitales con IA, CRM, agentes, métricas, finanzas y Demo Day.
+6. Catálogos, admisiones, home y páginas individuales: se corrigieron nombres viejos, tarjetas de pago, enlaces, textos de chatbot y descripciones inconsistentes.
+7. Credenciales: se evita lenguaje de titulación gubernamental. Se usa credencial/certificado IBERO verificable por QR.
+8. Moneda: se mantiene tabla/botones por país y se conserva auto-selección ligera por navegador/zona horaria con opción manual, sin API externa ni geolocalización invasiva.
+
+Sin cambios intencionales:
+- No se cambiaron precios.
+- No se cambiaron horarios.
+- No se cambiaron fechas aprobadas.
+- No se eliminó histórico de clases anteriores.
+- No se cambió estructura general de la web.
+
+Validación técnica:
+- Scripts embebidos revisados con node --check: 129 scripts, 0 errores.
+- JSON-LD revisado: 11 bloques, 0 errores.
+- Búsqueda final sin términos viejos críticos: nombres comerciales antiguos, lenguaje oficial gubernamental, Blockchain, nombres antiguos del diplomado/master y fechas viejas 6 Jul/7 Sep 2026.

@@ -1,0 +1,22 @@
+Cambios aplicados 2026-07-01
+
+1. Reposicionamiento estratégico:
+- Curso intensivo: Vende tu App y Consigue Clientes.
+- Diplomado: Diplomado en Desarrollo de Aplicaciones y Gestión de Productos Digitales con IA.
+- Máster Ejecutivo: Máster Ejecutivo en IA Aplicada y Dirección de Productos Digitales.
+
+2. Enfoque académico:
+- Vende tu App: app/MVP/software -> oferta, demo, marketing, pricing, captación y cierre.
+- Diplomado: 5 semanas para desarrollar, lanzar y vender una App Web/PWA o MVP con IA.
+- Máster Ejecutivo: 6 meses para construir, vender y escalar Apps, PWAs, automatizaciones y negocios digitales.
+
+3. Credenciales:
+- Se cambió Diploma Oficial / Titulación Oficial por Credencial IBERO o Máster Ejecutivo IBERO.
+- Se explicita el nombre de la credencial en páginas de programa.
+
+4. Monedas:
+- Se mantiene selector manual de USD/MXN/COP/PEN.
+- Se agregó auto-selección por zona horaria/idioma del navegador, sin llamadas externas por IP.
+- La elección manual se guarda en localStorage.
+
+5. No se tocaron precios ni fechas.

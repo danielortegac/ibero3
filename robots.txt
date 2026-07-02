@@ -1,1 +1,5 @@
-User-agent: *\nAllow: /\n\nSitemap: https://ibero.education/sitemap.xml\n
+User-agent: *
+Allow: /
+
+Sitemap: https://ibero.education/sitemap.xml
+Sitemap: https://ibero.education/llms.txt

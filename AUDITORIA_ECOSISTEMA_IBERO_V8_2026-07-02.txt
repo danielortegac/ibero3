@@ -1,0 +1,40 @@
+AUDITORIA ECOSISTEMA IBERO V8 — 2026-07-02
+
+Base usada: v7 nota institucional SEO/GEO/AEO.
+
+Cambios realizados:
+- Creadas 20 páginas nuevas de SEO/GEO/AEO + 1 hub Ecosistema IBERO.
+- Agregado botón flotante "Ecosistema IBERO" en todas las páginas index.html del proyecto.
+- Actualizado sitemap.xml con las nuevas URLs.
+- Actualizado llms.txt con mapa del ecosistema para modelos de IA.
+- Creado ecosistema-ibero.json como índice interno de páginas nuevas y programas.
+- Añadido JSON-LD Article, FAQPage, BreadcrumbList y CollectionPage donde aplica.
+- Mantenidos precios, fechas, horarios, nombres de programas existentes y nota institucional.
+
+Páginas nuevas:
+- /desarrollo-de-software-con-ia/ — Desarrollo de Software con Inteligencia Artificial
+- /crear-app-con-inteligencia-artificial/ — Cómo crear una App con Inteligencia Artificial
+- /mvp-con-inteligencia-artificial/ — MVP con Inteligencia Artificial
+- /producto-digital-con-ia/ — Producto Digital con Inteligencia Artificial
+- /como-vender-una-app/ — Cómo vender una App o Producto Digital
+- /vibe-coding/ — Vibe Coding: crear software con IA
+- /ia-para-emprendedores/ — IA para Emprendedores
+- /ia-para-docentes-y-formadores/ — IA para Docentes y Formadores
+- /ia-para-marketing-y-ventas/ — IA para Marketing y Ventas
+- /ecuador/ — Cursos de Inteligencia Artificial en Ecuador
+- /mexico/ — Cursos de Inteligencia Artificial en México
+- /colombia/ — Cursos de Inteligencia Artificial en Colombia
+- /peru/ — Cursos de Inteligencia Artificial en Perú
+- /certificado-vs-diplomado/ — Certificado vs Diplomado: cuál elegir
+- /diplomado-vs-master-ejecutivo/ — Diplomado vs Máster Ejecutivo
+- /que-programa-elegir/ — Qué programa IBERO elegir según tu objetivo
+- /recursos/plantilla-mvp/ — Plantilla para definir tu MVP con IA
+- /recursos/checklist-app/ — Checklist para lanzar una App
+- /rutas/crear-y-vender-apps-con-ia/ — Ruta para crear y vender Apps con IA
+- /casos-de-uso/vender-software-a-pymes/ — Cómo vender software a PYMES
+- /ecosistema-ibero/ — Hub del ecosistema
+
+Validación esperada:
+- Contenido diseñado para búsquedas informativas, comparativas, locales, por perfil y por caso de uso.
+- Enlaces internos hacia oferta, calendario, programas, admisiones y WhatsApp.
+- Menú flotante discreto y desplegable en todas las páginas.
