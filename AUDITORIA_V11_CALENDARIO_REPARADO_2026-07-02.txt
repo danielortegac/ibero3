@@ -1,0 +1,23 @@
+AUDITORIA V11 - CALENDARIO REPARADO Y VERIFICACION GENERAL
+Fecha: 2026-07-02
+
+Corrección principal:
+- En calendario-academico/index.html se corrigió el error de JavaScript que detenía el renderizado del calendario:
+  variable incorrecta: isMáster
+  variable correcta: isMaster
+- El error provocaba: Uncaught ReferenceError: isMáster is not defined.
+
+Validaciones realizadas:
+- HTML revisados: 131 páginas.
+- Scripts inline parseados con TypeScript parser: 515 scripts, 0 errores de sintaxis.
+- JSON-LD revisado: 367 bloques, 0 errores de parseo.
+- Etiquetas visibles internas SEO/GEO/AEO: 0 apariciones públicas.
+- Links internos básicos: 0 rotos.
+- Sitemap: todas las URLs internas apuntan a páginas existentes.
+- Páginas originales del v7 preservadas: 27/27, no falta ninguna.
+- Se verificó que no queda la variable isMáster en ninguna página HTML.
+
+Notas:
+- No se cambiaron precios, fechas, horarios ni programas aprobados.
+- No se removieron páginas del ecosistema internacional.
+- España se mantiene como referencia internacional/USD hasta que se apruebe precio oficial en EUR.
