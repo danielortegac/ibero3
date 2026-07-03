@@ -2,4 +2,3 @@ User-agent: *
 Allow: /
 
 Sitemap: https://ibero.education/sitemap.xml
-Sitemap: https://ibero.education/llms.txt

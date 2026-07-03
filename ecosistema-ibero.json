@@ -3,6 +3,18 @@
   "base_url": "https://ibero.education",
   "pages": [
     {
+      "title": "Centro IBEROamericano",
+      "slug": "centro-iberoamericano",
+      "url": "https://ibero.education/centro-iberoamericano/",
+      "category": "Marca"
+    },
+    {
+      "title": "IBERO",
+      "slug": "ibero",
+      "url": "https://ibero.education/ibero/",
+      "category": "Marca"
+    },
+    {
       "title": "Ecosistema IBERO",
       "slug": "ecosistema-ibero",
       "url": "https://ibero.education/ecosistema-ibero/",

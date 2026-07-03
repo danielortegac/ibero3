@@ -357,6 +357,9 @@
   @media(max-width:640px){.ibero-ecosystem-wrap{left:14px;bottom:86px}.ibero-ecosystem-btn{padding:8px 10px;font-size:9.5px}.ibero-ecosystem-grid{grid-template-columns:1fr}.ibero-ecosystem-panel{bottom:42px}}
 </style>
 
+
+<meta name="brand-aliases" content="IBERO, Centro IBEROamericano, Centro Iberoamericano, Iberoamericano, Instituto IBEROamericano, IBERO Education">
+<script id="ibero-brand-entity-schema-v13" type="application/ld+json">{"@context": "https://schema.org", "@type": ["EducationalOrganization", "Organization"], "name": "Centro IBEROamericano", "alternateName": ["IBERO", "Centro Iberoamericano", "Centro IBEROamericano", "Iberoamericano", "Instituto IBEROamericano", "IBERO Education"], "url": "https://ibero.education/", "logo": "https://ibero.education/fotos/logos%20ibero/logo%20sin%20fondo%20main%20para%20fondos%20claros.png", "description": "Centro privado de formación aplicada en inteligencia artificial, apps, producto digital, marketing digital, docencia, comunicación y negocios digitales para Latinoamérica, España y comunidad latina en Estados Unidos.", "areaServed": ["Ecuador", "México", "Colombia", "Perú", "Latinoamérica", "España", "Estados Unidos", "comunidad latina"], "knowsAbout": ["inteligencia artificial aplicada", "desarrollo de software con IA", "apps con IA", "producto digital", "marketing digital con IA", "IA para docentes", "oratoria profesional", "negocios digitales", "vibe coding", "MVP con IA"], "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Programas IBERO de IA aplicada y productos digitales"}}</script>
 </head>
 <body class="bg-white text-ibero-dark font-sans antialiased overflow-x-hidden selection:bg-ibero-dark selection:text-white pt-[144px] md:pt-[152px]">
 <!-- Botones Flotantes -->
@@ -746,7 +749,7 @@
 <i class="fa-regular fa-clock">
 </i>
 <span>
-          Lun a Jue - 7:00 PM (EC)
+          Lun a Jue · 7:00 PM–9:00 PM EC/CO/PE · 6:00 PM–8:00 PM MX
          </span>
 </div>
 </div>
@@ -809,7 +812,7 @@
 <i class="fa-regular fa-clock">
 </i>
 <span>
-          Lun a Jue - 7:00 PM (EC)
+          Lun a Jue · 7:00 PM–9:00 PM EC/CO/PE · 6:00 PM–8:00 PM MX
          </span>
 </div>
 </div>
@@ -872,7 +875,7 @@
 <i class="fa-regular fa-clock">
 </i>
 <span>
-          Lun a Jue - 7:00 PM (EC)
+          Lun a Jue · 7:00 PM–9:00 PM EC/CO/PE · 6:00 PM–8:00 PM MX
          </span>
 </div>
 </div>
@@ -935,7 +938,7 @@
 <i class="fa-regular fa-clock">
 </i>
 <span>
-          Lun a Jue - 7:00 PM (EC)
+          Lun a Jue · 7:00 PM–9:00 PM EC/CO/PE · 6:00 PM–8:00 PM MX
          </span>
 </div>
 </div>
@@ -969,7 +972,7 @@
 <strong>
          Frase Oficial de Horarios:
         </strong>
-        Estos horarios (7:00 PM EC/CO/PE - 6:00 PM MX) corresponden a la jornada regular de formación. Las fechas de inicio y la programación específica de cada cohorte se detallan en el calendario académico oficial.
+        Estos horarios (7:00 PM–9:00 PM EC/CO/PE · 6:00 PM–8:00 PM MX) corresponden a la jornada regular de formación. Las fechas de inicio y la programación específica de cada cohorte se detallan en el calendario académico oficial.
        </p>
 </div>
 <div class="flex gap-4 items-start md:w-1/2">
@@ -1727,78 +1730,6 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 })();
 </script>
-<script id="ibero-smart-currency-autodetect">
-(function () {
-  const storageKey = 'iberoPreferredCurrency';
-  let autoClicking = false;
-
-  function guessCurrency() {
-    try {
-      const tz = (Intl.DateTimeFormat().resolvedOptions().timeZone || '').toLowerCase();
-      const lang = ((navigator.languages && navigator.languages[0]) || navigator.language || '').toLowerCase();
-      const blob = tz + ' ' + lang;
-      if (blob.includes('mexico') || blob.includes('-mx')) return 'MXN';
-      if (blob.includes('bogota') || blob.includes('colombia') || blob.includes('-co')) return 'COP';
-      if (blob.includes('lima') || blob.includes('peru') || blob.includes('-pe')) return 'PEN';
-      if (blob.includes('guayaquil') || blob.includes('quito') || blob.includes('ecuador') || blob.includes('-ec')) return 'USD';
-    } catch (e) {}
-    return 'USD';
-  }
-
-  function selectCurrency(currency) {
-    if (!currency) return;
-    const target = String(currency).toUpperCase();
-    const buttons = Array.from(document.querySelectorAll('.currency-btn'));
-    const btn = buttons.find(function (b) { return String(b.dataset.currency || '').toUpperCase() === target; });
-    if (btn) {
-      autoClicking = true;
-      btn.click();
-      setTimeout(function(){ autoClicking = false; }, 0);
-    }
-    const calendarCountry = target === 'MXN' ? 'mx' : 'general';
-    const calendarBtn = document.querySelector('[data-calendar-pay-country="' + calendarCountry + '"]');
-    if (calendarBtn) {
-      autoClicking = true;
-      calendarBtn.click();
-      setTimeout(function(){ autoClicking = false; }, 0);
-    }
-  }
-
-  function bindManualChoice() {
-    document.querySelectorAll('.currency-btn').forEach(function (btn) {
-      if (btn.dataset.iberoCurrencyBound === 'true') return;
-      btn.dataset.iberoCurrencyBound = 'true';
-      btn.addEventListener('click', function () {
-        if (autoClicking) return;
-        const value = String(btn.dataset.currency || '').toUpperCase();
-        if (value) localStorage.setItem(storageKey, value);
-      });
-    });
-    document.querySelectorAll('.calendar-pay-country-btn').forEach(function (btn) {
-      if (btn.dataset.iberoCalendarCurrencyBound === 'true') return;
-      btn.dataset.iberoCalendarCurrencyBound = 'true';
-      btn.addEventListener('click', function () {
-        if (autoClicking) return;
-        const value = btn.dataset.calendarPayCountry === 'mx' ? 'MXN' : 'USD';
-        localStorage.setItem(storageKey, value);
-      });
-    });
-  }
-
-  function initSmartCurrency() {
-    bindManualChoice();
-    const saved = localStorage.getItem(storageKey);
-    const currency = saved || guessCurrency();
-    setTimeout(function () { selectCurrency(currency); }, 50);
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initSmartCurrency);
-  } else {
-    initSmartCurrency();
-  }
-})();
-</script>
 
 
 
@@ -1807,7 +1738,7 @@ document.addEventListener('DOMContentLoaded', function () {
   <button class="ibero-ecosystem-btn" type="button" id="ibero-ecosystem-toggle" aria-expanded="false" aria-controls="ibero-ecosystem-panel"><span class="ibero-ecosystem-dot"></span>Ecosistema IBERO</button>
   <nav class="ibero-ecosystem-panel" id="ibero-ecosystem-panel" aria-label="Ecosistema IBERO de rutas y recursos">
     <div class="ibero-ecosystem-head"><strong>Ecosistema IBERO</strong><span>Rutas, países, recursos, casos y respuestas para elegir formación aplicada en IA, apps, producto digital, marketing y comunicación.</span></div>
-    <div class="ibero-ecosystem-section"><div class="ibero-ecosystem-section-title">Hub</div><div class="ibero-ecosystem-grid"><a class="ibero-ecosystem-link featured" href="/ecosistema-ibero/"><span class="ibero-ecosystem-mini">★</span>Ecosistema IBERO</a></div></div><div class="ibero-ecosystem-section"><div class="ibero-ecosystem-section-title">Pilar</div><div class="ibero-ecosystem-grid"><a class="ibero-ecosystem-link" href="/desarrollo-de-software-con-ia/"><span class="ibero-ecosystem-mini">→</span>Desarrollo de Software con Inteligencia Artificial</a><a class="ibero-ecosystem-link" href="/crear-app-con-inteligencia-artificial/"><span class="ibero-ecosystem-mini">→</span>Cómo crear una App con Inteligencia Artificial</a><a class="ibero-ecosystem-link" href="/mvp-con-inteligencia-artificial/"><span class="ibero-ecosystem-mini">→</span>MVP con Inteligencia Artificial</a><a class="ibero-ecosystem-link" href="/producto-digital-con-ia/"><span class="ibero-ecosystem-mini">→</span>Producto Digital con Inteligencia Artificial</a><a class="ibero-ecosystem-link" href="/como-vender-una-app/"><span class="ibero-ecosystem-mini">→</span>Cómo vender una App o Producto Digital</a><a class="ibero-ecosystem-link" href="/vibe-coding/"><span class="ibero-ecosystem-mini">→</span>Vibe Coding: crear software con IA</a></div></div><div class="ibero-ecosystem-section"><div class="ibero-ecosystem-section-title">País</div><div class="ibero-ecosystem-grid"><a class="ibero-ecosystem-link" href="/ecuador/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en Ecuador</a><a class="ibero-ecosystem-link" href="/mexico/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en México</a><a class="ibero-ecosystem-link" href="/colombia/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en Colombia</a><a class="ibero-ecosystem-link" href="/peru/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en Perú</a><a class="ibero-ecosystem-link" href="/argentina/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en Argentina</a><a class="ibero-ecosystem-link" href="/chile/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en Chile</a><a class="ibero-ecosystem-link" href="/bolivia/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en Bolivia</a><a class="ibero-ecosystem-link" href="/uruguay/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en Uruguay</a><a class="ibero-ecosystem-link" href="/paraguay/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en Paraguay</a><a class="ibero-ecosystem-link" href="/venezuela/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en Venezuela</a><a class="ibero-ecosystem-link" href="/panama/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en Panamá</a><a class="ibero-ecosystem-link" href="/costa-rica/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en Costa Rica</a><a class="ibero-ecosystem-link" href="/guatemala/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en Guatemala</a><a class="ibero-ecosystem-link" href="/el-salvador/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en El Salvador</a><a class="ibero-ecosystem-link" href="/honduras/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en Honduras</a><a class="ibero-ecosystem-link" href="/nicaragua/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en Nicaragua</a><a class="ibero-ecosystem-link" href="/republica-dominicana/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en República Dominicana</a><a class="ibero-ecosystem-link" href="/puerto-rico/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en Puerto Rico</a><a class="ibero-ecosystem-link" href="/espana/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en España</a><a class="ibero-ecosystem-link" href="/estados-unidos/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en Estados Unidos</a><a class="ibero-ecosystem-link" href="/cursos-ia-en-espanol-estados-unidos/"><span class="ibero-ecosystem-mini">→</span>Cursos de IA en Español en Estados Unidos</a><a class="ibero-ecosystem-link" href="/ia-para-latinos-en-usa/"><span class="ibero-ecosystem-mini">→</span>IA para Latinos en Estados Unidos</a><a class="ibero-ecosystem-link" href="/formacion-online-para-hispanos/"><span class="ibero-ecosystem-mini">→</span>Formación Online para Hispanos</a></div></div><div class="ibero-ecosystem-section"><div class="ibero-ecosystem-section-title">Ciudad</div><div class="ibero-ecosystem-grid"><a class="ibero-ecosystem-link" href="/miami/"><span class="ibero-ecosystem-mini">→</span>Cursos de IA para Latinos en Miami</a><a class="ibero-ecosystem-link" href="/orlando/"><span class="ibero-ecosystem-mini">→</span>Cursos de IA para Latinos en Orlando</a><a class="ibero-ecosystem-link" href="/houston/"><span class="ibero-ecosystem-mini">→</span>Cursos de IA para Latinos en Houston</a><a class="ibero-ecosystem-link" href="/dallas/"><span class="ibero-ecosystem-mini">→</span>Cursos de IA para Latinos en Dallas</a><a class="ibero-ecosystem-link" href="/los-angeles/"><span class="ibero-ecosystem-mini">→</span>Cursos de IA para Latinos en Los Ángeles</a><a class="ibero-ecosystem-link" href="/nueva-york/"><span class="ibero-ecosystem-mini">→</span>Cursos de IA para Latinos en Nueva York</a><a class="ibero-ecosystem-link" href="/chicago/"><span class="ibero-ecosystem-mini">→</span>Cursos de IA para Latinos en Chicago</a></div></div><div class="ibero-ecosystem-section"><div class="ibero-ecosystem-section-title">Perfil</div><div class="ibero-ecosystem-grid"><a class="ibero-ecosystem-link" href="/ia-para-emprendedores/"><span class="ibero-ecosystem-mini">→</span>IA para Emprendedores</a><a class="ibero-ecosystem-link" href="/ia-para-docentes-y-formadores/"><span class="ibero-ecosystem-mini">→</span>IA para Docentes y Formadores</a><a class="ibero-ecosystem-link" href="/ia-para-marketing-y-ventas/"><span class="ibero-ecosystem-mini">→</span>IA para Marketing y Ventas</a><a class="ibero-ecosystem-link" href="/ia-para-emprendedores-digitales/"><span class="ibero-ecosystem-mini">→</span>IA para Emprendedores Digitales</a><a class="ibero-ecosystem-link" href="/ia-para-coaches-y-consultores/"><span class="ibero-ecosystem-mini">→</span>IA para Coaches y Consultores</a><a class="ibero-ecosystem-link" href="/ia-para-agencias-de-marketing/"><span class="ibero-ecosystem-mini">→</span>IA para Agencias de Marketing</a><a class="ibero-ecosystem-link" href="/ia-para-creadores-de-contenido/"><span class="ibero-ecosystem-mini">→</span>IA para Creadores de Contenido</a><a class="ibero-ecosystem-link" href="/ia-para-freelancers/"><span class="ibero-ecosystem-mini">→</span>IA para Freelancers</a><a class="ibero-ecosystem-link" href="/ia-para-pymes/"><span class="ibero-ecosystem-mini">→</span>IA para Pymes</a><a class="ibero-ecosystem-link" href="/ia-para-ventas/"><span class="ibero-ecosystem-mini">→</span>IA para Ventas</a><a class="ibero-ecosystem-link" href="/ia-para-lideres-y-directivos/"><span class="ibero-ecosystem-mini">→</span>IA para Líderes y Directivos</a></div></div><div class="ibero-ecosystem-section"><div class="ibero-ecosystem-section-title">Certificado</div><div class="ibero-ecosystem-grid"><a class="ibero-ecosystem-link" href="/certificado-marketing-digital-inteligencia-artificial/"><span class="ibero-ecosystem-mini">→</span>Certificado en Marketing Digital con Inteligencia Artificial</a><a class="ibero-ecosystem-link" href="/certificado-inteligencia-artificial-docencia/"><span class="ibero-ecosystem-mini">→</span>Certificado en Inteligencia Artificial Aplicada a la Docencia</a><a class="ibero-ecosystem-link" href="/certificado-producto-digital-estrategia-ia/"><span class="ibero-ecosystem-mini">→</span>Certificado en Gestión de Producto Digital y Estrategia con IA</a><a class="ibero-ecosystem-link" href="/certificado-diseno-produccion-cursos-online-ia/"><span class="ibero-ecosystem-mini">→</span>Certificado en Diseño y Producción de Cursos Online con IA</a><a class="ibero-ecosystem-link" href="/certificado-comunicacion-efectiva-oratoria-profesional/"><span class="ibero-ecosystem-mini">→</span>Certificado en Comunicación Efectiva y Oratoria Profesional</a></div></div><div class="ibero-ecosystem-section"><div class="ibero-ecosystem-section-title">Diplomado</div><div class="ibero-ecosystem-grid"><a class="ibero-ecosystem-link" href="/diplomado-desarrollo-aplicaciones-productos-digitales-ia/"><span class="ibero-ecosystem-mini">→</span>Diplomado en Desarrollo de Aplicaciones y Gestión de Productos Digitales con IA</a></div></div><div class="ibero-ecosystem-section"><div class="ibero-ecosystem-section-title">Máster Ejecutivo</div><div class="ibero-ecosystem-grid"><a class="ibero-ecosystem-link" href="/master-ejecutivo-inteligencia-artificial-direccion-productos-digitales/"><span class="ibero-ecosystem-mini">→</span>Máster Ejecutivo en Inteligencia Artificial Aplicada y Dirección de Productos Digitales</a></div></div><div class="ibero-ecosystem-section"><div class="ibero-ecosystem-section-title">Comparativa</div><div class="ibero-ecosystem-grid"><a class="ibero-ecosystem-link" href="/certificado-vs-diplomado/"><span class="ibero-ecosystem-mini">→</span>Certificado vs Diplomado: cuál elegir</a><a class="ibero-ecosystem-link" href="/diplomado-vs-master-ejecutivo/"><span class="ibero-ecosystem-mini">→</span>Diplomado vs Máster Ejecutivo</a><a class="ibero-ecosystem-link" href="/que-programa-elegir/"><span class="ibero-ecosystem-mini">→</span>Qué programa IBERO elegir según tu objetivo</a></div></div><div class="ibero-ecosystem-section"><div class="ibero-ecosystem-section-title">Problema</div><div class="ibero-ecosystem-grid"><a class="ibero-ecosystem-link" href="/tengo-una-app-y-no-se-venderla/"><span class="ibero-ecosystem-mini">→</span>Tengo una App y no sé venderla</a><a class="ibero-ecosystem-link" href="/conseguir-clientes-para-software/"><span class="ibero-ecosystem-mini">→</span>Cómo conseguir clientes para mi software</a><a class="ibero-ecosystem-link" href="/crear-mvp-sin-programar/"><span class="ibero-ecosystem-mini">→</span>Cómo crear un MVP sin programar</a><a class="ibero-ecosystem-link" href="/usar-ia-para-crear-aplicaciones/"><span class="ibero-ecosystem-mini">→</span>Cómo usar IA para crear aplicaciones</a><a class="ibero-ecosystem-link" href="/como-lanzar-un-producto-digital/"><span class="ibero-ecosystem-mini">→</span>Cómo lanzar un producto digital</a><a class="ibero-ecosystem-link" href="/como-poner-precio-a-una-app/"><span class="ibero-ecosystem-mini">→</span>Cómo poner precio a una app</a><a class="ibero-ecosystem-link" href="/como-presentar-una-app-a-clientes/"><span class="ibero-ecosystem-mini">→</span>Cómo presentar una app a clientes</a></div></div><div class="ibero-ecosystem-section"><div class="ibero-ecosystem-section-title">Industria</div><div class="ibero-ecosystem-grid"><a class="ibero-ecosystem-link" href="/ia-para-restaurantes/"><span class="ibero-ecosystem-mini">→</span>IA para Restaurantes</a><a class="ibero-ecosystem-link" href="/ia-para-inmobiliarias/"><span class="ibero-ecosystem-mini">→</span>IA para Inmobiliarias</a><a class="ibero-ecosystem-link" href="/ia-para-instituciones-educativas/"><span class="ibero-ecosystem-mini">→</span>IA para Instituciones Educativas</a><a class="ibero-ecosystem-link" href="/ia-para-turismo-y-hoteles/"><span class="ibero-ecosystem-mini">→</span>IA para Turismo y Hoteles</a><a class="ibero-ecosystem-link" href="/ia-para-construccion/"><span class="ibero-ecosystem-mini">→</span>IA para Construcción</a><a class="ibero-ecosystem-link" href="/ia-para-comercio-local/"><span class="ibero-ecosystem-mini">→</span>IA para Comercio Local</a><a class="ibero-ecosystem-link" href="/ia-para-servicios-profesionales/"><span class="ibero-ecosystem-mini">→</span>IA para Servicios Profesionales</a></div></div><div class="ibero-ecosystem-section"><div class="ibero-ecosystem-section-title">Glosario</div><div class="ibero-ecosystem-grid"><a class="ibero-ecosystem-link" href="/glosario/ia-aplicada/"><span class="ibero-ecosystem-mini">→</span>Qué es IA Aplicada</a><a class="ibero-ecosystem-link" href="/glosario/producto-digital/"><span class="ibero-ecosystem-mini">→</span>Qué es Producto Digital</a><a class="ibero-ecosystem-link" href="/glosario/mvp/"><span class="ibero-ecosystem-mini">→</span>Qué es un MVP</a><a class="ibero-ecosystem-link" href="/glosario/vibe-coding/"><span class="ibero-ecosystem-mini">→</span>Qué es Vibe Coding</a><a class="ibero-ecosystem-link" href="/glosario/prompt-engineering/"><span class="ibero-ecosystem-mini">→</span>Qué es Prompt Engineering</a><a class="ibero-ecosystem-link" href="/glosario/automatizacion-con-ia/"><span class="ibero-ecosystem-mini">→</span>Qué es Automatización con IA</a><a class="ibero-ecosystem-link" href="/glosario/agente-de-ia/"><span class="ibero-ecosystem-mini">→</span>Qué es un Agente de IA</a><a class="ibero-ecosystem-link" href="/glosario/pwa/"><span class="ibero-ecosystem-mini">→</span>Qué es una PWA</a><a class="ibero-ecosystem-link" href="/glosario/saas/"><span class="ibero-ecosystem-mini">→</span>Qué es SaaS</a><a class="ibero-ecosystem-link" href="/glosario/product-management/"><span class="ibero-ecosystem-mini">→</span>Qué es Product Management</a><a class="ibero-ecosystem-link" href="/glosario/go-to-market/"><span class="ibero-ecosystem-mini">→</span>Qué es Go-to-Market</a><a class="ibero-ecosystem-link" href="/glosario/embudo-de-ventas/"><span class="ibero-ecosystem-mini">→</span>Qué es un Embudo de Ventas</a></div></div><div class="ibero-ecosystem-section"><div class="ibero-ecosystem-section-title">Recurso</div><div class="ibero-ecosystem-grid"><a class="ibero-ecosystem-link" href="/recursos/plantilla-mvp/"><span class="ibero-ecosystem-mini">→</span>Plantilla para definir tu MVP con IA</a><a class="ibero-ecosystem-link" href="/recursos/checklist-app/"><span class="ibero-ecosystem-mini">→</span>Checklist para lanzar una App</a><a class="ibero-ecosystem-link" href="/recursos/calculadora-precio-app/"><span class="ibero-ecosystem-mini">→</span>Calculadora de Precio para Apps</a><a class="ibero-ecosystem-link" href="/recursos/plantilla-landing-app/"><span class="ibero-ecosystem-mini">→</span>Plantilla de Landing para Vender una App</a><a class="ibero-ecosystem-link" href="/recursos/guion-demo-software/"><span class="ibero-ecosystem-mini">→</span>Guion para Demo Comercial de Software</a><a class="ibero-ecosystem-link" href="/recursos/prompts-marketing-ia/"><span class="ibero-ecosystem-mini">→</span>Prompts de Marketing con IA</a><a class="ibero-ecosystem-link" href="/recursos/prompts-docentes-ia/"><span class="ibero-ecosystem-mini">→</span>Prompts de IA para Docentes</a><a class="ibero-ecosystem-link" href="/recursos/rubrica-proyectos-ia/"><span class="ibero-ecosystem-mini">→</span>Rúbrica para Evaluar Proyectos con IA</a><a class="ibero-ecosystem-link" href="/recursos/guion-hablar-en-publico/"><span class="ibero-ecosystem-mini">→</span>Guion para Hablar en Público</a><a class="ibero-ecosystem-link" href="/recursos/plantilla-pitch-app/"><span class="ibero-ecosystem-mini">→</span>Plantilla para Pitch de App</a></div></div><div class="ibero-ecosystem-section"><div class="ibero-ecosystem-section-title">Ruta</div><div class="ibero-ecosystem-grid"><a class="ibero-ecosystem-link" href="/rutas/crear-y-vender-apps-con-ia/"><span class="ibero-ecosystem-mini">→</span>Ruta para crear y vender Apps con IA</a></div></div><div class="ibero-ecosystem-section"><div class="ibero-ecosystem-section-title">Caso de uso</div><div class="ibero-ecosystem-grid"><a class="ibero-ecosystem-link" href="/casos-de-uso/vender-software-a-pymes/"><span class="ibero-ecosystem-mini">→</span>Cómo vender software a PYMES</a></div></div>
+    <div class="ibero-ecosystem-section"><div class="ibero-ecosystem-section-title">Marca</div><div class="ibero-ecosystem-grid"><a class="ibero-ecosystem-link" href="/centro-iberoamericano/"><span class="ibero-ecosystem-mini">→</span>Centro IBEROamericano</a><a class="ibero-ecosystem-link" href="/ibero/"><span class="ibero-ecosystem-mini">→</span>IBERO</a></div></div><div class="ibero-ecosystem-section"><div class="ibero-ecosystem-section-title">Hub</div><div class="ibero-ecosystem-grid"><a class="ibero-ecosystem-link featured" href="/ecosistema-ibero/"><span class="ibero-ecosystem-mini">★</span>Ecosistema IBERO</a></div></div><div class="ibero-ecosystem-section"><div class="ibero-ecosystem-section-title">Pilar</div><div class="ibero-ecosystem-grid"><a class="ibero-ecosystem-link" href="/desarrollo-de-software-con-ia/"><span class="ibero-ecosystem-mini">→</span>Desarrollo de Software con Inteligencia Artificial</a><a class="ibero-ecosystem-link" href="/crear-app-con-inteligencia-artificial/"><span class="ibero-ecosystem-mini">→</span>Cómo crear una App con Inteligencia Artificial</a><a class="ibero-ecosystem-link" href="/mvp-con-inteligencia-artificial/"><span class="ibero-ecosystem-mini">→</span>MVP con Inteligencia Artificial</a><a class="ibero-ecosystem-link" href="/producto-digital-con-ia/"><span class="ibero-ecosystem-mini">→</span>Producto Digital con Inteligencia Artificial</a><a class="ibero-ecosystem-link" href="/como-vender-una-app/"><span class="ibero-ecosystem-mini">→</span>Cómo vender una App o Producto Digital</a><a class="ibero-ecosystem-link" href="/vibe-coding/"><span class="ibero-ecosystem-mini">→</span>Vibe Coding: crear software con IA</a></div></div><div class="ibero-ecosystem-section"><div class="ibero-ecosystem-section-title">País</div><div class="ibero-ecosystem-grid"><a class="ibero-ecosystem-link" href="/ecuador/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en Ecuador</a><a class="ibero-ecosystem-link" href="/mexico/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en México</a><a class="ibero-ecosystem-link" href="/colombia/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en Colombia</a><a class="ibero-ecosystem-link" href="/peru/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en Perú</a><a class="ibero-ecosystem-link" href="/argentina/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en Argentina</a><a class="ibero-ecosystem-link" href="/chile/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en Chile</a><a class="ibero-ecosystem-link" href="/bolivia/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en Bolivia</a><a class="ibero-ecosystem-link" href="/uruguay/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en Uruguay</a><a class="ibero-ecosystem-link" href="/paraguay/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en Paraguay</a><a class="ibero-ecosystem-link" href="/venezuela/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en Venezuela</a><a class="ibero-ecosystem-link" href="/panama/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en Panamá</a><a class="ibero-ecosystem-link" href="/costa-rica/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en Costa Rica</a><a class="ibero-ecosystem-link" href="/guatemala/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en Guatemala</a><a class="ibero-ecosystem-link" href="/el-salvador/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en El Salvador</a><a class="ibero-ecosystem-link" href="/honduras/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en Honduras</a><a class="ibero-ecosystem-link" href="/nicaragua/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en Nicaragua</a><a class="ibero-ecosystem-link" href="/republica-dominicana/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en República Dominicana</a><a class="ibero-ecosystem-link" href="/puerto-rico/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en Puerto Rico</a><a class="ibero-ecosystem-link" href="/espana/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en España</a><a class="ibero-ecosystem-link" href="/estados-unidos/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en Estados Unidos</a><a class="ibero-ecosystem-link" href="/cursos-ia-en-espanol-estados-unidos/"><span class="ibero-ecosystem-mini">→</span>Cursos de IA en Español en Estados Unidos</a><a class="ibero-ecosystem-link" href="/ia-para-latinos-en-usa/"><span class="ibero-ecosystem-mini">→</span>IA para Latinos en Estados Unidos</a><a class="ibero-ecosystem-link" href="/formacion-online-para-hispanos/"><span class="ibero-ecosystem-mini">→</span>Formación Online para Hispanos</a></div></div><div class="ibero-ecosystem-section"><div class="ibero-ecosystem-section-title">Ciudad</div><div class="ibero-ecosystem-grid"><a class="ibero-ecosystem-link" href="/miami/"><span class="ibero-ecosystem-mini">→</span>Cursos de IA para Latinos en Miami</a><a class="ibero-ecosystem-link" href="/orlando/"><span class="ibero-ecosystem-mini">→</span>Cursos de IA para Latinos en Orlando</a><a class="ibero-ecosystem-link" href="/houston/"><span class="ibero-ecosystem-mini">→</span>Cursos de IA para Latinos en Houston</a><a class="ibero-ecosystem-link" href="/dallas/"><span class="ibero-ecosystem-mini">→</span>Cursos de IA para Latinos en Dallas</a><a class="ibero-ecosystem-link" href="/los-angeles/"><span class="ibero-ecosystem-mini">→</span>Cursos de IA para Latinos en Los Ángeles</a><a class="ibero-ecosystem-link" href="/nueva-york/"><span class="ibero-ecosystem-mini">→</span>Cursos de IA para Latinos en Nueva York</a><a class="ibero-ecosystem-link" href="/chicago/"><span class="ibero-ecosystem-mini">→</span>Cursos de IA para Latinos en Chicago</a></div></div><div class="ibero-ecosystem-section"><div class="ibero-ecosystem-section-title">Perfil</div><div class="ibero-ecosystem-grid"><a class="ibero-ecosystem-link" href="/ia-para-emprendedores/"><span class="ibero-ecosystem-mini">→</span>IA para Emprendedores</a><a class="ibero-ecosystem-link" href="/ia-para-docentes-y-formadores/"><span class="ibero-ecosystem-mini">→</span>IA para Docentes y Formadores</a><a class="ibero-ecosystem-link" href="/ia-para-marketing-y-ventas/"><span class="ibero-ecosystem-mini">→</span>IA para Marketing y Ventas</a><a class="ibero-ecosystem-link" href="/ia-para-emprendedores-digitales/"><span class="ibero-ecosystem-mini">→</span>IA para Emprendedores Digitales</a><a class="ibero-ecosystem-link" href="/ia-para-coaches-y-consultores/"><span class="ibero-ecosystem-mini">→</span>IA para Coaches y Consultores</a><a class="ibero-ecosystem-link" href="/ia-para-agencias-de-marketing/"><span class="ibero-ecosystem-mini">→</span>IA para Agencias de Marketing</a><a class="ibero-ecosystem-link" href="/ia-para-creadores-de-contenido/"><span class="ibero-ecosystem-mini">→</span>IA para Creadores de Contenido</a><a class="ibero-ecosystem-link" href="/ia-para-freelancers/"><span class="ibero-ecosystem-mini">→</span>IA para Freelancers</a><a class="ibero-ecosystem-link" href="/ia-para-pymes/"><span class="ibero-ecosystem-mini">→</span>IA para Pymes</a><a class="ibero-ecosystem-link" href="/ia-para-ventas/"><span class="ibero-ecosystem-mini">→</span>IA para Ventas</a><a class="ibero-ecosystem-link" href="/ia-para-lideres-y-directivos/"><span class="ibero-ecosystem-mini">→</span>IA para Líderes y Directivos</a></div></div><div class="ibero-ecosystem-section"><div class="ibero-ecosystem-section-title">Certificado</div><div class="ibero-ecosystem-grid"><a class="ibero-ecosystem-link" href="/certificado-marketing-digital-inteligencia-artificial/"><span class="ibero-ecosystem-mini">→</span>Certificado en Marketing Digital con Inteligencia Artificial</a><a class="ibero-ecosystem-link" href="/certificado-inteligencia-artificial-docencia/"><span class="ibero-ecosystem-mini">→</span>Certificado en Inteligencia Artificial Aplicada a la Docencia</a><a class="ibero-ecosystem-link" href="/certificado-producto-digital-estrategia-ia/"><span class="ibero-ecosystem-mini">→</span>Certificado en Gestión de Producto Digital y Estrategia con IA</a><a class="ibero-ecosystem-link" href="/certificado-diseno-produccion-cursos-online-ia/"><span class="ibero-ecosystem-mini">→</span>Certificado en Diseño y Producción de Cursos Online con IA</a><a class="ibero-ecosystem-link" href="/certificado-comunicacion-efectiva-oratoria-profesional/"><span class="ibero-ecosystem-mini">→</span>Certificado en Comunicación Efectiva y Oratoria Profesional</a></div></div><div class="ibero-ecosystem-section"><div class="ibero-ecosystem-section-title">Diplomado</div><div class="ibero-ecosystem-grid"><a class="ibero-ecosystem-link" href="/diplomado-desarrollo-aplicaciones-productos-digitales-ia/"><span class="ibero-ecosystem-mini">→</span>Diplomado en Desarrollo de Aplicaciones y Gestión de Productos Digitales con IA</a></div></div><div class="ibero-ecosystem-section"><div class="ibero-ecosystem-section-title">Máster Ejecutivo</div><div class="ibero-ecosystem-grid"><a class="ibero-ecosystem-link" href="/master-ejecutivo-inteligencia-artificial-direccion-productos-digitales/"><span class="ibero-ecosystem-mini">→</span>Máster Ejecutivo en Inteligencia Artificial Aplicada y Dirección de Productos Digitales</a></div></div><div class="ibero-ecosystem-section"><div class="ibero-ecosystem-section-title">Comparativa</div><div class="ibero-ecosystem-grid"><a class="ibero-ecosystem-link" href="/certificado-vs-diplomado/"><span class="ibero-ecosystem-mini">→</span>Certificado vs Diplomado: cuál elegir</a><a class="ibero-ecosystem-link" href="/diplomado-vs-master-ejecutivo/"><span class="ibero-ecosystem-mini">→</span>Diplomado vs Máster Ejecutivo</a><a class="ibero-ecosystem-link" href="/que-programa-elegir/"><span class="ibero-ecosystem-mini">→</span>Qué programa IBERO elegir según tu objetivo</a></div></div><div class="ibero-ecosystem-section"><div class="ibero-ecosystem-section-title">Problema</div><div class="ibero-ecosystem-grid"><a class="ibero-ecosystem-link" href="/tengo-una-app-y-no-se-venderla/"><span class="ibero-ecosystem-mini">→</span>Tengo una App y no sé venderla</a><a class="ibero-ecosystem-link" href="/conseguir-clientes-para-software/"><span class="ibero-ecosystem-mini">→</span>Cómo conseguir clientes para mi software</a><a class="ibero-ecosystem-link" href="/crear-mvp-sin-programar/"><span class="ibero-ecosystem-mini">→</span>Cómo crear un MVP sin programar</a><a class="ibero-ecosystem-link" href="/usar-ia-para-crear-aplicaciones/"><span class="ibero-ecosystem-mini">→</span>Cómo usar IA para crear aplicaciones</a><a class="ibero-ecosystem-link" href="/como-lanzar-un-producto-digital/"><span class="ibero-ecosystem-mini">→</span>Cómo lanzar un producto digital</a><a class="ibero-ecosystem-link" href="/como-poner-precio-a-una-app/"><span class="ibero-ecosystem-mini">→</span>Cómo poner precio a una app</a><a class="ibero-ecosystem-link" href="/como-presentar-una-app-a-clientes/"><span class="ibero-ecosystem-mini">→</span>Cómo presentar una app a clientes</a></div></div><div class="ibero-ecosystem-section"><div class="ibero-ecosystem-section-title">Industria</div><div class="ibero-ecosystem-grid"><a class="ibero-ecosystem-link" href="/ia-para-restaurantes/"><span class="ibero-ecosystem-mini">→</span>IA para Restaurantes</a><a class="ibero-ecosystem-link" href="/ia-para-inmobiliarias/"><span class="ibero-ecosystem-mini">→</span>IA para Inmobiliarias</a><a class="ibero-ecosystem-link" href="/ia-para-instituciones-educativas/"><span class="ibero-ecosystem-mini">→</span>IA para Instituciones Educativas</a><a class="ibero-ecosystem-link" href="/ia-para-turismo-y-hoteles/"><span class="ibero-ecosystem-mini">→</span>IA para Turismo y Hoteles</a><a class="ibero-ecosystem-link" href="/ia-para-construccion/"><span class="ibero-ecosystem-mini">→</span>IA para Construcción</a><a class="ibero-ecosystem-link" href="/ia-para-comercio-local/"><span class="ibero-ecosystem-mini">→</span>IA para Comercio Local</a><a class="ibero-ecosystem-link" href="/ia-para-servicios-profesionales/"><span class="ibero-ecosystem-mini">→</span>IA para Servicios Profesionales</a></div></div><div class="ibero-ecosystem-section"><div class="ibero-ecosystem-section-title">Glosario</div><div class="ibero-ecosystem-grid"><a class="ibero-ecosystem-link" href="/glosario/ia-aplicada/"><span class="ibero-ecosystem-mini">→</span>Qué es IA Aplicada</a><a class="ibero-ecosystem-link" href="/glosario/producto-digital/"><span class="ibero-ecosystem-mini">→</span>Qué es Producto Digital</a><a class="ibero-ecosystem-link" href="/glosario/mvp/"><span class="ibero-ecosystem-mini">→</span>Qué es un MVP</a><a class="ibero-ecosystem-link" href="/glosario/vibe-coding/"><span class="ibero-ecosystem-mini">→</span>Qué es Vibe Coding</a><a class="ibero-ecosystem-link" href="/glosario/prompt-engineering/"><span class="ibero-ecosystem-mini">→</span>Qué es Prompt Engineering</a><a class="ibero-ecosystem-link" href="/glosario/automatizacion-con-ia/"><span class="ibero-ecosystem-mini">→</span>Qué es Automatización con IA</a><a class="ibero-ecosystem-link" href="/glosario/agente-de-ia/"><span class="ibero-ecosystem-mini">→</span>Qué es un Agente de IA</a><a class="ibero-ecosystem-link" href="/glosario/pwa/"><span class="ibero-ecosystem-mini">→</span>Qué es una PWA</a><a class="ibero-ecosystem-link" href="/glosario/saas/"><span class="ibero-ecosystem-mini">→</span>Qué es SaaS</a><a class="ibero-ecosystem-link" href="/glosario/product-management/"><span class="ibero-ecosystem-mini">→</span>Qué es Product Management</a><a class="ibero-ecosystem-link" href="/glosario/go-to-market/"><span class="ibero-ecosystem-mini">→</span>Qué es Go-to-Market</a><a class="ibero-ecosystem-link" href="/glosario/embudo-de-ventas/"><span class="ibero-ecosystem-mini">→</span>Qué es un Embudo de Ventas</a></div></div><div class="ibero-ecosystem-section"><div class="ibero-ecosystem-section-title">Recurso</div><div class="ibero-ecosystem-grid"><a class="ibero-ecosystem-link" href="/recursos/plantilla-mvp/"><span class="ibero-ecosystem-mini">→</span>Plantilla para definir tu MVP con IA</a><a class="ibero-ecosystem-link" href="/recursos/checklist-app/"><span class="ibero-ecosystem-mini">→</span>Checklist para lanzar una App</a><a class="ibero-ecosystem-link" href="/recursos/calculadora-precio-app/"><span class="ibero-ecosystem-mini">→</span>Calculadora de Precio para Apps</a><a class="ibero-ecosystem-link" href="/recursos/plantilla-landing-app/"><span class="ibero-ecosystem-mini">→</span>Plantilla de Landing para Vender una App</a><a class="ibero-ecosystem-link" href="/recursos/guion-demo-software/"><span class="ibero-ecosystem-mini">→</span>Guion para Demo Comercial de Software</a><a class="ibero-ecosystem-link" href="/recursos/prompts-marketing-ia/"><span class="ibero-ecosystem-mini">→</span>Prompts de Marketing con IA</a><a class="ibero-ecosystem-link" href="/recursos/prompts-docentes-ia/"><span class="ibero-ecosystem-mini">→</span>Prompts de IA para Docentes</a><a class="ibero-ecosystem-link" href="/recursos/rubrica-proyectos-ia/"><span class="ibero-ecosystem-mini">→</span>Rúbrica para Evaluar Proyectos con IA</a><a class="ibero-ecosystem-link" href="/recursos/guion-hablar-en-publico/"><span class="ibero-ecosystem-mini">→</span>Guion para Hablar en Público</a><a class="ibero-ecosystem-link" href="/recursos/plantilla-pitch-app/"><span class="ibero-ecosystem-mini">→</span>Plantilla para Pitch de App</a></div></div><div class="ibero-ecosystem-section"><div class="ibero-ecosystem-section-title">Ruta</div><div class="ibero-ecosystem-grid"><a class="ibero-ecosystem-link" href="/rutas/crear-y-vender-apps-con-ia/"><span class="ibero-ecosystem-mini">→</span>Ruta para crear y vender Apps con IA</a></div></div><div class="ibero-ecosystem-section"><div class="ibero-ecosystem-section-title">Caso de uso</div><div class="ibero-ecosystem-grid"><a class="ibero-ecosystem-link" href="/casos-de-uso/vender-software-a-pymes/"><span class="ibero-ecosystem-mini">→</span>Cómo vender software a PYMES</a></div></div>
   </nav>
 </div>
 <script id="ibero-ecosystem-js">
@@ -1822,7 +1753,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 
-<script id="ibero-public-currency-router-v10">
+<script id="ibero-public-currency-router-v12">
 (function(){
   const pathMap = {
     "ecuador":"EC",
@@ -1859,6 +1790,11 @@ document.addEventListener('DOMContentLoaded', function () {
   const currencyByCountry = {EC:'USD', MX:'MXN', CO:'COP', PE:'PEN', US:'USD', INTL:'USD'};
   const cardByCountry = {EC:'EC', MX:'MX', CO:'CO', PE:'PE', US:'US', INTL:'INTL'};
   const payByCountry = {EC:'ec', MX:'mx', CO:'co', PE:'pe', US:'ec', INTL:'ec'};
+  const countryByCurrency = {MXN:'MX', COP:'CO', PEN:'PE'};
+  const ipCountryMap = {EC:'EC', MX:'MX', CO:'CO', PE:'PE', US:'US'};
+  let manualCurrency = false;
+  let lastAutoSource = '';
+
   function norm(s){
     try{s=decodeURIComponent(String(s||''));}catch(e){s=String(s||'');}
     return s.normalize ? s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase() : s.toLowerCase();
@@ -1869,8 +1805,6 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   function fromPath(){
     const parts = pathParts();
-    // Local previews often look like /uploads/ibero3-main/houston/index.html.
-    // Search every segment from the deepest folder upward instead of only the first segment.
     for(let i=parts.length-1;i>=0;i--){
       const part = parts[i];
       if(part && part !== 'index' && pathMap[part]) return pathMap[part];
@@ -1879,74 +1813,133 @@ document.addEventListener('DOMContentLoaded', function () {
     if(bodyCountry && cardByCountry[String(bodyCountry).toUpperCase()]) return String(bodyCountry).toUpperCase();
     return '';
   }
-  function fromBrowser(){
+  function fromTimezone(){
+    // Detección local de respaldo. No usamos idioma del navegador: es-MX no significa estar en México.
     try{
       const tz = norm(Intl.DateTimeFormat().resolvedOptions().timeZone || '');
-      const langs = norm(((navigator.languages && navigator.languages.join(' ')) || navigator.language || ''));
-      const blob = tz + ' ' + langs;
-      if(blob.includes('mexico') || blob.includes('ciudad_de_mexico') || blob.includes('-mx')) return 'MX';
-      if(blob.includes('bogota') || blob.includes('colombia') || blob.includes('-co')) return 'CO';
-      if(blob.includes('lima') || blob.includes('peru') || blob.includes('-pe')) return 'PE';
-      if(blob.includes('guayaquil') || blob.includes('quito') || blob.includes('ecuador') || blob.includes('-ec')) return 'EC';
-      if(blob.includes('new_york') || blob.includes('chicago') || blob.includes('los_angeles') || blob.includes('denver') || blob.includes('phoenix') || blob.includes('america/') || blob.includes('-us')) return 'US';
+      if(!tz) return 'EC';
+      if(tz.includes('mexico_city') || tz.includes('cancun') || tz.includes('chihuahua') || tz.includes('ciudad_juarez') || tz.includes('hermosillo') || tz.includes('mazatlan') || tz.includes('merida') || tz.includes('monterrey') || tz.includes('matamoros') || tz.includes('ojinaga') || tz.includes('tijuana')) return 'MX';
+      if(tz.includes('bogota')) return 'CO';
+      if(tz.includes('lima')) return 'PE';
+      if(tz.includes('guayaquil') || tz.includes('quito')) return 'EC';
+      if(tz.includes('new_york') || tz.includes('detroit') || tz.includes('indiana') || tz.includes('chicago') || tz.includes('menominee') || tz.includes('north_dakota') || tz.includes('denver') || tz.includes('boise') || tz.includes('phoenix') || tz.includes('los_angeles') || tz.includes('anchorage') || tz.includes('adak') || tz.includes('honolulu')) return 'US';
     }catch(e){}
     return 'EC';
+  }
+  function priceDatasetKey(currency){
+    const c=String(currency||'').toUpperCase();
+    if(c==='MXN') return 'mxn';
+    if(c==='COP') return 'cop';
+    if(c==='PEN') return 'pen';
+    return 'usd';
+  }
+  function setPriceElements(currency){
+    const key = priceDatasetKey(currency);
+    document.querySelectorAll('[data-usd], [data-mxn], [data-cop], [data-pen]').forEach(function(el){
+      if(!el.dataset || el.dataset.currency) return;
+      if(el.dataset[key]) el.textContent = el.dataset[key];
+    });
+  }
+  function setCurrencyButtons(currency){
+    const target=String(currency||'USD').toUpperCase();
+    document.querySelectorAll('.currency-btn,[data-currency]').forEach(function(el){
+      const current=String(el.dataset.currency||'').toUpperCase();
+      if(!current) return;
+      const active = current === target;
+      el.classList.toggle('bg-ibero-dark', active);
+      el.classList.toggle('bg-ibero-red', active && !el.classList.contains('bg-ibero-dark'));
+      el.classList.toggle('text-white', active);
+      el.classList.toggle('text-zinc-500', !active);
+      el.classList.toggle('is-detected', active);
+      if(active) el.setAttribute('aria-current','true'); else el.removeAttribute('aria-current');
+    });
   }
   function dispatchClick(el){
     if(!el) return;
     try{ el.dispatchEvent(new MouseEvent('click',{bubbles:true,cancelable:true,view:window})); }
     catch(e){ try{ el.click(); }catch(_){} }
   }
-  function clickCurrency(currency){
-    const target=String(currency||'').toUpperCase();
-    let found=null;
-    document.querySelectorAll('.currency-btn,[data-currency]').forEach(function(el){
-      if(!found && String(el.dataset.currency||'').toUpperCase()===target) found=el;
-    });
-    dispatchClick(found);
-  }
   function clickCountryButtons(country){
     const cal = country==='MX' ? 'mx' : 'general';
     const pay = payByCountry[country] || 'ec';
-    let el=document.querySelector('[data-calendar-pay-country="'+cal+'"]');
-    dispatchClick(el);
-    el=document.querySelector('[data-pay-country="'+pay+'"]');
-    dispatchClick(el);
+    dispatchClick(document.querySelector('[data-calendar-pay-country="'+cal+'"]'));
+    dispatchClick(document.querySelector('[data-pay-country="'+pay+'"]'));
   }
   function setCards(country){
     const cardCountry = cardByCountry[country] || 'EC';
     document.querySelectorAll('[data-country-card]').forEach(function(el){
       const code=String(el.dataset.countryCard||'').toUpperCase();
-      el.classList.remove('is-detected');
-      el.removeAttribute('aria-current');
-      if(code===cardCountry){
-        el.classList.add('is-detected');
-        el.setAttribute('aria-current','true');
-      }
+      const active = code === cardCountry;
+      el.classList.toggle('is-detected', active);
+      if(active) el.setAttribute('aria-current','true'); else el.removeAttribute('aria-current');
       if(!el.dataset.iberoClickable){
         el.dataset.iberoClickable='true';
         el.setAttribute('role','button');
         el.setAttribute('tabindex','0');
         el.style.cursor='pointer';
-        const activate=function(){ apply(code || 'EC', true); };
+        const activate=function(){ manualCurrency=true; apply(code || 'EC', 'manual-card'); };
         el.addEventListener('click', activate);
         el.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); activate(); } });
       }
     });
   }
-  function apply(forcedCountry, manual){
-    const country = (forcedCountry && cardByCountry[String(forcedCountry).toUpperCase()]) ? String(forcedCountry).toUpperCase() : (fromPath() || fromBrowser());
-    const currency = currencyByCountry[country] || 'USD';
-    document.documentElement.dataset.iberoCountry = country;
-    document.documentElement.dataset.iberoCurrency = currency;
-    if(manual){
-      try{ localStorage.setItem('iberoPreferredCurrency', currency); localStorage.setItem('iberoPaymentCountry', country.toLowerCase()); }catch(e){}
-    }
-    setCards(country);
-    clickCurrency(currency);
-    clickCountryButtons(country);
+  function bindManualCurrency(){
+    document.querySelectorAll('.currency-btn,[data-currency]').forEach(function(el){
+      if(el.dataset.iberoCurrencyV12Bound==='true') return;
+      const current=String(el.dataset.currency||'').toUpperCase();
+      if(!current) return;
+      el.dataset.iberoCurrencyV12Bound='true';
+      el.addEventListener('click', function(){
+        manualCurrency = true;
+        let country = countryByCurrency[current] || fromPath() || (current==='USD' ? 'EC' : fromTimezone());
+        if(current==='USD' && fromPath()==='US') country='US';
+        apply(country, 'manual-currency');
+      });
+    });
   }
-  function boot(){ apply('', false); setTimeout(function(){apply('', false)}, 160); setTimeout(function(){apply('', false)}, 700); }
+  function apply(country, source){
+    const clean = (country && cardByCountry[String(country).toUpperCase()]) ? String(country).toUpperCase() : 'EC';
+    const currency = currencyByCountry[clean] || 'USD';
+    document.documentElement.dataset.iberoCountry = clean;
+    document.documentElement.dataset.iberoCurrency = currency;
+    document.documentElement.dataset.iberoCurrencySource = source || '';
+    setPriceElements(currency);
+    setCurrencyButtons(currency);
+    setCards(clean);
+    clickCountryButtons(clean);
+    bindManualCurrency();
+  }
+  function autoCountry(){ return fromPath() || fromTimezone() || 'EC'; }
+  function mapIpCode(code){
+    code = String(code || '').toUpperCase();
+    return ipCountryMap[code] || (code==='ES' ? 'INTL' : '');
+  }
+  function fetchCountry(url, parser, timeoutMs){
+    if(!window.fetch || !window.AbortController) return Promise.resolve('');
+    const controller = new AbortController();
+    const timer = setTimeout(function(){ try{ controller.abort(); }catch(e){} }, timeoutMs || 1200);
+    return fetch(url, {cache:'no-store', signal: controller.signal})
+      .then(function(r){ clearTimeout(timer); return r && r.ok ? r.json() : null; })
+      .then(function(data){ return mapIpCode(parser(data)); })
+      .catch(function(){ clearTimeout(timer); return ''; });
+  }
+  function detectIpCountry(){
+    // Mejora opcional para detectar el país real de conexión. Si falla, queda la zona horaria o la página.
+    if(fromPath()) return Promise.resolve('');
+    return fetchCountry('https://api.country.is/', function(data){ return data && data.country; }, 1100)
+      .then(function(country){
+        if(country) return country;
+        return fetchCountry('https://ipapi.co/json/', function(data){ return data && (data.country_code || data.country); }, 1400);
+      });
+  }
+  function boot(){
+    lastAutoSource = fromPath() ? 'path' : 'timezone';
+    apply(autoCountry(), lastAutoSource);
+    setTimeout(function(){ if(!manualCurrency) apply(autoCountry(), lastAutoSource); }, 160);
+    detectIpCountry().then(function(country){
+      if(country && !manualCurrency){ lastAutoSource='ip'; apply(country, 'ip'); }
+    });
+  }
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', boot); else boot();
 })();
 </script>

@@ -1,0 +1,12 @@
+AUDITORÍA V12 - Corrección de precios, horarios y congruencia
+
+Cambios quirúrgicos aplicados:
+- Router de país/moneda v12 en todas las páginas HTML.
+- Se eliminó detección por idioma del navegador para evitar marcar México por error cuando el equipo está en es-MX.
+- Se agregó detección opcional por IP pública con fallback por zona horaria y página de país/ciudad.
+- Se corrigieron horarios visibles en tarjetas de certificaciones: 7:00 PM–9:00 PM EC/CO/PE · 6:00 PM–8:00 PM MX.
+- Se alinearon fechas de próximas cohortes en páginas individuales de Marketing, Docentes y Crea tu Curso Online.
+- Se unificó el nombre visible del Máster Ejecutivo.
+- Se limpió robots.txt para dejar solo sitemap.xml como Sitemap.
+
+No se cambiaron precios oficiales, fechas aprobadas, horarios base, links, estructura visual general ni histórico del calendario.

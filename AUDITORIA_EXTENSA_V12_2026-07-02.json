@@ -1,0 +1,41 @@
+{
+  "html_count": 131,
+  "router_v12_occurrences": 131,
+  "router_other_files": [],
+  "navigator_language_files": [],
+  "visible_seo_geo_aeo_files": [],
+  "isMaster_typo_files": [],
+  "old_date_or_bad_schedule_occurrences": [],
+  "old_problematic_names_occurrences": [],
+  "jsonld_count": 367,
+  "jsonld_errors": [],
+  "script_count": 483,
+  "script_parse_error_count": 0,
+  "script_parse_errors": [],
+  "internal_link_broken_count": 0,
+  "internal_link_broken_samples": [],
+  "sitemap_url_count": 131,
+  "sitemap_missing_paths": [],
+  "official_price_value_counts": {
+    "USD $57": 33,
+    "MXN $995": 14,
+    "COP $211.000": 9,
+    "PEN S/ 200": 9,
+    "USD $277": 10,
+    "MXN $4.850": 3,
+    "COP $1.025.000": 3,
+    "PEN S/ 975": 2,
+    "USD $926.25": 6,
+    "MXN $16.191": 1,
+    "COP $3.423.420": 1,
+    "PEN S/ 3.251": 1
+  },
+  "program_date_phrase_counts": {
+    "Marketing 27 Jul": 105,
+    "Docentes 3 Ago": 107,
+    "Vende App 10 Ago": 107,
+    "Crea Curso 17 Ago": 108,
+    "Diplomado 5 Oct": 109,
+    "Master 19 Oct": 110
+  }
+}

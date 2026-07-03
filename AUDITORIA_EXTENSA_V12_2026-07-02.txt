@@ -1,0 +1,37 @@
+AUDITORÍA EXTENSA V12 — Centro IBEROamericano
+
+HTML revisados: 131
+JSON-LD revisados: 367 | errores: 0
+Scripts inline revisados: 483 | errores sintaxis JS: 0
+Links internos/referencias revisadas: 19392 | links internos rotos reales: 0
+Sitemap URLs: 131 | URLs inexistentes: 0
+Router país/moneda v12 instalado: 131 páginas
+
+Hallazgos críticos corregidos/verificados:
+- isMáster en HTML: 0
+- Etiquetas públicas SEO/GEO/AEO: 0
+- Router viejo v9/v10: 0
+- Detección errónea por idioma del navegador: 0
+- Fechas viejas visibles de cursos próximos: 0
+- Horario incompleto tipo “solo EC” en certificaciones: 0
+- Nombres viejos críticos en HTML: 0
+- JSON-LD inválido: 0
+- Scripts con error de sintaxis: 0
+- Links internos rotos reales: 0
+
+Corrección de moneda/precio:
+- Las páginas de país y ciudad fuerzan su país cuando corresponde: Colombia/COP, México/MXN, Perú/PEN, Ecuador/USD y Estados Unidos/USD.
+- Las páginas generales detectan el país por conexión IP cuando el navegador lo permite, con respaldo por zona horaria.
+- Se eliminó el uso del idioma del navegador para no marcar México por error en equipos configurados como es-MX.
+- El usuario puede seguir cambiando manualmente la moneda con los botones visibles.
+
+Programas oficiales vigentes:
+- Marketing Digital con IA: Certificado en Marketing Digital con Inteligencia Artificial | 27 al 30 de julio de 2026 | 7:00 PM–9:00 PM EC/CO/PE · 6:00 PM–8:00 PM MX | USD $57 · MXN $995 · PEN S/200 · COP $211.000
+- IA para Docentes: Certificado en Inteligencia Artificial Aplicada a la Docencia | 3 al 6 de agosto de 2026 | 7:00 PM–9:00 PM EC/CO/PE · 6:00 PM–8:00 PM MX | USD $57 · MXN $995 · PEN S/200 · COP $211.000
+- Vende tu App y Consigue Clientes: Certificado en Gestión de Producto Digital y Estrategia con Inteligencia Artificial | 10 al 13 de agosto de 2026 | 7:00 PM–9:00 PM EC/CO/PE · 6:00 PM–8:00 PM MX | USD $57 · MXN $995 · PEN S/200 · COP $211.000
+- Crea tu Curso Online y Monetiza: Certificado en Diseño y Producción de Cursos Online con Inteligencia Artificial | 17 al 20 de agosto de 2026 | 7:00 PM–9:00 PM EC/CO/PE · 6:00 PM–8:00 PM MX | USD $57 · MXN $995 · PEN S/200 · COP $211.000
+- Aprende a Hablar en Público: Certificado en Comunicación Efectiva y Oratoria Profesional | 4 Jul, 8 Ago, 10 Oct, 24 Oct, 7 Nov | Sábados · 9:00 AM–1:00 PM EC | USD $57
+- Diplomado: Diplomado en Desarrollo de Aplicaciones y Gestión de Productos Digitales con Inteligencia Artificial | 5 de octubre al 5 de noviembre de 2026 | Lun–Jue · 7:00 PM–9:00 PM EC/CO/PE · 6:00 PM–8:00 PM MX | USD $277 · MXN $4.850 · PEN S/975 · COP $1.025.000
+- Máster Ejecutivo: Máster Ejecutivo en Inteligencia Artificial Aplicada y Dirección de Productos Digitales | 19 de octubre de 2026 a abril de 2027 | Lun–Vie · 9:00 PM–10:00 PM EC/CO/PE · 8:00 PM–9:00 PM MX | USD $926.25 · MXN $16.191 · PEN S/3.251 · COP $3.423.420
+
+Nota: No se cambiaron precios oficiales, fechas aprobadas, horarios base, enlaces de inscripción, estructura visual general ni histórico del calendario.

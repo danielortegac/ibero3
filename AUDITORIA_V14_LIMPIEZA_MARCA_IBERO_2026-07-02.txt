@@ -1,0 +1,8 @@
+AUDITORIA V14 - LIMPIEZA DE MARCA IBERO
+Fecha: 2026-07-02
+
+Cambios aplicados:
+- Se eliminaron las páginas de alias incorrectos con V.
+- Se quitaron esos alias del sitemap, llms, ecosistema, metas y JSON-LD.
+- Se mantiene la marca correcta: IBERO / Centro IBEROamericano / Centro Iberoamericano.
+- No se tocaron precios, fechas, horarios, PayPal, calendario ni programas.

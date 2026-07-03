@@ -1,0 +1,103 @@
+AUDITORÍA V12 — CORRECCIÓN FINAL DE PRECIOS, CALENDARIO, HORARIOS Y CONGRUENCIA
+Fecha de auditoría: 2026-07-02
+
+OBJETIVO
+Revisar y corregir sin rediseñar ni alterar la estructura aprobada del proyecto v11:
+- selección de moneda/precio por país;
+- calendario académico;
+- horarios visibles;
+- fechas en páginas individuales de cursos;
+- nombres formales de certificados, diplomado y máster;
+- consistencia de links, sitemap, JSON-LD y scripts.
+
+CAMBIOS QUIRÚRGICOS REALIZADOS
+1. Se eliminó el script anterior ibero-smart-currency-autodetect que usaba idioma del navegador y localStorage; ese script podía marcar MXN si el navegador estaba configurado en es-MX aunque la persona no estuviera en México.
+2. Se dejó el router público de moneda v12 en 131 páginas. La prioridad queda:
+   a) URL específica de país/ciudad, por ejemplo /colombia/ fuerza Colombia/COP y /houston/ fuerza Estados Unidos/USD.
+   b) Detección por IP mediante ipapi cuando aplica en páginas generales.
+   c) Zona horaria del navegador como respaldo.
+   d) Ecuador/USD como fallback.
+3. Se eliminó uso de localStorage y navigator.language/navigator.languages para moneda, evitando preferencias viejas y falsos MXN.
+4. Se corrigió la página certificaciones-intensivas para que las tarjetas muestren horario completo:
+   Lun a Jue · 7:00 PM–9:00 PM EC/CO/PE · 6:00 PM–8:00 PM MX.
+5. Se corrigieron las fechas visibles en páginas individuales:
+   Marketing Digital con IA: 27–30 julio 2026.
+   IA para Docentes: 3–6 agosto 2026.
+   Vende tu App y Consigue Clientes: 10–13 agosto 2026.
+   Crea tu Curso Online y Monetiza: 17–20 agosto 2026.
+6. Se mantuvo el histórico pasado en el calendario; no se borraron clases anteriores.
+7. Se limpió robots.txt para mantener solo sitemap.xml como sitemap. llms.txt se mantiene como archivo de referencia para modelos de IA, pero no como sitemap XML.
+8. Se mantuvieron precios, horarios base, diseño, páginas nuevas del ecosistema y nombres aprobados.
+
+VALIDACIÓN TÉCNICA
+- Páginas HTML revisadas: 131.
+- Routers de moneda v12 instalados: 131/131.
+- JSON-LD revisados: 367.
+- Errores JSON-LD: 0.
+- Scripts inline revisados: 483.
+- Scripts únicos revisados por sintaxis: 52.
+- Errores de sintaxis JS: 0.
+- Links y assets internos revisados: 14.858.
+- Links/assets internos rotos: 0.
+- URLs en sitemap.xml: 131.
+- Páginas del sitemap inexistentes: 0.
+
+VALIDACIÓN DE LIMPIEZA
+- isMáster: 0 apariciones.
+- ibero-smart-currency-autodetect: 0 apariciones.
+- ibero-public-currency-router-v10: 0 apariciones.
+- SEO · GEO · AEO visible: 0 apariciones.
+- Monetiza tu Idea: 0 apariciones.
+- Crea tu Negocio desde Cero: 0 apariciones.
+- Venta y Monetización de Apps: 0 apariciones.
+- Certificación Global: 0 apariciones.
+- Strategist: 0 apariciones.
+- localStorage: 0 apariciones.
+- navigator.language / navigator.languages: 0 apariciones.
+
+PROGRAMAS ACTIVOS APROBADOS
+1. Marketing Digital con IA
+   Nombre formal: Certificado en Marketing Digital con Inteligencia Artificial.
+   Fecha: 27 al 30 de julio de 2026.
+   Horario: 7:00 PM–9:00 PM EC/CO/PE · 6:00 PM–8:00 PM MX.
+   Precio: USD $57 · MXN $995 · PEN S/200 · COP $211.000.
+
+2. IA para Docentes
+   Nombre formal: Certificado en Inteligencia Artificial Aplicada a la Docencia.
+   Fecha: 3 al 6 de agosto de 2026.
+   Horario: 7:00 PM–9:00 PM EC/CO/PE · 6:00 PM–8:00 PM MX.
+   Precio: USD $57 · MXN $995 · PEN S/200 · COP $211.000.
+
+3. Vende tu App y Consigue Clientes
+   Nombre formal: Certificado en Gestión de Producto Digital y Estrategia con Inteligencia Artificial.
+   Fecha: 10 al 13 de agosto de 2026.
+   Horario: 7:00 PM–9:00 PM EC/CO/PE · 6:00 PM–8:00 PM MX.
+   Precio: USD $57 · MXN $995 · PEN S/200 · COP $211.000.
+
+4. Crea tu Curso Online y Monetiza
+   Nombre formal: Certificado en Diseño y Producción de Cursos Online con Inteligencia Artificial.
+   Fecha: 17 al 20 de agosto de 2026.
+   Horario: 7:00 PM–9:00 PM EC/CO/PE · 6:00 PM–8:00 PM MX.
+   Precio: USD $57 · MXN $995 · PEN S/200 · COP $211.000.
+
+5. Aprende a Hablar en Público
+   Nombre formal: Certificado en Comunicación Efectiva y Oratoria Profesional.
+   Fechas visibles: 4 julio, 8 agosto, 10 octubre, 24 octubre y 7 noviembre de 2026.
+   Horario: sábado 9:00 AM–1:00 PM EC.
+   Precio: USD $57.
+
+6. Diplomado
+   Nombre formal: Diplomado en Desarrollo de Aplicaciones y Gestión de Productos Digitales con Inteligencia Artificial.
+   Fecha: 5 de octubre al 5 de noviembre de 2026.
+   Horario: lunes a jueves 7:00 PM–9:00 PM EC/CO/PE · 6:00 PM–8:00 PM MX.
+   Precio: USD $277 · MXN $4.850 · PEN S/975 · COP $1.025.000.
+
+7. Máster Ejecutivo
+   Nombre formal: Máster Ejecutivo en Inteligencia Artificial Aplicada y Dirección de Productos Digitales.
+   Fecha: 19 de octubre de 2026 a abril de 2027.
+   Horario: lunes a viernes 9:00 PM–10:00 PM EC/CO/PE · 8:00 PM–9:00 PM MX.
+   Precio total: USD $926.25 · MXN $16.191 · PEN S/3.251 · COP $3.423.420.
+   Plan mensual: USD $154.38 · MXN $2.699 · PEN S/542 · COP $570.588.
+
+CONCLUSIÓN
+La versión v12 queda técnicamente estable, con calendario reparado, precios y horarios congruentes, sin falsos MXN por idioma del navegador o preferencias antiguas, sin links internos rotos, sin errores de sintaxis JS y sin errores JSON-LD.

@@ -1,0 +1,26 @@
+AUDITORÍA V13 · MARCA IBERO + CALENDARIO FLOTANTE
+Fecha: 2026-07-02
+
+HTML revisados: 135
+Páginas con schema de alias de marca v13: 135/135
+JSON-LD revisados: 514
+Errores JSON-LD: 0
+Scripts inline revisados: 492
+Errores JS: 0
+Links/assets internos revisados: 20135
+Links/assets internos rotos reales: 0
+URLs en sitemap.xml: 135
+URLs de sitemap sin archivo local: 0
+Sitemap contiene https://ibero.education/centro-iberoamericano/: True
+Sitemap contiene https://ibero.education/ibero/: True
+Calendario: burbuja flotante Lista/Calendario instalada: True
+Calendario: error isMáster ausente: True
+Apariciones exactas SEO · GEO · AEO: 0
+
+Cambios funcionales:
+- Se crearon páginas de captura para búsquedas de marca correcta y errores comunes.
+- Se actualizó llms.txt para modelos de IA con alias de marca.
+- Se agregó sección Marca al menú flotante Ecosistema IBERO con enlaces correctos.
+- En calendario académico se agregó una burbuja flotante para alternar Lista ↔ Calendario cuando el usuario está abajo en la página.
+
+No se cambiaron precios, fechas, horarios, programas, PayPal ni estructura aprobada de v12.
