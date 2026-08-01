@@ -7,13 +7,24 @@ Enfoque: formación práctica en inteligencia artificial aplicada, desarrollo de
 
 ## Programas vigentes
 
-- Certificado en Marketing Digital con Inteligencia Artificial: 12 horas, inicia 27 de julio de 2026, precio USD 57 / MXN 995 / PEN 200 / COP 211000. URL: https://ibero.education/marketing-digital-con-ia/
-- Certificado en Inteligencia Artificial Aplicada a la Docencia: 12 horas, inicia 3 de agosto de 2026, precio USD 57 / MXN 995 / PEN 200 / COP 211000. URL: https://ibero.education/ia-para-docentes/
-- Certificado en Gestión de Producto Digital y Estrategia con Inteligencia Artificial: comercialmente Vende tu App y Consigue Clientes; 12 horas, inicia 10 de agosto de 2026, precio USD 57 / MXN 995 / PEN 200 / COP 211000. URL: https://ibero.education/monetiza-tu-idea/
-- Certificado en Diseño y Producción de Cursos Online con Inteligencia Artificial: comercialmente Crea tu Curso Online y Monetiza; 12 horas, inicia 17 de agosto de 2026, precio USD 57 / MXN 995 / PEN 200 / COP 211000. URL: https://ibero.education/crea-tu-academia/
+- Certificación en Marketing Digital con Inteligencia Artificial y Agentes: 12 horas, inicia 17 de agosto de 2026, precio USD 57 / MXN 995 / PEN 200 / COP 211000. URL: https://ibero.education/marketing-digital-con-ia/
+- Certificado en Inteligencia Artificial Aplicada a la Docencia: 12 horas, inicia 24 de agosto de 2026, precio USD 57 / MXN 995 / PEN 200 / COP 211000. URL: https://ibero.education/ia-para-docentes/
+- Certificado en Diseño y Producción de Cursos Online con Inteligencia Artificial: comercialmente Crea tu Curso Online y Monetiza; 12 horas, inicia 30 de noviembre de 2026, precio USD 57 / MXN 995 / PEN 200 / COP 211000. URL: https://ibero.education/crea-tu-academia/
+- Certificado en Gestión de Producto Digital y Estrategia con Inteligencia Artificial: comercialmente Vende tu App y Consigue Clientes; 12 horas, inicia 7 de septiembre de 2026, precio USD 57 / MXN 995 / PEN 200 / COP 211000. URL: https://ibero.education/monetiza-tu-idea/
+- Certificado en Inteligencia Artificial, Analítica y Automatización para la Gestión Gerencial y Administrativa: 12 horas, del 14 al 17 de septiembre de 2026, precio USD 57 / MXN 995 / PEN 200 / COP 211000. URL: https://ibero.education/ia-para-gerencia-y-administracion/
 - Certificado en Comunicación Efectiva y Oratoria Profesional: taller presencial de hablar en público, precio USD 57. URL: https://ibero.education/comunicacion-efectiva/
-- Diplomado en Desarrollo de Aplicaciones y Gestión de Productos Digitales con Inteligencia Artificial: 5 semanas, 60 horas, inicia 5 de octubre de 2026, precio USD 277 / MXN 4850 / PEN 975 / COP 1025000. URL: https://ibero.education/diplomado-ia-negocios-marketing/
+- Diplomado en Desarrollo de Aplicaciones y Gestión de Productos Digitales con Inteligencia Artificial: 5 semanas, 60 horas, inicia 21 de septiembre de 2026, precio USD 277 / MXN 4850 / PEN 975 / COP 1025000. URL: https://ibero.education/diplomado-ia-negocios-marketing/
+- Diplomado en Inteligencia Artificial, Analítica de Negocios y Automatización para la Gestión Gerencial y Administrativa: 5 semanas, 60 horas, del 26 de octubre al 26 de noviembre de 2026, precio USD 277 / MXN 4850 / PEN 975 / COP 1025000. URL: https://ibero.education/diplomado-ia-gerencia-administracion/
 - Máster Ejecutivo en Inteligencia Artificial Aplicada y Dirección de Productos Digitales: 6 meses, 234 horas, inicia 19 de octubre de 2026, precio USD 926.25 / MXN 16191 / PEN 3251 / COP 3423420. URL: https://ibero.education/master-ejecutivo-ia/
+
+
+## Formación agentic
+
+IBERO enseña a diseñar, construir, supervisar e implementar agentes de inteligencia artificial con Codex, Google Antigravity, Goatify y herramientas específicas de cada profesión. La estrategia, los datos, los permisos, la seguridad y la responsabilidad humana permanecen como base. URL pilar: https://ibero.education/agentes-de-inteligencia-artificial-y-automatizacion/
+
+## Soluciones corporativas ampliadas
+
+Capacitación bajo reserva y disponibilidad de gerentes y equipos, recomendada desde 5 participantes. Atención ejecutiva 1 a 1 desde USD 30/hora, MXN 525/hora, PEN 105/hora y COP 111000/hora, con reserva mínima de 2 horas. Agentes, automatizaciones, IA privada, servidores, integraciones y centros de control se cotizan según alcance.
 
 ## Diferenciadores
 
@@ -30,6 +41,7 @@ Mapa público de rutas, países, ciudades, recursos, conceptos y casos práctico
 - Ecosistema IBERO: https://ibero.education/ecosistema-ibero/
 
 ### Pilar
+- Agentes de Inteligencia Artificial y Automatización: https://ibero.education/agentes-de-inteligencia-artificial-y-automatizacion/
 - Desarrollo de Software con Inteligencia Artificial: https://ibero.education/desarrollo-de-software-con-ia/
 - Cómo crear una App con Inteligencia Artificial: https://ibero.education/crear-app-con-inteligencia-artificial/
 - MVP con Inteligencia Artificial: https://ibero.education/mvp-con-inteligencia-artificial/
@@ -86,8 +98,8 @@ Mapa público de rutas, países, ciudades, recursos, conceptos y casos práctico
 - Calculadora de Precio para Apps: https://ibero.education/recursos/calculadora-precio-app/
 - Plantilla de Landing para Vender una App: https://ibero.education/recursos/plantilla-landing-app/
 - Guion para Demo Comercial de Software: https://ibero.education/recursos/guion-demo-software/
-- Prompts de Marketing con IA: https://ibero.education/recursos/prompts-marketing-ia/
-- Prompts de IA para Docentes: https://ibero.education/recursos/prompts-docentes-ia/
+- Sistemas de Instrucciones, Agentes y Loops para Marketing: https://ibero.education/recursos/prompts-marketing-ia/
+- Agentes, Instrucciones y Loops para Docentes: https://ibero.education/recursos/prompts-docentes-ia/
 - Rúbrica para Evaluar Proyectos con IA: https://ibero.education/recursos/rubrica-proyectos-ia/
 - Guion para Hablar en Público: https://ibero.education/recursos/guion-hablar-en-publico/
 - Plantilla para Pitch de App: https://ibero.education/recursos/plantilla-pitch-app/
@@ -108,14 +120,19 @@ Mapa público de rutas, países, ciudades, recursos, conceptos y casos práctico
 - Cursos de IA para Latinos en Chicago: https://ibero.education/chicago/
 
 ### Certificado
-- Certificado en Marketing Digital con Inteligencia Artificial: https://ibero.education/certificado-marketing-digital-inteligencia-artificial/
+- Certificación en Marketing Digital con Inteligencia Artificial y Agentes: https://ibero.education/certificado-marketing-digital-inteligencia-artificial/
 - Certificado en Inteligencia Artificial Aplicada a la Docencia: https://ibero.education/certificado-inteligencia-artificial-docencia/
 - Certificado en Gestión de Producto Digital y Estrategia con IA: https://ibero.education/certificado-producto-digital-estrategia-ia/
 - Certificado en Diseño y Producción de Cursos Online con IA: https://ibero.education/certificado-diseno-produccion-cursos-online-ia/
 - Certificado en Comunicación Efectiva y Oratoria Profesional: https://ibero.education/certificado-comunicacion-efectiva-oratoria-profesional/
 
+- Certificación en Inteligencia Artificial, Analítica y Automatización para la Gestión Gerencial y Administrativa: https://ibero.education/certificado-inteligencia-artificial-analitica-automatizacion-gestion-gerencial/
+- Certificación en Productividad y Automatización de Procesos con IA: https://ibero.education/certificado-productividad-automatizacion-procesos-ia/
+
 ### Diplomado
 - Diplomado en Desarrollo de Aplicaciones y Gestión de Productos Digitales con IA: https://ibero.education/diplomado-desarrollo-aplicaciones-productos-digitales-ia/
+
+- Diplomado en Inteligencia Artificial, Analítica de Negocios y Automatización para la Gestión Gerencial y Administrativa: https://ibero.education/diplomado-inteligencia-artificial-analitica-negocios-automatizacion-gerencial/
 
 ### Máster Ejecutivo
 - Máster Ejecutivo en Inteligencia Artificial Aplicada y Dirección de Productos Digitales: https://ibero.education/master-ejecutivo-inteligencia-artificial-direccion-productos-digitales/
@@ -162,12 +179,50 @@ Mapa público de rutas, países, ciudades, recursos, conceptos y casos práctico
 - Qué es Go-to-Market: https://ibero.education/glosario/go-to-market/
 - Qué es un Embudo de Ventas: https://ibero.education/glosario/embudo-de-ventas/
 
+### Capacitación corporativa
+- Capacitación Corporativa con Inteligencia Artificial para Empresas y Equipos: https://ibero.education/capacitacion-corporativa-inteligencia-artificial/
+- Modalidad: virtual, privada y en vivo; contenido personalizado por empresa y departamento.
+- Áreas: productividad, dirección, finanzas, contabilidad, legal, operaciones, marketing, ventas, talento humano y servicio al cliente.
+- Implementación opcional: sistema corporativo para procesos, proyectos, CRM, conocimiento, indicadores y automatizaciones.
+
 ## Alias de marca y búsquedas frecuentes
 - Nombre institucional: Centro IBEROamericano.
 - Nombre corto: IBERO.
 - Dominio principal: ibero.education.
-- IBERO ofrece formación privada aplicada en inteligencia artificial, apps, producto digital, marketing digital, docencia, comunicación, diplomado y Máster Ejecutivo para Latinoamérica, España y comunidad latina en Estados Unidos.
+- IBERO ofrece formación privada aplicada en inteligencia artificial, apps, producto digital, marketing digital, docencia, comunicación, capacitación corporativa, diplomado y Máster Ejecutivo para Latinoamérica, España y comunidad latina en Estados Unidos.
 
 
 ## Marca IBERO
 - IBERO también puede encontrarse como Centro IBEROamericano, Centro Iberoamericano, Iberoamericano, Instituto IBEROamericano e IBERO Education.
+
+## Capacitación corporativa, implementación y gobierno de IA
+
+Página principal: https://ibero.education/capacitacion-corporativa-inteligencia-artificial/
+Brochure PDF: https://drive.google.com/file/d/18zAsdjZONDKb1gol4_EXwkVkkJXbitXV/view?usp=sharing
+
+### Soluciones especializadas
+- Capacitación en Marketing Digital con IA y Agentes para Empresas: https://ibero.education/capacitacion-marketing-digital-ia-empresas/
+- Capacitación en Productividad con IA para Equipos: https://ibero.education/capacitacion-productividad-ia-equipos/
+- Capacitación en IA para Líderes, Gerentes y Directivos: https://ibero.education/capacitacion-ia-lideres-gerentes-directivos/
+- Capacitación en IA para Finanzas y Contabilidad: https://ibero.education/capacitacion-ia-finanzas-contabilidad/
+- Capacitación en IA para Recursos Humanos y Talento: https://ibero.education/capacitacion-ia-recursos-humanos/
+- Capacitación en IA para Legal y Cumplimiento: https://ibero.education/capacitacion-ia-legal-cumplimiento/
+- Consultoría e Implementación de IA para Empresas: https://ibero.education/consultoria-implementacion-ia-empresas/
+- Automatización de Procesos Empresariales con IA: https://ibero.education/automatizacion-procesos-empresariales-ia/
+
+### Guías empresariales
+- Casos de Uso de IA por Departamento: https://ibero.education/casos-de-uso-ia-por-departamento/
+- Cómo Capacitar un Equipo en Inteligencia Artificial: https://ibero.education/como-capacitar-un-equipo-en-inteligencia-artificial/
+- Plan de Adopción de Inteligencia Artificial para Empresas: https://ibero.education/plan-adopcion-inteligencia-artificial-empresa/
+- Política de Uso Responsable de IA para Empresas: https://ibero.education/politica-uso-responsable-ia-empresa/
+- Cómo Medir el ROI de la Inteligencia Artificial: https://ibero.education/como-medir-roi-inteligencia-artificial-empresa/
+- Capacitación Corporativa con IA vs Curso Abierto: https://ibero.education/capacitacion-corporativa-ia-vs-curso-abierto/
+- Errores al Implementar IA en Empresas: https://ibero.education/errores-implementar-ia-en-empresas/
+- Madurez Digital e IA en Empresas: https://ibero.education/madurez-digital-ia-empresas/
+
+### Herramientas gratuitas
+- Diagnóstico de Madurez en IA para Empresas: https://ibero.education/recursos/diagnostico-madurez-ia-empresa/
+- Calculadora de ROI de Automatización con IA: https://ibero.education/recursos/calculadora-roi-automatizacion-ia/
+
+- Certificación en Productividad y Automatización de Procesos con IA: https://ibero.education/productividad-automatizacion-procesos-ia/
+- Ficha académica: https://ibero.education/certificado-productividad-automatizacion-procesos-ia/

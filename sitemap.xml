@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://ibero.education/</loc>
-    <lastmod>2026-07-02</lastmod>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <priority>0.80</priority>
   </url>
   <url>
     <loc>https://ibero.education/oferta-academica/</loc>
@@ -162,12 +162,11 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
-
   <url>
     <loc>https://ibero.education/ecosistema-ibero/</loc>
-    <lastmod>2026-07-02</lastmod>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.92</priority>
+    <priority>0.80</priority>
   </url>
   <url>
     <loc>https://ibero.education/desarrollo-de-software-con-ia/</loc>
@@ -225,27 +224,27 @@
   </url>
   <url>
     <loc>https://ibero.education/ecuador/</loc>
-    <lastmod>2026-07-02</lastmod>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.82</priority>
+    <priority>0.80</priority>
   </url>
   <url>
     <loc>https://ibero.education/mexico/</loc>
-    <lastmod>2026-07-02</lastmod>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.82</priority>
+    <priority>0.80</priority>
   </url>
   <url>
     <loc>https://ibero.education/colombia/</loc>
-    <lastmod>2026-07-02</lastmod>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.82</priority>
+    <priority>0.80</priority>
   </url>
   <url>
     <loc>https://ibero.education/peru/</loc>
-    <lastmod>2026-07-02</lastmod>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.82</priority>
+    <priority>0.80</priority>
   </url>
   <url>
     <loc>https://ibero.education/certificado-vs-diplomado/</loc>
@@ -289,102 +288,101 @@
     <changefreq>weekly</changefreq>
     <priority>0.82</priority>
   </url>
-
   <url>
     <loc>https://ibero.education/argentina/</loc>
-    <lastmod>2026-07-02</lastmod>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
+    <priority>0.80</priority>
   </url>
   <url>
     <loc>https://ibero.education/chile/</loc>
-    <lastmod>2026-07-02</lastmod>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
+    <priority>0.80</priority>
   </url>
   <url>
     <loc>https://ibero.education/bolivia/</loc>
-    <lastmod>2026-07-02</lastmod>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
+    <priority>0.80</priority>
   </url>
   <url>
     <loc>https://ibero.education/uruguay/</loc>
-    <lastmod>2026-07-02</lastmod>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
+    <priority>0.80</priority>
   </url>
   <url>
     <loc>https://ibero.education/paraguay/</loc>
-    <lastmod>2026-07-02</lastmod>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
+    <priority>0.80</priority>
   </url>
   <url>
     <loc>https://ibero.education/venezuela/</loc>
-    <lastmod>2026-07-02</lastmod>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
+    <priority>0.80</priority>
   </url>
   <url>
     <loc>https://ibero.education/panama/</loc>
-    <lastmod>2026-07-02</lastmod>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
+    <priority>0.80</priority>
   </url>
   <url>
     <loc>https://ibero.education/costa-rica/</loc>
-    <lastmod>2026-07-02</lastmod>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
+    <priority>0.80</priority>
   </url>
   <url>
     <loc>https://ibero.education/guatemala/</loc>
-    <lastmod>2026-07-02</lastmod>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
+    <priority>0.80</priority>
   </url>
   <url>
     <loc>https://ibero.education/el-salvador/</loc>
-    <lastmod>2026-07-02</lastmod>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
+    <priority>0.80</priority>
   </url>
   <url>
     <loc>https://ibero.education/honduras/</loc>
-    <lastmod>2026-07-02</lastmod>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
+    <priority>0.80</priority>
   </url>
   <url>
     <loc>https://ibero.education/nicaragua/</loc>
-    <lastmod>2026-07-02</lastmod>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
+    <priority>0.80</priority>
   </url>
   <url>
     <loc>https://ibero.education/republica-dominicana/</loc>
-    <lastmod>2026-07-02</lastmod>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
+    <priority>0.80</priority>
   </url>
   <url>
     <loc>https://ibero.education/puerto-rico/</loc>
-    <lastmod>2026-07-02</lastmod>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
+    <priority>0.80</priority>
   </url>
   <url>
     <loc>https://ibero.education/espana/</loc>
-    <lastmod>2026-07-02</lastmod>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
+    <priority>0.80</priority>
   </url>
   <url>
     <loc>https://ibero.education/estados-unidos/</loc>
-    <lastmod>2026-07-02</lastmod>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
+    <priority>0.80</priority>
   </url>
   <url>
     <loc>https://ibero.education/cursos-ia-en-espanol-estados-unidos/</loc>
@@ -800,4 +798,124 @@
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
-</urlset>
+  <url>
+    <loc>https://ibero.education/capacitacion-corporativa-inteligencia-artificial/</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.92</priority>
+  </url>
+  <url>
+    <loc>https://ibero.education/capacitacion-marketing-digital-ia-empresas/</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.88</priority>
+  </url>
+  <url>
+    <loc>https://ibero.education/capacitacion-productividad-ia-equipos/</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.88</priority>
+  </url>
+  <url>
+    <loc>https://ibero.education/capacitacion-ia-lideres-gerentes-directivos/</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.88</priority>
+  </url>
+  <url>
+    <loc>https://ibero.education/capacitacion-ia-finanzas-contabilidad/</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.88</priority>
+  </url>
+  <url>
+    <loc>https://ibero.education/capacitacion-ia-recursos-humanos/</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.88</priority>
+  </url>
+  <url>
+    <loc>https://ibero.education/capacitacion-ia-legal-cumplimiento/</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.88</priority>
+  </url>
+  <url>
+    <loc>https://ibero.education/consultoria-implementacion-ia-empresas/</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.88</priority>
+  </url>
+  <url>
+    <loc>https://ibero.education/automatizacion-procesos-empresariales-ia/</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.88</priority>
+  </url>
+  <url>
+    <loc>https://ibero.education/casos-de-uso-ia-por-departamento/</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.88</priority>
+  </url>
+  <url>
+    <loc>https://ibero.education/como-capacitar-un-equipo-en-inteligencia-artificial/</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.88</priority>
+  </url>
+  <url>
+    <loc>https://ibero.education/plan-adopcion-inteligencia-artificial-empresa/</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.88</priority>
+  </url>
+  <url>
+    <loc>https://ibero.education/politica-uso-responsable-ia-empresa/</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.88</priority>
+  </url>
+  <url>
+    <loc>https://ibero.education/como-medir-roi-inteligencia-artificial-empresa/</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.88</priority>
+  </url>
+  <url>
+    <loc>https://ibero.education/capacitacion-corporativa-ia-vs-curso-abierto/</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.88</priority>
+  </url>
+  <url>
+    <loc>https://ibero.education/errores-implementar-ia-en-empresas/</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.88</priority>
+  </url>
+  <url>
+    <loc>https://ibero.education/madurez-digital-ia-empresas/</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.88</priority>
+  </url>
+  <url>
+    <loc>https://ibero.education/recursos/diagnostico-madurez-ia-empresa/</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://ibero.education/recursos/calculadora-roi-automatizacion-ia/</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://ibero.education/recursos/brochure-capacitacion-corporativa-ia-ibero.pdf</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+  </url>
+<url><loc>https://ibero.education/agentes-de-inteligencia-artificial-y-automatizacion/</loc><lastmod>2026-07-31</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url><loc>https://ibero.education/ia-para-gerencia-y-administracion/</loc><lastmod>2026-07-31</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://ibero.education/certificado-inteligencia-artificial-analitica-automatizacion-gestion-gerencial/</loc><lastmod>2026-07-31</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url><loc>https://ibero.education/diplomado-ia-gerencia-administracion/</loc><lastmod>2026-07-31</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://ibero.education/diplomado-inteligencia-artificial-analitica-negocios-automatizacion-gerencial/</loc><lastmod>2026-07-31</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://ibero.education/productividad-automatizacion-procesos-ia/</loc><lastmod>2026-07-31</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url><loc>https://ibero.education/certificado-productividad-automatizacion-procesos-ia/</loc><lastmod>2026-07-31</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url></urlset>

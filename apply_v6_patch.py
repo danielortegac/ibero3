@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 import json, re, html, datetime
 
 ROOT = Path(__file__).resolve().parent
-TODAY = '2026-07-02'
+TODAY = '2026-07-31'
 SITE = 'https://ibero.education'
 ORG = {
     '@type': 'EducationalOrganization',
@@ -23,7 +23,7 @@ ORG = {
     'knowsAbout': [
         'inteligencia artificial aplicada', 'desarrollo de aplicaciones con IA', 'productos digitales',
         'marketing digital con IA', 'docencia con IA', 'oratoria profesional', 'negocios digitales',
-        'automatización comercial', 'apps web', 'PWA', 'MVP'
+        'automatización comercial', 'agentes de inteligencia artificial', 'Codex', 'Antigravity', 'Goatify', 'apps web', 'PWA', 'MVP'
     ],
     'address': {
         '@type': 'PostalAddress',
@@ -36,13 +36,13 @@ ORG = {
 PROGRAMS = {
     'marketing-digital-con-ia': {
         'url': SITE + '/marketing-digital-con-ia/',
-        'commercial': 'Marketing Digital con IA',
-        'formal': 'Certificado en Marketing Digital con Inteligencia Artificial',
-        'shortFormal': 'Marketing Digital con Inteligencia Artificial',
+        'commercial': 'Marketing Digital con Agentes de IA',
+        'formal': 'Certificación en Marketing Digital con Inteligencia Artificial y Agentes',
+        'shortFormal': 'Marketing Digital con Agentes de IA',
         'typeLabel': 'CERTIFICADO',
-        'title': 'Certificado en Marketing Digital con Inteligencia Artificial | IBERO',
+        'title': 'Certificación en Marketing Digital con Inteligencia Artificial y Agentes | IBERO',
         'description': 'Certificación intensiva de 12 horas para aplicar inteligencia artificial en marketing digital, contenidos, embudos, Meta Ads, CRM, automatización y venta de productos, servicios o marcas.',
-        'start': '2026-07-27', 'end': '2026-07-30', 'hours': 12, 'price_usd': '57',
+        'start': '2026-08-17', 'end': '2026-08-20', 'hours': 12, 'price_usd': '57',
         'prices': {'USD':'57','MXN':'995','PEN':'200','COP':'211000'},
         'audience': 'emprendedores, profesionales, marcas, creadores y negocios que quieren vender mejor con IA',
         'teaches': ['marketing digital con IA', 'embudos', 'contenido', 'Meta Ads', 'CRM', 'automatización comercial', 'activos digitales'],
@@ -57,27 +57,12 @@ PROGRAMS = {
         'typeLabel': 'CERTIFICADO',
         'title': 'Certificado en Inteligencia Artificial Aplicada a la Docencia | IBERO',
         'description': 'Certificación intensiva de 12 horas para docentes, formadores y capacitadores que quieren aplicar IA en planificación, recursos, evaluación, productividad y experiencias de aprendizaje.',
-        'start': '2026-08-03', 'end': '2026-08-06', 'hours': 12, 'price_usd': '57',
+        'start': '2026-08-24', 'end': '2026-08-27', 'hours': 12, 'price_usd': '57',
         'prices': {'USD':'57','MXN':'995','PEN':'200','COP':'211000'},
         'audience': 'docentes, formadores, capacitadores, instituciones educativas y profesionales de la educación',
         'teaches': ['IA aplicada a la docencia', 'planificación didáctica', 'evaluación con IA', 'recursos educativos', 'productividad docente'],
         'mode': 'online',
         'differentiator': 'Convierte la IA en una herramienta práctica para planificar, enseñar, evaluar y producir mejores experiencias educativas.'
-    },
-    'monetiza-tu-idea': {
-        'url': SITE + '/monetiza-tu-idea/',
-        'commercial': 'Vende tu App y Consigue Clientes',
-        'formal': 'Certificado en Gestión de Producto Digital y Estrategia con Inteligencia Artificial',
-        'shortFormal': 'Gestión de Producto Digital y Estrategia con Inteligencia Artificial',
-        'typeLabel': 'CERTIFICADO',
-        'title': 'Certificado en Gestión de Producto Digital y Estrategia con IA | IBERO',
-        'description': 'Curso intensivo de 12 horas para convertir una app, MVP, software, automatización o prototipo creado con IA en un producto digital claro, presentable y listo para salir al mercado.',
-        'start': '2026-08-10', 'end': '2026-08-13', 'hours': 12, 'price_usd': '57',
-        'prices': {'USD':'57','MXN':'995','PEN':'200','COP':'211000'},
-        'audience': 'personas que ya tienen o están terminando una app, MVP, software, automatización o producto digital y necesitan ordenarlo para venderlo',
-        'teaches': ['gestión de producto digital', 'estrategia con IA', 'propuesta de valor', 'landing', 'demo', 'cliente ideal', 'pricing', 'captación de clientes'],
-        'mode': 'online',
-        'differentiator': 'No se queda en vender por vender: ordena el producto digital, la propuesta, la demo y la estrategia para salir a mercado.'
     },
     'crea-tu-academia': {
         'url': SITE + '/crea-tu-academia/',
@@ -87,12 +72,27 @@ PROGRAMS = {
         'typeLabel': 'CERTIFICADO',
         'title': 'Certificado en Diseño y Producción de Cursos Online con IA | IBERO',
         'description': 'Certificación intensiva de 12 horas para estructurar, producir y lanzar cursos online con IA: contenido, experiencia de aprendizaje, materiales, oferta, página y monetización.',
-        'start': '2026-08-17', 'end': '2026-08-20', 'hours': 12, 'price_usd': '57',
+        'start': '2026-11-30', 'end': '2026-12-03', 'hours': 12, 'price_usd': '57',
         'prices': {'USD':'57','MXN':'995','PEN':'200','COP':'211000'},
         'audience': 'expertos, docentes, coaches, consultores, creadores y profesionales que quieren convertir su conocimiento en un curso online',
         'teaches': ['diseño instruccional', 'producción de cursos online', 'IA para contenidos', 'estructura de programa', 'monetización de conocimiento'],
         'mode': 'online',
         'differentiator': 'Transforma conocimiento en un curso online estructurado, producible y vendible, no solo en clases sueltas.'
+    },
+    'monetiza-tu-idea': {
+        'url': SITE + '/monetiza-tu-idea/',
+        'commercial': 'Vende tu App y Consigue Clientes',
+        'formal': 'Certificado en Gestión de Producto Digital y Estrategia con Inteligencia Artificial',
+        'shortFormal': 'Gestión de Producto Digital y Estrategia con Inteligencia Artificial',
+        'typeLabel': 'CERTIFICADO',
+        'title': 'Certificado en Gestión de Producto Digital y Estrategia con IA | IBERO',
+        'description': 'Curso intensivo de 12 horas para convertir una app, MVP, software, automatización o prototipo creado con IA en un producto digital claro, presentable y listo para salir al mercado.',
+        'start': '2026-09-07', 'end': '2026-09-10', 'hours': 12, 'price_usd': '57',
+        'prices': {'USD':'57','MXN':'995','PEN':'200','COP':'211000'},
+        'audience': 'personas que ya tienen o están terminando una app, MVP, software, automatización o producto digital y necesitan ordenarlo para venderlo',
+        'teaches': ['gestión de producto digital', 'estrategia con IA', 'propuesta de valor', 'landing', 'demo', 'cliente ideal', 'pricing', 'captación de clientes'],
+        'mode': 'online',
+        'differentiator': 'No se queda en vender por vender: ordena el producto digital, la propuesta, la demo y la estrategia para salir a mercado.'
     },
     'comunicacion-efectiva': {
         'url': SITE + '/comunicacion-efectiva/',
@@ -117,7 +117,7 @@ PROGRAMS = {
         'typeLabel': 'DIPLOMADO',
         'title': 'Diplomado en Desarrollo de Aplicaciones y Gestión de Productos Digitales con IA | IBERO',
         'description': 'Diplomado de 5 semanas y 60 horas para desarrollar aplicaciones, apps web, PWAs o MVPs con IA y gestionar productos digitales con estrategia, UX, landing, CRM, automatización, marketing y lanzamiento.',
-        'start': '2026-10-05', 'end': '2026-11-05', 'hours': 60, 'price_usd': '277',
+        'start': '2026-09-21', 'end': '2026-10-22', 'hours': 60, 'price_usd': '277',
         'prices': {'USD':'277','MXN':'4850','PEN':'975','COP':'1025000'},
         'audience': 'personas que quieren construir, mejorar, lanzar y organizar una aplicación, MVP o producto digital desde un proceso guiado de 5 semanas',
         'teaches': ['desarrollo de aplicaciones con IA', 'gestión de productos digitales', 'MVP', 'UX', 'vibe coding', 'landing', 'CRM', 'automatización', 'lanzamiento', 'Demo Day'],
@@ -171,7 +171,7 @@ REPLACEMENTS = [
     ('Certificación en Venta y Monetización de Apps con IA', 'Certificado en Gestión de Producto Digital y Estrategia con Inteligencia Artificial'),
     ('Venta y Monetización de Apps con IA', 'Gestión de Producto Digital y Estrategia con IA'),
     ('Credencial: Gestión de Producto Digital y Estrategia con IA', 'Certificado: Gestión de Producto Digital y Estrategia con IA'),
-    ('Certificación Marketing Digital con IA, Embudos y Activos Digitales', 'Certificado en Marketing Digital con Inteligencia Artificial'),
+    ('Certificación Marketing Digital con Agentes de IA, Embudos y Activos Digitales', 'Certificación en Marketing Digital con Inteligencia Artificial y Agentes'),
     ('Certificación IA para Docentes', 'Certificado en Inteligencia Artificial Aplicada a la Docencia'),
     ('Certificación en Comunicación Efectiva', 'Certificado en Comunicación Efectiva y Oratoria Profesional'),
     ('Certificación Crea tu Curso Online y Monetiza', 'Certificado en Diseño y Producción de Cursos Online con IA'),
@@ -311,37 +311,37 @@ page_meta = {
         'title':'Centro IBEROamericano | IA Aplicada, Apps, Producto Digital y Negocios',
         'description':'Centro IBEROamericano: formación práctica en inteligencia artificial aplicada, marketing digital, docencia con IA, producto digital, apps, oratoria, diplomados y Máster Ejecutivo.',
         'url':SITE+'/',
-        'schema': item_list_schema(SITE+'/', 'Centro IBEROamericano', 'Programas de IA aplicada, apps, producto digital, marketing, docencia, oratoria y negocios digitales.', ['marketing-digital-con-ia','ia-para-docentes','monetiza-tu-idea','crea-tu-academia','comunicacion-efectiva','diplomado-ia-negocios-marketing','master-ejecutivo-ia'])
+        'schema': item_list_schema(SITE+'/', 'Centro IBEROamericano', 'Programas de IA aplicada, apps, producto digital, marketing, docencia, oratoria y negocios digitales.', ['marketing-digital-con-ia','ia-para-docentes','crea-tu-academia','monetiza-tu-idea','ia-para-gerencia-y-administracion','comunicacion-efectiva','diplomado-ia-negocios-marketing','diplomado-ia-gerencia-administracion','master-ejecutivo-ia'])
     },
     'oferta-academica': {
         'title':'Oferta Académica IBERO | Certificados, Diplomado y Máster Ejecutivo con IA',
         'description':'Catálogo de programas IBERO: certificados intensivos, diplomado en desarrollo de aplicaciones y productos digitales, y Máster Ejecutivo en IA aplicada y dirección de productos digitales.',
         'url':SITE+'/oferta-academica/',
-        'schema': item_list_schema(SITE+'/oferta-academica/', 'Oferta Académica IBERO', 'Certificados, diplomado y Máster Ejecutivo en IA aplicada, apps, producto digital, marketing, docencia y comunicación.', ['marketing-digital-con-ia','ia-para-docentes','monetiza-tu-idea','crea-tu-academia','comunicacion-efectiva','diplomado-ia-negocios-marketing','master-ejecutivo-ia'])
+        'schema': item_list_schema(SITE+'/oferta-academica/', 'Oferta Académica IBERO', 'Certificados, diplomado y Máster Ejecutivo en IA aplicada, apps, producto digital, marketing, docencia y comunicación.', ['marketing-digital-con-ia','ia-para-docentes','crea-tu-academia','monetiza-tu-idea','ia-para-gerencia-y-administracion','comunicacion-efectiva','diplomado-ia-negocios-marketing','diplomado-ia-gerencia-administracion','master-ejecutivo-ia'])
     },
     'certificaciones-intensivas': {
         'title':'Certificados Intensivos IBERO | IA, Marketing, Docencia, Producto Digital y Oratoria',
-        'description':'Certificados intensivos de IBERO: Marketing Digital con IA, IA aplicada a la docencia, gestión de producto digital, cursos online con IA y comunicación efectiva.',
+        'description':'Certificados intensivos de IBERO: Marketing Digital con Agentes de IA, IA aplicada a la docencia, gestión de producto digital, cursos online con IA y comunicación efectiva.',
         'url':SITE+'/certificaciones-intensivas/',
-        'schema': item_list_schema(SITE+'/certificaciones-intensivas/', 'Certificados Intensivos IBERO', 'Programas cortos de 12 horas para adquirir habilidades aplicadas con IA, marketing, docencia, producto digital, cursos online y oratoria.', ['marketing-digital-con-ia','ia-para-docentes','monetiza-tu-idea','crea-tu-academia','comunicacion-efectiva'])
+        'schema': item_list_schema(SITE+'/certificaciones-intensivas/', 'Certificados Intensivos IBERO', 'Programas cortos de 12 horas para adquirir habilidades aplicadas con IA, marketing, docencia, producto digital, cursos online y oratoria.', ['marketing-digital-con-ia','ia-para-docentes','crea-tu-academia','monetiza-tu-idea','comunicacion-efectiva'])
     },
     'diplomados-intensivos': {
         'title':'Diplomados IBERO | Desarrollo de Aplicaciones y Productos Digitales con IA',
         'description':'Diplomado IBERO de 5 semanas para desarrollar aplicaciones, apps web, PWAs y productos digitales con inteligencia artificial, UX, estrategia, CRM, automatización y lanzamiento.',
         'url':SITE+'/diplomados-intensivos/',
-        'schema': item_list_schema(SITE+'/diplomados-intensivos/', 'Diplomados IBERO', 'Diplomados aplicados para desarrollar, organizar y lanzar aplicaciones y productos digitales con IA.', ['diplomado-ia-negocios-marketing'])
+        'schema': item_list_schema(SITE+'/diplomados-intensivos/', 'Diplomados IBERO', 'Diplomados aplicados para desarrollar, organizar y lanzar aplicaciones y productos digitales con IA.', ['diplomado-ia-negocios-marketing','diplomado-ia-gerencia-administracion'])
     },
     'calendario-academico': {
         'title':'Calendario Académico IBERO 2026 | Fechas, Horarios y Precios por País',
         'description':'Calendario académico IBERO 2026 con fechas de sesiones gratis, certificados, diplomado y Máster Ejecutivo; horarios EC/CO/PE y MX; precios en USD, MXN, PEN y COP.',
         'url':SITE+'/calendario-academico/',
-        'schema': item_list_schema(SITE+'/calendario-academico/', 'Calendario Académico IBERO 2026', 'Fechas de inicio, horarios y precios por país de los programas IBERO.', ['marketing-digital-con-ia','ia-para-docentes','monetiza-tu-idea','crea-tu-academia','diplomado-ia-negocios-marketing','master-ejecutivo-ia'])
+        'schema': item_list_schema(SITE+'/calendario-academico/', 'Calendario Académico IBERO 2026', 'Fechas de inicio, horarios y precios por país de los programas IBERO.', ['marketing-digital-con-ia','ia-para-docentes','crea-tu-academia','monetiza-tu-idea','ia-para-gerencia-y-administracion','diplomado-ia-negocios-marketing','diplomado-ia-gerencia-administracion','master-ejecutivo-ia'])
     },
     'registro-y-admisiones': {
         'title':'Registro y Admisiones IBERO | Inscripción a Certificados, Diplomado y Máster Ejecutivo',
         'description':'Inscripciones IBERO para certificados intensivos, diplomado y Máster Ejecutivo en IA aplicada, producto digital, apps, marketing, docencia y comunicación.',
         'url':SITE+'/registro-y-admisiones/',
-        'schema': item_list_schema(SITE+'/registro-y-admisiones/', 'Registro y Admisiones IBERO', 'Información de inscripción y admisión para programas IBERO.', ['marketing-digital-con-ia','ia-para-docentes','monetiza-tu-idea','crea-tu-academia','comunicacion-efectiva','diplomado-ia-negocios-marketing','master-ejecutivo-ia'])
+        'schema': item_list_schema(SITE+'/registro-y-admisiones/', 'Registro y Admisiones IBERO', 'Información de inscripción y admisión para programas IBERO.', ['marketing-digital-con-ia','ia-para-docentes','crea-tu-academia','monetiza-tu-idea','ia-para-gerencia-y-administracion','comunicacion-efectiva','diplomado-ia-negocios-marketing','diplomado-ia-gerencia-administracion','master-ejecutivo-ia'])
     }
 }
 
@@ -416,18 +416,49 @@ Enfoque: formación práctica en inteligencia artificial aplicada, desarrollo de
 
 ## Programas vigentes
 
-- Certificado en Marketing Digital con Inteligencia Artificial: 12 horas, inicia 27 de julio de 2026, precio USD 57 / MXN 995 / PEN 200 / COP 211000. URL: {SITE}/marketing-digital-con-ia/
-- Certificado en Inteligencia Artificial Aplicada a la Docencia: 12 horas, inicia 3 de agosto de 2026, precio USD 57 / MXN 995 / PEN 200 / COP 211000. URL: {SITE}/ia-para-docentes/
-- Certificado en Gestión de Producto Digital y Estrategia con Inteligencia Artificial: comercialmente Vende tu App y Consigue Clientes; 12 horas, inicia 10 de agosto de 2026, precio USD 57 / MXN 995 / PEN 200 / COP 211000. URL: {SITE}/monetiza-tu-idea/
-- Certificado en Diseño y Producción de Cursos Online con Inteligencia Artificial: comercialmente Crea tu Curso Online y Monetiza; 12 horas, inicia 17 de agosto de 2026, precio USD 57 / MXN 995 / PEN 200 / COP 211000. URL: {SITE}/crea-tu-academia/
+- Certificación en Marketing Digital con Inteligencia Artificial y Agentes: 12 horas, inicia 17 de agosto de 2026, precio USD 57 / MXN 995 / PEN 200 / COP 211000. URL: {SITE}/marketing-digital-con-ia/
+- Certificado en Inteligencia Artificial Aplicada a la Docencia: 12 horas, inicia 24 de agosto de 2026, precio USD 57 / MXN 995 / PEN 200 / COP 211000. URL: {SITE}/ia-para-docentes/
+- Certificado en Diseño y Producción de Cursos Online con Inteligencia Artificial: comercialmente Crea tu Curso Online y Monetiza; 12 horas, inicia 30 de noviembre de 2026, precio USD 57 / MXN 995 / PEN 200 / COP 211000. URL: {SITE}/crea-tu-academia/
+- Certificado en Gestión de Producto Digital y Estrategia con Inteligencia Artificial: comercialmente Vende tu App y Consigue Clientes; 12 horas, inicia 7 de septiembre de 2026, precio USD 57 / MXN 995 / PEN 200 / COP 211000. URL: {SITE}/monetiza-tu-idea/
 - Certificado en Comunicación Efectiva y Oratoria Profesional: taller presencial de hablar en público, precio USD 57. URL: {SITE}/comunicacion-efectiva/
-- Diplomado en Desarrollo de Aplicaciones y Gestión de Productos Digitales con Inteligencia Artificial: 5 semanas, 60 horas, inicia 5 de octubre de 2026, precio USD 277 / MXN 4850 / PEN 975 / COP 1025000. URL: {SITE}/diplomado-ia-negocios-marketing/
+- Certificación en Inteligencia Artificial, Analítica y Automatización para la Gestión Gerencial y Administrativa: 12 horas, inicia 14 de septiembre de 2026, precio USD 57 / MXN 995 / PEN 200 / COP 211000. URL: {SITE}/ia-para-gerencia-y-administracion/
+- Diplomado en Desarrollo de Aplicaciones y Gestión de Productos Digitales con Inteligencia Artificial: 5 semanas, 60 horas, inicia 21 de septiembre de 2026, precio USD 277 / MXN 4850 / PEN 975 / COP 1025000. URL: {SITE}/diplomado-ia-negocios-marketing/
+- Diplomado en Inteligencia Artificial, Analítica de Negocios y Automatización para la Gestión Gerencial y Administrativa: 5 semanas, 60 horas, inicia 26 de octubre de 2026, precio USD 277 / MXN 4850 / PEN 975 / COP 1025000. URL: {SITE}/diplomado-ia-gerencia-administracion/
 - Máster Ejecutivo en Inteligencia Artificial Aplicada y Dirección de Productos Digitales: 6 meses, 234 horas, inicia 19 de octubre de 2026, precio USD 926.25 / MXN 16191 / PEN 3251 / COP 3423420. URL: {SITE}/master-ejecutivo-ia/
 
 ## Diferenciadores
 
-IBERO forma personas capaces de crear, comunicar, vender y escalar soluciones digitales con inteligencia artificial. Los certificados entregan habilidades puntuales aplicables en pocos días. El diplomado acompaña el desarrollo y lanzamiento de un producto digital durante 5 semanas. El Máster Ejecutivo forma dirección estratégica y escalamiento de productos digitales con IA durante 6 meses.
+IBERO forma personas capaces de crear, comunicar, vender y escalar soluciones digitales, diseñar agentes y automatizar procesos con inteligencia artificial. Los certificados entregan habilidades puntuales aplicables en pocos días. El diplomado acompaña el desarrollo y lanzamiento de un producto digital durante 5 semanas. El Máster Ejecutivo forma dirección estratégica y escalamiento de productos digitales con IA durante 6 meses.
 """
+
+# Preserve and expose the corporate SEO/GEO/AEO expansion created on 2026-07-29.
+CORPORATE_PAGES = [
+    ('agentes-de-inteligencia-artificial-y-automatizacion','Agentes de Inteligencia Artificial y Automatización'),
+    ('capacitacion-marketing-digital-ia-empresas','Capacitación en Marketing Digital con Agentes de IA para Empresas'),
+    ('capacitacion-productividad-ia-equipos','Capacitación en Productividad con IA para Equipos'),
+    ('capacitacion-ia-lideres-gerentes-directivos','Capacitación en IA para Líderes, Gerentes y Directivos'),
+    ('capacitacion-ia-finanzas-contabilidad','Capacitación en IA para Finanzas y Contabilidad'),
+    ('capacitacion-ia-recursos-humanos','Capacitación en IA para Recursos Humanos y Talento'),
+    ('capacitacion-ia-legal-cumplimiento','Capacitación en IA para Legal y Cumplimiento'),
+    ('consultoria-implementacion-ia-empresas','Consultoría e Implementación de IA para Empresas'),
+    ('automatizacion-procesos-empresariales-ia','Automatización de Procesos Empresariales con IA'),
+    ('casos-de-uso-ia-por-departamento','Casos de Uso de IA por Departamento'),
+    ('como-capacitar-un-equipo-en-inteligencia-artificial','Cómo Capacitar un Equipo en Inteligencia Artificial'),
+    ('plan-adopcion-inteligencia-artificial-empresa','Plan de Adopción de Inteligencia Artificial para Empresas'),
+    ('politica-uso-responsable-ia-empresa','Política de Uso Responsable de IA para Empresas'),
+    ('como-medir-roi-inteligencia-artificial-empresa','Cómo Medir el ROI de la Inteligencia Artificial'),
+    ('capacitacion-corporativa-ia-vs-curso-abierto','Capacitación Corporativa con IA vs Curso Abierto'),
+    ('errores-implementar-ia-en-empresas','Errores al Implementar IA en Empresas'),
+    ('madurez-digital-ia-empresas','Madurez Digital e IA en Empresas'),
+    ('recursos/diagnostico-madurez-ia-empresa','Diagnóstico de Madurez en IA para Empresas'),
+    ('recursos/calculadora-roi-automatizacion-ia','Calculadora de ROI de Automatización con IA')
+]
+llms += "\n## Capacitación corporativa, implementación y gobierno de IA\n\n"
+llms += f"Página principal: {SITE}/capacitacion-corporativa-inteligencia-artificial/\n"
+llms += f"Brochure PDF: {SITE}/recursos/brochure-capacitacion-corporativa-ia-ibero.pdf\n\n"
+for corp_slug, corp_name in CORPORATE_PAGES:
+    llms += f"- {corp_name}: {SITE}/{corp_slug}/\n"
+
 (ROOT/'llms.txt').write_text(llms, encoding='utf-8')
 
 # Normalize robots and sitemap.
@@ -440,8 +471,22 @@ Sitemap: https://ibero.education/llms.txt
 (ROOT/'robots.txt').write_text(robots, encoding='utf-8')
 
 urls = [
-    ('/', '1.0'),('/oferta-academica/','0.9'),('/calendario-academico/','0.9'),('/certificaciones-intensivas/','0.9'),('/marketing-digital-con-ia/','0.9'),('/ia-para-docentes/','0.9'),('/monetiza-tu-idea/','0.9'),('/crea-tu-academia/','0.9'),('/comunicacion-efectiva/','0.85'),('/diplomados-intensivos/','0.9'),('/diplomado-ia-negocios-marketing/','0.95'),('/master-ejecutivo-ia/','0.95'),('/executive-master/','0.85'),('/clase-gratis/','0.85'),('/registro-y-admisiones/','0.85'),('/diplomas/','0.7'),('/contacto/','0.7'),('/ayuda-financiera/','0.7'),('/metodologia/','0.7'),('/ibero-labs/','0.7'),('/ibero-academy/','0.7'),('/goatify/','0.7'),('/publicaciones/','0.6'),('/artes-liberales/','0.6'),('/consultoria-en-educacion/','0.6'),('/english-courses/','0.6'),('/trabaja-con-nosotros/','0.5')
+    ('/', '1.0'),('/oferta-academica/','0.9'),('/calendario-academico/','0.9'),('/certificaciones-intensivas/','0.9'),('/marketing-digital-con-ia/','0.9'),('/ia-para-docentes/','0.9'),('/crea-tu-academia/','0.9'),('/monetiza-tu-idea/','0.9'),('/comunicacion-efectiva/','0.85'),('/diplomados-intensivos/','0.9'),('/diplomado-ia-negocios-marketing/','0.95'),('/master-ejecutivo-ia/','0.95'),('/executive-master/','0.85'),('/clase-gratis/','0.85'),('/registro-y-admisiones/','0.85'),('/diplomas/','0.7'),('/contacto/','0.7'),('/ayuda-financiera/','0.7'),('/metodologia/','0.7'),('/ibero-labs/','0.7'),('/ibero-academy/','0.7'),('/goatify/','0.7'),('/publicaciones/','0.6'),('/artes-liberales/','0.6'),('/consultoria-en-educacion/','0.6'),('/english-courses/','0.6'),('/trabaja-con-nosotros/','0.5')
 ]
+
+# Include all indexable HTML pages already present in the site so future patch runs do not erase the ecosystem.
+_seen_paths = {path for path, _priority in urls}
+for _index in ROOT.rglob('index.html'):
+    _rel = _index.relative_to(ROOT)
+    _path = '/' if _rel.as_posix() == 'index.html' else '/' + _rel.parent.as_posix().strip('/') + '/'
+    if _path not in _seen_paths:
+        _priority = '0.88' if _path.strip('/').startswith(('capacitacion-','consultoria-implementacion-','automatizacion-')) else '0.78'
+        urls.append((_path, _priority))
+        _seen_paths.add(_path)
+_pdf_path = '/recursos/brochure-capacitacion-corporativa-ia-ibero.pdf'
+if _pdf_path not in _seen_paths:
+    urls.append((_pdf_path,'0.65'))
+
 sm = ['<?xml version="1.0" encoding="UTF-8"?>','<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
 for path, priority in urls:
     sm += ['  <url>', f'    <loc>{SITE}{path}</loc>', f'    <lastmod>{TODAY}</lastmod>', '    <changefreq>weekly</changefreq>', f'    <priority>{priority}</priority>', '  </url>']
@@ -461,6 +506,10 @@ for slug,d in PROGRAMS.items():
     })
 (ROOT/'AUDITORIA_V6_PROGRAMAS_SEO_GEO_AEO_2026-07-02.json').write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding='utf-8')
 (ROOT/'AUDITORIA_V6_RESUMEN_2026-07-02.txt').write_text(
-    'V6 aplicado sobre V5. Se corrigieron nombres formales de certificados/diplomado/máster, navegación, chatbot, calendario, meta SEO, schema JSON-LD Course/ItemList/EducationalOrganization, geo tags, sitemap, robots y llms.txt. No se movieron fechas, horarios ni precios aprobados.\n', encoding='utf-8')
+    'V6 aplicado sobre V5. Se corrigieron nombres formales de certificados/diplomado/máster, navegación, chatbot, calendario, meta SEO, schema JSON-LD Course/ItemList/EducationalOrganization, geo tags, sitemap, robots y llms.txt. Se conservaron precios y horarios aprobados; las fechas vigentes y la expansión corporativa SEO/GEO/AEO quedaron sincronizadas.\n', encoding='utf-8')
 
 print('V6 patch applied')
+
+# Programas agentic 2026
+AGENT_CERT_ROUTE = '/productividad-automatizacion-procesos-ia/'
+AGENT_CERT_ACADEMIC_ROUTE = '/certificado-productividad-automatizacion-procesos-ia/'

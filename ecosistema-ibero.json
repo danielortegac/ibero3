@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-02",
+  "generated_at": "2026-07-31",
   "base_url": "https://ibero.education",
   "pages": [
     {
@@ -297,7 +297,7 @@
       "category": "Ciudad"
     },
     {
-      "title": "Certificado en Marketing Digital con Inteligencia Artificial",
+      "title": "Certificación en Marketing Digital con Inteligencia Artificial y Agentes",
       "slug": "certificado-marketing-digital-inteligencia-artificial",
       "url": "https://ibero.education/certificado-marketing-digital-inteligencia-artificial/",
       "category": "Certificado"
@@ -609,13 +609,13 @@
       "category": "Recurso"
     },
     {
-      "title": "Prompts de Marketing con IA",
+      "title": "Sistemas de Instrucciones, Agentes y Loops para Marketing",
       "slug": "recursos/prompts-marketing-ia",
       "url": "https://ibero.education/recursos/prompts-marketing-ia/",
       "category": "Recurso"
     },
     {
-      "title": "Prompts de IA para Docentes",
+      "title": "Agentes, Instrucciones y Loops para Docentes",
       "slug": "recursos/prompts-docentes-ia",
       "url": "https://ibero.education/recursos/prompts-docentes-ia/",
       "category": "Recurso"
@@ -637,15 +637,165 @@
       "slug": "recursos/plantilla-pitch-app",
       "url": "https://ibero.education/recursos/plantilla-pitch-app/",
       "category": "Recurso"
+    },
+    {
+      "title": "Capacitación Corporativa con Inteligencia Artificial",
+      "slug": "capacitacion-corporativa-inteligencia-artificial",
+      "url": "https://ibero.education/capacitacion-corporativa-inteligencia-artificial/",
+      "category": "Servicio corporativo"
+    },
+    {
+      "title": "Capacitación en Marketing Digital con IA y Agentes para Empresas",
+      "slug": "capacitacion-marketing-digital-ia-empresas",
+      "url": "https://ibero.education/capacitacion-marketing-digital-ia-empresas/",
+      "category": "Servicio corporativo"
+    },
+    {
+      "title": "Capacitación en Productividad con IA para Equipos",
+      "slug": "capacitacion-productividad-ia-equipos",
+      "url": "https://ibero.education/capacitacion-productividad-ia-equipos/",
+      "category": "Servicio corporativo"
+    },
+    {
+      "title": "Capacitación en IA para Líderes, Gerentes y Directivos",
+      "slug": "capacitacion-ia-lideres-gerentes-directivos",
+      "url": "https://ibero.education/capacitacion-ia-lideres-gerentes-directivos/",
+      "category": "Servicio corporativo"
+    },
+    {
+      "title": "Capacitación en IA para Finanzas y Contabilidad",
+      "slug": "capacitacion-ia-finanzas-contabilidad",
+      "url": "https://ibero.education/capacitacion-ia-finanzas-contabilidad/",
+      "category": "Servicio corporativo"
+    },
+    {
+      "title": "Capacitación en IA para Recursos Humanos y Talento",
+      "slug": "capacitacion-ia-recursos-humanos",
+      "url": "https://ibero.education/capacitacion-ia-recursos-humanos/",
+      "category": "Servicio corporativo"
+    },
+    {
+      "title": "Capacitación en IA para Legal y Cumplimiento",
+      "slug": "capacitacion-ia-legal-cumplimiento",
+      "url": "https://ibero.education/capacitacion-ia-legal-cumplimiento/",
+      "category": "Servicio corporativo"
+    },
+    {
+      "title": "Consultoría e Implementación de IA para Empresas",
+      "slug": "consultoria-implementacion-ia-empresas",
+      "url": "https://ibero.education/consultoria-implementacion-ia-empresas/",
+      "category": "Servicio corporativo"
+    },
+    {
+      "title": "Automatización de Procesos Empresariales con IA",
+      "slug": "automatizacion-procesos-empresariales-ia",
+      "url": "https://ibero.education/automatizacion-procesos-empresariales-ia/",
+      "category": "Servicio corporativo"
+    },
+    {
+      "title": "Casos de Uso de IA por Departamento",
+      "slug": "casos-de-uso-ia-por-departamento",
+      "url": "https://ibero.education/casos-de-uso-ia-por-departamento/",
+      "category": "Guía corporativa"
+    },
+    {
+      "title": "Cómo Capacitar un Equipo en Inteligencia Artificial",
+      "slug": "como-capacitar-un-equipo-en-inteligencia-artificial",
+      "url": "https://ibero.education/como-capacitar-un-equipo-en-inteligencia-artificial/",
+      "category": "Guía corporativa"
+    },
+    {
+      "title": "Plan de Adopción de Inteligencia Artificial para Empresas",
+      "slug": "plan-adopcion-inteligencia-artificial-empresa",
+      "url": "https://ibero.education/plan-adopcion-inteligencia-artificial-empresa/",
+      "category": "Guía corporativa"
+    },
+    {
+      "title": "Política de Uso Responsable de IA para Empresas",
+      "slug": "politica-uso-responsable-ia-empresa",
+      "url": "https://ibero.education/politica-uso-responsable-ia-empresa/",
+      "category": "Guía corporativa"
+    },
+    {
+      "title": "Cómo Medir el ROI de la Inteligencia Artificial",
+      "slug": "como-medir-roi-inteligencia-artificial-empresa",
+      "url": "https://ibero.education/como-medir-roi-inteligencia-artificial-empresa/",
+      "category": "Guía corporativa"
+    },
+    {
+      "title": "Capacitación Corporativa con IA vs Curso Abierto",
+      "slug": "capacitacion-corporativa-ia-vs-curso-abierto",
+      "url": "https://ibero.education/capacitacion-corporativa-ia-vs-curso-abierto/",
+      "category": "Guía corporativa"
+    },
+    {
+      "title": "Errores al Implementar IA en Empresas",
+      "slug": "errores-implementar-ia-en-empresas",
+      "url": "https://ibero.education/errores-implementar-ia-en-empresas/",
+      "category": "Guía corporativa"
+    },
+    {
+      "title": "Madurez Digital e IA en Empresas",
+      "slug": "madurez-digital-ia-empresas",
+      "url": "https://ibero.education/madurez-digital-ia-empresas/",
+      "category": "Guía corporativa"
+    },
+    {
+      "title": "Diagnóstico de Madurez en IA para Empresas",
+      "slug": "recursos/diagnostico-madurez-ia-empresa",
+      "url": "https://ibero.education/recursos/diagnostico-madurez-ia-empresa/",
+      "category": "Herramienta corporativa"
+    },
+    {
+      "title": "Calculadora de ROI de Automatización con IA",
+      "slug": "recursos/calculadora-roi-automatizacion-ia",
+      "url": "https://ibero.education/recursos/calculadora-roi-automatizacion-ia/",
+      "category": "Herramienta corporativa"
+    },
+    {
+      "title": "Brochure de Capacitación Corporativa con IA",
+      "slug": "recursos/brochure-capacitacion-corporativa-ia-ibero.pdf",
+      "url": "https://drive.google.com/file/d/18zAsdjZONDKb1gol4_EXwkVkkJXbitXV/view?usp=sharing",
+      "category": "Recurso corporativo PDF"
+    },
+    {
+      "title": "Agentes de Inteligencia Artificial y Automatización",
+      "slug": "agentes-de-inteligencia-artificial-y-automatizacion",
+      "url": "https://ibero.education/agentes-de-inteligencia-artificial-y-automatizacion/",
+      "category": "Pilar"
+    },
+    {
+      "title": "Curso de Inteligencia Artificial para Gerencia y Administración",
+      "slug": "ia-para-gerencia-y-administracion",
+      "url": "https://ibero.education/ia-para-gerencia-y-administracion/",
+      "category": "Certificación"
+    },
+    {
+      "title": "Certificado en IA, Analítica y Automatización Gerencial",
+      "slug": "certificado-inteligencia-artificial-analitica-automatizacion-gestion-gerencial",
+      "url": "https://ibero.education/certificado-inteligencia-artificial-analitica-automatizacion-gestion-gerencial/",
+      "category": "Certificado"
+    },
+    {
+      "title": "Diplomado de IA para Gerencia, Analítica y Automatización",
+      "slug": "diplomado-ia-gerencia-administracion",
+      "url": "https://ibero.education/diplomado-ia-gerencia-administracion/",
+      "category": "Diplomado"
+    },
+    {
+      "title": "Diplomado en IA, Analítica y Automatización Gerencial",
+      "slug": "diplomado-inteligencia-artificial-analitica-negocios-automatizacion-gerencial",
+      "url": "https://ibero.education/diplomado-inteligencia-artificial-analitica-negocios-automatizacion-gerencial/",
+      "category": "Diplomado"
     }
   ],
   "programs": [
     {
       "type": "Certificado",
-      "name": "Marketing Digital con Inteligencia Artificial",
-      "commercial": "Marketing Digital con IA",
+      "name": "Curso de Marketing Digital con Agentes de IA",
+      "commercial": "Curso de Marketing Digital con Agentes de IA",
       "url": "/marketing-digital-con-ia/",
-      "date": "27 al 30 de julio de 2026",
+      "date": "17 al 20 de agosto de 2026",
       "hours": "12 horas académicas",
       "schedule": "7:00 PM–9:00 PM EC/CO/PE · 6:00 PM–8:00 PM MX",
       "prices": {
@@ -660,22 +810,7 @@
       "name": "Inteligencia Artificial Aplicada a la Docencia",
       "commercial": "IA para Docentes",
       "url": "/ia-para-docentes/",
-      "date": "3 al 6 de agosto de 2026",
-      "hours": "12 horas académicas",
-      "schedule": "7:00 PM–9:00 PM EC/CO/PE · 6:00 PM–8:00 PM MX",
-      "prices": {
-        "USD": "57",
-        "MXN": "995",
-        "PEN": "200",
-        "COP": "211.000"
-      }
-    },
-    {
-      "type": "Certificado",
-      "name": "Gestión de Producto Digital y Estrategia con Inteligencia Artificial",
-      "commercial": "Vende tu App y Consigue Clientes",
-      "url": "/monetiza-tu-idea/",
-      "date": "10 al 13 de agosto de 2026",
+      "date": "24 al 27 de agosto de 2026",
       "hours": "12 horas académicas",
       "schedule": "7:00 PM–9:00 PM EC/CO/PE · 6:00 PM–8:00 PM MX",
       "prices": {
@@ -690,7 +825,22 @@
       "name": "Diseño y Producción de Cursos Online con Inteligencia Artificial",
       "commercial": "Crea tu Curso Online y Monetiza",
       "url": "/crea-tu-academia/",
-      "date": "17 al 20 de agosto de 2026",
+      "date": "30 de noviembre al 3 de diciembre de 2026",
+      "hours": "12 horas académicas",
+      "schedule": "7:00 PM–9:00 PM EC/CO/PE · 6:00 PM–8:00 PM MX",
+      "prices": {
+        "USD": "57",
+        "MXN": "995",
+        "PEN": "200",
+        "COP": "211.000"
+      }
+    },
+    {
+      "type": "Certificado",
+      "name": "Gestión de Producto Digital y Estrategia con Inteligencia Artificial",
+      "commercial": "Vende tu App y Consigue Clientes",
+      "url": "/monetiza-tu-idea/",
+      "date": "7 al 10 de septiembre de 2026",
       "hours": "12 horas académicas",
       "schedule": "7:00 PM–9:00 PM EC/CO/PE · 6:00 PM–8:00 PM MX",
       "prices": {
@@ -720,7 +870,7 @@
       "name": "Desarrollo de Aplicaciones y Gestión de Productos Digitales con Inteligencia Artificial",
       "commercial": "Diplomado de Apps y Producto Digital con IA",
       "url": "/diplomado-ia-negocios-marketing/",
-      "date": "5 de octubre al 5 de noviembre de 2026",
+      "date": "21 de septiembre al 22 de octubre de 2026",
       "hours": "60 horas académicas",
       "schedule": "Lun–Jue · 7:00 PM–9:00 PM EC/CO/PE · 6:00 PM–8:00 PM MX",
       "prices": {
@@ -744,6 +894,98 @@
         "PEN": "3.251",
         "COP": "3.423.420"
       }
+    },
+    {
+      "type": "Certificado",
+      "name": "Inteligencia Artificial, Analítica y Automatización para la Gestión Gerencial y Administrativa",
+      "commercial": "Curso de Inteligencia Artificial para Gerencia y Administración",
+      "url": "/ia-para-gerencia-y-administracion/",
+      "date": "14 al 17 de septiembre de 2026",
+      "hours": "12 horas académicas",
+      "schedule": "7:00 PM–9:00 PM EC/CO/PE · 6:00 PM–8:00 PM MX",
+      "prices": {
+        "USD": "57",
+        "MXN": "995",
+        "PEN": "200",
+        "COP": "211.000"
+      }
+    },
+    {
+      "type": "Diplomado",
+      "name": "Inteligencia Artificial, Analítica de Negocios y Automatización para la Gestión Gerencial y Administrativa",
+      "commercial": "Diplomado de IA para Gerencia, Analítica y Automatización",
+      "url": "/diplomado-ia-gerencia-administracion/",
+      "date": "26 de octubre al 26 de noviembre de 2026",
+      "hours": "60 horas académicas",
+      "schedule": "Lun–Jue · 7:00 PM–9:00 PM EC/CO/PE · 6:00 PM–8:00 PM MX",
+      "prices": {
+        "USD": "277",
+        "MXN": "4.850",
+        "PEN": "975",
+        "COP": "1.025.000"
+      }
+    }
+  ],
+  "corporate_ecosystem": {
+    "hub": "https://ibero.education/capacitacion-corporativa-inteligencia-artificial/",
+    "brochure": "https://drive.google.com/file/d/18zAsdjZONDKb1gol4_EXwkVkkJXbitXV/view?usp=sharing",
+    "services": [
+      "https://ibero.education/capacitacion-marketing-digital-ia-empresas/",
+      "https://ibero.education/capacitacion-productividad-ia-equipos/",
+      "https://ibero.education/capacitacion-ia-lideres-gerentes-directivos/",
+      "https://ibero.education/capacitacion-ia-finanzas-contabilidad/",
+      "https://ibero.education/capacitacion-ia-recursos-humanos/",
+      "https://ibero.education/capacitacion-ia-legal-cumplimiento/",
+      "https://ibero.education/consultoria-implementacion-ia-empresas/",
+      "https://ibero.education/automatizacion-procesos-empresariales-ia/"
+    ],
+    "guides": [
+      "https://ibero.education/casos-de-uso-ia-por-departamento/",
+      "https://ibero.education/como-capacitar-un-equipo-en-inteligencia-artificial/",
+      "https://ibero.education/plan-adopcion-inteligencia-artificial-empresa/",
+      "https://ibero.education/politica-uso-responsable-ia-empresa/",
+      "https://ibero.education/como-medir-roi-inteligencia-artificial-empresa/",
+      "https://ibero.education/capacitacion-corporativa-ia-vs-curso-abierto/",
+      "https://ibero.education/errores-implementar-ia-en-empresas/",
+      "https://ibero.education/madurez-digital-ia-empresas/"
+    ],
+    "tools": [
+      "https://ibero.education/recursos/diagnostico-madurez-ia-empresa/",
+      "https://ibero.education/recursos/calculadora-roi-automatizacion-ia/"
+    ],
+    "minimum_team": "5 participantes recomendados",
+    "executive_1_to_1": {
+      "USD": "30/hora",
+      "MXN": "525/hora",
+      "PEN": "105/hora",
+      "COP": "111.000/hora",
+      "minimum_reservation": "2 horas"
+    }
+  },
+  "agentic_ecosystem": {
+    "pillar": "https://ibero.education/agentes-de-inteligencia-artificial-y-automatizacion/",
+    "platforms": [
+      "Codex",
+      "Google Antigravity",
+      "Goatify"
+    ],
+    "principles": [
+      "estrategia humana",
+      "diseño de procesos",
+      "supervisión",
+      "seguridad",
+      "trazabilidad",
+      "medición de resultados"
+    ]
+  },
+  "new_programs": [
+    {
+      "name": "Certificación en Productividad y Automatización de Procesos con IA",
+      "commercial_name": "Curso para Crear Agentes de IA y Automatizar tu Negocio",
+      "url": "/productividad-automatizacion-procesos-ia/",
+      "academic_url": "/certificado-productividad-automatizacion-procesos-ia/",
+      "dates": "2026-08-31/2026-09-03",
+      "price_usd": 57
     }
   ]
 }
