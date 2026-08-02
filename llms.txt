@@ -1,22 +1,23 @@
-# Centro IBEROamericano (IBERO)
+# IBERO
 
 Sitio oficial: https://ibero.education/
+Nombre institucional: Centro IBEROamericano de Educación
 Idioma principal: español.
 Área de servicio: Ecuador, México, Colombia, Perú y Latinoamérica.
 Enfoque: formación práctica en inteligencia artificial aplicada, desarrollo de aplicaciones, productos digitales, marketing digital, docencia con IA, oratoria profesional y negocios digitales.
 
 ## Programas vigentes
 
-- Certificación en Marketing Digital con Inteligencia Artificial y Agentes: 12 horas, inicia 17 de agosto de 2026, precio USD 57 / MXN 995 / PEN 200 / COP 211000. URL: https://ibero.education/marketing-digital-con-ia/
-- Certificado en Inteligencia Artificial Aplicada a la Docencia: 12 horas, inicia 24 de agosto de 2026, precio USD 57 / MXN 995 / PEN 200 / COP 211000. URL: https://ibero.education/ia-para-docentes/
-- Certificado en Diseño y Producción de Cursos Online con Inteligencia Artificial: comercialmente Crea tu Curso Online y Monetiza; 12 horas, inicia 30 de noviembre de 2026, precio USD 57 / MXN 995 / PEN 200 / COP 211000. URL: https://ibero.education/crea-tu-academia/
-- Certificado en Gestión de Producto Digital y Estrategia con Inteligencia Artificial: comercialmente Vende tu App y Consigue Clientes; 12 horas, inicia 7 de septiembre de 2026, precio USD 57 / MXN 995 / PEN 200 / COP 211000. URL: https://ibero.education/monetiza-tu-idea/
-- Certificado en Inteligencia Artificial, Analítica y Automatización para la Gestión Gerencial y Administrativa: 12 horas, del 14 al 17 de septiembre de 2026, precio USD 57 / MXN 995 / PEN 200 / COP 211000. URL: https://ibero.education/ia-para-gerencia-y-administracion/
-- Certificado en Comunicación Efectiva y Oratoria Profesional: taller presencial de hablar en público, precio USD 57. URL: https://ibero.education/comunicacion-efectiva/
-- Diplomado en Desarrollo de Aplicaciones y Gestión de Productos Digitales con Inteligencia Artificial: 5 semanas, 60 horas, inicia 21 de septiembre de 2026, precio USD 277 / MXN 4850 / PEN 975 / COP 1025000. URL: https://ibero.education/diplomado-ia-negocios-marketing/
-- Diplomado en Inteligencia Artificial, Analítica de Negocios y Automatización para la Gestión Gerencial y Administrativa: 5 semanas, 60 horas, del 26 de octubre al 26 de noviembre de 2026, precio USD 277 / MXN 4850 / PEN 975 / COP 1025000. URL: https://ibero.education/diplomado-ia-gerencia-administracion/
-- Máster Ejecutivo en Inteligencia Artificial Aplicada y Dirección de Productos Digitales: 6 meses, 234 horas, inicia 19 de octubre de 2026, precio USD 926.25 / MXN 16191 / PEN 3251 / COP 3423420. URL: https://ibero.education/master-ejecutivo-ia/
-
+- Certificación en Marketing Digital con IA y Agentes: 12 horas, inicia 17 de agosto de 2026, precio USD 57 / MXN 995 / PEN 200 / COP 211000. URL: https://ibero.education/marketing-digital-con-ia/
+- Certificación en IA para Docentes: 12 horas, inicia 24 de agosto de 2026, precio USD 57 / MXN 995 / PEN 200 / COP 211000. URL: https://ibero.education/ia-para-docentes/
+- Certificación en Productividad y Automatización de Procesos con IA: 12 horas, del 31 de agosto al 3 de septiembre de 2026, precio USD 57 / MXN 995 / PEN 200 / COP 211000. URL: https://ibero.education/productividad-automatizacion-procesos-ia/
+- Certificación en Diseño, Validación y Venta de Productos Digitales con IA: 12 horas, inicia 7 de septiembre de 2026, precio USD 57 / MXN 995 / PEN 200 / COP 211000. URL: https://ibero.education/monetiza-tu-idea/
+- Certificación en IA, Analítica y Automatización para la Gestión Gerencial y Administrativa: 12 horas, del 14 al 17 de septiembre de 2026, precio USD 57 / MXN 995 / PEN 200 / COP 211000. URL: https://ibero.education/ia-para-gerencia-y-administracion/
+- Certificación en Creación de Cursos Online y Academias Digitales: 12 horas, inicia 30 de noviembre de 2026, precio USD 57 / MXN 995 / PEN 200 / COP 211000. URL: https://ibero.education/crea-tu-academia/
+- Certificación en Comunicación Efectiva y Hablar en Público: taller presencial de 4 horas, precio USD 57. URL: https://ibero.education/comunicacion-efectiva/
+- Diplomado en Desarrollo de Aplicaciones y Gestión de Productos Digitales con IA: 5 semanas, 60 horas, inicia 21 de septiembre de 2026, precio USD 277 / MXN 4850 / PEN 975 / COP 1025000. URL: https://ibero.education/diplomado-ia-negocios-marketing/
+- Diplomado en IA, Analítica de Negocios y Automatización para la Gestión Gerencial y Administrativa: 5 semanas, 60 horas, del 26 de octubre al 26 de noviembre de 2026, precio USD 277 / MXN 4850 / PEN 975 / COP 1025000. URL: https://ibero.education/diplomado-ia-gerencia-administracion/
+- Máster Ejecutivo en IA Aplicada y Dirección de Productos Digitales: 6 meses, 234 horas, inicia 19 de octubre de 2026, precio USD 926.25 / MXN 16191 / PEN 3251 / COP 3423420. URL: https://ibero.education/master-ejecutivo-ia/
 
 ## Formación agentic
 
@@ -226,3 +227,20 @@ Brochure PDF: https://drive.google.com/file/d/18zAsdjZONDKb1gol4_EXwkVkkJXbitXV/
 
 - Certificación en Productividad y Automatización de Procesos con IA: https://ibero.education/productividad-automatizacion-procesos-ia/
 - Ficha académica: https://ibero.education/certificado-productividad-automatizacion-procesos-ia/
+
+## Marca y nombres de sitio
+- Nombre principal: IBERO
+- Nombre institucional y legal: Centro IBEROamericano de Educación
+- Nombres alternativos: Centro IBEROamericano, Centro Iberoamericano, IBERO Education
+- Sitio oficial: https://ibero.education/
+Nombre institucional: Centro IBEROamericano de Educación
+
+## Clases gratuitas
+- Clases gratis de IA, marketing y negocios: https://ibero.education/clase-gratis/
+
+## Canales oficiales de contenido gratuito
+- YouTube · IA, Marketing y Negocios: https://www.youtube.com/@ia.marketing.negocios
+- TikTok · IA, Marketing y Negocios: https://www.tiktok.com/@ia.marketing.negocios
+- Instagram IBERO: https://www.instagram.com/centro.iberoamericano/
+- LinkedIn IBERO: https://www.linkedin.com/company/centro-iberoamericano/
+

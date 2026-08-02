@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-31",
+  "generated_at": "2026-08-01",
   "base_url": "https://ibero.education",
   "pages": [
     {
@@ -297,34 +297,34 @@
       "category": "Ciudad"
     },
     {
-      "title": "Certificación en Marketing Digital con Inteligencia Artificial y Agentes",
+      "title": "Certificación en Marketing Digital con IA y Agentes",
       "slug": "certificado-marketing-digital-inteligencia-artificial",
       "url": "https://ibero.education/certificado-marketing-digital-inteligencia-artificial/",
-      "category": "Certificado"
+      "category": "Certificación"
     },
     {
-      "title": "Certificado en Inteligencia Artificial Aplicada a la Docencia",
+      "title": "Certificación en IA para Docentes",
       "slug": "certificado-inteligencia-artificial-docencia",
       "url": "https://ibero.education/certificado-inteligencia-artificial-docencia/",
-      "category": "Certificado"
+      "category": "Certificación"
     },
     {
-      "title": "Certificado en Gestión de Producto Digital y Estrategia con IA",
+      "title": "Certificación en Diseño, Validación y Venta de Productos Digitales con IA",
       "slug": "certificado-producto-digital-estrategia-ia",
       "url": "https://ibero.education/certificado-producto-digital-estrategia-ia/",
-      "category": "Certificado"
+      "category": "Certificación"
     },
     {
-      "title": "Certificado en Diseño y Producción de Cursos Online con IA",
+      "title": "Certificación en Creación de Cursos Online y Academias Digitales",
       "slug": "certificado-diseno-produccion-cursos-online-ia",
       "url": "https://ibero.education/certificado-diseno-produccion-cursos-online-ia/",
-      "category": "Certificado"
+      "category": "Certificación"
     },
     {
-      "title": "Certificado en Comunicación Efectiva y Oratoria Profesional",
+      "title": "Certificación en Comunicación Efectiva y Hablar en Público",
       "slug": "certificado-comunicacion-efectiva-oratoria-profesional",
       "url": "https://ibero.education/certificado-comunicacion-efectiva-oratoria-profesional/",
-      "category": "Certificado"
+      "category": "Certificación"
     },
     {
       "title": "Diplomado en Desarrollo de Aplicaciones y Gestión de Productos Digitales con IA",
@@ -333,7 +333,7 @@
       "category": "Diplomado"
     },
     {
-      "title": "Máster Ejecutivo en Inteligencia Artificial Aplicada y Dirección de Productos Digitales",
+      "title": "Máster Ejecutivo en IA Aplicada y Dirección de Productos Digitales",
       "slug": "master-ejecutivo-inteligencia-artificial-direccion-productos-digitales",
       "url": "https://ibero.education/master-ejecutivo-inteligencia-artificial-direccion-productos-digitales/",
       "category": "Máster Ejecutivo"
@@ -765,35 +765,41 @@
       "category": "Pilar"
     },
     {
-      "title": "Curso de Inteligencia Artificial para Gerencia y Administración",
+      "title": "Certificación en IA, Analítica y Automatización para la Gestión Gerencial y Administrativa",
       "slug": "ia-para-gerencia-y-administracion",
       "url": "https://ibero.education/ia-para-gerencia-y-administracion/",
       "category": "Certificación"
     },
     {
-      "title": "Certificado en IA, Analítica y Automatización Gerencial",
+      "title": "Certificación en IA, Analítica y Automatización para la Gestión Gerencial y Administrativa",
       "slug": "certificado-inteligencia-artificial-analitica-automatizacion-gestion-gerencial",
       "url": "https://ibero.education/certificado-inteligencia-artificial-analitica-automatizacion-gestion-gerencial/",
-      "category": "Certificado"
+      "category": "Certificación"
     },
     {
-      "title": "Diplomado de IA para Gerencia, Analítica y Automatización",
+      "title": "Diplomado en IA, Analítica de Negocios y Automatización para la Gestión Gerencial y Administrativa",
       "slug": "diplomado-ia-gerencia-administracion",
       "url": "https://ibero.education/diplomado-ia-gerencia-administracion/",
       "category": "Diplomado"
     },
     {
-      "title": "Diplomado en IA, Analítica y Automatización Gerencial",
+      "title": "Diplomado en IA, Analítica de Negocios y Automatización para la Gestión Gerencial y Administrativa",
       "slug": "diplomado-inteligencia-artificial-analitica-negocios-automatizacion-gerencial",
       "url": "https://ibero.education/diplomado-inteligencia-artificial-analitica-negocios-automatizacion-gerencial/",
       "category": "Diplomado"
+    },
+    {
+      "title": "Clases gratis de IA, marketing y negocios",
+      "slug": "clase-gratis",
+      "url": "https://ibero.education/clase-gratis/",
+      "category": "Explorar IBERO"
     }
   ],
   "programs": [
     {
-      "type": "Certificado",
-      "name": "Curso de Marketing Digital con Agentes de IA",
-      "commercial": "Curso de Marketing Digital con Agentes de IA",
+      "type": "Certificación",
+      "name": "Certificación en Marketing Digital con IA y Agentes",
+      "commercial": "Certificación en Marketing Digital con IA y Agentes",
       "url": "/marketing-digital-con-ia/",
       "date": "17 al 20 de agosto de 2026",
       "hours": "12 horas académicas",
@@ -806,9 +812,9 @@
       }
     },
     {
-      "type": "Certificado",
-      "name": "Inteligencia Artificial Aplicada a la Docencia",
-      "commercial": "IA para Docentes",
+      "type": "Certificación",
+      "name": "Certificación en IA para Docentes",
+      "commercial": "Certificación en IA para Docentes",
       "url": "/ia-para-docentes/",
       "date": "24 al 27 de agosto de 2026",
       "hours": "12 horas académicas",
@@ -821,9 +827,24 @@
       }
     },
     {
-      "type": "Certificado",
-      "name": "Diseño y Producción de Cursos Online con Inteligencia Artificial",
-      "commercial": "Crea tu Curso Online y Monetiza",
+      "type": "Certificación",
+      "name": "Certificación en Productividad y Automatización de Procesos con IA",
+      "commercial": "Certificación en Productividad y Automatización de Procesos con IA",
+      "url": "/productividad-automatizacion-procesos-ia/",
+      "date": "31 de agosto al 3 de septiembre de 2026",
+      "hours": "12 horas académicas",
+      "schedule": "7:00 PM–9:00 PM EC/CO/PE · 6:00 PM–8:00 PM MX",
+      "prices": {
+        "USD": "57",
+        "MXN": "995",
+        "PEN": "200",
+        "COP": "211.000"
+      }
+    },
+    {
+      "type": "Certificación",
+      "name": "Certificación en Creación de Cursos Online y Academias Digitales",
+      "commercial": "Certificación en Creación de Cursos Online y Academias Digitales",
       "url": "/crea-tu-academia/",
       "date": "30 de noviembre al 3 de diciembre de 2026",
       "hours": "12 horas académicas",
@@ -836,9 +857,9 @@
       }
     },
     {
-      "type": "Certificado",
-      "name": "Gestión de Producto Digital y Estrategia con Inteligencia Artificial",
-      "commercial": "Vende tu App y Consigue Clientes",
+      "type": "Certificación",
+      "name": "Certificación en Diseño, Validación y Venta de Productos Digitales con IA",
+      "commercial": "Certificación en Diseño, Validación y Venta de Productos Digitales con IA",
       "url": "/monetiza-tu-idea/",
       "date": "7 al 10 de septiembre de 2026",
       "hours": "12 horas académicas",
@@ -851,9 +872,9 @@
       }
     },
     {
-      "type": "Certificado",
-      "name": "Comunicación Efectiva y Oratoria Profesional",
-      "commercial": "Aprende a Hablar en Público",
+      "type": "Certificación",
+      "name": "Certificación en Comunicación Efectiva y Hablar en Público",
+      "commercial": "Certificación en Comunicación Efectiva y Hablar en Público",
       "url": "/comunicacion-efectiva/",
       "date": "Fechas sábado según calendario",
       "hours": "4 horas intensivas",
@@ -867,8 +888,8 @@
     },
     {
       "type": "Diplomado",
-      "name": "Desarrollo de Aplicaciones y Gestión de Productos Digitales con Inteligencia Artificial",
-      "commercial": "Diplomado de Apps y Producto Digital con IA",
+      "name": "Diplomado en Desarrollo de Aplicaciones y Gestión de Productos Digitales con IA",
+      "commercial": "Diplomado en Desarrollo de Aplicaciones y Gestión de Productos Digitales con IA",
       "url": "/diplomado-ia-negocios-marketing/",
       "date": "21 de septiembre al 22 de octubre de 2026",
       "hours": "60 horas académicas",
@@ -882,7 +903,7 @@
     },
     {
       "type": "Máster Ejecutivo",
-      "name": "Inteligencia Artificial Aplicada y Dirección de Productos Digitales",
+      "name": "Máster Ejecutivo en IA Aplicada y Dirección de Productos Digitales",
       "commercial": "Máster Ejecutivo en IA Aplicada y Dirección de Productos Digitales",
       "url": "/master-ejecutivo-ia/",
       "date": "19 de octubre de 2026 a abril de 2027",
@@ -896,9 +917,9 @@
       }
     },
     {
-      "type": "Certificado",
-      "name": "Inteligencia Artificial, Analítica y Automatización para la Gestión Gerencial y Administrativa",
-      "commercial": "Curso de Inteligencia Artificial para Gerencia y Administración",
+      "type": "Certificación",
+      "name": "Certificación en IA, Analítica y Automatización para la Gestión Gerencial y Administrativa",
+      "commercial": "Certificación en IA, Analítica y Automatización para la Gestión Gerencial y Administrativa",
       "url": "/ia-para-gerencia-y-administracion/",
       "date": "14 al 17 de septiembre de 2026",
       "hours": "12 horas académicas",
@@ -912,8 +933,8 @@
     },
     {
       "type": "Diplomado",
-      "name": "Inteligencia Artificial, Analítica de Negocios y Automatización para la Gestión Gerencial y Administrativa",
-      "commercial": "Diplomado de IA para Gerencia, Analítica y Automatización",
+      "name": "Diplomado en IA, Analítica de Negocios y Automatización para la Gestión Gerencial y Administrativa",
+      "commercial": "Diplomado en IA, Analítica de Negocios y Automatización para la Gestión Gerencial y Administrativa",
       "url": "/diplomado-ia-gerencia-administracion/",
       "date": "26 de octubre al 26 de noviembre de 2026",
       "hours": "60 horas académicas",
@@ -981,11 +1002,13 @@
   "new_programs": [
     {
       "name": "Certificación en Productividad y Automatización de Procesos con IA",
-      "commercial_name": "Curso para Crear Agentes de IA y Automatizar tu Negocio",
+      "commercial_name": "Certificación en Productividad y Automatización de Procesos con IA",
       "url": "/productividad-automatizacion-procesos-ia/",
       "academic_url": "/certificado-productividad-automatizacion-procesos-ia/",
       "dates": "2026-08-31/2026-09-03",
       "price_usd": 57
     }
-  ]
+  ],
+  "brand": "IBERO",
+  "institutional_name": "Centro IBEROamericano de Educación"
 }

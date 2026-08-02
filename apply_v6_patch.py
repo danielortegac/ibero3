@@ -8,11 +8,12 @@ SITE = 'https://ibero.education'
 ORG = {
     '@type': 'EducationalOrganization',
     '@id': SITE + '/#organization',
-    'name': 'Centro IBEROamericano',
-    'alternateName': ['IBERO', 'Centro Iberoamericano de Educación'],
+    'name': 'IBERO',
+    'legalName': 'Centro IBEROamericano de Educación',
+    'alternateName': ['Centro IBEROamericano', 'Centro Iberoamericano', 'IBERO Education'],
     'url': SITE + '/',
     'logo': SITE + '/fotos/logos%20ibero/ibero-favicon.svg',
-    'sameAs': [SITE + '/'],
+    'sameAs': [SITE + '/', 'https://www.linkedin.com/company/centro-iberoamericano/', 'https://www.instagram.com/centro.iberoamericano/', 'https://www.facebook.com/ibero.education/', 'https://www.youtube.com/@ia.marketing.negocios', 'https://www.tiktok.com/@ia.marketing.negocios'],
     'areaServed': [
         {'@type': 'Country', 'name': 'Ecuador'},
         {'@type': 'Country', 'name': 'México'},
@@ -37,10 +38,10 @@ PROGRAMS = {
     'marketing-digital-con-ia': {
         'url': SITE + '/marketing-digital-con-ia/',
         'commercial': 'Marketing Digital con Agentes de IA',
-        'formal': 'Certificación en Marketing Digital con Inteligencia Artificial y Agentes',
+        'formal': 'Certificación en Marketing Digital con IA y Agentes',
         'shortFormal': 'Marketing Digital con Agentes de IA',
         'typeLabel': 'CERTIFICADO',
-        'title': 'Certificación en Marketing Digital con Inteligencia Artificial y Agentes | IBERO',
+        'title': 'Certificación en Marketing Digital con IA y Agentes | IBERO',
         'description': 'Certificación intensiva de 12 horas para aplicar inteligencia artificial en marketing digital, contenidos, embudos, Meta Ads, CRM, automatización y venta de productos, servicios o marcas.',
         'start': '2026-08-17', 'end': '2026-08-20', 'hours': 12, 'price_usd': '57',
         'prices': {'USD':'57','MXN':'995','PEN':'200','COP':'211000'},
@@ -52,10 +53,10 @@ PROGRAMS = {
     'ia-para-docentes': {
         'url': SITE + '/ia-para-docentes/',
         'commercial': 'IA para Docentes',
-        'formal': 'Certificado en Inteligencia Artificial Aplicada a la Docencia',
-        'shortFormal': 'Inteligencia Artificial Aplicada a la Docencia',
+        'formal': 'Certificación en IA para Docentes',
+        'shortFormal': 'Certificación en IA para Docentes',
         'typeLabel': 'CERTIFICADO',
-        'title': 'Certificado en Inteligencia Artificial Aplicada a la Docencia | IBERO',
+        'title': 'Certificación en IA para Docentes | IBERO',
         'description': 'Certificación intensiva de 12 horas para docentes, formadores y capacitadores que quieren aplicar IA en planificación, recursos, evaluación, productividad y experiencias de aprendizaje.',
         'start': '2026-08-24', 'end': '2026-08-27', 'hours': 12, 'price_usd': '57',
         'prices': {'USD':'57','MXN':'995','PEN':'200','COP':'211000'},
@@ -66,11 +67,11 @@ PROGRAMS = {
     },
     'crea-tu-academia': {
         'url': SITE + '/crea-tu-academia/',
-        'commercial': 'Crea tu Curso Online y Monetiza',
-        'formal': 'Certificado en Diseño y Producción de Cursos Online con Inteligencia Artificial',
-        'shortFormal': 'Diseño y Producción de Cursos Online con Inteligencia Artificial',
+        'commercial': 'Certificación en Creación de Cursos Online y Academias Digitales',
+        'formal': 'Certificación en Creación de Cursos Online y Academias Digitales',
+        'shortFormal': 'Certificación en Creación de Cursos Online y Academias Digitales',
         'typeLabel': 'CERTIFICADO',
-        'title': 'Certificado en Diseño y Producción de Cursos Online con IA | IBERO',
+        'title': 'Certificación en Creación de Cursos Online y Academias Digitales | IBERO',
         'description': 'Certificación intensiva de 12 horas para estructurar, producir y lanzar cursos online con IA: contenido, experiencia de aprendizaje, materiales, oferta, página y monetización.',
         'start': '2026-11-30', 'end': '2026-12-03', 'hours': 12, 'price_usd': '57',
         'prices': {'USD':'57','MXN':'995','PEN':'200','COP':'211000'},
@@ -81,11 +82,11 @@ PROGRAMS = {
     },
     'monetiza-tu-idea': {
         'url': SITE + '/monetiza-tu-idea/',
-        'commercial': 'Vende tu App y Consigue Clientes',
-        'formal': 'Certificado en Gestión de Producto Digital y Estrategia con Inteligencia Artificial',
-        'shortFormal': 'Gestión de Producto Digital y Estrategia con Inteligencia Artificial',
+        'commercial': 'Certificación en Diseño, Validación y Venta de Productos Digitales con IA',
+        'formal': 'Certificación en Diseño, Validación y Venta de Productos Digitales con IA',
+        'shortFormal': 'Certificación en Diseño, Validación y Venta de Productos Digitales con IA',
         'typeLabel': 'CERTIFICADO',
-        'title': 'Certificado en Gestión de Producto Digital y Estrategia con IA | IBERO',
+        'title': 'Certificación en Diseño, Validación y Venta de Productos Digitales con IA | IBERO',
         'description': 'Curso intensivo de 12 horas para convertir una app, MVP, software, automatización o prototipo creado con IA en un producto digital claro, presentable y listo para salir al mercado.',
         'start': '2026-09-07', 'end': '2026-09-10', 'hours': 12, 'price_usd': '57',
         'prices': {'USD':'57','MXN':'995','PEN':'200','COP':'211000'},
@@ -97,10 +98,10 @@ PROGRAMS = {
     'comunicacion-efectiva': {
         'url': SITE + '/comunicacion-efectiva/',
         'commercial': 'Aprende a Hablar en Público',
-        'formal': 'Certificado en Comunicación Efectiva y Oratoria Profesional',
-        'shortFormal': 'Comunicación Efectiva y Oratoria Profesional',
+        'formal': 'Certificación en Comunicación Efectiva y Hablar en Público',
+        'shortFormal': 'Certificación en Comunicación Efectiva y Hablar en Público',
         'typeLabel': 'CERTIFICADO',
-        'title': 'Certificado en Comunicación Efectiva y Oratoria Profesional | IBERO',
+        'title': 'Certificación en Comunicación Efectiva y Hablar en Público | IBERO',
         'description': 'Taller presencial para hablar en público con claridad, seguridad, estructura, storytelling y presencia profesional aplicada a ventas, docencia, liderazgo y presentaciones.',
         'start': '2026-08-08', 'end': '2026-08-08', 'hours': 4, 'price_usd': '57',
         'prices': {'USD':'57','MXN':'995','PEN':'200','COP':'211000'},
@@ -112,7 +113,7 @@ PROGRAMS = {
     'diplomado-ia-negocios-marketing': {
         'url': SITE + '/diplomado-ia-negocios-marketing/',
         'commercial': 'Diplomado en Desarrollo de Aplicaciones y Gestión de Productos Digitales con IA',
-        'formal': 'Diplomado en Desarrollo de Aplicaciones y Gestión de Productos Digitales con Inteligencia Artificial',
+        'formal': 'Diplomado en Desarrollo de Aplicaciones y Gestión de Productos Digitales con IA',
         'shortFormal': 'Desarrollo de Aplicaciones y Gestión de Productos Digitales con Inteligencia Artificial',
         'typeLabel': 'DIPLOMADO',
         'title': 'Diplomado en Desarrollo de Aplicaciones y Gestión de Productos Digitales con IA | IBERO',
@@ -127,7 +128,7 @@ PROGRAMS = {
     'master-ejecutivo-ia': {
         'url': SITE + '/master-ejecutivo-ia/',
         'commercial': 'Máster Ejecutivo en IA Aplicada y Dirección de Productos Digitales',
-        'formal': 'Máster Ejecutivo en Inteligencia Artificial Aplicada y Dirección de Productos Digitales',
+        'formal': 'Máster Ejecutivo en IA Aplicada y Dirección de Productos Digitales',
         'shortFormal': 'Inteligencia Artificial Aplicada y Dirección de Productos Digitales',
         'typeLabel': 'MÁSTER EJECUTIVO',
         'title': 'Máster Ejecutivo en IA Aplicada y Dirección de Productos Digitales | IBERO',
@@ -168,13 +169,13 @@ REPLACEMENTS = [
     ('Credencial Executive', 'Máster Ejecutivo'),
     ('Certificación Global', 'Máster Ejecutivo'),
     ('AI & Digital Business Strategist', 'Inteligencia Artificial Aplicada y Dirección de Productos Digitales'),
-    ('Certificación en Venta y Monetización de Apps con IA', 'Certificado en Gestión de Producto Digital y Estrategia con Inteligencia Artificial'),
+    ('Certificación en Venta y Monetización de Apps con IA', 'Certificación en Diseño, Validación y Venta de Productos Digitales con IA'),
     ('Venta y Monetización de Apps con IA', 'Gestión de Producto Digital y Estrategia con IA'),
     ('Credencial: Gestión de Producto Digital y Estrategia con IA', 'Certificado: Gestión de Producto Digital y Estrategia con IA'),
-    ('Certificación Marketing Digital con Agentes de IA, Embudos y Activos Digitales', 'Certificación en Marketing Digital con Inteligencia Artificial y Agentes'),
-    ('Certificación IA para Docentes', 'Certificado en Inteligencia Artificial Aplicada a la Docencia'),
-    ('Certificación en Comunicación Efectiva', 'Certificado en Comunicación Efectiva y Oratoria Profesional'),
-    ('Certificación Crea tu Curso Online y Monetiza', 'Certificado en Diseño y Producción de Cursos Online con IA'),
+    ('Certificación Marketing Digital con Agentes de IA, Embudos y Activos Digitales', 'Certificación en Marketing Digital con IA y Agentes'),
+    ('Certificación IA para Docentes', 'Certificación en IA para Docentes'),
+    ('Certificación en Comunicación Efectiva', 'Certificación en Comunicación Efectiva y Hablar en Público'),
+    ('Certificación Certificación en Creación de Cursos Online y Academias Digitales', 'Certificación en Creación de Cursos Online y Academias Digitales'),
 ]
 
 # Fix text in every HTML and JS file.
@@ -308,10 +309,10 @@ def item_list_schema(url, name, desc, slugs):
 # Update metadata and JSON-LD on core pages.
 page_meta = {
     'index': {
-        'title':'Centro IBEROamericano | IA Aplicada, Apps, Producto Digital y Negocios',
-        'description':'Centro IBEROamericano: formación práctica en inteligencia artificial aplicada, marketing digital, docencia con IA, producto digital, apps, oratoria, diplomados y Máster Ejecutivo.',
+        'title':'IBERO | IA Aplicada, Apps, Producto Digital y Negocios',
+        'description':'IBERO: formación práctica en inteligencia artificial aplicada, marketing digital, docencia con IA, producto digital, apps, oratoria, diplomados y Máster Ejecutivo.',
         'url':SITE+'/',
-        'schema': item_list_schema(SITE+'/', 'Centro IBEROamericano', 'Programas de IA aplicada, apps, producto digital, marketing, docencia, oratoria y negocios digitales.', ['marketing-digital-con-ia','ia-para-docentes','crea-tu-academia','monetiza-tu-idea','ia-para-gerencia-y-administracion','comunicacion-efectiva','diplomado-ia-negocios-marketing','diplomado-ia-gerencia-administracion','master-ejecutivo-ia'])
+        'schema': item_list_schema(SITE+'/', 'IBERO', 'Programas de IA aplicada, apps, producto digital, marketing, docencia, oratoria y negocios digitales.', ['marketing-digital-con-ia','ia-para-docentes','crea-tu-academia','monetiza-tu-idea','ia-para-gerencia-y-administracion','comunicacion-efectiva','diplomado-ia-negocios-marketing','diplomado-ia-gerencia-administracion','master-ejecutivo-ia'])
     },
     'oferta-academica': {
         'title':'Oferta Académica IBERO | Certificados, Diplomado y Máster Ejecutivo con IA',
@@ -379,10 +380,10 @@ for p in ROOT.rglob('index.html'):
     else:
         t=soup.new_tag('title'); t.string=meta['title']; soup.head.append(t)
     ensure_meta(soup, {'name':'description'}, meta['description'])
-    ensure_meta(soup, {'property':'og:title'}, meta['title'].replace(' | IBERO',' | Centro IBEROamericano'))
+    ensure_meta(soup, {'property':'og:title'}, meta['title'])
     ensure_meta(soup, {'property':'og:description'}, meta['description'])
     ensure_meta(soup, {'property':'og:url'}, meta['url'])
-    ensure_meta(soup, {'name':'twitter:title'}, meta['title'].replace(' | IBERO',' | Centro IBEROamericano'))
+    ensure_meta(soup, {'name':'twitter:title'}, meta['title'])
     ensure_meta(soup, {'name':'twitter:description'}, meta['description'])
     ensure_link(soup, 'canonical', meta['url'])
     ensure_meta(soup, {'name':'robots'}, 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1')
@@ -407,7 +408,7 @@ for p in ROOT.rglob('index.html'):
     p.write_text(str(soup), encoding='utf-8')
 
 # Add a lightweight llms.txt for AI/GEO/AEO discovery.
-llms = f"""# Centro IBEROamericano (IBERO)
+llms = f"""# IBERO
 
 Sitio oficial: {SITE}/
 Idioma principal: español.
@@ -416,15 +417,15 @@ Enfoque: formación práctica en inteligencia artificial aplicada, desarrollo de
 
 ## Programas vigentes
 
-- Certificación en Marketing Digital con Inteligencia Artificial y Agentes: 12 horas, inicia 17 de agosto de 2026, precio USD 57 / MXN 995 / PEN 200 / COP 211000. URL: {SITE}/marketing-digital-con-ia/
-- Certificado en Inteligencia Artificial Aplicada a la Docencia: 12 horas, inicia 24 de agosto de 2026, precio USD 57 / MXN 995 / PEN 200 / COP 211000. URL: {SITE}/ia-para-docentes/
-- Certificado en Diseño y Producción de Cursos Online con Inteligencia Artificial: comercialmente Crea tu Curso Online y Monetiza; 12 horas, inicia 30 de noviembre de 2026, precio USD 57 / MXN 995 / PEN 200 / COP 211000. URL: {SITE}/crea-tu-academia/
-- Certificado en Gestión de Producto Digital y Estrategia con Inteligencia Artificial: comercialmente Vende tu App y Consigue Clientes; 12 horas, inicia 7 de septiembre de 2026, precio USD 57 / MXN 995 / PEN 200 / COP 211000. URL: {SITE}/monetiza-tu-idea/
-- Certificado en Comunicación Efectiva y Oratoria Profesional: taller presencial de hablar en público, precio USD 57. URL: {SITE}/comunicacion-efectiva/
-- Certificación en Inteligencia Artificial, Analítica y Automatización para la Gestión Gerencial y Administrativa: 12 horas, inicia 14 de septiembre de 2026, precio USD 57 / MXN 995 / PEN 200 / COP 211000. URL: {SITE}/ia-para-gerencia-y-administracion/
-- Diplomado en Desarrollo de Aplicaciones y Gestión de Productos Digitales con Inteligencia Artificial: 5 semanas, 60 horas, inicia 21 de septiembre de 2026, precio USD 277 / MXN 4850 / PEN 975 / COP 1025000. URL: {SITE}/diplomado-ia-negocios-marketing/
-- Diplomado en Inteligencia Artificial, Analítica de Negocios y Automatización para la Gestión Gerencial y Administrativa: 5 semanas, 60 horas, inicia 26 de octubre de 2026, precio USD 277 / MXN 4850 / PEN 975 / COP 1025000. URL: {SITE}/diplomado-ia-gerencia-administracion/
-- Máster Ejecutivo en Inteligencia Artificial Aplicada y Dirección de Productos Digitales: 6 meses, 234 horas, inicia 19 de octubre de 2026, precio USD 926.25 / MXN 16191 / PEN 3251 / COP 3423420. URL: {SITE}/master-ejecutivo-ia/
+- Certificación en Marketing Digital con IA y Agentes: 12 horas, inicia 17 de agosto de 2026, precio USD 57 / MXN 995 / PEN 200 / COP 211000. URL: {SITE}/marketing-digital-con-ia/
+- Certificación en IA para Docentes: 12 horas, inicia 24 de agosto de 2026, precio USD 57 / MXN 995 / PEN 200 / COP 211000. URL: {SITE}/ia-para-docentes/
+- Certificación en Creación de Cursos Online y Academias Digitales: comercialmente Certificación en Creación de Cursos Online y Academias Digitales; 12 horas, inicia 30 de noviembre de 2026, precio USD 57 / MXN 995 / PEN 200 / COP 211000. URL: {SITE}/crea-tu-academia/
+- Certificación en Diseño, Validación y Venta de Productos Digitales con IA: comercialmente Certificación en Diseño, Validación y Venta de Productos Digitales con IA; 12 horas, inicia 7 de septiembre de 2026, precio USD 57 / MXN 995 / PEN 200 / COP 211000. URL: {SITE}/monetiza-tu-idea/
+- Certificación en Comunicación Efectiva y Hablar en Público: taller presencial de hablar en público, precio USD 57. URL: {SITE}/comunicacion-efectiva/
+- Certificación en IA, Analítica y Automatización para la Gestión Gerencial y Administrativa: 12 horas, inicia 14 de septiembre de 2026, precio USD 57 / MXN 995 / PEN 200 / COP 211000. URL: {SITE}/ia-para-gerencia-y-administracion/
+- Diplomado en Desarrollo de Aplicaciones y Gestión de Productos Digitales con IA: 5 semanas, 60 horas, inicia 21 de septiembre de 2026, precio USD 277 / MXN 4850 / PEN 975 / COP 1025000. URL: {SITE}/diplomado-ia-negocios-marketing/
+- Diplomado en IA, Analítica de Negocios y Automatización para la Gestión Gerencial y Administrativa: 5 semanas, 60 horas, inicia 26 de octubre de 2026, precio USD 277 / MXN 4850 / PEN 975 / COP 1025000. URL: {SITE}/diplomado-ia-gerencia-administracion/
+- Máster Ejecutivo en IA Aplicada y Dirección de Productos Digitales: 6 meses, 234 horas, inicia 19 de octubre de 2026, precio USD 926.25 / MXN 16191 / PEN 3251 / COP 3423420. URL: {SITE}/master-ejecutivo-ia/
 
 ## Diferenciadores
 
@@ -458,6 +459,25 @@ llms += f"Página principal: {SITE}/capacitacion-corporativa-inteligencia-artifi
 llms += f"Brochure PDF: {SITE}/recursos/brochure-capacitacion-corporativa-ia-ibero.pdf\n\n"
 for corp_slug, corp_name in CORPORATE_PAGES:
     llms += f"- {corp_name}: {SITE}/{corp_slug}/\n"
+
+llms += "\n## Marca y nombres de sitio\n"
+llms += "- Nombre principal: IBERO\n"
+llms += "- Nombre institucional y legal: Centro IBEROamericano de Educación\n"
+llms += "- Nombres alternativos: Centro IBEROamericano, Centro Iberoamericano, IBERO Education\n"
+llms += f"- Sitio oficial: {SITE}/\n"
+llms += "\n## Explorar y orientación IBERO\n"
+ORIENTATION_PAGES = [
+    ('aprender-inteligencia-artificial-desde-cero','Guía para aprender IA desde cero'),
+    ('curso-inteligencia-artificial-online-certificado','Guía de cursos de IA online con certificado'),
+    ('cursos-inteligencia-artificial-en-espanol','Guía de cursos de IA en español'),
+    ('inteligencia-artificial-para-emprender','Guía de IA para emprender'),
+    ('certificado-privado-inteligencia-artificial','Orientación sobre certificados privados de IA'),
+    ('diplomado-inteligencia-artificial-aplicada','Guía sobre diplomados de IA aplicada'),
+    ('master-ejecutivo-inteligencia-artificial','Guía sobre Máster Ejecutivo en IA'),
+    ('clase-gratis','Clases gratis de IA, marketing y negocios')
+]
+for orientation_slug, orientation_name in ORIENTATION_PAGES:
+    llms += f"- {orientation_name}: {SITE}/{orientation_slug}/\n"
 
 (ROOT/'llms.txt').write_text(llms, encoding='utf-8')
 
