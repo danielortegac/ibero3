@@ -43,7 +43,7 @@ PROGRAMS = {
         'typeLabel': 'CERTIFICADO',
         'title': 'Certificación en Marketing Digital con IA y Agentes | IBERO',
         'description': 'Certificación intensiva de 12 horas para aplicar inteligencia artificial en marketing digital, contenidos, embudos, Meta Ads, CRM, automatización y venta de productos, servicios o marcas.',
-        'start': '2026-08-17', 'end': '2026-08-20', 'hours': 12, 'price_usd': '57',
+        'start': '2026-08-24', 'end': '2026-08-27', 'hours': 12, 'price_usd': '57',
         'prices': {'USD':'57','MXN':'995','PEN':'200','COP':'211000'},
         'audience': 'emprendedores, profesionales, marcas, creadores y negocios que quieren vender mejor con IA',
         'teaches': ['marketing digital con IA', 'embudos', 'contenido', 'Meta Ads', 'CRM', 'automatización comercial', 'activos digitales'],
@@ -58,7 +58,7 @@ PROGRAMS = {
         'typeLabel': 'CERTIFICADO',
         'title': 'Certificación en IA para Docentes | IBERO',
         'description': 'Certificación intensiva de 12 horas para docentes, formadores y capacitadores que quieren aplicar IA en planificación, recursos, evaluación, productividad y experiencias de aprendizaje.',
-        'start': '2026-08-24', 'end': '2026-08-27', 'hours': 12, 'price_usd': '57',
+        'start': '2026-11-30', 'end': '2026-12-03', 'hours': 12, 'price_usd': '57',
         'prices': {'USD':'57','MXN':'995','PEN':'200','COP':'211000'},
         'audience': 'docentes, formadores, capacitadores, instituciones educativas y profesionales de la educación',
         'teaches': ['IA aplicada a la docencia', 'planificación didáctica', 'evaluación con IA', 'recursos educativos', 'productividad docente'],
@@ -73,7 +73,7 @@ PROGRAMS = {
         'typeLabel': 'CERTIFICADO',
         'title': 'Certificación en Creación de Cursos Online y Academias Digitales | IBERO',
         'description': 'Certificación intensiva de 12 horas para estructurar, producir y lanzar cursos online con IA: contenido, experiencia de aprendizaje, materiales, oferta, página y monetización.',
-        'start': '2026-11-30', 'end': '2026-12-03', 'hours': 12, 'price_usd': '57',
+        'start': '2026-09-14', 'end': '2026-09-17', 'hours': 12, 'price_usd': '57',
         'prices': {'USD':'57','MXN':'995','PEN':'200','COP':'211000'},
         'audience': 'expertos, docentes, coaches, consultores, creadores y profesionales que quieren convertir su conocimiento en un curso online',
         'teaches': ['diseño instruccional', 'producción de cursos online', 'IA para contenidos', 'estructura de programa', 'monetización de conocimiento'],
@@ -82,13 +82,13 @@ PROGRAMS = {
     },
     'monetiza-tu-idea': {
         'url': SITE + '/monetiza-tu-idea/',
-        'commercial': 'Certificación en Diseño, Validación y Venta de Productos Digitales con IA',
+        'commercial': 'Aprende a vender tu APP',
         'formal': 'Certificación en Diseño, Validación y Venta de Productos Digitales con IA',
         'shortFormal': 'Certificación en Diseño, Validación y Venta de Productos Digitales con IA',
         'typeLabel': 'CERTIFICADO',
         'title': 'Certificación en Diseño, Validación y Venta de Productos Digitales con IA | IBERO',
         'description': 'Curso intensivo de 12 horas para convertir una app, MVP, software, automatización o prototipo creado con IA en un producto digital claro, presentable y listo para salir al mercado.',
-        'start': '2026-09-07', 'end': '2026-09-10', 'hours': 12, 'price_usd': '57',
+        'start': '2026-12-07', 'end': '2026-12-10', 'hours': 12, 'price_usd': '57',
         'prices': {'USD':'57','MXN':'995','PEN':'200','COP':'211000'},
         'audience': 'personas que ya tienen o están terminando una app, MVP, software, automatización o producto digital y necesitan ordenarlo para venderlo',
         'teaches': ['gestión de producto digital', 'estrategia con IA', 'propuesta de valor', 'landing', 'demo', 'cliente ideal', 'pricing', 'captación de clientes'],
@@ -417,12 +417,12 @@ Enfoque: formación práctica en inteligencia artificial aplicada, desarrollo de
 
 ## Programas vigentes
 
-- Certificación en Marketing Digital con IA y Agentes: 12 horas, inicia 17 de agosto de 2026, precio USD 57 / MXN 995 / PEN 200 / COP 211000. URL: {SITE}/marketing-digital-con-ia/
-- Certificación en IA para Docentes: 12 horas, inicia 24 de agosto de 2026, precio USD 57 / MXN 995 / PEN 200 / COP 211000. URL: {SITE}/ia-para-docentes/
-- Certificación en Creación de Cursos Online y Academias Digitales: comercialmente Certificación en Creación de Cursos Online y Academias Digitales; 12 horas, inicia 30 de noviembre de 2026, precio USD 57 / MXN 995 / PEN 200 / COP 211000. URL: {SITE}/crea-tu-academia/
-- Certificación en Diseño, Validación y Venta de Productos Digitales con IA: comercialmente Certificación en Diseño, Validación y Venta de Productos Digitales con IA; 12 horas, inicia 7 de septiembre de 2026, precio USD 57 / MXN 995 / PEN 200 / COP 211000. URL: {SITE}/monetiza-tu-idea/
+- Certificación en Marketing Digital con IA y Agentes: 12 horas, inicia 24 de agosto de 2026, precio USD 57 / MXN 995 / PEN 200 / COP 211000. URL: {SITE}/marketing-digital-con-ia/
+- Certificación en IA para Docentes: 12 horas, inicia 30 de noviembre de 2026, precio USD 57 / MXN 995 / PEN 200 / COP 211000. URL: {SITE}/ia-para-docentes/
+- Certificación en Creación de Cursos Online y Academias Digitales: comercialmente Certificación en Creación de Cursos Online y Academias Digitales; 12 horas, inicia 14 de septiembre de 2026, precio USD 57 / MXN 995 / PEN 200 / COP 211000. URL: {SITE}/crea-tu-academia/
+- Certificación en Diseño, Validación y Venta de Productos Digitales con IA: comercialmente Aprende a vender tu APP; 12 horas, inicia 7 de diciembre de 2026, precio USD 57 / MXN 995 / PEN 200 / COP 211000. URL: {SITE}/monetiza-tu-idea/
 - Certificación en Comunicación Efectiva y Hablar en Público: taller presencial de hablar en público, precio USD 57. URL: {SITE}/comunicacion-efectiva/
-- Certificación en IA, Analítica y Automatización para la Gestión Gerencial y Administrativa: 12 horas, inicia 14 de septiembre de 2026, precio USD 57 / MXN 995 / PEN 200 / COP 211000. URL: {SITE}/ia-para-gerencia-y-administracion/
+- Certificación en IA, Analítica y Automatización para la Gestión Gerencial y Administrativa: 12 horas, inicia 31 de agosto de 2026, precio USD 57 / MXN 995 / PEN 200 / COP 211000. URL: {SITE}/ia-para-gerencia-y-administracion/
 - Diplomado en Desarrollo de Aplicaciones y Gestión de Productos Digitales con IA: 5 semanas, 60 horas, inicia 21 de septiembre de 2026, precio USD 277 / MXN 4850 / PEN 975 / COP 1025000. URL: {SITE}/diplomado-ia-negocios-marketing/
 - Diplomado en IA, Analítica de Negocios y Automatización para la Gestión Gerencial y Administrativa: 5 semanas, 60 horas, inicia 26 de octubre de 2026, precio USD 277 / MXN 4850 / PEN 975 / COP 1025000. URL: {SITE}/diplomado-ia-gerencia-administracion/
 - Máster Ejecutivo en IA Aplicada y Dirección de Productos Digitales: 6 meses, 234 horas, inicia 19 de octubre de 2026, precio USD 926.25 / MXN 16191 / PEN 3251 / COP 3423420. URL: {SITE}/master-ejecutivo-ia/

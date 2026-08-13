@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-01",
+  "generated_at": "2026-08-12",
   "base_url": "https://ibero.education",
   "pages": [
     {
@@ -801,7 +801,7 @@
       "name": "Certificación en Marketing Digital con IA y Agentes",
       "commercial": "Certificación en Marketing Digital con IA y Agentes",
       "url": "/marketing-digital-con-ia/",
-      "date": "17 al 20 de agosto de 2026",
+      "date": "24 al 27 de agosto de 2026",
       "hours": "12 horas académicas",
       "schedule": "7:00 PM–9:00 PM EC/CO/PE · 6:00 PM–8:00 PM MX",
       "prices": {
@@ -816,7 +816,7 @@
       "name": "Certificación en IA para Docentes",
       "commercial": "Certificación en IA para Docentes",
       "url": "/ia-para-docentes/",
-      "date": "24 al 27 de agosto de 2026",
+      "date": "30 de noviembre al 3 de diciembre de 2026",
       "hours": "12 horas académicas",
       "schedule": "7:00 PM–9:00 PM EC/CO/PE · 6:00 PM–8:00 PM MX",
       "prices": {
@@ -831,7 +831,7 @@
       "name": "Certificación en Productividad y Automatización de Procesos con IA",
       "commercial": "Certificación en Productividad y Automatización de Procesos con IA",
       "url": "/productividad-automatizacion-procesos-ia/",
-      "date": "31 de agosto al 3 de septiembre de 2026",
+      "date": "7 al 10 de septiembre de 2026",
       "hours": "12 horas académicas",
       "schedule": "7:00 PM–9:00 PM EC/CO/PE · 6:00 PM–8:00 PM MX",
       "prices": {
@@ -846,7 +846,7 @@
       "name": "Certificación en Creación de Cursos Online y Academias Digitales",
       "commercial": "Certificación en Creación de Cursos Online y Academias Digitales",
       "url": "/crea-tu-academia/",
-      "date": "30 de noviembre al 3 de diciembre de 2026",
+      "date": "14 al 17 de septiembre de 2026",
       "hours": "12 horas académicas",
       "schedule": "7:00 PM–9:00 PM EC/CO/PE · 6:00 PM–8:00 PM MX",
       "prices": {
@@ -859,9 +859,9 @@
     {
       "type": "Certificación",
       "name": "Certificación en Diseño, Validación y Venta de Productos Digitales con IA",
-      "commercial": "Certificación en Diseño, Validación y Venta de Productos Digitales con IA",
+      "commercial": "Aprende a vender tu APP",
       "url": "/monetiza-tu-idea/",
-      "date": "7 al 10 de septiembre de 2026",
+      "date": "7 al 10 de diciembre de 2026",
       "hours": "12 horas académicas",
       "schedule": "7:00 PM–9:00 PM EC/CO/PE · 6:00 PM–8:00 PM MX",
       "prices": {
@@ -876,14 +876,11 @@
       "name": "Certificación en Comunicación Efectiva y Hablar en Público",
       "commercial": "Certificación en Comunicación Efectiva y Hablar en Público",
       "url": "/comunicacion-efectiva/",
-      "date": "Fechas sábado según calendario",
+      "date": "15 de agosto · 12 y 26 de septiembre · 10 y 24 de octubre · 7 de noviembre de 2026",
       "hours": "4 horas intensivas",
       "schedule": "9:00 AM–1:00 PM EC",
       "prices": {
-        "USD": "57",
-        "MXN": "995",
-        "PEN": "200",
-        "COP": "211.000"
+        "USD": "57"
       }
     },
     {
@@ -921,7 +918,7 @@
       "name": "Certificación en IA, Analítica y Automatización para la Gestión Gerencial y Administrativa",
       "commercial": "Certificación en IA, Analítica y Automatización para la Gestión Gerencial y Administrativa",
       "url": "/ia-para-gerencia-y-administracion/",
-      "date": "14 al 17 de septiembre de 2026",
+      "date": "31 de agosto al 3 de septiembre de 2026",
       "hours": "12 horas académicas",
       "schedule": "7:00 PM–9:00 PM EC/CO/PE · 6:00 PM–8:00 PM MX",
       "prices": {
@@ -1005,7 +1002,7 @@
       "commercial_name": "Certificación en Productividad y Automatización de Procesos con IA",
       "url": "/productividad-automatizacion-procesos-ia/",
       "academic_url": "/certificado-productividad-automatizacion-procesos-ia/",
-      "dates": "2026-08-31/2026-09-03",
+      "dates": "2026-09-07/2026-09-10",
       "price_usd": 57
     }
   ],
