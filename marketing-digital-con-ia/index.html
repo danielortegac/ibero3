@@ -439,7 +439,7 @@
 </div>
 <div class="flex-1 overflow-y-auto p-3 sm:p-4 space-y-4 text-sm hide-scrollbar bg-[#0a0512] relative min-h-[200px]" id="chat-messages">
 <div class="flex flex-col gap-1 w-[90%]">
-<div class="chat-msg-bot p-3 shadow-sm leading-relaxed">¡Hola! Soy la IA del Centro IBEROamericano. Estoy aquí para resolver tus dudas sobre el <strong>Certificación en Marketing Digital con Inteligencia Artificial y Agentes</strong>.<br/><br/>Fechas, temario, inversión, Teams, QLASE, naming, branding, contenido, videos, Smart Page/App Web, CRM, email, chatbot/agente vendedor, monetización y proyecto final. ¿Qué deseas saber?</div>
+<div class="chat-msg-bot p-3 shadow-sm leading-relaxed">¡Hola! Soy la IA del Centro IBEROamericano. Estoy aquí para resolver tus dudas sobre la <strong>Certificación en Marketing Digital con Inteligencia Artificial y Agentes</strong>.<br/><br/>Fechas, temario, inversión, Teams, QLASE, naming, branding, contenido, videos, Smart Page/App Web, CRM, email, chatbot/agente vendedor, monetización y proyecto final. ¿Qué deseas saber?</div>
 <span class="text-[9px] text-zinc-500 ml-1">
       Ahora mismo
      </span>
@@ -747,6 +747,25 @@
 </div>
 </section>
 <!-- EL PROBLEMA / SOLUCIÓN (Presentación con Videos de Fondo en Cards) -->
+
+<!-- IBERO AGENTIC CLARITY STRIP V1 -->
+<section class="py-7 sm:py-9 bg-white border-b border-zinc-200" id="agentic-outcome">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="rounded-[1.4rem] border border-emerald-200 bg-gradient-to-br from-emerald-50 via-white to-white shadow-sm overflow-hidden">
+<div class="px-5 sm:px-7 pt-5 sm:pt-6 flex flex-wrap items-center justify-between gap-3">
+<div><p class="text-[9px] sm:text-[10px] font-black uppercase tracking-[.16em] text-emerald-700 mb-1">Agentes aplicados a tu profesión</p><h2 class="text-lg sm:text-2xl font-black tracking-tight text-zinc-950">No solo usas IA: configuras agentes, automatizas y supervisas.</h2></div>
+<span class="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-100/70 px-3 py-2 text-[9px] sm:text-[10px] font-black uppercase tracking-wider text-emerald-800"><i class="fa-solid fa-diagram-project"></i> Agentic IBERO</span>
+</div>
+<div class="grid md:grid-cols-3 gap-px bg-emerald-100/80 border-y border-emerald-100 mt-5">
+<div class="bg-white/95 p-5 sm:p-6"><p class="text-[9px] font-black uppercase tracking-widest text-emerald-700 mb-2"><i class="fa-solid fa-robot mr-1.5"></i>Agentes que configuras</p><p class="text-sm font-bold text-zinc-900 leading-relaxed">Research · contenido · campañas · agente comercial</p></div>
+<div class="bg-white/95 p-5 sm:p-6"><p class="text-[9px] font-black uppercase tracking-widest text-emerald-700 mb-2"><i class="fa-solid fa-gears mr-1.5"></i>Qué automatizas</p><p class="text-sm text-zinc-600 leading-relaxed">Research, variantes creativas, calendarios, seguimiento CRM, análisis inicial y loops de optimización.</p></div>
+<div class="bg-white/95 p-5 sm:p-6"><p class="text-[9px] font-black uppercase tracking-widest text-emerald-700 mb-2"><i class="fa-solid fa-shield-halved mr-1.5"></i>Control humano</p><p class="text-sm text-zinc-600 leading-relaxed">Posicionamiento, marca, presupuesto, publicación, decisiones comerciales y aprobación de acciones sensibles.</p></div>
+</div>
+<div class="px-5 sm:px-7 py-4 sm:py-5 grid lg:grid-cols-[1.2fr_.8fr] gap-3 items-center">
+<p class="text-[11px] sm:text-sm text-zinc-600 leading-relaxed"><strong class="text-zinc-950">¿En este programa voy a crear o configurar agentes de IA?</strong> Sí. Configuras agentes para investigación, contenido, campañas y seguimiento comercial. Automatizan trabajo repetitivo y análisis inicial; marca, presupuesto, publicación y decisiones sensibles permanecen bajo supervisión humana.</p>
+<p class="lg:text-right text-[10px] sm:text-xs text-emerald-800 leading-relaxed"><span class="font-black uppercase tracking-wider">Competencia agentic:</span> Diseñar y supervisar agentes aplicados a marketing, conversión, seguimiento y crecimiento.</p>
+</div></div></div></section>
+<!-- /IBERO AGENTIC CLARITY STRIP V1 -->
 <section class="py-16 lg:py-24 bg-white border-b border-zinc-200 relative overflow-hidden" id="presentacion">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 <div class="flex flex-col lg:flex-row gap-12 items-center">
@@ -2128,6 +2147,7 @@
     const chatInput = document.getElementById('chat-input');
 
     const botKnowledge = [
+      { keys: ['agente', 'agentes', 'automatizar', 'automatizacion', 'codex', 'antigravity'], text: `Sí. Configuras agentes para investigación, contenido, campañas y seguimiento comercial. Automatizan trabajo repetitivo y análisis inicial; marca, presupuesto, publicación y decisiones sensibles permanecen bajo supervisión humana.` },
       { keys: ['marketing', 'certificacion', 'curso'], text: `La <strong>Certificación en Marketing Digital con IA y Agentes</strong> es intensiva (4 días / 12h totales: 8 sincrónicas + 4 asincrónicas). <br>Precio oficial fijo: $57 USD. <br><a href="#inversion" class="text-theme-accent underline font-bold mt-1 inline-block">Asegurar Cupo</a>` },
       { keys: ['precio', 'costo', 'valor', 'cuanto'], text: `La inversión con <strong>precio oficial fijo</strong> es de <strong>$57 USD</strong> (Pago Único). <br>Precios oficiales por país: MXN $995 | PEN S/200 | COP $211.000.` },
       { keys: ['hora', 'horario', 'fechas', 'cuando'], text: `El programa tiene próxima cohorte confirmada del <strong>24 al 27 de agosto de 2026</strong>. Las clases en vivo son de lunes a jueves de <strong>7:00 PM a 9:00 PM</strong> (EC/CO/PE) y de <strong>6:00 PM a 8:00 PM</strong> (MX). Todo se gestiona desde QLASE LMS y las sesiones se desarrollan por Microsoft Teams.` },
