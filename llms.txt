@@ -16,7 +16,7 @@ Enfoque: formación práctica en inteligencia artificial aplicada, desarrollo de
 - Certificación en Creación de Cursos Online y Academias Digitales: 12 horas, inicia 14 de septiembre de 2026, precio USD 57 / MXN 995 / PEN 200 / COP 211000. URL: https://ibero.education/crea-tu-academia/
 - Certificación en Comunicación Efectiva y Hablar en Público: taller presencial de 4 horas, precio USD 57. URL: https://ibero.education/comunicacion-efectiva/
 - Diplomado en Desarrollo de Aplicaciones y Gestión de Productos Digitales con IA: 5 semanas, 60 horas, inicia 21 de septiembre de 2026, precio USD 277 / MXN 4850 / PEN 975 / COP 1025000. URL: https://ibero.education/diplomado-ia-negocios-marketing/
-- Diplomado en IA, Analítica de Negocios y Automatización para la Gestión Gerencial y Administrativa: 5 semanas, 60 horas, del 26 de octubre al 26 de noviembre de 2026, precio USD 277 / MXN 4850 / PEN 975 / COP 1025000. URL: https://ibero.education/diplomado-ia-gerencia-administracion/
+- Diplomado en Marketing Digital con Inteligencia Artificial y Agentes: 5 semanas, 60 horas, del 26 de octubre al 26 de noviembre de 2026, precio USD 277 / MXN 4850 / PEN 975 / COP 1025000. URL: https://ibero.education/diplomado-marketing-digital-ia-agentes/
 - Máster Ejecutivo en IA Aplicada y Dirección de Productos Digitales: 6 meses, 234 horas, inicia 19 de octubre de 2026, precio USD 926.25 / MXN 16191 / PEN 3251 / COP 3423420. URL: https://ibero.education/master-ejecutivo-ia/
 
 ## Formación agentic
@@ -133,7 +133,7 @@ Mapa público de rutas, países, ciudades, recursos, conceptos y casos práctico
 ### Diplomado
 - Diplomado en Desarrollo de Aplicaciones y Gestión de Productos Digitales con IA: https://ibero.education/diplomado-desarrollo-aplicaciones-productos-digitales-ia/
 
-- Diplomado en Inteligencia Artificial, Analítica de Negocios y Automatización para la Gestión Gerencial y Administrativa: https://ibero.education/diplomado-inteligencia-artificial-analitica-negocios-automatizacion-gerencial/
+- Diplomado en Marketing Digital con Inteligencia Artificial y Agentes: https://ibero.education/diplomado-marketing-digital-inteligencia-artificial-agentes/
 
 ### Máster Ejecutivo
 - Máster Ejecutivo en Inteligencia Artificial Aplicada y Dirección de Productos Digitales: https://ibero.education/master-ejecutivo-inteligencia-artificial-direccion-productos-digitales/

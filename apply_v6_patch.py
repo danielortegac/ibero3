@@ -312,13 +312,13 @@ page_meta = {
         'title':'IBERO | IA Aplicada, Apps, Producto Digital y Negocios',
         'description':'IBERO: formación práctica en inteligencia artificial aplicada, marketing digital, docencia con IA, producto digital, apps, oratoria, diplomados y Máster Ejecutivo.',
         'url':SITE+'/',
-        'schema': item_list_schema(SITE+'/', 'IBERO', 'Programas de IA aplicada, apps, producto digital, marketing, docencia, oratoria y negocios digitales.', ['marketing-digital-con-ia','ia-para-docentes','crea-tu-academia','monetiza-tu-idea','ia-para-gerencia-y-administracion','comunicacion-efectiva','diplomado-ia-negocios-marketing','diplomado-ia-gerencia-administracion','master-ejecutivo-ia'])
+        'schema': item_list_schema(SITE+'/', 'IBERO', 'Programas de IA aplicada, apps, producto digital, marketing, docencia, oratoria y negocios digitales.', ['marketing-digital-con-ia','ia-para-docentes','crea-tu-academia','monetiza-tu-idea','ia-para-gerencia-y-administracion','comunicacion-efectiva','diplomado-ia-negocios-marketing','diplomado-marketing-digital-ia-agentes','master-ejecutivo-ia'])
     },
     'oferta-academica': {
         'title':'Oferta Académica IBERO | Certificados, Diplomado y Máster Ejecutivo con IA',
         'description':'Catálogo de programas IBERO: certificados intensivos, diplomado en desarrollo de aplicaciones y productos digitales, y Máster Ejecutivo en IA aplicada y dirección de productos digitales.',
         'url':SITE+'/oferta-academica/',
-        'schema': item_list_schema(SITE+'/oferta-academica/', 'Oferta Académica IBERO', 'Certificados, diplomado y Máster Ejecutivo en IA aplicada, apps, producto digital, marketing, docencia y comunicación.', ['marketing-digital-con-ia','ia-para-docentes','crea-tu-academia','monetiza-tu-idea','ia-para-gerencia-y-administracion','comunicacion-efectiva','diplomado-ia-negocios-marketing','diplomado-ia-gerencia-administracion','master-ejecutivo-ia'])
+        'schema': item_list_schema(SITE+'/oferta-academica/', 'Oferta Académica IBERO', 'Certificados, diplomado y Máster Ejecutivo en IA aplicada, apps, producto digital, marketing, docencia y comunicación.', ['marketing-digital-con-ia','ia-para-docentes','crea-tu-academia','monetiza-tu-idea','ia-para-gerencia-y-administracion','comunicacion-efectiva','diplomado-ia-negocios-marketing','diplomado-marketing-digital-ia-agentes','master-ejecutivo-ia'])
     },
     'certificaciones-intensivas': {
         'title':'Certificados Intensivos IBERO | IA, Marketing, Docencia, Producto Digital y Oratoria',
@@ -330,19 +330,19 @@ page_meta = {
         'title':'Diplomados IBERO | Desarrollo de Aplicaciones y Productos Digitales con IA',
         'description':'Diplomado IBERO de 5 semanas para desarrollar aplicaciones, apps web, PWAs y productos digitales con inteligencia artificial, UX, estrategia, CRM, automatización y lanzamiento.',
         'url':SITE+'/diplomados-intensivos/',
-        'schema': item_list_schema(SITE+'/diplomados-intensivos/', 'Diplomados IBERO', 'Diplomados aplicados para desarrollar, organizar y lanzar aplicaciones y productos digitales con IA.', ['diplomado-ia-negocios-marketing','diplomado-ia-gerencia-administracion'])
+        'schema': item_list_schema(SITE+'/diplomados-intensivos/', 'Diplomados IBERO', 'Diplomados aplicados para desarrollar, organizar y lanzar aplicaciones y productos digitales con IA.', ['diplomado-ia-negocios-marketing','diplomado-marketing-digital-ia-agentes'])
     },
     'calendario-academico': {
         'title':'Calendario Académico IBERO 2026 | Fechas, Horarios y Precios por País',
         'description':'Calendario académico IBERO 2026 con fechas de sesiones gratis, certificados, diplomado y Máster Ejecutivo; horarios EC/CO/PE y MX; precios en USD, MXN, PEN y COP.',
         'url':SITE+'/calendario-academico/',
-        'schema': item_list_schema(SITE+'/calendario-academico/', 'Calendario Académico IBERO 2026', 'Fechas de inicio, horarios y precios por país de los programas IBERO.', ['marketing-digital-con-ia','ia-para-docentes','crea-tu-academia','monetiza-tu-idea','ia-para-gerencia-y-administracion','diplomado-ia-negocios-marketing','diplomado-ia-gerencia-administracion','master-ejecutivo-ia'])
+        'schema': item_list_schema(SITE+'/calendario-academico/', 'Calendario Académico IBERO 2026', 'Fechas de inicio, horarios y precios por país de los programas IBERO.', ['marketing-digital-con-ia','ia-para-docentes','crea-tu-academia','monetiza-tu-idea','ia-para-gerencia-y-administracion','diplomado-ia-negocios-marketing','diplomado-marketing-digital-ia-agentes','master-ejecutivo-ia'])
     },
     'registro-y-admisiones': {
         'title':'Registro y Admisiones IBERO | Inscripción a Certificados, Diplomado y Máster Ejecutivo',
         'description':'Inscripciones IBERO para certificados intensivos, diplomado y Máster Ejecutivo en IA aplicada, producto digital, apps, marketing, docencia y comunicación.',
         'url':SITE+'/registro-y-admisiones/',
-        'schema': item_list_schema(SITE+'/registro-y-admisiones/', 'Registro y Admisiones IBERO', 'Información de inscripción y admisión para programas IBERO.', ['marketing-digital-con-ia','ia-para-docentes','crea-tu-academia','monetiza-tu-idea','ia-para-gerencia-y-administracion','comunicacion-efectiva','diplomado-ia-negocios-marketing','diplomado-ia-gerencia-administracion','master-ejecutivo-ia'])
+        'schema': item_list_schema(SITE+'/registro-y-admisiones/', 'Registro y Admisiones IBERO', 'Información de inscripción y admisión para programas IBERO.', ['marketing-digital-con-ia','ia-para-docentes','crea-tu-academia','monetiza-tu-idea','ia-para-gerencia-y-administracion','comunicacion-efectiva','diplomado-ia-negocios-marketing','diplomado-marketing-digital-ia-agentes','master-ejecutivo-ia'])
     }
 }
 
@@ -424,7 +424,7 @@ Enfoque: formación práctica en inteligencia artificial aplicada, desarrollo de
 - Certificación en Comunicación Efectiva y Hablar en Público: taller presencial de hablar en público, precio USD 57. URL: {SITE}/comunicacion-efectiva/
 - Certificación en IA, Analítica y Automatización para la Gestión Gerencial y Administrativa: 12 horas, inicia 31 de agosto de 2026, precio USD 57 / MXN 995 / PEN 200 / COP 211000. URL: {SITE}/ia-para-gerencia-y-administracion/
 - Diplomado en Desarrollo de Aplicaciones y Gestión de Productos Digitales con IA: 5 semanas, 60 horas, inicia 21 de septiembre de 2026, precio USD 277 / MXN 4850 / PEN 975 / COP 1025000. URL: {SITE}/diplomado-ia-negocios-marketing/
-- Diplomado en IA, Analítica de Negocios y Automatización para la Gestión Gerencial y Administrativa: 5 semanas, 60 horas, inicia 26 de octubre de 2026, precio USD 277 / MXN 4850 / PEN 975 / COP 1025000. URL: {SITE}/diplomado-ia-gerencia-administracion/
+- Diplomado en Marketing Digital con Inteligencia Artificial y Agentes: 5 semanas, 60 horas, inicia 26 de octubre de 2026, precio USD 277 / MXN 4850 / PEN 975 / COP 1025000. URL: {SITE}/diplomado-marketing-digital-ia-agentes/
 - Máster Ejecutivo en IA Aplicada y Dirección de Productos Digitales: 6 meses, 234 horas, inicia 19 de octubre de 2026, precio USD 926.25 / MXN 16191 / PEN 3251 / COP 3423420. URL: {SITE}/master-ejecutivo-ia/
 
 ## Diferenciadores
