@@ -76,11 +76,6 @@ SEO_DATA = {
         "description": "Conoce GOATIFY, el laboratorio de ingeniería y desarrollo de software del Centro Iberoamericano. Construimos plataformas con propósito e IA.",
         "keywords": "goatify, desarrollo de software, laboratorio de ingeniería, inteligencia artificial, tecnología ibero"
     },
-    "ia-para-docentes": {
-        "title": "Certificación IA para Docentes | Innovación Educativa | IBERO",
-        "description": "Fortalece tu práctica docente integrando la Inteligencia Artificial. Certificación intensiva para crear propuestas pedagógicas innovadoras en 4 días.",
-        "keywords": "ia para docentes, inteligencia artificial educación, capacitación docente, tecnología educativa, certificación"
-    },
     "ibero-academy": {
         "title": "IBERO Academy | Programas Académicos Virtuales | IBERO",
         "description": "Transforma tu futuro 100% online con IBERO Academy. Mentorías, orientación vocacional y programas a distancia adaptados a tu ritmo.",
@@ -105,11 +100,6 @@ SEO_DATA = {
         "title": "Metodología IBERO 360° | Cómo Enseñamos | IBERO",
         "description": "Conoce nuestra metodología práctica, estratégica y tecnológica. Evaluamos proyectos reales, no exámenes de memoria. Educación con impacto.",
         "keywords": "metodología ibero, sistema de enseñanza, educación práctica, proyectos reales, aprendizaje 360"
-    },
-    "monetiza-tu-idea": {
-        "title": "Certificación Vende tu App y Consigue Clientes | Software y MVP | IBERO",
-        "description": "Haz realidad tus proyectos. Transforma tu idea en un negocio viable y escalable utilizando herramientas de Inteligencia Artificial en tiempo récord.",
-        "keywords": "vender app, monetizar software, MVP con IA, SaaS, conseguir clientes, ventas de software, certificación ibero"
     },
     "oferta-academica": {
         "title": "Oferta Académica | Catálogo de Cursos y Maestrias | IBERO",
