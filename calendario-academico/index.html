@@ -260,6 +260,36 @@
 }
 
 
+    /* Continuidad visual del mes y bloqueo de navegación histórica */
+    .calendar-day.is-outside-month {
+      opacity: 0.42;
+      background: rgba(255,255,255,0.018);
+      border-color: rgba(255,255,255,0.045);
+    }
+    .calendar-day.is-past-day:not(.is-today) {
+      opacity: 0.52;
+      filter: saturate(0.72);
+    }
+    .calendar-day.is-outside-month .event-badge,
+    .calendar-day.is-past-day .event-badge {
+      opacity: 0.48;
+      pointer-events: none;
+      filter: saturate(0.6);
+    }
+    .calendar-day-number small {
+      margin-left: 0.28rem;
+      font-size: 0.58rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      opacity: 0.72;
+    }
+    .calendar-nav-btn:disabled {
+      opacity: 0.28;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
     /* Marcador dinámico del día actual / programa en curso */
     .calendar-day.is-today {
       border-color: rgba(220, 38, 38, 0.95) !important;
@@ -590,7 +620,9 @@ document.addEventListener('DOMContentLoaded', function(){
   @media(max-width:640px){.ibero-calendar-floating-toggle{left:14px;bottom:134px}.ibero-calendar-floating-toggle button{padding:9px 11px;font-size:9.5px}}
   @media print{.ibero-calendar-floating-toggle{display:none!important}}
 </style>
-<meta content="summary_large_image" name="twitter:card"/><meta content="https://ibero.education/fotos/og-image.jpg" name="twitter:image"/></head>
+<meta content="summary_large_image" name="twitter:card"/><meta content="https://ibero.education/fotos/og-image.jpg" name="twitter:image"/><script src="/assets/programacion-academica.config.js"></script>
+<script src="/assets/programacion-academica.js"></script>
+</head>
 <body class="antialiased selection:bg-ibero-red selection:text-white pt-[144px] md:pt-[152px]">
 <!-- Botón Scroll to Top -->
 <button aria-label="Volver arriba" id="scroll-top-btn" onclick="scrollToTop()">
@@ -941,14 +973,14 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="hidden md:w-[95%] lg:w-[90%] mx-auto" id="view-calendar">
 <div class="bg-ibero-card border border-white/10 rounded-xl md:rounded-2xl p-1 sm:p-2 md:p-6 shadow-2xl">
 <div class="flex items-center justify-between mb-4 md:mb-8 no-print px-2 md:px-0">
-<button class="p-2 rounded-full hover:bg-white/10 transition-colors text-white" onclick="changeMonth(-1)">
+<button aria-label="Mes anterior" class="calendar-nav-btn p-2 rounded-full hover:bg-white/10 transition-colors text-white" id="calendar-prev-btn" onclick="changeMonth(-1)" type="button">
 <i class="ph ph-caret-left text-2xl">
 </i>
 </button>
 <h2 class="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white capitalize" id="calendar-month-title">
        Mayo 2026
       </h2>
-<button class="p-2 rounded-full hover:bg-white/10 transition-colors text-white" onclick="changeMonth(1)">
+<button aria-label="Mes siguiente" class="calendar-nav-btn p-2 rounded-full hover:bg-white/10 transition-colors text-white" id="calendar-next-btn" onclick="changeMonth(1)" type="button">
 <i class="ph ph-caret-right text-2xl">
 </i>
 </button>
@@ -1506,7 +1538,7 @@ document.addEventListener('DOMContentLoaded', function(){
             removeTyping();
             
             if(type === 'fechas') {
-                addMessage('¡Claro! 🚀 Aquí tienes los <em>próximos arranques confirmados</em>:<br><br>• <strong>Certificación en Marketing Digital con IA y Agentes:</strong> <em>31 de agosto–3 de septiembre de 2026</em><br>• <strong>Certificación en Productividad y Automatización de Procesos con IA:</strong> <em>7–10 de septiembre de 2026</em><br>• <strong>Certificación en IA para Administradores y Gerentes:</strong> <em>30 de noviembre–3 de diciembre de 2026</em><br>• <strong>Diplomado en Desarrollo de Aplicaciones y Gestión de Productos Digitales con IA:</strong> <em>21 de septiembre–22 de octubre de 2026</em><br>• <strong>Máster Ejecutivo en IA Aplicada y Dirección de Productos Digitales:</strong> <em>desde el 19 de octubre de 2026</em><br>• <strong>Diplomado en Marketing Digital con Inteligencia Artificial y Agentes:</strong> <em>26 de octubre–26 de noviembre de 2026</em><br>• <strong>Certificación en Creación de Cursos Online y Academias Digitales:</strong> <em>14–17 de septiembre de 2026</em><br>• <strong>Certificación en Comunicación Efectiva y Hablar en Público:</strong> <em>10 de octubre de 2026 · presencial</em><br><br>💡 <em>Certificaciones y diplomados mantienen 7:00 PM–9:00 PM EC/CO/PE y 6:00 PM–8:00 PM MX.</em>');
+                addMessage('¡Claro! 🚀 Aquí tienes los <em>próximos arranques confirmados</em>:<br><br>• <strong>Certificación en Marketing Digital con IA y Agentes:</strong> <em>26–29 de octubre de 2026</em><br>• <strong>Certificación en Productividad y Automatización de Procesos con IA:</strong> <em>7–10 de septiembre de 2026</em><br>• <strong>Certificación en IA para Administradores y Gerentes:</strong> <em>30 de noviembre–3 de diciembre de 2026</em><br>• <strong>Diplomado en Desarrollo de Aplicaciones y Gestión de Productos Digitales con IA:</strong> <em>21 de septiembre–22 de octubre de 2026</em><br>• <strong>Máster Ejecutivo en IA Aplicada y Dirección de Productos Digitales:</strong> <em>desde el 19 de octubre de 2026</em><br>• <strong>Diplomado en Marketing Digital con Inteligencia Artificial y Agentes:</strong> <em>Próxima cohorte por confirmar</em><br>• <strong>Certificación en Creación de Cursos Online y Academias Digitales:</strong> <em>14–17 de septiembre de 2026</em><br>• <strong>Certificación en Comunicación Efectiva y Hablar en Público:</strong> <em>10 de octubre de 2026 · presencial</em><br><br>💡 <em>Certificaciones y diplomados mantienen 7:00 PM–9:00 PM EC/CO/PE y 6:00 PM–8:00 PM MX.</em>');
             }
             if(type === 'precios') {
                 addMessage('💸 <strong>Inversión oficial:</strong><br><br>• <strong>Certificaciones intensivas de 12 h:</strong> <em>USD $57 · MXN $995 · COP $211.000 · PEN S/200</em><br>• <strong>Taller presencial Comunicación Efectiva:</strong> <em>USD $57 · solo Ecuador</em><br>• <strong>Diplomados de 5 semanas:</strong> <em>USD $277 · MXN $4.850 · COP $1.025.000 · PEN S/975</em><br>• <strong>Máster Ejecutivo completo:</strong> <em>USD $926.25 · MXN $16.191 · COP $3.423.420 · PEN S/3.251</em><br>• <strong>Máster Ejecutivo mensual:</strong> <em>USD $154.38 · MXN $2.699 · COP $570.588 · PEN S/542</em><br><br>✨ <em>Todos los programas incluyen credencial IBERO y acceso a grabaciones. ¡Elige tu programa y asegura tu lugar hoy!</em>');
@@ -1515,10 +1547,10 @@ document.addEventListener('DOMContentLoaded', function(){
                 addMessage('👑 <strong>Máster Ejecutivo en IA Aplicada y Dirección de Productos Digitales</strong><br><br>Nuestro programa de élite para construir, vender y escalar Apps, PWAs, automatizaciones y negocios digitales con IA. Aprenderás producto, marketing, CRM, agentes, métricas, finanzas, liderazgo y Demo Day.<br><br>• <strong>Inicia:</strong> <em>19 de octubre de 2026</em><br>• <strong>Duración:</strong> <em>6 meses intensivos, hasta abril 2027</em><br>• <strong>Inversión:</strong> <em>USD $926.25 total</em><br><br><a href="https://ibero.education/master-ejecutivo-ia" target="_blank" class="inline-flex items-center gap-1 mt-3 px-4 py-2 bg-ibero-red text-white text-[13px] font-bold rounded-lg hover:bg-ibero-darkRed transition-all shadow-lg shadow-red-500/30">Postular al Máster Ejecutivo en IA Aplicada y Dirección de Productos Digitales <i class="ph-bold ph-arrow-right"></i></a>');
             }
             if(type === 'diplomado') {
-                addMessage('🎓 <strong>Diplomados intensivos IBERO · 5 semanas · 60 horas</strong><br><br>Actualmente puedes elegir entre dos rutas de profundización:<br><br>• <strong>Desarrollo de Aplicaciones y Gestión de Productos Digitales con IA</strong><br>Construyes, lanzas y presentas una App Web/PWA o MVP con IA, producto, UX, automatización, comercialización y documentación.<br><em>Inicia: 21 de septiembre de 2026 · USD $277</em><br><a href="https://ibero.education/diplomado-ia-negocios-marketing/" target="_blank" class="text-blue-400 hover:text-blue-300 underline font-semibold">Ver Diplomado de Apps</a><br><br>• <strong>Marketing Digital con Inteligencia Artificial y Agentes</strong><br>Construyes un sistema integral de marketing con agentes de inteligencia artificial que conecta investigación, oferta, sistema de contenidos, página inteligente, datos propios del negocio, CRM, agente vendedor, publicidad en Meta, TikTok y Google, medición, Codex, Antigravity, Goatify y operación de crecimiento.<br><em>Inicia: 26 de octubre de 2026 · USD $277</em><br><a href="https://ibero.education/diplomado-marketing-digital-ia-agentes/" target="_blank" class="text-blue-400 hover:text-blue-300 underline font-semibold">Ver Diplomado de Marketing con IA y Agentes</a><br><br>💡 <em>Si quieres construir un producto digital, elige Apps. Si quieres construir y operar un sistema de adquisición, conversión y crecimiento con agentes, elige Marketing.</em>');
+                addMessage('🎓 <strong>Diplomados intensivos IBERO · 5 semanas · 60 horas</strong><br><br>Actualmente puedes elegir entre dos rutas de profundización:<br><br>• <strong>Desarrollo de Aplicaciones y Gestión de Productos Digitales con IA</strong><br>Construyes, lanzas y presentas una App Web/PWA o MVP con IA, producto, UX, automatización, comercialización y documentación.<br><em>Inicia: 21 de septiembre de 2026 · USD $277</em><br><a href="https://ibero.education/diplomado-ia-negocios-marketing/" target="_blank" class="text-blue-400 hover:text-blue-300 underline font-semibold">Ver Diplomado de Apps</a><br><br>• <strong>Marketing Digital con Inteligencia Artificial y Agentes</strong><br>Construyes un sistema integral de marketing con agentes de inteligencia artificial que conecta investigación, oferta, sistema de contenidos, página inteligente, datos propios del negocio, CRM, agente vendedor, publicidad en Meta, TikTok y Google, medición, Codex, Antigravity, Goatify y operación de crecimiento.<br><em>Próxima cohorte por confirmar · USD $277</em><br><a href="https://ibero.education/diplomado-marketing-digital-ia-agentes/" target="_blank" class="text-blue-400 hover:text-blue-300 underline font-semibold">Ver Diplomado de Marketing con IA y Agentes</a><br><br>💡 <em>Si quieres construir un producto digital, elige Apps. Si quieres construir y operar un sistema de adquisición, conversión y crecimiento con agentes, elige Marketing.</em>');
             }
             if(type === 'cursos') {
-                addMessage('📘 <strong>Certificaciones intensivas y talleres:</strong><br><br>Especialízate rápido con nuestros programas de <strong>USD $57</strong> precio oficial fijo:<br><br>• <a href="https://ibero.education/marketing-digital-con-ia/" target="_blank" class="text-blue-400 hover:text-blue-300 underline font-semibold">Certificación en Marketing Digital con IA y Agentes · 31 de agosto–3 de septiembre</a><br>• <a href="https://ibero.education/productividad-automatizacion-procesos-ia/" target="_blank" class="text-blue-400 hover:text-blue-300 underline font-semibold">Certificación en Productividad y Automatización de Procesos con IA · 7–10 de septiembre</a><br>• <a href="https://ibero.education/ia-para-gerencia-y-administracion/" target="_blank" class="text-blue-400 hover:text-blue-300 underline font-semibold">Certificación en IA para Administradores y Gerentes · 30 de noviembre–3 de diciembre de 2026</a><br>• <a href="https://ibero.education/crea-tu-academia/" target="_blank" class="text-blue-400 hover:text-blue-300 underline font-semibold">Certificación en Creación de Cursos Online y Academias Digitales · 14–17 de septiembre</a><br>• <a href="https://ibero.education/comunicacion-efectiva/" target="_blank" class="text-blue-400 hover:text-blue-300 underline font-semibold">Certificación en Comunicación Efectiva y Hablar en Público · 10 de octubre de 2026 · taller presencial</a>');
+                addMessage('📘 <strong>Certificaciones intensivas y talleres:</strong><br><br>Especialízate rápido con nuestros programas de <strong>USD $57</strong> precio oficial fijo:<br><br>• <a href="https://ibero.education/marketing-digital-con-ia/" target="_blank" class="text-blue-400 hover:text-blue-300 underline font-semibold">Certificación en Marketing Digital con IA y Agentes · 26–29 de octubre</a><br>• <a href="https://ibero.education/productividad-automatizacion-procesos-ia/" target="_blank" class="text-blue-400 hover:text-blue-300 underline font-semibold">Certificación en Productividad y Automatización de Procesos con IA · 7–10 de septiembre</a><br>• <a href="https://ibero.education/ia-para-gerencia-y-administracion/" target="_blank" class="text-blue-400 hover:text-blue-300 underline font-semibold">Certificación en IA para Administradores y Gerentes · 30 de noviembre–3 de diciembre de 2026</a><br>• <a href="https://ibero.education/crea-tu-academia/" target="_blank" class="text-blue-400 hover:text-blue-300 underline font-semibold">Certificación en Creación de Cursos Online y Academias Digitales · 14–17 de septiembre</a><br>• <a href="https://ibero.education/comunicacion-efectiva/" target="_blank" class="text-blue-400 hover:text-blue-300 underline font-semibold">Certificación en Comunicación Efectiva y Hablar en Público · 10 de octubre de 2026 · taller presencial</a>');
             }
             if(type === 'gratis') {
                 addMessage('🟢 <strong>Clases gratis IBERO</strong><br><br>IBERO abre clases gratuitas de IA, marketing y negocios en momentos puntuales. Por ahora no hay una fecha publicada.<br><br>Únete al grupo oficial de WhatsApp para recibir el próximo aviso y revisar el archivo de clases anteriores.');
@@ -1751,7 +1783,7 @@ document.addEventListener('DOMContentLoaded', function(){
       {
         week: 'Semana 17', startWeek: '2026-08-31', endWeek: '2026-09-06',
         events: [
-          { title: 'CERTIFICACIÓN EN MARKETING DIGITAL CON INTELIGENCIA ARTIFICIAL Y AGENTES', type: 'curso', start: '2026-08-31', end: '2026-09-03', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Nueva cohorte confirmada para el 31 de agosto. Contenido, Meta Ads/Facebook Ads, embudos, automatización y crecimiento comercial.', link: links.marketing }
+
         ]
       },
       {
@@ -1800,31 +1832,26 @@ document.addEventListener('DOMContentLoaded', function(){
       {
         week: 'Semana 25', startWeek: '2026-10-26', endWeek: '2026-11-01',
         events: [
-          { title: 'DIPLOMADO EN MARKETING DIGITAL CON INTELIGENCIA ARTIFICIAL Y AGENTES', type: 'diplomado', start: '2026-10-26', end: '2026-10-29', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Módulo 1: inteligencia de mercado, trabajo que el cliente busca resolver (JTBD), posicionamiento, oferta, investigación asistida por agentes de IA e indicadores de adquisición.', link: links.marketingDiploma }
         ]
       },
       {
         week: 'Semana 26', startWeek: '2026-11-02', endWeek: '2026-11-08',
         events: [
-          { title: 'DIPLOMADO EN MARKETING DIGITAL CON INTELIGENCIA ARTIFICIAL Y AGENTES', type: 'diplomado', start: '2026-11-02', end: '2026-11-05', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Módulo 2: Content & Creative Engine, creatividad multimodal, testing, agentes de contenido y control de calidad.', link: links.marketingDiploma }
         ]
       },
       {
         week: 'Semana 27', startWeek: '2026-11-09', endWeek: '2026-11-15',
         events: [
-          { title: 'DIPLOMADO EN MARKETING DIGITAL CON INTELIGENCIA ARTIFICIAL Y AGENTES', type: 'diplomado', start: '2026-11-09', end: '2026-11-12', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Módulo 3: página inteligente, datos propios del negocio, formularios, CRM, correo electrónico/WhatsApp, agenda y agente vendedor.', link: links.marketingDiploma }
         ]
       },
       {
         week: 'Semana 28', startWeek: '2026-11-16', endWeek: '2026-11-22',
         events: [
-          { title: 'DIPLOMADO EN MARKETING DIGITAL CON INTELIGENCIA ARTIFICIAL Y AGENTES', type: 'diplomado', start: '2026-11-16', end: '2026-11-19', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Módulo 4: Meta Ads, TikTok Ads, Google Ads, YouTube, tracking, atribución, unit economics y optimización.', link: links.marketingDiploma }
         ]
       },
       {
         week: 'Semana 29', startWeek: '2026-11-23', endWeek: '2026-11-29',
         events: [
-          { title: 'DIPLOMADO EN MARKETING DIGITAL CON INTELIGENCIA ARTIFICIAL Y AGENTES', type: 'diplomado', start: '2026-11-23', end: '2026-11-26', schedule: 'Lun a Jue, 7:00 PM - 9:00 PM', desc: 'Módulo 5: operación de crecimiento, Codex + Antigravity + Goatify, flujos de trabajo multiagente, retención, proyecto final y hoja de ruta de 90 días.', link: links.marketingDiploma }
         ]
       },
       {
@@ -1915,6 +1942,86 @@ document.addEventListener('DOMContentLoaded', function(){
         events: []
       },
     ];
+
+    const MANAGED_PROGRAM_TITLES = Object.freeze({
+      marketing: 'CERTIFICACIÓN EN MARKETING DIGITAL CON INTELIGENCIA ARTIFICIAL Y AGENTES',
+      agents: 'CERTIFICACIÓN EN PRODUCTIVIDAD Y AUTOMATIZACIÓN DE PROCESOS CON INTELIGENCIA ARTIFICIAL',
+      appsDiploma: 'DIPLOMADO EN DESARROLLO DE APLICACIONES Y GESTIÓN DE PRODUCTOS DIGITALES CON INTELIGENCIA ARTIFICIAL',
+      marketingDiploma: 'DIPLOMADO EN MARKETING DIGITAL CON INTELIGENCIA ARTIFICIAL Y AGENTES'
+    });
+
+    const APPS_MODULE_DESCRIPTIONS = Object.freeze([
+      'Módulo 1: Problema real, usuario, caso de uso, arquitectura agentic y alcance del MVP.',
+      'Módulo 2: Codex, Antigravity, UX, estructura funcional y construcción asistida por agentes.',
+      'Módulo 3: Pruebas, landing, demo, formularios, CRM y captación de leads.',
+      'Módulo 4: Automatización, onboarding, soporte, agentes comerciales y operación.',
+      'Módulo 5: Monetización, pricing, propuesta comercial, métricas, pitch y Demo Day.'
+    ]);
+
+    function addManagedEvent(schedule, event) {
+      const targetWeek = schedule.find(week => event.start >= week.startWeek && event.start <= week.endWeek);
+      if (!targetWeek) return;
+      const duplicate = targetWeek.events.some(existing => existing.title === event.title && existing.start === event.start && existing.end === event.end);
+      if (!duplicate) targetWeek.events.push(event);
+    }
+
+    function injectManagedCohorts(schedule) {
+      const finalSchedule = JSON.parse(JSON.stringify(schedule));
+      const scheduleApi = window.IBERO_PROGRAMACION;
+      if (!scheduleApi) return finalSchedule;
+
+      finalSchedule.forEach(week => {
+        week.events = week.events.filter(event => {
+          const title = (event.title || '').toUpperCase();
+          if (title === MANAGED_PROGRAM_TITLES.marketingDiploma) return false;
+          if (title === MANAGED_PROGRAM_TITLES.marketing && event.start >= '2026-08-31') return false;
+          if (title === MANAGED_PROGRAM_TITLES.agents && event.start >= '2026-09-07') return false;
+          if (title === MANAGED_PROGRAM_TITLES.appsDiploma && event.start >= '2026-09-21') return false;
+          return true;
+        });
+      });
+
+      const marketing = scheduleApi.getPublishedCohort('marketing');
+      if (marketing) {
+        addManagedEvent(finalSchedule, {
+          title: MANAGED_PROGRAM_TITLES.marketing,
+          type: 'curso',
+          start: marketing.start,
+          end: marketing.end,
+          schedule: 'Lun a Jue, 7:00 PM - 9:00 PM',
+          desc: 'Contenido, Meta Ads/Facebook Ads, embudos, automatización y crecimiento comercial.',
+          link: links.marketing
+        });
+      }
+
+      scheduleApi.getCohorts('agents').forEach(cohort => {
+        addManagedEvent(finalSchedule, {
+          title: MANAGED_PROGRAM_TITLES.agents,
+          type: 'curso',
+          start: cohort.start,
+          end: cohort.end,
+          schedule: 'Lun a Jue, 7:00 PM - 9:00 PM',
+          desc: 'Crea agentes, diseña loops y automatiza tareas repetitivas para negocios con Codex, Antigravity y Goatify.',
+          link: links.agentes
+        });
+      });
+
+      const appsDiploma = scheduleApi.getDiplomaApps();
+      appsDiploma.modules.forEach((moduleDates, index) => {
+        addManagedEvent(finalSchedule, {
+          title: MANAGED_PROGRAM_TITLES.appsDiploma,
+          type: 'diplomado',
+          start: moduleDates.start,
+          end: moduleDates.end,
+          schedule: 'Lun a Jue, 7:00 PM - 9:00 PM',
+          desc: APPS_MODULE_DESCRIPTIONS[index],
+          link: links.diplomado
+        });
+      });
+
+      finalSchedule.forEach(week => week.events.sort((a, b) => a.start.localeCompare(b.start) || a.title.localeCompare(b.title)));
+      return finalSchedule;
+    }
 
     let dbSchedule = [];
 
@@ -2220,8 +2327,9 @@ document.addEventListener('DOMContentLoaded', function(){
     }
 
     let currentView = 'list';
-    let calMonth = 4; // Mayo
-    let calYear = 2026;
+    const iberoInitialDateParts = getIberoTodayStr().split('-').map(Number);
+    let calMonth = iberoInitialDateParts[1] - 1;
+    let calYear = iberoInitialDateParts[0];
     let currentProgramTarget = null;
 
     function getIberoDateParts(date = new Date()) {
@@ -2305,11 +2413,10 @@ document.addEventListener('DOMContentLoaded', function(){
     }
 
     function setCalendarToDate(dateStr) {
-      const [y, m] = dateStr.split('-').map(Number);
-      calYear = y;
-      calMonth = m - 1;
-      if(calYear < 2026 || (calYear === 2026 && calMonth < 4)) { calYear = 2026; calMonth = 4; }
-      if(calYear > 2027 || (calYear === 2027 && calMonth > 0)) { calYear = 2027; calMonth = 0; }
+      const [year, month] = dateStr.split('-').map(Number);
+      calYear = year;
+      calMonth = month - 1;
+      if (typeof clampCalendarMonth === 'function') clampCalendarMonth();
     }
 
     function resetCalendarFilters() {
@@ -2411,11 +2518,7 @@ document.addEventListener('DOMContentLoaded', function(){
     let iberoTodayFocusTimer = null;
 
     function getCalendarFocusDate() {
-      const today = getIberoTodayStr();
-      const [y, m] = today.split('-').map(Number);
-      if (y < 2026 || (y === 2026 && m < 5)) return '2026-05-01';
-      if (y > 2027 || (y === 2027 && m > 1)) return '2027-01-31';
-      return today;
+      return getIberoTodayStr();
     }
 
     function getVisibleEventsSorted() {
@@ -2466,9 +2569,10 @@ document.addEventListener('DOMContentLoaded', function(){
     }
 
     function init() {
-      dbSchedule = processDynamicEvents(injectMaster(baseSchedule));
+      dbSchedule = processDynamicEvents(injectMaster(injectManagedCohorts(baseSchedule)));
       setCalendarToDate(getCalendarFocusDate());
-      const allEvents = dbSchedule.flatMap(w => w.events);
+      const today = getIberoTodayStr();
+      const allEvents = dbSchedule.flatMap(w => w.events).filter(event => event.end >= today);
       const uniqueTitles = [...new Set(allEvents.map(e => e.title))].filter(t => !t.includes('Semana de Cierre') && !t.includes('Inscripciones:') && !t.includes('Clase Gratis:'));
       
       const progContainer = document.getElementById('prog-dropdown-menu');
@@ -2543,22 +2647,19 @@ document.addEventListener('DOMContentLoaded', function(){
       const type = document.getElementById('filter-type').value;
       const checkedPrograms = Array.from(document.querySelectorAll('.program-checkbox:checked')).map(cb => cb.value);
 
+      const today = getIberoTodayStr();
       return dbSchedule.map(week => {
         return {
           ...week,
           events: week.events.filter(e => {
+            if (e.end < today) return false;
             const matchesProg = checkedPrograms.some(prog => e.title.includes(prog) || prog === e.title);
             if (!matchesProg) return false;
             if (type !== 'all' && e.type !== type) return false;
             return true;
           })
         };
-      }).filter(week => {
-        const allCheckboxes = document.querySelectorAll('.program-checkbox');
-        const allChecked = checkedPrograms.length === allCheckboxes.length;
-        if (allChecked && type === 'all') return true; 
-        return week.events.length > 0;
-      });
+      }).filter(week => week.endWeek >= today && week.events.length > 0);
     }
 
     function formatDate(dateString) {
@@ -2646,52 +2747,104 @@ document.addEventListener('DOMContentLoaded', function(){
       });
     }
 
+    function monthIndex(year, month) {
+      return year * 12 + month;
+    }
+
+    function getCurrentMonthLimit() {
+      const [year, month] = getIberoTodayStr().split('-').map(Number);
+      return { year, month: month - 1 };
+    }
+
+    function getLastCalendarMonthLimit() {
+      const latest = dbSchedule
+        .flatMap(week => week.events)
+        .reduce((max, event) => event.end > max ? event.end : max, '2027-01-31');
+      const [year, month] = latest.split('-').map(Number);
+      return { year, month: month - 1 };
+    }
+
+    function clampCalendarMonth() {
+      const min = getCurrentMonthLimit();
+      const max = getLastCalendarMonthLimit();
+      const current = monthIndex(calYear, calMonth);
+      if (current < monthIndex(min.year, min.month)) {
+        calYear = min.year;
+        calMonth = min.month;
+      }
+      if (monthIndex(calYear, calMonth) > monthIndex(max.year, max.month)) {
+        calYear = max.year;
+        calMonth = max.month;
+      }
+    }
+
+    function updateCalendarNavigationState() {
+      const min = getCurrentMonthLimit();
+      const max = getLastCalendarMonthLimit();
+      const current = monthIndex(calYear, calMonth);
+      const prevButton = document.getElementById('calendar-prev-btn');
+      const nextButton = document.getElementById('calendar-next-btn');
+      if (prevButton) {
+        prevButton.disabled = current <= monthIndex(min.year, min.month);
+        prevButton.setAttribute('aria-disabled', String(prevButton.disabled));
+      }
+      if (nextButton) {
+        nextButton.disabled = current >= monthIndex(max.year, max.month);
+        nextButton.setAttribute('aria-disabled', String(nextButton.disabled));
+      }
+    }
+
     function changeMonth(dir) {
-      calMonth += dir;
-      if (calMonth > 11) { calMonth = 0; calYear++; }
-      if (calMonth < 0) { calMonth = 11; calYear--; }
-      if(calYear < 2026 || (calYear === 2026 && calMonth < 4)) { calYear = 2026; calMonth = 4; }
-      if(calYear > 2027 || (calYear === 2027 && calMonth > 0)) { calYear = 2027; calMonth = 0; }
+      const candidate = new Date(calYear, calMonth + dir, 1);
+      calYear = candidate.getFullYear();
+      calMonth = candidate.getMonth();
+      clampCalendarMonth();
       renderCalendar();
     }
 
     function renderCalendar() {
+      clampCalendarMonth();
       const title = document.getElementById('calendar-month-title');
       const date = new Date(calYear, calMonth, 1);
       const monthNames = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+      const monthNamesShort = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'];
       title.textContent = `${monthNames[calMonth]} ${calYear}`;
+      updateCalendarNavigationState();
 
       const grid = document.getElementById('calendar-grid-days');
       grid.innerHTML = '';
 
-      const firstDay = (date.getDay() === 0) ? 7 : date.getDay(); 
-      const daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
-      const flatEvents = getFilteredEvents().flatMap(w => w.events);
+      const firstDayOffset = (date.getDay() + 6) % 7;
+      const gridStart = new Date(calYear, calMonth, 1 - firstDayOffset);
+      const flatEvents = getFilteredEvents().flatMap(week => week.events);
+      const todayStr = getCalendarFocusDate();
 
-      for (let i = 1; i < firstDay; i++) {
-        const blank = document.createElement('div');
-        blank.className = 'calendar-day opacity-20 pointer-events-none bg-transparent border-transparent';
-        grid.appendChild(blank);
-      }
+      for (let index = 0; index < 42; index++) {
+        const cellDate = new Date(gridStart.getFullYear(), gridStart.getMonth(), gridStart.getDate() + index);
+        const cellYear = cellDate.getFullYear();
+        const cellMonth = cellDate.getMonth();
+        const cellDay = cellDate.getDate();
+        const currentStr = `${cellYear}-${String(cellMonth + 1).padStart(2, '0')}-${String(cellDay).padStart(2, '0')}`;
+        const isOutsideMonth = cellMonth !== calMonth || cellYear !== calYear;
+        const isPastDay = currentStr < todayStr;
+        const dayEvents = flatEvents.filter(event => currentStr >= event.start && currentStr <= event.end);
+        const hasActiveProgramToday = dayEvents.some(event => isEventActiveOnDate(event, todayStr) && currentStr === todayStr);
 
-      for (let d = 1; d <= daysInMonth; d++) {
         const dayDiv = document.createElement('div');
-        const currentStr = `${calYear}-${String(calMonth+1).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
-        const todayStr = getCalendarFocusDate();
-        const dayEvents = flatEvents.filter(ev => currentStr >= ev.start && currentStr <= ev.end);
-        const hasActiveProgramToday = dayEvents.some(ev => isEventActiveOnDate(ev, todayStr) && currentStr === todayStr);
         dayDiv.id = `calendar-day-${currentStr}`;
-        dayDiv.className = `calendar-day relative flex flex-col group ${currentStr === todayStr ? 'is-today' : ''} ${hasActiveProgramToday ? 'is-active-program-day' : ''}`;
-        dayDiv.innerHTML = `<span class="text-xs md:text-sm font-bold ${currentStr === todayStr ? 'text-white' : 'text-ibero-gray'} group-hover:text-white transition-colors mb-1 md:mb-2">${d}</span>`;
-        
-        dayEvents.forEach(ev => {
+        dayDiv.className = `calendar-day relative flex flex-col group ${currentStr === todayStr ? 'is-today' : ''} ${hasActiveProgramToday ? 'is-active-program-day' : ''} ${isOutsideMonth ? 'is-outside-month' : ''} ${isPastDay ? 'is-past-day' : ''}`;
+        dayDiv.innerHTML = `<span class="calendar-day-number text-xs md:text-sm font-bold ${currentStr === todayStr ? 'text-white' : 'text-ibero-gray'} group-hover:text-white transition-colors mb-1 md:mb-2">${cellDay}${isOutsideMonth ? `<small>${monthNamesShort[cellMonth]}</small>` : ''}</span>`;
+
+        dayEvents.forEach(event => {
           const badge = document.createElement('div');
-          const isCurrentBadge = isEventActiveOnDate(ev, todayStr) && currentStr === todayStr;
-          badge.id = `cal-${currentStr}-${getEventDomId(ev)}`;
-          badge.className = `event-badge ${getProgClass(ev)} shadow-sm ${isCurrentBadge ? 'current-event-badge' : ''}`;
-          badge.innerHTML = `${getIconForType(ev.type)} ${isCurrentBadge ? '<strong>EN CURSO · </strong>' : ''}${ev.title}`;
-          badge.title = ev.title;
-          badge.onclick = () => openEventModal(encodeURIComponent(JSON.stringify(ev)));
+          const isCurrentBadge = isEventActiveOnDate(event, todayStr) && currentStr === todayStr;
+          badge.id = `cal-${currentStr}-${getEventDomId(event)}`;
+          badge.className = `event-badge ${getProgClass(event)} shadow-sm ${isCurrentBadge ? 'current-event-badge' : ''}`;
+          badge.innerHTML = `${getIconForType(event.type)} ${isCurrentBadge ? '<strong>EN CURSO · </strong>' : ''}${event.title}`;
+          badge.title = event.title;
+          if (!isPastDay && !isOutsideMonth) {
+            badge.onclick = () => openEventModal(encodeURIComponent(JSON.stringify(event)));
+          }
           dayDiv.appendChild(badge);
         });
         grid.appendChild(dayDiv);

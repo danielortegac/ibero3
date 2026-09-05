@@ -549,7 +549,7 @@
 <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-emerald-100 bg-emerald-50 text-[10px] sm:text-xs font-bold tracking-widest uppercase mb-5 text-emerald-700">
 <i class="fa-solid fa-shield-halved"></i> Historial académico verificado
 </div>
-<h2 class="text-3xl sm:text-5xl font-serif italic text-ibero-dark mb-3 hero-shine-dark">Diplomas encontrados para</h2>
+<h2 class="text-3xl sm:text-5xl font-serif italic text-ibero-dark mb-3 hero-shine-dark">Certificados encontrados para</h2>
 <h3 class="text-2xl sm:text-3xl font-extrabold text-ibero-dark mb-3" id="list-student-name">Nombre del Alumno</h3>
 <p class="text-zinc-500 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed" id="list-summary"></p>
 </div>
@@ -1289,7 +1289,7 @@ Maria Gomez   /fotos/diplomas/maria.jpg   Diplomado..."></textarea>
 
       const studentName = records[0].data.nombre || slug.replace(/-/g, ' ');
       document.getElementById('list-student-name').textContent = studentName;
-      document.getElementById('list-summary').textContent = `Encontramos ${records.length} credenciales académicas emitidas a tu nombre. Selecciona el documento que deseas consultar.`;
+      document.getElementById('list-summary').textContent = `Se encontraron ${records.length} certificados académicos emitidos a nombre de ${studentName}. Selecciona el documento que deseas consultar o validar.`;
 
       records.forEach((record, position) => {
         const card = document.createElement('article');
