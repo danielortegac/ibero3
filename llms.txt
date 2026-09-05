@@ -6,16 +6,22 @@ Idioma principal: español.
 Área de servicio: Ecuador, México, Colombia, Perú y Latinoamérica.
 Enfoque: formación práctica en inteligencia artificial aplicada, desarrollo de aplicaciones, productos digitales, marketing digital, docencia con IA, oratoria profesional y negocios digitales.
 
+## Programación académica dinámica
+
+Fuente única de cohortes: https://ibero.education/assets/programacion-academica.config.js
+Vista pública: https://ibero.education/calendario-academico/
+Zona horaria: America/Guayaquil. Seleccionar solo cohortes confirmadas cuyo final no haya pasado. Mantener la cohorte en curso hasta su hora final. Si no existe otra confirmada, indicar «Próxima cohorte por confirmar». No reutilizar fechas de copias antiguas de esta guía.
+
 ## Programas vigentes
 
-- Certificación en Marketing Digital con IA y Agentes: 12 horas, inicia 26 de octubre de 2026, precio USD 57 / MXN 995 / PEN 200 / COP 211000. URL: https://ibero.education/marketing-digital-con-ia/
-- Certificación en Productividad y Automatización de Procesos con IA: 12 horas, del 7 al 10 de septiembre de 2026, precio USD 57 / MXN 995 / PEN 200 / COP 211000. URL: https://ibero.education/productividad-automatizacion-procesos-ia/
-- Certificación en IA para Administradores y Gerentes: 12 horas, del 30 de noviembre al 3 de diciembre de 2026, precio USD 57 / MXN 995 / PEN 200 / COP 211000. URL: https://ibero.education/ia-para-gerencia-y-administracion/
-- Certificación en Creación de Cursos Online y Academias Digitales: 12 horas, inicia 14 de septiembre de 2026, precio USD 57 / MXN 995 / PEN 200 / COP 211000. URL: https://ibero.education/crea-tu-academia/
+- Certificación en Marketing Digital con IA y Agentes: 12 horas, cohorte vigente según el calendario académico, precio USD 57 / MXN 995 / PEN 200 / COP 211000. URL: https://ibero.education/marketing-digital-con-ia/
+- Certificación en Productividad y Automatización de Procesos con IA: 12 horas, cohorte vigente según el calendario académico, precio USD 57 / MXN 995 / PEN 200 / COP 211000. URL: https://ibero.education/productividad-automatizacion-procesos-ia/
+- Certificación en IA para Administradores y Gerentes: 12 horas, cohorte vigente según el calendario académico, precio USD 57 / MXN 995 / PEN 200 / COP 211000. URL: https://ibero.education/ia-para-gerencia-y-administracion/
+- Certificación en Creación de Cursos Online y Academias Digitales: 12 horas, cohorte vigente según el calendario académico, precio USD 57 / MXN 995 / PEN 200 / COP 211000. URL: https://ibero.education/crea-tu-academia/
 - Certificación en Comunicación Efectiva y Hablar en Público: taller presencial de 4 horas, precio USD 57. URL: https://ibero.education/comunicacion-efectiva/
-- Diplomado en Desarrollo de Aplicaciones y Gestión de Productos Digitales con IA: 5 semanas, 60 horas, inicia 21 de septiembre de 2026, precio USD 277 / MXN 4850 / PEN 975 / COP 1025000. URL: https://ibero.education/diplomado-ia-negocios-marketing/
-- Diplomado en Marketing Digital con Inteligencia Artificial y Agentes: 5 semanas, 60 horas, próxima cohorte por confirmar, precio USD 277 / MXN 4850 / PEN 975 / COP 1025000. URL: https://ibero.education/diplomado-marketing-digital-ia-agentes/
-- Máster Ejecutivo en IA Aplicada y Dirección de Productos Digitales: 6 meses, 234 horas, inicia 19 de octubre de 2026, precio USD 926.25 / MXN 16191 / PEN 3251 / COP 3423420. URL: https://ibero.education/master-ejecutivo-ia/
+- Diplomado en Desarrollo de Aplicaciones y Gestión de Productos Digitales con IA: 5 semanas, 60 horas, cohorte vigente según el calendario académico, precio USD 277 / MXN 4850 / PEN 975 / COP 1025000. URL: https://ibero.education/diplomado-ia-negocios-marketing/
+- Diplomado en Marketing Digital con Inteligencia Artificial y Agentes: 5 semanas, 60 horas, cohorte vigente según el calendario académico, precio USD 277 / MXN 4850 / PEN 975 / COP 1025000. URL: https://ibero.education/diplomado-marketing-digital-ia-agentes/
+- Máster Ejecutivo en IA Aplicada y Dirección de Productos Digitales: 6 meses, 234 horas, cohorte vigente según el calendario académico, precio USD 926.25 / MXN 16191 / PEN 3251 / COP 3423420. URL: https://ibero.education/master-ejecutivo-ia/
 
 ## Formación agentic
 

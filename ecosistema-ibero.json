@@ -789,7 +789,7 @@
       "name": "Certificación en Marketing Digital con IA y Agentes",
       "commercial": "Certificación en Marketing Digital con IA y Agentes",
       "url": "/marketing-digital-con-ia/",
-      "date": "26 al 29 de octubre de 2026",
+      "date": "Consultar la programación vigente en el calendario académico",
       "hours": "12 horas académicas",
       "schedule": "7:00 PM–9:00 PM EC/CO/PE · 6:00 PM–8:00 PM MX",
       "prices": {
@@ -797,14 +797,16 @@
         "MXN": "995",
         "PEN": "200",
         "COP": "211.000"
-      }
+      },
+      "programId": "marketing",
+      "scheduleSource": "/assets/programacion-academica.config.js"
     },
     {
       "type": "Certificación",
       "name": "Certificación en Productividad y Automatización de Procesos con IA",
       "commercial": "Certificación en Productividad y Automatización de Procesos con IA",
       "url": "/productividad-automatizacion-procesos-ia/",
-      "date": "7 al 10 de septiembre de 2026",
+      "date": "Consultar la programación vigente en el calendario académico",
       "hours": "12 horas académicas",
       "schedule": "7:00 PM–9:00 PM EC/CO/PE · 6:00 PM–8:00 PM MX",
       "prices": {
@@ -812,14 +814,16 @@
         "MXN": "995",
         "PEN": "200",
         "COP": "211.000"
-      }
+      },
+      "programId": "agents",
+      "scheduleSource": "/assets/programacion-academica.config.js"
     },
     {
       "type": "Certificación",
       "name": "Certificación en Creación de Cursos Online y Academias Digitales",
       "commercial": "Certificación en Creación de Cursos Online y Academias Digitales",
       "url": "/crea-tu-academia/",
-      "date": "14 al 17 de septiembre de 2026",
+      "date": "Consultar la programación vigente en el calendario académico",
       "hours": "12 horas académicas",
       "schedule": "7:00 PM–9:00 PM EC/CO/PE · 6:00 PM–8:00 PM MX",
       "prices": {
@@ -827,26 +831,30 @@
         "MXN": "995",
         "PEN": "200",
         "COP": "211.000"
-      }
+      },
+      "programId": "courses",
+      "scheduleSource": "/assets/programacion-academica.config.js"
     },
     {
       "type": "Certificación",
       "name": "Certificación en Comunicación Efectiva y Hablar en Público",
       "commercial": "Certificación en Comunicación Efectiva y Hablar en Público",
       "url": "/comunicacion-efectiva/",
-      "date": "10 de octubre de 2026",
+      "date": "Consultar la programación vigente en el calendario académico",
       "hours": "4 horas intensivas",
       "schedule": "9:00 AM–1:00 PM EC",
       "prices": {
         "USD": "57"
-      }
+      },
+      "programId": "communication",
+      "scheduleSource": "/assets/programacion-academica.config.js"
     },
     {
       "type": "Diplomado",
       "name": "Diplomado en Desarrollo de Aplicaciones y Gestión de Productos Digitales con IA",
       "commercial": "Diplomado en Desarrollo de Aplicaciones y Gestión de Productos Digitales con IA",
       "url": "/diplomado-ia-negocios-marketing/",
-      "date": "21 de septiembre al 22 de octubre de 2026",
+      "date": "Consultar la programación vigente en el calendario académico",
       "hours": "60 horas académicas",
       "schedule": "Lun–Jue · 7:00 PM–9:00 PM EC/CO/PE · 6:00 PM–8:00 PM MX",
       "prices": {
@@ -854,14 +862,16 @@
         "MXN": "4.850",
         "PEN": "975",
         "COP": "1.025.000"
-      }
+      },
+      "programId": "appsDiploma",
+      "scheduleSource": "/assets/programacion-academica.config.js"
     },
     {
       "type": "Máster Ejecutivo",
       "name": "Máster Ejecutivo en IA Aplicada y Dirección de Productos Digitales",
       "commercial": "Máster Ejecutivo en IA Aplicada y Dirección de Productos Digitales",
       "url": "/master-ejecutivo-ia/",
-      "date": "19 de octubre de 2026 a abril de 2027",
+      "date": "Consultar la programación vigente en el calendario académico",
       "hours": "234 horas académicas",
       "schedule": "Lun–Vie · 9:00 PM–10:00 PM EC/CO/PE · 8:00 PM–9:00 PM MX",
       "prices": {
@@ -869,14 +879,16 @@
         "MXN": "16.191",
         "PEN": "3.251",
         "COP": "3.423.420"
-      }
+      },
+      "programId": "master",
+      "scheduleSource": "/assets/programacion-academica.config.js"
     },
     {
       "type": "Certificación",
       "name": "Certificación en IA para Administradores y Gerentes",
       "commercial": "Certificación en IA para Administradores y Gerentes",
       "url": "/ia-para-gerencia-y-administracion/",
-      "date": "30 de noviembre–3 de diciembre de 2026",
+      "date": "Consultar la programación vigente en el calendario académico",
       "hours": "12 horas académicas",
       "schedule": "7:00 PM–9:00 PM EC/CO/PE · 6:00 PM–8:00 PM MX",
       "prices": {
@@ -884,14 +896,16 @@
         "MXN": "995",
         "PEN": "200",
         "COP": "211.000"
-      }
+      },
+      "programId": "managers",
+      "scheduleSource": "/assets/programacion-academica.config.js"
     },
     {
       "type": "Diplomado",
       "name": "Diplomado en Marketing Digital con Inteligencia Artificial y Agentes",
       "commercial": "Diplomado en Marketing Digital con Inteligencia Artificial y Agentes",
       "url": "/diplomado-marketing-digital-ia-agentes/",
-      "date": "Próxima cohorte por confirmar",
+      "date": "Consultar la programación vigente en el calendario académico",
       "hours": "60 horas académicas",
       "schedule": "Lun–Jue · 7:00 PM–9:00 PM EC/CO/PE · 6:00 PM–8:00 PM MX",
       "prices": {
@@ -899,7 +913,9 @@
         "MXN": "4.850",
         "PEN": "975",
         "COP": "1.025.000"
-      }
+      },
+      "programId": "marketingDiploma",
+      "scheduleSource": "/assets/programacion-academica.config.js"
     }
   ],
   "corporate_ecosystem": {
@@ -960,10 +976,18 @@
       "commercial_name": "Certificación en Productividad y Automatización de Procesos con IA",
       "url": "/productividad-automatizacion-procesos-ia/",
       "academic_url": "/certificado-productividad-automatizacion-procesos-ia/",
-      "dates": "2026-09-07/2026-09-10",
-      "price_usd": 57
+      "dates": "Consultar la programación vigente en el calendario académico",
+      "price_usd": 57,
+      "programId": "agents",
+      "scheduleSource": "/assets/programacion-academica.config.js"
     }
   ],
   "brand": "IBERO",
-  "institutional_name": "Centro IBEROamericano de Educación"
+  "institutional_name": "Centro IBEROamericano de Educación",
+  "academic_schedule": {
+    "source": "https://ibero.education/assets/programacion-academica.config.js",
+    "calendar": "https://ibero.education/calendario-academico/",
+    "timeZone": "America/Guayaquil",
+    "selection": "Primera cohorte confirmada cuya fecha y hora final no haya pasado; sin una siguiente cohorte: por confirmar."
+  }
 }
