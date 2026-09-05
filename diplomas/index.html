@@ -95,6 +95,97 @@
     /* Ocultar Scrollbar */
     .hide-scrollbar::-webkit-scrollbar { display: none; }
     .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+    /* Historial de credenciales: un estudiante puede tener varios diplomas */
+    .credential-list-card {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 58px minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 18px;
+      padding: 20px;
+      background: #ffffff;
+      border: 1px solid #e4e4e7;
+      border-radius: 24px;
+      box-shadow: 0 10px 30px -18px rgba(9, 9, 11, 0.22);
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    }
+    .credential-list-card:hover {
+      transform: translateY(-2px);
+      border-color: #d4d4d8;
+      box-shadow: 0 20px 42px -22px rgba(9, 9, 11, 0.28);
+    }
+    .credential-list-number {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background: linear-gradient(145deg, #09090B, #27272a);
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      box-shadow: 0 8px 20px -10px rgba(9, 9, 11, .8);
+    }
+    .credential-list-copy { min-width: 0; }
+    .credential-list-label {
+      margin: 0 0 5px;
+      color: #71717a;
+      font-size: 9px;
+      font-weight: 900;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    .credential-list-course {
+      margin: 0;
+      color: #09090B;
+      font-size: 15px;
+      font-weight: 800;
+      line-height: 1.45;
+    }
+    .credential-list-id {
+      margin-top: 7px;
+      color: #71717a;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 9px;
+      font-weight: 700;
+      overflow-wrap: anywhere;
+    }
+    .credential-list-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+    .credential-action {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      padding: 9px 13px;
+      border-radius: 11px;
+      font-size: 10px;
+      font-weight: 900;
+      line-height: 1;
+      text-decoration: none;
+      transition: transform .2s ease, background-color .2s ease, border-color .2s ease, color .2s ease;
+    }
+    .credential-action:hover { transform: translateY(-1px); }
+    .credential-action-view { background: #ffffff; color: #27272a; border: 1px solid #d4d4d8; }
+    .credential-action-view:hover { background: #fafafa; border-color: #a1a1aa; }
+    .credential-action-download { background: #f4f4f5; color: #18181b; border: 1px solid #e4e4e7; }
+    .credential-action-download:hover { background: #e4e4e7; }
+    .credential-action-validate { background: #09090B; color: #ffffff; border: 1px solid #09090B; }
+    .credential-action-validate:hover { background: #27272a; border-color: #27272a; }
+    @media (max-width: 767px) {
+      .credential-list-card { grid-template-columns: 48px minmax(0, 1fr); gap: 14px; padding: 17px; }
+      .credential-list-number { width: 42px; height: 42px; border-radius: 14px; }
+      .credential-list-actions { grid-column: 1 / -1; justify-content: stretch; }
+      .credential-action { flex: 1 1 30%; min-width: 92px; }
+      .credential-list-course { font-size: 14px; }
+    }
   @media (max-width: 767px){
   #navbar{
     z-index:9999 !important;
@@ -452,6 +543,21 @@
 <div class="loader mb-4"></div>
 <p class="text-sm font-bold text-zinc-500 animate-pulse">Verificando registro oficial...</p>
 </div>
+<!-- RESULTADO: VARIAS CREDENCIALES ENCONTRADAS -->
+<div class="hidden flex-col items-center opacity-0 transition-opacity duration-500 w-full max-w-4xl" id="result-list">
+<div class="w-full text-center mb-8 px-4">
+<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-emerald-100 bg-emerald-50 text-[10px] sm:text-xs font-bold tracking-widest uppercase mb-5 text-emerald-700">
+<i class="fa-solid fa-shield-halved"></i> Historial académico verificado
+</div>
+<h2 class="text-3xl sm:text-5xl font-serif italic text-ibero-dark mb-3 hero-shine-dark">Diplomas encontrados para</h2>
+<h3 class="text-2xl sm:text-3xl font-extrabold text-ibero-dark mb-3" id="list-student-name">Nombre del Alumno</h3>
+<p class="text-zinc-500 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed" id="list-summary"></p>
+</div>
+<div class="w-full space-y-4" id="diploma-list-container" role="list" aria-live="polite"></div>
+<button class="mt-8 bg-white border border-zinc-200 text-ibero-dark px-6 py-3 rounded-xl font-bold text-xs hover:bg-zinc-50 transition-all shadow-sm" onclick="resetSearch(true)">
+Buscar otro estudiante
+</button>
+</div>
 <!-- RESULTADO: DIPLOMA ENCONTRADO -->
 <div class="hidden flex-col items-center opacity-0 transition-opacity duration-500 w-full max-w-4xl" id="result-success">
 <!-- CABECERA: TEXTO EMPODERADOR + SELLO VERDE AL LADO (Sello Oculto en Móvil) -->
@@ -525,6 +631,9 @@
               Copia texto, abre LinkedIn y sube tu diploma
             </span>
 </button>
+<button class="hidden bg-white border border-zinc-200 text-ibero-dark px-4 py-3 rounded-xl font-bold text-[11px] sm:text-xs hover:bg-zinc-50 transition-all shadow-sm" id="back-to-list-btn" type="button">
+<i class="fa-solid fa-list"></i> Ver todos mis diplomas
+          </button>
 <button class="bg-white border border-transparent text-zinc-500 px-4 py-3 rounded-xl font-bold text-[11px] sm:text-xs hover:text-zinc-800 hover:bg-zinc-100 transition-all" onclick="resetSearch(true)">
             Buscar otro
           </button>
@@ -657,6 +766,7 @@
 <label class="text-[10px] font-bold text-zinc-500 uppercase">Programa</label>
 <input class="w-full mt-1 bg-white border border-zinc-200 rounded-lg py-2 px-3 text-xs focus:ring-2 focus:ring-ibero-dark outline-none" id="add-course" placeholder="Ej: Diplomado IA" type="text"/>
 </div>
+<p class="text-[10px] text-zinc-500 leading-relaxed">Si el estudiante ya existe, esta credencial se agregará a su historial sin borrar las anteriores.</p>
 <button class="w-full bg-ibero-dark text-white py-2.5 rounded-lg font-bold text-xs hover:bg-black transition-all mt-2" onclick="generateSingleCode()">
                 Agregar a la lista
               </button>
@@ -667,7 +777,7 @@
 <h4 class="font-bold text-sm mb-2 border-b border-zinc-200 pb-2"><i class="fa-solid fa-list-ol mr-2"></i>Carga Masiva (Pega desde Excel)</h4>
 <p class="text-[10px] text-zinc-500 mb-3 leading-relaxed">
               Copia y pega celdas directo de Excel o Google Sheets en este orden estricto:<br/>
-<strong class="text-ibero-dark">Nombre Completo | Ruta de la foto | Programa</strong>
+<strong class="text-ibero-dark">Nombre Completo | Ruta de la foto | Programa</strong><br/>Los nombres repetidos se agrupan como varias credenciales; no se sobrescriben.
 </p>
 <textarea class="w-full flex-grow bg-white border border-zinc-200 rounded-lg py-2 px-3 text-xs font-mono focus:ring-2 focus:ring-ibero-dark outline-none resize-none min-h-[100px]" id="bulk-input" placeholder="Juan Perez   /fotos/diplomas/juan.jpg   Curso IA
 Maria Gomez   /fotos/diplomas/maria.jpg   Diplomado..."></textarea>
@@ -1009,14 +1119,67 @@ Maria Gomez   /fotos/diplomas/maria.jpg   Diplomado..."></textarea>
       });
     }
 
-    // 2. BUSCADOR PÚBLICO Y HASH ROUTING
+    // 2. BUSCADOR PÚBLICO, HISTORIAL MULTI-CREDENCIAL Y HASH ROUTING
     const searchForm = document.getElementById('search-form');
     const searchInput = document.getElementById('student-name-input');
     const loadingState = document.getElementById('loading-state');
+    const resultList = document.getElementById('result-list');
     const resultSuccess = document.getElementById('result-success');
     const resultError = document.getElementById('result-error');
-    
     const headerSection = document.getElementById('header-section');
+    const diplomaListContainer = document.getElementById('diploma-list-container');
+    let currentDiplomaContext = null;
+
+    function normalizeDiplomaRecords(entry) {
+      if (Array.isArray(entry)) {
+        return entry.filter(item => item && typeof item === 'object' && !Array.isArray(item));
+      }
+
+      // Compatibilidad total con data.js anteriores que guardaban un solo objeto.
+      if (entry && typeof entry === 'object') {
+        if (Array.isArray(entry.diplomas)) {
+          const diplomaHistory = entry.diplomas.filter(item => item && typeof item === 'object' && !Array.isArray(item));
+          if (diplomaHistory.length) return diplomaHistory;
+        }
+        return [entry];
+      }
+
+      return [];
+    }
+
+    function getDiplomasForSlug(slug) {
+      const database = window.BASE_DE_DATOS_DIPLOMAS || {};
+      return normalizeDiplomaRecords(database[slug]);
+    }
+
+    function getDiplomaRecordId(diplomaData, index) {
+      const explicitId = createSlug(diplomaData.id || '');
+      if (explicitId) return explicitId;
+
+      const cleanUrl = String(diplomaData.url || '').split('?')[0].split('#')[0];
+      const fileName = cleanUrl.split('/').pop() || '';
+      const fileId = createSlug(fileName.replace(/\.[^.]+$/, ''));
+      if (fileId) return fileId;
+
+      const courseId = createSlug(diplomaData.curso || 'credencial');
+      return `${courseId || 'credencial'}-${index + 1}`;
+    }
+
+    function getDiplomaRecords(slug) {
+      const usedIds = new Map();
+      return getDiplomasForSlug(slug).map((data, index) => {
+        const baseId = getDiplomaRecordId(data, index) || `credencial-${index + 1}`;
+        const occurrence = (usedIds.get(baseId) || 0) + 1;
+        usedIds.set(baseId, occurrence);
+        const id = occurrence === 1 ? baseId : `${baseId}-${occurrence}`;
+        return { data, id, index };
+      });
+    }
+
+    function findDiplomaRecord(slug, diplomaId) {
+      const normalizedId = createSlug(diplomaId || '');
+      return getDiplomaRecords(slug).find(record => record.id === normalizedId) || null;
+    }
 
     searchForm.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -1024,18 +1187,28 @@ Maria Gomez   /fotos/diplomas/maria.jpg   Diplomado..."></textarea>
       if (!rawName) return;
 
       const slug = createSlug(rawName);
-      window.location.hash = '#/' + slug;
+      window.location.hash = '#/' + encodeURIComponent(slug);
     });
 
-    function getSlugFromHash() {
-      return decodeURIComponent(window.location.hash.replace(/^#\/?/, '').trim().toLowerCase());
+    function getRouteFromHash() {
+      const rawHash = window.location.hash.replace(/^#\/?/, '').trim();
+      if (!rawHash) return { slug: '', diplomaId: '' };
+
+      const parts = rawHash.split('/').filter(Boolean).map(part => {
+        try { return decodeURIComponent(part); } catch (error) { return part; }
+      });
+
+      return {
+        slug: createSlug(parts[0] || ''),
+        diplomaId: createSlug(parts[1] || '')
+      };
     }
 
     function handleHashRouting() {
-      const slug = getSlugFromHash();
+      const route = getRouteFromHash();
 
-      if (slug) {
-        searchDiploma(slug, slug.replace(/-/g, ' '));
+      if (route.slug) {
+        searchDiploma(route.slug, route.slug.replace(/-/g, ' '), route.diplomaId);
       } else {
         resetSearch(false);
       }
@@ -1044,15 +1217,21 @@ Maria Gomez   /fotos/diplomas/maria.jpg   Diplomado..."></textarea>
     window.addEventListener('DOMContentLoaded', handleHashRouting);
     window.addEventListener('hashchange', handleHashRouting);
 
-    function searchDiploma(slug, displayName) {
-      document.getElementById('search-section').classList.add('hidden');
-      
+    function hideSearchResults() {
+      resultList.classList.add('hidden');
+      resultList.classList.remove('flex', 'opacity-100');
+
       resultSuccess.classList.add('hidden');
       resultSuccess.classList.remove('flex', 'opacity-100');
-      
+
       resultError.classList.add('hidden');
       resultError.classList.remove('flex', 'opacity-100');
-      
+    }
+
+    function searchDiploma(slug, displayName, diplomaId = '') {
+      document.getElementById('search-section').classList.add('hidden');
+      hideSearchResults();
+
       loadingState.classList.remove('hidden');
       loadingState.classList.add('flex');
 
@@ -1060,46 +1239,169 @@ Maria Gomez   /fotos/diplomas/maria.jpg   Diplomado..."></textarea>
         loadingState.classList.add('hidden');
         loadingState.classList.remove('flex');
 
-        if (window.BASE_DE_DATOS_DIPLOMAS && window.BASE_DE_DATOS_DIPLOMAS[slug]) {
-          showSuccess(window.BASE_DE_DATOS_DIPLOMAS[slug], slug);
-        } else {
+        const records = getDiplomaRecords(slug);
+        if (!records.length) {
           showError(displayName || slug.replace(/-/g, ' '));
+          return;
+        }
+
+        if (diplomaId) {
+          const selectedRecord = findDiplomaRecord(slug, diplomaId);
+          if (selectedRecord) {
+            showSuccess(selectedRecord.data, slug, selectedRecord.id, selectedRecord.index, records.length);
+            return;
+          }
+        }
+
+        if (records.length === 1) {
+          const selectedRecord = records[0];
+          showSuccess(selectedRecord.data, slug, selectedRecord.id, selectedRecord.index, 1);
+        } else {
+          showDiplomaList(records, slug);
         }
       }, 800);
     }
 
-    function showSuccess(diplomaData, slug) {
+    function createCredentialAction(label, iconClass, className, href, options = {}) {
+      const link = document.createElement('a');
+      link.className = `credential-action ${className}`;
+      link.href = href;
+      link.setAttribute('aria-label', options.ariaLabel || label);
+
+      if (options.target) {
+        link.target = options.target;
+        link.rel = 'noopener noreferrer';
+      }
+      if (options.download) link.setAttribute('download', '');
+
+      const icon = document.createElement('i');
+      icon.className = iconClass;
+      const text = document.createElement('span');
+      text.textContent = label;
+      link.append(icon, text);
+      return link;
+    }
+
+    function showDiplomaList(records, slug) {
       headerSection.classList.add('hidden');
+      currentDiplomaContext = null;
+      diplomaListContainer.replaceChildren();
+
+      const studentName = records[0].data.nombre || slug.replace(/-/g, ' ');
+      document.getElementById('list-student-name').textContent = studentName;
+      document.getElementById('list-summary').textContent = `Encontramos ${records.length} credenciales académicas emitidas a tu nombre. Selecciona el documento que deseas consultar.`;
+
+      records.forEach((record, position) => {
+        const card = document.createElement('article');
+        card.className = 'credential-list-card';
+        card.setAttribute('role', 'listitem');
+
+        const number = document.createElement('div');
+        number.className = 'credential-list-number';
+        number.textContent = String(position + 1).padStart(2, '0');
+
+        const copy = document.createElement('div');
+        copy.className = 'credential-list-copy';
+
+        const label = document.createElement('p');
+        label.className = 'credential-list-label';
+        label.textContent = `Credencial ${position + 1} de ${records.length}`;
+
+        const course = document.createElement('h4');
+        course.className = 'credential-list-course';
+        course.textContent = record.data.curso || 'Credencial académica IBERO';
+
+        const identifier = document.createElement('p');
+        identifier.className = 'credential-list-id';
+        identifier.textContent = `ID: ${slug.toUpperCase()}-C${String(position + 1).padStart(2, '0')}`;
+
+        copy.append(label, course, identifier);
+
+        const actions = document.createElement('div');
+        actions.className = 'credential-list-actions';
+
+        const viewLink = createCredentialAction(
+          'Ver',
+          'fa-regular fa-eye',
+          'credential-action-view',
+          record.data.url,
+          { target: '_blank', ariaLabel: `Ver diploma: ${record.data.curso || studentName}` }
+        );
+        const downloadLink = createCredentialAction(
+          'Descargar',
+          'fa-solid fa-download',
+          'credential-action-download',
+          record.data.url,
+          { download: true, ariaLabel: `Descargar diploma: ${record.data.curso || studentName}` }
+        );
+        const validationLink = createCredentialAction(
+          'Validar',
+          'fa-solid fa-shield-halved',
+          'credential-action-validate',
+          `#/${encodeURIComponent(slug)}/${encodeURIComponent(record.id)}`,
+          { ariaLabel: `Validar credencial: ${record.data.curso || studentName}` }
+        );
+
+        actions.append(viewLink, downloadLink, validationLink);
+        card.append(number, copy, actions);
+        diplomaListContainer.appendChild(card);
+      });
+
+      resultList.classList.remove('hidden');
+      resultList.classList.add('flex');
+      setTimeout(() => resultList.classList.add('opacity-100'), 50);
+    }
+
+    function showSuccess(diplomaData, slug, diplomaId, diplomaIndex = 0, totalDiplomas = 1) {
+      headerSection.classList.add('hidden');
+      currentDiplomaContext = { diplomaData, slug, diplomaId, diplomaIndex, totalDiplomas };
 
       // Interfaz principal
       document.getElementById('cert-student-name').innerText = diplomaData.nombre;
       document.getElementById('cert-student-name-2').innerText = diplomaData.nombre;
       document.getElementById('cert-course-name').innerText = diplomaData.curso;
-      document.getElementById('student-id-display').innerText = "ID: " + slug.toUpperCase();
-      
-      // Mostrar el ID dinámico también en la versión móvil (si existe en el DOM)
+
+      // Se conserva el ID histórico para estudiantes con una sola credencial.
+      // Cuando existen varias, cada diploma recibe un sufijo individual y verificable.
+      const validationId = totalDiplomas > 1
+        ? `${slug}-C${String(diplomaIndex + 1).padStart(2, '0')}`
+        : slug;
+      document.getElementById('student-id-display').innerText = 'ID: ' + validationId.toUpperCase();
+
       const mobileIdDisplay = document.getElementById('student-id-display-mobile');
       if (mobileIdDisplay) {
-        mobileIdDisplay.innerText = "ID: " + slug.toUpperCase();
+        mobileIdDisplay.innerText = 'ID: ' + validationId.toUpperCase();
       }
-      
-      // Data Inyectada en el nuevo diseño del PDF
+
+      // Data inyectada en el diseño del PDF
       document.getElementById('pdf-student-name').innerText = diplomaData.nombre;
       document.getElementById('pdf-course-name').innerText = diplomaData.curso;
-      document.getElementById('pdf-student-id').innerText = slug.toUpperCase();
-      
-      // Agregar la fecha actual formateada de forma profesional al PDF
+      document.getElementById('pdf-student-id').innerText = validationId.toUpperCase();
+
       const today = new Date();
       const options = { year: 'numeric', month: 'long', day: 'numeric' };
       document.getElementById('pdf-current-date').innerText = today.toLocaleDateString('es-ES', options);
 
-      // Imágenes
+      // Imágenes y acciones
       document.getElementById('diploma-image').src = diplomaData.url;
       document.getElementById('download-btn').href = diplomaData.url;
-      
+
       const btnLinkedIn = document.getElementById('linkedin-btn');
-      btnLinkedIn.onclick = () => shareLinkedIn(slug);
-      
+      btnLinkedIn.onclick = () => shareLinkedIn(slug, diplomaId);
+
+      const backToListBtn = document.getElementById('back-to-list-btn');
+      if (backToListBtn) {
+        if (totalDiplomas > 1) {
+          backToListBtn.classList.remove('hidden');
+          backToListBtn.onclick = () => {
+            window.location.hash = '#/' + encodeURIComponent(slug);
+          };
+        } else {
+          backToListBtn.classList.add('hidden');
+          backToListBtn.onclick = null;
+        }
+      }
+
       resultSuccess.classList.remove('hidden');
       resultSuccess.classList.add('flex');
       setTimeout(() => resultSuccess.classList.add('opacity-100'), 50);
@@ -1107,6 +1409,7 @@ Maria Gomez   /fotos/diplomas/maria.jpg   Diplomado..."></textarea>
 
     function showError(name) {
       headerSection.classList.remove('hidden');
+      currentDiplomaContext = null;
       document.getElementById('error-name').innerText = name.toUpperCase();
       resultError.classList.remove('hidden');
       resultError.classList.add('flex');
@@ -1115,19 +1418,16 @@ Maria Gomez   /fotos/diplomas/maria.jpg   Diplomado..."></textarea>
 
     function resetSearch(clearHash = true) {
       headerSection.classList.remove('hidden');
-
-      resultSuccess.classList.add('hidden');
-      resultSuccess.classList.remove('flex', 'opacity-100');
-      
-      resultError.classList.add('hidden');
-      resultError.classList.remove('flex', 'opacity-100');
+      currentDiplomaContext = null;
+      hideSearchResults();
 
       loadingState.classList.add('hidden');
       loadingState.classList.remove('flex');
 
       document.getElementById('search-section').classList.remove('hidden');
       searchInput.value = '';
-      
+      diplomaListContainer.replaceChildren();
+
       if (clearHash) {
         history.replaceState(null, '', window.location.pathname);
       }
@@ -1189,24 +1489,31 @@ Maria Gomez   /fotos/diplomas/maria.jpg   Diplomado..."></textarea>
     }
 
     // --- LÓGICA DE LINKEDIN PRO ---
-    function shareLinkedIn(slug) {
-      const diplomaInfo = window.BASE_DE_DATOS_DIPLOMAS[slug];
+    function shareLinkedIn(slug, diplomaId = '') {
+      const selectedRecord = diplomaId ? findDiplomaRecord(slug, diplomaId) : null;
+      const diplomaInfo = selectedRecord
+        ? selectedRecord.data
+        : (currentDiplomaContext && currentDiplomaContext.slug === slug ? currentDiplomaContext.diplomaData : getDiplomasForSlug(slug)[0]);
       const courseName = diplomaInfo ? diplomaInfo.curso : 'un programa de élite';
-      const shareUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '#/' + slug;
-      
+
+      const hasMultipleDiplomas = getDiplomaRecords(slug).length > 1;
+      const credentialPath = hasMultipleDiplomas && diplomaId
+        ? `#/${encodeURIComponent(slug)}/${encodeURIComponent(diplomaId)}`
+        : `#/${encodeURIComponent(slug)}`;
+      const shareUrl = window.location.protocol + '//' + window.location.host + window.location.pathname + credentialPath;
+
       const postText = `🎓 ¡He completado un nuevo reto académico!\n\nMe emociona compartir que he conseguido mi certificación en ${courseName}, avalado por el Centro Iberoamericano (IBERO).\n\nHa sido un proceso de muchísimo aprendizaje, enfocado en llevar mis habilidades al siguiente nivel con metodologías reales y aplicables.\n\nPuedes verificar mi credencial IBERO aquí:\n${shareUrl}\n\n🚀 #IBERO #Educación #CrecimientoProfesional #LogroAcademico #Certificación`;
 
       const btn = document.getElementById('linkedin-btn');
       const originalHtml = btn.innerHTML;
-      
+
       btn.innerHTML = '<i class="fa-solid fa-check"></i> ¡Texto Copiado! Pega (Ctrl+V) y sube tu foto...';
       btn.classList.replace('bg-[#0077b5]', 'bg-emerald-600');
       btn.classList.replace('hover:bg-[#005e93]', 'hover:bg-emerald-700');
 
       copyTextToClipboard(postText, () => {
-        // Truco PRO: ?shareActive=true abre la ventana de "Crear publicación" automáticamente
         window.open('https://www.linkedin.com/feed/?shareActive=true', '_blank');
-        
+
         setTimeout(() => {
           btn.innerHTML = originalHtml;
           btn.classList.replace('bg-emerald-600', 'bg-[#0077b5]');
@@ -1255,71 +1562,119 @@ Maria Gomez   /fotos/diplomas/maria.jpg   Diplomado..."></textarea>
       }
     }
 
-    function generateSingleCode() {
-      const name = document.getElementById('add-name').value.trim();
-      const url = document.getElementById('add-url').value.trim();
-      const course = document.getElementById('add-course').value.trim() || "Certificación General";
+    function sameDiplomaUrl(left, right) {
+      return String(left || '').trim().toLowerCase() === String(right || '').trim().toLowerCase();
+    }
 
-      if(!name || !url) {
-        alert("El nombre y la Ruta de la foto son obligatorios");
+    function saveDiplomaRecords(slug, records) {
+      window.BASE_DE_DATOS_DIPLOMAS = window.BASE_DE_DATOS_DIPLOMAS || {};
+      const cleanRecords = normalizeDiplomaRecords(records).map(record => ({ ...record }));
+
+      if (!cleanRecords.length) {
+        delete window.BASE_DE_DATOS_DIPLOMAS[slug];
         return;
       }
 
+      // Compatibilidad de despliegue: una credencial conserva el formato histórico.
+      // Cuando hay varias, el primer registro se mantiene arriba y el historial completo
+      // se guarda en `diplomas`, de modo que incluso una página antigua en caché no falle.
+      if (cleanRecords.length === 1) {
+        window.BASE_DE_DATOS_DIPLOMAS[slug] = cleanRecords[0];
+      } else {
+        window.BASE_DE_DATOS_DIPLOMAS[slug] = {
+          ...cleanRecords[0],
+          diplomas: cleanRecords
+        };
+      }
+    }
+
+    function addOrUpdateDiplomaRecord(name, url, course, confirmExactUpdate = false) {
       const slug = createSlug(name);
-      
-      if (window.BASE_DE_DATOS_DIPLOMAS[slug]) {
-        const overwrite = confirm(`ATENCIÓN: Ya existe un registro para "${name}". ¿Deseas reemplazarlo con esta nueva información?`);
-        if (!overwrite) return;
+      const records = getDiplomasForSlug(slug).map(record => ({ ...record }));
+      const newRecord = { nombre: name, url: url, curso: course };
+      const exactIndex = records.findIndex(record => sameDiplomaUrl(record.url, url));
+
+      if (exactIndex >= 0) {
+        if (confirmExactUpdate) {
+          const overwrite = confirm(`Ya existe una credencial con esta misma ruta para "${name}". ¿Deseas actualizar únicamente ese registro?`);
+          if (!overwrite) return { status: 'cancelled', slug };
+        }
+        records[exactIndex] = newRecord;
+        saveDiplomaRecords(slug, records);
+        return { status: 'updated', slug };
       }
 
-      window.BASE_DE_DATOS_DIPLOMAS[slug] = { nombre: name, url: url, curso: course };
+      records.push(newRecord);
+      saveDiplomaRecords(slug, records);
+      return { status: 'added', slug };
+    }
+
+    function generateSingleCode() {
+      const name = document.getElementById('add-name').value.trim();
+      const url = document.getElementById('add-url').value.trim();
+      const course = document.getElementById('add-course').value.trim() || 'Certificación General';
+
+      if (!name || !url) {
+        alert('El nombre y la Ruta de la foto son obligatorios');
+        return;
+      }
+
+      const result = addOrUpdateDiplomaRecord(name, url, course, true);
+      if (result.status === 'cancelled') return;
 
       updateOutputBox();
-      
+
       document.getElementById('add-name').value = '';
       document.getElementById('add-url').value = '';
       document.getElementById('add-course').value = '';
+
+      const message = result.status === 'updated'
+        ? 'La credencial existente fue actualizada sin afectar los demás diplomas del estudiante.'
+        : 'La credencial fue agregada al historial del estudiante sin reemplazar diplomas anteriores.';
+      alert(message);
     }
 
     function generateBulkCode() {
       const bulkText = document.getElementById('bulk-input').value;
       if (!bulkText.trim()) {
-        alert("Por favor pega la lista de alumnos primero.");
+        alert('Por favor pega la lista de alumnos primero.');
         return;
       }
 
-      const confirmBulk = confirm("Se van a procesar todos los alumnos en la lista. Si hay nombres repetidos en la base de datos, se actualizarán. ¿Deseas continuar?");
-      if(!confirmBulk) return;
+      const confirmBulk = confirm('Se procesará la lista completa. Los nombres repetidos se agruparán como varias credenciales y solo una ruta idéntica actualizará su propio registro. ¿Deseas continuar?');
+      if (!confirmBulk) return;
 
       const lines = bulkText.split('\n');
-      let count = 0;
+      let added = 0;
+      let updated = 0;
 
       lines.forEach(line => {
         if (!line.trim()) return;
-        
+
         let parts = line.split('\t');
         if (parts.length < 2) parts = line.split(',');
 
         if (parts.length >= 2) {
           const name = parts[0].trim();
           const url = parts[1].trim();
-          const course = parts[2] ? parts[2].trim() : "Certificación General";
-          
+          const course = parts[2] ? parts[2].trim() : 'Certificación General';
+
           if (name && url) {
-            const slug = createSlug(name);
-            window.BASE_DE_DATOS_DIPLOMAS[slug] = { nombre: name, url: url, curso: course };
-            count++;
+            const result = addOrUpdateDiplomaRecord(name, url, course, false);
+            if (result.status === 'updated') updated++;
+            if (result.status === 'added') added++;
           }
         }
       });
 
       updateOutputBox();
       document.getElementById('bulk-input').value = '';
-      alert(`¡Éxito! Se han añadido o actualizado ${count} diplomas.`);
+      alert(`¡Éxito! ${added} credenciales agregadas y ${updated} actualizadas. Ningún diploma anterior fue reemplazado por compartir el mismo nombre.`);
     }
 
     function updateOutputBox() {
-      const codeOutput = `window.BASE_DE_DATOS_DIPLOMAS = ${JSON.stringify(window.BASE_DE_DATOS_DIPLOMAS, null, 2)};`;
+      const schemaNote = '/* Multi-credencial compatible: los estudiantes con varios diplomas usan la propiedad \"diplomas\". */\n';
+      const codeOutput = `${schemaNote}window.BASE_DE_DATOS_DIPLOMAS = ${JSON.stringify(window.BASE_DE_DATOS_DIPLOMAS, null, 2)};`;
       document.getElementById('output-json').value = codeOutput;
     }
 
