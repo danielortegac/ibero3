@@ -84,11 +84,19 @@ window.BASE_DE_DATOS_DIPLOMAS = {
     "url": "/fotos/diplomas/certificado-marketing-digital-ia-39h-marco-alencastro.png",
     "curso": "Marketing Digital e Inteligencia Artificial · Certificado 39 horas · 19 de agosto de 2026"
   },
-  "edwin-baus-reyes": {
-    "nombre": "Edwin Baus Reyes",
-    "url": "/fotos/diplomas/certificado-marketing-digital-ia-39h-edwin-baus-reyes.png",
-    "curso": "Marketing Digital e Inteligencia Artificial · Certificado 39 horas · 19 de agosto de 2026"
-  },
+  "edwin-baus-reyes": [
+    {
+      "nombre": "Edwin Baus Reyes",
+      "url": "/fotos/diplomas/certificado-marketing-digital-ia-39h-edwin-baus-reyes.png",
+      "curso": "Marketing Digital e Inteligencia Artificial · Certificado 39 horas · 19 de agosto de 2026"
+    },
+    {
+      "id": "certificado-marketing-digital-ia-agentes-12h-edwin-baus-reyes",
+      "nombre": "Edwin Baus Reyes",
+      "url": "/fotos/diplomas/certificado-marketing-digital-ia-agentes-12h-edwin-baus-reyes.png",
+      "curso": "Certificación en Marketing Digital con Inteligencia Artificial y Agentes · Certificado 12 horas · 3 de septiembre de 2026"
+    }
+  ],
   "andres-dario-posada-nino": {
     "nombre": "Andrés Darío Posada Niño",
     "url": "/fotos/diplomas/certificado-marketing-digital-ia-39h-andres-dario-posada-nino.png",
@@ -158,5 +166,17 @@ window.BASE_DE_DATOS_DIPLOMAS = {
     "nombre": "Daniel Eduardo Ortega Corella",
     "url": "/fotos/diplomas/certificado-marketing-digital-ia-12h-daniel-eduardo-ortega-corella.png",
     "curso": "Marketing Digital e Inteligencia Artificial · Certificado 12 horas · 30 de mayo del 2026"
+  },
+  "alejandra-lozada": {
+    "id": "certificado-marketing-digital-ia-agentes-12h-alejandra-lozada",
+    "nombre": "Alejandra Lozada",
+    "url": "/fotos/diplomas/certificado-marketing-digital-ia-agentes-12h-alejandra-lozada.png",
+    "curso": "Certificación en Marketing Digital con Inteligencia Artificial y Agentes · Certificado 12 horas · 3 de septiembre de 2026"
+  },
+  "richard-rosero": {
+    "id": "certificado-marketing-digital-ia-agentes-12h-richard-rosero",
+    "nombre": "Richard Rosero",
+    "url": "/fotos/diplomas/certificado-marketing-digital-ia-agentes-12h-richard-rosero.png",
+    "curso": "Certificación en Marketing Digital con Inteligencia Artificial y Agentes · Certificado 12 horas · 3 de septiembre de 2026"
   }
 };
