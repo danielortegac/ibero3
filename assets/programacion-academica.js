@@ -78,9 +78,20 @@
       return out;
     }, []).sort((a, b) => a.start.localeCompare(b.start) || a.startTime.localeCompare(b.startTime) || a.id.localeCompare(b.id));
   }
+  function publicRolloverMode(key) {
+    const p = programs[key] || {};
+    return p.publicRollover || (p.type === 'curso' ? (config.coursePublicRollover || 'end') : 'end');
+  }
+  function isPublicCandidate(key, cohort, reference) {
+    if (!cohort) return false;
+    if (publicRolloverMode(key) === 'startDay') {
+      // Cursos cortos dejan de anunciar la cohorte vigente al comenzar su fecha de inicio en Ecuador.
+      return todayString(reference) < cohort.start;
+    }
+    return localStamp(reference) < cohort.end + 'T' + fullTime(cohort.endTime);
+  }
   function getPublishedCohort(key, reference) {
-    const now = localStamp(reference);
-    return getCohorts(key).find(c => now < c.end + 'T' + fullTime(c.endTime)) || null;
+    return getCohorts(key).find(c => isPublicCandidate(key, c, reference)) || null;
   }
   function getStatus(key, reference) {
     const cohort = getPublishedCohort(key, reference);
@@ -116,8 +127,13 @@
   function fieldText(key, field = 'range', style = 'long', reference) {
     const cohort = getPublishedCohort(key, reference);
     const state = getStatus(key, reference);
+    const p = programs[key] || {};
     if (field === 'status') return state === 'active' ? 'En curso' : state === 'upcoming' ? 'Próxima cohorte' : 'Programación';
     if (field === 'summary') return cohort ? `${state === 'active' ? 'En curso' : 'Próxima cohorte'}: ${formatRange(cohort, style)}` : PENDING;
+    if (field === 'schedule') return (cohort && cohort.schedule) || p.schedule || PENDING;
+    if (field === 'scheduleRegional') return (cohort && cohort.scheduleRegional) || p.scheduleRegional || (cohort && cohort.schedule) || p.schedule || PENDING;
+    if (field === 'scheduleEC') return (cohort && cohort.scheduleEC) || p.scheduleEC || (cohort && cohort.schedule) || p.schedule || PENDING;
+    if (field === 'scheduleMX') return (cohort && cohort.scheduleMX) || p.scheduleMX || (cohort && cohort.schedule) || p.schedule || PENDING;
     if (!cohort) return PENDING;
     if (field === 'start') return formatStart(cohort, style);
     if (field === 'end') return formatStart({start:cohort.end}, style);
@@ -213,7 +229,7 @@
     Object.entries(value).forEach(([k,v])=> {out[k]=hydrateSchema(v,key,reference);});
     const type = Array.isArray(value['@type']) ? value['@type'] : [value['@type']];
     if (type.includes('Course') && key && programs[key]) {
-      const cohorts = getCohorts(key).filter(c=>localStamp(reference) < c.end+'T'+fullTime(c.endTime));
+      const cohorts = getCohorts(key).filter(c=>isPublicCandidate(key,c,reference));
       if (!cohorts.length) delete out.hasCourseInstance;
       else {
         const old = Array.isArray(value.hasCourseInstance) ? value.hasCourseInstance[0] : value.hasCourseInstance;
@@ -276,7 +292,7 @@
   }
   const API = Object.freeze({
     version:config.version,timeZone:TIME_ZONE,isDiplomadoAppsAplazado:config.diplomadoAppsAplazado===true,
-    todayString,localStamp,getCohorts,getPublishedCohort,getStatus,formatRange,formatStart,fieldText,renderTemplate,
+    todayString,localStamp,getCohorts,getPublishedCohort,getStatus,publicRolloverMode,isPublicCandidate,formatRange,formatStart,fieldText,renderTemplate,
     programFromValue,pageProgramKey,getCalendarEvents,getDiplomaApps,addDays,weekStart,isEventExpired,isEventActive,
     refreshPublishedDates,refresh,getConfigurationErrors:()=>errors.slice(),getProgramKeys:()=>Object.keys(programs),
     getProgram:key=>programs[key]?clone(programs[key]):null

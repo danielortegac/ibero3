@@ -1,19 +1,19 @@
 /**
  * IBERO — ÚNICA FUENTE DE COHORTES PÚBLICAS.
  * Fechas YYYY-MM-DD; horas en Ecuador (America/Guayaquil).
- * Se mantiene la cohorte hasta su hora final, luego se elige la siguiente confirmada.
- * Si no queda ninguna, todas las vistas muestran «Próxima cohorte por confirmar».
- * Agregar futuras cohortes SOLO en programs.<programa>.cohorts; no editar las páginas.
+ * Los cursos cortos cambian a la siguiente cohorte al comenzar el día de inicio en Ecuador.
+ * Diplomados, máster y talleres conservan su cohorte durante la ejecución; el calendario mantiene los eventos activos.
+ * Si no queda ninguna cohorte futura confirmada, las vistas muestran «Próxima cohorte por confirmar».
+ * Agregar futuras cohortes SOLO en programs.<programa>.cohorts/postponedCohorts; no editar las páginas.
  * status: "confirmed" publica; "tentative" o "cancelled" NO publica.
- * El aplazamiento requiere confirmación humana: diplomadoAppsAplazado: true.
- * postponedCohorts sustituye cohorts SOLO en los 3 programas de contingencia.
+ * diplomadoAppsAplazado: true activa la programación aplazada aprobada.
  * No contiene precios ni modifica inscripciones, certificados o temarios.
  */
 window.IBERO_PROGRAMACION_CONFIG = {
-  "version": "2026-09-05.2",
+  "version": "2026-09-12.1",
   "timeZone": "America/Guayaquil",
   "utcOffset": "-05:00",
-  "diplomadoAppsAplazado": false,
+  "diplomadoAppsAplazado": true,
   "programs": {
     "marketing": {
       "name": "Certificación en Marketing Digital con IA y Agentes",
@@ -47,6 +47,18 @@ window.IBERO_PROGRAMACION_CONFIG = {
           "id": "marketing-2026-10-05",
           "start": "2026-10-05",
           "end": "2026-10-08",
+          "status": "confirmed"
+        },
+        {
+          "id": "marketing-2026-11-02",
+          "start": "2026-11-02",
+          "end": "2026-11-05",
+          "status": "confirmed"
+        },
+        {
+          "id": "marketing-2026-11-23",
+          "start": "2026-11-23",
+          "end": "2026-11-26",
           "status": "confirmed"
         }
       ],
@@ -87,15 +99,27 @@ window.IBERO_PROGRAMACION_CONFIG = {
       ],
       "postponedCohorts": [
         {
-          "id": "agents-2026-09-07",
-          "start": "2026-09-07",
-          "end": "2026-09-10",
+          "id": "agents-2026-09-28",
+          "start": "2026-09-28",
+          "end": "2026-10-01",
           "status": "confirmed"
         },
         {
-          "id": "agents-2026-10-12",
-          "start": "2026-10-12",
-          "end": "2026-10-15",
+          "id": "agents-2026-10-26",
+          "start": "2026-10-26",
+          "end": "2026-10-29",
+          "status": "confirmed"
+        },
+        {
+          "id": "agents-2026-11-16",
+          "start": "2026-11-16",
+          "end": "2026-11-19",
+          "status": "confirmed"
+        },
+        {
+          "id": "agents-2027-01-11",
+          "start": "2027-01-11",
+          "end": "2027-01-14",
           "status": "confirmed"
         }
       ],
@@ -174,7 +198,7 @@ window.IBERO_PROGRAMACION_CONFIG = {
         3,
         4
       ],
-      "schedule": "Lun a Jue, 7:00 PM - 9:00 PM",
+      "schedule": "Lun a Jue · Semanas 1, 2 y 5: 7:00 PM - 9:00 PM · Semanas 3 y 4: 5:00 PM - 7:00 PM (hora Ecuador)",
       "cohorts": [
         {
           "id": "appsDiploma-2026-09-21",
@@ -185,10 +209,53 @@ window.IBERO_PROGRAMACION_CONFIG = {
       ],
       "postponedCohorts": [
         {
-          "id": "appsDiploma-2026-10-19",
-          "start": "2026-10-19",
-          "end": "2026-11-19",
-          "status": "confirmed"
+          "id": "appsDiploma-2026-10-12",
+          "start": "2026-10-12",
+          "end": "2026-11-12",
+          "status": "confirmed",
+          "startTime": "19:00",
+          "endTime": "21:00",
+          "schedule": "Lun a Jue · Semanas 1, 2 y 5: 7:00 PM - 9:00 PM · Semanas 3 y 4: 5:00 PM - 7:00 PM (hora Ecuador)",
+          "scheduleRegional": "Lun–Jue · Semanas 1, 2 y 5: 7:00 PM–9:00 PM EC/CO/PE · 6:00 PM–8:00 PM MX · Semanas 3 y 4: 5:00 PM–7:00 PM EC/CO/PE · 4:00 PM–6:00 PM MX",
+          "scheduleEC": "Semanas 1, 2 y 5: 7:00 PM a 9:00 PM · Semanas 3 y 4: 5:00 PM a 7:00 PM (Ecuador/Colombia/Perú)",
+          "scheduleMX": "Semanas 1, 2 y 5: 6:00 PM a 8:00 PM · Semanas 3 y 4: 4:00 PM a 6:00 PM (México)",
+          "modules": [
+            {
+              "start": "2026-10-12",
+              "end": "2026-10-15",
+              "startTime": "19:00",
+              "endTime": "21:00",
+              "schedule": "Lun a Jue · 7:00 PM - 9:00 PM EC/CO/PE · 6:00 PM - 8:00 PM MX"
+            },
+            {
+              "start": "2026-10-19",
+              "end": "2026-10-22",
+              "startTime": "19:00",
+              "endTime": "21:00",
+              "schedule": "Lun a Jue · 7:00 PM - 9:00 PM EC/CO/PE · 6:00 PM - 8:00 PM MX"
+            },
+            {
+              "start": "2026-10-26",
+              "end": "2026-10-29",
+              "startTime": "17:00",
+              "endTime": "19:00",
+              "schedule": "Lun a Jue · 5:00 PM - 7:00 PM EC/CO/PE · 4:00 PM - 6:00 PM MX"
+            },
+            {
+              "start": "2026-11-02",
+              "end": "2026-11-05",
+              "startTime": "17:00",
+              "endTime": "19:00",
+              "schedule": "Lun a Jue · 5:00 PM - 7:00 PM EC/CO/PE · 4:00 PM - 6:00 PM MX"
+            },
+            {
+              "start": "2026-11-09",
+              "end": "2026-11-12",
+              "startTime": "19:00",
+              "endTime": "21:00",
+              "schedule": "Lun a Jue · 7:00 PM - 9:00 PM EC/CO/PE · 6:00 PM - 8:00 PM MX"
+            }
+          ]
         }
       ],
       "moduleDescriptions": [
@@ -198,7 +265,10 @@ window.IBERO_PROGRAMACION_CONFIG = {
         "Módulo 4: Automatización, onboarding, soporte, agentes comerciales y operación.",
         "Módulo 5: Monetización, pricing, propuesta comercial, métricas, pitch y Demo Day."
       ],
-      "registrationDaysBefore": 28
+      "registrationDaysBefore": 28,
+      "scheduleRegional": "Lun–Jue · Semanas 1, 2 y 5: 7:00 PM–9:00 PM EC/CO/PE · 6:00 PM–8:00 PM MX · Semanas 3 y 4: 5:00 PM–7:00 PM EC/CO/PE · 4:00 PM–6:00 PM MX",
+      "scheduleEC": "Semanas 1, 2 y 5: 7:00 PM a 9:00 PM · Semanas 3 y 4: 5:00 PM a 7:00 PM (Ecuador/Colombia/Perú)",
+      "scheduleMX": "Semanas 1, 2 y 5: 6:00 PM a 8:00 PM · Semanas 3 y 4: 4:00 PM a 6:00 PM (México)"
     },
     "master": {
       "name": "Máster Ejecutivo en IA Aplicada y Dirección de Productos Digitales",
@@ -255,7 +325,7 @@ window.IBERO_PROGRAMACION_CONFIG = {
           "id": "managers-2026-11-30",
           "start": "2026-11-30",
           "end": "2026-12-03",
-          "status": "confirmed"
+          "status": "cancelled"
         }
       ],
       "registrationDaysBefore": 14
@@ -282,5 +352,6 @@ window.IBERO_PROGRAMACION_CONFIG = {
       "cohorts": [],
       "registrationDaysBefore": 28
     }
-  }
+  },
+  "coursePublicRollover": "startDay"
 };

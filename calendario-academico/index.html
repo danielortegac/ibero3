@@ -818,18 +818,15 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="flex flex-col sm:flex-row justify-center items-stretch gap-3 md:gap-4 text-sm md:text-base">
 <div class="bg-white/10 border border-white/20 px-5 py-3 rounded-xl backdrop-blur-md w-full sm:w-auto flex-1 text-center sm:text-left shadow-lg">
 <span class="text-white font-bold block mb-1">
-        Certificaciones y Diplomados
+        Certificaciones y Diplomado Apps
         <span class="text-white/70 font-normal text-xs">
          (Lun - Jue)
         </span>
 </span>
 <span class="text-white/90 text-xs sm:text-sm font-medium tracking-wide">
-        7:00 PM a 9:00 PM EC/CO/PE
-        <span class="text-white/40 mx-1 hidden lg:inline">
-         |
-        </span>
-<br class="lg:hidden"/>
-        6:00 PM a 8:00 PM MX
+        Cursos: 7:00 PM a 9:00 PM EC/CO/PE · 6:00 PM a 8:00 PM MX
+        <br/>
+        Apps: <span data-ibero-date=appsDiploma data-ibero-field=scheduleRegional>Consulta el horario vigente</span>
        </span>
 </div>
 <div class="bg-white/10 border border-white/20 px-5 py-3 rounded-xl backdrop-blur-md w-full sm:w-auto flex-1 text-center sm:text-left shadow-lg">
@@ -1539,7 +1536,7 @@ document.addEventListener('DOMContentLoaded', function(){
             removeTyping();
             
             if(type === 'fechas') {
-                addMessage('¡Claro! 🚀 Aquí tienes la <em>programación vigente</em>:<br><br>• <strong>Certificación en Marketing Digital con IA y Agentes:</strong> <em><span data-ibero-date=marketing data-ibero-field=summary data-ibero-format=dash>Consulta la programación vigente</span></em><br>• <strong>Certificación en Productividad y Automatización de Procesos con IA:</strong> <em><span data-ibero-date=agents data-ibero-field=summary data-ibero-format=dash>Consulta la programación vigente</span></em><br>• <strong>Certificación en IA para Administradores y Gerentes:</strong> <em><span data-ibero-date=managers data-ibero-field=summary data-ibero-format=dash>Consulta la programación vigente</span></em><br>• <strong>Diplomado en Desarrollo de Aplicaciones y Gestión de Productos Digitales con IA:</strong> <em><span data-ibero-date=appsDiploma data-ibero-field=summary data-ibero-format=dash>Consulta la programación vigente</span></em><br>• <strong>Máster Ejecutivo en IA Aplicada y Dirección de Productos Digitales:</strong> <em><span data-ibero-date=master data-ibero-field=summary data-ibero-format=long>Consulta la programación vigente</span></em><br>• <strong>Diplomado en Marketing Digital con Inteligencia Artificial y Agentes:</strong> <em><span data-ibero-date=marketingDiploma data-ibero-field=summary data-ibero-format=long>Consulta la programación vigente</span></em><br>• <strong>Certificación en Creación de Cursos Online y Academias Digitales:</strong> <em><span data-ibero-date=courses data-ibero-field=summary data-ibero-format=dash>Consulta la programación vigente</span></em><br>• <strong>Certificación en Comunicación Efectiva y Hablar en Público:</strong> <em><span data-ibero-date=communication data-ibero-field=summary data-ibero-format=long>Consulta la programación vigente</span> · presencial</em><br><br>💡 <em>Certificaciones y diplomados mantienen 7:00 PM–9:00 PM EC/CO/PE y 6:00 PM–8:00 PM MX.</em>');
+                addMessage('¡Claro! 🚀 Aquí tienes la <em>programación vigente</em>:<br><br>• <strong>Certificación en Marketing Digital con IA y Agentes:</strong> <em><span data-ibero-date=marketing data-ibero-field=summary data-ibero-format=dash>Consulta la programación vigente</span></em><br>• <strong>Certificación en Productividad y Automatización de Procesos con IA:</strong> <em><span data-ibero-date=agents data-ibero-field=summary data-ibero-format=dash>Consulta la programación vigente</span></em><br>• <strong>Certificación en IA para Administradores y Gerentes:</strong> <em><span data-ibero-date=managers data-ibero-field=summary data-ibero-format=dash>Consulta la programación vigente</span></em><br>• <strong>Diplomado en Desarrollo de Aplicaciones y Gestión de Productos Digitales con IA:</strong> <em><span data-ibero-date=appsDiploma data-ibero-field=summary data-ibero-format=dash>Consulta la programación vigente</span></em><br>• <strong>Máster Ejecutivo en IA Aplicada y Dirección de Productos Digitales:</strong> <em><span data-ibero-date=master data-ibero-field=summary data-ibero-format=long>Consulta la programación vigente</span></em><br>• <strong>Diplomado en Marketing Digital con Inteligencia Artificial y Agentes:</strong> <em><span data-ibero-date=marketingDiploma data-ibero-field=summary data-ibero-format=long>Consulta la programación vigente</span></em><br>• <strong>Certificación en Creación de Cursos Online y Academias Digitales:</strong> <em><span data-ibero-date=courses data-ibero-field=summary data-ibero-format=dash>Consulta la programación vigente</span></em><br>• <strong>Certificación en Comunicación Efectiva y Hablar en Público:</strong> <em><span data-ibero-date=communication data-ibero-field=summary data-ibero-format=long>Consulta la programación vigente</span> · presencial</em><br><br>💡 <em>Las certificaciones cortas mantienen 7:00 PM–9:00 PM EC/CO/PE y 6:00 PM–8:00 PM MX. El Diplomado de Apps usa <span data-ibero-date=appsDiploma data-ibero-field=scheduleRegional>su horario vigente por semana</span>.</em>');
             }
             if(type === 'precios') {
                 addMessage('💸 <strong>Inversión oficial:</strong><br><br>• <strong>Certificaciones intensivas de 12 h:</strong> <em>USD $57 · MXN $995 · COP $211.000 · PEN S/200</em><br>• <strong>Taller presencial Comunicación Efectiva:</strong> <em>USD $57 · solo Ecuador</em><br>• <strong>Diplomados de 5 semanas:</strong> <em>USD $277 · MXN $4.850 · COP $1.025.000 · PEN S/975</em><br>• <strong>Máster Ejecutivo completo:</strong> <em>USD $926.25 · MXN $16.191 · COP $3.423.420 · PEN S/3.251</em><br>• <strong>Máster Ejecutivo mensual:</strong> <em>USD $154.38 · MXN $2.699 · COP $570.588 · PEN S/542</em><br><br>✨ <em>Todos los programas incluyen credencial IBERO y acceso a grabaciones. ¡Elige tu programa y asegura tu lugar hoy!</em>');
@@ -1677,8 +1674,11 @@ document.addEventListener('DOMContentLoaded', function(){
     // Funciones Auxiliares para formatear los horarios multipaís
     function formatScheduleDisplay(scheduleStr) {
       if (scheduleStr.includes('7:00 PM - 9:00 PM')) {
-          let days = scheduleStr.split(',')[0];
+          let days = scheduleStr.split(/[·,]/)[0].trim();
           return `${days} | 7:00 PM - 9:00 PM (EC/CO/PE) • 6:00 PM - 8:00 PM (MX)`;
+      } else if (scheduleStr.includes('5:00 PM - 7:00 PM')) {
+          let days = scheduleStr.split(/[·,]/)[0].trim();
+          return `${days} | 5:00 PM - 7:00 PM (EC/CO/PE) • 4:00 PM - 6:00 PM (MX)`;
       } else if (scheduleStr.includes('9:00 PM - 10:20 PM')) {
           let days = scheduleStr.split(',')[0];
           return `${days} | 9:00 PM - 10:20 PM (EC/CO/PE) • 8:00 PM - 9:20 PM (MX)`;
@@ -1694,8 +1694,11 @@ document.addEventListener('DOMContentLoaded', function(){
 
     function formatScheduleModal(scheduleStr) {
       if (scheduleStr.includes('7:00 PM - 9:00 PM')) {
-          let days = scheduleStr.split(',')[0];
+          let days = scheduleStr.split(/[·,]/)[0].trim();
           return `${days}<br><span class="text-white/70 text-[0.7rem] sm:text-xs font-normal mt-1 inline-block leading-tight">7:00 PM a 9:00 PM (EC/CO/PE)<br>6:00 PM a 8:00 PM (MX)</span>`;
+      } else if (scheduleStr.includes('5:00 PM - 7:00 PM')) {
+          let days = scheduleStr.split(/[·,]/)[0].trim();
+          return `${days}<br><span class="text-white/70 text-[0.7rem] sm:text-xs font-normal mt-1 inline-block leading-tight">5:00 PM a 7:00 PM (EC/CO/PE)<br>4:00 PM a 6:00 PM (MX)</span>`;
       } else if (scheduleStr.includes('9:00 PM - 10:20 PM')) {
           let days = scheduleStr.split(',')[0];
           return `${days}<br><span class="text-white/70 text-[0.7rem] sm:text-xs font-normal mt-1 inline-block leading-tight">9:00 PM a 10:20 PM (EC/CO/PE)<br>8:00 PM a 9:20 PM (MX)</span>`;
