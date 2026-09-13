@@ -162,21 +162,117 @@ window.BASE_DE_DATOS_DIPLOMAS = {
     "url": "/fotos/diplomas/certificado-marketing-digital-ia-39h-sara-esquivel.png",
     "curso": "Marketing Digital e Inteligencia Artificial · Certificado 39 horas · 19 de agosto de 2026"
   },
-  "daniel-eduardo-ortega-corella": {
-    "nombre": "Daniel Eduardo Ortega Corella",
-    "url": "/fotos/diplomas/certificado-marketing-digital-ia-12h-daniel-eduardo-ortega-corella.png",
-    "curso": "Marketing Digital e Inteligencia Artificial · Certificado 12 horas · 30 de mayo del 2026"
+  "daniel-eduardo-ortega-corella": [
+    {
+      "nombre": "Daniel Eduardo Ortega Corella",
+      "url": "/fotos/diplomas/certificado-marketing-digital-ia-12h-daniel-eduardo-ortega-corella.png",
+      "curso": "Marketing Digital e Inteligencia Artificial · Certificado 12 horas · 30 de mayo del 2026"
+    },
+    {
+      "id": "certificado-productividad-automatizacion-ia-12h-daniel-eduardo-ortega-corella",
+      "nombre": "Daniel Eduardo Ortega Corella",
+      "url": "/fotos/diplomas/certificado-productividad-automatizacion-ia-12h-daniel-eduardo-ortega-corella.png",
+      "curso": "Certificación en Productividad y Automatización de Procesos con Inteligencia Artificial · Certificado 12 horas · 10 de septiembre de 2026"
+    }
+  ],
+  "alejandra-lozada": [
+    {
+      "id": "certificado-marketing-digital-ia-agentes-12h-alejandra-lozada",
+      "nombre": "Alejandra Lozada",
+      "url": "/fotos/diplomas/certificado-marketing-digital-ia-agentes-12h-alejandra-lozada.png",
+      "curso": "Certificación en Marketing Digital con Inteligencia Artificial y Agentes · Certificado 12 horas · 3 de septiembre de 2026"
+    },
+    {
+      "id": "certificado-productividad-automatizacion-ia-12h-alejandra-lozada",
+      "nombre": "Alejandra Lozada",
+      "url": "/fotos/diplomas/certificado-productividad-automatizacion-ia-12h-alejandra-lozada.png",
+      "curso": "Certificación en Productividad y Automatización de Procesos con Inteligencia Artificial · Certificado 12 horas · 10 de septiembre de 2026"
+    }
+  ],
+  "richard-rosero": [
+    {
+      "id": "certificado-marketing-digital-ia-agentes-12h-richard-rosero",
+      "nombre": "Richard Rosero",
+      "url": "/fotos/diplomas/certificado-marketing-digital-ia-agentes-12h-richard-rosero.png",
+      "curso": "Certificación en Marketing Digital con Inteligencia Artificial y Agentes · Certificado 12 horas · 3 de septiembre de 2026"
+    },
+    {
+      "id": "certificado-productividad-automatizacion-ia-12h-richard-rosero",
+      "nombre": "Richard Rosero",
+      "url": "/fotos/diplomas/certificado-productividad-automatizacion-ia-12h-richard-rosero.png",
+      "curso": "Certificación en Productividad y Automatización de Procesos con Inteligencia Artificial · Certificado 12 horas · 10 de septiembre de 2026"
+    }
+  ],
+  "carlos-de-atoca-aguilar-correa": {
+    "id": "certificado-productividad-automatizacion-ia-12h-carlos-de-atoca-aguilar-correa",
+    "nombre": "Carlos de Atoca Aguilar Correa",
+    "url": "/fotos/diplomas/certificado-productividad-automatizacion-ia-12h-carlos-de-atoca-aguilar-correa.png",
+    "curso": "Certificación en Productividad y Automatización de Procesos con Inteligencia Artificial · Certificado 12 horas · 10 de septiembre de 2026"
   },
-  "alejandra-lozada": {
-    "id": "certificado-marketing-digital-ia-agentes-12h-alejandra-lozada",
-    "nombre": "Alejandra Lozada",
-    "url": "/fotos/diplomas/certificado-marketing-digital-ia-agentes-12h-alejandra-lozada.png",
-    "curso": "Certificación en Marketing Digital con Inteligencia Artificial y Agentes · Certificado 12 horas · 3 de septiembre de 2026"
+  "eddy-valencia-torres": {
+    "id": "certificado-productividad-automatizacion-ia-12h-eddy-valencia-torres",
+    "nombre": "Eddy Valencia Torres",
+    "url": "/fotos/diplomas/certificado-productividad-automatizacion-ia-12h-eddy-valencia-torres.png",
+    "curso": "Certificación en Productividad y Automatización de Procesos con Inteligencia Artificial · Certificado 12 horas · 10 de septiembre de 2026"
   },
-  "richard-rosero": {
-    "id": "certificado-marketing-digital-ia-agentes-12h-richard-rosero",
-    "nombre": "Richard Rosero",
-    "url": "/fotos/diplomas/certificado-marketing-digital-ia-agentes-12h-richard-rosero.png",
-    "curso": "Certificación en Marketing Digital con Inteligencia Artificial y Agentes · Certificado 12 horas · 3 de septiembre de 2026"
+  "juan-carlos-meneses-lazcano": {
+    "id": "certificado-productividad-automatizacion-ia-12h-juan-carlos-meneses-lazcano",
+    "nombre": "Juan Carlos Meneses Lazcano",
+    "url": "/fotos/diplomas/certificado-productividad-automatizacion-ia-12h-juan-carlos-meneses-lazcano.png",
+    "curso": "Certificación en Productividad y Automatización de Procesos con Inteligencia Artificial · Certificado 12 horas · 10 de septiembre de 2026"
+  },
+  "luis-armando-uvidia-achance": {
+    "id": "certificado-productividad-automatizacion-ia-12h-luis-armando-uvidia-achance",
+    "nombre": "Luis Armando Uvidia Achance",
+    "url": "/fotos/diplomas/certificado-productividad-automatizacion-ia-12h-luis-armando-uvidia-achance.png",
+    "curso": "Certificación en Productividad y Automatización de Procesos con Inteligencia Artificial · Certificado 12 horas · 10 de septiembre de 2026"
+  },
+  "luis-eduardo-pavon-rosero": {
+    "id": "certificado-productividad-automatizacion-ia-12h-luis-eduardo-pavon-rosero",
+    "nombre": "Luis Eduardo Pavon Rosero",
+    "url": "/fotos/diplomas/certificado-productividad-automatizacion-ia-12h-luis-eduardo-pavon-rosero.png",
+    "curso": "Certificación en Productividad y Automatización de Procesos con Inteligencia Artificial · Certificado 12 horas · 10 de septiembre de 2026"
+  },
+  "mirian-susana-riera": {
+    "id": "certificado-productividad-automatizacion-ia-12h-mirian-susana-riera",
+    "nombre": "Mirian Susana Riera",
+    "url": "/fotos/diplomas/certificado-productividad-automatizacion-ia-12h-mirian-susana-riera.png",
+    "curso": "Certificación en Productividad y Automatización de Procesos con Inteligencia Artificial · Certificado 12 horas · 10 de septiembre de 2026"
+  },
+  "paulina-calvache": {
+    "id": "certificado-productividad-automatizacion-ia-12h-paulina-calvache",
+    "nombre": "Paulina Calvache",
+    "url": "/fotos/diplomas/certificado-productividad-automatizacion-ia-12h-paulina-calvache.png",
+    "curso": "Certificación en Productividad y Automatización de Procesos con Inteligencia Artificial · Certificado 12 horas · 10 de septiembre de 2026"
+  },
+  "sergio-ricse": {
+    "id": "certificado-productividad-automatizacion-ia-12h-sergio-ricse",
+    "nombre": "Sergio Ricse",
+    "url": "/fotos/diplomas/certificado-productividad-automatizacion-ia-12h-sergio-ricse.png",
+    "curso": "Certificación en Productividad y Automatización de Procesos con Inteligencia Artificial · Certificado 12 horas · 10 de septiembre de 2026"
+  },
+  "johanna-carrera": {
+    "id": "certificado-productividad-automatizacion-ia-12h-johanna-carrera",
+    "nombre": "Johanna Carrera",
+    "url": "/fotos/diplomas/certificado-productividad-automatizacion-ia-12h-johanna-carrera.png",
+    "curso": "Certificación en Productividad y Automatización de Procesos con Inteligencia Artificial · Certificado 12 horas · 10 de septiembre de 2026"
+  },
+  "johnny-eduardo-ortega-aguilar": {
+    "id": "certificado-productividad-automatizacion-ia-12h-johnny-eduardo-ortega-aguilar",
+    "nombre": "Johnny Eduardo Ortega Aguilar",
+    "url": "/fotos/diplomas/certificado-productividad-automatizacion-ia-12h-johnny-eduardo-ortega-aguilar.png",
+    "curso": "Certificación en Productividad y Automatización de Procesos con Inteligencia Artificial · Certificado 12 horas · 10 de septiembre de 2026"
+  },
+  "victor-andres-ortega-corella": {
+    "id": "certificado-productividad-automatizacion-ia-12h-victor-andres-ortega-corella",
+    "nombre": "Victor Andrés Ortega Corella",
+    "url": "/fotos/diplomas/certificado-productividad-automatizacion-ia-12h-victor-andres-ortega-corella.png",
+    "curso": "Certificación en Productividad y Automatización de Procesos con Inteligencia Artificial · Certificado 12 horas · 10 de septiembre de 2026"
+  },
+  "kathya-victoria-corella-raza": {
+    "id": "certificado-productividad-automatizacion-ia-12h-kathya-victoria-corella-raza",
+    "nombre": "Kathya Victoria Corella Raza",
+    "url": "/fotos/diplomas/certificado-productividad-automatizacion-ia-12h-kathya-victoria-corella-raza.png",
+    "curso": "Certificación en Productividad y Automatización de Procesos con Inteligencia Artificial · Certificado 12 horas · 10 de septiembre de 2026"
   }
 };

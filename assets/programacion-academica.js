@@ -98,6 +98,12 @@
     if (!cohort) return 'pending';
     return localStamp(reference) >= cohort.start + 'T' + fullTime(cohort.startTime) ? 'active' : 'upcoming';
   }
+  function hasConfirmedPublicCohort(key, reference) {
+    return !!getPublishedCohort(key, reference);
+  }
+  function commercialLabel(key, reference) {
+    return hasConfirmedPublicCohort(key, reference) ? 'Matrículas abiertas' : PENDING;
+  }
   function formatStart(item, style = 'long') {
     if (!item) return PENDING;
     const s = dateParts(item.start);
@@ -128,7 +134,10 @@
     const cohort = getPublishedCohort(key, reference);
     const state = getStatus(key, reference);
     const p = programs[key] || {};
-    if (field === 'status') return state === 'active' ? 'En curso' : state === 'upcoming' ? 'Próxima cohorte' : 'Programación';
+    if (field === 'status') {
+      if (p.type === 'curso') return commercialLabel(key, reference);
+      return state === 'active' ? 'En curso' : state === 'upcoming' ? 'Próxima cohorte' : PENDING;
+    }
     if (field === 'summary') return cohort ? `${state === 'active' ? 'En curso' : 'Próxima cohorte'}: ${formatRange(cohort, style)}` : PENDING;
     if (field === 'schedule') return (cohort && cohort.schedule) || p.schedule || PENDING;
     if (field === 'scheduleRegional') return (cohort && cohort.scheduleRegional) || p.scheduleRegional || (cohort && cohort.schedule) || p.schedule || PENDING;
@@ -263,6 +272,36 @@
       const state=getStatus(key);
       if (el.getAttribute('data-ibero-state')!==state) el.setAttribute('data-ibero-state',state);
     });
+    // Estado comercial: solo hay "Matrículas abiertas" cuando existe una próxima cohorte confirmada.
+    // En cursos cortos el rollover público ocurre el mismo día de inicio, por lo que la tarjeta salta
+    // a la siguiente cohorte o queda en "Próxima cohorte por confirmar" sin invitar a pagar.
+    findWithin(root,'[data-ibero-commercial-status]').forEach(el=>{
+      const key=el.getAttribute('data-ibero-commercial-status');
+      const open=hasConfirmedPublicCohort(key);
+      const text=open ? 'Matrículas Abiertas' : PENDING;
+      if(el.textContent.trim()!==text) {
+        const dot=el.querySelector('[data-ibero-commercial-dot]');
+        if(dot) {
+          Array.from(el.childNodes).filter(n=>n!==dot).forEach(n=>n.remove());
+          el.appendChild(document.createTextNode(text));
+        } else el.textContent=text;
+      }
+      el.setAttribute('data-ibero-commercial-state',open?'open':'pending');
+      const dot=el.querySelector('[data-ibero-commercial-dot]');
+      if(dot) dot.hidden=!open;
+    });
+    findWithin(root,'[data-ibero-registration]').forEach(el=>{
+      const key=el.getAttribute('data-ibero-registration');
+      const open=hasConfirmedPublicCohort(key);
+      el.hidden=!open;
+      // `hidden` can lose the cascade against utility display classes such as `flex`.
+      // Force the commercial CTA off when there is no confirmed public cohort.
+      if(!open) el.style.setProperty('display','none','important');
+      else el.style.removeProperty('display');
+      el.setAttribute('aria-hidden',open?'false':'true');
+      if(!open) el.setAttribute('tabindex','-1');
+      else if(el.getAttribute('tabindex')==='-1') el.removeAttribute('tabindex');
+    });
     findWithin(root,'[data-ibero-content-template]').forEach(el=>{
       const text=renderTemplate(el.getAttribute('data-ibero-content-template'));
       const attr=el.getAttribute('data-ibero-content-attribute') || 'content';
@@ -292,7 +331,7 @@
   }
   const API = Object.freeze({
     version:config.version,timeZone:TIME_ZONE,isDiplomadoAppsAplazado:config.diplomadoAppsAplazado===true,
-    todayString,localStamp,getCohorts,getPublishedCohort,getStatus,publicRolloverMode,isPublicCandidate,formatRange,formatStart,fieldText,renderTemplate,
+    todayString,localStamp,getCohorts,getPublishedCohort,getStatus,hasConfirmedPublicCohort,commercialLabel,publicRolloverMode,isPublicCandidate,formatRange,formatStart,fieldText,renderTemplate,
     programFromValue,pageProgramKey,getCalendarEvents,getDiplomaApps,addDays,weekStart,isEventExpired,isEventActive,
     refreshPublishedDates,refresh,getConfigurationErrors:()=>errors.slice(),getProgramKeys:()=>Object.keys(programs),
     getProgram:key=>programs[key]?clone(programs[key]):null
