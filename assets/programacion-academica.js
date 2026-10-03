@@ -83,7 +83,7 @@
     return p.publicRollover || (p.type === 'curso' ? (config.coursePublicRollover || 'end') : 'end');
   }
   function isPublicCandidate(key, cohort, reference) {
-    if (!cohort) return false;
+    if (!cohort || cohort.registrationClosed === true) return false;
     if (publicRolloverMode(key) === 'startDay') {
       // Cursos cortos dejan de anunciar la cohorte vigente al comenzar su fecha de inicio en Ecuador.
       return todayString(reference) < cohort.start;
@@ -178,7 +178,9 @@
       for (const c of getCohorts(key)) {
         const event = {title:p.calendarTitle || p.name, type:p.type, start:c.start, end:c.end,
           startTime:c.startTime, endTime:c.endTime, schedule:c.schedule || p.schedule,
-          desc:p.description || '', link:'https://ibero.education' + p.url, programId:key, cohortId:c.id};
+          desc:p.description || '', link:'https://ibero.education' + p.url, programId:key, cohortId:c.id,
+          weekdays:clone(c.weekdays || p.weekdays || [1,2,3,4]),
+          registrationClosed:c.registrationClosed === true, cohortStart:c.start, cohortEnd:c.end};
         if (p.type === 'diplomado' || p.type === 'master') {
           // New cohorts automatically generate weeks from their actual boundaries.
           const explicit = Array.isArray(c.modules) && c.modules.length ? c.modules : null;
@@ -198,15 +200,91 @@
           blocks.forEach((m,i) => events.push({...event,...m,moduleIndex:i,
             desc:m.desc || (p.moduleDescriptions || [])[i] || (p.type === 'diplomado' ? `Módulo ${i+1}: ` : '') + event.desc}));
         } else events.push(event);
-        if (p.type === 'master') events.push({...event,
-          title:'⚫ Inscripciones: '+event.title, type:'inscripcion', relatedType:'master',
+        if (p.type === 'master' && !event.registrationClosed) events.push({...event,
+          title:'⚫ Recordatorio de matrícula: '+event.title, type:'inscripcion', relatedType:'master',
           start:addDays(c.start,-(p.registrationDaysBefore || 28)), end:addDays(c.start,-(p.registrationDaysBefore || 28)),
           startTime:'00:00',endTime:'23:59:59',schedule:'Inicia el '+formatStart(c,'noYear'),
-          desc:'Apertura oficial de inscripciones al Máster Ejecutivo.'});
+          desc:'Recordatorio de matrícula del Máster Ejecutivo. Consulta la convocatoria y sus cupos; este hito no define la apertura de inscripciones.'});
       }
     }
     return events.sort((a,b) => a.start.localeCompare(b.start) || a.title.localeCompare(b.title));
   }
+
+  // Estado por COHORTE, no solamente por el nombre del programa.
+  // La regla de apertura comercial no se infiere de un recordatorio del calendario.
+  function getRegistrationState(key, cohortId, reference) {
+    const p = programs[key];
+    const c = cohortId ? getCohorts(key).find(item=>item.id===cohortId) : getPublishedCohort(key,reference);
+    const programUrl = p ? 'https://www.ibero.education' + p.url : 'https://www.ibero.education/registro-y-admisiones/';
+    if (!p || !c) return {state:'pending',canRegister:false,cohort:null,programUrl,label:PENDING};
+    const closed = !isPublicCandidate(key,c,reference);
+    if (closed) return {state:'closed',canRegister:false,cohort:c,programUrl,label:'Matrículas cerradas para esta cohorte'};
+    const active = localStamp(reference) >= c.start+'T'+fullTime(c.startTime);
+    return {state:active?'active':'open',canRegister:true,cohort:c,programUrl,label:active?'Cohorte en curso':'Matrículas abiertas'};
+  }
+
+  function eventTimes(event) {
+    const p = programs[event.programId] || {};
+    if (validTime(event.startTime) && validTime(event.endTime)) return [event.startTime,event.endTime];
+    if (validTime(p.startTime) && validTime(p.endTime)) return [p.startTime,p.endTime];
+    // Compatibilidad con sesiones históricas sin campos de hora estructurados.
+    const values=Array.from(String(event.schedule||'').matchAll(/(\d{1,2}):(\d{2})\s*(AM|PM)/gi));
+    if (values.length===2) return values.map(m=>pad((Number(m[1])%12)+(m[3].toUpperCase()==='PM'?12:0))+':'+m[2]);
+    return null; // No exportar horas inventadas si el evento no permite resolverlas.
+  }
+
+  function getEventSessions(event) {
+    if (!event || !validDate(event.start) || !validDate(event.end) || event.end<event.start) return [];
+    if (event.type==='inscripcion' || event.type==='comercial') return [{date:event.start,endDate:addDays(event.end,1),allDay:true}];
+    const times=eventTimes(event);
+    if (!times) return [];
+    const p=programs[event.programId]||{};
+    const days=event.weekdays || p.weekdays || [0,1,2,3,4,5,6];
+    const sessions=[];
+    for (let day=event.start,count=0;day<=event.end && count<2000;day=addDays(day,1),count++) {
+      if (!days.includes(weekday(day))) continue;
+      const endDay=times[1]<=times[0]?addDays(day,1):day;
+      const start=new Date(day+'T'+fullTime(times[0])+OFFSET);
+      const end=new Date(endDay+'T'+fullTime(times[1])+OFFSET);
+      if (Number.isNaN(start.getTime()) || Number.isNaN(end.getTime()) || end<=start) continue;
+      sessions.push({date:day,endDate:endDay,startTime:times[0],endTime:times[1],startUTC:start.toISOString(),endUTC:end.toISOString(),allDay:false});
+    }
+    return sessions;
+  }
+
+  // RFC 5545: horas absolutas UTC, fin exclusivo, escape y plegado UTF-8 a 75 octetos.
+  function calendarText(value) { return String(value||'').replace(/\\/g,'\\\\').replace(/\r?\n/g,'\\n').replace(/;/g,'\\;').replace(/,/g,'\\,'); }
+  function foldCalendarLine(value) {
+    const encoder=new TextEncoder();let line='',length=0;const lines=[];
+    for(const ch of String(value)) {
+      const n=encoder.encode(ch).length;
+      if(length+n>75){lines.push(line);line=' ';length=1;}
+      line+=ch;length+=n;
+    }
+    lines.push(line);return lines.join('\r\n');
+  }
+  function buildCalendarICS(event, reference=new Date()) {
+    const sessions=getEventSessions(event);
+    if(!sessions.length) return '';
+    const utc=value=>new Date(value).toISOString().replace(/[-:]/g,'').replace(/\.\d{3}Z$/,'Z');
+    const dtstamp=utc(reference);
+    const slug=value=>normalize(value).replace(/[^a-z0-9-]+/g,'-').slice(0,150);
+    const lines=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Centro Iberoamericano//Programacion Academica//ES','CALSCALE:GREGORIAN','X-WR-CALNAME:'+calendarText('IBERO · '+event.title)];
+    sessions.forEach(session=>{
+      const kind=session.allDay?'recordatorio':'clase';
+      const uid=slug(event.cohortId||event.programId||event.title)+'-'+session.date+'-'+kind+'@ibero.education';
+      lines.push('BEGIN:VEVENT','UID:'+uid,'DTSTAMP:'+dtstamp);
+      if(session.allDay)lines.push('DTSTART;VALUE=DATE:'+session.date.replace(/-/g,''),'DTEND;VALUE=DATE:'+session.endDate.replace(/-/g,''));
+      else lines.push('DTSTART:'+utc(session.startUTC),'DTEND:'+utc(session.endUTC));
+      const description=(event.desc||'')+(session.allDay?'':'\nHorario base: '+session.startTime+'–'+session.endTime+' · '+TIME_ZONE)+
+        (event.link?'\nInformación del programa: '+event.link:'')+'\nEl acceso a las clases se consulta en QLASE. Este archivo no confirma ni crea una matrícula.';
+      lines.push('SUMMARY:'+calendarText('IBERO · '+event.title),'DESCRIPTION:'+calendarText(description),'TRANSP:'+(session.allDay?'TRANSPARENT':'OPAQUE'));
+      if(/^https?:\/\//i.test(event.link||''))lines.push('URL:'+event.link);
+      lines.push('END:VEVENT');
+    });
+    lines.push('END:VCALENDAR');return lines.map(foldCalendarLine).join('\r\n')+'\r\n';
+  }
+
   function eventEndTime(event) {
     if (event.endTime) return fullTime(event.endTime);
     if (event.type === 'inscripcion' || event.type === 'comercial') return '23:59:59';
@@ -333,6 +411,7 @@
     version:config.version,timeZone:TIME_ZONE,isDiplomadoAppsAplazado:config.diplomadoAppsAplazado===true,
     todayString,localStamp,getCohorts,getPublishedCohort,getStatus,hasConfirmedPublicCohort,commercialLabel,publicRolloverMode,isPublicCandidate,formatRange,formatStart,fieldText,renderTemplate,
     programFromValue,pageProgramKey,getCalendarEvents,getDiplomaApps,addDays,weekStart,isEventExpired,isEventActive,
+    getRegistrationState,getEventSessions,buildCalendarICS,
     refreshPublishedDates,refresh,getConfigurationErrors:()=>errors.slice(),getProgramKeys:()=>Object.keys(programs),
     getProgram:key=>programs[key]?clone(programs[key]):null
   });

@@ -3,7 +3,7 @@
 Sitio oficial: https://ibero.education/
 Nombre institucional: Centro IBEROamericano de Educación
 Idioma principal: español.
-Área de servicio: Ecuador, México, Colombia, Perú y Latinoamérica.
+Área de servicio: Ecuador, México, Colombia, Perú, Costa Rica, Guatemala, El Salvador, Honduras, Panamá, República Dominicana, Puerto Rico, Chile, Argentina, Uruguay, Paraguay y público hispanohablante de Estados Unidos.
 Enfoque: formación práctica en inteligencia artificial aplicada, desarrollo de aplicaciones, productos digitales, marketing digital, docencia con IA, oratoria profesional y negocios digitales.
 
 ## Programación académica dinámica
@@ -15,7 +15,7 @@ Zona horaria: America/Guayaquil. Seleccionar solo cohortes confirmadas cuyo fina
 ## Programas vigentes
 
 - Certificación en Marketing Digital con IA y Agentes: 12 horas, cohorte vigente según el calendario académico, precio USD 57 / MXN 995 / PEN 200 / COP 211000. URL: https://ibero.education/marketing-digital-con-ia/
-- Certificación en Productividad y Automatización de Procesos con IA: 12 horas, cohorte vigente según el calendario académico, precio USD 57 / MXN 995 / PEN 200 / COP 211000. URL: https://ibero.education/productividad-automatizacion-procesos-ia/
+- Certificación en Productividad y Automatización de Procesos con IA: 12 horas (8 sincrónicas + 4 asincrónicas), cohorte del 19 al 22 de octubre de 2026, de 19:00 a 21:00 America/Guayaquil; consultar la programación vigente en el calendario académico. Precios oficiales por país: México: MXN 995 / Costa Rica: CRC 25.500 / Guatemala: GTQ 435 / Ecuador: USD 57 más IVA / Colombia: COP 211.000 / Perú: PEN 200 / El Salvador: USD 57 / Honduras: HNL 1.530 / Panamá: USD 57 / República Dominicana: DOP 3.350 / Puerto Rico: USD 57 / Chile: CLP 54.700 / Argentina: ARS 86.200 / Uruguay: UYU 2.300 / Paraguay: PYG 338.000 / Estados Unidos: USD 57. Pago único. Aceptamos todas las tarjetas de crédito o débito. Se conservan los enlaces específicos de México. URL: https://ibero.education/productividad-automatizacion-procesos-ia/ Mismo proyecto durante cuatro días: conexión MCP comprobada; primera app y habilidad con Codex; formulario, login y persistencia con Antigravity y Firebase; app publicada con una función de IA y un correo automático real. Días 1–3: MP4 o PNG/JPG. Día 4: URL pública funcional. Incluye una ampliación de conexión API desde el software propio y un catálogo de 28 herramientas, según disponibilidad y permisos.
 - Certificación en IA para Administradores y Gerentes: 12 horas, cohorte vigente según el calendario académico, precio USD 57 / MXN 995 / PEN 200 / COP 211000. URL: https://ibero.education/ia-para-gerencia-y-administracion/
 - Certificación en Creación de Cursos Online y Academias Digitales: 12 horas, cohorte vigente según el calendario académico, precio USD 57 / MXN 995 / PEN 200 / COP 211000. URL: https://ibero.education/crea-tu-academia/
 - Certificación en Comunicación Efectiva y Hablar en Público: taller presencial de 4 horas, precio USD 57. URL: https://ibero.education/comunicacion-efectiva/

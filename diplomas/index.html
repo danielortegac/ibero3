@@ -1599,7 +1599,7 @@ Maria Gomez   /fotos/diplomas/maria.jpg   Diplomado..."></textarea>
           const overwrite = confirm(`Ya existe una credencial con esta misma ruta para "${name}". ¿Deseas actualizar únicamente ese registro?`);
           if (!overwrite) return { status: 'cancelled', slug };
         }
-        records[exactIndex] = newRecord;
+        records[exactIndex] = { ...records[exactIndex], ...newRecord };
         saveDiplomaRecords(slug, records);
         return { status: 'updated', slug };
       }

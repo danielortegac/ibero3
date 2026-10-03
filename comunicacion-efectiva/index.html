@@ -301,8 +301,8 @@
 </style>
 <meta content="IBERO, Centro IBEROamericano, Centro Iberoamericano, Iberoamericano, Instituto IBEROamericano, IBERO Education" name="brand-aliases"/>
 <script id="ibero-brand-entity-schema-v13" type="application/ld+json">{"@context":"https://schema.org","@type":["EducationalOrganization","Organization"],"name":"IBERO","alternateName":["Centro IBEROamericano","Centro Iberoamericano","IBERO Education"],"url":"https://ibero.education/","logo":"https://ibero.education/fotos/logos%20ibero/logo%20sin%20fondo%20main%20para%20fondos%20claros.png","description":"Centro privado de formación aplicada en inteligencia artificial, apps, producto digital, marketing digital, docencia, comunicación y negocios digitales para Latinoamérica, España y comunidad latina en Estados Unidos.","areaServed":["Ecuador","México","Colombia","Perú","Latinoamérica","España","Estados Unidos","comunidad latina"],"knowsAbout":["inteligencia artificial aplicada","desarrollo de software con IA","apps con IA","producto digital","marketing digital con IA","IA para docentes","oratoria profesional","negocios digitales","vibe coding","MVP con IA"],"hasOfferCatalog":{"@type":"OfferCatalog","name":"Programas IBERO de IA aplicada y productos digitales"},"legalName":"Centro IBEROamericano de Educación","sameAs":["https://www.youtube.com/@ia.marketing.negocios","https://www.tiktok.com/@ia.marketing.negocios"]}</script>
-<script src="/assets/programacion-academica.config.js?v=20260905-auto2"></script>
-<script src="/assets/programacion-academica.js?v=20260905-auto2"></script>
+<script src="/assets/programacion-academica.config.js?v=20261003-2"></script>
+<script src="/assets/programacion-academica.js?v=20260927-2"></script>
 </head>
 <body class="bg-theme-dark text-slate-300 font-sans antialiased overflow-x-hidden selection:bg-theme-accent selection:text-white pt-[136px] md:pt-[144px]" data-page-country="EC">
 <!-- BOTONES FLOTANTES Y CHATBOT -->
@@ -2698,7 +2698,8 @@ Ver rutas de inscripción
       msgDiv.className = `flex flex-col gap-1 w-[85%] ${isUser ? 'self-end ml-auto items-end' : ''}`;
       const bubble = document.createElement('div');
       bubble.className = `p-3 shadow-sm ${isUser ? 'chat-msg-user' : 'chat-msg-bot'}`;
-      bubble.innerHTML = text;
+      if (isUser) bubble.textContent = text;
+      else bubble.innerHTML = text;
       const time = document.createElement('span');
       time.className = `text-[9px] text-zinc-500 ${isUser ? 'mr-1' : 'ml-1'}`;
       time.innerText = "Ahora";

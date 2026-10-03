@@ -806,8 +806,8 @@
       "name": "Certificación en Productividad y Automatización de Procesos con IA",
       "commercial": "Certificación en Productividad y Automatización de Procesos con IA",
       "url": "/productividad-automatizacion-procesos-ia/",
-      "date": "Consultar la programación vigente en el calendario académico",
-      "hours": "12 horas académicas",
+      "date": "19 al 22 de octubre de 2026; consultar la programación vigente en el calendario académico",
+      "hours": "12 horas académicas: 8 sincrónicas y 4 asincrónicas",
       "schedule": "7:00 PM–9:00 PM EC/CO/PE · 6:00 PM–8:00 PM MX",
       "prices": {
         "USD": "57",
@@ -816,7 +816,77 @@
         "COP": "211.000"
       },
       "programId": "agents",
-      "scheduleSource": "/assets/programacion-academica.config.js"
+      "scheduleSource": "/assets/programacion-academica.config.js",
+      "countryPrices": {
+        "MX": {
+          "currency": "MXN",
+          "price": 995
+        },
+        "CR": {
+          "currency": "CRC",
+          "price": 25500
+        },
+        "GT": {
+          "currency": "GTQ",
+          "price": 435
+        },
+        "EC": {
+          "currency": "USD",
+          "price": 57,
+          "taxNote": "más IVA"
+        },
+        "CO": {
+          "currency": "COP",
+          "price": 211000
+        },
+        "PE": {
+          "currency": "PEN",
+          "price": 200
+        },
+        "SV": {
+          "currency": "USD",
+          "price": 57
+        },
+        "HN": {
+          "currency": "HNL",
+          "price": 1530
+        },
+        "PA": {
+          "currency": "USD",
+          "price": 57
+        },
+        "DO": {
+          "currency": "DOP",
+          "price": 3350
+        },
+        "PR": {
+          "currency": "USD",
+          "price": 57
+        },
+        "CL": {
+          "currency": "CLP",
+          "price": 54700
+        },
+        "AR": {
+          "currency": "ARS",
+          "price": 86200
+        },
+        "UY": {
+          "currency": "UYU",
+          "price": 2300
+        },
+        "PY": {
+          "currency": "PYG",
+          "price": 338000
+        },
+        "US": {
+          "currency": "USD",
+          "price": 57
+        }
+      },
+      "regionalPricingSource": "/assets/mercados-ibero.config.js",
+      "paymentCopy": "Pago único. Aceptamos todas las tarjetas de crédito o débito.",
+      "description": "Mismo proyecto durante cuatro días: conexión MCP comprobada; primera app y habilidad con Codex; formulario, login y persistencia con Antigravity y Firebase; app publicada con una función de IA y un correo automático real. Días 1–3: MP4 o PNG/JPG. Día 4: URL pública funcional. Incluye una ampliación de conexión API desde el software propio y un catálogo de 28 herramientas, según disponibilidad y permisos."
     },
     {
       "type": "Certificación",
@@ -979,7 +1049,76 @@
       "dates": "Consultar la programación vigente en el calendario académico",
       "price_usd": 57,
       "programId": "agents",
-      "scheduleSource": "/assets/programacion-academica.config.js"
+      "scheduleSource": "/assets/programacion-academica.config.js",
+      "countryPrices": {
+        "MX": {
+          "currency": "MXN",
+          "price": 995
+        },
+        "CR": {
+          "currency": "CRC",
+          "price": 25500
+        },
+        "GT": {
+          "currency": "GTQ",
+          "price": 435
+        },
+        "EC": {
+          "currency": "USD",
+          "price": 57,
+          "taxNote": "más IVA"
+        },
+        "CO": {
+          "currency": "COP",
+          "price": 211000
+        },
+        "PE": {
+          "currency": "PEN",
+          "price": 200
+        },
+        "SV": {
+          "currency": "USD",
+          "price": 57
+        },
+        "HN": {
+          "currency": "HNL",
+          "price": 1530
+        },
+        "PA": {
+          "currency": "USD",
+          "price": 57
+        },
+        "DO": {
+          "currency": "DOP",
+          "price": 3350
+        },
+        "PR": {
+          "currency": "USD",
+          "price": 57
+        },
+        "CL": {
+          "currency": "CLP",
+          "price": 54700
+        },
+        "AR": {
+          "currency": "ARS",
+          "price": 86200
+        },
+        "UY": {
+          "currency": "UYU",
+          "price": 2300
+        },
+        "PY": {
+          "currency": "PYG",
+          "price": 338000
+        },
+        "US": {
+          "currency": "USD",
+          "price": 57
+        }
+      },
+      "regionalPricingSource": "/assets/mercados-ibero.config.js",
+      "paymentCopy": "Pago único. Aceptamos todas las tarjetas de crédito o débito."
     }
   ],
   "brand": "IBERO",

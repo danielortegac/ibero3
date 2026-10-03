@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Bienvenida al Centro Iberoamericano · Activa tu acceso a QLASE</title>
+  <meta name="description" content="Guía de bienvenida del Centro Iberoamericano para activar tu acceso académico a QLASE después de completar tu inscripción.">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="../fotos/logos%20ibero/ibero-favicon.svg" type="image/svg+xml">
+  <style>
+    :root{
+      --bg:#ffffff;--bg-soft:#f8f7f4;--card:#ffffff;--ink:#121212;--muted:#5d626d;
+      --line:#e7e2dc;--line-2:#d7d1ca;--green:#111111;--green-dark:#111111;
+      --wine:#111111;--gold:#4b5563;--shadow:0 22px 60px rgba(28,19,13,.08);--radius:28px;
+    }
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:linear-gradient(180deg,#fff,#fbf9f6);line-height:1.55;overflow-x:hidden}
+    a{color:inherit}img{max-width:100%}
+    .wrap{width:min(1180px,calc(100% - 36px));margin:auto}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+    @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+
+    .topbar{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:22px 0 8px;animation:fadeUp .6s ease both}
+    .brand{display:flex;align-items:center;gap:16px;text-decoration:none}.brand img{width:150px;height:auto;display:block}.brand-copy{display:flex;flex-direction:column;gap:2px}.brand-copy strong{font-size:14px;letter-spacing:.08em;text-transform:uppercase}.brand-copy span{font-size:13px;color:var(--muted)}
+    .secure-pill{display:inline-flex;align-items:center;gap:9px;padding:11px 16px;border-radius:999px;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow);font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.secure-pill svg{width:16px;height:16px;color:#111}
+
+    .hero{position:relative;padding:24px 0 44px;animation:fadeUp .72s ease both;overflow:hidden}
+    .hero-shell{position:relative;min-height:640px}
+    .hero-media{position:absolute;inset:0;z-index:0;overflow:hidden}
+    .hero-media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.82;filter:saturate(1.02)}
+    .hero-media:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,.95) 0%,rgba(255,255,255,.88) 42%,rgba(255,255,255,.72) 62%,rgba(255,255,255,.76) 100%);z-index:1}
+    .hero-grid{position:relative;z-index:3;display:grid;grid-template-columns:1.06fr .94fr;gap:34px;align-items:center;min-height:640px;padding:20px 0}
+    .eyebrow{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:999px;background:rgba(255,255,255,.84);border:1px solid rgba(18,18,18,.10);backdrop-filter:blur(10px);box-shadow:0 10px 35px rgba(19,19,19,.06);font-size:12px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--wine)}
+    .eyebrow .dot{width:9px;height:9px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 6px rgba(34,197,94,.14)}
+    .hero h1{margin:18px 0 14px;font-size:clamp(46px,7vw,82px);line-height:.95;letter-spacing:-.065em;max-width:720px;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}.hero h1 em{display:block;font-style:italic;font-family:Georgia,"Times New Roman",serif;font-weight:500;color:#56535f}
+    .hero-sub{font-size:clamp(19px,2.35vw,24px);max-width:760px;margin:0 0 16px;color:#2f3137}
+    .hero-note{max-width:760px;padding:17px 18px;border:1px solid rgba(18,18,18,.08);border-radius:18px;background:rgba(255,255,255,.72);backdrop-filter:blur(10px);font-size:15px;color:#4b4f58}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 22px;border-radius:16px;border:1px solid transparent;text-decoration:none;font-size:14px;font-weight:900;transition:.24s ease}.btn:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(0,0,0,.08)}.btn-green{background:#111;color:#fff}.btn-green:hover{background:#222}.btn-dark{background:#171717;color:#fff}.btn-dark:hover{background:#252525}.btn-soft{background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-color:rgba(18,18,18,.14);color:#111}.btn-soft:hover{border-color:rgba(18,18,18,.22)}.mini{min-height:48px;font-size:13px}
+
+    .hero-side{display:grid;gap:14px}
+    .glass-card{padding:24px;border-radius:24px;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border:1px solid rgba(18,18,18,.10);box-shadow:0 24px 60px rgba(18,18,18,.10)}
+    .glass-card h3{margin:0 0 12px;font-size:24px;line-height:1.05;letter-spacing:-.03em;color:#111}.glass-card p{margin:0;color:#4b5563}
+    .quick-points{display:grid;gap:15px;margin-top:8px}.qp{display:flex;align-items:flex-start;gap:12px}.qp .icon{width:42px;height:42px;border-radius:15px;background:rgba(17,17,17,.06);display:grid;place-items:center;color:#111;flex:none}.qp strong{display:block;margin-bottom:2px;font-size:16px;color:#111}.qp p{margin:0;font-size:14px;color:#4b5563}
+    .warning{display:flex;align-items:flex-start;gap:12px;padding:19px 18px;border-radius:22px;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border:1px solid rgba(17,17,17,.12)}.warning svg{width:22px;min-width:22px;color:#111;margin-top:1px}.warning strong{display:block;margin-bottom:4px;color:#111}.warning p{margin:0;color:#4b5563;font-size:14px}
+
+    .section{padding:24px 0 0;animation:fadeUp .8s ease both}.section-kicker{font-size:12px;font-weight:900;letter-spacing:.19em;text-transform:uppercase;color:#111}.section-title{margin:10px 0 10px;font-size:clamp(30px,4vw,52px);line-height:1.03;letter-spacing:-.05em}.section-copy{margin:0;max-width:760px;color:var(--muted)}
+    .triad{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px}.card{background:#fff;border:1px solid var(--line);border-radius:26px;padding:24px;box-shadow:var(--shadow);position:relative;overflow:hidden;transition:.22s ease}.card:hover{transform:translateY(-3px)}.card:after{content:"";position:absolute;right:-30px;bottom:-30px;width:130px;height:130px;border-radius:50%;background:radial-gradient(circle,rgba(15,183,122,.08),transparent 70%)}.num{width:44px;height:44px;border-radius:15px;background:rgba(17,17,17,.05);border:1px solid rgba(17,17,17,.10);display:grid;place-items:center;font-weight:900;color:#111}.card h3{margin:16px 0 8px;font-size:20px;letter-spacing:-.02em}.card p{margin:0;color:var(--muted);font-size:14px}.sender{display:inline-flex;margin-top:12px;max-width:100%;padding:9px 12px;border-radius:11px;background:#f8f8f8;border:1px solid #e4e4e4;color:#333;font-size:12px;overflow-wrap:anywhere}
+
+    .mail-real{margin-top:26px;padding:26px;border-radius:30px;background:linear-gradient(135deg,#fff,#faf8f6);border:1px solid var(--line);box-shadow:var(--shadow);display:grid;grid-template-columns:.95fr 1.05fr;gap:24px;align-items:center}
+    .mail-real h3{margin:8px 0 10px;font-size:clamp(28px,3vw,42px);line-height:1.04;letter-spacing:-.04em;color:#111}.mail-real p{margin:0;color:#4b5563}.mail-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}.pill{padding:9px 11px;border-radius:999px;background:#fff;border:1px solid var(--line);font-size:12px;font-weight:700;color:#37393e}.email-shot{position:relative;border-radius:26px;overflow:hidden;border:1px solid var(--line-2);box-shadow:0 18px 45px rgba(17,17,17,.08);background:#fff;animation:floaty 7s ease-in-out infinite}.email-shot img{display:block;width:100%;height:auto}.email-shot .caption{position:absolute;left:16px;right:16px;bottom:16px;padding:11px 13px;border-radius:14px;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border:1px solid rgba(18,18,18,.08);font-size:12px;font-weight:700;color:#32363d}
+
+    .steps{display:grid;gap:24px;margin-top:28px}.step{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:32px;align-items:center;background:linear-gradient(135deg,#fff,#fbfaf8);border:1px solid var(--line);border-radius:30px;padding:26px;box-shadow:var(--shadow)}.step:nth-child(even){grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr)}.step:nth-child(even) .shot{order:2}.shot{position:relative;border-radius:24px;overflow:hidden;background:#f4f4f4;border:1px solid #ece8e4}.shot button{appearance:none;border:0;padding:0;margin:0;width:100%;display:block;background:none;cursor:zoom-in}.shot img{display:block;width:100%;height:auto;transition:transform .35s ease}.shot:hover img{transform:scale(1.015)}.shot .zoom{position:absolute;right:12px;bottom:12px;padding:8px 11px;border-radius:999px;background:rgba(255,255,255,.95);border:1px solid #e6e2dd;font-size:11px;font-weight:800;box-shadow:0 10px 20px rgba(0,0,0,.06);pointer-events:none}.step-no{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:900;letter-spacing:.16em;text-transform:uppercase;color:#111}.step-no b{width:30px;height:30px;border-radius:10px;display:grid;place-items:center;background:#111;color:#fff;letter-spacing:0}.step h3{margin:15px 0 12px;font-size:clamp(24px,3vw,38px);line-height:1.05;letter-spacing:-.04em}.step p{margin:0 0 12px;color:var(--muted)}.step ul{margin:0;padding-left:19px;color:#2b2f34;font-size:14px}.step li{margin:8px 0}.tip{margin-top:16px;padding:14px 15px;border-radius:16px;background:#f8f8f8;border:1px solid #e2e2e2;color:#333;font-size:13px}
+
+    .support{padding-bottom:92px}.support-box{margin-top:26px;padding:28px;border-radius:30px;background:linear-gradient(135deg,#fff,#f8f3f3);border:1px solid #eadfe2;box-shadow:var(--shadow)}.support-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:24px;align-items:center}.support h2{margin:8px 0 10px;font-size:clamp(28px,3vw,40px);line-height:1.03;letter-spacing:-.04em}.support p{margin:0;color:var(--muted)}.support-actions{display:grid;gap:10px}.support-actions .btn{width:100%}
+
+    footer{border-top:1px solid var(--line);background:#fff;padding:34px 0 42px}.foot{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:start}.foot-logo{width:160px;display:block;margin-bottom:14px}.foot p{margin:0;max-width:620px;font-size:13px;color:var(--muted)}.links{display:flex;gap:12px 18px;flex-wrap:wrap;justify-content:flex-end}.links a{font-size:12px;text-decoration:none;color:#4b4f56}.links a:hover{color:var(--wine)}.fine{margin-top:20px;padding-top:18px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:18px;font-size:11px;color:#7a7d84}
+    dialog{width:min(1180px,94vw);max-height:92vh;border:0;border-radius:24px;padding:0;background:#fff;box-shadow:0 35px 100px rgba(0,0,0,.38)}.dialog-inner{position:relative;padding:12px}.dialog-inner img{display:block;max-width:100%;max-height:87vh;margin:auto;border-radius:14px}.close{position:fixed;top:24px;right:24px;width:44px;height:44px;border:1px solid rgba(18,18,18,.12);border-radius:999px;background:#fff;color:#111;font-size:25px;cursor:pointer;z-index:10;box-shadow:0 8px 25px rgba(0,0,0,.15)}dialog::backdrop{background:rgba(0,0,0,.64);backdrop-filter:blur(4px)}
+
+    @media (max-width: 980px){.hero-grid,.mail-real,.support-grid,.foot,.step,.step:nth-child(even){grid-template-columns:1fr}.step:nth-child(even) .shot{order:0}.links{justify-content:flex-start}.fine{flex-direction:column}}
+    @media (max-width: 760px){.triad{grid-template-columns:1fr}.hero-grid{padding:22px 0 20px;min-height:auto}.hero-shell{min-height:auto}.hero h1{font-size:48px}.section-title{font-size:38px}.topbar{padding-top:16px}.brand img{width:118px}.secure-pill{display:none}.hero-actions{display:grid}.btn{width:100%}.mail-real{padding:20px}}
+    @media (max-width: 560px){.wrap{width:min(100% - 22px,1180px)}.brand-copy strong{font-size:12px}.brand-copy span{font-size:12px}.hero h1{font-size:42px}.section-title{font-size:34px}.hero-shell,.step,.support-box,.mail-real,.card{border-radius:22px}.links{display:grid;grid-template-columns:1fr 1fr}}
+  </style>
+</head>
+<body>
+  <header class="wrap topbar">
+    <a class="brand" href="https://www.ibero.education/" aria-label="Ir al sitio del Centro Iberoamericano de Educación">
+      <img src="../fotos/svg/ibero-logo-black-redE.svg" alt="IBERO · Centro Iberoamericano de Educación">
+      <span class="brand-copy"><strong>Centro Iberoamericano</strong><span>Educación profesional aplicada y acceso académico</span></span>
+    </a>
+    <div class="secure-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 5 6v5c0 5 3.4 9.4 7 10 3.6-.6 7-5 7-10V6l-7-3Z"/><path d="m9 12 2 2 4-4"/></svg>Acceso académico seguro</div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-shell">
+        <div class="hero-media">
+          <video autoplay muted loop playsinline preload="auto" aria-hidden="true">
+            <source src="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/284767d23c4cd5793b419e4625bb7707aa42b4f4/fotos/AI_Business_Education_Hero_Video.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="wrap hero-grid">
+          <div>
+            <div class="eyebrow"><span class="dot"></span>Matrícula procesada con éxito</div>
+            <h1>Te damos la bienvenida al <em>Centro Iberoamericano.</em></h1>
+            <p class="hero-sub">Tu siguiente paso es activar tu acceso académico. En QLASE encontrarás tu programa, clases, enlaces, materiales, tareas, evaluaciones, avisos y seguimiento.</p>
+            <div class="hero-note">La inteligencia artificial ya está transformando cómo aprendemos, trabajamos y dirigimos. Te felicitamos por actualizarte hoy y por apostar por una formación útil, aplicada y alineada con el presente.</div>
+            <div class="hero-actions">
+              <a class="btn btn-green" href="https://qlase.goatify.app/" target="_blank" rel="noopener">Entrar a QLASE ↗</a>
+              <a class="btn btn-soft" href="https://qlase.goatify.app/#/registro" target="_blank" rel="noopener">Crear mi perfil directamente</a>
+            </div>
+          </div>
+
+          <aside class="hero-side">
+            <div class="glass-card">
+              <h3>Lo más importante ahora</h3>
+              <div class="quick-points">
+                <div class="qp"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></div><div><strong>Revisa tu correo</strong><p>Busca el mensaje enviado por <b>Centro Iberoamericano vía QLASE</b>.</p></div></div>
+                <div class="qp"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><circle cx="12" cy="8" r="4"/><path d="M6 20a6 6 0 0 1 12 0"/></svg></div><div><strong>Usa el mismo correo</strong><p>Crea tu cuenta o entra con el mismo email usado para tu inscripción.</p></div></div>
+                <div class="qp"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M4 19.5V4.6a1 1 0 0 1 1-1h10l5 5v10.9a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1Z"/><path d="M14 3.5V9h5"/></svg></div><div><strong>Tu programa aparece solo</strong><p>Si entras con el correo correcto, QLASE mostrará automáticamente tu matrícula.</p></div></div>
+              </div>
+            </div>
+            <div class="warning"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.3 2.8 1.8 17a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 2.8a2 2 0 0 0-3.4 0Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg><div><strong>Clave: utiliza exactamente el mismo correo con el que realizaste tu inscripción.</strong><p>No crees una segunda cuenta con otro correo. QLASE vincula la matrícula preparada por Centro Iberoamericano con el correo correcto.</p></div></div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section wrap">
+      <div class="section-kicker">Haz esto primero</div>
+      <h2 class="section-title">Tres comprobaciones antes de entrar</h2>
+      <p class="section-copy">Este proceso toma pocos minutos. Si sigues el mismo correo de tu inscripción, tu programa debería aparecer automáticamente cuando ingreses.</p>
+      <div class="triad">
+        <article class="card"><div class="num">1</div><h3>Revisa tu correo</h3><p>Busca el mensaje de acceso académico enviado por la plataforma del Centro Iberoamericano. Revisa también Spam, No deseado y Promociones.</p><div class="sender">Centro Iberoamericano vía QLASE &lt;qlase@mail.goatify.app&gt;</div></article>
+        <article class="card"><div class="num">2</div><h3>Usa el mismo email</h3><p>Crea tu perfil o inicia sesión con el mismo correo al que llegó la invitación. Si usas Google, debe corresponder a ese mismo email.</p></article>
+        <article class="card"><div class="num">3</div><h3>Comprueba tu programa</h3><p>Al entrar, tu curso debe aparecer dentro de tu panel académico. Desde ahí accederás a clases, materiales, tareas y avisos.</p></article>
+      </div>
+
+      <div class="mail-real">
+        <div>
+          <div class="section-kicker" style="color:#111">Así se ve el correo de acceso</div>
+          <h3>El mensaje de bienvenida llega desde “Centro Iberoamericano vía QLASE”.</h3>
+          <p>Para evitar confusiones, aquí tienes una referencia visual real del correo que recibe el estudiante. El nombre fue difuminado y puede variar, pero el remitente, el estilo del mensaje y la lógica del acceso son estos.</p>
+          <div class="mail-pills">
+            <span class="pill">Remitente: qlase@mail.goatify.app</span>
+            <span class="pill">Acceso: qlase.goatify.app</span>
+            <span class="pill">Usa el mismo correo</span>
+          </div>
+        </div>
+        <div class="email-shot">
+          <img src="assets/email-qlase-real-blur.png" alt="Ejemplo real del correo académico de acceso enviado por Centro Iberoamericano vía QLASE" loading="lazy">
+          <div class="caption">Referencia visual del correo de acceso · el nombre del estudiante fue difuminado</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section wrap">
+      <div class="section-kicker">Guía visual</div>
+      <h2 class="section-title">Cómo entrar a tu aula virtual paso a paso</h2>
+      <p class="section-copy">Las zonas marcadas muestran exactamente dónde debes hacer clic. Puedes tocar cualquier captura para ampliarla.</p>
+      <div class="steps">
+        <article class="step">
+          <div class="shot"><button type="button" data-zoom="assets/01-selecciona-estudiante.webp" aria-label="Ampliar captura del paso 1"><img src="assets/01-selecciona-estudiante.webp" alt="Pantalla inicial de QLASE con la opción Soy Estudiante resaltada" loading="lazy"></button><span class="zoom">Toca para ampliar</span></div>
+          <div><div class="step-no"><b>1</b> Perfil correcto</div><h3>Selecciona “Soy Estudiante”.</h3><p>En la pantalla inicial de QLASE encontrarás dos perfiles. Para acceder a un programa comprado en IBERO, entra por <strong>Soy Estudiante</strong>.</p><ul><li>No necesitas crear un perfil docente.</li><li>Si antes elegiste el perfil equivocado, vuelve a Perfiles y entra por Estudiante; QLASE puede corregir el rol de la cuenta sin borrar tu historial académico.</li><li>El mismo acceso te servirá para revisar tus cursos actuales y futuros en el Centro Iberoamericano.</li></ul><a class="btn btn-dark mini" href="https://qlase.goatify.app/" target="_blank" rel="noopener">Abrir QLASE</a></div>
+        </article>
+        <article class="step">
+          <div class="shot"><button type="button" data-zoom="assets/02-registrate.webp" aria-label="Ampliar captura del paso 2"><img src="assets/02-registrate.webp" alt="Pantalla de ingreso de QLASE con Regístrate aquí resaltado" loading="lazy"></button><span class="zoom">Toca para ampliar</span></div>
+          <div><div class="step-no"><b>2</b> Si es tu primera vez</div><h3>No intentes iniciar sesión antes de crear tu perfil.</h3><p>Si nunca has creado una cuenta en QLASE, en la pantalla de ingreso pulsa <strong>“Regístrate aquí”</strong>.</p><ul><li>Si ya tienes una cuenta QLASE con ese mismo correo, simplemente inicia sesión.</li><li>Si no recuerdas tu contraseña, usa la opción de recuperación en lugar de crear otra cuenta.</li></ul><div class="tip">Evita registrarte con un correo distinto “para probar”. Eso puede impedir que veas la matrícula que Centro Iberoamericano ya preparó para ti.</div></div>
+        </article>
+        <article class="step">
+          <div class="shot"><button type="button" data-zoom="assets/03-crea-perfil.webp" aria-label="Ampliar captura del paso 3"><img src="assets/03-crea-perfil.webp" alt="Formulario para crear perfil de estudiante en QLASE con campos importantes resaltados" loading="lazy"></button><span class="zoom">Toca para ampliar</span></div>
+          <div><div class="step-no"><b>3</b> Crea tu cuenta</div><h3>Regístrate con el correo de tu inscripción.</h3><p>Completa tu nombre, usa <strong>exactamente el mismo correo</strong> al que llegó la invitación y crea una contraseña.</p><ul><li>Confirma la contraseña antes de continuar.</li><li>El bloque “Contexto para personalizar tu experiencia” es opcional; sirve para adaptar ejemplos y acompañamiento. Puedes completarlo, dejarlo vacío o editarlo después.</li><li>También puedes continuar con Google si esa cuenta Google corresponde al mismo correo invitado.</li></ul><a class="btn btn-dark mini" href="https://qlase.goatify.app/#/registro" target="_blank" rel="noopener">Crear mi perfil en QLASE</a></div>
+        </article>
+        <article class="step">
+          <div class="shot"><button type="button" data-zoom="assets/04-programa-visible.webp" aria-label="Ampliar captura del paso 4"><img src="assets/04-programa-visible.webp" alt="Panel académico de QLASE con el programa matriculado resaltado" loading="lazy"></button><span class="zoom">Toca para ampliar</span></div>
+          <div><div class="step-no"><b>4</b> Acceso listo</div><h3>Tu programa aparecerá automáticamente.</h3><p>Cuando la matrícula ya fue preparada por Centro Iberoamericano y entras con el correo correcto, QLASE mostrará tu programa dentro del panel académico.</p><ul><li>Revisa la siguiente clase, fechas y horarios.</li><li>Desde el curso encontrarás enlaces de sesiones en vivo, materiales, grabaciones cuando estén disponibles, tareas, evaluaciones y avisos.</li><li>Conserva los correos de QLASE: allí también recibirás recordatorios y actualizaciones académicas importantes.</li></ul><div class="tip">Si el programa no aparece después de ingresar con el correo correcto, no abras otra cuenta: contáctanos y envía tu comprobante de pago.</div></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section support wrap">
+      <div class="support-box"><div class="support-grid"><div><div class="section-kicker">¿Necesitas ayuda?</div><h2>Si algo no coincide, escríbenos antes de crear otra cuenta.</h2><p>Envíanos el correo utilizado en tu inscripción y tu comprobante de pago. El equipo del Centro Iberoamericano podrá revisar la vinculación de tu matrícula con QLASE.</p></div><div class="support-actions"><a class="btn btn-green" href="https://wa.me/19152854778?text=Hola%20IBERO%2C%20acabo%20de%20completar%20mi%20inscripci%C3%B3n%20y%20necesito%20ayuda%20con%20mi%20acceso%20a%20QLASE." target="_blank" rel="noopener">WhatsApp de Admisiones</a><a class="btn btn-soft" href="mailto:programas@ibero.education?subject=Ayuda%20con%20acceso%20a%20QLASE">programas@ibero.education</a></div></div></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap foot"><div><img class="foot-logo" src="../fotos/svg/ibero-logo-black-redE.svg" alt="Centro Iberoamericano de Educación"><p>Centro Iberoamericano de Educación · Formación profesional aplicada, gestión académica y actualización para un entorno impulsado por inteligencia artificial.</p></div><nav class="links" aria-label="Enlaces institucionales"><a href="https://www.ibero.education/" target="_blank" rel="noopener">Sitio institucional</a><a href="https://qlase.goatify.app/" target="_blank" rel="noopener">QLASE</a><a href="https://www.ibero.education/diplomas/" target="_blank" rel="noopener">Verificar credenciales</a><a href="https://www.instagram.com/centro.iberoamericano/" target="_blank" rel="noopener">Instagram</a><a href="https://www.facebook.com/ibero.education/" target="_blank" rel="noopener">Facebook</a><a href="https://www.linkedin.com/company/centro-iberoamericano/" target="_blank" rel="noopener">LinkedIn</a></nav></div>
+    <div class="wrap fine"><span>© 2026 Centro Iberoamericano de Educación.</span><span>Admisiones: programas@ibero.education · WhatsApp +1 915 285 4778</span></div>
+  </footer>
+
+  <dialog id="viewer" aria-label="Vista ampliada de la guía"><button class="close" type="button" aria-label="Cerrar">×</button><div class="dialog-inner"><img src="" alt="Captura ampliada"></div></dialog>
+  <script>
+    (()=>{const dialog=document.getElementById('viewer');const img=dialog.querySelector('img');document.querySelectorAll('[data-zoom]').forEach(btn=>btn.addEventListener('click',()=>{img.src=btn.dataset.zoom;dialog.showModal();}));dialog.querySelector('.close').addEventListener('click',()=>dialog.close());dialog.addEventListener('click',e=>{if(e.target===dialog)dialog.close();});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&dialog.open)dialog.close();});})();
+  </script>
+</body>
+</html>

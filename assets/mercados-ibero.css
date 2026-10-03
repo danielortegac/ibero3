@@ -1,0 +1,80 @@
+/* IBERO · presentación regional. Estilos acotados: no redefine navegación ni componentes académicos. */
+.ibero-flags-strip{display:flex;flex-wrap:wrap;gap:9px 11px;align-items:center;max-width:100%;margin:20px 0 6px;padding:0;list-style:none}
+.ibero-flags-strip li{display:flex;align-items:center;justify-content:center;width:30px;height:25px;flex:0 0 auto}
+.ibero-flags-strip img{display:block;width:30px;height:22px;object-fit:contain;filter:drop-shadow(0 1px 1px rgba(0,0,0,.12))}
+.ibero-market-control{--market-bg:#fff;--market-fg:#18181b;--market-border:#d4d4d8;--market-muted:#52525b;--market-soft:#f4f4f5;--market-accent:#52525b;width:min(100%,430px);min-width:0;text-align:left;color:var(--market-fg);margin-inline:auto;font-family:inherit}
+.ibero-market-control[data-theme="dark"],.ibero-market-panel[data-theme="dark"]{--market-bg:#15171c;--market-fg:#f4f4f5;--market-border:#42454d;--market-muted:#b5bac5;--market-soft:#22252c;--market-accent:#cbd5e1;color-scheme:dark}
+.ibero-market-label{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--market-muted);margin:0 0 8px;line-height:1.5}
+.ibero-select-wrap{position:relative;display:flex;align-items:center;min-width:0;border:1px solid var(--market-border);border-radius:14px;background:var(--market-bg);box-shadow:0 3px 14px rgba(0,0,0,.04)}
+.ibero-select-wrap:focus-within{outline:2px solid var(--market-accent);outline-offset:3px}
+.ibero-select-wrap:after{content:"";position:absolute;right:18px;top:20px;width:7px;height:7px;border-right:1.7px solid var(--market-muted);border-bottom:1.7px solid var(--market-muted);transform:rotate(45deg);pointer-events:none}
+.ibero-market-select,.ibero-zone-select{display:block;appearance:none;-webkit-appearance:none;border:0;outline:0;background:transparent;color:var(--market-fg);line-height:1.4;font-family:inherit;font-size:14px;font-weight:600;width:100%;min-width:0;min-height:50px;padding:13px 42px 13px 15px;cursor:pointer;border-radius:14px;white-space:normal}
+.ibero-market-select option,.ibero-zone-select option{background:var(--market-bg);color:var(--market-fg)}
+.ibero-zone-wrap{margin-top:11px}.ibero-zone-wrap[hidden]{display:none!important}.ibero-zone-select{padding-left:15px;font-size:12px}
+.ibero-market-note{font-size:12px;line-height:1.6;margin:12px 0 0;color:var(--market-muted);text-wrap:pretty}
+.ibero-local-schedule{font-size:13px;line-height:1.7;overflow-wrap:anywhere;font-weight:600;white-space:normal}
+.ibero-market-control .ibero-local-schedule{color:var(--market-fg);margin:13px 0 0}
+.ibero-country-link{font-size:inherit;line-height:1.5;font-weight:600;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(120,120,130,.4);white-space:normal}
+.ibero-country-link:hover{text-decoration-color:currentColor}.ibero-country-link:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+.ibero-payment-copy{font-size:13px;line-height:1.65;color:inherit;text-align:center;margin:12px 0 0}.ibero-payment-copy strong{display:block;font-size:14px;color:inherit}
+.ibero-price-tax{display:block;font-weight:600;line-height:1.5;font-family:inherit;font-size:13px;margin-top:7px;color:inherit;-webkit-text-fill-color:currentColor;opacity:.85}
+.price-display.ibero-price-local,.price-display-semestral.ibero-price-local,.price-display-mensual.ibero-price-local{font-size:clamp(1.8rem,5.6vw,3.55rem);line-height:1.12;white-space:nowrap;max-width:100%;letter-spacing:-.04em}
+.ibero-market-panel{--market-bg:#fff;--market-fg:#18181b;--market-border:#e4e4e7;--market-muted:#52525b;--market-soft:#fafafa;--market-accent:#52525b;color:var(--market-fg);width:100%;min-width:0}
+.ibero-market-summary{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:20px 0 0}
+.ibero-market-summary article{padding:20px;border:1px solid var(--market-border);border-radius:16px;background:var(--market-bg);min-width:0}
+.ibero-market-summary h3{font-size:13px;font-weight:650;line-height:1.45;margin:0 0 12px;color:var(--market-muted)}
+.ibero-market-summary p{font-size:clamp(17px,2.3vw,24px);font-weight:800;letter-spacing:-.03em;line-height:1.3;margin:0 0 12px;overflow-wrap:anywhere}
+.ibero-market-summary a{font-size:12px;line-height:1.5;text-decoration:underline;text-underline-offset:3px}
+.ibero-all-prices{max-width:600px;width:100%;margin:18px auto 0;color:inherit;font-size:12px;line-height:1.5}
+.ibero-all-prices summary{cursor:pointer;text-align:center;text-decoration:underline;text-underline-offset:4px;padding:8px}
+.ibero-all-prices table{width:100%;border-collapse:collapse;margin-top:12px;table-layout:auto}
+.ibero-all-prices th,.ibero-all-prices td{text-align:left;padding:9px 11px;border-bottom:1px solid rgba(128,128,138,.24);vertical-align:top}
+.ibero-all-prices th{font-weight:700}.ibero-all-prices td:last-child,.ibero-all-prices th:last-child{text-align:right;white-space:nowrap}
+.ibero-all-prices img{width:20px;height:15px;object-fit:contain;display:inline-block;vertical-align:middle;margin-right:7px}
+#modal-prices.ibero-single-price{display:block!important}.ibero-modal-price{text-align:center;border:1px solid rgba(148,163,184,.22);border-radius:14px;padding:17px 12px;background:rgba(0,0,0,.18)}
+.ibero-modal-price small{display:block;font-size:12px;color:#cbd5e1}.ibero-modal-price strong{display:block;margin-top:7px;font-size:24px;line-height:1.25;color:#fff}.ibero-modal-price .ibero-price-tax{color:#d4d4d8}
+.ibero-summary-country{font-size:12px!important;font-weight:500!important;letter-spacing:0!important}
+@media(max-width:767px){.ibero-market-summary{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.ibero-market-summary article{padding:16px}.ibero-flags-strip{display:grid;grid-template-columns:repeat(8,30px);column-gap:9px;row-gap:8px;width:max-content;max-width:100%}.ibero-market-control{max-width:100%}}
+@media(max-width:359px){.ibero-flags-strip{grid-template-columns:repeat(8,26px);gap:7px}.ibero-flags-strip li,.ibero-flags-strip img{width:26px}.ibero-all-prices th,.ibero-all-prices td{padding:8px 5px;font-size:11px}.ibero-market-summary{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.ibero-flags-strip *{animation:none!important;transition:none!important}}
+
+.ibero-zone-wrap>summary{font-size:12px;line-height:1.5;color:var(--market-muted);cursor:pointer;padding:3px 0;text-decoration:underline;text-underline-offset:3px}.ibero-zone-wrap[open]>summary{margin-bottom:12px}
+
+/* Country selection and localized catalogue prices — approved markets only. */
+.ibero-currency-note{font-size:12px;line-height:1.55;margin:9px 0 0;color:var(--market-muted);font-weight:500;overflow-wrap:anywhere}
+.ibero-catalog-price{display:block;margin:0;font-size:clamp(17px,1.6vw,23px);font-weight:800;line-height:1.3;letter-spacing:-.025em;overflow-wrap:anywhere;color:inherit}
+.ibero-catalog-investment{min-width:0;margin:0 0 15px}
+.ibero-catalog-investment .ibero-price-tax{font-size:11px;margin-top:4px}
+.ibero-catalog-country{font-size:11px;line-height:1.45;margin:5px 0 0;color:#52525b}
+.ibero-catalog-selector{margin:24px auto 28px!important;max-width:430px;width:100%}
+[data-ibero-country-only][hidden]{display:none!important}
+
+@media(min-width:1024px){html[data-ibero-country]:not([data-ibero-country="EC"]) #certificaciones-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+
+/* IBERO · Consulta compacta de los 17 destinos, con importes comerciales preservados. */
+.ibero-main-price-country{display:block;font-size:12px;font-weight:600;line-height:1.5;margin-bottom:8px;letter-spacing:0;color:inherit;-webkit-text-fill-color:currentColor;opacity:.8}
+.ibero-all-prices.ibero-market-panel{max-width:620px;margin:20px auto 0;border:1px solid var(--market-border);border-radius:16px;background:var(--market-bg);color:var(--market-fg);overflow:hidden;text-align:left;box-sizing:border-box}
+.ibero-all-prices>summary{display:flex;align-items:center;justify-content:space-between;gap:10px;list-style:none;text-decoration:none;text-align:left;padding:15px 18px;font-size:13px;font-weight:650;line-height:1.5;color:var(--market-fg)}
+.ibero-all-prices>summary::-webkit-details-marker{display:none}.ibero-all-prices>summary::after{content:"";width:7px;height:7px;border-right:1.7px solid currentColor;border-bottom:1.7px solid currentColor;transform:rotate(45deg);flex:0 0 auto;transition:transform .15s}
+.ibero-all-prices[open]>summary::after{transform:rotate(225deg)}.ibero-all-prices>summary:focus-visible{outline:2px solid var(--market-accent);outline-offset:-4px;border-radius:14px}
+.ibero-prices-count{margin-left:auto;font-size:10px;font-weight:500;color:var(--market-muted);white-space:nowrap}
+.ibero-all-prices-body{padding:0 16px 14px;min-width:0}.ibero-price-view-select{display:block;appearance:none;width:100%;min-width:0;min-height:48px;border:0;background:transparent;color:var(--market-fg);font-family:inherit;font-size:12px;font-weight:600;line-height:1.5;padding:12px 39px 12px 13px;cursor:pointer;border-radius:14px}.ibero-price-view-select option{background:var(--market-bg);color:var(--market-fg)}
+.ibero-prices-program{font-size:12px;font-weight:650;line-height:1.6;margin:0 0 10px;overflow-wrap:anywhere}
+.ibero-prices-current{font-size:12px;font-weight:650;line-height:1.65;margin:12px 0;color:var(--market-fg);overflow-wrap:anywhere}
+.ibero-prices-scroll{max-height:340px;width:100%;max-width:100%;overflow:auto;overscroll-behavior:contain;scrollbar-width:thin;border:1px solid var(--market-border);border-radius:10px;background:var(--market-bg);box-sizing:border-box}
+.ibero-prices-scroll:focus-visible{outline:2px solid var(--market-accent);outline-offset:2px}
+.ibero-all-prices .ibero-prices-scroll table{width:100%;margin:0;border-collapse:separate;border-spacing:0;table-layout:fixed;color:var(--market-fg);font-size:12px}
+.ibero-all-prices .ibero-prices-scroll th,.ibero-all-prices .ibero-prices-scroll td{padding:10px 9px;border-bottom:1px solid var(--market-border);line-height:1.55;vertical-align:top;white-space:normal;overflow-wrap:anywhere;text-align:left}
+.ibero-all-prices .ibero-prices-scroll th:first-child{width:46%}.ibero-all-prices[data-ibero-price-columns="3"] .ibero-prices-scroll th:first-child{width:36%}
+.ibero-all-prices .ibero-prices-scroll thead th{position:sticky;top:0;z-index:1;background:var(--market-soft);font-size:11px;color:var(--market-muted);font-weight:650}
+.ibero-all-prices .ibero-prices-scroll tbody th{font-weight:500}.ibero-all-prices .ibero-prices-scroll td{text-align:right;font-variant-numeric:tabular-nums}.ibero-all-prices .ibero-prices-scroll thead th:not(:first-child){text-align:right}
+.ibero-all-prices .ibero-prices-scroll tr:last-child>*{border-bottom:0}.ibero-all-prices .ibero-prices-scroll tr.is-selected>*{background:var(--market-soft);font-weight:750}
+.ibero-all-prices .ibero-prices-scroll tr.is-selected>th{box-shadow:inset 3px 0 var(--market-accent)}
+.ibero-table-currency{font-size:10px;color:var(--market-muted)}.ibero-table-amount{white-space:nowrap}.ibero-table-tax,.ibero-current-country-marker{display:block;font-size:10px;font-weight:600;line-height:1.45;color:var(--market-muted);margin-top:3px}.ibero-current-country-marker[hidden]{display:none!important}
+.ibero-prices-footnote{font-size:11px;line-height:1.65;color:var(--market-muted);margin:12px 0 0;overflow-wrap:anywhere}
+.ibero-modal-monthly{margin-top:16px;padding-top:14px;border-top:1px solid rgba(148,163,184,.22)}.ibero-modal-monthly[hidden],.ibero-price-tax[hidden]{display:none!important}
+.ibero-prices-overview-section{padding:64px 24px;max-width:900px;margin:0 auto;text-align:center}.ibero-prices-overview-section>h2{font-size:clamp(24px,4vw,36px);font-weight:800;line-height:1.3;margin:0 0 12px}.ibero-prices-overview-section>p{font-size:14px;line-height:1.7;color:#52525b;margin:0 0 25px}
+@media(max-width:479px){.ibero-all-prices>summary{padding:13px 12px;font-size:12px;gap:8px}.ibero-prices-count{font-size:9px}.ibero-all-prices-body{padding:0 10px 12px}.ibero-all-prices .ibero-prices-scroll th,.ibero-all-prices .ibero-prices-scroll td{padding:9px 6px;font-size:11px}.ibero-all-prices[data-ibero-price-columns="3"] .ibero-table-currency{display:block}.ibero-prices-scroll{max-height:310px}.ibero-prices-overview-section{padding:48px 16px}}
+@media(max-width:767px){.ibero-all-prices .ibero-prices-scroll{width:calc(100% - 72px)}#modal-prices .ibero-prices-scroll{width:100%}}
+@media(max-width:479px){.ibero-all-prices[data-ibero-price-columns="3"] .ibero-prices-scroll thead{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}.ibero-all-prices[data-ibero-price-columns="3"] .ibero-prices-scroll tbody,.ibero-all-prices[data-ibero-price-columns="3"] .ibero-prices-scroll tbody tr,.ibero-all-prices[data-ibero-price-columns="3"] .ibero-prices-scroll tbody th:first-child,.ibero-all-prices[data-ibero-price-columns="3"] .ibero-prices-scroll tbody td{display:block;width:auto}.ibero-all-prices[data-ibero-price-columns="3"] .ibero-prices-scroll tbody th{padding-bottom:5px}.ibero-all-prices[data-ibero-price-columns="3"] .ibero-prices-scroll tbody td{padding-top:5px}.ibero-all-prices[data-ibero-price-columns="3"] .ibero-prices-scroll tbody td:nth-child(2)::before{content:"Semestral"}.ibero-all-prices[data-ibero-price-columns="3"] .ibero-prices-scroll tbody td:nth-child(3)::before{content:"Mensual · 6 meses"}.ibero-all-prices[data-ibero-price-columns="3"] .ibero-prices-scroll tbody td::before{display:block;text-align:left;font-size:10px;color:var(--market-muted);font-weight:500;margin-bottom:2px}.ibero-all-prices[data-ibero-price-columns="3"] .ibero-table-currency{display:inline}}
+@media(prefers-reduced-motion:reduce){.ibero-all-prices>summary::after{transition:none}}

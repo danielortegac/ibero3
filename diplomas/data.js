@@ -274,5 +274,77 @@ window.BASE_DE_DATOS_DIPLOMAS = {
     "nombre": "Kathya Victoria Corella Raza",
     "url": "/fotos/diplomas/certificado-productividad-automatizacion-ia-12h-kathya-victoria-corella-raza.png",
     "curso": "Certificación en Productividad y Automatización de Procesos con Inteligencia Artificial · Certificado 12 horas · 10 de septiembre de 2026"
+  },
+  "eduardo-moises-ochoa-alva": {
+    "id": "productividad-automatizacion-ia-2026-09-28-eduardo-moises-ochoa-alva",
+    "nombre": "Eduardo Moises Ochoa Alva",
+    "url": "/fotos/diplomas/certificado-productividad-automatizacion-ia-12h-2026-09-28-eduardo-moises-ochoa-alva.png",
+    "curso": "Certificación en Productividad y Automatización de Procesos con Inteligencia Artificial · Certificado 12 horas · Cohorte 28 de septiembre al 1 de octubre de 2026 · Emisión 3 de octubre de 2026",
+    "fechaInicio": "2026-09-28",
+    "fechaFin": "2026-10-01",
+    "fechaEmision": "2026-10-03"
+  },
+  "edwin-cevallos": {
+    "id": "productividad-automatizacion-ia-2026-09-28-edwin-cevallos",
+    "nombre": "Edwin Cevallos",
+    "url": "/fotos/diplomas/certificado-productividad-automatizacion-ia-12h-2026-09-28-edwin-cevallos.png",
+    "curso": "Certificación en Productividad y Automatización de Procesos con Inteligencia Artificial · Certificado 12 horas · Cohorte 28 de septiembre al 1 de octubre de 2026 · Emisión 3 de octubre de 2026",
+    "fechaInicio": "2026-09-28",
+    "fechaFin": "2026-10-01",
+    "fechaEmision": "2026-10-03"
+  },
+  "ismael-ruiz-garcia": {
+    "id": "productividad-automatizacion-ia-2026-09-28-ismael-ruiz-garcia",
+    "nombre": "Ismael Ruiz Garcia",
+    "url": "/fotos/diplomas/certificado-productividad-automatizacion-ia-12h-2026-09-28-ismael-ruiz-garcia.png",
+    "curso": "Certificación en Productividad y Automatización de Procesos con Inteligencia Artificial · Certificado 12 horas · Cohorte 28 de septiembre al 1 de octubre de 2026 · Emisión 3 de octubre de 2026",
+    "fechaInicio": "2026-09-28",
+    "fechaFin": "2026-10-01",
+    "fechaEmision": "2026-10-03"
+  },
+  "sebastian-diaz-jaque": {
+    "id": "productividad-automatizacion-ia-2026-09-28-sebastian-diaz-jaque",
+    "nombre": "Sebastian Diaz Jaque",
+    "url": "/fotos/diplomas/certificado-productividad-automatizacion-ia-12h-2026-09-28-sebastian-diaz-jaque.png",
+    "curso": "Certificación en Productividad y Automatización de Procesos con Inteligencia Artificial · Certificado 12 horas · Cohorte 28 de septiembre al 1 de octubre de 2026 · Emisión 3 de octubre de 2026",
+    "fechaInicio": "2026-09-28",
+    "fechaFin": "2026-10-01",
+    "fechaEmision": "2026-10-03"
+  },
+  "shender-avila-sansores": {
+    "id": "productividad-automatizacion-ia-2026-09-28-shender-avila-sansores",
+    "nombre": "Shender Avila Sansores",
+    "url": "/fotos/diplomas/certificado-productividad-automatizacion-ia-12h-2026-09-28-shender-avila-sansores.png",
+    "curso": "Certificación en Productividad y Automatización de Procesos con Inteligencia Artificial · Certificado 12 horas · Cohorte 28 de septiembre al 1 de octubre de 2026 · Emisión 3 de octubre de 2026",
+    "fechaInicio": "2026-09-28",
+    "fechaFin": "2026-10-01",
+    "fechaEmision": "2026-10-03"
+  },
+  "alex-leon": {
+    "id": "productividad-automatizacion-ia-2026-09-28-alex-leon",
+    "nombre": "Alex León",
+    "url": "/fotos/diplomas/certificado-productividad-automatizacion-ia-12h-2026-09-28-alex-leon.png",
+    "curso": "Certificación en Productividad y Automatización de Procesos con Inteligencia Artificial · Certificado 12 horas · Cohorte 28 de septiembre al 1 de octubre de 2026 · Emisión 3 de octubre de 2026",
+    "fechaInicio": "2026-09-28",
+    "fechaFin": "2026-10-01",
+    "fechaEmision": "2026-10-03"
+  },
+  "byron-rodrigo-chamorro-paspuezan": {
+    "id": "productividad-automatizacion-ia-2026-09-28-byron-rodrigo-chamorro-paspuezan",
+    "nombre": "Byron Rodrigo Chamorro Paspuezan",
+    "url": "/fotos/diplomas/certificado-productividad-automatizacion-ia-12h-2026-09-28-byron-rodrigo-chamorro-paspuezan.png",
+    "curso": "Certificación en Productividad y Automatización de Procesos con Inteligencia Artificial · Certificado 12 horas · Cohorte 28 de septiembre al 1 de octubre de 2026 · Emisión 3 de octubre de 2026",
+    "fechaInicio": "2026-09-28",
+    "fechaFin": "2026-10-01",
+    "fechaEmision": "2026-10-03"
+  },
+  "yonis-alfonso-charris-bonett": {
+    "id": "productividad-automatizacion-ia-2026-09-28-yonis-alfonso-charris-bonett",
+    "nombre": "Yonis Alfonso Charris Bonett",
+    "url": "/fotos/diplomas/certificado-productividad-automatizacion-ia-12h-2026-09-28-yonis-alfonso-charris-bonett.png",
+    "curso": "Certificación en Productividad y Automatización de Procesos con Inteligencia Artificial · Certificado 12 horas · Cohorte 28 de septiembre al 1 de octubre de 2026 · Emisión 3 de octubre de 2026",
+    "fechaInicio": "2026-09-28",
+    "fechaFin": "2026-10-01",
+    "fechaEmision": "2026-10-03"
   }
 };

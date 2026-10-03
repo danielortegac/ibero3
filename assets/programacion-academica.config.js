@@ -10,7 +10,7 @@
  * No contiene precios ni modifica inscripciones, certificados o temarios.
  */
 window.IBERO_PROGRAMACION_CONFIG = {
-  "version": "2026-09-12.1",
+  "version": "2026-10-03.2",
   "timeZone": "America/Guayaquil",
   "utcOffset": "-05:00",
   "diplomadoAppsAplazado": true,
@@ -73,7 +73,7 @@ window.IBERO_PROGRAMACION_CONFIG = {
       ],
       "type": "curso",
       "calendarTitle": "CERTIFICACIÓN EN PRODUCTIVIDAD Y AUTOMATIZACIÓN DE PROCESOS CON INTELIGENCIA ARTIFICIAL",
-      "description": "Crea agentes, diseña loops y automatiza tareas repetitivas para negocios con Codex, Antigravity y Goatify.",
+      "description": "Conecta y comprueba un MCP; crea la primera app y una habilidad con Codex; continúa con Antigravity y Firebase para formulario, login y persistencia; entrega una URL pública funcional con IA y correo automático real.",
       "startTime": "19:00",
       "endTime": "21:00",
       "weekdays": [
@@ -102,12 +102,19 @@ window.IBERO_PROGRAMACION_CONFIG = {
           "id": "agents-2026-09-28",
           "start": "2026-09-28",
           "end": "2026-10-01",
+          "status": "confirmed",
+          "registrationClosed": true
+        },
+        {
+          "id": "agents-2026-10-19",
+          "start": "2026-10-19",
+          "end": "2026-10-22",
           "status": "confirmed"
         },
         {
-          "id": "agents-2026-10-26",
-          "start": "2026-10-26",
-          "end": "2026-10-29",
+          "id": "agents-2026-11-09",
+          "start": "2026-11-09",
+          "end": "2026-11-12",
           "status": "confirmed"
         },
         {
@@ -190,15 +197,15 @@ window.IBERO_PROGRAMACION_CONFIG = {
       "type": "diplomado",
       "calendarTitle": "DIPLOMADO EN DESARROLLO DE APLICACIONES Y GESTIÓN DE PRODUCTOS DIGITALES CON INTELIGENCIA ARTIFICIAL",
       "description": "Construye, lanza y vende una App Web/PWA o MVP con IA.",
-      "startTime": "19:00",
-      "endTime": "21:00",
+      "startTime": "17:00",
+      "endTime": "19:00",
       "weekdays": [
         1,
         2,
         3,
         4
       ],
-      "schedule": "Lun a Jue · Semanas 1, 2 y 5: 7:00 PM - 9:00 PM · Semanas 3 y 4: 5:00 PM - 7:00 PM (hora Ecuador)",
+      "schedule": "Lun a Jue, 5:00 PM - 7:00 PM (hora Ecuador)",
       "cohorts": [
         {
           "id": "appsDiploma-2026-09-21",
@@ -213,26 +220,26 @@ window.IBERO_PROGRAMACION_CONFIG = {
           "start": "2026-10-12",
           "end": "2026-11-12",
           "status": "confirmed",
-          "startTime": "19:00",
-          "endTime": "21:00",
-          "schedule": "Lun a Jue · Semanas 1, 2 y 5: 7:00 PM - 9:00 PM · Semanas 3 y 4: 5:00 PM - 7:00 PM (hora Ecuador)",
-          "scheduleRegional": "Lun–Jue · Semanas 1, 2 y 5: 7:00 PM–9:00 PM EC/CO/PE · 6:00 PM–8:00 PM MX · Semanas 3 y 4: 5:00 PM–7:00 PM EC/CO/PE · 4:00 PM–6:00 PM MX",
-          "scheduleEC": "Semanas 1, 2 y 5: 7:00 PM a 9:00 PM · Semanas 3 y 4: 5:00 PM a 7:00 PM (Ecuador/Colombia/Perú)",
-          "scheduleMX": "Semanas 1, 2 y 5: 6:00 PM a 8:00 PM · Semanas 3 y 4: 4:00 PM a 6:00 PM (México)",
+          "startTime": "17:00",
+          "endTime": "19:00",
+          "schedule": "Lun a Jue, 5:00 PM - 7:00 PM (hora Ecuador)",
+          "scheduleRegional": "Lun–Jue · 5:00 PM–7:00 PM EC/CO/PE · 4:00 PM–6:00 PM MX",
+          "scheduleEC": "5:00 PM a 7:00 PM (Ecuador/Colombia/Perú)",
+          "scheduleMX": "4:00 PM a 6:00 PM (México)",
           "modules": [
             {
               "start": "2026-10-12",
               "end": "2026-10-15",
-              "startTime": "19:00",
-              "endTime": "21:00",
-              "schedule": "Lun a Jue · 7:00 PM - 9:00 PM EC/CO/PE · 6:00 PM - 8:00 PM MX"
+              "startTime": "17:00",
+              "endTime": "19:00",
+              "schedule": "Lun a Jue · 5:00 PM - 7:00 PM EC/CO/PE · 4:00 PM - 6:00 PM MX"
             },
             {
               "start": "2026-10-19",
               "end": "2026-10-22",
-              "startTime": "19:00",
-              "endTime": "21:00",
-              "schedule": "Lun a Jue · 7:00 PM - 9:00 PM EC/CO/PE · 6:00 PM - 8:00 PM MX"
+              "startTime": "17:00",
+              "endTime": "19:00",
+              "schedule": "Lun a Jue · 5:00 PM - 7:00 PM EC/CO/PE · 4:00 PM - 6:00 PM MX"
             },
             {
               "start": "2026-10-26",
@@ -251,9 +258,9 @@ window.IBERO_PROGRAMACION_CONFIG = {
             {
               "start": "2026-11-09",
               "end": "2026-11-12",
-              "startTime": "19:00",
-              "endTime": "21:00",
-              "schedule": "Lun a Jue · 7:00 PM - 9:00 PM EC/CO/PE · 6:00 PM - 8:00 PM MX"
+              "startTime": "17:00",
+              "endTime": "19:00",
+              "schedule": "Lun a Jue · 5:00 PM - 7:00 PM EC/CO/PE · 4:00 PM - 6:00 PM MX"
             }
           ]
         }
@@ -266,9 +273,9 @@ window.IBERO_PROGRAMACION_CONFIG = {
         "Módulo 5: Monetización, pricing, propuesta comercial, métricas, pitch y Demo Day."
       ],
       "registrationDaysBefore": 28,
-      "scheduleRegional": "Lun–Jue · Semanas 1, 2 y 5: 7:00 PM–9:00 PM EC/CO/PE · 6:00 PM–8:00 PM MX · Semanas 3 y 4: 5:00 PM–7:00 PM EC/CO/PE · 4:00 PM–6:00 PM MX",
-      "scheduleEC": "Semanas 1, 2 y 5: 7:00 PM a 9:00 PM · Semanas 3 y 4: 5:00 PM a 7:00 PM (Ecuador/Colombia/Perú)",
-      "scheduleMX": "Semanas 1, 2 y 5: 6:00 PM a 8:00 PM · Semanas 3 y 4: 4:00 PM a 6:00 PM (México)"
+      "scheduleRegional": "Lun–Jue · 5:00 PM–7:00 PM EC/CO/PE · 4:00 PM–6:00 PM MX",
+      "scheduleEC": "5:00 PM a 7:00 PM (Ecuador/Colombia/Perú)",
+      "scheduleMX": "4:00 PM a 6:00 PM (México)"
     },
     "master": {
       "name": "Máster Ejecutivo en IA Aplicada y Dirección de Productos Digitales",
