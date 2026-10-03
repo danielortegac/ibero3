@@ -17,12 +17,33 @@
   const normalize = s => String(s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
   const clone = o => JSON.parse(JSON.stringify(o));
 
-  function localParts(reference = new Date()) {
+  function selectedMarket() {
+    if (window.IBERO_MERCADOS) return window.IBERO_MERCADOS.getCountry();
+    const params=new URLSearchParams(window.location.search||'');
+    const explicit=params.get('pais')||params.get('country');
+    if(explicit) return explicit.toUpperCase();
+    try {const saved=JSON.parse(localStorage.getItem('ibero.market.v1')||'null');if(saved&&saved.country)return saved.country;}catch(_){}
+    if (/\/espana(?:\/|$)/.test(window.location.pathname)) return 'ES';
+    return document.documentElement.dataset.iberoCountry || 'EC';
+  }
+  // Resolve a wall-clock time against IANA rules for its actual session date.
+  function zonedDate(date,time,zone=TIME_ZONE) {
+    const wanted=Date.parse(date+'T'+fullTime(time)+'Z');
+    let result=wanted;
+    for(let i=0;i<3;i++) {
+      const p=localParts(new Date(result),zone);
+      const observed=Date.parse(`${p.year}-${p.month}-${p.day}T${p.hour}:${p.minute}:${p.second}Z`);
+      const delta=wanted-observed;
+      result+=delta;if(!delta)break;
+    }
+    return new Date(result);
+  }
+  function localParts(reference = new Date(), zone = TIME_ZONE) {
     // A bare date is interpreted in Ecuador, never in the visitor's timezone.
     if (typeof reference === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(reference)) reference += 'T00:00:00' + OFFSET;
     const date = reference instanceof Date ? reference : new Date(reference);
     return new Intl.DateTimeFormat('en-CA', {
-      timeZone: TIME_ZONE, year: 'numeric', month: '2-digit', day: '2-digit',
+      timeZone: zone, year: 'numeric', month: '2-digit', day: '2-digit',
       hour: '2-digit', minute: '2-digit', second: '2-digit', hourCycle: 'h23'
     }).formatToParts(date).reduce((out, p) => {
       if (p.type !== 'literal') out[p.type] = p.value;
@@ -33,8 +54,8 @@
     const p = localParts(reference);
     return `${p.year}-${p.month}-${p.day}`;
   }
-  function localStamp(reference) {
-    const p = localParts(reference);
+  function localStamp(reference, zone=TIME_ZONE) {
+    const p = localParts(reference,zone);
     return `${p.year}-${p.month}-${p.day}T${p.hour}:${p.minute}:${p.second}`;
   }
   function validDate(value) {
@@ -56,10 +77,11 @@
   function weekday(value) { return new Date(value + 'T12:00:00Z').getUTCDay(); }
   function weekStart(value) { return addDays(value, -((weekday(value) + 6) % 7)); }
 
-  function getCohorts(key) {
+  function getCohorts(key, market=selectedMarket()) {
     const p = programs[key];
     if (!p) return [];
-    const source = config.diplomadoAppsAplazado === true && Array.isArray(p.postponedCohorts) ? p.postponedCohorts : p.cohorts;
+    const regional=p.regionalCohorts && p.regionalCohorts[market];
+    const source = regional || (config.diplomadoAppsAplazado === true && Array.isArray(p.postponedCohorts) ? p.postponedCohorts : p.cohorts);
     if (!Array.isArray(source)) return [];
     const seen = new Set();
     return source.reduce((out, c) => {
@@ -74,7 +96,7 @@
         return out;
       }
       seen.add(id);
-      out.push({ ...clone(c), id, programId: key, startTime, endTime });
+      out.push({ ...clone(c), id, programId: key, startTime, endTime, timeZone:c.timeZone||TIME_ZONE });
       return out;
     }, []).sort((a, b) => a.start.localeCompare(b.start) || a.startTime.localeCompare(b.startTime) || a.id.localeCompare(b.id));
   }
@@ -86,17 +108,20 @@
     if (!cohort || cohort.registrationClosed === true) return false;
     if (publicRolloverMode(key) === 'startDay') {
       // Cursos cortos dejan de anunciar la cohorte vigente al comenzar su fecha de inicio en Ecuador.
-      return todayString(reference) < cohort.start;
+      return localStamp(reference,cohort.timeZone).slice(0,10) < cohort.start;
     }
-    return localStamp(reference) < cohort.end + 'T' + fullTime(cohort.endTime);
+    return localStamp(reference,cohort.timeZone) < cohort.end + 'T' + fullTime(cohort.endTime);
   }
   function getPublishedCohort(key, reference) {
-    return getCohorts(key).find(c => isPublicCandidate(key, c, reference)) || null;
+    const cohorts=getCohorts(key);
+    const requested=new URLSearchParams(window.location.search||'').get('cohorte');
+    const chosen=requested && cohorts.find(c=>c.id===requested && isPublicCandidate(key,c,reference));
+    return chosen || cohorts.find(c => isPublicCandidate(key, c, reference)) || null;
   }
   function getStatus(key, reference) {
     const cohort = getPublishedCohort(key, reference);
     if (!cohort) return 'pending';
-    return localStamp(reference) >= cohort.start + 'T' + fullTime(cohort.startTime) ? 'active' : 'upcoming';
+    return localStamp(reference,cohort.timeZone) >= cohort.start + 'T' + fullTime(cohort.startTime) ? 'active' : 'upcoming';
   }
   function hasConfirmedPublicCohort(key, reference) {
     return !!getPublishedCohort(key, reference);
@@ -176,9 +201,9 @@
     const events = [];
     for (const [key, p] of Object.entries(programs)) {
       for (const c of getCohorts(key)) {
-        const event = {title:p.calendarTitle || p.name, type:p.type, start:c.start, end:c.end,
-          startTime:c.startTime, endTime:c.endTime, schedule:c.schedule || p.schedule,
-          desc:p.description || '', link:'https://ibero.education' + p.url, programId:key, cohortId:c.id,
+        const event = {title:(p.calendarTitle || p.name)+(c.market==='ES'?' · España':''), type:p.type, start:c.start, end:c.end,
+          startTime:c.startTime, endTime:c.endTime, timeZone:c.timeZone, market:c.market||null, schedule:c.schedule || p.schedule,
+          desc:p.description || '', link:'https://ibero.education' + p.url + (c.market==='ES'?'?pais=ES&cohorte='+encodeURIComponent(c.id):''), programId:key, cohortId:c.id,
           weekdays:clone(c.weekdays || p.weekdays || [1,2,3,4]),
           registrationClosed:c.registrationClosed === true, cohortStart:c.start, cohortEnd:c.end};
         if (p.type === 'diplomado' || p.type === 'master') {
@@ -215,11 +240,11 @@
   function getRegistrationState(key, cohortId, reference) {
     const p = programs[key];
     const c = cohortId ? getCohorts(key).find(item=>item.id===cohortId) : getPublishedCohort(key,reference);
-    const programUrl = p ? 'https://www.ibero.education' + p.url : 'https://www.ibero.education/registro-y-admisiones/';
+    const programUrl = p ? 'https://www.ibero.education' + p.url + (c && c.market==='ES'?'?pais=ES&cohorte='+encodeURIComponent(c.id):'') : 'https://www.ibero.education/registro-y-admisiones/';
     if (!p || !c) return {state:'pending',canRegister:false,cohort:null,programUrl,label:PENDING};
     const closed = !isPublicCandidate(key,c,reference);
     if (closed) return {state:'closed',canRegister:false,cohort:c,programUrl,label:'Matrículas cerradas para esta cohorte'};
-    const active = localStamp(reference) >= c.start+'T'+fullTime(c.startTime);
+    const active = localStamp(reference,c.timeZone) >= c.start+'T'+fullTime(c.startTime);
     return {state:active?'active':'open',canRegister:true,cohort:c,programUrl,label:active?'Cohorte en curso':'Matrículas abiertas'};
   }
 
@@ -244,8 +269,8 @@
     for (let day=event.start,count=0;day<=event.end && count<2000;day=addDays(day,1),count++) {
       if (!days.includes(weekday(day))) continue;
       const endDay=times[1]<=times[0]?addDays(day,1):day;
-      const start=new Date(day+'T'+fullTime(times[0])+OFFSET);
-      const end=new Date(endDay+'T'+fullTime(times[1])+OFFSET);
+      const start=zonedDate(day,times[0],event.timeZone||TIME_ZONE);
+      const end=zonedDate(endDay,times[1],event.timeZone||TIME_ZONE);
       if (Number.isNaN(start.getTime()) || Number.isNaN(end.getTime()) || end<=start) continue;
       sessions.push({date:day,endDate:endDay,startTime:times[0],endTime:times[1],startUTC:start.toISOString(),endUTC:end.toISOString(),allDay:false});
     }
@@ -276,7 +301,7 @@
       lines.push('BEGIN:VEVENT','UID:'+uid,'DTSTAMP:'+dtstamp);
       if(session.allDay)lines.push('DTSTART;VALUE=DATE:'+session.date.replace(/-/g,''),'DTEND;VALUE=DATE:'+session.endDate.replace(/-/g,''));
       else lines.push('DTSTART:'+utc(session.startUTC),'DTEND:'+utc(session.endUTC));
-      const description=(event.desc||'')+(session.allDay?'':'\nHorario base: '+session.startTime+'–'+session.endTime+' · '+TIME_ZONE)+
+      const description=(event.desc||'')+(session.allDay?'':'\nHorario base: '+session.startTime+'–'+session.endTime+' · '+(event.timeZone||TIME_ZONE))+
         (event.link?'\nInformación del programa: '+event.link:'')+'\nEl acceso a las clases se consulta en QLASE. Este archivo no confirma ni crea una matrícula.';
       lines.push('SUMMARY:'+calendarText('IBERO · '+event.title),'DESCRIPTION:'+calendarText(description),'TRANSP:'+(session.allDay?'TRANSPARENT':'OPAQUE'));
       if(/^https?:\/\//i.test(event.link||''))lines.push('URL:'+event.link);
@@ -293,10 +318,10 @@
     if (event.type === 'taller' || /9:00 AM/.test(event.schedule || '')) return '13:00:00';
     return '21:00:00';
   }
-  function isEventExpired(event, reference) { return localStamp(reference) >= event.end + 'T' + eventEndTime(event); }
+  function isEventExpired(event, reference) { return localStamp(reference,event.timeZone||TIME_ZONE) >= event.end + 'T' + eventEndTime(event); }
   function isEventActive(event, reference) {
     const startTime = event.startTime || (event.type === 'master' || event.type === 'gratis' ? '21:00' : event.type === 'taller' ? '09:00' : '19:00');
-    return !isEventExpired(event, reference) && localStamp(reference) >= event.start + 'T' + fullTime(startTime);
+    return !isEventExpired(event, reference) && localStamp(reference,event.timeZone||TIME_ZONE) >= event.start + 'T' + fullTime(startTime);
   }
   function getDiplomaApps(reference) {
     const c = getPublishedCohort('appsDiploma', reference);
@@ -321,7 +346,12 @@
       else {
         const old = Array.isArray(value.hasCourseInstance) ? value.hasCourseInstance[0] : value.hasCourseInstance;
         const template = old || {'@type':'CourseInstance',courseMode:key==='communication'?'onsite':'online',location:{'@type':key==='communication'?'Place':'VirtualLocation',url:'https://ibero.education'+programs[key].url}};
-        const instances = cohorts.map(c=>({...hydrateSchema(template,key,reference),startDate:c.start,endDate:c.end}));
+        const instances = cohorts.map(c=>({...hydrateSchema(template,key,reference),startDate:c.start,endDate:c.end,
+          ...(c.market==='ES'?{'@id':'https://www.ibero.education/productividad-automatizacion-procesos-ia/#'+c.id,
+            name:'Crea Agentes IA · España · '+formatRange(c),
+            startDate:zonedDate(c.start,c.startTime,c.timeZone).toISOString(),endDate:zonedDate(c.end,c.endTime,c.timeZone).toISOString(),
+            courseSchedule:{'@type':'Schedule',scheduleTimezone:c.timeZone,startTime:c.startTime,endTime:c.endTime,repeatFrequency:'P1D',byDay:['Monday','Tuesday','Wednesday','Thursday']},
+            offers:{'@type':'Offer',price:50,priceCurrency:'EUR',url:'https://www.paypal.com/ncp/payment/CEG8W8MVU3R9Q',description:'Precio final. Pago único de EUR 50.'}}:{})}));
         out.hasCourseInstance = instances.length===1 && !Array.isArray(value.hasCourseInstance) ? instances[0] : instances;
       }
     }
@@ -411,7 +441,7 @@
     version:config.version,timeZone:TIME_ZONE,isDiplomadoAppsAplazado:config.diplomadoAppsAplazado===true,
     todayString,localStamp,getCohorts,getPublishedCohort,getStatus,hasConfirmedPublicCohort,commercialLabel,publicRolloverMode,isPublicCandidate,formatRange,formatStart,fieldText,renderTemplate,
     programFromValue,pageProgramKey,getCalendarEvents,getDiplomaApps,addDays,weekStart,isEventExpired,isEventActive,
-    getRegistrationState,getEventSessions,buildCalendarICS,
+    getRegistrationState,getEventSessions,buildCalendarICS,zonedDate,selectedMarket,
     refreshPublishedDates,refresh,getConfigurationErrors:()=>errors.slice(),getProgramKeys:()=>Object.keys(programs),
     getProgram:key=>programs[key]?clone(programs[key]):null
   });
@@ -429,6 +459,7 @@
     }
     // Time-based recheck also covers a tab left open at the end of a cohort.
     window.setInterval(refresh,1000);
+    window.addEventListener('ibero:pais-actualizado',refresh);
     window.addEventListener('focus',refresh);
     window.addEventListener('pageshow',refresh);
     document.addEventListener('visibilitychange',()=>{if(!document.hidden) refresh();});

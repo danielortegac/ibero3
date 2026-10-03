@@ -1,7 +1,7 @@
 /* IBERO · Tabla comercial aprobada. No recalcular precios ni extrapolar Agentes a otros programas.
  * Enlaces extraídos sin cambios de la versión base del usuario. */
 window.IBERO_MERCADOS_CONFIG = {
-  "version": "2026-10-03.1",
+  "version": "2026-10-03.4-es-eur50",
   "storageKey": "ibero.market.v1",
   "defaultCountry": "EC",
   "markets": {
@@ -228,6 +228,31 @@ window.IBERO_MERCADOS_CONFIG = {
       "zone": "",
       "zoneLabel": "Consulta tu zona horaria",
       "slug": ""
+    },
+    "ES": {
+      "name": "España",
+      "currency": "EUR",
+      "agentsPrice": 50,
+      "zone": "Europe/Madrid",
+      "zoneLabel": "Península y Baleares · Madrid",
+      "slug": "espana",
+      "zones": [
+        [
+          "Europe/Madrid",
+          "Península y Baleares · Madrid"
+        ],
+        [
+          "Atlantic/Canary",
+          "Canarias"
+        ]
+      ],
+      "agentsPayment": {
+        "currency": "EUR",
+        "amount": 50,
+        "url": "https://www.paypal.com/ncp/payment/CEG8W8MVU3R9Q",
+        "note": "Precio final de Agentes IA: €50. Pago único en EUR.",
+        "priceStatus": "approved-final"
+      }
     }
   },
   "order": [
@@ -247,6 +272,7 @@ window.IBERO_MERCADOS_CONFIG = {
     "UY",
     "PY",
     "US",
+    "ES",
     "INTL"
   ],
   "legacyPrices": {

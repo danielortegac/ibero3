@@ -228,7 +228,8 @@
       "title": "Cursos de Inteligencia Artificial en España",
       "slug": "espana",
       "url": "https://ibero.education/espana/",
-      "category": "País"
+      "category": "País",
+      "description": "España: cohortes separadas de Agentes IA del 19–22 de octubre y 9–12 de noviembre de 2026; 19:00–21:00 Europe/Madrid (18:00–20:00 Atlantic/Canary). EUR 50 como precio final de Agentes IA en España. Pago único en EUR: https://www.paypal.com/ncp/payment/CEG8W8MVU3R9Q. Otros programas conservan su precio internacional en USD."
     },
     {
       "title": "Cursos de Inteligencia Artificial en Estados Unidos",
@@ -886,7 +887,7 @@
       },
       "regionalPricingSource": "/assets/mercados-ibero.config.js",
       "paymentCopy": "Pago único. Aceptamos todas las tarjetas de crédito o débito.",
-      "description": "Mismo proyecto durante cuatro días: conexión MCP comprobada; primera app y habilidad con Codex; formulario, login y persistencia con Antigravity y Firebase; app publicada con una función de IA y un correo automático real. Días 1–3: MP4 o PNG/JPG. Día 4: URL pública funcional. Incluye una ampliación de conexión API desde el software propio y un catálogo de 23 herramientas, según disponibilidad y permisos."
+      "description": "Mismo proyecto durante cuatro días: conexión MCP comprobada; primera app y habilidad con Codex; formulario, login y persistencia con Antigravity y Firebase; app publicada con una función de IA y un correo automático real. Días 1–3: MP4 o PNG/JPG. Día 4: URL pública funcional. Incluye una ampliación de conexión API desde el software propio y un catálogo de 28 herramientas, según disponibilidad y permisos. Incluye accesos oficiales a ChatGPT para Chrome y Edge, GOATIFY Shivo, formularios con IA de GOATIFY y OpenAI API; el uso de la API se factura aparte de ChatGPT. El apoyo académico comprende 48 materiales (44 PDF y 4 ZIP), 108 términos de glosario y 56 tarjetas de repaso, con guías complementarias opcionales sobre benchmarks, contexto, costos de API, Gemma 4, Ollama, Grok Bot, Muse y Dots."
     },
     {
       "type": "Certificación",

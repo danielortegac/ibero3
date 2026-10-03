@@ -10,7 +10,7 @@
  * No contiene precios ni modifica inscripciones, certificados o temarios.
  */
 window.IBERO_PROGRAMACION_CONFIG = {
-  "version": "2026-10-03.2",
+  "version": "2026-10-03.3-es",
   "timeZone": "America/Guayaquil",
   "utcOffset": "-05:00",
   "diplomadoAppsAplazado": true,
@@ -130,7 +130,33 @@ window.IBERO_PROGRAMACION_CONFIG = {
           "status": "confirmed"
         }
       ],
-      "registrationDaysBefore": 14
+      "registrationDaysBefore": 14,
+      "regionalCohorts": {
+        "ES": [
+          {
+            "id": "agents-es-2026-10-19",
+            "market": "ES",
+            "start": "2026-10-19",
+            "end": "2026-10-22",
+            "startTime": "19:00",
+            "endTime": "21:00",
+            "timeZone": "Europe/Madrid",
+            "status": "confirmed",
+            "schedule": "Lun–Jue · 19:00–21:00 Madrid · 18:00–20:00 Canarias"
+          },
+          {
+            "id": "agents-es-2026-11-09",
+            "market": "ES",
+            "start": "2026-11-09",
+            "end": "2026-11-12",
+            "startTime": "19:00",
+            "endTime": "21:00",
+            "timeZone": "Europe/Madrid",
+            "status": "confirmed",
+            "schedule": "Lun–Jue · 19:00–21:00 Madrid · 18:00–20:00 Canarias"
+          }
+        ]
+      }
     },
     "courses": {
       "name": "Certificación en Creación de Cursos Online y Academias Digitales",

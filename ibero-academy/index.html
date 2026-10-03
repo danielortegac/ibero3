@@ -1401,7 +1401,7 @@ document.addEventListener('DOMContentLoaded', function () {
     "los-angeles":"US",
     "nueva-york":"US",
     "chicago":"US",
-    "espana":"INTL",
+    "espana":"ES",
     "argentina":"INTL",
     "chile":"INTL",
     "bolivia":"INTL",
@@ -1417,11 +1417,11 @@ document.addEventListener('DOMContentLoaded', function () {
     "republica-dominicana":"INTL",
     "puerto-rico":"INTL"
   };
-  const currencyByCountry = {EC:'USD', MX:'MXN', CO:'COP', PE:'PEN', US:'USD', INTL:'USD'};
-  const cardByCountry = {EC:'EC', MX:'MX', CO:'CO', PE:'PE', US:'US', INTL:'INTL'};
-  const payByCountry = {EC:'ec', MX:'mx', CO:'co', PE:'pe', US:'ec', INTL:'ec'};
+  const currencyByCountry = {EC:'USD', MX:'MXN', CO:'COP', PE:'PEN', US:'USD', ES:'USD', INTL:'USD'};
+  const cardByCountry = {EC:'EC', MX:'MX', CO:'CO', PE:'PE', US:'US', ES:'ES', INTL:'INTL'};
+  const payByCountry = {EC:'ec', MX:'mx', CO:'co', PE:'pe', US:'ec', ES:'ec', INTL:'ec'};
   const countryByCurrency = {MXN:'MX', COP:'CO', PEN:'PE'};
-  const ipCountryMap = {EC:'EC', MX:'MX', CO:'CO', PE:'PE', US:'US'};
+  const ipCountryMap = {EC:'EC', MX:'MX', CO:'CO', PE:'PE', US:'US', ES:'ES'};
   let manualCurrency = false;
   let lastAutoSource = '';
 
@@ -1449,6 +1449,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const tz = norm(Intl.DateTimeFormat().resolvedOptions().timeZone || '');
       if(!tz) return 'EC';
       if(tz.includes('mexico_city') || tz.includes('cancun') || tz.includes('chihuahua') || tz.includes('ciudad_juarez') || tz.includes('hermosillo') || tz.includes('mazatlan') || tz.includes('merida') || tz.includes('monterrey') || tz.includes('matamoros') || tz.includes('ojinaga') || tz.includes('tijuana')) return 'MX';
+      if(tz==='europe/madrid'||tz==='atlantic/canary') return 'ES';
       if(tz.includes('bogota')) return 'CO';
       if(tz.includes('lima')) return 'PE';
       if(tz.includes('guayaquil') || tz.includes('quito')) return 'EC';
@@ -1531,6 +1532,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const clean = (country && cardByCountry[String(country).toUpperCase()]) ? String(country).toUpperCase() : 'EC';
     const currency = currencyByCountry[clean] || 'USD';
     document.documentElement.dataset.iberoCountry = clean;
+    if(clean==='ES')document.querySelectorAll('a[href]').forEach(function(a){const href=a.getAttribute('href')||'';if(/^(#|mailto:|tel:|javascript:)/i.test(href))return;let u;try{u=new URL(href,location.href);}catch(_){return;}if(!['ibero.education','www.ibero.education',location.hostname].includes(u.hostname))return;if(!/\/(?:registro-y-admisiones|calendario-academico|productividad-automatizacion-procesos-ia|certificado-productividad-automatizacion-procesos-ia|espana)(?:\/|$)/.test(u.pathname))return;u.searchParams.set('pais','ES');a.setAttribute('href',href.startsWith('http')?u.href:u.pathname+u.search+u.hash);});
     document.documentElement.dataset.iberoCurrency = currency;
     document.documentElement.dataset.iberoCurrencySource = source || '';
     setPriceElements(currency);
@@ -1539,10 +1541,10 @@ document.addEventListener('DOMContentLoaded', function () {
     clickCountryButtons(clean);
     bindManualCurrency();
   }
-  function autoCountry(){ return fromPath() || fromTimezone() || 'EC'; }
+  function autoCountry(){ const requested=new URLSearchParams(location.search).get('pais');return requested && cardByCountry[requested.toUpperCase()] ? requested.toUpperCase() : fromPath() || fromTimezone() || 'EC'; }
   function mapIpCode(code){
     code = String(code || '').toUpperCase();
-    return ipCountryMap[code] || (code==='ES' ? 'INTL' : '');
+    return ipCountryMap[code] || '';
   }
   function fetchCountry(url, parser, timeoutMs){
     if(!window.fetch || !window.AbortController) return Promise.resolve('');
@@ -1555,7 +1557,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   function detectIpCountry(){
     // Mejora opcional para detectar el país real de conexión. Si falla, queda la zona horaria o la página.
-    if(fromPath()) return Promise.resolve('');
+    if(fromPath()||new URLSearchParams(location.search).get('pais')==='ES') return Promise.resolve('');
     return fetchCountry('https://api.country.is/', function(data){ return data && data.country; }, 1100)
       .then(function(country){
         if(country) return country;

@@ -15,7 +15,7 @@
   let source = 'default';
   let serial = 0;
   let calendarEvent = null;
-  const currencyNames = {USD:'dólares estadounidenses',MXN:'pesos mexicanos',CRC:'colones costarricenses',GTQ:'quetzales',COP:'pesos colombianos',PEN:'soles peruanos',HNL:'lempiras',DOP:'pesos dominicanos',CLP:'pesos chilenos',ARS:'pesos argentinos',UYU:'pesos uruguayos',PYG:'guaraníes'};
+  const currencyNames = {EUR:'euros (Agentes)',USD:'dólares estadounidenses',MXN:'pesos mexicanos',CRC:'colones costarricenses',GTQ:'quetzales',COP:'pesos colombianos',PEN:'soles peruanos',HNL:'lempiras',DOP:'pesos dominicanos',CLP:'pesos chilenos',ARS:'pesos argentinos',UYU:'pesos uruguayos',PYG:'guaraníes'};
   const optionLabel = code => M[code].name + ' · ' + M[code].currency;
   const esc = value => String(value == null ? '' : value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   function normalize(v) { return String(v || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase(); }
@@ -32,7 +32,7 @@
     const parts = normalize(location.pathname).split('/').filter(Boolean);
     for (const code of C.order) if (M[code].slug && parts.includes(M[code].slug)) return code;
     if (parts.some(v => ['cursos-ia-en-espanol-estados-unidos','ia-para-latinos-en-usa','formacion-online-para-hispanos','miami','orlando','houston','dallas','los-angeles','nueva-york','chicago'].includes(v))) return 'US';
-    if (parts.some(v => ['espana','nicaragua','bolivia','cuba','venezuela'].includes(v))) return 'INTL';
+    if (parts.some(v => ['nicaragua','bolivia','cuba','venezuela'].includes(v))) return 'INTL';
     return validCode(document.body.dataset.pageCountry || document.body.dataset.country);
   }
   function fromTimezone(tz) {
@@ -64,6 +64,7 @@
   function numberText(value, currency) {
     const n = Number(value);
     if (!Number.isFinite(n)) return '';
+    if(currency==='EUR')return n.toLocaleString('es-ES',{minimumFractionDigits:2,maximumFractionDigits:2});
     return currency === 'USD' ? n.toLocaleString('en-US',{minimumFractionDigits:Number.isInteger(n)?0:2,maximumFractionDigits:2}) : Math.round(n).toLocaleString('es-CO',{maximumFractionDigits:0});
   }
   function localRound(value,currency) {
@@ -76,6 +77,10 @@
     const n = Number(base);
     if (!Number.isFinite(n)) return {main:'',tax:'',currency:'USD',value:0};
 
+    if(code==='ES') {
+      if(program==='agents' && n===57)return {main:'€'+numberText(market.agentsPrice,'EUR'),tax:market.agentsPayment.note,currency:'EUR',value:market.agentsPrice,chargeCurrency:'EUR',chargeAmount:50};
+      return {main:'USD '+numberText(n,'USD'),tax:'Precio internacional en USD. Sin tarifa específica en euros publicada para este programa.',currency:'USD',value:n};
+    }
     // Los cursos intensivos con base USD 57 comparten la tabla oficial por país.
     if (n === 57) {
       const value = market.agentsPrice;
@@ -117,7 +122,7 @@
         if(!label || !label.hasAttribute('data-ibero-selected-price-country')) {
           label=document.createElement('span');label.className='ibero-main-price-country';label.setAttribute('data-ibero-selected-price-country','');el.before(label);
         }
-        assignText(label,'Precio para '+M[country].name);
+        assignText(label,country==='ES'&&program==='agents'?'Precio final para España · EUR':'Precio para '+M[country].name);
       }
       let tax = el.nextElementSibling;
       if (!tax || !tax.classList.contains('ibero-price-tax')) {
@@ -144,14 +149,15 @@
     const item = (m.zones || []).find(z=>z[0]===zone);
     return item ? item[1] : (zone !== m.zone ? zone.replace(/_/g,' ') : m.zoneLabel);
   }
-  function localTime(date, time, targetZone) {
-    const d = new Date(date+'T'+time.slice(0,5)+':00-05:00');
+  function localTime(date, time, targetZone, sourceZone='America/Guayaquil') {
+    const api=window.IBERO_PROGRAMACION;
+    const d = api&&api.zonedDate ? api.zonedDate(date,time,sourceZone) : new Date(date+'T'+time.slice(0,5)+':00-05:00');
     const parts = new Intl.DateTimeFormat('en-CA',{timeZone:targetZone,year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).formatToParts(d).reduce((a,p)=>(a[p.type]=p.value,a),{});
     return {time:parts.hour+':'+parts.minute,date:parts.year+'-'+parts.month+'-'+parts.day};
   }
-  function localRange(date,start,end,targetZone) {
+  function localRange(date,start,end,targetZone,sourceZone) {
     try {
-      const a=localTime(date,start,targetZone), b=localTime(date,end,targetZone);
+      const a=localTime(date,start,targetZone,sourceZone), b=localTime(date,end,targetZone,sourceZone);
       let suffix='';
       if (a.date>date && b.date>date) suffix=' (día siguiente)';
       else if (a.date<date && b.date<date) suffix=' (día anterior)';
@@ -176,14 +182,14 @@
       const module=(cohort.modules||[]).find(m=>d>=m.start && d<=m.end);
       const st=(module&&module.startTime)||cohort.startTime||p.startTime;
       const et=(module&&module.endTime)||cohort.endTime||p.endTime;
-      const range=localRange(d,st,et,zone);
+      const range=localRange(d,st,et,zone,cohort.timeZone);
       const last=sessions[sessions.length-1];
       if (last && last.range===range) last.end=d;
       else sessions.push({start:d,end:d,range:range});
     }
     if (!sessions.length) return localRange(start,cohort.startTime||p.startTime,cohort.endTime||p.endTime,zone)+' · '+zoneLabel();
     const prefix=key==='master'?'Lun–Vie · ':'Lun–Jue · ';
-    if (sessions.length===1) return prefix+sessions[0].range+' · '+zoneLabel();
+    if (sessions.length===1) return prefix+sessions[0].range+' · '+zoneLabel()+(cohort.market==='ES'?' · Cohorte España':'');
     return sessions.map(s=>shortDate(s.start)+'–'+shortDate(s.end)+': '+s.range).join(' · ')+' · '+zoneLabel();
   }
   function controlHTML(theme, program) {
@@ -260,7 +266,7 @@
         if(selected)row.setAttribute('aria-current','true');else row.removeAttribute('aria-current');
         const marker=row.querySelector('[data-ibero-current-country-marker]');if(marker)marker.hidden=!selected;
       });
-      assignText(el.querySelector('[data-ibero-prices-footnote]'),key==='agents'?'Ecuador: precio más IVA. Los demás destinos muestran el precio indicado.':'Precios en la moneda indicada. '+(monthly?'El plan mensual comprende 6 mensualidades.':C.cardPaymentText));
+      assignText(el.querySelector('[data-ibero-prices-footnote]'),key==='agents'?'Ecuador: precio más IVA. España: €50, precio final y pago único en EUR. Los demás destinos muestran el precio indicado.':'Precios en la moneda indicada. '+(monthly?'El plan mensual comprende 6 mensualidades.':C.cardPaymentText));
     });
   }
   function mountControls(container) {
@@ -297,7 +303,7 @@
         }
       }
       const note = control.querySelector('[data-ibero-currency-note]');
-      if (note) assignText(note, country === 'INTL'
+      if (note) assignText(note, country === 'ES' ? 'Agentes: €50, precio final en EUR. Otros programas: precio internacional en USD.' : country === 'INTL'
         ? 'Precio internacional en USD.'
         : 'Inversión en ' + (currencyNames[M[country].currency] || M[country].currency) + ' (' + M[country].currency + ').');
       assignText(control.querySelector('[data-ibero-country-source-note]'),countrySourceText());
@@ -312,20 +318,27 @@
   function syncSchedules(container) {
     (container||document).querySelectorAll('[data-ibero-local-schedule]').forEach(el=>assignText(el,scheduleText(el.dataset.iberoLocalSchedule)));
   }
+  function paymentLink(general,mx,code=country) {
+    if(code==='ES' && (general==='https://www.paypal.com/ncp/payment/EY623WTCVXXNJ' || general===M.ES.agentsPayment.url))return M.ES.agentsPayment.url;
+    return code==='MX'&&mx?mx:general;
+  }
   function syncLinks(container) {
+    document.querySelectorAll('[data-ibero-agents-payment-label]').forEach(el=>assignText(el,country==='ES'?'Pagar €50 con tarjeta':'Pagar con Tarjeta Segura'));
+    document.querySelectorAll('[data-ibero-agents-fixed-price]').forEach(el=>assignText(el,country==='ES'?'Precio final: €50':'Precio oficial fijo'));
     (container||document).querySelectorAll('a[href]').forEach(a=>{
       if(a.hasAttribute('data-ibero-admission') && !['open','active'].includes(a.dataset.iberoAdmissionState)) return;
       let general=a.dataset.paypalGeneral||a.dataset.generalLink;
       let mx=a.dataset.paypalMx||a.dataset.mxLink;
       if (!general) {
-        const pair=(C.paymentPairs||[]).find(p=>a.getAttribute('href')===p.general||a.getAttribute('href')===p.mx);
+        const current=a.getAttribute('href');
+        const pair=(C.paymentPairs||[]).find(p=>current===p.general||current===p.mx||(current===M.ES.agentsPayment.url&&p.general==='https://www.paypal.com/ncp/payment/EY623WTCVXXNJ'));
         if (pair) { general=pair.general; mx=pair.mx; }
       }
-      if (general) { const target=country==='MX'&&mx?mx:general;if(a.getAttribute('href')!==target)a.setAttribute('href',target); }
+      if (general) { const target=paymentLink(general,mx);if(a.getAttribute('href')!==target)a.setAttribute('href',target); }
     });
   }
   function syncCountryNavigation(container) {
-    const catalogue = ['registro-y-admisiones','calendario-academico','oferta-academica','certificaciones-intensivas','diplomados-intensivos','ibero-labs'];
+    const catalogue = ['registro-y-admisiones','calendario-academico','oferta-academica','certificaciones-intensivas','diplomados-intensivos','ibero-labs','espana','contacto'];
     (container || document).querySelectorAll('a[href]').forEach(a => {
       const original = a.dataset.iberoCountryHref || a.getAttribute('href') || '';
       if (!original || /^(#|mailto:|tel:|javascript:|data:)/i.test(original)) return;
@@ -337,6 +350,9 @@
       if (!programFrom(url.pathname) && !catalogue.includes(slug)) return;
       if (!a.dataset.iberoCountryHref) a.dataset.iberoCountryHref = original;
       url.searchParams.set('pais', country);
+      const selectedCohort=new URLSearchParams(location.search).get('cohorte');
+      if(country==='ES'&&selectedCohort&&['agents-es-2026-10-19','agents-es-2026-11-09'].includes(selectedCohort)&&(programFrom(url.pathname)==='agents'||slug==='registro-y-admisiones'))url.searchParams.set('cohorte',selectedCohort);
+      else if(country!=='ES'&&String(url.searchParams.get('cohorte')||'').startsWith('agents-es-'))url.searchParams.delete('cohorte');
       if (zone) url.searchParams.set('zona', zone);
       const target = /^(https?:)?\/\//i.test(original)
         ? url.href
@@ -364,7 +380,7 @@
         const base=Number(match[1]);
         const program=card.dataset.iberoPriceProgram || '';
         const info=priceInfo(program,base,country);
-        value=info.main+(info.tax?' '+info.tax:'');
+        value=country==='ES'?info.main:info.main+(info.tax?' '+info.tax:'');
         if(/\/mes/i.test(general)) value += '/mes · 6 meses';
       }
 
@@ -373,7 +389,7 @@
     });
     const bank=document.getElementById('ecuador-bank-transfer-block');if(bank)bank.classList.toggle('hidden',country!=='EC');
     const note=document.getElementById('payment-country-note');
-    if(note)assignText(note,'Precios para '+M[country].name+'. '+C.cardPaymentText+(country==='EC'?' También puedes pagar por transferencia bancaria.':''));
+    if(note)assignText(note,'Precios para '+M[country].name+'. '+(country==='ES'?'Agentes: '+M.ES.agentsPayment.note+' Otros programas: precio internacional en USD. ':'')+C.cardPaymentText+(country==='EC'?' También puedes pagar por transferencia bancaria.':''));
   }
   function renderCalendar(ev) {
     if(ev)calendarEvent=ev;
@@ -395,7 +411,7 @@
       const tax=price.querySelector('[data-ibero-modal-tax]');assignText(tax,p.tax);tax.hidden=!p.tax;
       price.querySelector('[data-ibero-modal-monthly]').hidden=!monthly;
       assignText(price.querySelector('[data-ibero-modal-monthly-price]'),monthly?priceText(key,154.38)+'/mes':'');
-      assignText(price.querySelector('[data-ibero-modal-payment]'),(monthly?'Pago semestral o plan mensual. ':'Pago único. ')+C.cardPaymentText);
+      assignText(price.querySelector('[data-ibero-modal-payment]'),(monthly?'Pago semestral o plan mensual. ':'Pago único. ')+(country==='ES'&&key==='agents'?M.ES.agentsPayment.note+' ':'')+C.cardPaymentText);
       price.querySelector('[data-ibero-all-prices]').dataset.iberoAllPrices=key;renderAllPrices(price);
     }
     const schedule=document.getElementById('modal-schedule');
@@ -417,9 +433,12 @@
   }
   function chatAnswer(text, key) {
     const q=normalize(text);
+    if(!key && /espana|madrid|canarias/.test(q))key='agents';
     if(!key)return '';
+    if(key==='agents' && /espana|madrid|canarias/.test(q))return 'Cohortes separadas de España: 19–22 de octubre y 9–12 de noviembre de 2026. Ambas de lunes a jueves, 19:00–21:00 Madrid (18:00–20:00 Canarias). Precio final: €50. '+esc(M.ES.agentsPayment.note)+'<br><a href="/productividad-automatizacion-procesos-ia/?pais=ES#inversion">Ver Agentes para España.</a>';
     if(key==='master' && /precio|costo|valor|inversion/.test(q))return '<strong>Pago semestral: '+esc(priceText('master',926.25))+'</strong><br>Pago único del semestre. Plan mensual: '+esc(priceText('master',154.38))+'/mes · 6 meses.<br>'+C.cardPaymentText;
-    if(/precio|costo|valor|inversion/.test(q))return '<strong>'+esc(M[country].name)+': '+esc(priceText(key,C.programBases[key]))+'</strong><br>Pago único. '+C.cardPaymentText+'<br><a href="#inversion">Consulta tu país y las opciones de inscripción.</a>';
+    if(/precio|costo|valor|inversion|pago|pagar|paypal/.test(q))return '<strong>'+esc(M[country].name)+': '+esc(priceText(key,C.programBases[key]))+'</strong><br>Pago único. '+C.cardPaymentText+'<br><a href="#inversion">Consulta tu país y las opciones de inscripción.</a>';
+    if(key==='agents' && country==='ES' && /fecha|cuando|inicia|inicio|empieza|comienza/.test(q))return 'España: 19–22 de octubre y 9–12 de noviembre de 2026; 19:00–21:00 Madrid, 18:00–20:00 Canarias. '+esc(window.IBERO_PROGRAMACION.fieldText(key,'summary','long'));
     if(/fecha|cuando|inicia|inicio|empieza|comienza/.test(q) && window.IBERO_PROGRAMACION)return 'Programación: '+esc(window.IBERO_PROGRAMACION.fieldText(key,'summary','long'))+'<br>'+esc(scheduleText(key));
     if(/horario|hora de|hora en/.test(q))return esc(scheduleText(key))+'<br><a href="#inversion">Cambiar país o zona horaria.</a>';
     return '';
@@ -429,7 +448,7 @@
     function get(url,timeout) {const ctl=new AbortController();const id=setTimeout(()=>ctl.abort(),timeout);return fetch(url,{cache:'no-store',signal:ctl.signal}).then(r=>r.ok?r.json():null).then(d=>validCode(d&&(d.country_code||d.country))).catch(()=>'').finally(()=>clearTimeout(id));}
     get('https://api.country.is/',1100).then(code=>code||(manual?'':get('https://ipapi.co/json/',1400))).then(code=>{if(code&&!manual)apply(code,'ip',fromTimezone(browserZone())===code?browserZone():null);});
   }
-  const API={version:C.version,refresh:refresh,apply:(c,z)=>apply(c,'manual',z),getCountry:()=>country,getZone:()=>zone,priceInfo:priceInfo,priceText:priceText,scheduleText:scheduleText,syncLinks:syncLinks,renderCalendar:renderCalendar,chatAnswer:chatAnswer,programFrom:programFrom};
+  const API={version:C.version,refresh:refresh,apply:(c,z)=>apply(c,'manual',z),getCountry:()=>country,getZone:()=>zone,priceInfo:priceInfo,priceText:priceText,scheduleText:scheduleText,syncLinks:syncLinks,paymentLink:paymentLink,renderCalendar:renderCalendar,chatAnswer:chatAnswer,programFrom:programFrom};
   window.IBERO_MERCADOS=Object.freeze(API);window.iberoSyncPaymentLinks=syncLinks;
   function boot() {
     const saved=readSaved();const params=new URLSearchParams(location.search);const specified=validCode(params.get('pais'))||validCode(params.get('country'));
