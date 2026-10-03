@@ -898,12 +898,12 @@ window.IBERO_MERCADOS_CONFIG = {
     if (requested && validZone(requested) && (code === 'INTL' || requested === m.zone || (m.zones || []).some(z => z[0] === requested) || fromTimezone(requested) === code)) return requested;
     return defaultZone(code);
   }
-  function fromPath() {
-    const parts = normalize(location.pathname).split('/').filter(Boolean);
+  function fromPath(pathname=location.pathname, useBody=true) {
+    const parts = normalize(pathname).split('/').filter(Boolean);
     for (const code of C.order) if (M[code].slug && parts.includes(M[code].slug)) return code;
     if (parts.some(v => ['cursos-ia-en-espanol-estados-unidos','ia-para-latinos-en-usa','formacion-online-para-hispanos','miami','orlando','houston','dallas','los-angeles','nueva-york','chicago'].includes(v))) return 'US';
     if (parts.some(v => ['nicaragua','bolivia','cuba','venezuela'].includes(v))) return 'INTL';
-    return validCode(document.body.dataset.pageCountry || document.body.dataset.country);
+    return useBody?validCode(document.body.dataset.pageCountry || document.body.dataset.country):'';
   }
   function fromTimezone(tz) {
     const v = normalize(tz);
@@ -1040,13 +1040,14 @@ window.IBERO_MERCADOS_CONFIG = {
     const api=window.IBERO_PROGRAMACION;
     const p=api && api.getProgram(key);
     if (!p) return 'Consulta el horario de tu programa en el calendario académico.';
-    const cohort=supplied || api.getPublishedCohort(key);
+    const cohort=supplied || (api.getDisplayedCohort?api.getDisplayedCohort(key):api.getPublishedCohort(key));
     if (key==='communication') return (cohort && cohort.schedule || p.schedule)+' · Presencial en Ecuador';
+    if(!cohort&&key==='agents'&&country==='ES')return 'Próxima cohorte de España por confirmar. El nuevo horario se publicará con su convocatoria.';
     if (!cohort) return 'Horario habitual: '+localRange(api.todayString(),p.startTime,p.endTime,zone)+' · '+zoneLabel()+'. Próxima cohorte por confirmar.';
     const sessions=[];
     const start=cohort.start, end=cohort.end;
     if (!start || !end) return localRange(api.todayString(),p.startTime,p.endTime,zone)+' · '+zoneLabel();
-    const days=p.weekdays || [1,2,3,4];
+    const days=cohort.weekdays || p.weekdays || [1,2,3,4];
     for (let d=start,n=0;d<=end && n<400;d=api.addDays(d,1),n++) {
       if (!days.includes(new Date(d+'T12:00:00Z').getUTCDay())) continue;
       const module=(cohort.modules||[]).find(m=>d>=m.start && d<=m.end);
@@ -1057,7 +1058,7 @@ window.IBERO_MERCADOS_CONFIG = {
       if (last && last.range===range) last.end=d;
       else sessions.push({start:d,end:d,range:range});
     }
-    if (!sessions.length) return localRange(start,cohort.startTime||p.startTime,cohort.endTime||p.endTime,zone)+' · '+zoneLabel();
+    if (!sessions.length) return localRange(start,cohort.startTime||p.startTime,cohort.endTime||p.endTime,zone,cohort.timeZone)+' · '+zoneLabel();
     const prefix=key==='master'?'Lun–Vie · ':'Lun–Jue · ';
     if (sessions.length===1) return prefix+sessions[0].range+' · '+zoneLabel()+(cohort.market==='ES'?' · Cohorte España':'');
     return sessions.map(s=>shortDate(s.start)+'–'+shortDate(s.end)+': '+s.range).join(' · ')+' · '+zoneLabel();
@@ -1192,7 +1193,31 @@ window.IBERO_MERCADOS_CONFIG = {
     if(code==='ES' && (general==='https://www.paypal.com/ncp/payment/EY623WTCVXXNJ' || general===M.ES.agentsPayment.url))return M.ES.agentsPayment.url;
     return code==='MX'&&mx?mx:general;
   }
+  function syncPaymentOptions() {
+    const candidates=new Set(document.querySelectorAll('[data-ibero-payment-restore]'));
+    if(pageProgram()==='agents')document.querySelectorAll('#toggle-bank,#bank-details,#toggle-western,#western-details,a[href*="ia.goatify.app/"][href*="#wallet"]').forEach(el=>candidates.add(el));
+    document.querySelectorAll('[data-ibero-registration="agents"][href*="#wallet"]').forEach(el=>candidates.add(el));
+    const requested=new URLSearchParams(location.search).get('cohorte');
+    const admissions=/\/registro-y-admisiones(?:\/|$)/.test(location.pathname);
+    if(admissions&&(!requested||/^agents-/.test(requested))){
+      const western=document.getElementById('toggle-western-admisiones');
+      if(western&&western.parentElement)candidates.add(western.parentElement);
+    }
+    candidates.forEach(el=>{
+      const blocked=country==='ES';
+      if(blocked){
+        if(!el.dataset.iberoPaymentRestore)el.dataset.iberoPaymentRestore=JSON.stringify({hidden:el.hidden,aria:el.getAttribute('aria-hidden'),tabindex:el.getAttribute('tabindex'),display:el.style.getPropertyValue('display'),priority:el.style.getPropertyPriority('display')});
+        el.dataset.iberoEsPaymentHidden='true';el.hidden=true;el.style.setProperty('display','none','important');el.setAttribute('aria-hidden','true');el.setAttribute('tabindex','-1');
+      }else if(el.dataset.iberoPaymentRestore){
+        const previous=JSON.parse(el.dataset.iberoPaymentRestore);el.hidden=previous.hidden;
+        if(previous.display)el.style.setProperty('display',previous.display,previous.priority);else el.style.removeProperty('display');
+        for(const attribute of ['aria-hidden','tabindex']){const value=previous[attribute==='aria-hidden'?'aria':'tabindex'];if(value===null)el.removeAttribute(attribute);else el.setAttribute(attribute,value);}
+        delete el.dataset.iberoPaymentRestore;delete el.dataset.iberoEsPaymentHidden;
+      }
+    });
+  }
   function syncLinks(container) {
+    syncPaymentOptions();
     document.querySelectorAll('[data-ibero-agents-payment-label]').forEach(el=>assignText(el,country==='ES'?'Pagar €50 con tarjeta':'Pagar con Tarjeta Segura'));
     document.querySelectorAll('[data-ibero-agents-fixed-price]').forEach(el=>assignText(el,country==='ES'?'Precio final: €50':'Precio oficial fijo'));
     (container||document).querySelectorAll('a[href]').forEach(a=>{
@@ -1207,27 +1232,48 @@ window.IBERO_MERCADOS_CONFIG = {
       if (general) { const target=paymentLink(general,mx);if(a.getAttribute('href')!==target)a.setAttribute('href',target); }
     });
   }
+  function regionalCohort(requested, targetCountry, usePublished=false) {
+    const api=window.IBERO_PROGRAMACION;
+    if(!api)return '';
+    const cohorts=api.getCohorts('agents',targetCountry);
+    const exact=cohorts.find(c=>c.id===requested);
+    const date=String(requested||'').match(/\d{4}-\d{2}-\d{2}$/);
+    const sameDate=date&&cohorts.find(c=>c.start===date[0]);
+    const found=exact||sameDate||(usePublished?cohorts.find(c=>api.isPublicCandidate('agents',c)):null);
+    return found?found.id:'';
+  }
+  function routeURL(value, program, cohort) {
+    const url=new URL(value,document.baseURI);
+    if(!['ibero.education','www.ibero.education',location.hostname].includes(url.hostname))return url;
+    const routeCountry=fromPath(url.pathname,false);
+    const targetCountry=routeCountry||validCode(url.searchParams.get('pais')||url.searchParams.get('country'))||country;
+    const targetZone=targetCountry===country?zone:defaultZone(targetCountry);
+    const slug=url.pathname.replace(/\/index\.html$/,'').replace(/\/+$/,'').split('/').pop();
+    const key=program||programFrom(url.pathname);
+    url.searchParams.set('pais',targetCountry);
+    if(targetZone)url.searchParams.set('zona',targetZone);
+    // A destination's explicit cohort is intentional (for example, the November button).
+    // Propagate the current cohort only when the destination does not already specify one.
+    const requested=url.searchParams.get('cohorte')||cohort||new URLSearchParams(location.search).get('cohorte');
+    if(key==='agents'||slug==='registro-y-admisiones'){
+      const resolved=/^agents-/.test(requested||'')?regionalCohort(requested,targetCountry):'';
+      if(resolved)url.searchParams.set('cohorte',resolved);else url.searchParams.delete('cohorte');
+    }else if(/^agents-/.test(url.searchParams.get('cohorte')||''))url.searchParams.delete('cohorte');
+    return url;
+  }
   function syncCountryNavigation(container) {
-    const catalogue = ['registro-y-admisiones','calendario-academico','oferta-academica','certificaciones-intensivas','diplomados-intensivos','ibero-labs','espana','contacto'];
-    (container || document).querySelectorAll('a[href]').forEach(a => {
-      const original = a.dataset.iberoCountryHref || a.getAttribute('href') || '';
-      if (!original || /^(#|mailto:|tel:|javascript:|data:)/i.test(original)) return;
-      let url;
-      try { url = new URL(original, document.baseURI); } catch (_) { return; }
-      // Country persistence between the www / non-www institutional URLs only.
-      if (!['ibero.education','www.ibero.education'].includes(url.hostname)) return;
-      const slug = url.pathname.replace(/\/index\.html$/, '').replace(/\/+$/, '').split('/').pop();
-      if (!programFrom(url.pathname) && !catalogue.includes(slug)) return;
-      if (!a.dataset.iberoCountryHref) a.dataset.iberoCountryHref = original;
-      url.searchParams.set('pais', country);
-      const selectedCohort=new URLSearchParams(location.search).get('cohorte');
-      if(country==='ES'&&selectedCohort&&['agents-es-2026-10-19','agents-es-2026-11-09'].includes(selectedCohort)&&(programFrom(url.pathname)==='agents'||slug==='registro-y-admisiones'))url.searchParams.set('cohorte',selectedCohort);
-      else if(country!=='ES'&&String(url.searchParams.get('cohorte')||'').startsWith('agents-es-'))url.searchParams.delete('cohorte');
-      if (zone) url.searchParams.set('zona', zone);
-      const target = /^(https?:)?\/\//i.test(original)
-        ? url.href
-        : original.split(/[?#]/)[0] + url.search + url.hash;
-      if (a.getAttribute('href') !== target) a.setAttribute('href', target);
+    const catalogue=['registro-y-admisiones','calendario-academico','oferta-academica','certificaciones-intensivas','diplomados-intensivos','ibero-labs','espana','contacto'];
+    (container||document).querySelectorAll('a[href]').forEach(a=>{
+      const original=a.dataset.iberoCountryHref||a.getAttribute('href')||'';
+      if(!original||/^(#|mailto:|tel:|javascript:|data:)/i.test(original))return;
+      let url;try{url=new URL(original,document.baseURI);}catch(_){return;}
+      if(!['ibero.education','www.ibero.education',location.hostname].includes(url.hostname))return;
+      const slug=url.pathname.replace(/\/index\.html$/,'').replace(/\/+$/,'').split('/').pop();
+      if(!programFrom(url.pathname)&&!catalogue.includes(slug)&&!fromPath(url.pathname,false))return;
+      if(!a.dataset.iberoCountryHref)a.dataset.iberoCountryHref=original;
+      url=routeURL(original);
+      const target=/^(https?:)?\/\//i.test(original)?url.href:original.split(/[?#]/)[0]+url.search+url.hash;
+      if(a.getAttribute('href')!==target)a.setAttribute('href',target);
     });
   }
   function renderAdmissions() {
@@ -1294,23 +1340,72 @@ window.IBERO_MERCADOS_CONFIG = {
     document.querySelectorAll('[data-base],[data-ibero-price-base],[data-usd]').forEach(renderPrice);
     renderAdmissions();syncSchedules();syncLinks();renderCalendar();syncCountryNavigation();
   }
+  function normalizeRouteSelection(origin) {
+    const url=new URL(location.href);
+    const requested=url.searchParams.get('cohorte');
+    if(/^agents-/.test(requested||'')){
+      const resolved=regionalCohort(requested,country,true);
+      if(resolved)url.searchParams.set('cohorte',resolved);else url.searchParams.delete('cohorte');
+    }
+    if(origin==='manual'||url.searchParams.has('pais')||url.searchParams.has('country')||requested){
+      url.searchParams.set('pais',country);url.searchParams.delete('country');
+      if(zone)url.searchParams.set('zona',zone);else url.searchParams.delete('zona');
+      const target=url.pathname+url.search+url.hash;
+      if(target!==location.pathname+location.search+location.hash)history.replaceState(null,'',target);
+    }
+  }
   function apply(code, origin, requestedZone) {
-    country=validCode(code)||C.defaultCountry;zone=chooseZone(country,requestedZone);source=origin||'manual';
+    const previousCountry=country;
+    country=root.dataset.iberoFixedCountry==='ES'?'ES':validCode(code)||C.defaultCountry;
+    zone=chooseZone(country,requestedZone);source=origin||'manual';
     root.dataset.iberoCountry=country;root.dataset.iberoCurrency=M[country].currency;root.dataset.iberoCurrencySource=source;
     window.iberoSelectedCurrency=M[country].currency;
-    if(source==='manual'||source==='url'||source==='storage') {manual=true;save();}
+    normalizeRouteSelection(source);
+    if(source==='manual'||source==='url'||source==='storage'){manual=true;save();}
+    if(previousCountry!==country&&calendarEvent&&calendarEvent.programId==='agents'){
+      const api=window.IBERO_PROGRAMACION;
+      calendarEvent=api&&api.getCalendarEvents().find(e=>e.programId==='agents'&&e.start===calendarEvent.start&&e.end===calendarEvent.end)||null;
+    }
     refresh();window.dispatchEvent(new CustomEvent('ibero:pais-actualizado',{detail:{country:country,zone:zone,currency:M[country].currency}}));
+  }
+  function programSummary(key, prices=true) {
+    const api=window.IBERO_PROGRAMACION,p=api&&api.getProgram(key);
+    if(!p)return '';
+    const price=prices&&C.programBases[key]?'<br>Precio: '+esc(priceText(key,C.programBases[key])):'';
+    const dates=api.fieldText(key,'summary','long');
+    const hours=scheduleText(key);
+    const link=routeURL(p.url,key).pathname+routeURL(p.url,key).search+'#inversion';
+    return '<strong>'+esc(p.name)+'</strong>'+price+'<br>'+esc(dates)+'<br>'+esc(hours)+'<br><a href="'+esc(link)+'">Consultar programa y matrícula</a>';
+  }
+  function catalogAnswer(kind) {
+    const keys=kind==='master'?['master']:kind==='diplomado'?['appsDiploma','marketingDiploma']:kind==='cursos'?['marketing','agents','managers','courses']:['agents','marketing','appsDiploma','master'];
+    return '<strong>Información para '+esc(M[country].name)+'</strong><br><br>'+keys.map(k=>programSummary(k,kind!=='fechas')).join('<br><br>')+(kind==='precios'?'<br><br>'+esc(C.cardPaymentText):'');
   }
   function chatAnswer(text, key) {
     const q=normalize(text);
-    if(!key && /espana|madrid|canarias/.test(q))key='agents';
-    if(!key)return '';
-    if(key==='agents' && /espana|madrid|canarias/.test(q))return 'Cohortes separadas de España: 19–22 de octubre y 9–12 de noviembre de 2026. Ambas de lunes a jueves, 19:00–21:00 Madrid (18:00–20:00 Canarias). Precio final: €50. '+esc(M.ES.agentsPayment.note)+'<br><a href="/productividad-automatizacion-procesos-ia/?pais=ES#inversion">Ver Agentes para España.</a>';
-    if(key==='master' && /precio|costo|valor|inversion/.test(q))return '<strong>Pago semestral: '+esc(priceText('master',926.25))+'</strong><br>Pago único del semestre. Plan mensual: '+esc(priceText('master',154.38))+'/mes · 6 meses.<br>'+C.cardPaymentText;
-    if(/precio|costo|valor|inversion|pago|pagar|paypal/.test(q))return '<strong>'+esc(M[country].name)+': '+esc(priceText(key,C.programBases[key]))+'</strong><br>Pago único. '+C.cardPaymentText+'<br><a href="#inversion">Consulta tu país y las opciones de inscripción.</a>';
-    if(key==='agents' && country==='ES' && /fecha|cuando|inicia|inicio|empieza|comienza/.test(q))return 'España: 19–22 de octubre y 9–12 de noviembre de 2026; 19:00–21:00 Madrid, 18:00–20:00 Canarias. '+esc(window.IBERO_PROGRAMACION.fieldText(key,'summary','long'));
-    if(/fecha|cuando|inicia|inicio|empieza|comienza/.test(q) && window.IBERO_PROGRAMACION)return 'Programación: '+esc(window.IBERO_PROGRAMACION.fieldText(key,'summary','long'))+'<br>'+esc(scheduleText(key));
-    if(/horario|hora de|hora en/.test(q))return esc(scheduleText(key))+'<br><a href="#inversion">Cambiar país o zona horaria.</a>';
+    if(!key&&/espana|madrid|canarias/.test(q))key='agents';
+    if(!key){
+      if(/precio|costo|valor|inversion|cuanto/.test(q))return catalogAnswer('precios');
+      if(/fecha|cuando|inicia|inicio|horario|hora|calendario/.test(q))return catalogAnswer('fechas');
+      if(/cursos|certificaciones/.test(q))return catalogAnswer('cursos');
+      if(/pago|pagar|tarjeta|transferencia|inscripcion|matricula/.test(q))return 'Elige el programa y el país en <a href="'+esc(routeURL('/registro-y-admisiones/').pathname+routeURL('/registro-y-admisiones/').search)+'#inversion">Registro y Admisiones</a> para consultar el medio de pago autorizado.'+(country==='EC'?' Ecuador también tiene la alternativa bancaria publicada en esa página.':'');
+      return '';
+    }
+    const payment=/pago|pagar|paypal|inscripcion|matricula|tarjeta|transferencia/.test(q);
+    if(key==='agents'&&country==='ES'&&payment&&!window.IBERO_PROGRAMACION.getRegistrationState(key).canRegister)return programSummary(key,false)+'<br>Inscripción no disponible para esta cohorte. Consulta la próxima convocatoria en Admisiones antes de realizar un pago.';
+    if(key==='agents'&&country==='ES'&&payment)return '<strong>Agentes IA para España: 50 € finales, pago único en EUR.</strong><br><a href="'+esc(M.ES.agentsPayment.url)+'">Pagar 50 € con PayPal o tarjeta</a><br>'+esc(scheduleText(key))+'<br>'+esc(window.IBERO_PROGRAMACION.fieldText(key,'summary','long'))+'<br>No hay una transferencia bancaria española publicada. Después del pago, envía el comprobante a admisiones; la matrícula se confirma tras su validación.';
+    if(key==='agents'&&/espana|madrid|canarias/.test(q)){
+      const api=window.IBERO_PROGRAMACION;
+      const available=api.getCohorts('agents','ES').filter(c=>api.isPublicCandidate('agents',c));
+      const dates=available.length?available.map(c=>esc(api.formatRange(c))+': '+esc(c.startTime+'–'+c.endTime)+' Madrid · '+esc(localRange(c.start,c.startTime,c.endTime,'Atlantic/Canary',c.timeZone))+' Canarias').join('<br>'):'Próxima cohorte por confirmar';
+      return '<strong>Agentes IA · España</strong><br>'+dates+'<br>Precio final: '+esc(priceText('agents',57,'ES'))+'<br><a href="/espana/productividad-automatizacion-procesos-ia/">Ver Agentes para España</a>';
+    }
+    if(/precio|costo|valor|inversion|cuanto/.test(q)||payment){
+      if(key==='master')return '<strong>Pago semestral: '+esc(priceText('master',926.25))+'</strong><br>Pago único del semestre. Plan mensual: '+esc(priceText('master',154.38))+'/mes · 6 meses.<br>'+esc(C.cardPaymentText);
+      return '<strong>'+esc(M[country].name)+': '+esc(priceText(key,C.programBases[key]))+'</strong><br>Pago único. '+esc(C.cardPaymentText)+'<br><a href="'+esc(routeURL('/registro-y-admisiones/',key).pathname+routeURL('/registro-y-admisiones/',key).search)+'#inversion">Consultar matrícula y método autorizado</a>';
+    }
+    if(/fecha|cuando|inicia|inicio|empieza|comienza|calendario/.test(q))return programSummary(key,false);
+    if(/horario|hora/.test(q))return esc(scheduleText(key))+'<br><a href="#inversion">Cambiar país o zona horaria</a>';
     return '';
   }
   function detectIP() {
@@ -1318,12 +1413,14 @@ window.IBERO_MERCADOS_CONFIG = {
     function get(url,timeout) {const ctl=new AbortController();const id=setTimeout(()=>ctl.abort(),timeout);return fetch(url,{cache:'no-store',signal:ctl.signal}).then(r=>r.ok?r.json():null).then(d=>validCode(d&&(d.country_code||d.country))).catch(()=>'').finally(()=>clearTimeout(id));}
     get('https://api.country.is/',1100).then(code=>code||(manual?'':get('https://ipapi.co/json/',1400))).then(code=>{if(code&&!manual)apply(code,'ip',fromTimezone(browserZone())===code?browserZone():null);});
   }
-  const API={version:C.version,refresh:refresh,apply:(c,z)=>apply(c,'manual',z),getCountry:()=>country,getZone:()=>zone,priceInfo:priceInfo,priceText:priceText,scheduleText:scheduleText,syncLinks:syncLinks,paymentLink:paymentLink,renderCalendar:renderCalendar,chatAnswer:chatAnswer,programFrom:programFrom};
+  const API={version:C.version,refresh:refresh,apply:(c,z)=>apply(c,'manual',z),getCountry:()=>country,getZone:()=>zone,priceInfo:priceInfo,priceText:priceText,scheduleText:scheduleText,syncLinks:syncLinks,paymentLink:paymentLink,renderCalendar:renderCalendar,routeURL:routeURL,regionalCohort:regionalCohort,chatAnswer:chatAnswer,catalogAnswer:catalogAnswer,programSummary:programSummary,programFrom:programFrom};
   window.IBERO_MERCADOS=Object.freeze(API);window.iberoSyncPaymentLinks=syncLinks;
   function boot() {
     const saved=readSaved();const params=new URLSearchParams(location.search);const specified=validCode(params.get('pais'))||validCode(params.get('country'));
     const tz=browserZone();
-    if(specified)apply(specified,'url',params.get('zona'));
+    if(root.dataset.iberoFixedCountry==='ES')apply('ES','path',params.get('zona'));
+    else if(specified)apply(specified,'url',params.get('zona'));
+    else if(fromPath())apply(fromPath(),'path',params.get('zona'));
     else if(saved)apply(saved.country,'storage',saved.zone);
     else {const pc=fromPath(),tc=fromTimezone(tz);apply(pc||tc,pc?'path':'timezone',(pc||tc)===tc?tz:null);}
     document.addEventListener('change',e=>{
@@ -1339,5 +1436,6 @@ window.IBERO_MERCADOS_CONFIG = {
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
 })();
+
 </script>
 </body></html>

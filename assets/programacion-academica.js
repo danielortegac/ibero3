@@ -18,12 +18,13 @@
   const clone = o => JSON.parse(JSON.stringify(o));
 
   function selectedMarket() {
+    if(document.documentElement.dataset.iberoFixedCountry==='ES')return 'ES';
     if (window.IBERO_MERCADOS) return window.IBERO_MERCADOS.getCountry();
     const params=new URLSearchParams(window.location.search||'');
     const explicit=params.get('pais')||params.get('country');
     if(explicit) return explicit.toUpperCase();
-    try {const saved=JSON.parse(localStorage.getItem('ibero.market.v1')||'null');if(saved&&saved.country)return saved.country;}catch(_){}
     if (/\/espana(?:\/|$)/.test(window.location.pathname)) return 'ES';
+    try {const saved=JSON.parse(localStorage.getItem('ibero.market.v1')||'null');if(saved&&saved.country)return saved.country;}catch(_){}
     return document.documentElement.dataset.iberoCountry || 'EC';
   }
   // Resolve a wall-clock time against IANA rules for its actual session date.
@@ -107,8 +108,8 @@
   function isPublicCandidate(key, cohort, reference) {
     if (!cohort || cohort.registrationClosed === true) return false;
     if (publicRolloverMode(key) === 'startDay') {
-      // Cursos cortos dejan de anunciar la cohorte vigente al comenzar su fecha de inicio en Ecuador.
-      return localStamp(reference,cohort.timeZone).slice(0,10) < cohort.start;
+      // Cursos cortos dejan de anunciar la cohorte vigente al comenzar su primera sesión en su zona horaria.
+      return localStamp(reference,cohort.timeZone) < cohort.start+'T'+fullTime(cohort.startTime);
     }
     return localStamp(reference,cohort.timeZone) < cohort.end + 'T' + fullTime(cohort.endTime);
   }
@@ -118,16 +119,21 @@
     const chosen=requested && cohorts.find(c=>c.id===requested && isPublicCandidate(key,c,reference));
     return chosen || cohorts.find(c => isPublicCandidate(key, c, reference)) || null;
   }
+  function getDisplayedCohort(key, reference) {
+    const requested=new URLSearchParams(window.location.search||'').get('cohorte');
+    return (requested&&getCohorts(key).find(c=>c.id===requested))||getPublishedCohort(key,reference);
+  }
   function getStatus(key, reference) {
-    const cohort = getPublishedCohort(key, reference);
+    const cohort = getDisplayedCohort(key, reference);
     if (!cohort) return 'pending';
+    if(localStamp(reference,cohort.timeZone)>=cohort.end+'T'+fullTime(cohort.endTime))return 'ended';
     return localStamp(reference,cohort.timeZone) >= cohort.start + 'T' + fullTime(cohort.startTime) ? 'active' : 'upcoming';
   }
   function hasConfirmedPublicCohort(key, reference) {
-    return !!getPublishedCohort(key, reference);
+    const c=getDisplayedCohort(key,reference);return !!c&&isPublicCandidate(key,c,reference);
   }
   function commercialLabel(key, reference) {
-    return hasConfirmedPublicCohort(key, reference) ? 'Matrículas abiertas' : PENDING;
+    return hasConfirmedPublicCohort(key, reference) ? 'Matrículas abiertas' : getDisplayedCohort(key,reference)?'Matrículas cerradas · Cohorte seleccionada':PENDING;
   }
   function formatStart(item, style = 'long') {
     if (!item) return PENDING;
@@ -156,14 +162,14 @@
     return start + join + end;
   }
   function fieldText(key, field = 'range', style = 'long', reference) {
-    const cohort = getPublishedCohort(key, reference);
+    const cohort = getDisplayedCohort(key, reference);
     const state = getStatus(key, reference);
     const p = programs[key] || {};
     if (field === 'status') {
       if (p.type === 'curso') return commercialLabel(key, reference);
       return state === 'active' ? 'En curso' : state === 'upcoming' ? 'Próxima cohorte' : PENDING;
     }
-    if (field === 'summary') return cohort ? `${state === 'active' ? 'En curso' : 'Próxima cohorte'}: ${formatRange(cohort, style)}` : PENDING;
+    if (field === 'summary') return cohort ? `${state === 'ended' ? 'Cohorte finalizada · consulta histórica' : state === 'active' ? 'Cohorte en curso · matrícula cerrada' : 'Próxima cohorte'}: ${formatRange(cohort, style)}` : PENDING;
     if (field === 'schedule') return (cohort && cohort.schedule) || p.schedule || PENDING;
     if (field === 'scheduleRegional') return (cohort && cohort.scheduleRegional) || p.scheduleRegional || (cohort && cohort.schedule) || p.schedule || PENDING;
     if (field === 'scheduleEC') return (cohort && cohort.scheduleEC) || p.scheduleEC || (cohort && cohort.schedule) || p.schedule || PENDING;
@@ -239,7 +245,7 @@
   // La regla de apertura comercial no se infiere de un recordatorio del calendario.
   function getRegistrationState(key, cohortId, reference) {
     const p = programs[key];
-    const c = cohortId ? getCohorts(key).find(item=>item.id===cohortId) : getPublishedCohort(key,reference);
+    const c = cohortId ? getCohorts(key).find(item=>item.id===cohortId) : getDisplayedCohort(key,reference);
     const programUrl = p ? 'https://www.ibero.education' + p.url + (c && c.market==='ES'?'?pais=ES&cohorte='+encodeURIComponent(c.id):'') : 'https://www.ibero.education/registro-y-admisiones/';
     if (!p || !c) return {state:'pending',canRegister:false,cohort:null,programUrl,label:PENDING};
     const closed = !isPublicCandidate(key,c,reference);
@@ -375,7 +381,9 @@
     findWithin(root,'[data-ibero-date]').forEach(el=>{
       if (el.closest('.chat-msg-user,.chat-bubble-user,[data-ibero-ignore]')) return;
       const key=el.getAttribute('data-ibero-date');
-      const text=fieldText(key,el.getAttribute('data-ibero-field')||'range',el.getAttribute('data-ibero-format')||'long');
+      const field=el.getAttribute('data-ibero-field')||'range';
+      const localSchedule=el.hasAttribute('data-ibero-local-schedule')||['schedule','scheduleRegional'].includes(field);
+      const text=localSchedule&&window.IBERO_MERCADOS?window.IBERO_MERCADOS.scheduleText(key):fieldText(key,field,el.getAttribute('data-ibero-format')||'long');
       if (el.textContent!==text) el.textContent=text;
       const state=getStatus(key);
       if (el.getAttribute('data-ibero-state')!==state) el.setAttribute('data-ibero-state',state);
@@ -400,7 +408,7 @@
     });
     findWithin(root,'[data-ibero-registration]').forEach(el=>{
       const key=el.getAttribute('data-ibero-registration');
-      const open=hasConfirmedPublicCohort(key);
+      const open=hasConfirmedPublicCohort(key)&&el.dataset.iberoEsPaymentHidden!=='true';
       el.hidden=!open;
       // `hidden` can lose the cascade against utility display classes such as `flex`.
       // Force the commercial CTA off when there is no confirmed public cohort.
@@ -428,7 +436,7 @@
   function refreshPublishedDates(root=document) { syncBindings(root); }
   let fingerprint = '';
   function refresh() {
-    const next = todayString() + '|' + Object.keys(programs).map(k=>{
+    const next = todayString() + '|'+selectedMarket()+'|'+window.location.search+'|' + Object.keys(programs).map(k=>{
       const c=getPublishedCohort(k);
       return k+':'+(c?c.id:'pending')+':'+getStatus(k);
     }).join('|') + '|' + getCalendarEvents().filter(e=>!isEventExpired(e)).map(e=>e.start+e.cohortId).join(',');
@@ -439,7 +447,7 @@
   }
   const API = Object.freeze({
     version:config.version,timeZone:TIME_ZONE,isDiplomadoAppsAplazado:config.diplomadoAppsAplazado===true,
-    todayString,localStamp,getCohorts,getPublishedCohort,getStatus,hasConfirmedPublicCohort,commercialLabel,publicRolloverMode,isPublicCandidate,formatRange,formatStart,fieldText,renderTemplate,
+    todayString,localStamp,getCohorts,getPublishedCohort,getDisplayedCohort,getStatus,hasConfirmedPublicCohort,commercialLabel,publicRolloverMode,isPublicCandidate,formatRange,formatStart,fieldText,renderTemplate,
     programFromValue,pageProgramKey,getCalendarEvents,getDiplomaApps,addDays,weekStart,isEventExpired,isEventActive,
     getRegistrationState,getEventSessions,buildCalendarICS,zonedDate,selectedMarket,
     refreshPublishedDates,refresh,getConfigurationErrors:()=>errors.slice(),getProgramKeys:()=>Object.keys(programs),

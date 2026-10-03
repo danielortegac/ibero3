@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-12",
+  "generated_at": "2026-10-03",
   "base_url": "https://ibero.education",
   "pages": [
     {
@@ -782,6 +782,12 @@
       "slug": "clase-gratis",
       "url": "https://ibero.education/clase-gratis/",
       "category": "Explorar IBERO"
+    },
+    {
+      "title": "Agentes de IA para España",
+      "slug": "espana/productividad-automatizacion-procesos-ia",
+      "url": "https://ibero.education/espana/productividad-automatizacion-procesos-ia/",
+      "category": "Programa"
     }
   ],
   "programs": [
