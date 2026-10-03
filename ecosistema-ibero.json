@@ -886,7 +886,7 @@
       },
       "regionalPricingSource": "/assets/mercados-ibero.config.js",
       "paymentCopy": "Pago único. Aceptamos todas las tarjetas de crédito o débito.",
-      "description": "Mismo proyecto durante cuatro días: conexión MCP comprobada; primera app y habilidad con Codex; formulario, login y persistencia con Antigravity y Firebase; app publicada con una función de IA y un correo automático real. Días 1–3: MP4 o PNG/JPG. Día 4: URL pública funcional. Incluye una ampliación de conexión API desde el software propio y un catálogo de 28 herramientas, según disponibilidad y permisos."
+      "description": "Mismo proyecto durante cuatro días: conexión MCP comprobada; primera app y habilidad con Codex; formulario, login y persistencia con Antigravity y Firebase; app publicada con una función de IA y un correo automático real. Días 1–3: MP4 o PNG/JPG. Día 4: URL pública funcional. Incluye una ampliación de conexión API desde el software propio y un catálogo de 23 herramientas, según disponibilidad y permisos."
     },
     {
       "type": "Certificación",
@@ -1028,7 +1028,8 @@
     "pillar": "https://ibero.education/agentes-de-inteligencia-artificial-y-automatizacion/",
     "platforms": [
       "Codex",
-      "Google Antigravity",
+      "Antigravity IDE",
+      "Antigravity 2.0",
       "Goatify"
     ],
     "principles": [
