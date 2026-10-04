@@ -398,7 +398,8 @@
 <meta content="IBERO, Centro IBEROamericano, Centro Iberoamericano, Iberoamericano, Instituto IBEROamericano, IBERO Education" name="brand-aliases"/>
 <script id="ibero-brand-entity-schema-v13" type="application/ld+json">{"@context":"https://schema.org","@type":["EducationalOrganization","Organization"],"name":"IBERO","alternateName":["Centro IBEROamericano","Centro Iberoamericano","IBERO Education"],"url":"https://ibero.education/","logo":"https://ibero.education/fotos/logos%20ibero/logo%20sin%20fondo%20main%20para%20fondos%20claros.png","description":"Centro privado de formación aplicada en inteligencia artificial, apps, producto digital, marketing digital, docencia, comunicación y negocios digitales para Latinoamérica, España y comunidad latina en Estados Unidos.","areaServed":["Ecuador","México","Colombia","Perú","Costa Rica","Guatemala","El Salvador","Honduras","Panamá","República Dominicana","Puerto Rico","Chile","Argentina","Uruguay","Paraguay","Estados Unidos","Latinoamérica","España","comunidad latina"],"knowsAbout":["inteligencia artificial aplicada","desarrollo de software con IA","apps con IA","producto digital","marketing digital con IA","IA para docentes","oratoria profesional","negocios digitales","vibe coding","MVP con IA"],"hasOfferCatalog":{"@type":"OfferCatalog","name":"Programas IBERO de IA aplicada y productos digitales"},"legalName":"Centro IBEROamericano de Educación","sameAs":["https://www.youtube.com/@ia.marketing.negocios","https://www.tiktok.com/@ia.marketing.negocios"]}</script>
 <script src="/assets/programacion-academica.config.js?v=20261003-es-eur50"></script>
-<script id="ibero-programacion-espana">/** IBERO — Programación central, selección temporal y sincronización de vistas.
+<script id="ibero-programacion-espana">
+/** IBERO — Programación central, selección temporal y sincronización de vistas.
  * Sin escrituras, peticiones de pago ni acceso al registro de certificados.
  * Los datos se leen exclusivamente de programacion-academica.config.js.
  */
@@ -746,6 +747,10 @@
     const out = {};
     Object.entries(value).forEach(([k,v])=> {out[k]=hydrateSchema(v,key,reference);});
     const type = Array.isArray(value['@type']) ? value['@type'] : [value['@type']];
+    if(type.includes('Offer')&&key&&selectedMarket()==='ES'&&value.priceCurrency==='USD'&&window.IBERO_MERCADOS){
+      const info=window.IBERO_MERCADOS.priceInfo(key,Number(value.price),'ES');
+      if(Number.isFinite(info.value)){out.price=info.value;out.priceCurrency='EUR';out.url=key==='agents'?'https://www.paypal.com/ncp/payment/CEG8W8MVU3R9Q':window.IBERO_MERCADOS.consultationLink(key,Number(value.price));}
+    }
     if (type.includes('Course') && key && programs[key]) {
       const cohorts = getCohorts(key).filter(c=>isPublicCandidate(key,c,reference));
       if (!cohorts.length) delete out.hasCourseInstance;
@@ -876,6 +881,7 @@
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',start,{once:true});
   else start();
 })();
+
 </script>
 
 <style id="ibero-plan-integrado-style">
@@ -1076,7 +1082,7 @@
 @media(max-width:479px){.ibero-all-prices[data-ibero-price-columns="3"] .ibero-prices-scroll thead{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}.ibero-all-prices[data-ibero-price-columns="3"] .ibero-prices-scroll tbody,.ibero-all-prices[data-ibero-price-columns="3"] .ibero-prices-scroll tbody tr,.ibero-all-prices[data-ibero-price-columns="3"] .ibero-prices-scroll tbody th:first-child,.ibero-all-prices[data-ibero-price-columns="3"] .ibero-prices-scroll tbody td{display:block;width:auto}.ibero-all-prices[data-ibero-price-columns="3"] .ibero-prices-scroll tbody th{padding-bottom:5px}.ibero-all-prices[data-ibero-price-columns="3"] .ibero-prices-scroll tbody td{padding-top:5px}.ibero-all-prices[data-ibero-price-columns="3"] .ibero-prices-scroll tbody td:nth-child(2)::before{content:"Semestral"}.ibero-all-prices[data-ibero-price-columns="3"] .ibero-prices-scroll tbody td:nth-child(3)::before{content:"Mensual · 6 meses"}.ibero-all-prices[data-ibero-price-columns="3"] .ibero-prices-scroll tbody td::before{display:block;text-align:left;font-size:10px;color:var(--market-muted);font-weight:500;margin-bottom:2px}.ibero-all-prices[data-ibero-price-columns="3"] .ibero-table-currency{display:inline}}
 @media(prefers-reduced-motion:reduce){.ibero-all-prices>summary::after{transition:none}}
 </style>
-<link rel="alternate" hreflang="es-ES" href="https://ibero.education/espana/productividad-automatizacion-procesos-ia/"/><link rel="alternate" hreflang="es" href="https://ibero.education/productividad-automatizacion-procesos-ia/"/><link rel="alternate" hreflang="x-default" href="https://ibero.education/productividad-automatizacion-procesos-ia/"/><script type="application/ld+json" id="ibero-curso-espana">{"@context":"https://schema.org","@type":"Course","@id":"https://ibero.education/espana/productividad-automatizacion-procesos-ia/#curso","url":"https://ibero.education/espana/productividad-automatizacion-procesos-ia/","name":"Certificación en Productividad y Automatización de Procesos con Inteligencia Artificial · España","description":"Crea una aplicación con MCP, Codex y Antigravity. España: 19–22 octubre o 9–12 noviembre de 2026, 19–21 h Madrid, 18–20 h Canarias. Precio final: 50 €.","inLanguage":"es","timeRequired":"PT12H","provider":{"@type":"EducationalOrganization","name":"Centro IBEROamericano","url":"https://ibero.education/"},"hasCourseInstance":[{"@type":"CourseInstance","@id":"https://ibero.education/espana/productividad-automatizacion-procesos-ia/#agents-es-2026-10-19","name":"Agentes IA · España · 2026-10-19","courseMode":"online","inLanguage":"es","startDate":"2026-10-19T19:00:00+02:00","endDate":"2026-10-22T21:00:00+02:00","location":{"@type":"VirtualLocation","url":"https://ibero.education/espana/productividad-automatizacion-procesos-ia/"},"courseSchedule":{"@type":"Schedule","scheduleTimezone":"Europe/Madrid","startTime":"19:00","endTime":"21:00","repeatFrequency":"P1D","byDay":["Monday","Tuesday","Wednesday","Thursday"]},"offers":{"@type":"Offer","price":50,"priceCurrency":"EUR","url":"https://www.paypal.com/ncp/payment/CEG8W8MVU3R9Q","description":"Precio final de la certificación Agentes IA para España. Pago único en EUR."}},{"@type":"CourseInstance","@id":"https://ibero.education/espana/productividad-automatizacion-procesos-ia/#agents-es-2026-11-09","name":"Agentes IA · España · 2026-11-09","courseMode":"online","inLanguage":"es","startDate":"2026-11-09T19:00:00+01:00","endDate":"2026-11-12T21:00:00+01:00","location":{"@type":"VirtualLocation","url":"https://ibero.education/espana/productividad-automatizacion-procesos-ia/"},"courseSchedule":{"@type":"Schedule","scheduleTimezone":"Europe/Madrid","startTime":"19:00","endTime":"21:00","repeatFrequency":"P1D","byDay":["Monday","Tuesday","Wednesday","Thursday"]},"offers":{"@type":"Offer","price":50,"priceCurrency":"EUR","url":"https://www.paypal.com/ncp/payment/CEG8W8MVU3R9Q","description":"Precio final de la certificación Agentes IA para España. Pago único en EUR."}}],"offers":{"@type":"Offer","price":50,"priceCurrency":"EUR","url":"https://www.paypal.com/ncp/payment/CEG8W8MVU3R9Q","description":"Precio final de la certificación Agentes IA para España. Pago único en EUR."},"dateModified":"2026-10-03"}</script><script type="application/ld+json" id="ibero-breadcrumb-espana">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ibero.education/"},{"@type":"ListItem","position":2,"name":"España","item":"https://ibero.education/espana/"},{"@type":"ListItem","position":3,"name":"Agentes IA","item":"https://ibero.education/espana/productividad-automatizacion-procesos-ia/"}]}</script><script type="application/ld+json" id="ibero-faq-espana">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Cuándo son las clases de Agentes IA para España?","acceptedAnswer":{"@type":"Answer","text":"Puedes elegir del 19 al 22 de octubre o del 9 al 12 de noviembre de 2026. Son cuatro sesiones de lunes a jueves, de 19:00 a 21:00 en la península y Baleares (Europe/Madrid), y de 18:00 a 20:00 en Canarias."}},{"@type":"Question","name":"¿Cambia la hora de clase por el horario de invierno?","acceptedAnswer":{"@type":"Answer","text":"No cambia la hora local de las clases: 19:00–21:00 Madrid y 18:00–20:00 Canarias. En octubre equivale a 17:00–19:00 UTC; en noviembre, a 18:00–20:00 UTC. Cada edición tiene su calendario propio."}},{"@type":"Question","name":"¿Cuánto cuesta y en qué moneda pago?","acceptedAnswer":{"@type":"Answer","text":"El precio final de esta certificación para España es 50 €, en un pago único en EUR mediante el enlace PayPal aprobado. No es una conversión diaria desde dólares ni el precio de los demás programas."}},{"@type":"Question","name":"¿Qué incluye la matrícula y qué gastos van aparte?","acceptedAnswer":{"@type":"Answer","text":"Incluye la formación de 12 horas, los 48 materiales académicos de consulta y el certificado digital verificable al cumplir los criterios. Las suscripciones de herramientas, los consumos de API y los servicios de terceros dependen del proveedor y del proyecto; no están incluidos en la matrícula."}},{"@type":"Question","name":"¿La formación es presencial en España?","acceptedAnswer":{"@type":"Answer","text":"La modalidad es online y en vivo. Participas desde tu equipo con conexión a Internet; esta convocatoria no ofrece una sede presencial en España."}},{"@type":"Question","name":"¿El certificado es un título oficial español?","acceptedAnswer":{"@type":"Answer","text":"Es una certificación privada de formación aplicada del Centro IBEROamericano. No se presenta como título oficial universitario ni como habilitación profesional regulada en España."}},{"@type":"Question","name":"¿Necesito saber programar?","acceptedAnswer":{"@type":"Answer","text":"No se requiere experiencia previa. Se trabaja con Codex y Antigravity, instrucciones estructuradas, archivos, pruebas y conceptos técnicos básicos. Necesitas un proyecto propio y acceso autorizado a las cuentas y servicios de la práctica; sus cuotas y costos dependen de cada proveedor."}},{"@type":"Question","name":"¿Solo sirve para negocios?","acceptedAnswer":{"@type":"Answer","text":"No. Puedes automatizar investigación, educación, marketing, ventas, administración, operaciones, consultoría, contenido y tareas profesionales repetitivas."}},{"@type":"Question","name":"¿Qué papel tienen Codex y Antigravity?","acceptedAnswer":{"@type":"Answer","text":"Codex construye la primera app y una habilidad. Antigravity IDE y Antigravity 2.0 continúan el mismo proyecto, con navegador autorizado, formulario, login y Firebase. Trabajan por turnos sobre la misma carpeta o repositorio, conservando una versión comprobada."}},{"@type":"Question","name":"¿Qué construyo al final?","acceptedAnswer":{"@type":"Answer","text":"Una URL pública HTTPS de la misma aplicación: acceso de usuarios, formulario, datos persistentes, función de IA y al menos un correo automático real. El docente prueba con su propia cuenta. Días 1–3 entregas MP4 o PNG/JPG; día 4 solo el enlace. Las instrucciones y controles quedan dentro de la app, sin PDF, ZIP o video extra."}}]}</script></head>
+<link rel="alternate" hreflang="es-ES" href="https://ibero.education/espana/productividad-automatizacion-procesos-ia/"/><link rel="alternate" hreflang="es" href="https://ibero.education/productividad-automatizacion-procesos-ia/"/><link rel="alternate" hreflang="x-default" href="https://ibero.education/productividad-automatizacion-procesos-ia/"/><script type="application/ld+json" id="ibero-curso-espana">{"@context":"https://schema.org","@type":"Course","@id":"https://ibero.education/espana/productividad-automatizacion-procesos-ia/#curso","url":"https://ibero.education/espana/productividad-automatizacion-procesos-ia/","name":"Certificación en Productividad y Automatización de Procesos con Inteligencia Artificial · España","description":"Crea una aplicación con MCP, Codex y Antigravity. España: 19–22 octubre o 9–12 noviembre de 2026, 19–21 h Madrid, 18–20 h Canarias. Precio final: 50 €.","inLanguage":"es","timeRequired":"PT12H","provider":{"@type":"EducationalOrganization","name":"Centro IBEROamericano","url":"https://ibero.education/"},"hasCourseInstance":[{"@type":"CourseInstance","@id":"https://ibero.education/espana/productividad-automatizacion-procesos-ia/#agents-es-2026-10-19","name":"Agentes IA · España · 2026-10-19","courseMode":"online","inLanguage":"es","startDate":"2026-10-19T19:00:00+02:00","endDate":"2026-10-22T21:00:00+02:00","location":{"@type":"VirtualLocation","url":"https://ibero.education/espana/productividad-automatizacion-procesos-ia/"},"courseSchedule":{"@type":"Schedule","scheduleTimezone":"Europe/Madrid","startTime":"19:00","endTime":"21:00","repeatFrequency":"P1D","byDay":["Monday","Tuesday","Wednesday","Thursday"]},"offers":{"@type":"Offer","price":50,"priceCurrency":"EUR","url":"https://www.paypal.com/ncp/payment/CEG8W8MVU3R9Q","description":"Precio final de la certificación Agentes IA para España. Pago único en EUR."}},{"@type":"CourseInstance","@id":"https://ibero.education/espana/productividad-automatizacion-procesos-ia/#agents-es-2026-11-09","name":"Agentes IA · España · 2026-11-09","courseMode":"online","inLanguage":"es","startDate":"2026-11-09T19:00:00+01:00","endDate":"2026-11-12T21:00:00+01:00","location":{"@type":"VirtualLocation","url":"https://ibero.education/espana/productividad-automatizacion-procesos-ia/"},"courseSchedule":{"@type":"Schedule","scheduleTimezone":"Europe/Madrid","startTime":"19:00","endTime":"21:00","repeatFrequency":"P1D","byDay":["Monday","Tuesday","Wednesday","Thursday"]},"offers":{"@type":"Offer","price":50,"priceCurrency":"EUR","url":"https://www.paypal.com/ncp/payment/CEG8W8MVU3R9Q","description":"Precio final de la certificación Agentes IA para España. Pago único en EUR."}}],"offers":{"@type":"Offer","price":50,"priceCurrency":"EUR","url":"https://www.paypal.com/ncp/payment/CEG8W8MVU3R9Q","description":"Precio final de la certificación Agentes IA para España. Pago único en EUR."},"dateModified":"2026-10-03"}</script><script type="application/ld+json" id="ibero-breadcrumb-espana">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ibero.education/"},{"@type":"ListItem","position":2,"name":"España","item":"https://ibero.education/espana/"},{"@type":"ListItem","position":3,"name":"Agentes IA","item":"https://ibero.education/espana/productividad-automatizacion-procesos-ia/"}]}</script><script type="application/ld+json" id="ibero-faq-espana">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Cuándo son las clases de Agentes IA para España?","acceptedAnswer":{"@type":"Answer","text":"Puedes elegir del 19 al 22 de octubre o del 9 al 12 de noviembre de 2026. Son cuatro sesiones de lunes a jueves, de 19:00 a 21:00 en la península y Baleares (Europe/Madrid), y de 18:00 a 20:00 en Canarias."}},{"@type":"Question","name":"¿Cambia la hora de clase por el horario de invierno?","acceptedAnswer":{"@type":"Answer","text":"No cambia la hora local de las clases: 19:00–21:00 Madrid y 18:00–20:00 Canarias. En octubre equivale a 17:00–19:00 UTC; en noviembre, a 18:00–20:00 UTC. Cada edición tiene su calendario propio."}},{"@type":"Question","name":"¿Cuánto cuesta y en qué moneda pago?","acceptedAnswer":{"@type":"Answer","text":"El precio final de esta certificación para España es 50 €, en un pago único en EUR mediante el enlace PayPal aprobado. Consulta el precio y la forma de pago de cada programa en Admisiones."}},{"@type":"Question","name":"¿Qué incluye la matrícula y qué gastos van aparte?","acceptedAnswer":{"@type":"Answer","text":"Incluye la formación de 12 horas, los 48 materiales académicos de consulta y el certificado digital verificable al cumplir los criterios. Las suscripciones de herramientas, los consumos de API y los servicios de terceros dependen del proveedor y del proyecto; no están incluidos en la matrícula."}},{"@type":"Question","name":"¿La formación es presencial en España?","acceptedAnswer":{"@type":"Answer","text":"La modalidad es online y en vivo. Participas desde tu equipo con conexión a Internet; esta convocatoria no ofrece una sede presencial en España."}},{"@type":"Question","name":"¿El certificado es un título oficial español?","acceptedAnswer":{"@type":"Answer","text":"Es una certificación privada de formación aplicada del Centro IBEROamericano. No se presenta como título oficial universitario ni como habilitación profesional regulada en España."}},{"@type":"Question","name":"¿Necesito saber programar?","acceptedAnswer":{"@type":"Answer","text":"No se requiere experiencia previa. Se trabaja con Codex y Antigravity, instrucciones estructuradas, archivos, pruebas y conceptos técnicos básicos. Necesitas un proyecto propio y acceso autorizado a las cuentas y servicios de la práctica; sus cuotas y costos dependen de cada proveedor."}},{"@type":"Question","name":"¿Solo sirve para negocios?","acceptedAnswer":{"@type":"Answer","text":"No. Puedes automatizar investigación, educación, marketing, ventas, administración, operaciones, consultoría, contenido y tareas profesionales repetitivas."}},{"@type":"Question","name":"¿Qué papel tienen Codex y Antigravity?","acceptedAnswer":{"@type":"Answer","text":"Codex construye la primera app y una habilidad. Antigravity IDE y Antigravity 2.0 continúan el mismo proyecto, con navegador autorizado, formulario, login y Firebase. Trabajan por turnos sobre la misma carpeta o repositorio, conservando una versión comprobada."}},{"@type":"Question","name":"¿Qué construyo al final?","acceptedAnswer":{"@type":"Answer","text":"Una URL pública HTTPS de la misma aplicación: acceso de usuarios, formulario, datos persistentes, función de IA y al menos un correo automático real. El docente prueba con su propia cuenta. Días 1–3 entregas MP4 o PNG/JPG; día 4 solo el enlace. Las instrucciones y controles quedan dentro de la app, sin PDF, ZIP o video extra."}}]}</script></head>
 <body class="bg-theme-dark text-zinc-300 font-sans antialiased overflow-x-hidden selection:bg-theme-accent selection:text-theme-dark pt-[136px] md:pt-[144px]">
 <!-- BOTONES FLOTANTES Y CHATBOT -->
 <button aria-label="Volver arriba" class="w-10 h-10 bg-zinc-800 border border-zinc-600 shadow-md text-white rounded-full flex items-center justify-center hover:bg-zinc-700 transition-all group" id="scroll-top-btn" onclick="window.scrollTo({top:0, behavior:'smooth'})">
@@ -1371,7 +1377,7 @@
 </nav>
 <!-- HERO SECTION: FULL PROGRAM -->
 <section class="relative pt-8 pb-20 lg:pt-14 lg:pb-28 overflow-hidden bg-theme-dark min-h-[85vh] flex items-center border-b border-zinc-900/50">
-<div class="absolute inset-0 z-0 overflow-hidden"><video autoplay="" class="absolute inset-0 w-full h-full object-cover pointer-events-none opacity-24" loop="" muted="" playsinline="" preload="auto"><source src="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/284767d23c4cd5793b419e4625bb7707aa42b4f4/fotos/AI_Business_Education_Hero_Video.mp4" type="video/mp4"/></video><div class="absolute inset-0 bg-zinc-950/62"></div><div class="absolute inset-0 bg-gradient-to-br from-zinc-950/95 via-[#071018]/84 to-zinc-950/96"></div><div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(217,70,239,0.18),transparent_28%),radial-gradient(circle_at_bottom_right,rgba(34,211,238,0.12),transparent_26%)]"></div></div><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10"><div class="max-w-5xl"><p class="text-[10px] uppercase tracking-[.18em] font-black text-fuchsia-300 mb-4">Certificación intensiva IBERO · España · 50 € finales</p><nav aria-label="Ruta de navegación" class="max-w-7xl mx-auto px-5 py-4 text-xs text-zinc-300"><ol class="flex flex-wrap gap-2"><li><a class="underline underline-offset-4" href="/">Inicio</a><span aria-hidden="true" class="ml-2">/</span></li><li><a class="underline underline-offset-4" href="/espana/">España</a><span aria-hidden="true" class="ml-2">/</span></li><li><span aria-current="page">Agentes IA</span></li></ol></nav><h1 class="text-4xl sm:text-6xl lg:text-7xl font-black text-white leading-[.98]">Crea Agentes de IA<br/><span class="text-fuchsia-300">desde España.</span></h1><p class="mt-6 text-lg text-zinc-300 max-w-4xl leading-relaxed">Conecta una aplicación autorizada mediante MCP y continúa el mismo proyecto con Codex y Antigravity: primera app y habilidad, formulario, login y persistencia con Firebase, y publicación con una función de IA y correo automático real. No se requiere experiencia previa en programación; se trabaja con instrucciones, archivos y pruebas.</p><div class="mt-7 flex flex-wrap gap-2 text-xs"><span class="rounded-full border border-white/10 bg-white/5 px-4 py-2"><span data-ibero-date=agents data-ibero-field=range data-ibero-format=badge>19–22 Oct 2026</span></span><span class="rounded-full border border-white/10 bg-white/5 px-4 py-2">12 horas</span><span class="rounded-full border border-white/10 bg-white/5 px-4 py-2"><span data-ibero-local-schedule="agents">19:00–21:00 Madrid · 18:00–20:00 Canarias</span></span></div><div class="mt-8 flex flex-wrap gap-3"><a class="rounded-xl bg-fuchsia-600 hover:bg-fuchsia-500 text-white font-black px-6 py-3" href="#inversion">Inscribirme</a><a class="rounded-xl border border-white/20 bg-white/5 text-white font-black px-6 py-3" href="#temario">Ver temario</a><a aria-label="Descargar brochure en PDF" class="ibero-brochure-btn rounded-xl border border-white/20 bg-white/10 hover:bg-white/15 text-white font-black px-6 py-3 text-center inline-flex items-center justify-center gap-2" data-brochure-program="agentes" href="/recursos/brochure-agentes-productividad-automatizacion-ia.pdf?v=20260927-2" rel="noopener" target="_blank"><i class="fa-solid fa-file-pdf"></i><span>Descargar BROCHURE EN PDF</span></a></div></div></div>
+<div class="absolute inset-0 z-0 overflow-hidden"><video autoplay="" class="absolute inset-0 w-full h-full object-cover pointer-events-none opacity-24" loop="" muted="" playsinline="" preload="auto"><source src="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/284767d23c4cd5793b419e4625bb7707aa42b4f4/fotos/AI_Business_Education_Hero_Video.mp4" type="video/mp4"/></video><div class="absolute inset-0 bg-zinc-950/62"></div><div class="absolute inset-0 bg-gradient-to-br from-zinc-950/95 via-[#071018]/84 to-zinc-950/96"></div><div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(217,70,239,0.18),transparent_28%),radial-gradient(circle_at_bottom_right,rgba(34,211,238,0.12),transparent_26%)]"></div></div><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10"><div class="max-w-5xl"><p class="text-[10px] uppercase tracking-[.18em] font-black text-fuchsia-300 mb-4">Certificación intensiva IBERO · España · 50 € finales</p><nav aria-label="Ruta de navegación" class="max-w-7xl mx-auto px-5 py-4 text-xs text-zinc-300"><ol class="flex flex-wrap gap-2"><li><a class="underline underline-offset-4" href="/">Inicio</a><span aria-hidden="true" class="ml-2">/</span></li><li><a class="underline underline-offset-4" href="/espana/">España</a><span aria-hidden="true" class="ml-2">/</span></li><li><span aria-current="page">Agentes IA</span></li></ol></nav><h1 class="text-4xl sm:text-6xl lg:text-7xl font-black text-white leading-[.98]">Crea Agentes de IA<br/><span class="text-fuchsia-300">desde España.</span></h1><p class="mt-6 text-lg text-zinc-300 max-w-4xl leading-relaxed">Conecta una aplicación autorizada mediante MCP y continúa el mismo proyecto con Codex y Antigravity: primera app y habilidad, formulario, login y persistencia con Firebase, y publicación con una función de IA y correo automático real. No se requiere experiencia previa en programación; se trabaja con instrucciones, archivos y pruebas.</p><div class="mt-7 flex flex-wrap gap-2 text-xs"><span class="rounded-full border border-white/10 bg-white/5 px-4 py-2"><span data-ibero-date=agents data-ibero-field=range data-ibero-format=badge>19–22 Oct 2026</span></span><span class="rounded-full border border-white/10 bg-white/5 px-4 py-2">12 horas</span><span class="rounded-full border border-white/10 bg-white/5 px-4 py-2"><span data-ibero-local-schedule="agents">19:00–21:00 Madrid · 18:00–20:00 Canarias</span></span></div><div class="mt-8 flex flex-wrap gap-3"><a class="rounded-xl bg-fuchsia-600 hover:bg-fuchsia-500 text-white font-black px-6 py-3" href="#inversion">Inscribirme</a><a class="rounded-xl border border-white/20 bg-white/5 text-white font-black px-6 py-3" href="#temario">Ver temario</a><a aria-label="Descargar brochure en PDF" class="ibero-brochure-btn rounded-xl border border-white/20 bg-white/10 hover:bg-white/15 text-white font-black px-6 py-3 text-center inline-flex items-center justify-center gap-2" data-brochure-program="agentes" href="/recursos/espana/brochure-agentes-productividad-automatizacion-ia-espana.pdf" rel="noopener" target="_blank" data-ibero-brochure-key="agents" data-ibero-brochure-general="/recursos/brochure-agentes-productividad-automatizacion-ia.pdf" data-ibero-brochure-es="/recursos/espana/brochure-agentes-productividad-automatizacion-ia-espana.pdf"><i class="fa-solid fa-file-pdf"></i><span>Descargar BROCHURE EN PDF</span></a></div></div></div>
 </section>
 <!-- PRESENTACIÓN COMPLETA -->
 <!-- IBERO AGENTIC CLARITY STRIP V1 -->
@@ -1718,7 +1724,7 @@
 </section>
 <!-- PREGUNTAS FRECUENTES -->
 <section class="text-zinc-900 py-20 bg-white border-b border-zinc-200" id="faq">
-<div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8"><div class="text-center mb-10"><h2 class="text-3xl sm:text-5xl font-black text-zinc-950">Preguntas frecuentes</h2></div><div class="space-y-3"><details class="rounded-2xl border border-zinc-200 p-5"><summary class="font-black cursor-pointer">¿Cuándo son las clases de Agentes IA para España?</summary><p class="mt-3 text-sm text-zinc-600 leading-relaxed">Puedes elegir del 19 al 22 de octubre o del 9 al 12 de noviembre de 2026. Son cuatro sesiones de lunes a jueves, de 19:00 a 21:00 en la península y Baleares (Europe/Madrid), y de 18:00 a 20:00 en Canarias.</p></details><details class="rounded-2xl border border-zinc-200 p-5"><summary class="font-black cursor-pointer">¿Cambia la hora de clase por el horario de invierno?</summary><p class="mt-3 text-sm text-zinc-600 leading-relaxed">No cambia la hora local de las clases: 19:00–21:00 Madrid y 18:00–20:00 Canarias. En octubre equivale a 17:00–19:00 UTC; en noviembre, a 18:00–20:00 UTC. Cada edición tiene su calendario propio.</p></details><details class="rounded-2xl border border-zinc-200 p-5"><summary class="font-black cursor-pointer">¿Cuánto cuesta y en qué moneda pago?</summary><p class="mt-3 text-sm text-zinc-600 leading-relaxed">El precio final de esta certificación para España es 50 €, en un pago único en EUR mediante el enlace PayPal aprobado. No es una conversión diaria desde dólares ni el precio de los demás programas.</p></details><details class="rounded-2xl border border-zinc-200 p-5"><summary class="font-black cursor-pointer">¿Qué incluye la matrícula y qué gastos van aparte?</summary><p class="mt-3 text-sm text-zinc-600 leading-relaxed">Incluye la formación de 12 horas, los 48 materiales académicos de consulta y el certificado digital verificable al cumplir los criterios. Las suscripciones de herramientas, los consumos de API y los servicios de terceros dependen del proveedor y del proyecto; no están incluidos en la matrícula.</p></details><details class="rounded-2xl border border-zinc-200 p-5"><summary class="font-black cursor-pointer">¿La formación es presencial en España?</summary><p class="mt-3 text-sm text-zinc-600 leading-relaxed">La modalidad es online y en vivo. Participas desde tu equipo con conexión a Internet; esta convocatoria no ofrece una sede presencial en España.</p></details><details class="rounded-2xl border border-zinc-200 p-5"><summary class="font-black cursor-pointer">¿El certificado es un título oficial español?</summary><p class="mt-3 text-sm text-zinc-600 leading-relaxed">Es una certificación privada de formación aplicada del Centro IBEROamericano. No se presenta como título oficial universitario ni como habilitación profesional regulada en España.</p></details><details class="rounded-2xl border border-zinc-200 p-5"><summary class="font-black cursor-pointer">¿Necesito saber programar?</summary><p class="mt-3 text-sm text-zinc-600">No se requiere experiencia previa. Se trabaja con Codex y Antigravity, instrucciones estructuradas, archivos, pruebas y conceptos técnicos básicos. Necesitas un proyecto propio y acceso autorizado a las cuentas y servicios de la práctica; sus cuotas y costos dependen de cada proveedor.</p></details><details class="rounded-2xl border border-zinc-200 p-5"><summary class="font-black cursor-pointer">¿Solo sirve para negocios?</summary><p class="mt-3 text-sm text-zinc-600">No. Puedes automatizar investigación, educación, marketing, ventas, administración, operaciones, consultoría, contenido y tareas profesionales repetitivas.</p></details><details class="rounded-2xl border border-zinc-200 p-5"><summary class="font-black cursor-pointer">¿Qué papel tienen Codex y Antigravity?</summary><p class="mt-3 text-sm text-zinc-600">Codex construye la primera app y una habilidad. Antigravity IDE y Antigravity 2.0 continúan el mismo proyecto, con navegador autorizado, formulario, login y Firebase. Trabajan por turnos sobre la misma carpeta o repositorio, conservando una versión comprobada.</p></details><details class="rounded-2xl border border-zinc-200 p-5"><summary class="font-black cursor-pointer">¿Qué construyo al final?</summary><p class="mt-3 text-sm text-zinc-600">Una URL pública HTTPS de la misma aplicación: acceso de usuarios, formulario, datos persistentes, función de IA y al menos un correo automático real. El docente prueba con su propia cuenta. Días 1–3 entregas MP4 o PNG/JPG; día 4 solo el enlace. Las instrucciones y controles quedan dentro de la app, sin PDF, ZIP o video extra.</p></details></div></div>
+<div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8"><div class="text-center mb-10"><h2 class="text-3xl sm:text-5xl font-black text-zinc-950">Preguntas frecuentes</h2></div><div class="space-y-3"><details class="rounded-2xl border border-zinc-200 p-5"><summary class="font-black cursor-pointer">¿Cuándo son las clases de Agentes IA para España?</summary><p class="mt-3 text-sm text-zinc-600 leading-relaxed">Puedes elegir del 19 al 22 de octubre o del 9 al 12 de noviembre de 2026. Son cuatro sesiones de lunes a jueves, de 19:00 a 21:00 en la península y Baleares (Europe/Madrid), y de 18:00 a 20:00 en Canarias.</p></details><details class="rounded-2xl border border-zinc-200 p-5"><summary class="font-black cursor-pointer">¿Cambia la hora de clase por el horario de invierno?</summary><p class="mt-3 text-sm text-zinc-600 leading-relaxed">No cambia la hora local de las clases: 19:00–21:00 Madrid y 18:00–20:00 Canarias. En octubre equivale a 17:00–19:00 UTC; en noviembre, a 18:00–20:00 UTC. Cada edición tiene su calendario propio.</p></details><details class="rounded-2xl border border-zinc-200 p-5"><summary class="font-black cursor-pointer">¿Cuánto cuesta y en qué moneda pago?</summary><p class="mt-3 text-sm text-zinc-600 leading-relaxed">El precio final de esta certificación para España es 50 €, en un pago único en EUR mediante el enlace PayPal aprobado. Consulta el precio y la forma de pago de cada programa en Admisiones.</p></details><details class="rounded-2xl border border-zinc-200 p-5"><summary class="font-black cursor-pointer">¿Qué incluye la matrícula y qué gastos van aparte?</summary><p class="mt-3 text-sm text-zinc-600 leading-relaxed">Incluye la formación de 12 horas, los 48 materiales académicos de consulta y el certificado digital verificable al cumplir los criterios. Las suscripciones de herramientas, los consumos de API y los servicios de terceros dependen del proveedor y del proyecto; no están incluidos en la matrícula.</p></details><details class="rounded-2xl border border-zinc-200 p-5"><summary class="font-black cursor-pointer">¿La formación es presencial en España?</summary><p class="mt-3 text-sm text-zinc-600 leading-relaxed">La modalidad es online y en vivo. Participas desde tu equipo con conexión a Internet; esta convocatoria no ofrece una sede presencial en España.</p></details><details class="rounded-2xl border border-zinc-200 p-5"><summary class="font-black cursor-pointer">¿El certificado es un título oficial español?</summary><p class="mt-3 text-sm text-zinc-600 leading-relaxed">Es una certificación privada de formación aplicada del Centro IBEROamericano. No se presenta como título oficial universitario ni como habilitación profesional regulada en España.</p></details><details class="rounded-2xl border border-zinc-200 p-5"><summary class="font-black cursor-pointer">¿Necesito saber programar?</summary><p class="mt-3 text-sm text-zinc-600">No se requiere experiencia previa. Se trabaja con Codex y Antigravity, instrucciones estructuradas, archivos, pruebas y conceptos técnicos básicos. Necesitas un proyecto propio y acceso autorizado a las cuentas y servicios de la práctica; sus cuotas y costos dependen de cada proveedor.</p></details><details class="rounded-2xl border border-zinc-200 p-5"><summary class="font-black cursor-pointer">¿Solo sirve para negocios?</summary><p class="mt-3 text-sm text-zinc-600">No. Puedes automatizar investigación, educación, marketing, ventas, administración, operaciones, consultoría, contenido y tareas profesionales repetitivas.</p></details><details class="rounded-2xl border border-zinc-200 p-5"><summary class="font-black cursor-pointer">¿Qué papel tienen Codex y Antigravity?</summary><p class="mt-3 text-sm text-zinc-600">Codex construye la primera app y una habilidad. Antigravity IDE y Antigravity 2.0 continúan el mismo proyecto, con navegador autorizado, formulario, login y Firebase. Trabajan por turnos sobre la misma carpeta o repositorio, conservando una versión comprobada.</p></details><details class="rounded-2xl border border-zinc-200 p-5"><summary class="font-black cursor-pointer">¿Qué construyo al final?</summary><p class="mt-3 text-sm text-zinc-600">Una URL pública HTTPS de la misma aplicación: acceso de usuarios, formulario, datos persistentes, función de IA y al menos un correo automático real. El docente prueba con su propia cuenta. Días 1–3 entregas MP4 o PNG/JPG; día 4 solo el enlace. Las instrucciones y controles quedan dentro de la app, sin PDF, ZIP o video extra.</p></details></div></div>
 </section>
 <!-- FOOTER PREMIUM EXACTO -->
 <footer class="bg-[#050505] text-zinc-400 py-12 border-t border-zinc-900">
@@ -2041,6 +2047,7 @@
         }
 
         if (window.IBERO_MERCADOS) response = window.IBERO_MERCADOS.chatAnswer(text, 'agents') || response;
+        if(window.IBERO_MERCADOS)response=window.IBERO_MERCADOS.localizeProgramAnswer(response,'agents');
         appendMessage(response, false);
       }, 600);
     }
@@ -2280,10 +2287,9 @@ document.addEventListener('DOMContentLoaded', function () {
 })();
 </script>
 <script id="ibero-market-config">
-/* IBERO · Tabla comercial aprobada. No recalcular precios ni extrapolar Agentes a otros programas.
- * Enlaces extraídos sin cambios de la versión base del usuario. */
+/* IBERO · Precios comerciales aprobados por país. Las tarifas EUR son fijas; no recalcular. */
 window.IBERO_MERCADOS_CONFIG = {
-  "version": "2026-10-03.4-es-eur50",
+  "version": "2026-10-03.5-es-programas-eur",
   "storageKey": "ibero.market.v1",
   "defaultCountry": "EC",
   "markets": {
@@ -2534,7 +2540,15 @@ window.IBERO_MERCADOS_CONFIG = {
         "url": "https://www.paypal.com/ncp/payment/CEG8W8MVU3R9Q",
         "note": "Precio final de Agentes IA: €50. Pago único en EUR.",
         "priceStatus": "approved-final"
-      }
+      },
+      "pricesByBase": {
+        "57": 50,
+        "277": 242.98,
+        "926.25": 812.5,
+        "154.38": 135.42
+      },
+      "pricesStatus": "approved-by-user-2026-10-03",
+      "conversionBasis": "Relación comercial aprobada 57 USD = 50 EUR. Valores fijos, no tipo de cambio diario."
     }
   },
   "order": [
@@ -2684,8 +2698,43 @@ window.IBERO_MERCADOS_CONFIG = {
       "general": "https://wa.me/19152854778?text=Hola%20IBERO%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20plan%20mensual%20del%20Master%20Ejecutivo.",
       "mx": "https://wa.me/19152854778?text=Hola%20IBERO%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20plan%20mensual%20del%20Master%20Ejecutivo%20en%20MXN."
     }
-  ]
+  ],
+  "spainPaymentRoutes": {
+    "QTZE28XP3MUT8": {
+      "program": "marketing",
+      "base": 57
+    },
+    "X438YHHKKNDZL": {
+      "program": "managers",
+      "base": 57
+    },
+    "EY623WTCVXXNJ": {
+      "program": "agents",
+      "base": 57
+    },
+    "2HLLBTVGWX4VQ": {
+      "program": "courses",
+      "base": 57
+    },
+    "RFRUU69FS2BLL": {
+      "program": "communication",
+      "base": 57
+    },
+    "K6J3EQ7ZN2B52": {
+      "program": "appsDiploma",
+      "base": 277
+    },
+    "9X7S3XD99Y3D8": {
+      "program": "marketingDiploma",
+      "base": 277
+    },
+    "MDDJTPR2DXMQJ": {
+      "program": "master",
+      "base": 926.25
+    }
+  }
 };
+
 </script>
 <script id="ibero-market-runtime">
 /** IBERO · Coordinador único de país, presentación de precios, horario y enlaces.
@@ -2705,7 +2754,7 @@ window.IBERO_MERCADOS_CONFIG = {
   let source = 'default';
   let serial = 0;
   let calendarEvent = null;
-  const currencyNames = {EUR:'euros (Agentes)',USD:'dólares estadounidenses',MXN:'pesos mexicanos',CRC:'colones costarricenses',GTQ:'quetzales',COP:'pesos colombianos',PEN:'soles peruanos',HNL:'lempiras',DOP:'pesos dominicanos',CLP:'pesos chilenos',ARS:'pesos argentinos',UYU:'pesos uruguayos',PYG:'guaraníes'};
+  const currencyNames = {EUR:'euros',USD:'dólares estadounidenses',MXN:'pesos mexicanos',CRC:'colones costarricenses',GTQ:'quetzales',COP:'pesos colombianos',PEN:'soles peruanos',HNL:'lempiras',DOP:'pesos dominicanos',CLP:'pesos chilenos',ARS:'pesos argentinos',UYU:'pesos uruguayos',PYG:'guaraníes'};
   const optionLabel = code => M[code].name + ' · ' + M[code].currency;
   const esc = value => String(value == null ? '' : value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   function normalize(v) { return String(v || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase(); }
@@ -2768,8 +2817,10 @@ window.IBERO_MERCADOS_CONFIG = {
     if (!Number.isFinite(n)) return {main:'',tax:'',currency:'USD',value:0};
 
     if(code==='ES') {
-      if(program==='agents' && n===57)return {main:'€'+numberText(market.agentsPrice,'EUR'),tax:market.agentsPayment.note,currency:'EUR',value:market.agentsPrice,chargeCurrency:'EUR',chargeAmount:50};
-      return {main:'USD '+numberText(n,'USD'),tax:'Precio internacional en USD. Sin tarifa específica en euros publicada para este programa.',currency:'USD',value:n};
+      if(program==='agents' && n===57)return {main:'€'+numberText(market.agentsPrice,'EUR'),tax:'',currency:'EUR',value:market.agentsPrice,chargeCurrency:'EUR',chargeAmount:50};
+      const value=market.pricesByBase[String(n)];
+      if(Number.isFinite(value))return {main:'€'+numberText(value,'EUR'),tax:'',currency:'EUR',value:value,paymentStatus:'consult'};
+      return {main:'Consultar inversión',tax:'',currency:'EUR',value:null,paymentStatus:'consult'};
     }
     // Los cursos intensivos con base USD 57 comparten la tabla oficial por país.
     if (n === 57) {
@@ -2812,7 +2863,7 @@ window.IBERO_MERCADOS_CONFIG = {
         if(!label || !label.hasAttribute('data-ibero-selected-price-country')) {
           label=document.createElement('span');label.className='ibero-main-price-country';label.setAttribute('data-ibero-selected-price-country','');el.before(label);
         }
-        assignText(label,country==='ES'&&program==='agents'?'Precio final para España · EUR':'Precio para '+M[country].name);
+        assignText(label,country==='ES'?'Precio para España · EUR':'Precio para '+M[country].name);
       }
       let tax = el.nextElementSibling;
       if (!tax || !tax.classList.contains('ibero-price-tax')) {
@@ -2890,13 +2941,10 @@ window.IBERO_MERCADOS_CONFIG = {
       '<div class="ibero-select-wrap"><select class="ibero-market-select" id="'+id+'" data-ibero-market-select>'+C.order.map(code=>'<option value="'+code+'"'+(code===country?' selected':'')+'>'+esc(optionLabel(code))+'</option>').join('')+'</select></div>'+
       '<details class="ibero-zone-wrap" data-ibero-zone-wrap hidden><summary>Cambiar ciudad o zona horaria</summary><label class="ibero-market-label" for="'+id+'-zone">Zona horaria</label><div class="ibero-select-wrap"><select class="ibero-zone-select" data-ibero-zone-select id="'+id+'-zone"></select></div></details>'+
       '<p class="ibero-currency-note" data-ibero-currency-note aria-live="polite" aria-atomic="true"></p>'+
-      '<p class="ibero-market-note" data-ibero-country-source-note></p>'+
       (program?'<p class="ibero-local-schedule" data-ibero-local-schedule="'+esc(program)+'"></p>':'')+
       '</div>';
   }
-  function countrySourceText() {
-    return (/^(ip|timezone|default)$/.test(source) ? 'País detectado de forma aproximada: ' : 'País elegido: ')+M[country].name+'. Puedes cambiarlo.';
-  }
+  function countrySourceText() { return ''; }
   function programLabel(key) {
     const api=window.IBERO_PROGRAMACION,p=api&&api.getProgram(key);
     return (p&&(p.title||p.name))||({agents:'Crea Agentes IA',marketing:'Marketing Digital con IA',courses:'Diseño y Producción de Cursos Online con IA',managers:'IA para Gerencia y Administración',communication:'Comunicación Efectiva',appsDiploma:'Diplomado en Desarrollo de Aplicaciones y Productos Digitales con IA',marketingDiploma:'Diplomado en Marketing Digital con IA y Agentes',master:'Máster Ejecutivo en IA'})[key]||key;
@@ -2994,10 +3042,10 @@ window.IBERO_MERCADOS_CONFIG = {
         }
       }
       const note = control.querySelector('[data-ibero-currency-note]');
-      if (note) assignText(note, country === 'ES' ? 'Agentes: €50, precio final en EUR. Otros programas: precio internacional en USD.' : country === 'INTL'
+      if (note) assignText(note, country === 'ES' ? 'Precios para España en euros (EUR).' : country === 'INTL'
         ? 'Precio internacional en USD.'
         : 'Inversión en ' + (currencyNames[M[country].currency] || M[country].currency) + ' (' + M[country].currency + ').');
-      assignText(control.querySelector('[data-ibero-country-source-note]'),countrySourceText());
+      const sourceNote=control.querySelector('[data-ibero-country-source-note]');if(sourceNote)sourceNote.remove();
     });
     document.querySelectorAll('[data-ibero-country-name]').forEach(el => assignText(el, M[country].name));
     document.querySelectorAll('[data-ibero-country-only]').forEach(el => {
@@ -3009,17 +3057,38 @@ window.IBERO_MERCADOS_CONFIG = {
   function syncSchedules(container) {
     (container||document).querySelectorAll('[data-ibero-local-schedule]').forEach(el=>assignText(el,scheduleText(el.dataset.iberoLocalSchedule)));
   }
+  function spainPaymentRoute(general) {
+    if(general===M.ES.agentsPayment.url)return {program:'agents',base:57};
+    if(/wa\.me\/19152854778/.test(general||'')&&/plan%20mensual/i.test(general))return {program:'master',base:154.38};
+    const token=String(general||'').split('/').pop();return C.spainPaymentRoutes[token]||null;
+  }
+  function consultationLink(program,base) {
+    const p=priceInfo(program,base,'ES');
+    const plan=program==='master'?(Number(base)===154.38?' · plan de 6 mensualidades':' · pago semestral'):'';
+    return 'https://wa.me/19152854778?text='+encodeURIComponent('Hola IBERO, estoy en España y deseo consultar la inscripción y el pago en euros de '+programLabel(program)+plan+'. Precio publicado: '+p.main+(Number(base)===154.38?' por mes':'')+'. Por favor, confirmen la convocatoria y el enlace de pago correspondiente.');
+  }
   function paymentLink(general,mx,code=country) {
-    if(code==='ES' && (general==='https://www.paypal.com/ncp/payment/EY623WTCVXXNJ' || general===M.ES.agentsPayment.url))return M.ES.agentsPayment.url;
+    if(code==='ES'){
+      const route=spainPaymentRoute(general);
+      if(route)return route.program==='agents'?M.ES.agentsPayment.url:consultationLink(route.program,route.base);
+    }
     return code==='MX'&&mx?mx:general;
+  }
+  function syncPaymentLabel(anchor,route) {
+    if(anchor.hasAttribute('data-ibero-admission'))return;
+    if(country==='ES'&&route&&route.program!=='agents'){
+      if(!anchor.dataset.iberoEurOriginalHtml)anchor.dataset.iberoEurOriginalHtml=anchor.innerHTML;
+      const label='Consultar inscripción en EUR';
+      if(anchor.dataset.iberoEurLabel!==label){const icon=anchor.querySelector('i,svg');anchor.innerHTML=(icon?icon.outerHTML+' ':'')+label;anchor.dataset.iberoEurLabel=label;}
+    }else if(anchor.dataset.iberoEurOriginalHtml){anchor.innerHTML=anchor.dataset.iberoEurOriginalHtml;delete anchor.dataset.iberoEurOriginalHtml;delete anchor.dataset.iberoEurLabel;}
   }
   function syncPaymentOptions() {
     const candidates=new Set(document.querySelectorAll('[data-ibero-payment-restore]'));
-    if(pageProgram()==='agents')document.querySelectorAll('#toggle-bank,#bank-details,#toggle-western,#western-details,a[href*="ia.goatify.app/"][href*="#wallet"]').forEach(el=>candidates.add(el));
-    document.querySelectorAll('[data-ibero-registration="agents"][href*="#wallet"]').forEach(el=>candidates.add(el));
+    if(C.programBases[pageProgram()])document.querySelectorAll('#toggle-bank,#bank-details,#toggle-western,#western-details,a[href*="ia.goatify.app/"][href*="#wallet"]').forEach(el=>candidates.add(el));
+    document.querySelectorAll('[data-ibero-registration][href*="#wallet"],[data-ibero-academic-wallet]').forEach(el=>candidates.add(el));
     const requested=new URLSearchParams(location.search).get('cohorte');
     const admissions=/\/registro-y-admisiones(?:\/|$)/.test(location.pathname);
-    if(admissions&&(!requested||/^agents-/.test(requested))){
+    if(admissions){
       const western=document.getElementById('toggle-western-admisiones');
       if(western&&western.parentElement)candidates.add(western.parentElement);
     }
@@ -3037,19 +3106,24 @@ window.IBERO_MERCADOS_CONFIG = {
     });
   }
   function syncLinks(container) {
+    (container||document).querySelectorAll('a[data-ibero-brochure-general]').forEach(a=>{
+      const target=country==='ES'?a.dataset.iberoBrochureEs:a.dataset.iberoBrochureGeneral;
+      if(target&&a.getAttribute('href')!==target)a.setAttribute('href',target);
+    });
     syncPaymentOptions();
     document.querySelectorAll('[data-ibero-agents-payment-label]').forEach(el=>assignText(el,country==='ES'?'Pagar €50 con tarjeta':'Pagar con Tarjeta Segura'));
     document.querySelectorAll('[data-ibero-agents-fixed-price]').forEach(el=>assignText(el,country==='ES'?'Precio final: €50':'Precio oficial fijo'));
     (container||document).querySelectorAll('a[href]').forEach(a=>{
       if(a.hasAttribute('data-ibero-admission') && !['open','active'].includes(a.dataset.iberoAdmissionState)) return;
-      let general=a.dataset.paypalGeneral||a.dataset.generalLink;
+      let general=a.dataset.paypalGeneral||a.dataset.generalLink||a.dataset.iberoPaymentOriginalHref;
       let mx=a.dataset.paypalMx||a.dataset.mxLink;
       if (!general) {
         const current=a.getAttribute('href');
         const pair=(C.paymentPairs||[]).find(p=>current===p.general||current===p.mx||(current===M.ES.agentsPayment.url&&p.general==='https://www.paypal.com/ncp/payment/EY623WTCVXXNJ'));
         if (pair) { general=pair.general; mx=pair.mx; }
+        else if(spainPaymentRoute(current)){general=current;}
       }
-      if (general) { const target=paymentLink(general,mx);if(a.getAttribute('href')!==target)a.setAttribute('href',target); }
+      if (general) { const originalPair=(C.paymentPairs||[]).find(p=>p.general===general);if(!mx&&originalPair)mx=originalPair.mx;if(!a.dataset.iberoPaymentOriginalHref)a.dataset.iberoPaymentOriginalHref=general;const target=paymentLink(general,mx);if(a.getAttribute('href')!==target)a.setAttribute('href',target);syncPaymentLabel(a,spainPaymentRoute(general)); }
     });
   }
   function regionalCohort(requested, targetCountry, usePublished=false) {
@@ -3084,6 +3158,7 @@ window.IBERO_MERCADOS_CONFIG = {
   function syncCountryNavigation(container) {
     const catalogue=['registro-y-admisiones','calendario-academico','oferta-academica','certificaciones-intensivas','diplomados-intensivos','ibero-labs','espana','contacto'];
     (container||document).querySelectorAll('a[href]').forEach(a=>{
+      if(a.hasAttribute('data-ibero-brochure-general'))return;
       const original=a.dataset.iberoCountryHref||a.getAttribute('href')||'';
       if(!original||/^(#|mailto:|tel:|javascript:|data:)/i.test(original))return;
       let url;try{url=new URL(original,document.baseURI);}catch(_){return;}
@@ -3114,7 +3189,7 @@ window.IBERO_MERCADOS_CONFIG = {
       const match=general.match(/USD\s*\$?\s*([0-9]+(?:\.[0-9]+)?)/i);
       if(match){
         const base=Number(match[1]);
-        const program=card.dataset.iberoPriceProgram || '';
+        const program=card.dataset.iberoPriceProgram || card.dataset.iberoAdmission || '';
         const info=priceInfo(program,base,country);
         value=country==='ES'?info.main:info.main+(info.tax?' '+info.tax:'');
         if(/\/mes/i.test(general)) value += '/mes · 6 meses';
@@ -3125,7 +3200,7 @@ window.IBERO_MERCADOS_CONFIG = {
     });
     const bank=document.getElementById('ecuador-bank-transfer-block');if(bank)bank.classList.toggle('hidden',country!=='EC');
     const note=document.getElementById('payment-country-note');
-    if(note)assignText(note,'Precios para '+M[country].name+'. '+(country==='ES'?'Agentes: '+M.ES.agentsPayment.note+' Otros programas: precio internacional en USD. ':'')+C.cardPaymentText+(country==='EC'?' También puedes pagar por transferencia bancaria.':''));
+    if(note)assignText(note,'Precios para '+M[country].name+'. '+(country==='ES'?'Importes en EUR. Agentes IA: pago directo; otros programas: consulta de inscripción. ':C.cardPaymentText)+(country==='EC'?' También puedes pagar por transferencia bancaria.':''));
   }
   function renderCalendar(ev) {
     if(ev)calendarEvent=ev;
@@ -3157,7 +3232,9 @@ window.IBERO_MERCADOS_CONFIG = {
   }
   function refresh() {
     mountAllPrices();mountControls();syncControls();renderAllPrices();
+    document.querySelectorAll('[data-ibero-es-price-base]').forEach(el=>{if(!el.dataset.iberoOriginalPriceText)el.dataset.iberoOriginalPriceText=el.textContent;assignText(el,country==='ES'?priceInfo(el.dataset.iberoEsProgram,el.dataset.iberoEsPriceBase,'ES').main:el.dataset.iberoOriginalPriceText);});
     document.querySelectorAll('[data-base],[data-ibero-price-base],[data-usd]').forEach(renderPrice);
+    document.querySelectorAll('[data-ibero-es-copy]').forEach(el=>{if(!el.dataset.iberoOriginalCopy)el.dataset.iberoOriginalCopy=el.textContent;assignText(el,country==='ES'?el.dataset.iberoEsCopy:el.dataset.iberoOriginalCopy);});
     renderAdmissions();syncSchedules();syncLinks();renderCalendar();syncCountryNavigation();
   }
   function normalizeRouteSelection(origin) {
@@ -3197,6 +3274,11 @@ window.IBERO_MERCADOS_CONFIG = {
     const link=routeURL(p.url,key).pathname+routeURL(p.url,key).search+'#inversion';
     return '<strong>'+esc(p.name)+'</strong>'+price+'<br>'+esc(dates)+'<br>'+esc(hours)+'<br><a href="'+esc(link)+'">Consultar programa y matrícula</a>';
   }
+  function localizeProgramAnswer(html,program) {
+    if(country!=='ES'||!C.programBases[program])return html;
+    const pattern=/(?:USD\s*\$?\s*(926\.25|154\.38|277|57)|\$\s*(926\.25|154\.38|277|57)\s*USD)/g;
+    return String(html).split(/(<[^>]+>)/g).map((part,index)=>index%2?part:part.replace(pattern,(_,first,second)=>priceInfo(program,Number(first||second),'ES').main)).join('');
+  }
   function catalogAnswer(kind) {
     const keys=kind==='master'?['master']:kind==='diplomado'?['appsDiploma','marketingDiploma']:kind==='cursos'?['marketing','agents','managers','courses']:['agents','marketing','appsDiploma','master'];
     return '<strong>Información para '+esc(M[country].name)+'</strong><br><br>'+keys.map(k=>programSummary(k,kind!=='fechas')).join('<br><br>')+(kind==='precios'?'<br><br>'+esc(C.cardPaymentText):'');
@@ -3211,7 +3293,7 @@ window.IBERO_MERCADOS_CONFIG = {
       if(/pago|pagar|tarjeta|transferencia|inscripcion|matricula/.test(q))return 'Elige el programa y el país en <a href="'+esc(routeURL('/registro-y-admisiones/').pathname+routeURL('/registro-y-admisiones/').search)+'#inversion">Registro y Admisiones</a> para consultar el medio de pago autorizado.'+(country==='EC'?' Ecuador también tiene la alternativa bancaria publicada en esa página.':'');
       return '';
     }
-    const payment=/pago|pagar|paypal|inscripcion|matricula|tarjeta|transferencia/.test(q);
+    const payment=/pago|pagar|paypal|inscripcion|inscrib|matricula|tarjeta|transferencia/.test(q);
     if(key==='agents'&&country==='ES'&&payment&&!window.IBERO_PROGRAMACION.getRegistrationState(key).canRegister)return programSummary(key,false)+'<br>Inscripción no disponible para esta cohorte. Consulta la próxima convocatoria en Admisiones antes de realizar un pago.';
     if(key==='agents'&&country==='ES'&&payment)return '<strong>Agentes IA para España: 50 € finales, pago único en EUR.</strong><br><a href="'+esc(M.ES.agentsPayment.url)+'">Pagar 50 € con PayPal o tarjeta</a><br>'+esc(scheduleText(key))+'<br>'+esc(window.IBERO_PROGRAMACION.fieldText(key,'summary','long'))+'<br>No hay una transferencia bancaria española publicada. Después del pago, envía el comprobante a admisiones; la matrícula se confirma tras su validación.';
     if(key==='agents'&&/espana|madrid|canarias/.test(q)){
@@ -3220,6 +3302,7 @@ window.IBERO_MERCADOS_CONFIG = {
       const dates=available.length?available.map(c=>esc(api.formatRange(c))+': '+esc(c.startTime+'–'+c.endTime)+' Madrid · '+esc(localRange(c.start,c.startTime,c.endTime,'Atlantic/Canary',c.timeZone))+' Canarias').join('<br>'):'Próxima cohorte por confirmar';
       return '<strong>Agentes IA · España</strong><br>'+dates+'<br>Precio final: '+esc(priceText('agents',57,'ES'))+'<br><a href="/espana/productividad-automatizacion-procesos-ia/">Ver Agentes para España</a>';
     }
+    if(country==='ES'&&key!=='agents'&&payment){const base=key==='master'&&/mensual|mes/.test(q)?154.38:C.programBases[key];return programSummary(key,true)+'<br><a href="'+esc(consultationLink(key,base))+'">Consultar inscripción y pago en euros</a>. Admisiones confirmará la convocatoria y el medio de pago.';}
     if(/precio|costo|valor|inversion|cuanto/.test(q)||payment){
       if(key==='master')return '<strong>Pago semestral: '+esc(priceText('master',926.25))+'</strong><br>Pago único del semestre. Plan mensual: '+esc(priceText('master',154.38))+'/mes · 6 meses.<br>'+esc(C.cardPaymentText);
       return '<strong>'+esc(M[country].name)+': '+esc(priceText(key,C.programBases[key]))+'</strong><br>Pago único. '+esc(C.cardPaymentText)+'<br><a href="'+esc(routeURL('/registro-y-admisiones/',key).pathname+routeURL('/registro-y-admisiones/',key).search)+'#inversion">Consultar matrícula y método autorizado</a>';
@@ -3233,7 +3316,7 @@ window.IBERO_MERCADOS_CONFIG = {
     function get(url,timeout) {const ctl=new AbortController();const id=setTimeout(()=>ctl.abort(),timeout);return fetch(url,{cache:'no-store',signal:ctl.signal}).then(r=>r.ok?r.json():null).then(d=>validCode(d&&(d.country_code||d.country))).catch(()=>'').finally(()=>clearTimeout(id));}
     get('https://api.country.is/',1100).then(code=>code||(manual?'':get('https://ipapi.co/json/',1400))).then(code=>{if(code&&!manual)apply(code,'ip',fromTimezone(browserZone())===code?browserZone():null);});
   }
-  const API={version:C.version,refresh:refresh,apply:(c,z)=>apply(c,'manual',z),getCountry:()=>country,getZone:()=>zone,priceInfo:priceInfo,priceText:priceText,scheduleText:scheduleText,syncLinks:syncLinks,paymentLink:paymentLink,renderCalendar:renderCalendar,routeURL:routeURL,regionalCohort:regionalCohort,chatAnswer:chatAnswer,catalogAnswer:catalogAnswer,programSummary:programSummary,programFrom:programFrom};
+  const API={version:C.version,refresh:refresh,apply:(c,z)=>apply(c,'manual',z),getCountry:()=>country,getZone:()=>zone,priceInfo:priceInfo,priceText:priceText,scheduleText:scheduleText,syncLinks:syncLinks,paymentLink:paymentLink,consultationLink:consultationLink,localizeProgramAnswer:localizeProgramAnswer,renderCalendar:renderCalendar,routeURL:routeURL,regionalCohort:regionalCohort,chatAnswer:chatAnswer,catalogAnswer:catalogAnswer,programSummary:programSummary,programFrom:programFrom};
   window.IBERO_MERCADOS=Object.freeze(API);window.iberoSyncPaymentLinks=syncLinks;
   function boot() {
     const saved=readSaved();const params=new URLSearchParams(location.search);const specified=validCode(params.get('pais'))||validCode(params.get('country'));

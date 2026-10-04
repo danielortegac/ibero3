@@ -1,16 +1,6 @@
-/**
- * IBERO — ÚNICA FUENTE DE COHORTES PÚBLICAS.
- * Fechas YYYY-MM-DD; horas en Ecuador (America/Guayaquil).
- * Los cursos cortos cambian a la siguiente cohorte al comenzar el día de inicio en Ecuador.
- * Diplomados, máster y talleres conservan su cohorte durante la ejecución; el calendario mantiene los eventos activos.
- * Si no queda ninguna cohorte futura confirmada, las vistas muestran «Próxima cohorte por confirmar».
- * Agregar futuras cohortes SOLO en programs.<programa>.cohorts/postponedCohorts; no editar las páginas.
- * status: "confirmed" publica; "tentative" o "cancelled" NO publica.
- * diplomadoAppsAplazado: true activa la programación aplazada aprobada.
- * No contiene precios ni modifica inscripciones, certificados o temarios.
- */
+/* IBERO · Fuente de cohortes. Marketing actualizado por autorización del usuario: 26–29 octubre 2026. */
 window.IBERO_PROGRAMACION_CONFIG = {
-  "version": "2026-10-03.3-es",
+  "version": "2026-10-03.4-marketing-26oct",
   "timeZone": "America/Guayaquil",
   "utcOffset": "-05:00",
   "diplomadoAppsAplazado": true,
@@ -44,9 +34,9 @@ window.IBERO_PROGRAMACION_CONFIG = {
       ],
       "postponedCohorts": [
         {
-          "id": "marketing-2026-10-05",
-          "start": "2026-10-05",
-          "end": "2026-10-08",
+          "id": "marketing-2026-10-26",
+          "start": "2026-10-26",
+          "end": "2026-10-29",
           "status": "confirmed"
         },
         {

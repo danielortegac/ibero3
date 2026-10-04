@@ -1,7 +1,6 @@
-/* IBERO · Tabla comercial aprobada. No recalcular precios ni extrapolar Agentes a otros programas.
- * Enlaces extraídos sin cambios de la versión base del usuario. */
+/* IBERO · Precios comerciales aprobados por país. Las tarifas EUR son fijas; no recalcular. */
 window.IBERO_MERCADOS_CONFIG = {
-  "version": "2026-10-03.4-es-eur50",
+  "version": "2026-10-03.5-es-programas-eur",
   "storageKey": "ibero.market.v1",
   "defaultCountry": "EC",
   "markets": {
@@ -252,7 +251,15 @@ window.IBERO_MERCADOS_CONFIG = {
         "url": "https://www.paypal.com/ncp/payment/CEG8W8MVU3R9Q",
         "note": "Precio final de Agentes IA: €50. Pago único en EUR.",
         "priceStatus": "approved-final"
-      }
+      },
+      "pricesByBase": {
+        "57": 50,
+        "277": 242.98,
+        "926.25": 812.5,
+        "154.38": 135.42
+      },
+      "pricesStatus": "approved-by-user-2026-10-03",
+      "conversionBasis": "Relación comercial aprobada 57 USD = 50 EUR. Valores fijos, no tipo de cambio diario."
     }
   },
   "order": [
@@ -402,5 +409,39 @@ window.IBERO_MERCADOS_CONFIG = {
       "general": "https://wa.me/19152854778?text=Hola%20IBERO%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20plan%20mensual%20del%20Master%20Ejecutivo.",
       "mx": "https://wa.me/19152854778?text=Hola%20IBERO%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20plan%20mensual%20del%20Master%20Ejecutivo%20en%20MXN."
     }
-  ]
+  ],
+  "spainPaymentRoutes": {
+    "QTZE28XP3MUT8": {
+      "program": "marketing",
+      "base": 57
+    },
+    "X438YHHKKNDZL": {
+      "program": "managers",
+      "base": 57
+    },
+    "EY623WTCVXXNJ": {
+      "program": "agents",
+      "base": 57
+    },
+    "2HLLBTVGWX4VQ": {
+      "program": "courses",
+      "base": 57
+    },
+    "RFRUU69FS2BLL": {
+      "program": "communication",
+      "base": 57
+    },
+    "K6J3EQ7ZN2B52": {
+      "program": "appsDiploma",
+      "base": 277
+    },
+    "9X7S3XD99Y3D8": {
+      "program": "marketingDiploma",
+      "base": 277
+    },
+    "MDDJTPR2DXMQJ": {
+      "program": "master",
+      "base": 926.25
+    }
+  }
 };

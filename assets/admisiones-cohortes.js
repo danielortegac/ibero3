@@ -23,8 +23,8 @@
     const monthly=/\/mes/i.test(card.dataset.priceGeneral||'');
     let target,action;
     if(state.canRegister) {
-      target=country==='ES'&&key==='agents'?'https://www.paypal.com/ncp/payment/CEG8W8MVU3R9Q':country==='MX' && card.dataset.mxLink ? card.dataset.mxLink : card.dataset.generalLink;
-      action=monthly?'Consultar plan mensual':country==='ES'&&key==='agents'?'Pagar €50':'Pagar matrícula';
+      target=window.IBERO_MERCADOS?window.IBERO_MERCADOS.paymentLink(card.dataset.generalLink,card.dataset.mxLink,country):country==='MX'&&card.dataset.mxLink?card.dataset.mxLink:card.dataset.generalLink;
+      action=country==='ES'?(key==='agents'?'Pagar €50':'Consultar inscripción en EUR'):monthly?'Consultar plan mensual':'Pagar matrícula';
       setText(card.querySelector('[data-admission-status]'),state.state==='active'?'Cohorte en curso':'Matrícula · fecha confirmada');
       setText(card.querySelector('[data-admission-date]'),api.formatRange(state.cohort,'long'));
       const schedule=window.IBERO_MERCADOS?window.IBERO_MERCADOS.scheduleText(key):

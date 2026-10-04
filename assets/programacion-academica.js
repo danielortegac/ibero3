@@ -346,6 +346,10 @@
     const out = {};
     Object.entries(value).forEach(([k,v])=> {out[k]=hydrateSchema(v,key,reference);});
     const type = Array.isArray(value['@type']) ? value['@type'] : [value['@type']];
+    if(type.includes('Offer')&&key&&selectedMarket()==='ES'&&value.priceCurrency==='USD'&&window.IBERO_MERCADOS){
+      const info=window.IBERO_MERCADOS.priceInfo(key,Number(value.price),'ES');
+      if(Number.isFinite(info.value)){out.price=info.value;out.priceCurrency='EUR';out.url=key==='agents'?'https://www.paypal.com/ncp/payment/CEG8W8MVU3R9Q':window.IBERO_MERCADOS.consultationLink(key,Number(value.price));}
+    }
     if (type.includes('Course') && key && programs[key]) {
       const cohorts = getCohorts(key).filter(c=>isPublicCandidate(key,c,reference));
       if (!cohorts.length) delete out.hasCourseInstance;

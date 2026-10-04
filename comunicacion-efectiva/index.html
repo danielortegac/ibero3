@@ -303,6 +303,88 @@
 <script id="ibero-brand-entity-schema-v13" type="application/ld+json">{"@context":"https://schema.org","@type":["EducationalOrganization","Organization"],"name":"IBERO","alternateName":["Centro IBEROamericano","Centro Iberoamericano","IBERO Education"],"url":"https://ibero.education/","logo":"https://ibero.education/fotos/logos%20ibero/logo%20sin%20fondo%20main%20para%20fondos%20claros.png","description":"Centro privado de formación aplicada en inteligencia artificial, apps, producto digital, marketing digital, docencia, comunicación y negocios digitales para Latinoamérica, España y comunidad latina en Estados Unidos.","areaServed":["Ecuador","México","Colombia","Perú","Latinoamérica","España","Estados Unidos","comunidad latina"],"knowsAbout":["inteligencia artificial aplicada","desarrollo de software con IA","apps con IA","producto digital","marketing digital con IA","IA para docentes","oratoria profesional","negocios digitales","vibe coding","MVP con IA"],"hasOfferCatalog":{"@type":"OfferCatalog","name":"Programas IBERO de IA aplicada y productos digitales"},"legalName":"Centro IBEROamericano de Educación","sameAs":["https://www.youtube.com/@ia.marketing.negocios","https://www.tiktok.com/@ia.marketing.negocios"]}</script>
 <script src="/assets/programacion-academica.config.js?v=20261003-es-eur50"></script>
 <script src="/assets/programacion-academica.js?v=20261003-es-eur50"></script>
+<style id="ibero-market-styles">
+/* IBERO · presentación regional. Estilos acotados: no redefine navegación ni componentes académicos. */
+.ibero-flags-strip{display:flex;flex-wrap:wrap;gap:9px 11px;align-items:center;max-width:100%;margin:20px 0 6px;padding:0;list-style:none}
+.ibero-flags-strip li{display:flex;align-items:center;justify-content:center;width:30px;height:25px;flex:0 0 auto}
+.ibero-flags-strip img{display:block;width:30px;height:22px;object-fit:contain;filter:drop-shadow(0 1px 1px rgba(0,0,0,.12))}
+.ibero-market-control{--market-bg:#fff;--market-fg:#18181b;--market-border:#d4d4d8;--market-muted:#52525b;--market-soft:#f4f4f5;--market-accent:#52525b;width:min(100%,430px);min-width:0;text-align:left;color:var(--market-fg);margin-inline:auto;font-family:inherit}
+.ibero-market-control[data-theme="dark"],.ibero-market-panel[data-theme="dark"]{--market-bg:#15171c;--market-fg:#f4f4f5;--market-border:#42454d;--market-muted:#b5bac5;--market-soft:#22252c;--market-accent:#cbd5e1;color-scheme:dark}
+.ibero-market-label{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--market-muted);margin:0 0 8px;line-height:1.5}
+.ibero-select-wrap{position:relative;display:flex;align-items:center;min-width:0;border:1px solid var(--market-border);border-radius:14px;background:var(--market-bg);box-shadow:0 3px 14px rgba(0,0,0,.04)}
+.ibero-select-wrap:focus-within{outline:2px solid var(--market-accent);outline-offset:3px}
+.ibero-select-wrap:after{content:"";position:absolute;right:18px;top:20px;width:7px;height:7px;border-right:1.7px solid var(--market-muted);border-bottom:1.7px solid var(--market-muted);transform:rotate(45deg);pointer-events:none}
+.ibero-market-select,.ibero-zone-select{display:block;appearance:none;-webkit-appearance:none;border:0;outline:0;background:transparent;color:var(--market-fg);line-height:1.4;font-family:inherit;font-size:14px;font-weight:600;width:100%;min-width:0;min-height:50px;padding:13px 42px 13px 15px;cursor:pointer;border-radius:14px;white-space:normal}
+.ibero-market-select option,.ibero-zone-select option{background:var(--market-bg);color:var(--market-fg)}
+.ibero-zone-wrap{margin-top:11px}.ibero-zone-wrap[hidden]{display:none!important}.ibero-zone-select{padding-left:15px;font-size:12px}
+.ibero-market-note{font-size:12px;line-height:1.6;margin:12px 0 0;color:var(--market-muted);text-wrap:pretty}
+.ibero-local-schedule{font-size:13px;line-height:1.7;overflow-wrap:anywhere;font-weight:600;white-space:normal}
+.ibero-market-control .ibero-local-schedule{color:var(--market-fg);margin:13px 0 0}
+.ibero-country-link{font-size:inherit;line-height:1.5;font-weight:600;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(120,120,130,.4);white-space:normal}
+.ibero-country-link:hover{text-decoration-color:currentColor}.ibero-country-link:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+.ibero-payment-copy{font-size:13px;line-height:1.65;color:inherit;text-align:center;margin:12px 0 0}.ibero-payment-copy strong{display:block;font-size:14px;color:inherit}
+.ibero-price-tax{display:block;font-weight:600;line-height:1.5;font-family:inherit;font-size:13px;margin-top:7px;color:inherit;-webkit-text-fill-color:currentColor;opacity:.85}
+.price-display.ibero-price-local,.price-display-semestral.ibero-price-local,.price-display-mensual.ibero-price-local{font-size:clamp(1.8rem,5.6vw,3.55rem);line-height:1.12;white-space:nowrap;max-width:100%;letter-spacing:-.04em}
+.ibero-market-panel{--market-bg:#fff;--market-fg:#18181b;--market-border:#e4e4e7;--market-muted:#52525b;--market-soft:#fafafa;--market-accent:#52525b;color:var(--market-fg);width:100%;min-width:0}
+.ibero-market-summary{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:20px 0 0}
+.ibero-market-summary article{padding:20px;border:1px solid var(--market-border);border-radius:16px;background:var(--market-bg);min-width:0}
+.ibero-market-summary h3{font-size:13px;font-weight:650;line-height:1.45;margin:0 0 12px;color:var(--market-muted)}
+.ibero-market-summary p{font-size:clamp(17px,2.3vw,24px);font-weight:800;letter-spacing:-.03em;line-height:1.3;margin:0 0 12px;overflow-wrap:anywhere}
+.ibero-market-summary a{font-size:12px;line-height:1.5;text-decoration:underline;text-underline-offset:3px}
+.ibero-all-prices{max-width:600px;width:100%;margin:18px auto 0;color:inherit;font-size:12px;line-height:1.5}
+.ibero-all-prices summary{cursor:pointer;text-align:center;text-decoration:underline;text-underline-offset:4px;padding:8px}
+.ibero-all-prices table{width:100%;border-collapse:collapse;margin-top:12px;table-layout:auto}
+.ibero-all-prices th,.ibero-all-prices td{text-align:left;padding:9px 11px;border-bottom:1px solid rgba(128,128,138,.24);vertical-align:top}
+.ibero-all-prices th{font-weight:700}.ibero-all-prices td:last-child,.ibero-all-prices th:last-child{text-align:right;white-space:nowrap}
+.ibero-all-prices img{width:20px;height:15px;object-fit:contain;display:inline-block;vertical-align:middle;margin-right:7px}
+#modal-prices.ibero-single-price{display:block!important}.ibero-modal-price{text-align:center;border:1px solid rgba(148,163,184,.22);border-radius:14px;padding:17px 12px;background:rgba(0,0,0,.18)}
+.ibero-modal-price small{display:block;font-size:12px;color:#cbd5e1}.ibero-modal-price strong{display:block;margin-top:7px;font-size:24px;line-height:1.25;color:#fff}.ibero-modal-price .ibero-price-tax{color:#d4d4d8}
+.ibero-summary-country{font-size:12px!important;font-weight:500!important;letter-spacing:0!important}
+@media(max-width:767px){.ibero-market-summary{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.ibero-market-summary article{padding:16px}.ibero-flags-strip{display:grid;grid-template-columns:repeat(8,30px);column-gap:9px;row-gap:8px;width:max-content;max-width:100%}.ibero-market-control{max-width:100%}}
+@media(max-width:359px){.ibero-flags-strip{grid-template-columns:repeat(8,26px);gap:7px}.ibero-flags-strip li,.ibero-flags-strip img{width:26px}.ibero-all-prices th,.ibero-all-prices td{padding:8px 5px;font-size:11px}.ibero-market-summary{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.ibero-flags-strip *{animation:none!important;transition:none!important}}
+
+.ibero-zone-wrap>summary{font-size:12px;line-height:1.5;color:var(--market-muted);cursor:pointer;padding:3px 0;text-decoration:underline;text-underline-offset:3px}.ibero-zone-wrap[open]>summary{margin-bottom:12px}
+
+/* Country selection and localized catalogue prices — approved markets only. */
+.ibero-currency-note{font-size:12px;line-height:1.55;margin:9px 0 0;color:var(--market-muted);font-weight:500;overflow-wrap:anywhere}
+.ibero-catalog-price{display:block;margin:0;font-size:clamp(17px,1.6vw,23px);font-weight:800;line-height:1.3;letter-spacing:-.025em;overflow-wrap:anywhere;color:inherit}
+.ibero-catalog-investment{min-width:0;margin:0 0 15px}
+.ibero-catalog-investment .ibero-price-tax{font-size:11px;margin-top:4px}
+.ibero-catalog-country{font-size:11px;line-height:1.45;margin:5px 0 0;color:#52525b}
+.ibero-catalog-selector{margin:24px auto 28px!important;max-width:430px;width:100%}
+[data-ibero-country-only][hidden]{display:none!important}
+
+@media(min-width:1024px){html[data-ibero-country]:not([data-ibero-country="EC"]) #certificaciones-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+
+/* IBERO · Consulta compacta de los 17 destinos, con importes comerciales preservados. */
+.ibero-main-price-country{display:block;font-size:12px;font-weight:600;line-height:1.5;margin-bottom:8px;letter-spacing:0;color:inherit;-webkit-text-fill-color:currentColor;opacity:.8}
+.ibero-all-prices.ibero-market-panel{max-width:620px;margin:20px auto 0;border:1px solid var(--market-border);border-radius:16px;background:var(--market-bg);color:var(--market-fg);overflow:hidden;text-align:left;box-sizing:border-box}
+.ibero-all-prices>summary{display:flex;align-items:center;justify-content:space-between;gap:10px;list-style:none;text-decoration:none;text-align:left;padding:15px 18px;font-size:13px;font-weight:650;line-height:1.5;color:var(--market-fg)}
+.ibero-all-prices>summary::-webkit-details-marker{display:none}.ibero-all-prices>summary::after{content:"";width:7px;height:7px;border-right:1.7px solid currentColor;border-bottom:1.7px solid currentColor;transform:rotate(45deg);flex:0 0 auto;transition:transform .15s}
+.ibero-all-prices[open]>summary::after{transform:rotate(225deg)}.ibero-all-prices>summary:focus-visible{outline:2px solid var(--market-accent);outline-offset:-4px;border-radius:14px}
+.ibero-prices-count{margin-left:auto;font-size:10px;font-weight:500;color:var(--market-muted);white-space:nowrap}
+.ibero-all-prices-body{padding:0 16px 14px;min-width:0}.ibero-price-view-select{display:block;appearance:none;width:100%;min-width:0;min-height:48px;border:0;background:transparent;color:var(--market-fg);font-family:inherit;font-size:12px;font-weight:600;line-height:1.5;padding:12px 39px 12px 13px;cursor:pointer;border-radius:14px}.ibero-price-view-select option{background:var(--market-bg);color:var(--market-fg)}
+.ibero-prices-program{font-size:12px;font-weight:650;line-height:1.6;margin:0 0 10px;overflow-wrap:anywhere}
+.ibero-prices-current{font-size:12px;font-weight:650;line-height:1.65;margin:12px 0;color:var(--market-fg);overflow-wrap:anywhere}
+.ibero-prices-scroll{max-height:340px;width:100%;max-width:100%;overflow:auto;overscroll-behavior:contain;scrollbar-width:thin;border:1px solid var(--market-border);border-radius:10px;background:var(--market-bg);box-sizing:border-box}
+.ibero-prices-scroll:focus-visible{outline:2px solid var(--market-accent);outline-offset:2px}
+.ibero-all-prices .ibero-prices-scroll table{width:100%;margin:0;border-collapse:separate;border-spacing:0;table-layout:fixed;color:var(--market-fg);font-size:12px}
+.ibero-all-prices .ibero-prices-scroll th,.ibero-all-prices .ibero-prices-scroll td{padding:10px 9px;border-bottom:1px solid var(--market-border);line-height:1.55;vertical-align:top;white-space:normal;overflow-wrap:anywhere;text-align:left}
+.ibero-all-prices .ibero-prices-scroll th:first-child{width:46%}.ibero-all-prices[data-ibero-price-columns="3"] .ibero-prices-scroll th:first-child{width:36%}
+.ibero-all-prices .ibero-prices-scroll thead th{position:sticky;top:0;z-index:1;background:var(--market-soft);font-size:11px;color:var(--market-muted);font-weight:650}
+.ibero-all-prices .ibero-prices-scroll tbody th{font-weight:500}.ibero-all-prices .ibero-prices-scroll td{text-align:right;font-variant-numeric:tabular-nums}.ibero-all-prices .ibero-prices-scroll thead th:not(:first-child){text-align:right}
+.ibero-all-prices .ibero-prices-scroll tr:last-child>*{border-bottom:0}.ibero-all-prices .ibero-prices-scroll tr.is-selected>*{background:var(--market-soft);font-weight:750}
+.ibero-all-prices .ibero-prices-scroll tr.is-selected>th{box-shadow:inset 3px 0 var(--market-accent)}
+.ibero-table-currency{font-size:10px;color:var(--market-muted)}.ibero-table-amount{white-space:nowrap}.ibero-table-tax,.ibero-current-country-marker{display:block;font-size:10px;font-weight:600;line-height:1.45;color:var(--market-muted);margin-top:3px}.ibero-current-country-marker[hidden]{display:none!important}
+.ibero-prices-footnote{font-size:11px;line-height:1.65;color:var(--market-muted);margin:12px 0 0;overflow-wrap:anywhere}
+.ibero-modal-monthly{margin-top:16px;padding-top:14px;border-top:1px solid rgba(148,163,184,.22)}.ibero-modal-monthly[hidden],.ibero-price-tax[hidden]{display:none!important}
+.ibero-prices-overview-section{padding:64px 24px;max-width:900px;margin:0 auto;text-align:center}.ibero-prices-overview-section>h2{font-size:clamp(24px,4vw,36px);font-weight:800;line-height:1.3;margin:0 0 12px}.ibero-prices-overview-section>p{font-size:14px;line-height:1.7;color:#52525b;margin:0 0 25px}
+@media(max-width:479px){.ibero-all-prices>summary{padding:13px 12px;font-size:12px;gap:8px}.ibero-prices-count{font-size:9px}.ibero-all-prices-body{padding:0 10px 12px}.ibero-all-prices .ibero-prices-scroll th,.ibero-all-prices .ibero-prices-scroll td{padding:9px 6px;font-size:11px}.ibero-all-prices[data-ibero-price-columns="3"] .ibero-table-currency{display:block}.ibero-prices-scroll{max-height:310px}.ibero-prices-overview-section{padding:48px 16px}}
+@media(max-width:767px){.ibero-all-prices .ibero-prices-scroll{width:calc(100% - 72px)}#modal-prices .ibero-prices-scroll{width:100%}}
+@media(max-width:479px){.ibero-all-prices[data-ibero-price-columns="3"] .ibero-prices-scroll thead{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}.ibero-all-prices[data-ibero-price-columns="3"] .ibero-prices-scroll tbody,.ibero-all-prices[data-ibero-price-columns="3"] .ibero-prices-scroll tbody tr,.ibero-all-prices[data-ibero-price-columns="3"] .ibero-prices-scroll tbody th:first-child,.ibero-all-prices[data-ibero-price-columns="3"] .ibero-prices-scroll tbody td{display:block;width:auto}.ibero-all-prices[data-ibero-price-columns="3"] .ibero-prices-scroll tbody th{padding-bottom:5px}.ibero-all-prices[data-ibero-price-columns="3"] .ibero-prices-scroll tbody td{padding-top:5px}.ibero-all-prices[data-ibero-price-columns="3"] .ibero-prices-scroll tbody td:nth-child(2)::before{content:"Semestral"}.ibero-all-prices[data-ibero-price-columns="3"] .ibero-prices-scroll tbody td:nth-child(3)::before{content:"Mensual · 6 meses"}.ibero-all-prices[data-ibero-price-columns="3"] .ibero-prices-scroll tbody td::before{display:block;text-align:left;font-size:10px;color:var(--market-muted);font-weight:500;margin-bottom:2px}.ibero-all-prices[data-ibero-price-columns="3"] .ibero-table-currency{display:inline}}
+@media(prefers-reduced-motion:reduce){.ibero-all-prices>summary::after{transition:none}}
+</style>
 </head>
 <body class="bg-theme-dark text-slate-300 font-sans antialiased overflow-x-hidden selection:bg-theme-accent selection:text-white pt-[136px] md:pt-[144px]" data-page-country="EC">
 <!-- BOTONES FLOTANTES Y CHATBOT -->
@@ -382,7 +464,7 @@
       📚 Temario
      </button>
 <button class="bg-rose-950/40 hover:bg-rose-900/60 border border-rose-700/50 text-theme-accent font-medium text-[10px] px-2.5 py-1.5 rounded-full transition-colors" onclick="sendChatMessage('Precios')">
-      💰 Precio $57 USD
+      💰 Precio <span data-ibero-es-price-base="57" data-ibero-es-program="communication">$57 USD</span>
      </button>
 <button class="bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 text-zinc-300 font-medium text-[10px] px-2.5 py-1.5 rounded-full transition-colors" onclick="sendChatMessage('Pago')">
       💳 Cómo Pagar
@@ -655,12 +737,12 @@
 <div class="flex flex-col sm:flex-row gap-4 justify-center w-full max-w-md mx-auto">
 <a class="w-full bg-theme-accent text-white px-8 py-4 rounded-xl font-black text-sm lg:text-base hover:bg-rose-700 transition-all shadow-[0_0_30px_rgba(225,29,72,0.4)] text-center flex items-center justify-center gap-2 group" href="#inversion">
 <span>
-       Inscripción: $57 USD
+       Inscripción: <span data-ibero-es-price-base="57" data-ibero-es-program="communication">$57 USD</span>
       </span>
 <i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition-transform">
 </i>
 </a>
-<a aria-label="Descargar brochure en PDF" class="ibero-brochure-btn rounded-xl border border-white/20 bg-white/10 hover:bg-white/15 text-white font-black px-6 py-3 text-center inline-flex items-center justify-center gap-2" data-brochure-program="comunicacion" href="https://drive.google.com/file/d/1zN8Ni9DeqJ5rr8ULPE9YyCFi1KKtSDpC/view?usp=drivesdk" rel="noopener" target="_blank"><i class="fa-solid fa-file-pdf"></i><span>Descargar BROCHURE EN PDF</span></a></div>
+<a aria-label="Descargar brochure en PDF" class="ibero-brochure-btn rounded-xl border border-white/20 bg-white/10 hover:bg-white/15 text-white font-black px-6 py-3 text-center inline-flex items-center justify-center gap-2" data-brochure-program="comunicacion" href="/recursos/brochure-comunicacion-efectiva.pdf" rel="noopener" target="_blank" data-ibero-brochure-key="communication" data-ibero-brochure-general="/recursos/brochure-comunicacion-efectiva.pdf" data-ibero-brochure-es="/recursos/espana/brochure-comunicacion-efectiva-espana.pdf"><i class="fa-solid fa-file-pdf"></i><span>Descargar BROCHURE EN PDF</span></a></div>
 </div>
 </section>
 <!-- EL PROBLEMA / SOLUCIÓN (Presentación con Videos) -->
@@ -1810,22 +1892,17 @@ Ver rutas de inscripción
      </p>
 </div>
 <!-- Selector de moneda por país -->
-<div class="flex flex-col items-center mb-8 reveal" id="ibero-comunicacion-currency-selector-v6">
-<div class="bg-zinc-900/80 border border-zinc-800 p-1.5 rounded-full inline-flex gap-1 backdrop-blur-md shadow-xl overflow-x-auto max-w-full hide-scrollbar">
-<button class="currency-btn bg-theme-accent text-white px-4 sm:px-6 py-2.5 rounded-full text-[11px] sm:text-xs font-bold transition-all whitespace-nowrap" data-currency="USD" data-symbol="$">🇪🇨 USD</button>
-</div>
-<p class="text-[10px] text-zinc-600 mt-3 text-center max-w-xl">El sistema intenta seleccionar tu moneda según navegador/zona horaria y siempre puedes cambiarla manualmente.</p>
-</div>
+<div class="flex flex-col items-center mb-8 reveal"><div data-ibero-market-mount data-theme="dark"></div></div>
 <!-- Nota de inversión Ecuador -->
 <div class="flex flex-col items-center mb-10 reveal">
 <div class="bg-zinc-900/80 border border-zinc-800 px-5 py-3 rounded-2xl inline-flex items-center gap-3 backdrop-blur-md shadow-xl text-center">
 <span class="text-lg">🇪🇨</span>
 <div class="text-left">
 <p class="text-[10px] uppercase tracking-[0.18em] text-zinc-500 font-bold">Programa presencial Ecuador</p>
-<p class="text-xs sm:text-sm text-white font-bold">Precio base USD $57 · valor referencial por moneda según país</p>
+<p class="text-xs sm:text-sm text-white font-bold">Precio para tu país: <span data-ibero-price-program="communication" data-ibero-price-base="57">USD $57</span></p>
 </div>
 </div>
-<p class="text-[10px] text-zinc-600 mt-3">Disponible con tarjeta, transferencia bancaria Ecuador, INTIS o Western Union.</p>
+<p class="text-[10px] text-zinc-600 mt-3" data-ibero-es-copy="Consulta con Admisiones la inscripción y el pago en EUR. El taller continúa siendo presencial en Ecuador.">Disponible con tarjeta, transferencia bancaria Ecuador, INTIS o Western Union.</p>
 </div>
 <div class="max-w-lg mx-auto reveal">
 <!-- Plan Principal -->
@@ -2744,6 +2821,8 @@ Ver rutas de inscripción
            response = "¡Hola! Estoy aquí para ayudarte. Pregúntame sobre el <strong>Taller Presencial</strong>, <strong>Precios</strong>, <strong>Sedes</strong> o <strong>Métodos de pago</strong>.";
         }
 
+        if(window.IBERO_MERCADOS)response=window.IBERO_MERCADOS.chatAnswer(text,'communication')||response;
+        if(window.IBERO_MERCADOS)response=window.IBERO_MERCADOS.localizeProgramAnswer(response,'communication');
         appendMessage(response, false);
       }, 600);
     }
@@ -2960,228 +3039,8 @@ document.addEventListener('DOMContentLoaded', function () {
   document.addEventListener('keydown', function(e){ if(e.key==='Escape'){wrap.classList.remove('open'); btn.setAttribute('aria-expanded','false');} });
 })();
 </script>
-<script id="ibero-public-currency-router-v12">
-(function(){
-  const pathMap = {
-    "ecuador":"EC",
-    "mexico":"MX",
-    "colombia":"CO",
-    "peru":"PE",
-    "estados-unidos":"US",
-    "cursos-ia-en-espanol-estados-unidos":"US",
-    "ia-para-latinos-en-usa":"US",
-    "formacion-online-para-hispanos":"US",
-    "miami":"US",
-    "orlando":"US",
-    "houston":"US",
-    "dallas":"US",
-    "los-angeles":"US",
-    "nueva-york":"US",
-    "chicago":"US",
-    "espana":"ES",
-    "argentina":"INTL",
-    "chile":"INTL",
-    "bolivia":"INTL",
-    "uruguay":"INTL",
-    "paraguay":"INTL",
-    "venezuela":"INTL",
-    "panama":"INTL",
-    "costa-rica":"INTL",
-    "guatemala":"INTL",
-    "el-salvador":"INTL",
-    "honduras":"INTL",
-    "nicaragua":"INTL",
-    "republica-dominicana":"INTL",
-    "puerto-rico":"INTL"
-  };
-  const currencyByCountry = {EC:'USD', MX:'MXN', CO:'COP', PE:'PEN', US:'USD', ES:'USD', INTL:'USD'};
-  const cardByCountry = {EC:'EC', MX:'MX', CO:'CO', PE:'PE', US:'US', ES:'ES', INTL:'INTL'};
-  const payByCountry = {EC:'ec', MX:'mx', CO:'co', PE:'pe', US:'ec', ES:'ec', INTL:'ec'};
-  const countryByCurrency = {MXN:'MX', COP:'CO', PEN:'PE'};
-  const ipCountryMap = {EC:'EC', MX:'MX', CO:'CO', PE:'PE', US:'US', ES:'ES'};
-  let manualCurrency = false;
-  let lastAutoSource = '';
 
-  function norm(s){
-    try{s=decodeURIComponent(String(s||''));}catch(e){s=String(s||'');}
-    return s.normalize ? s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase() : s.toLowerCase();
-  }
-  function pathParts(){
-    const raw = norm(location.pathname || '');
-    return raw.split('/').map(s=>s.trim()).filter(Boolean).map(s=>s.replace(/\.html?$/,''));
-  }
-  function fromPath(){
-    const parts = pathParts();
-    for(let i=parts.length-1;i>=0;i--){
-      const part = parts[i];
-      if(part && part !== 'index' && pathMap[part]) return pathMap[part];
-    }
-    const bodyCountry = document.body && (document.body.dataset.pageCountry || document.body.dataset.country);
-    if(bodyCountry && cardByCountry[String(bodyCountry).toUpperCase()]) return String(bodyCountry).toUpperCase();
-    return '';
-  }
-  function fromTimezone(){
-    // Detección local de respaldo. No usamos idioma del navegador: es-MX no significa estar en México.
-    try{
-      const tz = norm(Intl.DateTimeFormat().resolvedOptions().timeZone || '');
-      if(!tz) return 'EC';
-      if(tz.includes('mexico_city') || tz.includes('cancun') || tz.includes('chihuahua') || tz.includes('ciudad_juarez') || tz.includes('hermosillo') || tz.includes('mazatlan') || tz.includes('merida') || tz.includes('monterrey') || tz.includes('matamoros') || tz.includes('ojinaga') || tz.includes('tijuana')) return 'MX';
-      if(tz==='europe/madrid'||tz==='atlantic/canary') return 'ES';
-      if(tz.includes('bogota')) return 'CO';
-      if(tz.includes('lima')) return 'PE';
-      if(tz.includes('guayaquil') || tz.includes('quito')) return 'EC';
-      if(tz.includes('new_york') || tz.includes('detroit') || tz.includes('indiana') || tz.includes('chicago') || tz.includes('menominee') || tz.includes('north_dakota') || tz.includes('denver') || tz.includes('boise') || tz.includes('phoenix') || tz.includes('los_angeles') || tz.includes('anchorage') || tz.includes('adak') || tz.includes('honolulu')) return 'US';
-    }catch(e){}
-    return 'EC';
-  }
-  function priceDatasetKey(currency){
-    const c=String(currency||'').toUpperCase();
-    if(c==='MXN') return 'mxn';
-    if(c==='COP') return 'cop';
-    if(c==='PEN') return 'pen';
-    return 'usd';
-  }
-  function setPriceElements(currency){
-    const key = priceDatasetKey(currency);
-    document.querySelectorAll('[data-usd], [data-mxn], [data-cop], [data-pen]').forEach(function(el){
-      if(!el.dataset || el.dataset.currency) return;
-      if(el.dataset[key]) el.textContent = el.dataset[key];
-    });
-  }
-  function setCurrencyButtons(currency){
-    const target=String(currency||'USD').toUpperCase();
-    document.querySelectorAll('.currency-btn,[data-currency]').forEach(function(el){
-      const current=String(el.dataset.currency||'').toUpperCase();
-      if(!current) return;
-      const active = current === target;
-      el.classList.toggle('bg-ibero-dark', active);
-      el.classList.toggle('bg-ibero-red', active && !el.classList.contains('bg-ibero-dark'));
-      el.classList.toggle('text-white', active);
-      el.classList.toggle('text-zinc-500', !active);
-      el.classList.toggle('is-detected', active);
-      if(active) el.setAttribute('aria-current','true'); else el.removeAttribute('aria-current');
-    });
-  }
-  function dispatchClick(el){
-    if(!el) return;
-    try{ el.dispatchEvent(new MouseEvent('click',{bubbles:true,cancelable:true,view:window})); }
-    catch(e){ try{ el.click(); }catch(_){} }
-  }
-  function clickCountryButtons(country){
-    const cal = country==='MX' ? 'mx' : 'general';
-    const pay = payByCountry[country] || 'ec';
-    dispatchClick(document.querySelector('[data-calendar-pay-country="'+cal+'"]'));
-    dispatchClick(document.querySelector('[data-pay-country="'+pay+'"]'));
-  }
-  function setCards(country){
-    const cardCountry = cardByCountry[country] || 'EC';
-    document.querySelectorAll('[data-country-card]').forEach(function(el){
-      const code=String(el.dataset.countryCard||'').toUpperCase();
-      const active = code === cardCountry;
-      el.classList.toggle('is-detected', active);
-      if(active) el.setAttribute('aria-current','true'); else el.removeAttribute('aria-current');
-      if(!el.dataset.iberoClickable){
-        el.dataset.iberoClickable='true';
-        el.setAttribute('role','button');
-        el.setAttribute('tabindex','0');
-        el.style.cursor='pointer';
-        const activate=function(){ manualCurrency=true; apply(code || 'EC', 'manual-card'); };
-        el.addEventListener('click', activate);
-        el.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); activate(); } });
-      }
-    });
-  }
-  function bindManualCurrency(){
-    document.querySelectorAll('.currency-btn,[data-currency]').forEach(function(el){
-      if(el.dataset.iberoCurrencyV12Bound==='true') return;
-      const current=String(el.dataset.currency||'').toUpperCase();
-      if(!current) return;
-      el.dataset.iberoCurrencyV12Bound='true';
-      el.addEventListener('click', function(){
-        manualCurrency = true;
-        let country = countryByCurrency[current] || fromPath() || (current==='USD' ? 'EC' : fromTimezone());
-        if(current==='USD' && fromPath()==='US') country='US';
-        apply(country, 'manual-currency');
-      });
-    });
-  }
-  function apply(country, source){
-    const clean = (country && cardByCountry[String(country).toUpperCase()]) ? String(country).toUpperCase() : 'EC';
-    const currency = currencyByCountry[clean] || 'USD';
-    document.documentElement.dataset.iberoCountry = clean;
-    if(clean==='ES')document.querySelectorAll('a[href]').forEach(function(a){const href=a.getAttribute('href')||'';if(/^(#|mailto:|tel:|javascript:)/i.test(href))return;let u;try{u=new URL(href,location.href);}catch(_){return;}if(!['ibero.education','www.ibero.education',location.hostname].includes(u.hostname))return;if(!/\/(?:registro-y-admisiones|calendario-academico|productividad-automatizacion-procesos-ia|certificado-productividad-automatizacion-procesos-ia|espana)(?:\/|$)/.test(u.pathname))return;u.searchParams.set('pais','ES');a.setAttribute('href',href.startsWith('http')?u.href:u.pathname+u.search+u.hash);});
-    document.documentElement.dataset.iberoCurrency = currency;
-    document.documentElement.dataset.iberoCurrencySource = source || '';
-    setPriceElements(currency);
-    setCurrencyButtons(currency);
-    setCards(clean);
-    clickCountryButtons(clean);
-    bindManualCurrency();
-  }
-  function autoCountry(){ const requested=new URLSearchParams(location.search).get('pais');return requested && cardByCountry[requested.toUpperCase()] ? requested.toUpperCase() : fromPath() || fromTimezone() || 'EC'; }
-  function mapIpCode(code){
-    code = String(code || '').toUpperCase();
-    return ipCountryMap[code] || '';
-  }
-  function fetchCountry(url, parser, timeoutMs){
-    if(!window.fetch || !window.AbortController) return Promise.resolve('');
-    const controller = new AbortController();
-    const timer = setTimeout(function(){ try{ controller.abort(); }catch(e){} }, timeoutMs || 1200);
-    return fetch(url, {cache:'no-store', signal: controller.signal})
-      .then(function(r){ clearTimeout(timer); return r && r.ok ? r.json() : null; })
-      .then(function(data){ return mapIpCode(parser(data)); })
-      .catch(function(){ clearTimeout(timer); return ''; });
-  }
-  function detectIpCountry(){
-    // Mejora opcional para detectar el país real de conexión. Si falla, queda la zona horaria o la página.
-    if(fromPath()||new URLSearchParams(location.search).get('pais')==='ES') return Promise.resolve('');
-    return fetchCountry('https://api.country.is/', function(data){ return data && data.country; }, 1100)
-      .then(function(country){
-        if(country) return country;
-        return fetchCountry('https://ipapi.co/json/', function(data){ return data && (data.country_code || data.country); }, 1400);
-      });
-  }
-  function boot(){
-    lastAutoSource = fromPath() ? 'path' : 'timezone';
-    apply(autoCountry(), lastAutoSource);
-    setTimeout(function(){ if(!manualCurrency) apply(autoCountry(), lastAutoSource); }, 160);
-    detectIpCountry().then(function(country){
-      if(country && !manualCurrency){ lastAutoSource='ip'; apply(country, 'ip'); }
-    });
-  }
-  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', boot); else boot();
-})();
-</script>
-<script id="ibero-payment-sync-final">
-(function(){
-  function getCurrency(){
-    return (document.documentElement.dataset.iberoCurrency || window.iberoSelectedCurrency || 'USD').toUpperCase();
-  }
-  function sync(){
-    const currency=getCurrency();
-    document.querySelectorAll('[data-paypal-general]').forEach(function(link){
-      const general=link.dataset.paypalGeneral;
-      const mx=link.dataset.paypalMx;
-      if(general) link.href=(currency==='MXN' && mx) ? mx : general;
-    });
-  }
-  window.iberoSyncPaymentLinks=sync;
-  document.addEventListener('click',function(e){
-    const btn=e.target.closest && e.target.closest('.currency-btn');
-    if(btn && btn.dataset.currency){
-      window.iberoSelectedCurrency=btn.dataset.currency;
-      setTimeout(sync,0);
-    }
-  });
-  function boot(){
-    sync();
-    if(document.body){
-      new MutationObserver(sync).observe(document.body,{childList:true,subtree:true});
-    }
-  }
-  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',boot); else boot();
-})();
-</script>
+
 
 <script id="ibero-brochure-placeholder-js">
 document.addEventListener('click', function (event) {
@@ -3192,6 +3051,1060 @@ document.addEventListener('click', function (event) {
     event.preventDefault();
   }
 });
+</script>
+<script id="ibero-market-config">
+/* IBERO · Precios comerciales aprobados por país. Las tarifas EUR son fijas; no recalcular. */
+window.IBERO_MERCADOS_CONFIG = {
+  "version": "2026-10-03.5-es-programas-eur",
+  "storageKey": "ibero.market.v1",
+  "defaultCountry": "EC",
+  "markets": {
+    "MX": {
+      "name": "México",
+      "currency": "MXN",
+      "agentsPrice": 995,
+      "zone": "America/Mexico_City",
+      "zoneLabel": "Ciudad de México",
+      "slug": "mexico",
+      "zones": [
+        [
+          "America/Mexico_City",
+          "Ciudad de México / Guadalajara / Monterrey"
+        ],
+        [
+          "America/Cancun",
+          "Quintana Roo · Cancún"
+        ],
+        [
+          "America/Hermosillo",
+          "Sonora · Hermosillo"
+        ],
+        [
+          "America/Mazatlan",
+          "Sinaloa / Baja California Sur"
+        ],
+        [
+          "America/Tijuana",
+          "Baja California · Tijuana"
+        ],
+        [
+          "America/Ciudad_Juarez",
+          "Ciudad Juárez"
+        ],
+        [
+          "America/Matamoros",
+          "Frontera · Matamoros"
+        ]
+      ]
+    },
+    "CR": {
+      "name": "Costa Rica",
+      "currency": "CRC",
+      "agentsPrice": 25500,
+      "zone": "America/Costa_Rica",
+      "zoneLabel": "Costa Rica",
+      "slug": "costa-rica"
+    },
+    "GT": {
+      "name": "Guatemala",
+      "currency": "GTQ",
+      "agentsPrice": 435,
+      "zone": "America/Guatemala",
+      "zoneLabel": "Guatemala",
+      "slug": "guatemala"
+    },
+    "EC": {
+      "name": "Ecuador",
+      "currency": "USD",
+      "agentsPrice": 57,
+      "zone": "America/Guayaquil",
+      "zoneLabel": "Ecuador continental",
+      "slug": "ecuador",
+      "zones": [
+        [
+          "America/Guayaquil",
+          "Ecuador continental"
+        ],
+        [
+          "Pacific/Galapagos",
+          "Galápagos"
+        ]
+      ]
+    },
+    "CO": {
+      "name": "Colombia",
+      "currency": "COP",
+      "agentsPrice": 211000,
+      "zone": "America/Bogota",
+      "zoneLabel": "Colombia",
+      "slug": "colombia"
+    },
+    "PE": {
+      "name": "Perú",
+      "currency": "PEN",
+      "agentsPrice": 200,
+      "zone": "America/Lima",
+      "zoneLabel": "Perú",
+      "slug": "peru"
+    },
+    "SV": {
+      "name": "El Salvador",
+      "currency": "USD",
+      "agentsPrice": 57,
+      "zone": "America/El_Salvador",
+      "zoneLabel": "El Salvador",
+      "slug": "el-salvador"
+    },
+    "HN": {
+      "name": "Honduras",
+      "currency": "HNL",
+      "agentsPrice": 1530,
+      "zone": "America/Tegucigalpa",
+      "zoneLabel": "Honduras",
+      "slug": "honduras"
+    },
+    "PA": {
+      "name": "Panamá",
+      "currency": "USD",
+      "agentsPrice": 57,
+      "zone": "America/Panama",
+      "zoneLabel": "Panamá",
+      "slug": "panama"
+    },
+    "DO": {
+      "name": "República Dominicana",
+      "currency": "DOP",
+      "agentsPrice": 3350,
+      "zone": "America/Santo_Domingo",
+      "zoneLabel": "República Dominicana",
+      "slug": "republica-dominicana"
+    },
+    "PR": {
+      "name": "Puerto Rico",
+      "currency": "USD",
+      "agentsPrice": 57,
+      "zone": "America/Puerto_Rico",
+      "zoneLabel": "Puerto Rico",
+      "slug": "puerto-rico"
+    },
+    "CL": {
+      "name": "Chile",
+      "currency": "CLP",
+      "agentsPrice": 54700,
+      "zone": "America/Santiago",
+      "zoneLabel": "Santiago",
+      "slug": "chile",
+      "zones": [
+        [
+          "America/Santiago",
+          "Santiago · Chile continental"
+        ],
+        [
+          "America/Punta_Arenas",
+          "Magallanes"
+        ],
+        [
+          "America/Coyhaique",
+          "Aysén"
+        ],
+        [
+          "Pacific/Easter",
+          "Isla de Pascua"
+        ]
+      ]
+    },
+    "AR": {
+      "name": "Argentina",
+      "currency": "ARS",
+      "agentsPrice": 86200,
+      "zone": "America/Argentina/Buenos_Aires",
+      "zoneLabel": "Argentina",
+      "slug": "argentina"
+    },
+    "UY": {
+      "name": "Uruguay",
+      "currency": "UYU",
+      "agentsPrice": 2300,
+      "zone": "America/Montevideo",
+      "zoneLabel": "Uruguay",
+      "slug": "uruguay"
+    },
+    "PY": {
+      "name": "Paraguay",
+      "currency": "PYG",
+      "agentsPrice": 338000,
+      "zone": "America/Asuncion",
+      "zoneLabel": "Paraguay",
+      "slug": "paraguay"
+    },
+    "US": {
+      "name": "Estados Unidos",
+      "currency": "USD",
+      "agentsPrice": 57,
+      "zone": "America/New_York",
+      "zoneLabel": "Este · Nueva York / Miami",
+      "slug": "estados-unidos",
+      "zones": [
+        [
+          "America/New_York",
+          "Este · Nueva York / Miami"
+        ],
+        [
+          "America/Chicago",
+          "Centro · Chicago / Houston"
+        ],
+        [
+          "America/Denver",
+          "Montaña · Denver"
+        ],
+        [
+          "America/Phoenix",
+          "Arizona · Phoenix"
+        ],
+        [
+          "America/Los_Angeles",
+          "Pacífico · Los Ángeles"
+        ],
+        [
+          "America/Anchorage",
+          "Alaska · Anchorage"
+        ],
+        [
+          "Pacific/Honolulu",
+          "Hawái · Honolulu"
+        ]
+      ]
+    },
+    "INTL": {
+      "name": "Otro país",
+      "currency": "USD",
+      "agentsPrice": 57,
+      "zone": "",
+      "zoneLabel": "Consulta tu zona horaria",
+      "slug": ""
+    },
+    "ES": {
+      "name": "España",
+      "currency": "EUR",
+      "agentsPrice": 50,
+      "zone": "Europe/Madrid",
+      "zoneLabel": "Península y Baleares · Madrid",
+      "slug": "espana",
+      "zones": [
+        [
+          "Europe/Madrid",
+          "Península y Baleares · Madrid"
+        ],
+        [
+          "Atlantic/Canary",
+          "Canarias"
+        ]
+      ],
+      "agentsPayment": {
+        "currency": "EUR",
+        "amount": 50,
+        "url": "https://www.paypal.com/ncp/payment/CEG8W8MVU3R9Q",
+        "note": "Precio final de Agentes IA: €50. Pago único en EUR.",
+        "priceStatus": "approved-final"
+      },
+      "pricesByBase": {
+        "57": 50,
+        "277": 242.98,
+        "926.25": 812.5,
+        "154.38": 135.42
+      },
+      "pricesStatus": "approved-by-user-2026-10-03",
+      "conversionBasis": "Relación comercial aprobada 57 USD = 50 EUR. Valores fijos, no tipo de cambio diario."
+    }
+  },
+  "order": [
+    "MX",
+    "CR",
+    "GT",
+    "EC",
+    "CO",
+    "PE",
+    "SV",
+    "HN",
+    "PA",
+    "DO",
+    "PR",
+    "CL",
+    "AR",
+    "UY",
+    "PY",
+    "US",
+    "ES",
+    "INTL"
+  ],
+  "legacyPrices": {
+    "57": {
+      "USD": 57,
+      "MXN": 995,
+      "COP": 211000,
+      "PEN": 200
+    },
+    "277": {
+      "USD": 277,
+      "MXN": 4850,
+      "COP": 1025000,
+      "PEN": 975,
+      "CRC": 123900,
+      "GTQ": 2115,
+      "HNL": 7440,
+      "DOP": 16300,
+      "CLP": 265800,
+      "ARS": 418900,
+      "UYU": 11200,
+      "PYG": 1643000
+    },
+    "154.38": {
+      "USD": 154.38,
+      "MXN": 2699,
+      "COP": 570588,
+      "PEN": 542,
+      "CRC": 69100,
+      "GTQ": 1180,
+      "HNL": 4140,
+      "DOP": 9050,
+      "CLP": 148200,
+      "ARS": 233500,
+      "UYU": 6200,
+      "PYG": 915000
+    },
+    "926.25": {
+      "USD": 926.25,
+      "MXN": 16191,
+      "COP": 3423420,
+      "PEN": 3251,
+      "CRC": 414400,
+      "GTQ": 7070,
+      "HNL": 24860,
+      "DOP": 54450,
+      "CLP": 888900,
+      "ARS": 1400800,
+      "UYU": 37400,
+      "PYG": 5493000
+    }
+  },
+  "programBases": {
+    "agents": 57,
+    "marketing": 57,
+    "courses": 57,
+    "managers": 57,
+    "communication": 57,
+    "appsDiploma": 277,
+    "marketingDiploma": 277,
+    "master": 926.25
+  },
+  "aliases": {
+    "agents": [
+      "productividad-automatizacion-procesos-ia",
+      "certificado-productividad-automatizacion-procesos-ia"
+    ],
+    "marketing": [
+      "marketing-digital-con-ia",
+      "certificado-marketing-digital-inteligencia-artificial"
+    ],
+    "courses": [
+      "crea-tu-academia",
+      "certificado-diseno-produccion-cursos-online-ia"
+    ],
+    "managers": [
+      "ia-para-gerencia-y-administracion",
+      "certificado-inteligencia-artificial-analitica-automatizacion-gestion-gerencial"
+    ],
+    "appsDiploma": [
+      "diplomado-ia-negocios-marketing",
+      "diplomado-desarrollo-aplicaciones-productos-digitales-ia"
+    ],
+    "marketingDiploma": [
+      "diplomado-marketing-digital-ia-agentes",
+      "diplomado-marketing-digital-inteligencia-artificial-agentes"
+    ],
+    "master": [
+      "master-ejecutivo-ia",
+      "executive-master"
+    ],
+    "communication": [
+      "comunicacion-efectiva"
+    ]
+  },
+  "cardPaymentText": "Aceptamos todas las tarjetas de crédito o débito.",
+  "paymentPairs": [
+    {
+      "general": "https://www.paypal.com/ncp/payment/K6J3EQ7ZN2B52",
+      "mx": "https://www.paypal.com/ncp/payment/F9REP7PVKV2UJ"
+    },
+    {
+      "general": "https://www.paypal.com/ncp/payment/QTZE28XP3MUT8",
+      "mx": "https://www.paypal.com/ncp/payment/32WN5J9QBL6EN"
+    },
+    {
+      "general": "https://www.paypal.com/ncp/payment/X438YHHKKNDZL",
+      "mx": "https://www.paypal.com/ncp/payment/7EMXPUPLWG9BQ"
+    },
+    {
+      "general": "https://www.paypal.com/ncp/payment/EY623WTCVXXNJ",
+      "mx": "https://www.paypal.com/ncp/payment/3Q2BWVL3EK2AW"
+    },
+    {
+      "general": "https://www.paypal.com/ncp/payment/2HLLBTVGWX4VQ",
+      "mx": "https://www.paypal.com/ncp/payment/QFJ3TUMT56MNY"
+    },
+    {
+      "general": "https://www.paypal.com/ncp/payment/9X7S3XD99Y3D8",
+      "mx": "https://www.paypal.com/ncp/payment/MMG3Z5QGJ6KWU"
+    },
+    {
+      "general": "https://www.paypal.com/ncp/payment/MDDJTPR2DXMQJ",
+      "mx": "https://www.paypal.com/ncp/payment/FR87TPYFFWU4N"
+    },
+    {
+      "general": "https://wa.me/19152854778?text=Hola%20IBERO%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20plan%20mensual%20del%20Master%20Ejecutivo.",
+      "mx": "https://wa.me/19152854778?text=Hola%20IBERO%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20plan%20mensual%20del%20Master%20Ejecutivo%20en%20MXN."
+    }
+  ],
+  "spainPaymentRoutes": {
+    "QTZE28XP3MUT8": {
+      "program": "marketing",
+      "base": 57
+    },
+    "X438YHHKKNDZL": {
+      "program": "managers",
+      "base": 57
+    },
+    "EY623WTCVXXNJ": {
+      "program": "agents",
+      "base": 57
+    },
+    "2HLLBTVGWX4VQ": {
+      "program": "courses",
+      "base": 57
+    },
+    "RFRUU69FS2BLL": {
+      "program": "communication",
+      "base": 57
+    },
+    "K6J3EQ7ZN2B52": {
+      "program": "appsDiploma",
+      "base": 277
+    },
+    "9X7S3XD99Y3D8": {
+      "program": "marketingDiploma",
+      "base": 277
+    },
+    "MDDJTPR2DXMQJ": {
+      "program": "master",
+      "base": 926.25
+    }
+  }
+};
+</script>
+<script id="ibero-market-runtime">
+/** IBERO · Coordinador único de país, presentación de precios, horario y enlaces.
+ * No modifica cohortes, contenidos, planes, certificados ni configuración de la pasarela.
+ * La elección manual prevalece sobre ruta, zona horaria y detección automática por IP.
+ */
+(function () {
+  'use strict';
+  if (window.IBERO_MERCADOS) return;
+  const C = window.IBERO_MERCADOS_CONFIG;
+  if (!C) return;
+  const M = C.markets;
+  const root = document.documentElement;
+  let country = C.defaultCountry;
+  let zone = '';
+  let manual = false;
+  let source = 'default';
+  let serial = 0;
+  let calendarEvent = null;
+  const currencyNames = {EUR:'euros',USD:'dólares estadounidenses',MXN:'pesos mexicanos',CRC:'colones costarricenses',GTQ:'quetzales',COP:'pesos colombianos',PEN:'soles peruanos',HNL:'lempiras',DOP:'pesos dominicanos',CLP:'pesos chilenos',ARS:'pesos argentinos',UYU:'pesos uruguayos',PYG:'guaraníes'};
+  const optionLabel = code => M[code].name + ' · ' + M[code].currency;
+  const esc = value => String(value == null ? '' : value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  function normalize(v) { return String(v || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase(); }
+  function validCode(v) { const c = String(v || '').toUpperCase(); return M[c] ? c : ''; }
+  function browserZone() { try { return Intl.DateTimeFormat().resolvedOptions().timeZone || 'America/Guayaquil'; } catch (_) { return 'America/Guayaquil'; } }
+  function validZone(z) { try { new Intl.DateTimeFormat('es', {timeZone:z}).format(); return !!z; } catch (_) { return false; } }
+  function defaultZone(code) { return M[code].zone || browserZone(); }
+  function chooseZone(code, requested) {
+    const m = M[code];
+    if (requested && validZone(requested) && (code === 'INTL' || requested === m.zone || (m.zones || []).some(z => z[0] === requested) || fromTimezone(requested) === code)) return requested;
+    return defaultZone(code);
+  }
+  function fromPath(pathname=location.pathname, useBody=true) {
+    const parts = normalize(pathname).split('/').filter(Boolean);
+    for (const code of C.order) if (M[code].slug && parts.includes(M[code].slug)) return code;
+    if (parts.some(v => ['cursos-ia-en-espanol-estados-unidos','ia-para-latinos-en-usa','formacion-online-para-hispanos','miami','orlando','houston','dallas','los-angeles','nueva-york','chicago'].includes(v))) return 'US';
+    if (parts.some(v => ['nicaragua','bolivia','cuba','venezuela'].includes(v))) return 'INTL';
+    return useBody?validCode(document.body.dataset.pageCountry || document.body.dataset.country):'';
+  }
+  function fromTimezone(tz) {
+    const v = normalize(tz);
+    for (const code of C.order) {
+      const m = M[code];
+      if (m.zone && normalize(m.zone) === v) return code;
+      if ((m.zones || []).some(z => normalize(z[0]) === v)) return code;
+    }
+    if (/argentina|buenos_aires|cordoba|mendoza|jujuy|catamarca/.test(v)) return 'AR';
+    if (/merida|monterrey|chihuahua|ojinaga|mexico|mazatlan|tijuana|hermosillo/.test(v)) return 'MX';
+    if (/detroit|indiana|kentucky|boise|menominee|north_dakota|adak|sitka|juneau|nome/.test(v)) return 'US';
+    return 'INTL';
+  }
+  function readSaved() { try { const s = JSON.parse(localStorage.getItem(C.storageKey) || 'null'); return s && validCode(s.country) ? s : null; } catch (_) { return null; } }
+  function save() { try { localStorage.setItem(C.storageKey, JSON.stringify({country:country,zone:zone,manual:true})); } catch (_) {} }
+  function programFrom(value) {
+    let path = String(value || '').split(/[?#]/)[0].replace(/\/+$/, '').replace(/\/index\.html$/, '');
+    try { path = new URL(path, location.origin).pathname.replace(/\/+$/, ''); } catch (_) {}
+    const slug = path.split('/').pop();
+    for (const key of Object.keys(C.aliases)) if (C.aliases[key].includes(slug)) return key;
+    return '';
+  }
+  function pageProgram() { return programFrom(location.pathname); }
+  function elementProgram(el) {
+    const tagged = el.closest('[data-ibero-price-program]');
+    return (tagged && tagged.dataset.iberoPriceProgram) || pageProgram();
+  }
+  function numberText(value, currency) {
+    const n = Number(value);
+    if (!Number.isFinite(n)) return '';
+    if(currency==='EUR')return n.toLocaleString('es-ES',{minimumFractionDigits:2,maximumFractionDigits:2});
+    return currency === 'USD' ? n.toLocaleString('en-US',{minimumFractionDigits:Number.isInteger(n)?0:2,maximumFractionDigits:2}) : Math.round(n).toLocaleString('es-CO',{maximumFractionDigits:0});
+  }
+  function localRound(value,currency) {
+    const step=({CRC:100,GTQ:5,HNL:10,DOP:50,CLP:100,ARS:100,UYU:100,PYG:1000})[currency] || 1;
+    return Math.round(Number(value)/step)*step;
+  }
+  function priceInfo(program, base, code) {
+    code = validCode(code) || country;
+    const market = M[code];
+    const n = Number(base);
+    if (!Number.isFinite(n)) return {main:'',tax:'',currency:'USD',value:0};
+
+    if(code==='ES') {
+      if(program==='agents' && n===57)return {main:'€'+numberText(market.agentsPrice,'EUR'),tax:'',currency:'EUR',value:market.agentsPrice,chargeCurrency:'EUR',chargeAmount:50};
+      const value=market.pricesByBase[String(n)];
+      if(Number.isFinite(value))return {main:'€'+numberText(value,'EUR'),tax:'',currency:'EUR',value:value,paymentStatus:'consult'};
+      return {main:'Consultar inversión',tax:'',currency:'EUR',value:null,paymentStatus:'consult'};
+    }
+    // Los cursos intensivos con base USD 57 comparten la tabla oficial por país.
+    if (n === 57) {
+      const value = market.agentsPrice;
+      return {
+        main: market.currency+' '+numberText(value,market.currency),
+        tax: program === 'agents' && code === 'EC' ? 'más IVA' : '',
+        currency: market.currency,
+        value: value
+      };
+    }
+
+    // Se preservan los precios explícitos por moneda aprobados por el usuario.
+    const legacy = C.legacyPrices[String(n)];
+    const legacyCurrency = market.currency;
+    if (legacy && legacyCurrency && legacy[legacyCurrency] !== undefined) {
+      const value = legacy[legacyCurrency];
+      return {main:legacyCurrency+' '+numberText(value,legacyCurrency),tax:'',currency:legacyCurrency,value:value};
+    }
+
+    // Respaldo para bases nuevas todavía ausentes de la tabla comercial aprobada.
+    if (market.currency !== 'USD' && Number.isFinite(Number(market.agentsPrice))) {
+      const value = localRound(n * Number(market.agentsPrice) / 57, market.currency);
+      return {main:market.currency+' '+numberText(value,market.currency),tax:'',currency:market.currency,value:value};
+    }
+
+    return {main:'USD '+numberText(n,'USD'),tax:'',currency:'USD',value:n};
+  }
+  function priceText(program, base, code) { const p = priceInfo(program,base,code); return p.main + (p.tax?' '+p.tax:''); }
+  function assignText(el, text) { if (el && el.textContent !== text) el.textContent = text; }
+  function renderPrice(el) {
+    const program = elementProgram(el);
+    const base = el.dataset.base || el.dataset.iberoPriceBase;
+    if (base !== undefined) {
+      const p = priceInfo(program, base);
+      assignText(el,p.main);
+      if (el.matches('.price-display,.price-display-mensual,.price-display-semestral')) {
+        el.classList.add('ibero-price-local');
+        let label=el.previousElementSibling;
+        if(!label || !label.hasAttribute('data-ibero-selected-price-country')) {
+          label=document.createElement('span');label.className='ibero-main-price-country';label.setAttribute('data-ibero-selected-price-country','');el.before(label);
+        }
+        assignText(label,country==='ES'?'Precio para España · EUR':'Precio para '+M[country].name);
+      }
+      let tax = el.nextElementSibling;
+      if (!tax || !tax.classList.contains('ibero-price-tax')) {
+        if (p.tax) { tax = document.createElement('span'); tax.className='ibero-price-tax'; el.after(tax); }
+        else tax = null;
+      }
+      if (tax) { assignText(tax,p.tax); tax.hidden=!p.tax; }
+      return;
+    }
+    if (el.dataset.usd !== undefined) {
+      const raw=String(el.dataset.usd||'');
+      const match=raw.match(/USD\s*\$?\s*([0-9]+(?:\.[0-9]+)?)/i);
+      if(match){
+        const info=priceInfo(program,Number(match[1]),country);
+        assignText(el,info.main+(info.tax?' '+info.tax:''));
+      } else {
+        const key = ({MX:'mxn',CO:'cop',PE:'pen'})[country] || 'usd';
+        assignText(el,el.dataset[key] || el.dataset.usd);
+      }
+    }
+  }
+  function zoneLabel() {
+    const m = M[country];
+    const item = (m.zones || []).find(z=>z[0]===zone);
+    return item ? item[1] : (zone !== m.zone ? zone.replace(/_/g,' ') : m.zoneLabel);
+  }
+  function localTime(date, time, targetZone, sourceZone='America/Guayaquil') {
+    const api=window.IBERO_PROGRAMACION;
+    const d = api&&api.zonedDate ? api.zonedDate(date,time,sourceZone) : new Date(date+'T'+time.slice(0,5)+':00-05:00');
+    const parts = new Intl.DateTimeFormat('en-CA',{timeZone:targetZone,year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).formatToParts(d).reduce((a,p)=>(a[p.type]=p.value,a),{});
+    return {time:parts.hour+':'+parts.minute,date:parts.year+'-'+parts.month+'-'+parts.day};
+  }
+  function localRange(date,start,end,targetZone,sourceZone) {
+    try {
+      const a=localTime(date,start,targetZone,sourceZone), b=localTime(date,end,targetZone,sourceZone);
+      let suffix='';
+      if (a.date>date && b.date>date) suffix=' (día siguiente)';
+      else if (a.date<date && b.date<date) suffix=' (día anterior)';
+      else if (b.date>a.date) suffix=' (termina al día siguiente)';
+      return a.time+'–'+b.time+suffix;
+    } catch (_) { return start+'–'+end+' · Ecuador'; }
+  }
+  function shortDate(date) { const a=String(date).split('-'); return a[2]+'/'+a[1]; }
+  function scheduleText(key, supplied) {
+    const api=window.IBERO_PROGRAMACION;
+    const p=api && api.getProgram(key);
+    if (!p) return 'Consulta el horario de tu programa en el calendario académico.';
+    const cohort=supplied || (api.getDisplayedCohort?api.getDisplayedCohort(key):api.getPublishedCohort(key));
+    if (key==='communication') return (cohort && cohort.schedule || p.schedule)+' · Presencial en Ecuador';
+    if(!cohort&&key==='agents'&&country==='ES')return 'Próxima cohorte de España por confirmar. El nuevo horario se publicará con su convocatoria.';
+    if (!cohort) return 'Horario habitual: '+localRange(api.todayString(),p.startTime,p.endTime,zone)+' · '+zoneLabel()+'. Próxima cohorte por confirmar.';
+    const sessions=[];
+    const start=cohort.start, end=cohort.end;
+    if (!start || !end) return localRange(api.todayString(),p.startTime,p.endTime,zone)+' · '+zoneLabel();
+    const days=cohort.weekdays || p.weekdays || [1,2,3,4];
+    for (let d=start,n=0;d<=end && n<400;d=api.addDays(d,1),n++) {
+      if (!days.includes(new Date(d+'T12:00:00Z').getUTCDay())) continue;
+      const module=(cohort.modules||[]).find(m=>d>=m.start && d<=m.end);
+      const st=(module&&module.startTime)||cohort.startTime||p.startTime;
+      const et=(module&&module.endTime)||cohort.endTime||p.endTime;
+      const range=localRange(d,st,et,zone,cohort.timeZone);
+      const last=sessions[sessions.length-1];
+      if (last && last.range===range) last.end=d;
+      else sessions.push({start:d,end:d,range:range});
+    }
+    if (!sessions.length) return localRange(start,cohort.startTime||p.startTime,cohort.endTime||p.endTime,zone,cohort.timeZone)+' · '+zoneLabel();
+    const prefix=key==='master'?'Lun–Vie · ':'Lun–Jue · ';
+    if (sessions.length===1) return prefix+sessions[0].range+' · '+zoneLabel()+(cohort.market==='ES'?' · Cohorte España':'');
+    return sessions.map(s=>shortDate(s.start)+'–'+shortDate(s.end)+': '+s.range).join(' · ')+' · '+zoneLabel();
+  }
+  function controlHTML(theme, program) {
+    const id='ibero-market-'+(++serial);
+    return '<div class="ibero-market-control" data-theme="'+esc(theme||'light')+'">'+
+      '<label class="ibero-market-label" for="'+id+'">Selecciona tu país</label>'+
+      '<div class="ibero-select-wrap"><select class="ibero-market-select" id="'+id+'" data-ibero-market-select>'+C.order.map(code=>'<option value="'+code+'"'+(code===country?' selected':'')+'>'+esc(optionLabel(code))+'</option>').join('')+'</select></div>'+
+      '<details class="ibero-zone-wrap" data-ibero-zone-wrap hidden><summary>Cambiar ciudad o zona horaria</summary><label class="ibero-market-label" for="'+id+'-zone">Zona horaria</label><div class="ibero-select-wrap"><select class="ibero-zone-select" data-ibero-zone-select id="'+id+'-zone"></select></div></details>'+
+      '<p class="ibero-currency-note" data-ibero-currency-note aria-live="polite" aria-atomic="true"></p>'+
+      (program?'<p class="ibero-local-schedule" data-ibero-local-schedule="'+esc(program)+'"></p>':'')+
+      '</div>';
+  }
+  function countrySourceText() { return ''; }
+  function programLabel(key) {
+    const api=window.IBERO_PROGRAMACION,p=api&&api.getProgram(key);
+    return (p&&(p.title||p.name))||({agents:'Crea Agentes IA',marketing:'Marketing Digital con IA',courses:'Diseño y Producción de Cursos Online con IA',managers:'IA para Gerencia y Administración',communication:'Comunicación Efectiva',appsDiploma:'Diplomado en Desarrollo de Aplicaciones y Productos Digitales con IA',marketingDiploma:'Diplomado en Marketing Digital con IA y Agentes',master:'Máster Ejecutivo en IA'})[key]||key;
+  }
+  function createPriceDetails(key,theme) {
+    const el=document.createElement('details');el.className='ibero-all-prices ibero-market-panel';
+    el.dataset.iberoAllPrices=key||'overview';el.dataset.theme=theme||'light';return el;
+  }
+  function mountAllPrices() {
+    // El calendario tiene su propio panel por evento; no presenta una tabla genérica.
+    if(document.getElementById('modal-prices'))return;
+    const program=pageProgram();
+    const admissions=/\/registro-y-admisiones(?:\/index\.html)?\/?$/.test(location.pathname);
+    if(!program && !admissions)return;
+    document.querySelectorAll('details.ibero-all-prices:not([data-ibero-all-prices])').forEach(el=>{
+      const host=document.querySelector('[data-ibero-market-mount]');
+      el.dataset.iberoAllPrices=program||'overview';el.dataset.theme=host?host.dataset.theme:'dark';el.classList.add('ibero-market-panel');
+    });
+    const mounts=Array.from(document.querySelectorAll('[data-ibero-market-mount]'));
+    let panel=document.querySelector('[data-ibero-all-prices]');
+    const host=mounts[0];
+    if(!panel && host){panel=createPriceDetails(program||host.dataset.program||'overview',host.dataset.theme);host.after(panel);}
+    if(program && panel && !panel.dataset.iberoPricePositioned) {
+      const investment=document.getElementById('inversion');
+      const principal=investment&&investment.querySelector(program==='master'?'[data-base="926.25"],[data-ibero-price-base="926.25"]':'.price-display,[data-base],[data-ibero-price-base],[data-usd]');
+      if(principal && principal.parentElement){const block=principal.closest('.ibero-catalog-investment')||principal.parentElement;block.after(panel);panel.dataset.iberoPricePositioned='true';}
+    }
+  }
+  function priceCell(key,base,code) {
+    const p=priceInfo(key,base,code);
+    return '<td><span class="ibero-table-currency">'+esc(p.currency)+'</span> <span class="ibero-table-amount">'+esc(numberText(p.value,p.currency))+'</span>'+(p.tax?'<small class="ibero-table-tax">'+esc(p.tax)+'</small>':'')+'</td>';
+  }
+  function renderAllPrices(container) {
+    (container||document).querySelectorAll('[data-ibero-all-prices]').forEach(el=>{
+      const overview=el.dataset.iberoAllPrices==='overview';
+      const keys=Object.keys(C.programBases).filter(key=>key!=='communication');
+      const key=overview?(el.dataset.iberoPriceView||keys[0]):el.dataset.iberoAllPrices;
+      if(!C.programBases[key])return;
+      if(!el.dataset.iberoPricesMounted) {
+        const id='ibero-price-view-'+(++serial),wasOpen=el.open;
+        el.innerHTML='<summary><span>Ver precios de todos los países</span><span class="ibero-prices-count">'+C.order.length+' destinos</span></summary><div class="ibero-all-prices-body">'+
+          (overview?'<label class="ibero-market-label" for="'+id+'">Programa</label><div class="ibero-select-wrap"><select class="ibero-price-view-select" id="'+id+'" data-ibero-price-view>'+keys.map(k=>'<option value="'+esc(k)+'">'+esc(programLabel(k))+'</option>').join('')+'</select></div>':'<p class="ibero-prices-program" data-ibero-prices-program></p>')+
+          '<p class="ibero-prices-current" data-ibero-prices-current aria-live="polite"></p><div class="ibero-prices-scroll" tabindex="0" role="region" aria-label="Precios de todos los países"><table><thead></thead><tbody></tbody></table></div><p class="ibero-prices-footnote" data-ibero-prices-footnote></p></div>';
+        el.open=wasOpen;el.dataset.iberoPricesMounted='true';
+      }
+      const select=el.querySelector('[data-ibero-price-view]');if(select)select.value=key;
+      assignText(el.querySelector('[data-ibero-prices-program]'),programLabel(key));
+      const monthly=key==='master',main=priceText(key,C.programBases[key]);
+      assignText(el.querySelector('[data-ibero-prices-current]'),'Precio para '+M[country].name+': '+(monthly?'semestral '+main+' · mensual '+priceText(key,154.38)+'/mes · 6 meses':main));
+      if(el.dataset.iberoPricesProgram!==key) {
+        const scroll=el.querySelector('.ibero-prices-scroll'),top=scroll.scrollTop,left=scroll.scrollLeft;
+        el.querySelector('thead').innerHTML='<tr><th scope="col">País</th><th scope="col">'+(monthly?'Semestral':'Inversión')+'</th>'+(monthly?'<th scope="col">Mensual<br><small>6 meses</small></th>':'')+'</tr>';
+        el.querySelector('tbody').innerHTML=C.order.map(code=>'<tr data-ibero-all-price-row="'+esc(code)+'"><th scope="row">'+esc(M[code].name)+'<small class="ibero-current-country-marker" data-ibero-current-country-marker hidden>Tu país seleccionado</small></th>'+priceCell(key,C.programBases[key],code)+(monthly?priceCell(key,154.38,code):'')+'</tr>').join('');
+        el.dataset.iberoPricesProgram=key;el.dataset.iberoPriceColumns=monthly?'3':'2';scroll.scrollTop=top;scroll.scrollLeft=left;
+      }
+      el.querySelectorAll('[data-ibero-all-price-row]').forEach(row=>{
+        const selected=row.dataset.iberoAllPriceRow===country;row.classList.toggle('is-selected',selected);
+        if(selected)row.setAttribute('aria-current','true');else row.removeAttribute('aria-current');
+        const marker=row.querySelector('[data-ibero-current-country-marker]');if(marker)marker.hidden=!selected;
+      });
+      assignText(el.querySelector('[data-ibero-prices-footnote]'),key==='agents'?'Ecuador: precio más IVA. España: €50, precio final y pago único en EUR. Los demás destinos muestran el precio indicado.':'Precios en la moneda indicada. '+(monthly?'El plan mensual comprende 6 mensualidades.':C.cardPaymentText));
+    });
+  }
+  function mountControls(container) {
+    (container||document).querySelectorAll('[data-ibero-market-mount]:not([data-ibero-mounted])').forEach(el=>{
+      el.innerHTML=controlHTML(el.dataset.theme,el.dataset.program||'');el.dataset.iberoMounted='true';
+    });
+  }
+  function syncControls() {
+    const stamp = C.order.map(code => code + ':' + optionLabel(code)).join('|');
+    document.querySelectorAll('[data-ibero-market-select]').forEach(el => {
+      // Reconcile every selector with the full approved table, including inserted controls.
+      if (el.dataset.iberoOptionsStamp !== stamp) {
+        el.innerHTML = C.order.map(code => '<option value="'+esc(code)+'">'+esc(optionLabel(code))+'</option>').join('');
+        el.dataset.iberoOptionsStamp = stamp;
+      }
+      el.value = country;
+      const control = el.closest('.ibero-market-control');
+      if (!control) return;
+      const img = control.querySelector('.ibero-select-flag');
+      if (img) img.remove();
+      const wrap = control.querySelector('[data-ibero-zone-wrap]');
+      const zones = (M[country].zones || []).filter(z => validZone(z[0]));
+      if(zone && validZone(zone) && !zones.some(z=>z[0]===zone)) zones.push([zone,zoneLabel()]);
+      if (wrap) {
+        wrap.hidden = zones.length < 2;
+        const select = wrap.querySelector('select');
+        const zoneStamp = country + ':' + zones.map(z => z[0]).join('|');
+        if (select) {
+          if (select.dataset.stamp !== zoneStamp) {
+            select.innerHTML = zones.map(z => '<option value="'+esc(z[0])+'">'+esc(z[1])+'</option>').join('');
+            select.dataset.stamp = zoneStamp;
+          }
+          select.value = zone;
+        }
+      }
+      const note = control.querySelector('[data-ibero-currency-note]');
+      if (note) assignText(note, country === 'ES' ? 'Precios para España en euros (EUR).' : country === 'INTL'
+        ? 'Precio internacional en USD.'
+        : 'Inversión en ' + (currencyNames[M[country].currency] || M[country].currency) + ' (' + M[country].currency + ').');
+      const sourceNote=control.querySelector('[data-ibero-country-source-note]');if(sourceNote)sourceNote.remove();
+    });
+    document.querySelectorAll('[data-ibero-country-name]').forEach(el => assignText(el, M[country].name));
+    document.querySelectorAll('[data-ibero-country-only]').forEach(el => {
+      const hidden = el.dataset.iberoCountryOnly !== country;
+      el.hidden = hidden;
+      el.setAttribute('aria-hidden', hidden ? 'true' : 'false');
+    });
+  }
+  function syncSchedules(container) {
+    (container||document).querySelectorAll('[data-ibero-local-schedule]').forEach(el=>assignText(el,scheduleText(el.dataset.iberoLocalSchedule)));
+  }
+  function spainPaymentRoute(general) {
+    if(general===M.ES.agentsPayment.url)return {program:'agents',base:57};
+    if(/wa\.me\/19152854778/.test(general||'')&&/plan%20mensual/i.test(general))return {program:'master',base:154.38};
+    const token=String(general||'').split('/').pop();return C.spainPaymentRoutes[token]||null;
+  }
+  function consultationLink(program,base) {
+    const p=priceInfo(program,base,'ES');
+    const plan=program==='master'?(Number(base)===154.38?' · plan de 6 mensualidades':' · pago semestral'):'';
+    return 'https://wa.me/19152854778?text='+encodeURIComponent('Hola IBERO, estoy en España y deseo consultar la inscripción y el pago en euros de '+programLabel(program)+plan+'. Precio publicado: '+p.main+(Number(base)===154.38?' por mes':'')+'. Por favor, confirmen la convocatoria y el enlace de pago correspondiente.');
+  }
+  function paymentLink(general,mx,code=country) {
+    if(code==='ES'){
+      const route=spainPaymentRoute(general);
+      if(route)return route.program==='agents'?M.ES.agentsPayment.url:consultationLink(route.program,route.base);
+    }
+    return code==='MX'&&mx?mx:general;
+  }
+  function syncPaymentLabel(anchor,route) {
+    if(anchor.hasAttribute('data-ibero-admission'))return;
+    if(country==='ES'&&route&&route.program!=='agents'){
+      if(!anchor.dataset.iberoEurOriginalHtml)anchor.dataset.iberoEurOriginalHtml=anchor.innerHTML;
+      const label='Consultar inscripción en EUR';
+      if(anchor.dataset.iberoEurLabel!==label){const icon=anchor.querySelector('i,svg');anchor.innerHTML=(icon?icon.outerHTML+' ':'')+label;anchor.dataset.iberoEurLabel=label;}
+    }else if(anchor.dataset.iberoEurOriginalHtml){anchor.innerHTML=anchor.dataset.iberoEurOriginalHtml;delete anchor.dataset.iberoEurOriginalHtml;delete anchor.dataset.iberoEurLabel;}
+  }
+  function syncPaymentOptions() {
+    const candidates=new Set(document.querySelectorAll('[data-ibero-payment-restore]'));
+    if(C.programBases[pageProgram()])document.querySelectorAll('#toggle-bank,#bank-details,#toggle-western,#western-details,a[href*="ia.goatify.app/"][href*="#wallet"]').forEach(el=>candidates.add(el));
+    document.querySelectorAll('[data-ibero-registration][href*="#wallet"],[data-ibero-academic-wallet]').forEach(el=>candidates.add(el));
+    const requested=new URLSearchParams(location.search).get('cohorte');
+    const admissions=/\/registro-y-admisiones(?:\/|$)/.test(location.pathname);
+    if(admissions){
+      const western=document.getElementById('toggle-western-admisiones');
+      if(western&&western.parentElement)candidates.add(western.parentElement);
+    }
+    candidates.forEach(el=>{
+      const blocked=country==='ES';
+      if(blocked){
+        if(!el.dataset.iberoPaymentRestore)el.dataset.iberoPaymentRestore=JSON.stringify({hidden:el.hidden,aria:el.getAttribute('aria-hidden'),tabindex:el.getAttribute('tabindex'),display:el.style.getPropertyValue('display'),priority:el.style.getPropertyPriority('display')});
+        el.dataset.iberoEsPaymentHidden='true';el.hidden=true;el.style.setProperty('display','none','important');el.setAttribute('aria-hidden','true');el.setAttribute('tabindex','-1');
+      }else if(el.dataset.iberoPaymentRestore){
+        const previous=JSON.parse(el.dataset.iberoPaymentRestore);el.hidden=previous.hidden;
+        if(previous.display)el.style.setProperty('display',previous.display,previous.priority);else el.style.removeProperty('display');
+        for(const attribute of ['aria-hidden','tabindex']){const value=previous[attribute==='aria-hidden'?'aria':'tabindex'];if(value===null)el.removeAttribute(attribute);else el.setAttribute(attribute,value);}
+        delete el.dataset.iberoPaymentRestore;delete el.dataset.iberoEsPaymentHidden;
+      }
+    });
+  }
+  function syncLinks(container) {
+    (container||document).querySelectorAll('a[data-ibero-brochure-general]').forEach(a=>{
+      const target=country==='ES'?a.dataset.iberoBrochureEs:a.dataset.iberoBrochureGeneral;
+      if(target&&a.getAttribute('href')!==target)a.setAttribute('href',target);
+    });
+    syncPaymentOptions();
+    document.querySelectorAll('[data-ibero-agents-payment-label]').forEach(el=>assignText(el,country==='ES'?'Pagar €50 con tarjeta':'Pagar con Tarjeta Segura'));
+    document.querySelectorAll('[data-ibero-agents-fixed-price]').forEach(el=>assignText(el,country==='ES'?'Precio final: €50':'Precio oficial fijo'));
+    (container||document).querySelectorAll('a[href]').forEach(a=>{
+      if(a.hasAttribute('data-ibero-admission') && !['open','active'].includes(a.dataset.iberoAdmissionState)) return;
+      let general=a.dataset.paypalGeneral||a.dataset.generalLink||a.dataset.iberoPaymentOriginalHref;
+      let mx=a.dataset.paypalMx||a.dataset.mxLink;
+      if (!general) {
+        const current=a.getAttribute('href');
+        const pair=(C.paymentPairs||[]).find(p=>current===p.general||current===p.mx||(current===M.ES.agentsPayment.url&&p.general==='https://www.paypal.com/ncp/payment/EY623WTCVXXNJ'));
+        if (pair) { general=pair.general; mx=pair.mx; }
+        else if(spainPaymentRoute(current)){general=current;}
+      }
+      if (general) { const originalPair=(C.paymentPairs||[]).find(p=>p.general===general);if(!mx&&originalPair)mx=originalPair.mx;if(!a.dataset.iberoPaymentOriginalHref)a.dataset.iberoPaymentOriginalHref=general;const target=paymentLink(general,mx);if(a.getAttribute('href')!==target)a.setAttribute('href',target);syncPaymentLabel(a,spainPaymentRoute(general)); }
+    });
+  }
+  function regionalCohort(requested, targetCountry, usePublished=false) {
+    const api=window.IBERO_PROGRAMACION;
+    if(!api)return '';
+    const cohorts=api.getCohorts('agents',targetCountry);
+    const exact=cohorts.find(c=>c.id===requested);
+    const date=String(requested||'').match(/\d{4}-\d{2}-\d{2}$/);
+    const sameDate=date&&cohorts.find(c=>c.start===date[0]);
+    const found=exact||sameDate||(usePublished?cohorts.find(c=>api.isPublicCandidate('agents',c)):null);
+    return found?found.id:'';
+  }
+  function routeURL(value, program, cohort) {
+    const url=new URL(value,document.baseURI);
+    if(!['ibero.education','www.ibero.education',location.hostname].includes(url.hostname))return url;
+    const routeCountry=fromPath(url.pathname,false);
+    const targetCountry=routeCountry||validCode(url.searchParams.get('pais')||url.searchParams.get('country'))||country;
+    const targetZone=targetCountry===country?zone:defaultZone(targetCountry);
+    const slug=url.pathname.replace(/\/index\.html$/,'').replace(/\/+$/,'').split('/').pop();
+    const key=program||programFrom(url.pathname);
+    url.searchParams.set('pais',targetCountry);
+    if(targetZone)url.searchParams.set('zona',targetZone);
+    // A destination's explicit cohort is intentional (for example, the November button).
+    // Propagate the current cohort only when the destination does not already specify one.
+    const requested=url.searchParams.get('cohorte')||cohort||new URLSearchParams(location.search).get('cohorte');
+    if(key==='agents'||slug==='registro-y-admisiones'){
+      const resolved=/^agents-/.test(requested||'')?regionalCohort(requested,targetCountry):'';
+      if(resolved)url.searchParams.set('cohorte',resolved);else url.searchParams.delete('cohorte');
+    }else if(/^agents-/.test(url.searchParams.get('cohorte')||''))url.searchParams.delete('cohorte');
+    return url;
+  }
+  function syncCountryNavigation(container) {
+    const catalogue=['registro-y-admisiones','calendario-academico','oferta-academica','certificaciones-intensivas','diplomados-intensivos','ibero-labs','espana','contacto'];
+    (container||document).querySelectorAll('a[href]').forEach(a=>{
+      if(a.hasAttribute('data-ibero-brochure-general'))return;
+      const original=a.dataset.iberoCountryHref||a.getAttribute('href')||'';
+      if(!original||/^(#|mailto:|tel:|javascript:|data:)/i.test(original))return;
+      let url;try{url=new URL(original,document.baseURI);}catch(_){return;}
+      if(!['ibero.education','www.ibero.education',location.hostname].includes(url.hostname))return;
+      const slug=url.pathname.replace(/\/index\.html$/,'').replace(/\/+$/,'').split('/').pop();
+      if(!programFrom(url.pathname)&&!catalogue.includes(slug)&&!fromPath(url.pathname,false))return;
+      if(!a.dataset.iberoCountryHref)a.dataset.iberoCountryHref=original;
+      url=routeURL(original);
+      const target=/^(https?:)?\/\//i.test(original)?url.href:original.split(/[?#]/)[0]+url.search+url.hash;
+      if(a.getAttribute('href')!==target)a.setAttribute('href',target);
+    });
+  }
+  function renderAdmissions() {
+    document.querySelectorAll('.admission-pay-link').forEach(card=>{
+      const only=String(card.dataset.countryOnly||'').toUpperCase();
+      const hide=only && only!==country;
+      card.classList.toggle('hidden',!!hide);card.setAttribute('aria-hidden',hide?'true':'false');
+      if(hide)return;
+      const label=card.querySelector('.admission-price-label');
+      if(!label)return;
+
+      const key=({MX:'priceMx',CO:'priceCo',PE:'pricePe'})[country]||'priceGeneral';
+      const original=card.dataset[key]||card.dataset.priceGeneral||'';
+      if(!original)return;
+
+      let value=original;
+      const general=String(card.dataset.priceGeneral||'');
+      const match=general.match(/USD\s*\$?\s*([0-9]+(?:\.[0-9]+)?)/i);
+      if(match){
+        const base=Number(match[1]);
+        const program=card.dataset.iberoPriceProgram || card.dataset.iberoAdmission || '';
+        const info=priceInfo(program,base,country);
+        value=country==='ES'?info.main:info.main+(info.tax?' '+info.tax:'');
+        if(/\/mes/i.test(general)) value += '/mes · 6 meses';
+      }
+
+      const parts=value.split(' · ');
+      label.innerHTML='<span class="price-main">'+esc(parts[0])+'</span>'+(parts.length>1?'<span class="price-note'+(/mes/.test(parts.slice(1).join(' '))?' price-note-plan':'')+'">'+esc(parts.slice(1).join(' · '))+'</span>':'');
+    });
+    const bank=document.getElementById('ecuador-bank-transfer-block');if(bank)bank.classList.toggle('hidden',country!=='EC');
+    const note=document.getElementById('payment-country-note');
+    if(note)assignText(note,'Precios para '+M[country].name+'. '+(country==='ES'?'Importes en EUR. Agentes IA: pago directo; otros programas: consulta de inscripción. ':C.cardPaymentText)+(country==='EC'?' También puedes pagar por transferencia bancaria.':''));
+  }
+  function renderCalendar(ev) {
+    if(ev)calendarEvent=ev;
+    if(!calendarEvent)return;
+    const e=calendarEvent;
+    const key=e.programId||({creaCurso:'courses',hablar:'communication',diplomado:'appsDiploma',gerenciaCert:'managers'})[e.paymentKey]||e.paymentKey;
+    const price=document.getElementById('modal-prices'),inv=document.getElementById('investment-section');
+    const priced=!!C.programBases[key] && !/gratis|comercial/.test((e.type||'')+' '+(e.relatedType||''));
+    if(inv)inv.style.display=priced?'block':'none';
+    if(price && priced) {
+      price.classList.add('ibero-single-price');
+      if(!price.querySelector('[data-ibero-modal-main]')) {
+        price.innerHTML='<div class="ibero-modal-price"><small data-ibero-modal-country></small><strong data-ibero-modal-main></strong><span class="ibero-price-tax" data-ibero-modal-tax hidden></span><div class="ibero-modal-monthly" data-ibero-modal-monthly hidden><small>Plan mensual · 6 meses</small><strong data-ibero-modal-monthly-price></strong></div><p class="ibero-payment-copy" data-ibero-modal-payment></p></div>';
+        price.append(createPriceDetails(key,'dark'));price.dataset.iberoCalendarPricesMounted='true';
+      }
+      const p=priceInfo(key,C.programBases[key]),monthly=key==='master';
+      assignText(price.querySelector('[data-ibero-modal-country]'),'Precio para '+M[country].name);
+      assignText(price.querySelector('[data-ibero-modal-main]'),(monthly?'Semestral: ':'')+p.main);
+      const tax=price.querySelector('[data-ibero-modal-tax]');assignText(tax,p.tax);tax.hidden=!p.tax;
+      price.querySelector('[data-ibero-modal-monthly]').hidden=!monthly;
+      assignText(price.querySelector('[data-ibero-modal-monthly-price]'),monthly?priceText(key,154.38)+'/mes':'');
+      assignText(price.querySelector('[data-ibero-modal-payment]'),(monthly?'Pago semestral o plan mensual. ':'Pago único. ')+(country==='ES'&&key==='agents'?M.ES.agentsPayment.note+' ':'')+C.cardPaymentText);
+      price.querySelector('[data-ibero-all-prices]').dataset.iberoAllPrices=key;renderAllPrices(price);
+    }
+    const schedule=document.getElementById('modal-schedule');
+    // Eventos de matrícula y clases gratis conservan su horario específico original.
+    if(schedule && C.programBases[key] && !/inscripcion|gratis|comercial/.test(e.type||''))assignText(schedule,scheduleText(key,e));
+    syncLinks();
+  }
+  function refresh() {
+    mountAllPrices();mountControls();syncControls();renderAllPrices();
+    document.querySelectorAll('[data-ibero-es-price-base]').forEach(el=>{if(!el.dataset.iberoOriginalPriceText)el.dataset.iberoOriginalPriceText=el.textContent;assignText(el,country==='ES'?priceInfo(el.dataset.iberoEsProgram,el.dataset.iberoEsPriceBase,'ES').main:el.dataset.iberoOriginalPriceText);});
+    document.querySelectorAll('[data-base],[data-ibero-price-base],[data-usd]').forEach(renderPrice);
+    document.querySelectorAll('[data-ibero-es-copy]').forEach(el=>{if(!el.dataset.iberoOriginalCopy)el.dataset.iberoOriginalCopy=el.textContent;assignText(el,country==='ES'?el.dataset.iberoEsCopy:el.dataset.iberoOriginalCopy);});
+    renderAdmissions();syncSchedules();syncLinks();renderCalendar();syncCountryNavigation();
+  }
+  function normalizeRouteSelection(origin) {
+    const url=new URL(location.href);
+    const requested=url.searchParams.get('cohorte');
+    if(/^agents-/.test(requested||'')){
+      const resolved=regionalCohort(requested,country,true);
+      if(resolved)url.searchParams.set('cohorte',resolved);else url.searchParams.delete('cohorte');
+    }
+    if(origin==='manual'||url.searchParams.has('pais')||url.searchParams.has('country')||requested){
+      url.searchParams.set('pais',country);url.searchParams.delete('country');
+      if(zone)url.searchParams.set('zona',zone);else url.searchParams.delete('zona');
+      const target=url.pathname+url.search+url.hash;
+      if(target!==location.pathname+location.search+location.hash)history.replaceState(null,'',target);
+    }
+  }
+  function apply(code, origin, requestedZone) {
+    const previousCountry=country;
+    country=root.dataset.iberoFixedCountry==='ES'?'ES':validCode(code)||C.defaultCountry;
+    zone=chooseZone(country,requestedZone);source=origin||'manual';
+    root.dataset.iberoCountry=country;root.dataset.iberoCurrency=M[country].currency;root.dataset.iberoCurrencySource=source;
+    window.iberoSelectedCurrency=M[country].currency;
+    normalizeRouteSelection(source);
+    if(source==='manual'||source==='url'||source==='storage'){manual=true;save();}
+    if(previousCountry!==country&&calendarEvent&&calendarEvent.programId==='agents'){
+      const api=window.IBERO_PROGRAMACION;
+      calendarEvent=api&&api.getCalendarEvents().find(e=>e.programId==='agents'&&e.start===calendarEvent.start&&e.end===calendarEvent.end)||null;
+    }
+    refresh();window.dispatchEvent(new CustomEvent('ibero:pais-actualizado',{detail:{country:country,zone:zone,currency:M[country].currency}}));
+  }
+  function programSummary(key, prices=true) {
+    const api=window.IBERO_PROGRAMACION,p=api&&api.getProgram(key);
+    if(!p)return '';
+    const price=prices&&C.programBases[key]?'<br>Precio: '+esc(priceText(key,C.programBases[key])):'';
+    const dates=api.fieldText(key,'summary','long');
+    const hours=scheduleText(key);
+    const link=routeURL(p.url,key).pathname+routeURL(p.url,key).search+'#inversion';
+    return '<strong>'+esc(p.name)+'</strong>'+price+'<br>'+esc(dates)+'<br>'+esc(hours)+'<br><a href="'+esc(link)+'">Consultar programa y matrícula</a>';
+  }
+  function localizeProgramAnswer(html,program) {
+    if(country!=='ES'||!C.programBases[program])return html;
+    const pattern=/(?:USD\s*\$?\s*(926\.25|154\.38|277|57)|\$\s*(926\.25|154\.38|277|57)\s*USD)/g;
+    return String(html).split(/(<[^>]+>)/g).map((part,index)=>index%2?part:part.replace(pattern,(_,first,second)=>priceInfo(program,Number(first||second),'ES').main)).join('');
+  }
+  function catalogAnswer(kind) {
+    const keys=kind==='master'?['master']:kind==='diplomado'?['appsDiploma','marketingDiploma']:kind==='cursos'?['marketing','agents','managers','courses']:['agents','marketing','appsDiploma','master'];
+    return '<strong>Información para '+esc(M[country].name)+'</strong><br><br>'+keys.map(k=>programSummary(k,kind!=='fechas')).join('<br><br>')+(kind==='precios'?'<br><br>'+esc(C.cardPaymentText):'');
+  }
+  function chatAnswer(text, key) {
+    const q=normalize(text);
+    if(!key&&/espana|madrid|canarias/.test(q))key='agents';
+    if(!key){
+      if(/precio|costo|valor|inversion|cuanto/.test(q))return catalogAnswer('precios');
+      if(/fecha|cuando|inicia|inicio|horario|hora|calendario/.test(q))return catalogAnswer('fechas');
+      if(/cursos|certificaciones/.test(q))return catalogAnswer('cursos');
+      if(/pago|pagar|tarjeta|transferencia|inscripcion|matricula/.test(q))return 'Elige el programa y el país en <a href="'+esc(routeURL('/registro-y-admisiones/').pathname+routeURL('/registro-y-admisiones/').search)+'#inversion">Registro y Admisiones</a> para consultar el medio de pago autorizado.'+(country==='EC'?' Ecuador también tiene la alternativa bancaria publicada en esa página.':'');
+      return '';
+    }
+    const payment=/pago|pagar|paypal|inscripcion|inscrib|matricula|tarjeta|transferencia/.test(q);
+    if(key==='agents'&&country==='ES'&&payment&&!window.IBERO_PROGRAMACION.getRegistrationState(key).canRegister)return programSummary(key,false)+'<br>Inscripción no disponible para esta cohorte. Consulta la próxima convocatoria en Admisiones antes de realizar un pago.';
+    if(key==='agents'&&country==='ES'&&payment)return '<strong>Agentes IA para España: 50 € finales, pago único en EUR.</strong><br><a href="'+esc(M.ES.agentsPayment.url)+'">Pagar 50 € con PayPal o tarjeta</a><br>'+esc(scheduleText(key))+'<br>'+esc(window.IBERO_PROGRAMACION.fieldText(key,'summary','long'))+'<br>No hay una transferencia bancaria española publicada. Después del pago, envía el comprobante a admisiones; la matrícula se confirma tras su validación.';
+    if(key==='agents'&&/espana|madrid|canarias/.test(q)){
+      const api=window.IBERO_PROGRAMACION;
+      const available=api.getCohorts('agents','ES').filter(c=>api.isPublicCandidate('agents',c));
+      const dates=available.length?available.map(c=>esc(api.formatRange(c))+': '+esc(c.startTime+'–'+c.endTime)+' Madrid · '+esc(localRange(c.start,c.startTime,c.endTime,'Atlantic/Canary',c.timeZone))+' Canarias').join('<br>'):'Próxima cohorte por confirmar';
+      return '<strong>Agentes IA · España</strong><br>'+dates+'<br>Precio final: '+esc(priceText('agents',57,'ES'))+'<br><a href="/espana/productividad-automatizacion-procesos-ia/">Ver Agentes para España</a>';
+    }
+    if(country==='ES'&&key!=='agents'&&payment){const base=key==='master'&&/mensual|mes/.test(q)?154.38:C.programBases[key];return programSummary(key,true)+'<br><a href="'+esc(consultationLink(key,base))+'">Consultar inscripción y pago en euros</a>. Admisiones confirmará la convocatoria y el medio de pago.';}
+    if(/precio|costo|valor|inversion|cuanto/.test(q)||payment){
+      if(key==='master')return '<strong>Pago semestral: '+esc(priceText('master',926.25))+'</strong><br>Pago único del semestre. Plan mensual: '+esc(priceText('master',154.38))+'/mes · 6 meses.<br>'+esc(C.cardPaymentText);
+      return '<strong>'+esc(M[country].name)+': '+esc(priceText(key,C.programBases[key]))+'</strong><br>Pago único. '+esc(C.cardPaymentText)+'<br><a href="'+esc(routeURL('/registro-y-admisiones/',key).pathname+routeURL('/registro-y-admisiones/',key).search)+'#inversion">Consultar matrícula y método autorizado</a>';
+    }
+    if(/fecha|cuando|inicia|inicio|empieza|comienza|calendario/.test(q))return programSummary(key,false);
+    if(/horario|hora/.test(q))return esc(scheduleText(key))+'<br><a href="#inversion">Cambiar país o zona horaria</a>';
+    return '';
+  }
+  function detectIP() {
+    if(manual||fromPath()||!window.fetch||!window.AbortController)return;
+    function get(url,timeout) {const ctl=new AbortController();const id=setTimeout(()=>ctl.abort(),timeout);return fetch(url,{cache:'no-store',signal:ctl.signal}).then(r=>r.ok?r.json():null).then(d=>validCode(d&&(d.country_code||d.country))).catch(()=>'').finally(()=>clearTimeout(id));}
+    get('https://api.country.is/',1100).then(code=>code||(manual?'':get('https://ipapi.co/json/',1400))).then(code=>{if(code&&!manual)apply(code,'ip',fromTimezone(browserZone())===code?browserZone():null);});
+  }
+  const API={version:C.version,refresh:refresh,apply:(c,z)=>apply(c,'manual',z),getCountry:()=>country,getZone:()=>zone,priceInfo:priceInfo,priceText:priceText,scheduleText:scheduleText,syncLinks:syncLinks,paymentLink:paymentLink,consultationLink:consultationLink,localizeProgramAnswer:localizeProgramAnswer,renderCalendar:renderCalendar,routeURL:routeURL,regionalCohort:regionalCohort,chatAnswer:chatAnswer,catalogAnswer:catalogAnswer,programSummary:programSummary,programFrom:programFrom};
+  window.IBERO_MERCADOS=Object.freeze(API);window.iberoSyncPaymentLinks=syncLinks;
+  function boot() {
+    const saved=readSaved();const params=new URLSearchParams(location.search);const specified=validCode(params.get('pais'))||validCode(params.get('country'));
+    const tz=browserZone();
+    if(root.dataset.iberoFixedCountry==='ES')apply('ES','path',params.get('zona'));
+    else if(specified)apply(specified,'url',params.get('zona'));
+    else if(fromPath())apply(fromPath(),'path',params.get('zona'));
+    else if(saved)apply(saved.country,'storage',saved.zone);
+    else {const pc=fromPath(),tc=fromTimezone(tz);apply(pc||tc,pc?'path':'timezone',(pc||tc)===tc?tz:null);}
+    document.addEventListener('change',e=>{
+      if(e.target.matches('[data-ibero-market-select]'))apply(e.target.value,'manual');
+      if(e.target.matches('[data-ibero-zone-select]'))apply(country,'manual',e.target.value);
+      if(e.target.matches('[data-ibero-price-view]')){const panel=e.target.closest('[data-ibero-all-prices]');if(panel){panel.dataset.iberoPriceView=e.target.value;renderAllPrices(panel.parentElement);}}
+    });
+    window.addEventListener('ibero:programacion-actualizada',()=>{syncSchedules();renderCalendar();});
+    window.addEventListener('storage',e=>{if(e.key===C.storageKey){const s=readSaved();if(s)apply(s.country,'storage',s.zone);}});
+    // Solo normaliza los enlaces añadidos por el chat/calendario; no reescribe precios en un bucle.
+    let pending=false;new MutationObserver(records=>{if(pending||!records.some(r=>Array.from(r.addedNodes).some(n=>n.nodeType===1)))return;pending=true;queueMicrotask(()=>{pending=false;syncLinks();syncCountryNavigation();});}).observe(document.body,{childList:true,subtree:true});
+    detectIP();
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
+})();
+
 </script>
 </body>
 </html>
