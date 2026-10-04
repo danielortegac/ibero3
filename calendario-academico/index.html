@@ -790,6 +790,72 @@ document.addEventListener('DOMContentLoaded', function(){
 #view-calendar #calendar-grid-days .event-badge{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2!important;line-clamp:2;font-size:9px!important;line-height:10px!important;padding:1px 3px!important;margin:0!important;max-height:24px;min-height:12px;box-sizing:border-box;flex-shrink:0;overflow:hidden}
 @media(max-width:767px){#view-calendar>div{padding:5px!important}#view-calendar #calendar-month-title{font-size:16px!important;line-height:22px!important}#view-calendar #calendar-grid-days{gap:2px}#view-calendar #calendar-grid-days .calendar-day{min-height:56px!important;padding:2px!important}#view-calendar #calendar-grid-days .event-badge{font-size:8px!important;line-height:9px!important;padding:1px!important;max-height:22px}#view-calendar #calendar-grid-days .calendar-day-number{font-size:9px!important;line-height:12px!important}}
 </style>
+<style id="ibero-calendar-lateral-preview-20261003">
+/* Calendario mensual: cinco días, controles laterales y espacio completo disponible. */
+#calendar-layout,#calendar-sidebar{display:contents}
+#view-calendar{width:100%!important;max-width:none}
+#view-calendar .calendar-grid{grid-template-columns:repeat(5,minmax(0,1fr))}
+#view-calendar #calendar-grid-days{grid-template-rows:repeat(var(--calendar-week-rows,5),minmax(0,1fr))}
+#view-calendar .calendar-day{min-width:0}
+@media(min-width:1024px){
+  #calendar-layout[data-calendar-view="calendar"]{display:grid;grid-template-columns:248px minmax(0,1fr);gap:14px;align-items:start;width:100%;max-width:none;padding:12px 16px 20px;margin-inline:auto;box-sizing:border-box}
+  #calendar-layout[data-calendar-view="calendar"] #calendar-sidebar{display:flex;flex-direction:column;min-width:0;gap:10px;position:sticky;top:88px}
+  #calendar-layout[data-calendar-view="calendar"] #header-section{width:100%;padding:6px 0;border-radius:12px;border:1px solid rgba(255,255,255,.1);text-align:left}
+  #calendar-layout[data-calendar-view="calendar"] #header-section>div.relative{padding:0 8px}
+  #calendar-layout[data-calendar-view="calendar"] #header-section>div.relative>.inline-flex{padding:3px 6px;font-size:10px;line-height:12px;margin-bottom:4px}
+  #calendar-layout[data-calendar-view="calendar"] #header-section h1{font-size:18px;line-height:21px;padding:0;margin-bottom:4px}
+  #calendar-layout[data-calendar-view="calendar"] #header-section h1>span{margin-top:0}
+  #calendar-layout[data-calendar-view="calendar"] #header-section p{font-size:10px!important;line-height:12px!important;margin:0 0 3px!important}
+  #calendar-layout[data-calendar-view="calendar"] #header-section .schedule-times-block{display:block!important;width:100%;padding:0;max-width:none;font-size:10px;margin:0!important}
+  #calendar-layout[data-calendar-view="calendar"] #header-section .schedule-times-block>p{font-size:10px;line-height:13px;margin-bottom:4px}
+  #calendar-layout[data-calendar-view="calendar"] #header-section .schedule-times-block>div{display:flex;flex-direction:column;gap:3px!important;margin:0}
+  #calendar-layout[data-calendar-view="calendar"] #header-section .schedule-times-block>:not([hidden])~:not([hidden]){margin-top:3px!important}
+  #calendar-layout[data-calendar-view="calendar"] #header-section .schedule-times-block .rounded-xl{width:100%;padding:4px 6px!important;box-sizing:border-box;text-align:left;font-size:10px!important;line-height:12px!important}
+  #calendar-layout[data-calendar-view="calendar"] #header-section .schedule-times-block span,#calendar-layout[data-calendar-view="calendar"] #header-section .schedule-times-block a{font-size:10px!important;line-height:12px!important;letter-spacing:0;margin-bottom:0!important}
+  #calendar-layout[data-calendar-view="calendar"] #header-section .schedule-times-block .inline-flex{display:flex;flex-direction:column;align-items:flex-start;gap:2px;margin-bottom:0}
+  #calendar-layout[data-calendar-view="calendar"] #controls-section{width:100%;max-width:none;padding:0;margin:0;position:static;z-index:40}
+  #calendar-layout[data-calendar-view="calendar"] #controls-section>div{padding:10px;gap:8px}
+  #calendar-layout[data-calendar-view="calendar"] #controls-section>div>div:first-child{display:flex;flex-direction:column;align-items:stretch;gap:8px}
+  #calendar-layout[data-calendar-view="calendar"] #controls-section>div>div:first-child>.grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px;width:100%}
+  #calendar-layout[data-calendar-view="calendar"] #controls-section>div>div:first-child>.grid>div:first-child{grid-column:1/-1}
+  #calendar-layout[data-calendar-view="calendar"] #prog-dropdown-menu{width:calc(200% + 8px)}
+  #calendar-layout[data-calendar-view="calendar"] #controls-section>div>div:first-child>div:last-child{width:100%}
+  #calendar-layout[data-calendar-view="calendar"] #controls-section label{font-size:10px!important;line-height:13px!important;margin-bottom:3px}
+  #calendar-layout[data-calendar-view="calendar"] #controls-section select,#calendar-layout[data-calendar-view="calendar"] #controls-section button:not(#btn-current-program){font-size:11px;line-height:16px;padding:7px 9px;min-height:32px}
+  #calendar-layout[data-calendar-view="calendar"] #controls-section button i{font-size:16px!important;line-height:16px!important}
+  #calendar-layout[data-calendar-view="calendar"] #controls-section #pdf-btn{width:100%;font-size:11px;padding:7px 9px;min-height:32px}
+  #calendar-layout[data-calendar-view="calendar"] #controls-section .ibero-status-panel{display:flex;flex-direction:column;align-items:stretch;padding:6px;gap:6px}
+  #calendar-layout[data-calendar-view="calendar"] #controls-section .ibero-status-panel>div:first-child{gap:3px}
+  #calendar-layout[data-calendar-view="calendar"] #controls-section .ibero-status-panel>div:first-child>div{gap:4px}
+  #calendar-layout[data-calendar-view="calendar"] #controls-section .ibero-status-panel>div:last-child{flex-direction:column;align-items:stretch}
+  #calendar-layout[data-calendar-view="calendar"] #controls-section .ibero-status-panel .text-\[11px\]{font-size:10px;line-height:12px;padding:2px 5px;letter-spacing:.04em}
+  #calendar-layout[data-calendar-view="calendar"] #btn-current-program{width:100%;padding:6px}
+  #calendar-layout[data-calendar-view="calendar"] #btn-current-program>span:first-child{font-size:10px;line-height:12px;letter-spacing:.08em;margin-bottom:3px}
+  #calendar-layout[data-calendar-view="calendar"] #ibero-current-program-label{font-size:11px;line-height:14px}
+  #calendar-layout[data-calendar-view="calendar"] #ibero-live-clock{font-size:11px;line-height:14px}
+  #calendar-layout[data-calendar-view="calendar"] #ibero-today-label{font-size:10px;line-height:12px;margin:0}
+  #calendar-layout[data-calendar-view="calendar"] #app-container{width:100%;max-width:none;padding:0;margin:0;min-height:0}
+  #calendar-layout[data-calendar-view="calendar"] #view-calendar{width:100%;max-width:none;margin:0}
+  #calendar-layout[data-calendar-view="calendar"] #view-calendar>div{width:100%;height:max(510px,calc(100vh - 108px));height:max(510px,calc(100svh - 108px));padding:12px!important;box-sizing:border-box;display:flex;flex-direction:column;gap:6px}
+  #calendar-layout[data-calendar-view="calendar"] #view-calendar>div>div:first-child{flex-shrink:0;min-height:34px;margin-bottom:2px!important}
+  #calendar-layout[data-calendar-view="calendar"] #calendar-month-title{font-size:22px!important;line-height:30px!important}
+  #calendar-layout[data-calendar-view="calendar"] #view-calendar>div>.calendar-grid:not(#calendar-grid-days){flex-shrink:0;margin-bottom:2px!important}
+  #calendar-layout[data-calendar-view="calendar"] #view-calendar>div>.calendar-grid:not(#calendar-grid-days)>div{font-size:11px!important;line-height:16px!important;color:#cbd5e1}
+  #calendar-layout[data-calendar-view="calendar"] #calendar-grid-days{flex:1;min-height:0;gap:6px}
+  #calendar-layout[data-calendar-view="calendar"] #calendar-grid-days .calendar-day{min-height:0!important;padding:6px!important;gap:3px!important;border-radius:9px;overflow:auto;scrollbar-width:thin;scrollbar-color:rgba(148,163,184,.45) transparent}
+  #calendar-layout[data-calendar-view="calendar"] #calendar-grid-days .calendar-day-number{font-size:12px!important;line-height:17px!important;margin-bottom:3px!important}
+  #calendar-layout[data-calendar-view="calendar"] #calendar-grid-days .event-badge{font-size:11px!important;line-height:13px!important;padding:3px 5px!important;max-height:32px;min-height:19px;-webkit-line-clamp:2!important;flex-shrink:0;border-radius:4px}
+  #calendar-layout[data-calendar-view="calendar"] #calendar-grid-days .calendar-day:hover{transform:none;box-shadow:inset 0 0 0 1px rgba(220,38,38,.5)}
+  .ibero-calendar-month-sidebar #ibero-calendar-floating-toggle{left:auto;right:102px;bottom:18px}
+  .ibero-calendar-month-sidebar #ibero-ecosystem-wrap{left:auto;right:246px;bottom:18px}
+  .ibero-calendar-month-sidebar #ibero-ecosystem-panel{left:auto;right:0}
+}
+@media(min-width:1600px){#calendar-layout[data-calendar-view="calendar"]{grid-template-columns:264px minmax(0,1fr);gap:18px}}
+@media(min-width:768px) and (max-width:1023px){#view-calendar>div{padding:10px!important}#view-calendar #calendar-grid-days .calendar-day{min-height:100px!important;padding:5px!important}#view-calendar #calendar-grid-days .event-badge{font-size:10px!important;line-height:12px!important;padding:3px!important;max-height:29px}}
+@media(max-width:767px){#view-calendar #calendar-grid-days .calendar-day{min-height:84px!important;padding:3px!important}#view-calendar #calendar-grid-days .event-badge{font-size:9px!important;line-height:10px!important;padding:2px!important;max-height:24px}#view-calendar #calendar-grid-days .calendar-day-number{font-size:10px!important;line-height:14px!important}}
+@media(min-width:1024px) and (max-height:820px){#calendar-layout[data-calendar-view="calendar"]{padding-top:8px}#calendar-layout[data-calendar-view="calendar"] #controls-section>div{padding:8px;gap:6px}#calendar-layout[data-calendar-view="calendar"] #controls-section .grid{gap:6px!important}#calendar-layout[data-calendar-view="calendar"] #controls-section label{margin-bottom:3px}#calendar-layout[data-calendar-view="calendar"] #controls-section .ibero-status-panel{padding:6px}}
+@media print{#calendar-layout,#calendar-sidebar{display:contents!important}.ibero-calendar-month-sidebar #app-container{width:100%!important}#calendar-layout[data-calendar-view="calendar"] #view-calendar>div{height:auto!important;display:block!important}#calendar-layout[data-calendar-view="calendar"] #calendar-grid-days .calendar-day{min-height:100px!important;overflow:visible!important}}
+</style>
 </head>
 <body class="antialiased selection:bg-ibero-red selection:text-white ibero-calendar-page">
 <!-- Botón Scroll to Top -->
@@ -935,6 +1001,9 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="absolute bottom-[-10%] right-[-10%] w-[30%] h-[30%] bg-blue-600/10 rounded-full blur-[100px]">
 </div>
 </div>
+<!-- Preview del calendario: controles laterales solo en vista mensual de escritorio. -->
+<div id="calendar-layout" data-calendar-view="list">
+<aside id="calendar-sidebar">
 <!-- Hero Section -->
 <header class="relative bg-black pt-12 md:pt-16 pb-12 text-center border-b border-white/10 overflow-hidden w-full" id="header-section">
 <!-- Video Background -->
@@ -1102,6 +1171,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 </section>
+</aside>
 <!-- Contenedor Principal Calendario (FULL WIDTH) -->
 <main class="w-full px-2 sm:px-6 lg:px-8 pb-20 min-h-screen" id="app-container">
 <!-- Vista de Lista (Ajustada al 90% en desktop) -->
@@ -1139,18 +1209,13 @@ document.addEventListener('DOMContentLoaded', function(){
 <div class="text-center font-bold text-ibero-gray text-[10px] md:text-sm py-1 md:py-2">
        VIE
       </div>
-<div class="text-center font-bold text-ibero-gray text-[10px] md:text-sm py-1 md:py-2">
-       SÁB
-      </div>
-<div class="text-center font-bold text-ibero-gray text-[10px] md:text-sm py-1 md:py-2">
-       DOM
-      </div>
 </div>
 <div class="calendar-grid" id="calendar-grid-days">
 </div>
 </div>
 </div>
 </main>
+</div>
 <!-- ========================================== -->
 <!-- CHATBOT PRO COOL (AGENTE IA FLOTANTE)      -->
 <!-- ========================================== -->
@@ -2550,7 +2615,9 @@ document.addEventListener('DOMContentLoaded', function(){
       resetCalendarFilters();
       const targetDate = getCurrentProgramEvent() ? getIberoTodayStr() : target.start;
       setCalendarToDate(targetDate);
-      renderApp();
+      const targetDay = new Date(targetDate + 'T12:00:00').getDay();
+      if (currentView === 'calendar' && (targetDay === 0 || targetDay === 6)) setView('list');
+      else renderApp();
       setTimeout(() => {
         const listEl = document.getElementById(getEventDomId(target));
         const dayEl = document.getElementById(`calendar-day-${targetDate}`) || document.getElementById(`calendar-day-${target.start}`);
@@ -2700,6 +2767,9 @@ document.addEventListener('DOMContentLoaded', function(){
     }
 
     function renderApp() {
+      const layout=document.getElementById('calendar-layout');
+      if(layout)layout.dataset.calendarView=currentView;
+      document.body.classList.toggle('ibero-calendar-month-sidebar',currentView==='calendar');
       if (currentView === 'list') {
         document.getElementById('view-list').classList.remove('hidden');
         document.getElementById('view-calendar').classList.add('hidden');
@@ -2741,7 +2811,10 @@ document.addEventListener('DOMContentLoaded', function(){
       if (view === 'calendar') setCalendarToDate(getCalendarFocusDate());
       renderApp();
       updateFloatingCalendarToggle();
-      scheduleTodayFocus('smooth', 120);
+      if (view === 'calendar' && window.matchMedia('(min-width:1024px)').matches) {
+        if (iberoTodayFocusTimer) clearTimeout(iberoTodayFocusTimer);
+        requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'auto' }));
+      } else scheduleTodayFocus('smooth', 120);
     }
 
     function getFilteredEvents() {
@@ -2918,13 +2991,21 @@ document.addEventListener('DOMContentLoaded', function(){
       const grid = document.getElementById('calendar-grid-days');
       grid.innerHTML = '';
 
-      const firstDayOffset = (date.getDay() + 6) % 7;
-      const gridStart = new Date(calYear, calMonth, 1 - firstDayOffset);
+      // La cuadrícula muestra lunes a viernes; la lista conserva todos los días y eventos.
+      const firstWeekday = new Date(calYear, calMonth, 1);
+      while (firstWeekday.getDay() === 0 || firstWeekday.getDay() === 6) firstWeekday.setDate(firstWeekday.getDate() + 1);
+      const lastWeekday = new Date(calYear, calMonth + 1, 0);
+      while (lastWeekday.getDay() === 0 || lastWeekday.getDay() === 6) lastWeekday.setDate(lastWeekday.getDate() - 1);
+      const firstDayOffset = (firstWeekday.getDay() + 6) % 7;
+      const gridStart = new Date(calYear, calMonth, firstWeekday.getDate() - firstDayOffset);
+      const calendarWeekRows = Math.floor((Date.UTC(lastWeekday.getFullYear(), lastWeekday.getMonth(), lastWeekday.getDate()) - Date.UTC(gridStart.getFullYear(), gridStart.getMonth(), gridStart.getDate())) / 86400000 / 7) + 1;
+      grid.style.setProperty('--calendar-week-rows', String(calendarWeekRows));
       const flatEvents = getFilteredEvents().flatMap(week => week.events);
       const todayStr = getCalendarFocusDate();
 
-      for (let index = 0; index < 42; index++) {
+      for (let index = 0; index < calendarWeekRows * 7; index++) {
         const cellDate = new Date(gridStart.getFullYear(), gridStart.getMonth(), gridStart.getDate() + index);
+        if (cellDate.getDay() === 0 || cellDate.getDay() === 6) continue;
         const cellYear = cellDate.getFullYear();
         const cellMonth = cellDate.getMonth();
         const cellDay = cellDate.getDate();
