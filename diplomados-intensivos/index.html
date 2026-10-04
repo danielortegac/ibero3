@@ -683,7 +683,7 @@
 <a class="w-full text-center flex-1 bg-white border border-zinc-200 hover:border-zinc-800 text-zinc-800 text-[8px] sm:text-xs font-bold py-2 sm:py-2.5 px-1 rounded-lg transition-colors shadow-sm" href="https://ibero.education/diplomado-ia-negocios-marketing/" target="_blank">Ver Detalles</a>
 </div>
 </div>
-<a aria-label="Descargar brochure en PDF" class="ibero-brochure-btn ibero-brochure-link inline-flex self-center items-center justify-center gap-1 text-[9px] sm:text-[10px] font-semibold text-zinc-500 hover:text-zinc-950 transition-colors mt-1.5 underline decoration-zinc-300 underline-offset-4" data-brochure-program="diplomado-apps" href="/recursos/brochure-diplomado-apps-productos-digitales-ia.pdf" rel="noopener" target="_blank" data-ibero-brochure-key="appsDiploma" data-ibero-brochure-general="/recursos/brochure-diplomado-apps-productos-digitales-ia.pdf" data-ibero-brochure-es="/recursos/espana/brochure-diplomado-apps-productos-digitales-ia-espana.pdf"><i class="fa-regular fa-file-pdf"></i><span>Descargar brochure PDF</span></a></div>
+<a aria-label="Descargar brochure en PDF" class="ibero-brochure-btn ibero-brochure-link inline-flex self-center items-center justify-center gap-1 text-[9px] sm:text-[10px] font-semibold text-zinc-500 hover:text-zinc-950 transition-colors mt-1.5 underline decoration-zinc-300 underline-offset-4" data-brochure-program="diplomado-apps" href="/recursos/brochure-diplomado-apps-productos-digitales-ia.pdf" rel="noopener" target="_blank" data-ibero-brochure-key="appsDiploma" data-ibero-brochure-general="/recursos/brochure-diplomado-apps-productos-digitales-ia.pdf" data-ibero-brochure-es="/recursos/brochure-diplomado-apps-productos-digitales-ia.pdf"><i class="fa-regular fa-file-pdf"></i><span>Descargar brochure PDF</span></a></div>
 </div>
 <!-- Diplomado 2: Marketing Digital con IA y Agentes -->
 <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-zinc-200 hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] hover:border-zinc-300 transition-all flex flex-col h-full group" id="diplomado-marketing-agentes">
@@ -708,7 +708,7 @@
 <a class="w-full text-center flex-1 bg-white border border-zinc-200 hover:border-zinc-800 text-zinc-800 text-[8px] sm:text-xs font-bold py-2 sm:py-2.5 px-1 rounded-lg transition-colors shadow-sm" href="/diplomado-marketing-digital-inteligencia-artificial-agentes/">Ficha Académica</a>
 </div>
 </div>
-<a aria-label="Descargar brochure en PDF" class="ibero-brochure-btn ibero-brochure-link inline-flex self-start items-center justify-center gap-1 text-[9px] sm:text-[10px] font-semibold text-zinc-300 hover:text-white transition-colors mt-2 underline decoration-zinc-600 underline-offset-4" data-brochure-program="diplomado-marketing" href="/recursos/brochure-diplomado-marketing-digital-ia-agentes.pdf" rel="noopener" target="_blank" data-ibero-brochure-key="marketingDiploma" data-ibero-brochure-general="/recursos/brochure-diplomado-marketing-digital-ia-agentes.pdf" data-ibero-brochure-es="/recursos/espana/brochure-diplomado-marketing-digital-ia-agentes-espana.pdf"><i class="fa-regular fa-file-pdf"></i><span>Descargar brochure PDF</span></a></div>
+<a aria-label="Descargar brochure en PDF" class="ibero-brochure-btn ibero-brochure-link inline-flex self-start items-center justify-center gap-1 text-[9px] sm:text-[10px] font-semibold text-zinc-300 hover:text-white transition-colors mt-2 underline decoration-zinc-600 underline-offset-4" data-brochure-program="diplomado-marketing" href="/recursos/brochure-diplomado-marketing-digital-ia-agentes.pdf" rel="noopener" target="_blank" data-ibero-brochure-key="marketingDiploma" data-ibero-brochure-general="/recursos/brochure-diplomado-marketing-digital-ia-agentes.pdf" data-ibero-brochure-es="/recursos/brochure-diplomado-marketing-digital-ia-agentes.pdf"><i class="fa-regular fa-file-pdf"></i><span>Descargar brochure PDF</span></a></div>
 </div>
 </div>
 <!-- Notas y Disclaimers Oficiales -->
@@ -2136,8 +2136,7 @@ window.IBERO_MERCADOS_CONFIG = {
 };
 
 </script>
-<script id="ibero-market-runtime">
-/** IBERO · Coordinador único de país, presentación de precios, horario y enlaces.
+<script id="ibero-market-runtime">/** IBERO · Coordinador único de país, presentación de precios, horario y enlaces.
  * No modifica cohortes, contenidos, planes, certificados ni configuración de la pasarela.
  * La elección manual prevalece sobre ruta, zona horaria y detección automática por IP.
  */
@@ -2507,7 +2506,7 @@ window.IBERO_MERCADOS_CONFIG = {
   }
   function syncLinks(container) {
     (container||document).querySelectorAll('a[data-ibero-brochure-general]').forEach(a=>{
-      const target=country==='ES'?a.dataset.iberoBrochureEs:a.dataset.iberoBrochureGeneral;
+      const target=a.dataset.iberoBrochureGeneral;
       if(target&&a.getAttribute('href')!==target)a.setAttribute('href',target);
     });
     syncPaymentOptions();
@@ -2614,7 +2613,7 @@ window.IBERO_MERCADOS_CONFIG = {
       price.classList.add('ibero-single-price');
       if(!price.querySelector('[data-ibero-modal-main]')) {
         price.innerHTML='<div class="ibero-modal-price"><small data-ibero-modal-country></small><strong data-ibero-modal-main></strong><span class="ibero-price-tax" data-ibero-modal-tax hidden></span><div class="ibero-modal-monthly" data-ibero-modal-monthly hidden><small>Plan mensual · 6 meses</small><strong data-ibero-modal-monthly-price></strong></div><p class="ibero-payment-copy" data-ibero-modal-payment></p></div>';
-        price.append(createPriceDetails(key,'dark'));price.dataset.iberoCalendarPricesMounted='true';
+        price.dataset.iberoCalendarPricesMounted='true';
       }
       const p=priceInfo(key,C.programBases[key]),monthly=key==='master';
       assignText(price.querySelector('[data-ibero-modal-country]'),'Precio para '+M[country].name);
@@ -2623,7 +2622,7 @@ window.IBERO_MERCADOS_CONFIG = {
       price.querySelector('[data-ibero-modal-monthly]').hidden=!monthly;
       assignText(price.querySelector('[data-ibero-modal-monthly-price]'),monthly?priceText(key,154.38)+'/mes':'');
       assignText(price.querySelector('[data-ibero-modal-payment]'),(monthly?'Pago semestral o plan mensual. ':'Pago único. ')+(country==='ES'&&key==='agents'?M.ES.agentsPayment.note+' ':'')+C.cardPaymentText);
-      price.querySelector('[data-ibero-all-prices]').dataset.iberoAllPrices=key;renderAllPrices(price);
+      price.querySelectorAll('[data-ibero-all-prices]').forEach(panel=>panel.remove());
     }
     const schedule=document.getElementById('modal-schedule');
     // Eventos de matrícula y clases gratis conservan su horario específico original.
@@ -2739,7 +2738,6 @@ window.IBERO_MERCADOS_CONFIG = {
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
 })();
-
 </script>
 <script id="ibero-brochure-placeholder-js">
 document.addEventListener('click', function (event) {
