@@ -775,6 +775,21 @@ document.addEventListener('DOMContentLoaded', function(){
 @media(max-width:639px){#header-section{padding-top:16px;padding-bottom:16px}#controls-section{padding:12px}#controls-section .grid{gap:10px}.calendar-week-card{padding:10px!important}.calendar-week-card h3{font-size:14px!important}.calendar-week-date{font-size:11px!important}.calendar-week-events{padding-left:4px}.calendar-event-row{padding:9px!important;gap:6px}.calendar-event-title{font-size:12px!important}.calendar-event-schedule{font-size:10px!important}.calendar-event-actions{flex-direction:row;flex-wrap:wrap;margin-top:3px!important;gap:5px!important}.calendar-event-actions a,.calendar-event-actions button{font-size:10px!important;padding:6px 7px!important;flex:1;min-width:80px}#calendar-month-title{font-size:17px!important}#modal-content-box>div:first-child{padding:12px 40px 12px 12px}#modal-content-box>div:nth-child(2){padding:12px}#modal-title{font-size:18px}#modal-desc{font-size:12px}#modal-content-box>div:nth-child(2)>.flex{flex-direction:row}}
 @media print{.ibero-calendar-page{padding-top:0}.calendar-day{min-height:100px}.calendar-event-title{font-size:12px!important}}
 </style>
+<style id="ibero-calendar-mes-compacto-20261003">
+/* Vista Mes: compactar sin retirar días ni botones de eventos. */
+#view-calendar>div{padding:8px!important}
+#view-calendar>div>div:first-child{margin-bottom:6px!important;min-height:26px}
+#view-calendar .calendar-nav-btn{padding:5px!important;line-height:16px}
+#view-calendar .calendar-nav-btn i{font-size:16px;line-height:16px}
+#view-calendar #calendar-month-title{font-size:18px!important;line-height:24px!important;margin:0}
+#view-calendar>div>.calendar-grid:not(#calendar-grid-days){margin-bottom:4px!important}
+#view-calendar>div>.calendar-grid:not(#calendar-grid-days)>div{font-size:10px!important;line-height:12px!important;padding:2px 0!important}
+#view-calendar #calendar-grid-days{gap:3px}
+#view-calendar #calendar-grid-days .calendar-day{min-height:60px!important;padding:3px!important;gap:1px!important}
+#view-calendar #calendar-grid-days .calendar-day-number{font-size:10px!important;line-height:13px!important;margin:0!important;flex-shrink:0}
+#view-calendar #calendar-grid-days .event-badge{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2!important;line-clamp:2;font-size:9px!important;line-height:10px!important;padding:1px 3px!important;margin:0!important;max-height:24px;min-height:12px;box-sizing:border-box;flex-shrink:0;overflow:hidden}
+@media(max-width:767px){#view-calendar>div{padding:5px!important}#view-calendar #calendar-month-title{font-size:16px!important;line-height:22px!important}#view-calendar #calendar-grid-days{gap:2px}#view-calendar #calendar-grid-days .calendar-day{min-height:56px!important;padding:2px!important}#view-calendar #calendar-grid-days .event-badge{font-size:8px!important;line-height:9px!important;padding:1px!important;max-height:22px}#view-calendar #calendar-grid-days .calendar-day-number{font-size:9px!important;line-height:12px!important}}
+</style>
 </head>
 <body class="antialiased selection:bg-ibero-red selection:text-white ibero-calendar-page">
 <!-- Botón Scroll to Top -->
