@@ -1012,6 +1012,50 @@ body.ibero-calendar-month-sidebar>div.pointer-events-none[class*="-z-10"]{displa
 }
 
 </style>
+<style id="ibero-calendar-header-ordered-20261004">
+/* Cabecera mensual ordenada; no altera la cuadrícula, los eventos ni la impresión. */
+@media screen{
+ #calendar-layout[data-calendar-view="calendar"] #calendar-sidebar{gap:14px}
+ #calendar-layout[data-calendar-view="calendar"] #controls-section>div>div:first-child{gap:12px}
+ #calendar-layout[data-calendar-view="calendar"] #controls-section>div>div:first-child>.grid{grid-template-columns:164px minmax(210px,1fr) 180px;gap:12px}
+ #calendar-layout[data-calendar-view="calendar"] #controls-section>div>div:first-child>.grid>div:first-child{min-width:0}
+ #calendar-layout[data-calendar-view="calendar"] #controls-section>div>div:first-child>.grid>div:first-child>.flex{width:100%;box-sizing:border-box;padding:3px;gap:3px;background:#f8fafc;border-color:#e2e8f0;border-radius:10px}
+ #calendar-layout[data-calendar-view="calendar"] #btn-view-list,#calendar-layout[data-calendar-view="calendar"] #btn-view-cal{min-width:0;flex:1 1 0;white-space:nowrap;padding:6px 8px!important;gap:6px;font-size:12px!important;min-height:32px;border-radius:7px}
+ #calendar-layout[data-calendar-view="calendar"] #btn-view-list{color:#64748b;background:transparent;box-shadow:none}
+ #calendar-layout[data-calendar-view="calendar"] #btn-view-cal{background:#e2e8f0;color:#0f172a;box-shadow:inset 0 -2px 0 #94a3b8}
+ #calendar-layout[data-calendar-view="calendar"] #btn-view-list:hover{background:#f1f5f9;color:#334155}
+ #calendar-layout[data-calendar-view="calendar"] #btn-view-cal:hover{background:#cbd5e1;color:#0f172a}
+ #calendar-layout[data-calendar-view="calendar"] #controls-section label{font-weight:600;color:#64748b}
+ #calendar-layout[data-calendar-view="calendar"] #controls-section .ibero-status-panel{background:#f8fafc;border-color:#e2e8f0;gap:16px;padding:6px 9px}
+ #calendar-layout[data-calendar-view="calendar"] #controls-section .ibero-status-panel .text-\[11px\]{background:transparent;color:#64748b;border:0;padding:0;font-weight:600;letter-spacing:0;text-transform:none;gap:5px}
+ #calendar-layout[data-calendar-view="calendar"] #ibero-live-clock{font-weight:650;color:#334155;font-variant-numeric:tabular-nums}
+ #calendar-layout[data-calendar-view="calendar"] #ibero-today-label{color:#64748b}
+ #calendar-layout[data-calendar-view="calendar"] #btn-current-program>span:first-child{color:#64748b;letter-spacing:0;text-transform:none;font-weight:600;font-size:10px;line-height:13px}
+ #calendar-layout[data-calendar-view="calendar"] #ibero-current-program-label{color:#334155;font-weight:600;font-size:12px;line-height:17px}
+ #calendar-layout[data-calendar-view="calendar"] #btn-current-program:hover #ibero-current-program-label{color:#0f172a}
+ @media(min-width:768px){
+  #calendar-layout[data-calendar-view="calendar"] #controls-section>div>div:first-child>.grid{align-items:end}
+  #calendar-layout[data-calendar-view="calendar"] #controls-section>div>div:first-child>.grid>div:first-child>.flex{height:36px;min-height:36px}
+  #calendar-layout[data-calendar-view="calendar"] #btn-view-list,#calendar-layout[data-calendar-view="calendar"] #btn-view-cal{height:28px;min-height:28px!important;box-sizing:border-box;padding-block:4px!important}
+  #calendar-layout[data-calendar-view="calendar"] #prog-dropdown-btn,#calendar-layout[data-calendar-view="calendar"] #filter-type,#calendar-layout[data-calendar-view="calendar"] #pdf-btn{min-height:36px;box-sizing:border-box}
+ }
+ @media(min-width:1024px) and (max-width:1199px){
+  #calendar-layout[data-calendar-view="calendar"] #calendar-sidebar{gap:10px}
+  #calendar-layout[data-calendar-view="calendar"] #controls-section>div>div:first-child>.grid{grid-template-columns:156px minmax(0,1fr) 154px;gap:10px}
+  #calendar-layout[data-calendar-view="calendar"] #controls-section>div>div:first-child{gap:10px}
+ }
+ @media(min-width:768px) and (max-width:1023px){
+  #calendar-layout[data-calendar-view="calendar"] #controls-section>div>div:first-child>.grid{grid-template-columns:164px minmax(180px,1fr) 174px;gap:12px}
+ }
+ @media(max-width:767px){
+  #calendar-layout[data-calendar-view="calendar"] #calendar-sidebar{gap:10px}
+  #calendar-layout[data-calendar-view="calendar"] #controls-section>div>div:first-child{grid-template-columns:minmax(156px,1fr) 106px;gap:10px}
+  #calendar-layout[data-calendar-view="calendar"] #controls-section>div>div:first-child>.grid{display:contents}
+  #calendar-layout[data-calendar-view="calendar"] #controls-section .ibero-status-panel{gap:5px;padding:6px}
+  #calendar-layout[data-calendar-view="calendar"] #ibero-current-program-label{font-size:11px;line-height:15px}
+ }
+}
+</style>
 </head>
 <body class="antialiased selection:bg-ibero-red selection:text-white ibero-calendar-page">
 <!-- Botón Scroll to Top -->
@@ -2746,11 +2790,27 @@ body.ibero-calendar-month-sidebar>div.pointer-events-none[class*="-z-10"]{displa
       updateDropdownText();
     }
 
+    function getCalendarHeaderProgramLabel(value) {
+      const original = String(value || '');
+      const title = original.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+      let label = original;
+      if (/productividad|automatizacion de procesos/.test(title)) label = 'Curso de Agentes IA';
+      else if (/diplomado.*marketing/.test(title)) label = 'Diplomado en Marketing Digital';
+      else if (/diplomado.*desarrollo de aplicaciones/.test(title)) label = 'Diplomado en Desarrollo de Aplicaciones';
+      else if (/master ejecutivo/.test(title)) label = 'Máster Ejecutivo en IA';
+      else if (/marketing digital/.test(title)) label = 'Curso de Marketing Digital';
+      else if (/creacion de cursos|academias digitales/.test(title)) label = 'Curso de Academias Digitales';
+      else if (/administradores|gerentes/.test(title)) label = 'Curso de IA para Gerencia';
+      else if (/comunicacion efectiva/.test(title)) label = 'Curso de Comunicación Efectiva';
+      return label !== original && /espana/.test(title) ? label + ' · España' : label;
+    }
+
     function updateIberoStatusPanel() {
       const clock = document.getElementById('ibero-live-clock');
       const todayLabel = document.getElementById('ibero-today-label');
       const currentLabel = document.getElementById('ibero-current-program-label');
       const currentBtn = document.getElementById('btn-current-program');
+      const statusHeading = currentBtn?.querySelector('span:first-child');
       if (clock) clock.textContent = getIberoClockText();
       if (todayLabel) todayLabel.textContent = `Fecha actual: ${getIberoTodayText()}`;
 
@@ -2759,14 +2819,26 @@ body.ibero-calendar-month-sidebar>div.pointer-events-none[class*="-z-10"]{displa
       currentProgramTarget = current || next || null;
 
       if (current && currentLabel) {
-        currentLabel.textContent = `En curso: ${current.title}`;
+        currentLabel.textContent = getCalendarHeaderProgramLabel(current.title);
+        if (statusHeading) statusHeading.textContent = 'En curso';
+        currentLabel.title = `En curso: ${current.title}`;
+        currentLabel.setAttribute('aria-label', currentLabel.title);
+        currentBtn?.setAttribute('aria-label', `Ver programa en curso: ${current.title}`);
         currentBtn?.classList.remove('opacity-60');
         if (currentBtn) currentBtn.disabled = false;
       } else if (next && currentLabel) {
-        currentLabel.textContent = `Sin clase hoy · Próximo: ${next.title} (${formatDate(next.start)})`;
+        currentLabel.textContent = `${getCalendarHeaderProgramLabel(next.title)} · ${formatDate(next.start)}`;
+        if (statusHeading) statusHeading.textContent = 'Sin clase hoy · Próxima clase';
+        currentLabel.title = `Sin clase hoy · Próximo: ${next.title} (${formatDate(next.start)})`;
+        currentLabel.setAttribute('aria-label', currentLabel.title);
+        currentBtn?.setAttribute('aria-label', `Ver próxima clase: ${next.title} (${formatDate(next.start)})`);
         if (currentBtn) currentBtn.disabled = false;
       } else if (currentLabel) {
         currentLabel.textContent = 'Sin programa en curso ni próximos eventos cargados.';
+        if (statusHeading) statusHeading.textContent = 'Programación';
+        currentLabel.title = currentLabel.textContent;
+        currentLabel.setAttribute('aria-label', currentLabel.textContent);
+        currentBtn?.setAttribute('aria-label', currentLabel.textContent);
         if (currentBtn) currentBtn.disabled = true;
       }
     }
@@ -2829,10 +2901,12 @@ body.ibero-calendar-month-sidebar>div.pointer-events-none[class*="-z-10"]{displa
       if (checkedCheckboxes.length === allCheckboxes.length || checkedCheckboxes.length === 0) {
         btnText.textContent = 'Todos los programas';
       } else if (checkedCheckboxes.length === 1) {
-        btnText.textContent = checkedCheckboxes[0].value;
+        btnText.textContent = getCalendarHeaderProgramLabel(checkedCheckboxes[0].value);
       } else {
         btnText.textContent = `${checkedCheckboxes.length} programas seleccionados`;
       }
+      btnText.title = checkedCheckboxes.length === 1 ? checkedCheckboxes[0].value : btnText.textContent;
+      document.getElementById('prog-dropdown-btn')?.setAttribute('aria-label', `Filtrar programa: ${btnText.title}`);
     }
 
     let iberoTodayFocusTimer = null;
@@ -2914,6 +2988,10 @@ body.ibero-calendar-month-sidebar>div.pointer-events-none[class*="-z-10"]{displa
           <input type="checkbox" value="${t}" class="program-checkbox w-4 h-4 accent-ibero-red bg-ibero-dark border-white/20 rounded" checked onchange="handleProgramCheckboxChange()">
           <span class="text-sm text-gray-300 line-clamp-2 leading-tight">${t}</span>
         `;
+        wrapper.title = t;
+        wrapper.querySelector('input')?.setAttribute('aria-label', t);
+        const visualLabel = wrapper.querySelector('span');
+        if (visualLabel) { visualLabel.textContent = getCalendarHeaderProgramLabel(t); visualLabel.title = t; }
         progContainer.appendChild(wrapper);
       });
       if (preserve && !selectAll) {
