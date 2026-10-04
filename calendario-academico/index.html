@@ -1056,6 +1056,22 @@ body.ibero-calendar-month-sidebar>div.pointer-events-none[class*="-z-10"]{displa
  }
 }
 </style>
+<style id="ibero-calendar-clock-20261004">
+/* Reloj legible: misma hora/zona real, solo presentación en la cabecera. */
+@media screen{
+ #calendar-layout #controls-section .ibero-status-panel>.ibero-clock-information{display:grid!important;grid-template-columns:max-content minmax(0,1fr);align-items:center;gap:1px 10px!important;min-width:0}
+ #calendar-layout #controls-section .ibero-clock-display{display:contents!important}
+ #calendar-layout #controls-section #ibero-live-clock{grid-column:1;grid-row:1/3;display:block;color:#fff!important;background:#334155;border-radius:9px;box-shadow:none;padding:3px 10px;font-size:23px!important;line-height:28px!important;font-weight:700;letter-spacing:.025em;font-variant-numeric:tabular-nums;white-space:nowrap}
+ #calendar-layout #controls-section #ibero-clock-zone{grid-column:2;grid-row:1;display:block;color:#cbd5e1;font-size:11px;line-height:14px;font-weight:600;min-width:0}
+ #calendar-layout #controls-section #ibero-today-label{grid-column:2;grid-row:2;margin:0;font-size:10px!important;line-height:13px!important;min-width:0}
+ #calendar-layout[data-calendar-view="calendar"] #controls-section #ibero-clock-zone{color:#475569}
+ @media(max-width:767px){
+  #calendar-layout #controls-section .ibero-status-panel>.ibero-clock-information{gap:1px 9px!important}
+  #calendar-layout #controls-section #ibero-live-clock{font-size:21px!important;line-height:26px!important;padding:3px 8px}
+  #calendar-layout #controls-section #ibero-clock-zone{font-size:10px;line-height:13px}
+ }
+}
+</style>
 </head>
 <body class="antialiased selection:bg-ibero-red selection:text-white ibero-calendar-page">
 <!-- Botón Scroll to Top -->
@@ -1371,12 +1387,10 @@ body.ibero-calendar-month-sidebar>div.pointer-events-none[class*="-z-10"]{displa
 </div>
 </div>
 <div class="ibero-status-panel bg-[#09090B]/80 border border-white/10 rounded-2xl p-3 md:p-5 flex flex-col lg:flex-row gap-3 lg:items-center lg:justify-between">
-<div class="flex flex-col gap-1">
-<div class="flex flex-wrap items-center gap-2">
-<span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-ibero-red/15 border border-ibero-red/40 text-red-200 text-[11px] font-black uppercase tracking-[0.18em]">
-<i class="ph-fill ph-clock"></i> Reloj IBERO
-      </span>
-<span class="text-white font-bold text-sm sm:text-base" id="ibero-live-clock">Cargando hora...</span>
+<div class="ibero-clock-information flex flex-col gap-1">
+<div class="ibero-clock-display flex flex-wrap items-center gap-2">
+<span class="text-white font-bold text-sm sm:text-base" id="ibero-live-clock" role="timer" aria-label="Hora local: cargando">Cargando...</span>
+<span id="ibero-clock-zone">Detectando zona...</span>
 </div>
 <p class="text-ibero-gray text-xs sm:text-sm" id="ibero-today-label">Detectando fecha actual...</p>
 </div>
@@ -2811,7 +2825,15 @@ body.ibero-calendar-month-sidebar>div.pointer-events-none[class*="-z-10"]{displa
       const currentLabel = document.getElementById('ibero-current-program-label');
       const currentBtn = document.getElementById('btn-current-program');
       const statusHeading = currentBtn?.querySelector('span:first-child');
-      if (clock) clock.textContent = getIberoClockText();
+      if (clock) {
+        const clockText = getIberoClockText();
+        const divider = clockText.indexOf(' · ');
+        clock.textContent = divider >= 0 ? clockText.slice(0, divider) : clockText;
+        clock.title = clockText;
+        clock.setAttribute('aria-label', 'Hora local: ' + clockText);
+        const zoneLabel = document.getElementById('ibero-clock-zone');
+        if (zoneLabel) zoneLabel.textContent = divider >= 0 ? clockText.slice(divider + 3) : '';
+      }
       if (todayLabel) todayLabel.textContent = `Fecha actual: ${getIberoTodayText()}`;
 
       const current = getCurrentProgramEvent();
@@ -3418,8 +3440,238 @@ body.ibero-calendar-month-sidebar>div.pointer-events-none[class*="-z-10"]{displa
       calendarModalCloseTimer=setTimeout(() => { modal.classList.add('hidden');calendarModalCloseTimer=null; }, 300);
     }
 
-    function downloadPDF() {
-      setTimeout(() => { window.print(); }, 300);
+    // Exportación PDF vectorial: respeta la vista, el mes y los filtros actuales.
+    // jsPDF se importa solo al exportar; no sustituye librerías globales.
+    let calendarPDFLibraryPromise = null;
+    function loadCalendarPDFLibrary() {
+      if (!calendarPDFLibraryPromise) {
+        calendarPDFLibraryPromise = import('https://cdn.jsdelivr.net/npm/jspdf@4.2.1/+esm')
+          .then(module => {
+            if (!module.jsPDF || module.jsPDF.version !== '4.2.1') throw new Error('Biblioteca PDF no disponible');
+            return module.jsPDF;
+          })
+          .catch(error => { calendarPDFLibraryPromise = null; throw error; });
+      }
+      return calendarPDFLibraryPromise;
+    }
+
+    function buildCalendarPDF(jsPDF) {
+      const monthly = currentView === 'calendar';
+      const monthNames = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+      const monthTitle = `${monthNames[calMonth]} ${calYear}`;
+      const data = getFilteredEvents();
+      const events = data.flatMap(week => week.events);
+      const markets = window.IBERO_MERCADOS;
+      const countryCode = markets ? markets.getCountry() : 'EC';
+      const country = window.IBERO_MERCADOS_CONFIG?.markets?.[countryCode]?.name || countryCode;
+      const zone = markets ? markets.getZone() : 'America/Guayaquil';
+      const boxes = Array.from(document.querySelectorAll('.program-checkbox'));
+      const selected = boxes.filter(box => box.checked);
+      const programs = selected.length === boxes.length ? 'Todos los programas' : selected.length ? selected.map(box => getCalendarHeaderProgramLabel(box.value)).join(', ') : 'Sin programas seleccionados';
+      const categories = document.getElementById('filter-type');
+      const category = categories.selectedOptions[0]?.textContent.trim() || 'Todas las categorías';
+      const pdf = new jsPDF({ orientation: monthly ? 'landscape' : 'portrait', unit: 'mm', format: 'a4', compress: true });
+      const width = pdf.internal.pageSize.getWidth(), height = pdf.internal.pageSize.getHeight();
+      const margin = 12, contentWidth = width - margin * 2, bottom = height - 16;
+      const ink = [30, 41, 59], muted = [100, 116, 139], red = [185, 28, 28];
+      const clean = text => String(text || '').replace(/[\p{Extended_Pictographic}\p{Regional_Indicator}\uFE0F\u200D]/gu, '').replace(/[\u2010-\u2015]/g, '-').replace(/\s+/g, ' ').trim();
+      let y = margin;
+      let sectionTitle = monthly ? monthTitle : 'Agenda de semanas';
+      const lines = (text, size, maxWidth = contentWidth, bold = false) => {
+        pdf.setFont('helvetica', bold ? 'bold' : 'normal');
+        pdf.setFontSize(size);
+        return pdf.splitTextToSize(clean(text), maxWidth);
+      };
+      function textLine(text, x, top, size = 9, color = ink, bold = false) {
+        pdf.setFont('helvetica', bold ? 'bold' : 'normal');
+        pdf.setFontSize(size); pdf.setTextColor(...color);
+        pdf.text(clean(text), x, top);
+      }
+      function header() {
+        textLine('IBERO', margin, 18, 23, ink, true);
+        textLine('CENTRO IBEROAMERICANO', margin + 40, 13, 8, red, true);
+        textLine('Calendario académico', margin + 40, 19, 11, ink, true);
+        pdf.setDrawColor(226, 232, 240); pdf.setLineWidth(0.35); pdf.line(margin, 23, width - margin, 23);
+        textLine(sectionTitle, margin, 31, 16, ink, true);
+        textLine(`${country} · Zona horaria: ${zone.replace(/_/g, ' ')}`, margin, 37, 8.5, muted);
+        const filterLines = lines(`${programs} · ${category}`, 8.3);
+        pdf.setFontSize(8.3); pdf.text(filterLines, margin, 42, { lineHeightFactor: 1.25 });
+        y = 45 + filterLines.length * 3.7;
+      }
+      function newPage(title = sectionTitle) {
+        sectionTitle = title; pdf.addPage(); header();
+      }
+      function ensureSpace(space) {
+        if (y + space > bottom) newPage();
+      }
+      function paragraph(text, size = 9, color = ink, bold = false, inset = 0) {
+        const wrapped = lines(text, size, contentWidth - inset, bold), lineHeight = size * 0.3528 * 1.35;
+        wrapped.forEach(line => { ensureSpace(lineHeight); textLine(line, margin + inset, y + lineHeight * 0.8, size, color, bold); y += lineHeight; });
+        return wrapped;
+      }
+      function palette(event) {
+        const title = String(event.title || '').toLocaleLowerCase('es');
+        if (event.type === 'inscripcion' || event.type === 'gratis') return { fill: [220, 252, 231], text: [22, 101, 52] };
+        if (event.type === 'diplomado') return { fill: [229, 231, 235], text: [55, 65, 81] };
+        if (/marketing digital/.test(title)) return { fill: [237, 233, 254], text: [91, 33, 182] };
+        if (event.type === 'master') return { fill: [31, 41, 55], text: [255, 255, 255] };
+        if (event.type === 'taller') return { fill: [255, 237, 213], text: [154, 52, 18] };
+        return { fill: [219, 234, 254], text: [30, 58, 138] };
+      }
+      function safeLink(value) {
+        if (!value) return '';
+        try { const url = new URL(value, 'https://www.ibero.education/'); return /^https?:$/.test(url.protocol) ? url.href : ''; }
+        catch (_) { return ''; }
+      }
+      function linkHost(value) {
+        const host = new URL(value).hostname.replace(/^www\./, '');
+        if (host === 'paypal.com' || host.endsWith('.paypal.com')) return 'PayPal';
+        if (host === 'wa.me' || host === 'api.whatsapp.com' || host === 'web.whatsapp.com') return 'WhatsApp';
+        return host;
+      }
+      function eventCard(event) {
+        const range = window.IBERO_PROGRAMACION.formatRange({ start: event.start, end: event.end }, 'long');
+        const typeNames = { curso: 'Certificación', diplomado: 'Diplomado', master: 'Máster Ejecutivo', taller: 'Taller', gratis: 'Clase gratis', inscripcion: 'Recordatorio de matrícula', comercial: 'Información de inscripción' };
+        const fields = [
+          { text: event.title, size: 10.2, bold: true, color: ink },
+          { text: `${typeNames[event.type] || event.type} · ${range}`, size: 8.5, color: muted },
+          { text: eventScheduleLabel(event), size: 9, color: ink }
+        ];
+        const programLink = safeLink(getProgramLink(event));
+        const originalRegistration = getRegistrationLink(event);
+        const paymentSet = paymentLinks[getPaymentKey(event)];
+        const regionalRegistration = markets?.paymentLink ? markets.paymentLink(originalRegistration, paymentSet?.mx, countryCode) : originalRegistration;
+        const registrationLink = safeLink(regionalRegistration);
+        const registrationLabel = registrationLink && linkHost(registrationLink) === 'PayPal'
+          ? 'Inscribirse' : registrationLink && linkHost(registrationLink) === 'WhatsApp'
+          ? 'Consultar inscripción' : getRegistrationButtonLabel(event);
+        if (programLink) fields.push({ text: 'Ver programa', size: 8.5, color: [29, 78, 216], url: programLink });
+        if (registrationLink) fields.push({ text: registrationLabel, size: 8.5, color: [29, 78, 216], url: registrationLink });
+        const inset = 5, cardWidth = contentWidth - inset * 2;
+        const blocks = fields.map(field => ({ ...field, wrapped: lines(field.text, field.size, cardWidth, field.bold), lineHeight: field.size * 0.3528 * 1.32 }));
+        const cardHeight = 7 + blocks.reduce((sum, block) => sum + block.wrapped.length * block.lineHeight + 1.5, 0);
+        // Never split a normal event card or crop its title/links at a page boundary.
+        if (cardHeight <= bottom - 55) {
+          ensureSpace(cardHeight + 3);
+          pdf.setFillColor(248, 250, 252); pdf.setDrawColor(226, 232, 240);
+          pdf.roundedRect(margin, y, contentWidth, cardHeight, 2, 2, 'FD');
+          const color = palette(event); pdf.setFillColor(...color.fill); pdf.roundedRect(margin, y, 1.7, cardHeight, 0.8, 0.8, 'F');
+          y += 4;
+          blocks.forEach(block => {
+            const top = y;
+            block.wrapped.forEach(line => { textLine(line, margin + inset, y + block.lineHeight * 0.8, block.size, block.color, block.bold); y += block.lineHeight; });
+            if (block.url) pdf.link(margin + inset, top, cardWidth, y - top, { url: block.url });
+            y += 1.5;
+          });
+          y += 6;
+        } else {
+          // Unusually long source text flows across pages line by line instead of clipping.
+          blocks.forEach(block => { paragraph(block.text, block.size, block.color, block.bold); y += 1.5; }); y += 3;
+        }
+      }
+      header();
+      if (monthly) {
+        const firstWeekday = new Date(calYear, calMonth, 1);
+        while ([0, 6].includes(firstWeekday.getDay())) firstWeekday.setDate(firstWeekday.getDate() + 1);
+        const lastWeekday = new Date(calYear, calMonth + 1, 0);
+        while ([0, 6].includes(lastWeekday.getDay())) lastWeekday.setDate(lastWeekday.getDate() - 1);
+        const firstDayOffset = (firstWeekday.getDay() + 6) % 7;
+        const gridStart = new Date(calYear, calMonth, firstWeekday.getDate() - firstDayOffset);
+        const rows = Math.floor((Date.UTC(lastWeekday.getFullYear(), lastWeekday.getMonth(), lastWeekday.getDate()) - Date.UTC(gridStart.getFullYear(), gridStart.getMonth(), gridStart.getDate())) / 86400000 / 7) + 1;
+        const dateKey = date => `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+        const cells = Array.from({ length: rows }, (_, row) => Array.from({ length: 5 }, (_, col) => {
+          const date = new Date(gridStart.getFullYear(), gridStart.getMonth(), gridStart.getDate() + row * 7 + col);
+          const key = dateKey(date);
+          return { date, key, events: events.filter(event => key >= event.start && key <= event.end) };
+        }));
+        const colWidth = contentWidth / 5, cellWidth = colWidth - 1.5, badgeWidth = cellWidth - 4;
+        const chipLines = event => lines(getCalendarEventLabel(event), 8.1, badgeWidth - 4, true);
+        const minimumRowHeight = Math.max(22, ...cells.flat().map(cell => 7 + cell.events.reduce((sum, event) => sum + chipLines(event).length * 3.05 + 2.1, 0)));
+        const availableHeight = bottom - y - 8;
+        const rowHeight = Math.max(minimumRowHeight, availableHeight / rows);
+        function weekdays() {
+          ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes'].forEach((day, col) => textLine(day, margin + col * colWidth + 2, y + 4, 8.5, muted, true)); y += 7;
+        }
+        weekdays();
+        cells.forEach((week, row) => {
+          if (y + rowHeight > bottom + 0.1) { newPage(`${monthTitle} · continuación`); weekdays(); }
+          week.forEach((cell, col) => {
+            const x = margin + col * colWidth, outside = cell.date.getMonth() !== calMonth;
+            pdf.setFillColor(...(outside ? [248, 250, 252] : [255, 255, 255])); pdf.setDrawColor(226, 232, 240);
+            pdf.roundedRect(x, y, cellWidth, rowHeight - 1.5, 1.6, 1.6, 'FD');
+            textLine(String(cell.date.getDate()) + (outside ? ` ${monthNames[cell.date.getMonth()].slice(0, 3).toLowerCase()}` : ''), x + 2, y + 4.8, 9, outside ? muted : ink, true);
+            let chipY = y + 6.5;
+            cell.events.forEach(event => {
+              const wrapped = chipLines(event), chipHeight = wrapped.length * 3.05 + 1.1, color = palette(event);
+              pdf.setFillColor(...color.fill); pdf.roundedRect(x + 2, chipY, badgeWidth, chipHeight, 1.5, 1.5, 'F');
+              wrapped.forEach((line, index) => textLine(line, x + 4, chipY + 2.85 + index * 3.05, 8.1, color.text, true));
+              chipY += chipHeight + 1;
+            });
+          }); y += rowHeight;
+        });
+        const monthStart = `${calYear}-${String(calMonth + 1).padStart(2, '0')}-01`;
+        const monthEnd = dateKey(new Date(calYear, calMonth + 1, 0));
+        const gridEnd = cells[cells.length - 1][4].key;
+        const unique = new Map();
+        events.filter(event => (event.start <= monthEnd && event.end >= monthStart) || (event.start <= gridEnd && event.end >= cells[0][0].key))
+          .forEach(event => unique.set(`${event.type}|${event.start}|${event.end}|${event.title}|${event.cohortId || ''}`, event));
+        const monthEvents = [...unique.values()].sort((a, b) => a.start.localeCompare(b.start) || a.title.localeCompare(b.title));
+        newPage(`${monthTitle} · Detalles y enlaces`);
+        paragraph('Nombres oficiales y horarios completos. Incluye los eventos del mes en sábado y domingo y los días visibles de los meses contiguos.', 8.5, muted); y += 4;
+        if (!monthEvents.length) paragraph('No hay eventos programados con los filtros seleccionados.', 10, muted);
+        monthEvents.forEach(eventCard);
+      } else {
+        if (!data.length) paragraph('No hay eventos programados con los filtros seleccionados.', 10, muted);
+        data.forEach(week => {
+          ensureSpace(28);
+          paragraph(`${week.week} · ${window.IBERO_PROGRAMACION.formatRange({ start: week.startWeek, end: week.endWeek })}`, 11, ink, true); y += 3;
+          week.events.forEach(eventCard); y += 4;
+        });
+      }
+      const pages = pdf.getNumberOfPages();
+      for (let page = 1; page <= pages; page++) {
+        pdf.setPage(page); pdf.setDrawColor(226, 232, 240); pdf.line(margin, height - 12, width - margin, height - 12);
+        textLine('www.ibero.education', margin, height - 7, 8, muted);
+        textLine(`Página ${page} de ${pages}`, width - margin - 28, height - 7, 8, muted);
+      }
+      pdf.setProperties({ title: monthly ? `Calendario IBERO - ${monthTitle}` : 'Calendario IBERO - Agenda de semanas', author: 'Centro IBEROamericano', subject: `Calendario académico · ${country} · ${zone}` });
+      return { pdf, filename: `IBERO_Calendario_${monthly ? `${calYear}-${String(calMonth + 1).padStart(2, '0')}` : 'Lista'}_${countryCode}.pdf` };
+    }
+
+    async function downloadPDF() {
+      const button = document.getElementById('pdf-btn');
+      if (button.disabled) return;
+      const previousHTML = button.innerHTML;
+      button.disabled = true; button.setAttribute('aria-busy', 'true');
+      button.innerHTML = '<i class="ph ph-spinner-gap text-xl" aria-hidden="true"></i> Preparando PDF…';
+      let status = document.getElementById('calendar-pdf-status');
+      if (status) status.remove();
+      const previousDownload = document.getElementById('calendar-pdf-download');
+      if (previousDownload) previousDownload.remove();
+      try {
+        const jsPDF = await loadCalendarPDFLibrary();
+        const { pdf, filename } = buildCalendarPDF(jsPDF);
+        const dataURI = pdf.output('datauristring');
+        if (!/^data:application\/pdf;.*;base64,/.test(dataURI) || dataURI.length < 100) throw new Error('Archivo PDF vacío');
+        const previousLink = document.getElementById('calendar-pdf-download');
+        if (previousLink) previousLink.remove();
+        const link = document.createElement('a');
+        link.id = 'calendar-pdf-download'; link.href = dataURI; link.download = filename;
+        link.textContent = 'Descargar PDF'; link.title = filename;
+        link.setAttribute('aria-label', `Descargar ${filename}`);
+        link.style.cssText = 'display:block;font-size:11px;line-height:1.4;text-align:center;color:#334155;text-decoration:underline;text-underline-offset:3px;margin-top:6px;';
+        button.insertAdjacentElement('afterend', link);
+        // A real download link also remains available if the browser blocks the automatic click.
+        link.click();
+      } catch (error) {
+        console.error('No se pudo descargar el calendario PDF:', error);
+        status = document.createElement('p'); status.id = 'calendar-pdf-status'; status.setAttribute('role', 'status');
+        status.style.cssText = 'font-size:11px;line-height:1.4;color:#991b1b;margin-top:6px;';
+        status.textContent = 'No se pudo preparar el PDF. Revisa tu conexión y pulsa Guardar PDF para reintentar.';
+        button.insertAdjacentElement('afterend', status);
+      } finally {
+        button.innerHTML = previousHTML; button.disabled = false; button.removeAttribute('aria-busy');
+      }
     }
 
     document.addEventListener('DOMContentLoaded', () => { init(); setView('calendar'); });
