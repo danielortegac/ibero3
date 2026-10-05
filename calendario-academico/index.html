@@ -1266,6 +1266,151 @@ body.ibero-calendar-month-sidebar>div.pointer-events-none[class*="-z-10"]{displa
  }
 }
 </style>
+<style id="ibero-clock-country-picker-20261004">
+@media screen {
+ #calendar-layout #controls-section .ibero-status-panel {grid-template-columns:minmax(450px,1.4fr) minmax(0,1fr)!important;gap:16px!important}
+ #calendar-layout #controls-section .ibero-status-panel>.ibero-clock-information {grid-template-columns:max-content minmax(145px,1fr) minmax(165px,1fr)!important;gap:3px 12px!important;align-items:center}
+ #calendar-layout #controls-section #ibero-live-clock {grid-column:1;grid-row:1/3}
+ #calendar-layout #controls-section #ibero-clock-zone {grid-column:2;grid-row:1;color:#475569!important;font-size:12px!important;line-height:1.35!important}
+ #calendar-layout #controls-section #ibero-today-label {grid-column:2;grid-row:2;color:#64748b!important;font-size:11px!important;line-height:1.35!important}
+ #calendar-layout #controls-section .ibero-clock-location-picker {grid-column:3;grid-row:1/3;display:grid;gap:7px;min-width:0}
+ #calendar-layout #controls-section .ibero-clock-location-field {min-width:0}
+ #calendar-layout #controls-section .ibero-clock-location-field[hidden] {display:none!important}
+ #calendar-layout #controls-section .ibero-clock-location-field label {display:block;margin:0 0 3px;color:#64748b;font-size:10px;line-height:1.1;font-weight:700;letter-spacing:.03em}
+ #calendar-layout #controls-section .ibero-clock-location-field select {display:block;width:100%;min-width:0;min-height:36px;margin:0;padding:6px 28px 6px 10px;border:1px solid #cbd5e1;border-radius:9px;background:#fff;color:#334155;font-family:inherit;font-size:13px;font-weight:600;line-height:1.3;box-shadow:none;text-overflow:ellipsis}
+ #calendar-layout #controls-section .ibero-clock-location-field select:focus-visible {outline:2px solid #64748b;outline-offset:2px;border-color:#64748b}
+ @media (max-width:1199px) {
+  #calendar-layout #controls-section .ibero-status-panel {grid-template-columns:minmax(0,1.3fr) minmax(0,1fr)!important}
+  #calendar-layout #controls-section .ibero-status-panel>.ibero-clock-information {grid-template-columns:max-content minmax(0,1fr)!important}
+  #calendar-layout #controls-section .ibero-clock-location-picker {grid-column:1/-1;grid-row:3;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:5px}
+  #calendar-layout #controls-section .ibero-clock-location-picker:not(:has(.ibero-clock-location-field:not([hidden])+ .ibero-clock-location-field:not([hidden]))) {grid-template-columns:minmax(0,1fr)}
+ }
+ @media (max-width:767px) {
+  #calendar-layout #controls-section .ibero-status-panel {grid-template-columns:minmax(0,1fr)!important;gap:10px!important;padding:10px!important}
+  #calendar-layout #controls-section .ibero-status-panel>.ibero-clock-information {gap:3px 10px!important}
+  #calendar-layout #controls-section #ibero-live-clock {font-size:24px!important;line-height:32px!important;padding:6px 10px;border-radius:11px}
+  #calendar-layout #controls-section #ibero-clock-zone {font-size:12px!important}
+  #calendar-layout #controls-section #ibero-today-label {font-size:11px!important}
+  #calendar-layout #controls-section .ibero-clock-location-picker {margin-top:7px}
+  #calendar-layout #controls-section .ibero-clock-location-field label {font-size:11px}
+  #calendar-layout #controls-section .ibero-clock-location-field select {font-size:13px;min-height:40px}
+ }
+}
+@media print {#ibero-clock-location-picker {display:none!important}}
+</style>
+<style id="ibero-calendar-legibility-20261004">
+/* Solo lectura de la cuadrícula mensual; conserva colores, datos y exportación. */
+@media screen and (min-width: 1024px) and (min-height: 501px) {
+  #calendar-layout[data-calendar-view="calendar"] #view-calendar > div {
+    height: auto !important;
+    min-height: 495px;
+    padding: 10px !important;
+  }
+
+  #calendar-layout[data-calendar-view="calendar"] #calendar-grid-days {
+    grid-template-rows: repeat(var(--calendar-week-rows, 5), minmax(92px, auto));
+    gap: 6px;
+  }
+
+  #calendar-layout[data-calendar-view="calendar"] #calendar-grid-days .calendar-day {
+    min-height: 92px !important;
+    padding: 5px !important;
+    gap: 4px !important;
+    border-radius: 12px;
+    overflow: visible !important;
+  }
+
+  #calendar-layout[data-calendar-view="calendar"] #calendar-grid-days .calendar-day-number {
+    font-size: 14px !important;
+    line-height: 20px !important;
+    margin: 0 0 2px !important;
+    flex-shrink: 0;
+  }
+
+  #calendar-layout[data-calendar-view="calendar"] #view-calendar > div > .calendar-grid:not(#calendar-grid-days) > div {
+    font-size: 12px !important;
+    line-height: 18px !important;
+    letter-spacing: .05em;
+    padding: 3px 0 !important;
+  }
+
+  #calendar-layout[data-calendar-view="calendar"] #calendar-grid-days .event-badge {
+    display: block !important;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 14px !important;
+    line-height: 1.32 !important;
+    font-weight: 650;
+    letter-spacing: 0;
+    padding: 4px 7px !important;
+    margin: 0 !important;
+    min-height: 28px;
+    max-height: none !important;
+    border-radius: 11px !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    overflow-wrap: break-word;
+    word-break: normal;
+    text-overflow: clip;
+    -webkit-line-clamp: unset !important;
+    line-clamp: unset;
+    flex-shrink: 0;
+    box-shadow: none;
+  }
+
+  #calendar-layout[data-calendar-view="calendar"] #calendar-grid-days .event-badge > i {
+    font-size: .9em;
+    margin-inline-end: 2px;
+  }
+
+  #calendar-layout[data-calendar-view="calendar"] #calendar-grid-days .calendar-label-screen {
+    white-space: normal;
+    font: inherit;
+  }
+
+  @media (min-width: 768px) and (max-width: 1199px) {
+    #calendar-layout[data-calendar-view="calendar"] #calendar-grid-days .event-badge {
+      font-size: 13px !important;
+      padding: 4px 5px !important;
+    }
+  }
+
+}
+@media screen {
+  #calendar-grid-days .calendar-label-academic {display:none}
+  #calendar-grid-days .calendar-label-compact {display:inline}
+  #calendar-layout #controls-section .ibero-status-panel {
+    grid-template-columns:minmax(540px,1.5fr) minmax(0,1fr) !important;
+  }
+  #calendar-layout #controls-section .ibero-status-panel>.ibero-clock-information {
+    grid-template-columns:max-content minmax(120px,.8fr) minmax(270px,1.2fr) !important;
+  }
+}
+@media screen and (max-width:1199px) {
+  #calendar-layout #controls-section .ibero-status-panel {
+    grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) !important;
+  }
+  #calendar-layout #controls-section .ibero-status-panel>.ibero-clock-information {
+    grid-template-columns:max-content minmax(0,1fr) !important;
+  }
+}
+@media screen and (max-width:767px) {
+  #calendar-layout #controls-section .ibero-status-panel {
+    grid-template-columns:minmax(0,1fr) !important;
+  }
+  #calendar-layout #controls-section .ibero-clock-location-picker {
+    grid-template-columns:1fr !important;
+  }
+  #calendar-layout #controls-section .ibero-clock-location-field select {
+    min-height:42px;
+  }
+}
+@media screen and (min-width: 1024px) and (min-height: 501px) {
+  #calendar-grid-days .calendar-label-compact {display:none}
+  #calendar-grid-days .calendar-label-academic {display:inline}
+}
+
+</style>
 </head>
 <body class="antialiased selection:bg-ibero-red selection:text-white ibero-calendar-page">
 <!-- Botón Scroll to Top -->
@@ -1587,6 +1732,16 @@ body.ibero-calendar-month-sidebar>div.pointer-events-none[class*="-z-10"]{displa
 <span id="ibero-clock-zone">Detectando zona...</span>
 </div>
 <p class="text-ibero-gray text-xs sm:text-sm" id="ibero-today-label">Detectando fecha actual...</p>
+<div class="ibero-clock-location-picker" id="ibero-clock-location-picker">
+<div class="ibero-clock-location-field">
+<label for="ibero-clock-country-select">País</label>
+<select id="ibero-clock-country-select" aria-label="Elegir país para la hora y el calendario"><option value="EC">Ecuador</option></select>
+</div>
+<div class="ibero-clock-location-field" id="ibero-clock-zone-field" hidden>
+<label for="ibero-clock-zone-select">Ciudad o zona</label>
+<select id="ibero-clock-zone-select" aria-label="Elegir ciudad o zona horaria"></select>
+</div>
+</div>
 </div>
 <div class="flex flex-col sm:flex-row gap-3 sm:items-center lg:justify-end">
 <button class="program-status-pulse ibero-current-program-btn text-left bg-emerald-500/10 border border-emerald-400/35 hover:bg-emerald-500/15 rounded-xl px-3 py-2.5 md:px-4 md:py-3 transition-all disabled:opacity-60 disabled:cursor-not-allowed" id="btn-current-program" onclick="goToCurrentProgram()" type="button">
@@ -2919,7 +3074,7 @@ body.ibero-calendar-month-sidebar>div.pointer-events-none[class*="-z-10"]{displa
       return new Intl.DateTimeFormat('es-EC', {
         timeZone,
         hour: '2-digit', minute: '2-digit', second: '2-digit',
-        hour12: false
+        hourCycle: 'h23'
       }).formatToParts(new Date()).reduce((acc, part) => {
         if (part.type !== 'literal') acc[part.type] = part.value;
         return acc;
@@ -2932,12 +3087,30 @@ body.ibero-calendar-month-sidebar>div.pointer-events-none[class*="-z-10"]{displa
       const code = api ? api.getCountry() : 'EC';
       const zone = api ? api.getZone() : 'America/Guayaquil';
       const p = getClockPartsForZone(zone || 'America/Guayaquil');
-      const label = cfg && cfg.markets && cfg.markets[code] ? cfg.markets[code].zoneLabel : 'Ecuador';
+      const market = cfg && cfg.markets && cfg.markets[code];
+      const zoneItem = market && (market.zones || []).find(item => item[0] === zone);
+      const label = zoneItem ? zoneItem[1] : market && zone === market.zone
+        ? market.zoneLabel : String(zone || 'America/Guayaquil').replace(/_/g, ' ').replace(/\//g, ' · ');
       return `${p.hour}:${p.minute}:${p.second} · ${label}`;
     }
 
     function getIberoTodayText() {
       const p = getIberoDateParts();
+      const months = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+      return `${p.weekday.charAt(0).toUpperCase() + p.weekday.slice(1)}, ${parseInt(p.day, 10)} de ${months[parseInt(p.month, 10) - 1]} de ${p.year}`;
+    }
+
+    function getIberoClockDateText() {
+      // Fecha exclusiva de la cabecera: la lógica de programación sigue usando Ecuador.
+      const api = window.IBERO_MERCADOS;
+      const zone = api ? api.getZone() : 'America/Guayaquil';
+      const p = new Intl.DateTimeFormat('es-EC', {
+        timeZone: zone || 'America/Guayaquil', year: 'numeric', month: '2-digit',
+        day: '2-digit', weekday: 'long'
+      }).formatToParts(new Date()).reduce((acc, part) => {
+        if (part.type !== 'literal') acc[part.type] = part.value;
+        return acc;
+      }, {});
       const months = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
       return `${p.weekday.charAt(0).toUpperCase() + p.weekday.slice(1)}, ${parseInt(p.day, 10)} de ${months[parseInt(p.month, 10) - 1]} de ${p.year}`;
     }
@@ -3028,7 +3201,7 @@ body.ibero-calendar-month-sidebar>div.pointer-events-none[class*="-z-10"]{displa
         const zoneLabel = document.getElementById('ibero-clock-zone');
         if (zoneLabel) zoneLabel.textContent = divider >= 0 ? clockText.slice(divider + 3) : '';
       }
-      if (todayLabel) todayLabel.textContent = `Fecha actual: ${getIberoTodayText()}`;
+      if (todayLabel) todayLabel.textContent = `Fecha actual: ${getIberoClockDateText()}`;
 
       const current = getCurrentProgramEvent();
       const next = getNextProgramEvent();
@@ -3492,6 +3665,50 @@ body.ibero-calendar-month-sidebar>div.pointer-events-none[class*="-z-10"]{displa
       return (event.type === 'inscripcion' ? 'Matrícula · ' : event.type === 'gratis' ? 'Clase gratis · ' : '') + name;
     }
 
+    // Pantalla mensual exclusivamente. getCalendarEventLabel se conserva para el PDF.
+    function getCalendarAcademicEventLabel(event) {
+      const labels = {
+        agents: 'Certificación en Productividad y Automatización con IA',
+        marketing: 'Certificación en Marketing Digital con IA',
+        appsDiploma: 'Diplomado en Desarrollo de Aplicaciones',
+        marketingDiploma: 'Diplomado en Marketing Digital con IA',
+        master: 'Máster Ejecutivo en IA',
+        courses: 'Certificación en Creación de Cursos Online',
+        managers: 'Certificación en IA para Administradores y Gerentes',
+        communication: 'Certificación en Comunicación Efectiva'
+      };
+      const registrationLabels = {
+        agents: 'Matrícula · Certificación en Agentes IA',
+        marketing: 'Matrícula · Certificación en Marketing Digital',
+        appsDiploma: 'Matrícula · Diplomado en Desarrollo de Aplicaciones',
+        marketingDiploma: 'Matrícula · Diplomado en Marketing Digital',
+        master: 'Matrícula · Máster Ejecutivo en IA',
+        courses: 'Matrícula · Certificación en Cursos Online',
+        managers: 'Matrícula · Certificación en IA para Gerencia',
+        communication: 'Matrícula · Certificación en Comunicación Efectiva'
+      };
+      const normalizedTitle = String(event.title || '')
+        .normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+      let key = event.programId;
+      if (!labels[key]) {
+        if (/productividad|automatizacion de procesos/.test(normalizedTitle)) key = 'agents';
+        else if (/master ejecutivo/.test(normalizedTitle)) key = 'master';
+        else if (/diplomado.*marketing/.test(normalizedTitle)) key = 'marketingDiploma';
+        else if (/diplomado.*desarrollo de aplicaciones/.test(normalizedTitle)) key = 'appsDiploma';
+        else if (/marketing digital/.test(normalizedTitle)) key = 'marketing';
+        else if (/creacion de cursos|academias digitales/.test(normalizedTitle)) key = 'courses';
+        else if (/administradores|gerentes/.test(normalizedTitle)) key = 'managers';
+        else if (/comunicacion efectiva/.test(normalizedTitle)) key = 'communication';
+      }
+      if (!labels[key]) {
+        return typeof getCalendarDisplayTitle === 'function'
+          ? getCalendarDisplayTitle(event.title)
+          : String(event.title || '');
+      }
+      if (event.type === 'inscripcion') return registrationLabels[key];
+      return (event.type === 'gratis' ? 'Clase gratuita · ' : '') + labels[key];
+    }
+
     function renderCalendar() {
       clampCalendarMonth();
       const title = document.getElementById('calendar-month-title');
@@ -3538,7 +3755,7 @@ body.ibero-calendar-month-sidebar>div.pointer-events-none[class*="-z-10"]{displa
           const isCurrentBadge = isEventActiveOnDate(event, todayStr) && currentStr === todayStr;
           badge.id = `cal-${currentStr}-${getEventDomId(event)}`;
           badge.className = `event-badge ${getProgClass(event)} shadow-sm ${isCurrentBadge ? 'current-event-badge' : ''}`;
-          badge.innerHTML = `${getIconForType(event.type)} ${isCurrentBadge ? '<strong>EN CURSO · </strong>' : ''}<span class="calendar-label-screen">${getCalendarEventLabel(event)}</span><span class="calendar-label-print">${event.title}</span>`;
+          badge.innerHTML = `${getIconForType(event.type)} ${isCurrentBadge ? '<strong>EN CURSO · </strong>' : ''}<span class="calendar-label-screen"><span class="calendar-label-compact">${getCalendarEventLabel(event)}</span><span class="calendar-label-academic">${getCalendarAcademicEventLabel(event)}</span></span><span class="calendar-label-print">${event.title}</span>`;
           badge.title = event.title;
           badge.setAttribute('aria-label', event.title);
           if (!isPastDay && !isOutsideMonth) {
@@ -5121,6 +5338,67 @@ window.IBERO_MERCADOS_CONFIG = {
     detectIP();
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
+})();
+</script>
+<script id="ibero-clock-country-picker-runtime-20261004">
+(function () {
+  'use strict';
+  function validZone(value) {
+    try { return !!value && !!new Intl.DateTimeFormat('es', {timeZone:value}).format(); }
+    catch (_) { return false; }
+  }
+  function option(select, value, label) {
+    const item = document.createElement('option');
+    item.value = value; item.textContent = label; select.appendChild(item);
+  }
+  function syncClockLocationPicker() {
+    const api = window.IBERO_MERCADOS, config = window.IBERO_MERCADOS_CONFIG;
+    const countrySelect = document.getElementById('ibero-clock-country-select');
+    const zoneSelect = document.getElementById('ibero-clock-zone-select');
+    const zoneField = document.getElementById('ibero-clock-zone-field');
+    if (!api || !config || !countrySelect || !zoneSelect || !zoneField) return;
+    const country = api.getCountry(), zone = api.getZone();
+    const countryStamp = config.order.map(code => code + ':' + config.markets[code].name).join('|');
+    if (countrySelect.dataset.optionsStamp !== countryStamp) {
+      countrySelect.replaceChildren();
+      config.order.forEach(code => option(countrySelect, code, config.markets[code].name));
+      countrySelect.dataset.optionsStamp = countryStamp;
+    }
+    countrySelect.value = country;
+    const market = config.markets[country];
+    let zones = (market.zones || []).filter(item => validZone(item[0]));
+    if (!zones.length && market.zone && validZone(market.zone)) zones = [[market.zone, market.zoneLabel || market.name]];
+    // "Otro país" admite cualquier zona IANA sin crear otra tarifa comercial.
+    if (country === 'INTL' && typeof Intl.supportedValuesOf === 'function') {
+      zones = Intl.supportedValuesOf('timeZone').map(value => [value, value.replace(/_/g, ' ').replace(/\//g, ' · ')]);
+    }
+    if (validZone(zone) && !zones.some(item => item[0] === zone)) zones.push([zone, zone.replace(/_/g, ' ').replace(/\//g, ' · ')]);
+    const zoneStamp = country + ':' + zones.map(item => item[0]).join('|');
+    if (zoneSelect.dataset.optionsStamp !== zoneStamp) {
+      zoneSelect.replaceChildren();
+      zones.forEach(item => option(zoneSelect, item[0], item[1]));
+      zoneSelect.dataset.optionsStamp = zoneStamp;
+    }
+    zoneSelect.value = zone;
+    zoneField.hidden = zones.length < 2;
+    if (typeof updateIberoStatusPanel === 'function') updateIberoStatusPanel();
+  }
+  function bootClockLocationPicker() {
+    const countrySelect = document.getElementById('ibero-clock-country-select');
+    const zoneSelect = document.getElementById('ibero-clock-zone-select');
+    if (!countrySelect || !zoneSelect) return;
+    countrySelect.addEventListener('change', function () {
+      if (window.IBERO_MERCADOS) window.IBERO_MERCADOS.apply(countrySelect.value);
+    });
+    zoneSelect.addEventListener('change', function () {
+      const api = window.IBERO_MERCADOS;
+      if (api) api.apply(api.getCountry(), zoneSelect.value);
+    });
+    syncClockLocationPicker();
+  }
+  window.addEventListener('ibero:pais-actualizado', syncClockLocationPicker);
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', bootClockLocationPicker);
+  else bootClockLocationPicker();
 })();
 </script>
 </body>
