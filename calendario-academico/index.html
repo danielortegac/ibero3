@@ -1512,6 +1512,63 @@ body.ibero-calendar-month-sidebar>div.pointer-events-none[class*="-z-10"]{displa
  }
 }
 </style>
+<style id="ibero-calendar-enrollment-labels-20261004">
+@media screen {
+  #calendar-layout #calendar-grid-days .event-badge.calendar-registration-event {
+    display:block!important;background:transparent!important;color:inherit!important;
+    border:0!important;box-shadow:none!important;padding:0!important;min-height:0;
+    max-height:none!important;overflow:visible!important;-webkit-line-clamp:unset!important;
+    white-space:normal!important;
+  }
+  #calendar-layout .calendar-registration-screen {
+    display:flex;flex-direction:column;align-items:flex-start;gap:3px;max-width:100%;
+  }
+  #calendar-layout .calendar-registration-status {
+    display:inline-flex;align-items:center;gap:3px;max-width:100%;box-sizing:border-box;
+    padding:2px 6px;border-radius:9px;border:1px solid #86efac;background:#dcfce7;
+    color:#166534;line-height:1.25;white-space:normal;overflow-wrap:normal;
+    text-transform:none;letter-spacing:0;font-weight:650;
+  }
+  #calendar-layout .calendar-registration-program {
+    --registration-bg:#e5e7eb;--registration-ink:#374151;--registration-border:#d1d5db;
+    display:block;max-width:100%;box-sizing:border-box;padding:2px 6px;
+    border:1px solid var(--registration-border);border-radius:9px;
+    background:var(--registration-bg);color:var(--registration-ink)!important;
+    white-space:normal;overflow-wrap:break-word;line-height:1.3;
+  }
+  #calendar-layout .calendar-registration-program[data-program-color="agents"],
+  #calendar-layout .calendar-registration-program[data-program-color="gerenciaCert"] {
+    --registration-bg:#dbeafe;--registration-ink:#1e3a8a;--registration-border:#93c5fd;
+  }
+  #calendar-layout .calendar-registration-program[data-program-color="marketing"] {
+    --registration-bg:#ede9fe;--registration-ink:#5b21b6;--registration-border:#c4b5fd;
+  }
+  #calendar-layout .calendar-registration-program[data-program-color="master"] {
+    --registration-bg:#1f2937;--registration-ink:#fff;--registration-border:#1f2937;
+  }
+  #calendar-layout .calendar-registration-program[data-program-color="creaCurso"] {
+    --registration-bg:#ccfbf1;--registration-ink:#115e59;--registration-border:#5eead4;
+  }
+  #calendar-layout .calendar-registration-program[data-program-color="hablar"] {
+    --registration-bg:#ffedd5;--registration-ink:#9a3412;--registration-border:#fdba74;
+  }
+  #calendar-layout .calendar-registration-program[data-program-color="gratis"] {
+    --registration-bg:#dcfce7;--registration-ink:#166534;--registration-border:#86efac;
+  }
+  #calendar-layout #view-list .calendar-registration-program {width:fit-content}
+  #calendar-layout #view-list .calendar-registration-program[data-program-color="master"] {
+    --registration-bg:#e2e8f0;--registration-ink:#334155;--registration-border:#cbd5e1;
+  }
+  #calendar-layout #view-list .calendar-registration-program[data-program-color="creaCurso"] {
+    --registration-bg:#e0f2fe;--registration-ink:#075985;--registration-border:#bae6fd;
+  }
+  @media(max-width:767px) {
+    #calendar-layout .calendar-registration-status,
+    #calendar-layout #calendar-grid-days .calendar-registration-program {padding:1px 3px;border-radius:7px}
+    #calendar-layout .calendar-registration-screen {gap:2px}
+  }
+}
+</style>
 </head>
 <body class="antialiased selection:bg-ibero-red selection:text-white ibero-calendar-page">
 <!-- Botón Scroll to Top -->
@@ -3654,8 +3711,8 @@ body.ibero-calendar-month-sidebar>div.pointer-events-none[class*="-z-10"]{displa
               <div id="${getEventDomId(ev)}" class="calendar-event-row flex flex-col sm:flex-row justify-between items-start sm:items-center bg-[#09090B] p-4 rounded-xl border border-white/5 hover:border-white/10 transition-colors ${isEventActiveOnDate(ev) ? 'current-event-highlight' : ''}">
                 <div class="mb-3 sm:mb-0">
                   <div class="flex flex-wrap items-center gap-2 mb-2">
-                    <span class="inline-flex items-center gap-1 text-xs font-bold uppercase tracking-wider px-2 py-1 rounded-md ${getProgClass(ev)}">
-                      ${getIconForType(ev.type)} ${ev.type}
+                    <span class="inline-flex items-center gap-1 text-xs font-bold uppercase tracking-wider px-2 py-1 rounded-md ${getProgClass(ev)} ${ev.type === 'inscripcion' ? 'calendar-registration-status' : ''}">
+                      ${getIconForType(ev.type)} ${ev.type === 'inscripcion' ? 'Matrículas abiertas' : ev.type}
                     </span>
                     ${isEventActiveOnDate(ev) ? '<span class="inline-flex items-center gap-1 text-[10px] font-black uppercase tracking-widest px-2 py-1 rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-400/40"><i class="ph-fill ph-broadcast"></i> En curso</span>' : ''}
                   </div>
@@ -3675,7 +3732,14 @@ body.ibero-calendar-month-sidebar>div.pointer-events-none[class*="-z-10"]{displa
         `;
         card.querySelectorAll('.calendar-event-title').forEach((titleElement, eventIndex) => {
           const officialTitle = weekData.events[eventIndex].title;
-          titleElement.textContent = getCalendarDisplayTitle(officialTitle);
+          const displayEvent = weekData.events[eventIndex];
+          if (displayEvent.type === 'inscripcion') {
+            titleElement.textContent = getCalendarRegistrationProgramLabel(displayEvent, true);
+            titleElement.classList.add('calendar-registration-program');
+            titleElement.dataset.programColor = getCalendarRegistrationProgramColor(displayEvent);
+          } else {
+            titleElement.textContent = getCalendarDisplayTitle(officialTitle);
+          }
           titleElement.title = officialTitle;
           titleElement.setAttribute('aria-label', officialTitle);
         });
@@ -3801,6 +3865,27 @@ body.ibero-calendar-month-sidebar>div.pointer-events-none[class*="-z-10"]{displa
       return (event.type === 'gratis' ? 'Clase gratuita · ' : '') + labels[key];
     }
 
+    // Solo las etiquetas de pantalla; la programación y el PDF conservan sus datos.
+    function getCalendarRegistrationProgramColor(event) {
+      return isFreeClassEvent(event) ? 'gratis' : (getPaymentKey(event) || 'other');
+    }
+
+    function getCalendarRegistrationProgramLabel(event, academic) {
+      return (academic ? getCalendarAcademicEventLabel(event) : getCalendarEventLabel(event))
+        .replace(/^Matrícula\s*·\s*/u, '');
+    }
+
+    function getCalendarRegistrationScreen(event) {
+      const escapeLabel = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+      const color = getCalendarRegistrationProgramColor(event);
+      return '<span class="calendar-label-screen calendar-registration-screen">' +
+        '<span class="calendar-registration-status">' + getIconForType(event.type) + ' Matrículas abiertas</span>' +
+        '<span class="calendar-registration-program" data-program-color="' + color + '">' +
+        '<span class="calendar-label-compact">' + escapeLabel(getCalendarRegistrationProgramLabel(event, false)) + '</span>' +
+        '<span class="calendar-label-academic">' + escapeLabel(getCalendarRegistrationProgramLabel(event, true)) + '</span>' +
+        '</span></span>';
+    }
+
     function renderCalendar() {
       clampCalendarMonth();
       const title = document.getElementById('calendar-month-title');
@@ -3847,7 +3932,12 @@ body.ibero-calendar-month-sidebar>div.pointer-events-none[class*="-z-10"]{displa
           const isCurrentBadge = isEventActiveOnDate(event, todayStr) && currentStr === todayStr;
           badge.id = `cal-${currentStr}-${getEventDomId(event)}`;
           badge.className = `event-badge ${getProgClass(event)} shadow-sm ${isCurrentBadge ? 'current-event-badge' : ''}`;
-          badge.innerHTML = `${getIconForType(event.type)} ${isCurrentBadge ? '<strong>EN CURSO · </strong>' : ''}<span class="calendar-label-screen"><span class="calendar-label-compact">${getCalendarEventLabel(event)}</span><span class="calendar-label-academic">${getCalendarAcademicEventLabel(event)}</span></span><span class="calendar-label-print">${event.title}</span>`;
+          if (event.type === 'inscripcion') {
+            badge.classList.add('calendar-registration-event');
+            badge.innerHTML = getCalendarRegistrationScreen(event) + `<span class="calendar-label-print">${event.title}</span>`;
+          } else {
+  badge.innerHTML = `${getIconForType(event.type)} ${isCurrentBadge ? '<strong>EN CURSO · </strong>' : ''}<span class="calendar-label-screen"><span class="calendar-label-compact">${getCalendarEventLabel(event)}</span><span class="calendar-label-academic">${getCalendarAcademicEventLabel(event)}</span></span><span class="calendar-label-print">${event.title}</span>`;
+          }
           badge.title = event.title;
           badge.setAttribute('aria-label', event.title);
           if (!isPastDay && !isOutsideMonth) {
