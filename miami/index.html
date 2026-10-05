@@ -725,6 +725,16 @@ window.IBERO_MERCADOS_CONFIG = {
   let source = 'default';
   let serial = 0;
   let calendarEvent = null;
+  const sessionKey = C.storageKey + '.navigation.v2';
+  function navigationType() {
+    try {
+      const entries = window.performance && window.performance.getEntriesByType && window.performance.getEntriesByType('navigation');
+      if (entries && entries[0] && entries[0].type) return entries[0].type;
+      const legacy = window.performance && window.performance.navigation && window.performance.navigation.type;
+      return legacy === 1 ? 'reload' : legacy === 2 ? 'back_forward' : 'navigate';
+    } catch (_) { return 'navigate'; }
+  }
+  const entryType = navigationType();
   const currencyNames = {EUR:'euros',USD:'dólares estadounidenses',MXN:'pesos mexicanos',CRC:'colones costarricenses',GTQ:'quetzales',COP:'pesos colombianos',PEN:'soles peruanos',HNL:'lempiras',DOP:'pesos dominicanos',CLP:'pesos chilenos',ARS:'pesos argentinos',UYU:'pesos uruguayos',PYG:'guaraníes'};
   const optionLabel = code => M[code].name + ' · ' + M[code].currency;
   const esc = value => String(value == null ? '' : value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -757,8 +767,9 @@ window.IBERO_MERCADOS_CONFIG = {
     if (/detroit|indiana|kentucky|boise|menominee|north_dakota|adak|sitka|juneau|nome/.test(v)) return 'US';
     return 'INTL';
   }
-  function readSaved() { try { const s = JSON.parse(localStorage.getItem(C.storageKey) || 'null'); return s && validCode(s.country) ? s : null; } catch (_) { return null; } }
-  function save() { try { localStorage.setItem(C.storageKey, JSON.stringify({country:country,zone:zone,manual:true})); } catch (_) {} }
+  function readSaved() { try { const s = JSON.parse(sessionStorage.getItem(sessionKey) || 'null'); return s && s.manual === true && validCode(s.country) ? s : null; } catch (_) { return null; } }
+  function save() { try { sessionStorage.setItem(sessionKey, JSON.stringify({country:country,zone:zone,manual:true})); } catch (_) {} }
+  function clearSaved() { try { sessionStorage.removeItem(sessionKey); } catch (_) {} }
   function programFrom(value) {
     let path = String(value || '').split(/[?#]/)[0].replace(/\/+$/, '').replace(/\/index\.html$/, '');
     try { path = new URL(path, location.origin).pathname.replace(/\/+$/, ''); } catch (_) {}
@@ -1107,15 +1118,21 @@ window.IBERO_MERCADOS_CONFIG = {
     const found=exact||sameDate||(usePublished?cohorts.find(c=>api.isPublicCandidate('agents',c)):null);
     return found?found.id:'';
   }
+  function isInternalPageURL(url) {
+    if (!/^https?:$/.test(url.protocol) || !['ibero.education','www.ibero.education',location.hostname].includes(url.hostname)) return false;
+    const last = url.pathname.split('/').pop() || '';
+    return !(/\.[a-z0-9]+$/i.test(last) && !/\.html?$/i.test(last)) && !/^\/(?:assets|api)\//i.test(url.pathname);
+  }
   function routeURL(value, program, cohort) {
     const url=new URL(value,document.baseURI);
-    if(!['ibero.education','www.ibero.education',location.hostname].includes(url.hostname))return url;
-    const routeCountry=fromPath(url.pathname,false);
-    const targetCountry=routeCountry||validCode(url.searchParams.get('pais')||url.searchParams.get('country'))||country;
-    const targetZone=targetCountry===country?zone:defaultZone(targetCountry);
+    if(!isInternalPageURL(url))return url;
+    if(['ibero.education','www.ibero.education'].includes(location.hostname)){const current=new URL(location.href);url.protocol=current.protocol;url.host=current.host;}
+    const targetCountry=country;
+    const targetZone=zone;
     const slug=url.pathname.replace(/\/index\.html$/,'').replace(/\/+$/,'').split('/').pop();
     const key=program||programFrom(url.pathname);
     url.searchParams.set('pais',targetCountry);
+    url.searchParams.delete('country');
     if(targetZone)url.searchParams.set('zona',targetZone);
     // A destination's explicit cohort is intentional (for example, the November button).
     // Propagate the current cohort only when the destination does not already specify one.
@@ -1127,19 +1144,27 @@ window.IBERO_MERCADOS_CONFIG = {
     return url;
   }
   function syncCountryNavigation(container) {
-    const catalogue=['registro-y-admisiones','calendario-academico','oferta-academica','certificaciones-intensivas','diplomados-intensivos','ibero-labs','espana','contacto'];
     (container||document).querySelectorAll('a[href]').forEach(a=>{
-      if(a.hasAttribute('data-ibero-brochure-general'))return;
+      if(a.hasAttribute('data-ibero-brochure-general')||a.hasAttribute('download'))return;
       const original=a.dataset.iberoCountryHref||a.getAttribute('href')||'';
       if(!original||/^(#|mailto:|tel:|javascript:|data:)/i.test(original))return;
       let url;try{url=new URL(original,document.baseURI);}catch(_){return;}
-      if(!['ibero.education','www.ibero.education',location.hostname].includes(url.hostname))return;
-      const slug=url.pathname.replace(/\/index\.html$/,'').replace(/\/+$/,'').split('/').pop();
-      if(!programFrom(url.pathname)&&!catalogue.includes(slug)&&!fromPath(url.pathname,false))return;
+      if(!isInternalPageURL(url))return;
       if(!a.dataset.iberoCountryHref)a.dataset.iberoCountryHref=original;
       url=routeURL(original);
       const target=/^(https?:)?\/\//i.test(original)?url.href:original.split(/[?#]/)[0]+url.search+url.hash;
       if(a.getAttribute('href')!==target)a.setAttribute('href',target);
+    });
+    // The existing logo uses an inline redirect instead of an anchor.
+    (container||document).querySelectorAll('[onclick]').forEach(el=>{
+      const original=el.dataset.iberoCountryOnclick||el.getAttribute('onclick')||'';
+      const match=original.match(/^\s*(?:window\.)?location\.href\s*=\s*(['"])(.*?)\1\s*;?\s*$/);
+      if(!match)return;
+      let url;try{url=new URL(match[2],document.baseURI);}catch(_){return;}
+      if(!isInternalPageURL(url))return;
+      if(!el.dataset.iberoCountryOnclick)el.dataset.iberoCountryOnclick=original;
+      const target='window.location.href='+JSON.stringify(routeURL(match[2]).href)+';';
+      if(el.getAttribute('onclick')!==target)el.setAttribute('onclick',target);
     });
   }
   function renderAdmissions() {
@@ -1219,17 +1244,17 @@ window.IBERO_MERCADOS_CONFIG = {
       url.searchParams.set('pais',country);url.searchParams.delete('country');
       if(zone)url.searchParams.set('zona',zone);else url.searchParams.delete('zona');
       const target=url.pathname+url.search+url.hash;
-      if(target!==location.pathname+location.search+location.hash)history.replaceState(null,'',target);
+      if(target!==location.pathname+location.search+location.hash)history.replaceState(history.state,'',target);
     }
   }
   function apply(code, origin, requestedZone) {
     const previousCountry=country;
-    country=root.dataset.iberoFixedCountry==='ES'?'ES':validCode(code)||C.defaultCountry;
+    country=validCode(code)||C.defaultCountry;
     zone=chooseZone(country,requestedZone);source=origin||'manual';
     root.dataset.iberoCountry=country;root.dataset.iberoCurrency=M[country].currency;root.dataset.iberoCurrencySource=source;
     window.iberoSelectedCurrency=M[country].currency;
     normalizeRouteSelection(source);
-    if(source==='manual'||source==='url'||source==='storage'){manual=true;save();}
+    if(source==='manual'||source==='url'||source==='path'||source==='session'){manual=true;save();}
     if(previousCountry!==country&&calendarEvent&&calendarEvent.programId==='agents'){
       const api=window.IBERO_PROGRAMACION;
       calendarEvent=api&&api.getCalendarEvents().find(e=>e.programId==='agents'&&e.start===calendarEvent.start&&e.end===calendarEvent.end)||null;
@@ -1283,27 +1308,32 @@ window.IBERO_MERCADOS_CONFIG = {
     return '';
   }
   function detectIP() {
-    if(manual||fromPath()||!window.fetch||!window.AbortController)return;
+    if(manual||!window.fetch||!window.AbortController)return;
     function get(url,timeout) {const ctl=new AbortController();const id=setTimeout(()=>ctl.abort(),timeout);return fetch(url,{cache:'no-store',signal:ctl.signal}).then(r=>r.ok?r.json():null).then(d=>validCode(d&&(d.country_code||d.country))).catch(()=>'').finally(()=>clearTimeout(id));}
     get('https://api.country.is/',1100).then(code=>code||(manual?'':get('https://ipapi.co/json/',1400))).then(code=>{if(code&&!manual)apply(code,'ip',fromTimezone(browserZone())===code?browserZone():null);});
   }
   const API={version:C.version,refresh:refresh,apply:(c,z)=>apply(c,'manual',z),getCountry:()=>country,getZone:()=>zone,priceInfo:priceInfo,priceText:priceText,scheduleText:scheduleText,syncLinks:syncLinks,paymentLink:paymentLink,consultationLink:consultationLink,localizeProgramAnswer:localizeProgramAnswer,renderCalendar:renderCalendar,routeURL:routeURL,regionalCohort:regionalCohort,chatAnswer:chatAnswer,catalogAnswer:catalogAnswer,programSummary:programSummary,programFrom:programFrom};
   window.IBERO_MERCADOS=Object.freeze(API);window.iberoSyncPaymentLinks=syncLinks;
   function boot() {
-    const saved=readSaved();const params=new URLSearchParams(location.search);const specified=validCode(params.get('pais'))||validCode(params.get('country'));
+    const campaignCountry=validCode(root.dataset.iberoFixedCountry);
+    delete root.dataset.iberoFixedCountry;
+    if(entryType==='reload')clearSaved();
+    const saved=entryType==='reload'?null:readSaved();const params=new URLSearchParams(location.search);const specified=entryType==='reload'?'':validCode(params.get('pais'))||validCode(params.get('country'));
     const tz=browserZone();
-    if(root.dataset.iberoFixedCountry==='ES')apply('ES','path',params.get('zona'));
+    if(entryType==='reload')apply(fromTimezone(tz),'timezone',tz);
+    else if(entryType==='back_forward'&&saved)apply(saved.country,'session',saved.zone);
     else if(specified)apply(specified,'url',params.get('zona'));
+    else if(saved)apply(saved.country,'session',saved.zone);
+    else if(campaignCountry)apply(campaignCountry,'path',params.get('zona'));
     else if(fromPath())apply(fromPath(),'path',params.get('zona'));
-    else if(saved)apply(saved.country,'storage',saved.zone);
-    else {const pc=fromPath(),tc=fromTimezone(tz);apply(pc||tc,pc?'path':'timezone',(pc||tc)===tc?tz:null);}
+    else apply(fromTimezone(tz),'timezone',tz);
     document.addEventListener('change',e=>{
       if(e.target.matches('[data-ibero-market-select]'))apply(e.target.value,'manual');
       if(e.target.matches('[data-ibero-zone-select]'))apply(country,'manual',e.target.value);
       if(e.target.matches('[data-ibero-price-view]')){const panel=e.target.closest('[data-ibero-all-prices]');if(panel){panel.dataset.iberoPriceView=e.target.value;renderAllPrices(panel.parentElement);}}
     });
     window.addEventListener('ibero:programacion-actualizada',()=>{syncSchedules();renderCalendar();});
-    window.addEventListener('storage',e=>{if(e.key===C.storageKey){const s=readSaved();if(s)apply(s.country,'storage',s.zone);}});
+    window.addEventListener('pageshow',e=>{if(e.persisted){const s=readSaved();if(s)apply(s.country,'session',s.zone);else{manual=false;const tz=browserZone();apply(fromTimezone(tz),'timezone',tz);detectIP();}}});
     // Solo normaliza los enlaces añadidos por el chat/calendario; no reescribe precios en un bucle.
     let pending=false;new MutationObserver(records=>{if(pending||!records.some(r=>Array.from(r.addedNodes).some(n=>n.nodeType===1)))return;pending=true;queueMicrotask(()=>{pending=false;syncLinks();syncCountryNavigation();});}).observe(document.body,{childList:true,subtree:true});
     detectIP();
