@@ -1072,6 +1072,200 @@ body.ibero-calendar-month-sidebar>div.pointer-events-none[class*="-z-10"]{displa
  }
 }
 </style>
+<style id="ibero-calendar-lista-detalle-preview-20261004">
+/* Propuesta local: Lista y detalle claros. El mes, los datos y la impresión se conservan. */
+@media screen{
+ body.ibero-calendar-page:has(#calendar-layout[data-calendar-view="list"]){background:#f3f4f6;color:#0f172a}
+ body:has(#calendar-layout[data-calendar-view="list"])>div.pointer-events-none[class*="-z-10"]{display:none}
+ #calendar-layout[data-calendar-view="list"] #header-section{background:#f3f4f6;color:#0f172a;padding-block:24px 12px}
+ #calendar-layout[data-calendar-view="list"] #header-section>div.absolute{display:none}
+ #calendar-layout[data-calendar-view="list"] .month-schedule-content>.inline-flex{background:#fff;color:#475569;border-color:#e2e8f0;box-shadow:none}
+ #calendar-layout[data-calendar-view="list"] #header-section h1,#calendar-layout[data-calendar-view="list"] #header-section h1>span{font-family:inherit;font-style:normal;font-weight:750;color:#0f172a;background:none;-webkit-text-fill-color:currentColor;font-size:clamp(24px,3vw,32px);line-height:1.2}
+ #calendar-layout[data-calendar-view="list"] .schedule-times-block{color:#64748b}
+ #calendar-layout[data-calendar-view="list"] .schedule-times-block .rounded-xl{background:#fff;border-color:#e2e8f0;box-shadow:none}
+ #calendar-layout[data-calendar-view="list"] .schedule-times-block span,#calendar-layout[data-calendar-view="list"] .schedule-times-block a{color:#475569}
+ #calendar-layout[data-calendar-view="list"] #controls-section>div{background:#fff;border-color:#e2e8f0;box-shadow:0 2px 8px rgba(15,23,42,.03);border-radius:18px;padding:16px}
+ #calendar-layout[data-calendar-view="list"] #controls-section label{color:#64748b}
+ #calendar-layout[data-calendar-view="list"] #controls-section>div>div:first-child>.grid>div:first-child>.flex{background:#f1f5f9;border-color:#e2e8f0;gap:4px;padding:4px;border-radius:12px}
+ #calendar-layout[data-calendar-view="list"] #btn-view-list{background:#e2e8f0;color:#0f172a;box-shadow:inset 0 -2px 0 #94a3b8;border-radius:8px}
+ #calendar-layout[data-calendar-view="list"] #btn-view-cal{background:transparent;color:#475569;box-shadow:none;border-radius:8px}
+ #calendar-layout[data-calendar-view="list"] #btn-view-cal:hover{background:#e2e8f0}
+ #calendar-layout[data-calendar-view="list"] #prog-dropdown-btn,#calendar-layout[data-calendar-view="list"] #filter-type,#calendar-layout[data-calendar-view="list"] #prog-dropdown-menu{background:#fff;color:#0f172a;border-color:#cbd5e1}
+ #calendar-layout[data-calendar-view="list"] #prog-dropdown-text{white-space:normal;text-align:left;overflow:visible;text-overflow:clip}
+ #calendar-layout[data-calendar-view="list"] #prog-dropdown-menu{width:max(100%,340px);max-width:calc(100vw - 48px);border-radius:12px}
+ #calendar-layout[data-calendar-view="list"] #prog-dropdown-menu label,#calendar-layout[data-calendar-view="list"] #prog-dropdown-menu label span{color:#334155!important;border-color:#e2e8f0}
+ #calendar-layout[data-calendar-view="list"] #prog-dropdown-menu .line-clamp-2{display:block;-webkit-line-clamp:unset;overflow:visible}
+ #calendar-layout[data-calendar-view="list"] #prog-dropdown-menu label:hover{background:#f8fafc}
+ #calendar-layout[data-calendar-view="list"] #pdf-btn{background:#fff;color:#334155;border:1px solid #cbd5e1;box-shadow:none}
+ #calendar-layout[data-calendar-view="list"] #pdf-btn:hover{background:#f8fafc}
+ #calendar-layout[data-calendar-view="list"] #controls-section .ibero-status-panel{background:#f8fafc;border-color:#e2e8f0;border-radius:12px;padding:12px}
+ #calendar-layout[data-calendar-view="list"] #btn-current-program{background:transparent;border:0;box-shadow:none;animation:none;padding:6px 0}
+ #calendar-layout[data-calendar-view="list"] #btn-current-program>span:first-child{color:#64748b;letter-spacing:0;text-transform:none}
+ #calendar-layout[data-calendar-view="list"] #ibero-current-program-label{color:#334155;font-size:13px;line-height:1.5;white-space:normal;overflow:visible;-webkit-line-clamp:unset;display:block}
+ #calendar-layout[data-calendar-view="list"] #controls-section #ibero-today-label,#calendar-layout[data-calendar-view="list"] #controls-section #ibero-clock-zone{color:#64748b}
+ #calendar-layout[data-calendar-view="list"] #app-container{max-width:1240px;padding-inline:24px}
+ #calendar-layout[data-calendar-view="list"] #view-list{width:100%;max-width:none}
+ #calendar-layout[data-calendar-view="list"] .calendar-week-card{padding:20px!important;border-radius:20px!important;background:#fff;border:1px solid #e2e8f0;box-shadow:0 2px 10px rgba(15,23,42,.035);transform:none!important;overflow:visible}
+ #calendar-layout[data-calendar-view="list"] .calendar-week-card>div:first-child{background:#cbd5e1;top:22px;bottom:22px;left:0;height:auto;width:3px;border-radius:0 3px 3px 0;opacity:1}
+ #calendar-layout[data-calendar-view="list"] .calendar-week-card>div:nth-child(2){padding-left:0;margin-bottom:16px}
+ #calendar-layout[data-calendar-view="list"] .calendar-week-card h3{color:#0f172a;font-size:18px!important;line-height:1.35;font-weight:750;padding-right:112px}
+ #calendar-layout[data-calendar-view="list"] .calendar-week-date{color:#64748b;font-size:12px!important;line-height:1.5;margin-top:4px}
+ #calendar-layout[data-calendar-view="list"] .calendar-week-date i{color:#64748b}
+ #calendar-layout[data-calendar-view="list"] .calendar-week-card.is-current-week{border-color:#cbd5e1!important;box-shadow:0 2px 10px rgba(15,23,42,.035)!important}
+ #calendar-layout[data-calendar-view="list"] .calendar-week-card.is-current-week::after{top:20px;right:20px;background:#f1f5f9;color:#475569;border-color:#e2e8f0;font-size:10px;font-weight:650;letter-spacing:0;text-transform:none}
+ #calendar-layout[data-calendar-view="list"] .calendar-week-events{padding-left:0;gap:12px}
+ #calendar-layout[data-calendar-view="list"] .calendar-week-events>:not([hidden])~:not([hidden]){margin-top:12px}
+ #calendar-layout[data-calendar-view="list"] .calendar-event-row{display:grid;grid-template-columns:minmax(0,1fr);align-items:start;padding:16px 18px!important;border-radius:16px!important;gap:14px;background:#fafbfd;border-color:#e2e8f0;box-shadow:none}
+ #calendar-layout[data-calendar-view="list"] .calendar-event-row:hover{background:#f8fafc;border-color:#cbd5e1}
+ #calendar-layout[data-calendar-view="list"] .calendar-event-row>div:first-child{margin:0;min-width:0}
+ #calendar-layout[data-calendar-view="list"] .calendar-event-title{display:block;color:#0f172a;font-size:15px!important;font-weight:650;line-height:1.5!important;letter-spacing:0;white-space:normal;overflow:visible;max-height:none;text-overflow:clip;word-break:normal;overflow-wrap:break-word;-webkit-line-clamp:unset}
+ #calendar-layout[data-calendar-view="list"] .calendar-event-schedule{color:#64748b;font-size:12px!important;line-height:1.6;margin-top:6px;white-space:normal}
+ #calendar-layout[data-calendar-view="list"] .calendar-event-row [class*="prog-"]{padding:4px 10px;font-size:10px;line-height:1.4;font-weight:650;letter-spacing:.025em;border-radius:999px;border:1px solid transparent}
+ #calendar-layout[data-calendar-view="list"] .calendar-event-row .prog-marketing{background:#dbeafe;color:#1e3a8a;border-color:#93c5fd}
+ #calendar-layout[data-calendar-view="list"] .calendar-event-row[id*="-certificacion-en-marketing-digital-"] .prog-marketing{background:#ede9fe;color:#5b21b6;border-color:#c4b5fd}
+ #calendar-layout[data-calendar-view="list"] .calendar-event-row .prog-diplo{background:#e5e7eb;color:#374151;border-color:#d1d5db}
+ #calendar-layout[data-calendar-view="list"] .calendar-event-row[id*="-diplomado-"] .prog-marketing{background:#e5e7eb;color:#374151;border-color:#d1d5db}
+ #calendar-layout[data-calendar-view="list"] .calendar-event-row .prog-master{background:#e2e8f0;color:#334155;border-color:#cbd5e1}
+ #calendar-layout[data-calendar-view="list"] .calendar-event-row .prog-hablar{background:#ffedd5;color:#9a3412;border-color:#fdba74}
+ #calendar-layout[data-calendar-view="list"] .calendar-event-row .prog-crea{background:#e0f2fe;color:#075985;border-color:#bae6fd}
+ #calendar-layout[data-calendar-view="list"] .calendar-event-row .prog-comercial,#calendar-layout[data-calendar-view="list"] .calendar-event-row .prog-gratis{background:#f1f5f9;color:#334155;border-color:#cbd5e1}
+ #calendar-layout[data-calendar-view="list"] .calendar-event-row .prog-inscripcion{background:#dcfce7;color:#166534;border-color:#86efac}
+ #calendar-layout[data-calendar-view="list"] .calendar-event-row.current-event-highlight{border-color:#94a3b8!important;box-shadow:none!important}
+ #calendar-layout[data-calendar-view="list"] .calendar-event-row>div:first-child>div>span:not([class*="prog-"]){background:#e2e8f0;color:#334155;border-color:#cbd5e1;letter-spacing:0;text-transform:none}
+ #calendar-layout[data-calendar-view="list"] .calendar-event-actions{display:flex;flex-direction:row;justify-content:flex-start;flex-wrap:wrap;gap:8px!important;width:100%;margin-top:0!important}
+ #calendar-layout[data-calendar-view="list"] .calendar-event-actions a,#calendar-layout[data-calendar-view="list"] .calendar-event-actions button{flex:none;min-width:0;min-height:36px;padding:8px 13px!important;font-size:12px!important;line-height:1.4;border-radius:10px;white-space:normal;background:#fff;color:#475569;border:1px solid #cbd5e1;box-shadow:none}
+ #calendar-layout[data-calendar-view="list"] .calendar-event-actions a:first-child{background:#dc2626;color:#fff;border-color:#dc2626}
+ #calendar-layout[data-calendar-view="list"] .calendar-event-actions a:first-child:hover{background:#b91c1c;border-color:#b91c1c}
+ #calendar-layout[data-calendar-view="list"] .calendar-event-actions a:not(:first-child):hover,#calendar-layout[data-calendar-view="list"] .calendar-event-actions button:hover{background:#f1f5f9;color:#0f172a}
+ #calendar-layout[data-calendar-view="list"] #view-list>div.text-center{color:#64748b;background:#fff;border:1px solid #e2e8f0;border-radius:20px}
+ /* La Lista conserva los mismos controles en una cabecera compacta. */
+ #calendar-layout[data-calendar-view="list"]{display:block;padding:12px 16px 20px}
+ #calendar-layout[data-calendar-view="list"] #calendar-sidebar{display:grid;grid-template-columns:220px minmax(0,1fr);gap:14px;align-items:start;margin-bottom:16px}
+ #calendar-layout[data-calendar-view="list"] #header-section{background:#fff;color:#0f172a;text-align:left;padding:12px 14px;border:1px solid #e2e8f0;border-radius:16px;overflow:visible;position:relative;z-index:50}
+ #calendar-layout[data-calendar-view="list"] #header-section>div.relative{padding:0}
+ #calendar-layout[data-calendar-view="list"] #header-section .calendar-heading-label{display:block!important;font-size:20px;line-height:1.35;font-weight:750;letter-spacing:-.02em;color:#0f172a;margin:0 0 8px}
+ #calendar-layout[data-calendar-view="list"] #month-schedule-details{display:block;margin:0}
+ #calendar-layout[data-calendar-view="list"] #month-schedule-details>summary{display:list-item;font-size:12px;font-weight:550;line-height:1.5;color:#64748b;list-style-position:inside;cursor:pointer}
+ #calendar-layout[data-calendar-view="list"] #month-schedule-details:not([open]) .month-schedule-content{display:none!important}
+ #calendar-layout[data-calendar-view="list"] #month-schedule-details[open] .month-schedule-content{display:block;position:absolute;top:calc(100% + 6px);left:0;width:min(390px,calc(100vw - 32px));box-sizing:border-box;padding:16px;background:#fff;border:1px solid #e2e8f0;border-radius:16px;box-shadow:0 16px 36px rgba(15,23,42,.13);z-index:60}
+ #calendar-layout[data-calendar-view="list"] #header-section h1,#calendar-layout[data-calendar-view="list"] #header-section h1>span{font-size:18px;line-height:1.3;margin-bottom:10px}
+ #calendar-layout[data-calendar-view="list"] .schedule-times-block{font-size:12px;line-height:1.5;padding:0}
+ #calendar-layout[data-calendar-view="list"] .schedule-times-block>p{font-size:12px;line-height:1.5;margin-bottom:10px}
+ #calendar-layout[data-calendar-view="list"] .schedule-times-block>div{display:flex;flex-direction:column;gap:8px}
+ #calendar-layout[data-calendar-view="list"] .schedule-times-block .rounded-xl{background:#f8fafc;width:100%;padding:10px!important;text-align:left!important;align-items:flex-start!important}
+ #calendar-layout[data-calendar-view="list"] .schedule-times-block span,#calendar-layout[data-calendar-view="list"] .schedule-times-block a{font-size:12px!important;line-height:1.5!important;letter-spacing:0!important}
+ #calendar-layout[data-calendar-view="list"] #controls-section{max-width:none;padding:0;margin:0;min-width:0}
+ #calendar-layout[data-calendar-view="list"] #controls-section>div{border-radius:16px;padding:8px;gap:6px}
+ #calendar-layout[data-calendar-view="list"] #controls-section>div>div:first-child{display:flex;flex-direction:row;align-items:end;gap:12px}
+ #calendar-layout[data-calendar-view="list"] #controls-section>div>div:first-child>.grid{display:grid;grid-template-columns:164px minmax(180px,1fr) 180px;gap:12px;align-items:end;min-width:0}
+ #calendar-layout[data-calendar-view="list"] #controls-section>div>div:first-child>div:last-child{width:100px;flex:none}
+ #calendar-layout[data-calendar-view="list"] #controls-section label{font-size:11px;line-height:1.3;margin-bottom:3px}
+ #calendar-layout[data-calendar-view="list"] #controls-section button:not(#btn-current-program),#calendar-layout[data-calendar-view="list"] #controls-section select{font-size:12px;padding:7px 10px;min-height:36px;line-height:1.4;border-radius:8px;box-sizing:border-box}
+ #calendar-layout[data-calendar-view="list"] #btn-view-list,#calendar-layout[data-calendar-view="list"] #btn-view-cal{padding:4px 8px!important;min-width:0;min-height:28px!important;height:28px}
+ #calendar-layout[data-calendar-view="list"] #controls-section .ibero-status-panel{display:grid;grid-template-columns:minmax(210px,auto) minmax(0,1fr);gap:16px;align-items:center;border-radius:10px;padding:7px 9px}
+ #calendar-layout[data-calendar-view="list"] #controls-section .ibero-status-panel>div:last-child{display:block;min-width:0}
+ #calendar-layout[data-calendar-view="list"] #app-container{max-width:none;padding:0}
+ /* El detalle utiliza el mismo lenguaje claro, con precio y condiciones siempre legibles. */
+ #program-modal{z-index:20000}
+ #program-modal #modal-content-box{background:#fff;color:#0f172a;border-color:#e2e8f0;border-radius:22px;max-width:760px;box-shadow:0 24px 80px rgba(15,23,42,.24)}
+ #program-modal #modal-content-box>div:first-child{background:#f8fafc;border-bottom:1px solid #e2e8f0;border-radius:22px 22px 0 0;padding:22px 58px 20px 24px}
+ #program-modal #modal-content-box>div:first-child>button{color:#64748b;top:18px;right:18px;width:32px;height:32px;border:1px solid #e2e8f0;border-radius:50%;display:grid;place-items:center;background:#fff}
+ #program-modal #modal-content-box>div:first-child>button:hover{color:#0f172a;background:#f1f5f9}
+ #program-modal #modal-title{font-family:inherit!important;font-style:normal!important;font-weight:700;color:#0f172a;font-size:clamp(20px,2.2vw,27px);line-height:1.35;letter-spacing:-.018em;white-space:normal;word-break:normal;overflow-wrap:break-word;max-height:none;overflow:visible}
+ #program-modal #modal-badge{padding:5px 11px;border-radius:999px;font-size:10px;line-height:1.4;letter-spacing:.035em;font-weight:650;border:1px solid #cbd5e1;margin-bottom:12px}
+ #program-modal #modal-badge.prog-marketing{background:#dbeafe;color:#1e3a8a;border-color:#93c5fd}
+ #program-modal:has(#btn-ver-programa[href*="/marketing-digital-con-ia"]) #modal-badge.prog-marketing{background:#ede9fe;color:#5b21b6;border-color:#c4b5fd}
+ #program-modal #modal-badge.prog-diplo,#program-modal #modal-badge.prog-master,#program-modal #modal-badge.prog-gratis{background:#e5e7eb;color:#374151;border-color:#d1d5db}
+ #program-modal:has(#btn-ver-programa[href*="/diplomado"]) #modal-badge{background:#e5e7eb;color:#374151;border-color:#d1d5db}
+ #program-modal #modal-badge.prog-inscripcion{background:#dcfce7;color:#166534;border-color:#86efac}
+ #program-modal #modal-badge.prog-hablar{background:#ffedd5;color:#9a3412;border-color:#fdba74}
+ #program-modal #modal-badge.prog-crea{background:#e0f2fe;color:#075985;border-color:#bae6fd}
+ #program-modal #modal-badge.prog-comercial{background:#f1f5f9;color:#334155;border-color:#cbd5e1}
+ #program-modal #modal-content-box>div:nth-child(2){padding:22px 24px;min-height:0;flex:1 1 auto;scrollbar-width:thin;scrollbar-color:#cbd5e1 #f8fafc}
+ #program-modal #modal-content-box>div:nth-child(2)::-webkit-scrollbar{width:6px}
+ #program-modal #modal-content-box>div:nth-child(2)::-webkit-scrollbar-track{background:#f8fafc}
+ #program-modal #modal-content-box>div:nth-child(2)::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:999px}
+ #program-modal #modal-desc{font-size:14px;line-height:1.7;color:#475569;margin-bottom:20px}
+ #program-modal #modal-content-box>div:nth-child(2)>.grid{gap:12px;margin-bottom:22px}
+ #program-modal #modal-content-box>div:nth-child(2)>.grid>div{background:#f8fafc;border-color:#e2e8f0;padding:14px;border-radius:14px;align-items:flex-start;min-width:0}
+ #program-modal #modal-content-box>div:nth-child(2)>.grid>div>div:first-child{flex-shrink:0}
+ #program-modal #modal-content-box>div:nth-child(2)>.grid>div>div:last-child{min-width:0}
+ #program-modal #modal-content-box>div:nth-child(2)>.grid p{color:#64748b;font-size:12px;line-height:1.55}
+ #program-modal #modal-dates,#program-modal #modal-schedule{color:#334155!important;font-size:13px!important;font-weight:650;line-height:1.6;white-space:normal;overflow-wrap:break-word}
+ #program-modal #investment-section>h4{color:#64748b;font-size:11px;font-weight:650;letter-spacing:.055em}
+ #program-modal #modal-prices .ibero-modal-price{background:#f8fafc;border-color:#e2e8f0;border-radius:16px;padding:18px;color:#475569}
+ #program-modal #modal-prices .ibero-modal-price small{color:#64748b;font-size:12px}
+ #program-modal #modal-prices .ibero-modal-price strong{color:#0f172a;font-size:30px;line-height:1.2;margin-top:7px;font-weight:750;letter-spacing:-.025em}
+ #program-modal #modal-prices .ibero-price-tax{color:#475569;opacity:1;font-size:13px}
+ #program-modal #modal-prices .ibero-payment-copy{color:#475569;font-size:13px;line-height:1.65;margin-top:12px}
+ #program-modal #modal-prices .ibero-payment-copy strong{color:#334155;font-size:14px;letter-spacing:0}
+ #program-modal #modal-prices .ibero-modal-monthly{border-color:#e2e8f0}
+ #program-modal .ibero-market-control[data-theme="dark"]{--market-bg:#fff;--market-fg:#0f172a;--market-border:#cbd5e1;--market-muted:#475569;--market-soft:#f8fafc;--market-accent:#64748b;color-scheme:light}
+ #program-modal #modal-registration-status{color:#475569!important;font-size:12px;line-height:1.6}
+ #program-modal #modal-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:0;padding:16px 24px;border-color:#e2e8f0;flex-shrink:0;background:#fff;border-radius:0 0 22px 22px}
+ #program-modal #modal-actions>a,#program-modal #modal-actions>button{padding:11px 12px;font-size:12px;line-height:1.5;min-width:0;border-radius:11px;border-color:#cbd5e1;background:#fff;color:#334155;box-shadow:none;text-align:center;white-space:normal}
+ #program-modal #modal-actions>a:hover,#program-modal #modal-actions>button:hover{background:#f1f5f9}
+ #program-modal #btn-inscribete{background:#dc2626!important;color:#fff!important;border-color:#dc2626!important}
+ #program-modal #btn-inscribete:hover{background:#b91c1c!important}
+ #program-modal #btn-gcal{background:#f1f5f9!important;color:#334155!important;border:1px solid #cbd5e1}
+ #program-modal #btn-gcal[aria-disabled="true"]{color:#64748b!important}
+ #program-modal a:focus-visible,#program-modal button:focus-visible,#calendar-layout[data-calendar-view="list"] .calendar-event-actions :focus-visible{outline:2px solid #64748b;outline-offset:3px}
+ @media(min-width:1200px){
+  #calendar-layout[data-calendar-view="list"] .calendar-event-row{grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:22px}
+  #calendar-layout[data-calendar-view="list"] .calendar-event-actions{width:auto;max-width:340px;justify-content:flex-end}
+ }
+ @media(max-width:1023px){
+  #calendar-layout[data-calendar-view="list"] #calendar-sidebar{grid-template-columns:minmax(0,1fr);gap:10px}
+  #calendar-layout[data-calendar-view="list"] #header-section>div.relative{display:flex;align-items:center;justify-content:space-between;gap:12px}
+  #calendar-layout[data-calendar-view="list"] #header-section .calendar-heading-label{margin:0}
+ }
+ @media(max-width:767px){
+  #calendar-layout[data-calendar-view="list"] #calendar-mobile-dock:not([hidden]){display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:0 0 16px;padding:0 2px}
+  #calendar-layout[data-calendar-view="list"] #calendar-mobile-dock #ibero-calendar-floating-toggle,#calendar-layout[data-calendar-view="list"] #calendar-mobile-dock #ibero-ecosystem-wrap{position:relative;top:auto;bottom:auto;left:auto;right:auto;z-index:100}
+  #calendar-layout[data-calendar-view="list"] #calendar-mobile-dock #ibero-calendar-floating-toggle button,#calendar-layout[data-calendar-view="list"] #calendar-mobile-dock #ibero-ecosystem-toggle{font-size:10px;padding:9px 12px;box-shadow:none;border-color:#cbd5e1}
+  #calendar-layout[data-calendar-view="list"] #calendar-mobile-dock #ibero-ecosystem-panel{position:fixed;bottom:18px;left:50%;right:auto;width:min(358px,calc(100vw - 20px));max-width:calc(100vw - 20px);transform:translateX(-50%);box-sizing:border-box}
+  #calendar-layout[data-calendar-view="list"] #controls-section>div>div:first-child{display:grid;grid-template-columns:minmax(0,1fr) 104px;gap:10px}
+  #calendar-layout[data-calendar-view="list"] #controls-section>div>div:first-child>.grid{display:contents}
+  #calendar-layout[data-calendar-view="list"] #controls-section>div>div:first-child>.grid>div:first-child{grid-column:1;grid-row:1}
+  #calendar-layout[data-calendar-view="list"] #controls-section>div>div:first-child>.grid>div:first-child>label{position:absolute;width:1px;height:1px;padding:0;margin:0;overflow:hidden;clip-path:inset(50%)}
+  #calendar-layout[data-calendar-view="list"] #controls-section>div>div:first-child>.grid>div:nth-child(2){grid-column:1/-1;grid-row:2}
+  #calendar-layout[data-calendar-view="list"] #controls-section>div>div:first-child>.grid>div:last-child{grid-column:1/-1;grid-row:3}
+  #calendar-layout[data-calendar-view="list"] #controls-section>div>div:first-child>div:last-child{grid-column:2;grid-row:1;width:100%;align-self:stretch}
+  #calendar-layout[data-calendar-view="list"] #pdf-btn{height:100%}
+  #calendar-layout[data-calendar-view="list"] #controls-section .ibero-status-panel{grid-template-columns:minmax(0,1fr);gap:7px;padding:9px}
+  #calendar-layout[data-calendar-view="list"] #btn-current-program{width:100%;padding:0}
+ }
+ @media(max-width:639px){
+  #calendar-layout[data-calendar-view="list"]{padding:10px 12px 20px}
+  #calendar-layout[data-calendar-view="list"] #header-section{padding:12px}
+  #calendar-layout[data-calendar-view="list"] #header-section>div.relative{align-items:flex-start;flex-direction:column;gap:4px}
+  #calendar-layout[data-calendar-view="list"] #header-section .calendar-heading-label{font-size:19px}
+  #calendar-layout[data-calendar-view="list"] #controls-section{padding:0}
+  #calendar-layout[data-calendar-view="list"] #controls-section>div{padding:9px;border-radius:16px}
+  #calendar-layout[data-calendar-view="list"] #prog-dropdown-menu{max-width:calc(100vw - 48px);min-width:0;width:100%}
+  #calendar-layout[data-calendar-view="list"] #app-container{padding:0}
+  #calendar-layout[data-calendar-view="list"] .calendar-week-card{padding:14px!important;border-radius:18px!important}
+  #calendar-layout[data-calendar-view="list"] .calendar-week-card h3{font-size:16px!important;padding-right:98px}
+  #calendar-layout[data-calendar-view="list"] .calendar-week-card.is-current-week::after{top:14px;right:14px;font-size:9px;padding:4px 7px}
+  #calendar-layout[data-calendar-view="list"] .calendar-week-date{font-size:11px!important}
+  #calendar-layout[data-calendar-view="list"] .calendar-event-row{padding:13px!important;gap:12px;border-radius:14px!important}
+  #calendar-layout[data-calendar-view="list"] .calendar-event-title{font-size:14px!important;line-height:1.5!important}
+  #calendar-layout[data-calendar-view="list"] .calendar-event-schedule{font-size:11px!important;line-height:1.6}
+  #calendar-layout[data-calendar-view="list"] .calendar-event-actions{gap:7px!important}
+  #calendar-layout[data-calendar-view="list"] .calendar-event-actions a,#calendar-layout[data-calendar-view="list"] .calendar-event-actions button{font-size:11px!important;padding:8px 10px!important;min-height:36px;flex:1 1 auto}
+  #program-modal #modal-content-box{margin:12px;width:calc(100% - 24px);max-height:calc(100dvh - 24px);border-radius:18px}
+  #program-modal #modal-content-box>div:first-child{padding:18px 48px 18px 18px;border-radius:18px 18px 0 0}
+  #program-modal #modal-content-box>div:first-child>button{top:12px;right:12px;width:28px;height:28px}
+  #program-modal #modal-title{font-size:20px;line-height:1.4}
+  #program-modal #modal-content-box>div:nth-child(2){padding:18px}
+  #program-modal #modal-desc{font-size:13px;line-height:1.7}
+  #program-modal #modal-prices .ibero-modal-price{padding:16px}
+  #program-modal #modal-prices .ibero-modal-price strong{font-size:28px}
+  #program-modal #modal-actions{gap:8px;padding:12px 18px;border-radius:0 0 18px 18px}
+  #program-modal #modal-actions>a,#program-modal #modal-actions>button{font-size:11px;padding:10px 8px}
+ }
+}
+</style>
 </head>
 <body class="antialiased selection:bg-ibero-red selection:text-white ibero-calendar-page">
 <!-- Botón Scroll to Top -->
@@ -1611,7 +1805,8 @@ body.ibero-calendar-month-sidebar>div.pointer-events-none[class*="-z-10"]{displa
 <div data-ibero-market-mount data-theme="dark" data-program="" id="calendar-payment-country-box" class="ibero-market-control" style="width:min(100%,430px)"><label class="ibero-market-label" for="calendar-payment-country-box-select">Selecciona tu país</label><div class="ibero-select-wrap"><select class="ibero-market-select" id="calendar-payment-country-box-select" data-ibero-market-select><option value="MX">México · MXN</option><option value="CR">Costa Rica · CRC</option><option value="GT">Guatemala · GTQ</option><option value="EC" selected>Ecuador · USD</option><option value="CO">Colombia · COP</option><option value="PE">Perú · PEN</option><option value="SV">El Salvador · USD</option><option value="HN">Honduras · HNL</option><option value="PA">Panamá · USD</option><option value="DO">República Dominicana · DOP</option><option value="PR">Puerto Rico · USD</option><option value="CL">Chile · CLP</option><option value="AR">Argentina · ARS</option><option value="UY">Uruguay · UYU</option><option value="PY">Paraguay · PYG</option><option value="US">Estados Unidos · USD</option><option value="ES">España · EUR (Agentes)</option><option value="INTL">Otro país · USD</option></select></div></div>
 <!-- Acciones -->
 <p id="modal-registration-status" role="status" hidden style="flex-basis:100%;font-size:13px;line-height:1.5;color:#d4d4d8;margin:0 0 10px"></p>
-<div class="flex flex-col sm:flex-row gap-3 border-t border-white/10 pt-6">
+</div>
+<div class="flex flex-col sm:flex-row gap-3 border-t border-white/10 pt-6" id="modal-actions">
 <a class="hidden flex-1 bg-ibero-red hover:bg-ibero-darkRed text-white font-bold py-3 px-4 rounded-lg items-center justify-center gap-2 transition-colors shadow-lg shadow-red-500/25" href="#" id="btn-inscribete" target="_blank">
 <i class="ph-fill ph-link text-xl">
 </i>
@@ -1630,7 +1825,6 @@ body.ibero-calendar-month-sidebar>div.pointer-events-none[class*="-z-10"]{displa
 <button class="flex-1 border border-white/20 text-white hover:bg-white/10 font-bold py-3 px-4 rounded-lg transition-colors" onclick="closeEventModal()">
        Cerrar
       </button>
-</div>
 </div>
 </div>
 </div>
@@ -3032,7 +3226,13 @@ body.ibero-calendar-month-sidebar>div.pointer-events-none[class*="-z-10"]{displa
     function syncCalendarMobileDock() {
       const dock = document.getElementById('calendar-mobile-dock');
       if (!dock) return;
-      const useDock = currentView === 'calendar';
+      const useListMobileDock = currentView === 'list' && window.matchMedia('(max-width:767px)').matches;
+      const useDock = currentView === 'calendar' || useListMobileDock;
+      const app = document.getElementById('app-container');
+      if (app) {
+        if (useListMobileDock) app.before(dock);
+        else app.after(dock);
+      }
       ['ibero-calendar-floating-toggle', 'ibero-ecosystem-wrap'].forEach(id => {
         const wrapper = document.getElementById(id);
         if (!wrapper) return;
@@ -3057,7 +3257,7 @@ body.ibero-calendar-month-sidebar>div.pointer-events-none[class*="-z-10"]{displa
       if(layout)layout.dataset.calendarView=currentView;
       document.body.classList.toggle('ibero-calendar-month-sidebar',currentView==='calendar');
       const schedules = document.getElementById('month-schedule-details');
-      if (schedules) schedules.open = currentView === 'list';
+      if (schedules) schedules.open = false;
       syncCalendarMobileDock();
       if (currentView === 'list') {
         document.getElementById('view-list').classList.remove('hidden');
@@ -3208,6 +3408,12 @@ body.ibero-calendar-month-sidebar>div.pointer-events-none[class*="-z-10"]{displa
             `).join('') : '<p class="text-ibero-gray italic text-sm">Sin eventos programados para esta semana.</p>'}
           </div>
         `;
+        card.querySelectorAll('.calendar-event-title').forEach((titleElement, eventIndex) => {
+          const officialTitle = weekData.events[eventIndex].title;
+          titleElement.textContent = getCalendarDisplayTitle(officialTitle);
+          titleElement.title = officialTitle;
+          titleElement.setAttribute('aria-label', officialTitle);
+        });
         container.appendChild(card);
       });
     }
@@ -3361,11 +3567,23 @@ body.ibero-calendar-month-sidebar>div.pointer-events-none[class*="-z-10"]{displa
       btn.innerHTML='<i class="ph ph-calendar-plus text-xl"></i> '+(sessions[0].allDay?'Guardar recordatorio (.ics)':'Guardar '+sessions.length+' sesión'+(sessions.length===1?'':'es')+' (.ics)');
     }
 
+    // Solo presentación: conservar todas las palabras y el título oficial accesible.
+    function getCalendarDisplayTitle(title) {
+      const officialTitle = String(title || '');
+      const properNames = {ia:'IA',ibero:'IBERO',mcp:'MCP',api:'API',apis:'APIs',apps:'Apps',españa:'España',ecuador:'Ecuador',microsoft:'Microsoft',teams:'Teams'};
+      return officialTitle.toLocaleLowerCase('es')
+        .replace(/\b(ia|ibero|mcp|api|apis|apps|españa|ecuador|microsoft|teams)\b/gu, word => properNames[word])
+        .replace(/(^|[.!?:]\s+)([^\p{L}]*)(\p{L})/gu, (match, prefix, symbols, letter) => prefix + symbols + letter.toLocaleUpperCase('es'));
+    }
+
     function openEventModal(dataEncoded) {
       if(calendarModalCloseTimer){clearTimeout(calendarModalCloseTimer);calendarModalCloseTimer=null;}
       const ev = JSON.parse(decodeURIComponent(dataEncoded));
       calendarCurrentEvent = ev;
-      document.getElementById('modal-title').textContent = ev.title;
+      const modalTitle = document.getElementById('modal-title');
+      modalTitle.textContent = getCalendarDisplayTitle(ev.title);
+      modalTitle.title = ev.title;
+      modalTitle.setAttribute('aria-label', ev.title);
       document.getElementById('modal-desc').textContent = ev.desc;
       
       const sDateStr = ev.start;
