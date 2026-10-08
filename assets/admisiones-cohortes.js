@@ -34,9 +34,9 @@
     } else {
       target='https://wa.me/19152854778?text='+encodeURIComponent('Hola IBERO, deseo consultar la próxima convocatoria de '+title+'. Mi país es '+country+'.');
       action='Consultar próxima convocatoria';
-      setText(card.querySelector('[data-admission-status]'),state.state==='closed'?'Cohorte seleccionada · matrícula cerrada':'Consulta · sin fecha confirmada');
-      setText(card.querySelector('[data-admission-date]'),state.state==='closed'&&state.cohort?api.formatRange(state.cohort,'long'):api?'Próxima cohorte por confirmar':'Consulta disponibilidad con Admisiones');
-      setText(card.querySelector('[data-admission-schedule]'),state.state==='closed'&&state.cohort&&window.IBERO_MERCADOS?window.IBERO_MERCADOS.scheduleText(key,state.cohort):'Confirma la convocatoria antes de realizar el pago.');
+      setText(card.querySelector('[data-admission-status]'),'Consulta · sin fecha confirmada');
+      setText(card.querySelector('[data-admission-date]'),api?'Próxima cohorte por confirmar':'Consulta disponibilidad con Admisiones');
+      setText(card.querySelector('[data-admission-schedule]'),'Confirma la convocatoria antes de realizar el pago.');
       card.removeAttribute('data-ibero-cohort-id');
     }
     if(target)setAttr(card,'href',target);
@@ -59,3 +59,4 @@
   window.IBERO_ADMISIONES_COHORTES=Object.freeze({refresh});
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot,{once:true});else boot();
 })();
+

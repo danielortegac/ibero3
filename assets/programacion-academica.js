@@ -102,16 +102,13 @@
     }, []).sort((a, b) => a.start.localeCompare(b.start) || a.startTime.localeCompare(b.startTime) || a.id.localeCompare(b.id));
   }
   function publicRolloverMode(key) {
-    const p = programs[key] || {};
-    return p.publicRollover || (p.type === 'curso' ? (config.coursePublicRollover || 'end') : 'end');
+    // La promoción de todos los programas termina al comenzar la primera sesión.
+    // Las clases y consultas de una cohorte concreta siguen en el calendario.
+    return 'startDay';
   }
   function isPublicCandidate(key, cohort, reference) {
     if (!cohort || cohort.registrationClosed === true) return false;
-    if (publicRolloverMode(key) === 'startDay') {
-      // Cursos cortos dejan de anunciar la cohorte vigente al comenzar su primera sesión en su zona horaria.
-      return localStamp(reference,cohort.timeZone) < cohort.start+'T'+fullTime(cohort.startTime);
-    }
-    return localStamp(reference,cohort.timeZone) < cohort.end + 'T' + fullTime(cohort.endTime);
+    return localStamp(reference,cohort.timeZone) < cohort.start+'T'+fullTime(cohort.startTime);
   }
   function getPublishedCohort(key, reference) {
     const cohorts=getCohorts(key);
@@ -120,8 +117,9 @@
     return chosen || cohorts.find(c => isPublicCandidate(key, c, reference)) || null;
   }
   function getDisplayedCohort(key, reference) {
-    const requested=new URLSearchParams(window.location.search||'').get('cohorte');
-    return (requested&&getCohorts(key).find(c=>c.id===requested))||getPublishedCohort(key,reference);
+    // Los enlaces comerciales antiguos no fijan una cohorte ya iniciada.
+    // Un evento académico conserva su cohorte mediante getRegistrationState(key, id).
+    return getPublishedCohort(key,reference);
   }
   function getStatus(key, reference) {
     const cohort = getDisplayedCohort(key, reference);
@@ -133,7 +131,7 @@
     const c=getDisplayedCohort(key,reference);return !!c&&isPublicCandidate(key,c,reference);
   }
   function commercialLabel(key, reference) {
-    return hasConfirmedPublicCohort(key, reference) ? 'Matrículas abiertas' : getDisplayedCohort(key,reference)?'Matrículas cerradas · Cohorte seleccionada':PENDING;
+    return hasConfirmedPublicCohort(key, reference) ? 'Matrículas abiertas' : PENDING;
   }
   function formatStart(item, style = 'long') {
     if (!item) return PENDING;
@@ -246,12 +244,13 @@
   function getRegistrationState(key, cohortId, reference) {
     const p = programs[key];
     const c = cohortId ? getCohorts(key).find(item=>item.id===cohortId) : getDisplayedCohort(key,reference);
-    const programUrl = p ? 'https://www.ibero.education' + p.url + (c && c.market==='ES'?'?pais=ES&cohorte='+encodeURIComponent(c.id):'') : 'https://www.ibero.education/registro-y-admisiones/';
+    const routeCohort=c && isPublicCandidate(key,c,reference) ? c : getPublishedCohort(key,reference);
+    const routeQuery=routeCohort && routeCohort.market==='ES'?'?pais=ES&cohorte='+encodeURIComponent(routeCohort.id):selectedMarket()==='ES'?'?pais=ES':'';
+    const programUrl = p ? 'https://www.ibero.education' + p.url + routeQuery : 'https://www.ibero.education/registro-y-admisiones/';
     if (!p || !c) return {state:'pending',canRegister:false,cohort:null,programUrl,label:PENDING};
     const closed = !isPublicCandidate(key,c,reference);
     if (closed) return {state:'closed',canRegister:false,cohort:c,programUrl,label:'Matrículas cerradas para esta cohorte'};
-    const active = localStamp(reference,c.timeZone) >= c.start+'T'+fullTime(c.startTime);
-    return {state:active?'active':'open',canRegister:true,cohort:c,programUrl,label:active?'Cohorte en curso':'Matrículas abiertas'};
+    return {state:'open',canRegister:true,cohort:c,programUrl,label:'Matrículas abiertas'};
   }
 
   function eventTimes(event) {
@@ -393,7 +392,7 @@
       if (el.getAttribute('data-ibero-state')!==state) el.setAttribute('data-ibero-state',state);
     });
     // Estado comercial: solo hay "Matrículas abiertas" cuando existe una próxima cohorte confirmada.
-    // En cursos cortos el rollover público ocurre el mismo día de inicio, por lo que la tarjeta salta
+    // El rollover público ocurre al inicio de la primera sesión de cada programa, por lo que la tarjeta salta
     // a la siguiente cohorte o queda en "Próxima cohorte por confirmar" sin invitar a pagar.
     findWithin(root,'[data-ibero-commercial-status]').forEach(el=>{
       const key=el.getAttribute('data-ibero-commercial-status');
@@ -458,6 +457,13 @@
     getProgram:key=>programs[key]?clone(programs[key]):null
   });
   window.IBERO_PROGRAMACION = API;
+  function guardRegistration(event) {
+    const target=event.target && event.target.closest && event.target.closest('[data-ibero-registration]');
+    if(!target)return;
+    const open=hasConfirmedPublicCohort(target.getAttribute('data-ibero-registration')) && target.dataset.iberoEsPaymentHidden!=='true';
+    syncBindings(target);
+    if(!open){event.preventDefault();event.stopImmediatePropagation();}
+  }
   function start() {
     syncBindings(document); refresh();
     if (document.body && typeof MutationObserver !== 'undefined') {
@@ -475,8 +481,12 @@
     window.addEventListener('focus',refresh);
     window.addEventListener('pageshow',refresh);
     document.addEventListener('visibilitychange',()=>{if(!document.hidden) refresh();});
+    // Revalidar también antes de navegar o ejecutar un handler de pago, entre dos ticks.
+    document.addEventListener('click',guardRegistration,true);
+    document.addEventListener('auxclick',guardRegistration,true);
     window.addEventListener('beforeprint',()=>{refresh();syncBindings(document);});
   }
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',start,{once:true});
   else start();
 })();
+

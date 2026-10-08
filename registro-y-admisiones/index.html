@@ -846,10 +846,10 @@
       </p>
 <h4 class="text-white font-medium text-xl sm:text-2xl leading-tight">Registro y pago seguro por programa</h4>
 <p class="text-[13px] text-zinc-300 leading-relaxed mt-2">
-        Selecciona tu país y elige el programa. Contamos con métodos oficiales de pago para facilitar tu inscripción: todas las tarjetas de crédito o débito, transferencia bancaria para Ecuador, Western Union y validación de comprobante por WhatsApp.
+        Selecciona tu país y elige el programa. Contamos con métodos oficiales de pago para facilitar tu inscripción: todas las tarjetas de crédito o débito, transferencia bancaria para Ecuador y validación de comprobante por WhatsApp.
       </p>
 </div>
-<div class="grid grid-cols-2 sm:grid-cols-4 gap-2 min-w-full xl:min-w-[520px] xl:max-w-[560px]">
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-2 min-w-full xl:min-w-[520px] xl:max-w-[560px]">
 <div class="rounded-2xl border border-zinc-700/70 bg-zinc-900/80 px-3 py-3">
 <p class="text-[10px] uppercase tracking-[0.16em] text-zinc-500 mb-1">Tarjetas</p>
 <p class="text-[12px] text-zinc-100 leading-snug">Crédito o débito</p>
@@ -861,10 +861,6 @@
 <div class="rounded-2xl border border-zinc-700/70 bg-zinc-900/80 px-3 py-3">
 <p class="text-[10px] uppercase tracking-[0.16em] text-zinc-500 mb-1">Ecuador</p>
 <p class="text-[12px] text-zinc-100 leading-snug">Transferencia</p>
-</div>
-<div class="rounded-2xl border border-zinc-700/70 bg-zinc-900/80 px-3 py-3">
-<p class="text-[10px] uppercase tracking-[0.16em] text-zinc-500 mb-1">Internacional</p>
-<p class="text-[12px] text-zinc-100 leading-snug">Western Union</p>
 </div>
 </div>
 </div>
@@ -1076,26 +1072,6 @@
 <p><strong class="text-white">Cuenta Corriente:</strong> <span class="font-mono text-white tracking-wider">501 5025433</span></p>
 <p><strong class="text-white">Razón Social:</strong> CENTRO IBEROAMERICANO DE EDUCACIÓN</p>
 <p><strong class="text-white">RUC:</strong> 1793199203001</p>
-</div>
-</div>
-<!-- BLOQUE WESTERN UNION -->
-<div class="mt-4 bg-black/45 border border-amber-300/25 rounded-xl p-4 shadow-inner relative overflow-hidden group">
-<button class="w-full flex items-center justify-between gap-3 text-left" id="toggle-western-admisiones" type="button">
-<span class="flex items-center gap-2">
-<i class="fa-solid fa-money-bill-transfer text-amber-300"></i>
-<span class="text-xs font-medium text-zinc-200 uppercase tracking-widest">3 · Pagar con Western Union</span>
-</span>
-<i class="fa-solid fa-chevron-down text-zinc-500 text-xs"></i>
-</button>
-<div class="hidden mt-4 pt-4 border-t border-amber-300/20 text-xs sm:text-sm text-zinc-300 space-y-2" id="western-admisiones-details">
-<p class="text-zinc-400">Los datos para pagar por Western Union son:</p>
-<p><strong class="text-white">Nombre:</strong> Daniel Eduardo Ortega Corella</p>
-<p><strong class="text-white">ID:</strong> 1721935854</p>
-<p><strong class="text-white">País:</strong> Ecuador</p>
-<p><strong class="text-white">Ciudad:</strong> Quito</p>
-<a class="mt-3 inline-flex items-center justify-center gap-2 rounded-lg bg-white hover:bg-zinc-200 text-zinc-950 px-4 py-2.5 text-xs font-semibold transition-all" href="https://wa.me/19152854778?text=Hola%20IBERO%2C%20realic%C3%A9%20mi%20pago%20y%20quiero%20enviar%20mi%20comprobante%20para%20finalizar%20mi%20inscripci%C3%B3n." rel="noopener" target="_blank">
-<i class="fa-brands fa-whatsapp"></i> Enviar comprobante por WhatsApp
-    </a>
 </div>
 </div>
 </div>
@@ -2044,8 +2020,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const b=card.querySelector('div:first-child span');const t=b?b.textContent.toLowerCase():'';
     card.dataset.admissionType=t.includes('cert')?'certificacion':t.includes('diplomado')?'diplomado':t.includes('master')?'master':t.includes('gratis')?'gratis':'programa';
   });
-  const button=document.getElementById('toggle-western-admisiones');
-  if(button)button.addEventListener('click',function(){const details=document.getElementById('western-admisiones-details');if(details)details.classList.toggle('hidden');});
 });
 </script>
 <!-- IBERO Ecosystem Floating Menu v9 -->
@@ -2756,7 +2730,7 @@ window.IBERO_MERCADOS_CONFIG = {
     const mounts=Array.from(document.querySelectorAll('[data-ibero-market-mount]'));
     let panel=document.querySelector('[data-ibero-all-prices]');
     const host=mounts[0];
-    if(!panel && host){panel=createPriceDetails(program||host.dataset.program||'overview',host.dataset.theme);host.after(panel);}
+    if(!panel && host && host.id!=='payment-country-selector'){panel=createPriceDetails(program||host.dataset.program||'overview',host.dataset.theme);host.after(panel);}
     if(program && panel && !panel.dataset.iberoPricePositioned) {
       const investment=document.getElementById('inversion');
       const principal=investment&&investment.querySelector(program==='master'?'[data-base="926.25"],[data-ibero-price-base="926.25"]':'.price-display,[data-base],[data-ibero-price-base],[data-usd]');
@@ -2874,14 +2848,8 @@ window.IBERO_MERCADOS_CONFIG = {
   }
   function syncPaymentOptions() {
     const candidates=new Set(document.querySelectorAll('[data-ibero-payment-restore]'));
-    if(C.programBases[pageProgram()])document.querySelectorAll('#toggle-bank,#bank-details,#toggle-western,#western-details,a[href*="ia.goatify.app/"][href*="#wallet"]').forEach(el=>candidates.add(el));
+    if(C.programBases[pageProgram()])document.querySelectorAll('#toggle-bank,#bank-details,a[href*="ia.goatify.app/"][href*="#wallet"]').forEach(el=>candidates.add(el));
     document.querySelectorAll('[data-ibero-registration][href*="#wallet"],[data-ibero-academic-wallet]').forEach(el=>candidates.add(el));
-    const requested=new URLSearchParams(location.search).get('cohorte');
-    const admissions=/\/registro-y-admisiones(?:\/|$)/.test(location.pathname);
-    if(admissions){
-      const western=document.getElementById('toggle-western-admisiones');
-      if(western&&western.parentElement)candidates.add(western.parentElement);
-    }
     candidates.forEach(el=>{
       const blocked=country==='ES';
       if(blocked){
@@ -3151,3 +3119,4 @@ window.IBERO_MERCADOS_CONFIG = {
 </script>
 <script id="ibero-country-links-fallback">document.addEventListener('click',function(e){const a=e.target.closest('[data-ibero-country-fallback]');if(!a)return;const api=window.IBERO_MERCADOS;if(!api||typeof api.apply!=='function')return;e.preventDefault();api.apply(a.dataset.iberoCountryFallback);const select=document.querySelector('[data-ibero-market-select]');if(select)select.focus();});</script></body>
 </html>
+
