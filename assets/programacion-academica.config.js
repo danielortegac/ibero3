@@ -63,7 +63,7 @@ window.IBERO_PROGRAMACION_CONFIG = {
       ],
       "type": "curso",
       "calendarTitle": "CERTIFICACIÓN EN PRODUCTIVIDAD Y AUTOMATIZACIÓN DE PROCESOS CON INTELIGENCIA ARTIFICIAL",
-      "description": "Conecta y comprueba un MCP; crea la primera app y una habilidad con Codex; continúa con Antigravity y Firebase para formulario, login y persistencia; entrega una URL pública funcional con IA y correo automático real.",
+      "description": "Conecta aplicaciones mediante MCP; crea un proyecto local con Codex y otro nuevo con Antigravity, y dirige agentes que operen el navegador. Publica una página, sitio o sistema personalizado que reúna y demuestre ambos proyectos, habilidades, conexiones y automatizaciones.",
       "startTime": "19:00",
       "endTime": "21:00",
       "weekdays": [
