@@ -110,28 +110,28 @@
     if (!cohort || cohort.registrationClosed === true) return false;
     return localStamp(reference,cohort.timeZone) < cohort.start+'T'+fullTime(cohort.startTime);
   }
-  function getPublishedCohort(key, reference) {
-    const cohorts=getCohorts(key);
+  function getPublishedCohort(key, reference, market=selectedMarket()) {
+    const cohorts=getCohorts(key,market);
     const requested=new URLSearchParams(window.location.search||'').get('cohorte');
     const chosen=requested && cohorts.find(c=>c.id===requested && isPublicCandidate(key,c,reference));
     return chosen || cohorts.find(c => isPublicCandidate(key, c, reference)) || null;
   }
-  function getDisplayedCohort(key, reference) {
+  function getDisplayedCohort(key, reference, market=selectedMarket()) {
     // Los enlaces comerciales antiguos no fijan una cohorte ya iniciada.
     // Un evento académico conserva su cohorte mediante getRegistrationState(key, id).
-    return getPublishedCohort(key,reference);
+    return getPublishedCohort(key,reference,market);
   }
-  function getStatus(key, reference) {
-    const cohort = getDisplayedCohort(key, reference);
+  function getStatus(key, reference, market=selectedMarket()) {
+    const cohort = getDisplayedCohort(key, reference, market);
     if (!cohort) return 'pending';
     if(localStamp(reference,cohort.timeZone)>=cohort.end+'T'+fullTime(cohort.endTime))return 'ended';
     return localStamp(reference,cohort.timeZone) >= cohort.start + 'T' + fullTime(cohort.startTime) ? 'active' : 'upcoming';
   }
-  function hasConfirmedPublicCohort(key, reference) {
-    const c=getDisplayedCohort(key,reference);return !!c&&isPublicCandidate(key,c,reference);
+  function hasConfirmedPublicCohort(key, reference, market=selectedMarket()) {
+    const c=getDisplayedCohort(key,reference,market);return !!c&&isPublicCandidate(key,c,reference);
   }
-  function commercialLabel(key, reference) {
-    return hasConfirmedPublicCohort(key, reference) ? 'Matrículas abiertas' : PENDING;
+  function commercialLabel(key, reference, market=selectedMarket()) {
+    return hasConfirmedPublicCohort(key, reference, market) ? 'Matrículas abiertas' : PENDING;
   }
   function formatStart(item, style = 'long') {
     if (!item) return PENDING;
@@ -159,12 +159,12 @@
     const end = `${e.day}${de}${monthName(e.month)}${!noYear || !sameYear ? (short || ['compact'].includes(style) ? ' ' : ' de ') + e.year : ''}`;
     return start + join + end;
   }
-  function fieldText(key, field = 'range', style = 'long', reference) {
-    const cohort = getDisplayedCohort(key, reference);
-    const state = getStatus(key, reference);
+  function fieldText(key, field = 'range', style = 'long', reference, market=selectedMarket()) {
+    const cohort = getDisplayedCohort(key, reference, market);
+    const state = getStatus(key, reference, market);
     const p = programs[key] || {};
     if (field === 'status') {
-      if (p.type === 'curso') return commercialLabel(key, reference);
+      if (p.type === 'curso') return commercialLabel(key, reference, market);
       return state === 'active' ? 'En curso' : state === 'upcoming' ? 'Próxima cohorte' : PENDING;
     }
     if (field === 'summary') return cohort ? `${state === 'ended' ? 'Cohorte finalizada · consulta histórica' : state === 'active' ? 'Cohorte en curso · matrícula cerrada' : 'Próxima cohorte'}: ${formatRange(cohort, style)}` : PENDING;
@@ -179,8 +179,8 @@
     return formatRange(cohort, style);
   }
   function renderTemplate(text, reference) {
-    return String(text).replace(/\[\[ibero:([\w]+):([\w]+):([\w]+)\]\]/g,
-      (_, key, field, style) => fieldText(key, field, style, reference));
+    return String(text).replace(/\[\[ibero:([\w]+):([\w]+):([\w]+)(?::([A-Z]{2}))?\]\]/g,
+      (_, key, field, style, market) => fieldText(key, field, style, reference, market));
   }
   function programFromValue(value) {
     const n = normalize(value);
@@ -384,12 +384,38 @@
     findWithin(root,'[data-ibero-date]').forEach(el=>{
       if (el.closest('.chat-msg-user,.chat-bubble-user,[data-ibero-ignore]')) return;
       const key=el.getAttribute('data-ibero-date');
+      const market=el.getAttribute('data-ibero-market')||selectedMarket();
       const field=el.getAttribute('data-ibero-field')||'range';
       const localSchedule=el.hasAttribute('data-ibero-local-schedule')||['schedule','scheduleRegional'].includes(field);
-      const text=localSchedule&&window.IBERO_MERCADOS?window.IBERO_MERCADOS.scheduleText(key):fieldText(key,field,el.getAttribute('data-ibero-format')||'long');
+      const text=localSchedule&&window.IBERO_MERCADOS?window.IBERO_MERCADOS.scheduleText(key):fieldText(key,field,el.getAttribute('data-ibero-format')||'long',undefined,market);
       if (el.textContent!==text) el.textContent=text;
-      const state=getStatus(key);
+      const state=getStatus(key,undefined,market);
       if (el.getAttribute('data-ibero-state')!==state) el.setAttribute('data-ibero-state',state);
+    });
+    // Convocatorias regionales visibles: no conservar fechas iniciadas en textos secundarios.
+    findWithin(root,'[data-ibero-es-editions]').forEach(el=>{
+      const cohorts=getCohorts('agents','ES').filter(c=>isPublicCandidate('agents',c));
+      const style=el.getAttribute('data-ibero-es-editions');
+      const signature=style+'|'+cohorts.map(c=>c.id).join('|');
+      if(el.getAttribute('data-ibero-es-editions-rendered')===signature)return;
+      el.replaceChildren();
+      if(!cohorts.length)el.textContent=PENDING;
+      else {
+        if(style!=='text')el.appendChild(document.createTextNode('Ediciones de España: '));
+        cohorts.forEach((c,i)=>{
+          if(i)el.appendChild(document.createTextNode(' · '));
+          if(style==='text')el.appendChild(document.createTextNode(formatRange(c,'long')));
+          else {
+            const link=document.createElement('a');
+            link.className='inline-block underline underline-offset-4 font-semibold';
+            link.setAttribute('href','?pais=ES&cohorte='+encodeURIComponent(c.id)+'#fechas');
+            link.textContent=formatRange(c,'long');
+            el.appendChild(link);
+          }
+        });
+        el.appendChild(document.createTextNode('. Lun–Jue · 19:00–21:00 Madrid; 18:00–20:00 Canarias.'));
+      }
+      el.setAttribute('data-ibero-es-editions-rendered',signature);
     });
     // Estado comercial: solo hay "Matrículas abiertas" cuando existe una próxima cohorte confirmada.
     // El rollover público ocurre al inicio de la primera sesión de cada programa, por lo que la tarjeta salta
@@ -439,7 +465,11 @@
   function refreshPublishedDates(root=document) { syncBindings(root); }
   let fingerprint = '';
   function refresh() {
-    const next = todayString() + '|'+selectedMarket()+'|'+window.location.search+'|' + Object.keys(programs).map(k=>{
+    // Incluir todos los mercados regionales incluso si el visitante ve otro país
+    // o ha elegido expresamente una cohorte posterior a la que acaba de iniciar.
+    const regional=Object.keys(programs).flatMap(key=>Object.keys(programs[key].regionalCohorts||{}).map(market=>
+      key+':'+market+':'+getCohorts(key,market).filter(c=>isPublicCandidate(key,c)).map(c=>c.id).join(','))).join('|');
+    const next = regional+'|'+todayString() + '|'+selectedMarket()+'|'+window.location.search+'|' + Object.keys(programs).map(k=>{
       const c=getPublishedCohort(k);
       return k+':'+(c?c.id:'pending')+':'+getStatus(k);
     }).join('|') + '|' + getCalendarEvents().filter(e=>!isEventExpired(e)).map(e=>e.start+e.cohortId).join(',');
@@ -489,4 +519,5 @@
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',start,{once:true});
   else start();
 })();
+
 
