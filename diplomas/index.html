@@ -1130,6 +1130,47 @@ Maria Gomez   /fotos/diplomas/maria.jpg   Diplomado..."></textarea>
     const diplomaListContainer = document.getElementById('diploma-list-container');
     let currentDiplomaContext = null;
 
+// BEGIN IBERO_DIPLOMA_SEARCH_CORE
+// Pure search logic embedded verbatim in the candidate HTML (without export).
+function normalizeDiplomaSearchText(value) {
+  return String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+}
+
+function matchesDiplomaSearchTokens(name, queryTokens) {
+  const words = normalizeDiplomaSearchText(name).split(' ').filter(Boolean);
+  const tokens = queryTokens.slice().sort((left, right) => right.length - left.length);
+  if (!tokens.length || tokens.length > words.length) return false;
+  const usedWords = new Set();
+  function matchToken(position) {
+    if (position === tokens.length) return true;
+    for (let index = 0; index < words.length; index += 1) {
+      if (usedWords.has(index) || !words[index].startsWith(tokens[position])) continue;
+      usedWords.add(index);
+      if (matchToken(position + 1)) return true;
+      usedWords.delete(index);
+    }
+    return false;
+  }
+  return matchToken(0);
+}
+
+function resolveDiplomaSearch(people, query, exactSlug = '') {
+  const exactPerson = people.find(person => person.slug === exactSlug);
+  if (exactPerson) return { kind: 'person', matches: [exactPerson] };
+  const normalized = normalizeDiplomaSearchText(query);
+  if (!normalized) return { kind: 'none', matches: [] };
+  const tokens = normalized.split(' ');
+  const matches = people.filter(person => (person.names || []).concat(person.slug)
+    .some(name => matchesDiplomaSearchTokens(name, tokens)));
+  return { kind: matches.length === 1 ? 'person' : matches.length ? 'ambiguous' : 'none', matches };
+}
+
+function buildDiplomaValidationHash(slug, diplomaId) {
+  return `#/${encodeURIComponent(slug)}/${encodeURIComponent(diplomaId)}`;
+}
+// END IBERO_DIPLOMA_SEARCH_CORE
+
     function normalizeDiplomaRecords(entry) {
       if (Array.isArray(entry)) {
         return entry.filter(item => item && typeof item === 'object' && !Array.isArray(item));
@@ -1186,7 +1227,8 @@ Maria Gomez   /fotos/diplomas/maria.jpg   Diplomado..."></textarea>
       const rawName = searchInput.value.trim();
       if (!rawName) return;
 
-      const slug = createSlug(rawName);
+      const slug = normalizeDiplomaSearchText(rawName).replace(/ /g, '-');
+      if (!slug) return;
       window.location.hash = '#/' + encodeURIComponent(slug);
     });
 
@@ -1200,7 +1242,8 @@ Maria Gomez   /fotos/diplomas/maria.jpg   Diplomado..."></textarea>
 
       return {
         slug: createSlug(parts[0] || ''),
-        diplomaId: createSlug(parts[1] || '')
+        diplomaId: createSlug(parts[1] || ''),
+        query: parts[0] || ''
       };
     }
 
@@ -1208,7 +1251,7 @@ Maria Gomez   /fotos/diplomas/maria.jpg   Diplomado..."></textarea>
       const route = getRouteFromHash();
 
       if (route.slug) {
-        searchDiploma(route.slug, route.slug.replace(/-/g, ' '), route.diplomaId);
+        searchDiploma(route.slug, route.query.replace(/-/g, ' '), route.diplomaId);
       } else {
         resetSearch(false);
       }
@@ -1239,12 +1282,33 @@ Maria Gomez   /fotos/diplomas/maria.jpg   Diplomado..."></textarea>
         loadingState.classList.add('hidden');
         loadingState.classList.remove('flex');
 
-        const records = getDiplomaRecords(slug);
-        if (!records.length) {
+        const database = window.BASE_DE_DATOS_DIPLOMAS || {};
+        const people = Object.keys(database).filter(personSlug => getDiplomasForSlug(personSlug).length).map(personSlug => ({
+          slug: personSlug,
+          names: getDiplomasForSlug(personSlug).map(record => record.nombre || '')
+        }));
+        const searchResult = resolveDiplomaSearch(people, displayName || slug, slug);
+        if (searchResult.kind === 'none') {
           showError(displayName || slug.replace(/-/g, ' '));
           return;
         }
 
+        if (searchResult.kind === 'ambiguous') {
+          const matchingRecords = searchResult.matches.flatMap(person => {
+            const personRecords = getDiplomaRecords(person.slug);
+            return personRecords.map(record => ({
+              ...record,
+              personSlug: person.slug,
+              personName: record.data.nombre || person.slug.replace(/-/g, ' '),
+              personTotal: personRecords.length
+            }));
+          });
+          showDiplomaList(matchingRecords, '', { name: displayName || slug, people: searchResult.matches.length });
+          return;
+        }
+
+        slug = searchResult.matches[0].slug;
+        const records = getDiplomaRecords(slug);
         if (diplomaId) {
           const selectedRecord = findDiplomaRecord(slug, diplomaId);
           if (selectedRecord) {
@@ -1282,16 +1346,21 @@ Maria Gomez   /fotos/diplomas/maria.jpg   Diplomado..."></textarea>
       return link;
     }
 
-    function showDiplomaList(records, slug) {
+    function showDiplomaList(records, slug, searchContext = null) {
       headerSection.classList.add('hidden');
       currentDiplomaContext = null;
       diplomaListContainer.replaceChildren();
 
-      const studentName = records[0].data.nombre || slug.replace(/-/g, ' ');
+      const studentName = searchContext
+        ? `${searchContext.people} personas coinciden con «${searchContext.name}»`
+        : records[0].data.nombre || slug.replace(/-/g, ' ');
       document.getElementById('list-student-name').textContent = studentName;
-      document.getElementById('list-summary').textContent = `Se encontraron ${records.length} certificados académicos emitidos a nombre de ${studentName}. Selecciona el documento que deseas consultar o validar.`;
+      document.getElementById('list-summary').textContent = searchContext
+        ? `Se encontraron ${records.length} certificados. Revisa el nombre completo y selecciona la credencial de la persona que buscas.`
+        : `Se encontraron ${records.length} certificados académicos emitidos a nombre de ${studentName}. Selecciona el documento que deseas consultar o validar.`;
 
       records.forEach((record, position) => {
+        const recordSlug = record.personSlug || slug;
         const card = document.createElement('article');
         card.className = 'credential-list-card';
         card.setAttribute('role', 'listitem');
@@ -1305,7 +1374,7 @@ Maria Gomez   /fotos/diplomas/maria.jpg   Diplomado..."></textarea>
 
         const label = document.createElement('p');
         label.className = 'credential-list-label';
-        label.textContent = `Credencial ${position + 1} de ${records.length}`;
+        label.textContent = searchContext ? record.personName : `Credencial ${position + 1} de ${records.length}`;
 
         const course = document.createElement('h4');
         course.className = 'credential-list-course';
@@ -1313,7 +1382,9 @@ Maria Gomez   /fotos/diplomas/maria.jpg   Diplomado..."></textarea>
 
         const identifier = document.createElement('p');
         identifier.className = 'credential-list-id';
-        identifier.textContent = `ID: ${slug.toUpperCase()}-C${String(position + 1).padStart(2, '0')}`;
+        identifier.textContent = searchContext
+          ? `ID: ${recordSlug.toUpperCase()}${record.personTotal > 1 ? `-C${String(record.index + 1).padStart(2, '0')}` : ''}`
+          : `ID: ${slug.toUpperCase()}-C${String(position + 1).padStart(2, '0')}`;
 
         copy.append(label, course, identifier);
 
@@ -1325,21 +1396,21 @@ Maria Gomez   /fotos/diplomas/maria.jpg   Diplomado..."></textarea>
           'fa-regular fa-eye',
           'credential-action-view',
           record.data.url,
-          { target: '_blank', ariaLabel: `Ver diploma: ${record.data.curso || studentName}` }
+          { target: '_blank', ariaLabel: `Ver diploma: ${searchContext ? record.personName + ' · ' : ''}${record.data.curso || studentName}` }
         );
         const downloadLink = createCredentialAction(
           'Descargar',
           'fa-solid fa-download',
           'credential-action-download',
           record.data.url,
-          { download: true, ariaLabel: `Descargar diploma: ${record.data.curso || studentName}` }
+          { download: true, ariaLabel: `Descargar diploma: ${searchContext ? record.personName + ' · ' : ''}${record.data.curso || studentName}` }
         );
         const validationLink = createCredentialAction(
           'Validar',
           'fa-solid fa-shield-halved',
           'credential-action-validate',
-          `#/${encodeURIComponent(slug)}/${encodeURIComponent(record.id)}`,
-          { ariaLabel: `Validar credencial: ${record.data.curso || studentName}` }
+          buildDiplomaValidationHash(recordSlug, record.id),
+          { ariaLabel: `Validar credencial: ${searchContext ? record.personName + ' · ' : ''}${record.data.curso || studentName}` }
         );
 
         actions.append(viewLink, downloadLink, validationLink);
@@ -2028,3 +2099,4 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 </body>
 </html>
+

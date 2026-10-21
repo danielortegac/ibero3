@@ -351,6 +351,6 @@ window.BASE_DE_DATOS_DIPLOMAS = {
     "id": "certificado-productividad-automatizacion-ia-12h-hannah-valentina-yanez-corella",
     "nombre": "Hannah Valentina Yánez Corella",
     "url": "/fotos/diplomas/certificado-productividad-automatizacion-ia-12h-hannah-valentina-yanez-corella.png",
-    "curso": "Certificación en Productividad y Automatización de Procesos con Inteligencia Artificial · Certificado 12 horas · 10 de septiembre de 2026"
+    "curso": "Certificación en Productividad y Automatización de Procesos con Inteligencia Artificial · 10 de septiembre de 2026"
   }
 };
