@@ -415,5 +415,12 @@ window.BASE_DE_DATOS_DIPLOMAS = {
     "url": "/fotos/diplomas/certificado-productividad-automatizacion-ia-2026-10-19-rider-alexander.png",
     "curso": "Certificación en Productividad y Automatización de Procesos con Inteligencia Artificial · Finalizado el 22 de octubre de 2026",
     "fechaFin": "2026-10-22"
+  },
+  "diana-caiza": {
+    "id": "productividad-automatizacion-ia-2026-10-19-diana-caiza",
+    "nombre": "Diana Caiza",
+    "url": "/fotos/diplomas/certificado-productividad-automatizacion-ia-2026-10-19-diana-caiza.png",
+    "curso": "Certificación en Productividad y Automatización de Procesos con Inteligencia Artificial · Finalizado el 22 de octubre de 2026",
+    "fechaFin": "2026-10-22"
   }
 };
