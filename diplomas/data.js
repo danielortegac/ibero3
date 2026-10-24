@@ -352,5 +352,68 @@ window.BASE_DE_DATOS_DIPLOMAS = {
     "nombre": "Hannah Valentina Yánez Corella",
     "url": "/fotos/diplomas/certificado-productividad-automatizacion-ia-12h-hannah-valentina-yanez-corella.png",
     "curso": "Certificación en Productividad y Automatización de Procesos con Inteligencia Artificial · 10 de septiembre de 2026"
+  },
+  "mary-johanna-bautista-guerrero": {
+    "id": "productividad-automatizacion-ia-2026-10-19-mary-johanna-bautista-guerrero",
+    "nombre": "Mary Johanna Bautista Guerrero",
+    "url": "/fotos/diplomas/certificado-productividad-automatizacion-ia-2026-10-19-mary-johanna-bautista-guerrero.png",
+    "curso": "Certificación en Productividad y Automatización de Procesos con Inteligencia Artificial · Finalizado el 22 de octubre de 2026",
+    "fechaFin": "2026-10-22"
+  },
+  "estefania-gonzalez": {
+    "id": "productividad-automatizacion-ia-2026-10-19-estefania-gonzalez",
+    "nombre": "Estefania Gonzalez",
+    "url": "/fotos/diplomas/certificado-productividad-automatizacion-ia-2026-10-19-estefania-gonzalez.png",
+    "curso": "Certificación en Productividad y Automatización de Procesos con Inteligencia Artificial · Finalizado el 22 de octubre de 2026",
+    "fechaFin": "2026-10-22"
+  },
+  "marianela-leiva": {
+    "id": "productividad-automatizacion-ia-2026-10-19-marianela-leiva",
+    "nombre": "Marianela Leiva",
+    "url": "/fotos/diplomas/certificado-productividad-automatizacion-ia-2026-10-19-marianela-leiva.png",
+    "curso": "Certificación en Productividad y Automatización de Procesos con Inteligencia Artificial · Finalizado el 22 de octubre de 2026",
+    "fechaFin": "2026-10-22"
+  },
+  "james-ospina": {
+    "id": "productividad-automatizacion-ia-2026-10-19-james-ospina",
+    "nombre": "James Ospina",
+    "url": "/fotos/diplomas/certificado-productividad-automatizacion-ia-2026-10-19-james-ospina.png",
+    "curso": "Certificación en Productividad y Automatización de Procesos con Inteligencia Artificial · Finalizado el 22 de octubre de 2026",
+    "fechaFin": "2026-10-22"
+  },
+  "kevin-herrera-guillen": {
+    "id": "productividad-automatizacion-ia-2026-10-19-kevin-herrera-guillen",
+    "nombre": "Kevin Herrera Guillen",
+    "url": "/fotos/diplomas/certificado-productividad-automatizacion-ia-2026-10-19-kevin-herrera-guillen.png",
+    "curso": "Certificación en Productividad y Automatización de Procesos con Inteligencia Artificial · Finalizado el 22 de octubre de 2026",
+    "fechaFin": "2026-10-22"
+  },
+  "fernando-espinoza": {
+    "id": "productividad-automatizacion-ia-2026-10-19-fernando-espinoza",
+    "nombre": "Fernando Espinoza",
+    "url": "/fotos/diplomas/certificado-productividad-automatizacion-ia-2026-10-19-fernando-espinoza.png",
+    "curso": "Certificación en Productividad y Automatización de Procesos con Inteligencia Artificial · Finalizado el 22 de octubre de 2026",
+    "fechaFin": "2026-10-22"
+  },
+  "vicente-perea-luna": {
+    "id": "productividad-automatizacion-ia-2026-10-19-vicente-perea-luna",
+    "nombre": "Vicente Perea Luna",
+    "url": "/fotos/diplomas/certificado-productividad-automatizacion-ia-2026-10-19-vicente-perea-luna.png",
+    "curso": "Certificación en Productividad y Automatización de Procesos con Inteligencia Artificial · Finalizado el 22 de octubre de 2026",
+    "fechaFin": "2026-10-22"
+  },
+  "marcelo-rodriguez": {
+    "id": "productividad-automatizacion-ia-2026-10-19-marcelo-rodriguez",
+    "nombre": "Marcelo Rodriguez",
+    "url": "/fotos/diplomas/certificado-productividad-automatizacion-ia-2026-10-19-marcelo-rodriguez.png",
+    "curso": "Certificación en Productividad y Automatización de Procesos con Inteligencia Artificial · Finalizado el 22 de octubre de 2026",
+    "fechaFin": "2026-10-22"
+  },
+  "rider-alexander": {
+    "id": "productividad-automatizacion-ia-2026-10-19-rider-alexander",
+    "nombre": "Rider Alexander",
+    "url": "/fotos/diplomas/certificado-productividad-automatizacion-ia-2026-10-19-rider-alexander.png",
+    "curso": "Certificación en Productividad y Automatización de Procesos con Inteligencia Artificial · Finalizado el 22 de octubre de 2026",
+    "fechaFin": "2026-10-22"
   }
 };
