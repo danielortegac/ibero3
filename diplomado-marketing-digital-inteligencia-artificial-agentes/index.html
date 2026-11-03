@@ -67,15 +67,13 @@
     .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
     .reveal.active { opacity: 1; transform: translateY(0); }
 
-    .hero-shine-light {
-        background: linear-gradient(110deg, #ffffff 35%, #a1a1aa 48%, #ffffff 65%);
-        background-size: 250% auto;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        animation: textShine 6s linear infinite;
-        padding-bottom: 0.2em; margin-bottom: -0.2em;
+    .marketing-hero-media::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(5, 13, 15, .73), rgba(7, 24, 24, .78) 54%, rgba(5, 13, 15, .87));
+        pointer-events: none;
     }
-    @keyframes textShine { 0% { background-position: 250% center; } 100% { background-position: -250% center; } }
 
     /* Accordion Premium */
     details > summary { list-style: none; }
@@ -758,21 +756,19 @@
 </nav>
 <!-- HERO SECTION: DIPLOMADO MARKETING DIGITAL CON IA Y AGENTES -->
 <section class="relative pt-6 pb-16 lg:pt-10 lg:pb-24 overflow-hidden bg-[#050505] min-h-[86vh] flex items-center border-b border-zinc-900">
-<div class="absolute inset-0 z-0">
-<video aria-hidden="true" autoplay class="absolute inset-0 w-full h-full object-cover pointer-events-none opacity-18 filter grayscale mix-blend-luminosity" loop muted playsinline preload="auto" poster="/fotos/programas/diplomado-marketing-digital-ia-agentes.webp"><source src="/fotos/AI_Business_Education_Hero_Video.mp4" type="video/mp4"/></video>
-<div class="absolute inset-0 bg-gradient-to-b from-[#050505]/98 via-[#050505]/74 to-[#050505]/98"></div>
-<div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(16,185,129,0.13)_0%,transparent_58%)]"></div>
+<div class="marketing-hero-media absolute inset-0 z-0">
+<video aria-hidden="true" autoplay class="absolute inset-0 w-full h-full object-cover pointer-events-none filter grayscale" loop muted playsinline preload="auto" poster="/fotos/programas/diplomado-marketing-digital-ia-agentes.webp"><source src="/fotos/AI_Business_Education_Hero_Video.mp4" type="video/mp4"/></video>
 </div>
 <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center mt-2 md:mt-4 w-full">
 <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-emerald-400/25 bg-emerald-400/10 text-emerald-100 text-[10px] sm:text-xs font-black tracking-widest uppercase shadow-xl backdrop-blur-md mb-5"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-70"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span></span>Diplomado Ejecutivo IBERO · 60 horas</div>
 <p class="text-emerald-300 font-black tracking-widest uppercase text-xs sm:text-sm mb-3">Taller IBERO de marketing con agentes de IA</p>
-<h1 class="text-[2.2rem] sm:text-5xl md:text-6xl lg:text-7xl font-sans font-extrabold leading-[1.08] text-white tracking-tighter drop-shadow-sm mb-6 max-w-6xl mx-auto"><span class="block hero-shine-light">Marketing Digital con IA y Agentes</span><span class="block font-serif italic font-medium text-zinc-200 mt-2 text-3xl sm:text-4xl md:text-5xl">de campañas aisladas a un sistema de crecimiento con agentes de IA en 5 semanas.</span></h1><a class="ibero-country-link inline-block mt-4 text-sm text-zinc-300" href="#inversion">Consulta horarios y precio para tu país</a>
-<p class="text-sm sm:text-lg md:text-xl text-zinc-400 font-medium leading-relaxed max-w-4xl mx-auto mb-9">Construye un <strong class="text-white border-b border-emerald-400/40">Sistema integral de marketing con agentes de inteligencia artificial</strong> con inteligencia de mercado, oferta, Sistema de contenidos, creatividad multimodal, Página inteligente, CRM, agente vendedor, automatización, publicidad digital, medición, Codex, Antigravity, Goatify y ciclos automatizados de crecimiento.</p>
+<h1 class="text-[2.2rem] sm:text-5xl md:text-6xl lg:text-7xl font-sans font-extrabold leading-[1.08] text-white tracking-tighter drop-shadow-sm mb-6 max-w-6xl mx-auto"><span class="block">Marketing Digital con IA y Agentes</span><span class="block font-serif italic font-medium text-zinc-200 mt-2 text-3xl sm:text-4xl md:text-5xl">de campañas aisladas a un sistema de crecimiento con agentes de IA en 5 semanas.</span></h1><a class="ibero-country-link inline-block mt-4 text-sm text-zinc-300" href="#inversion">Consulta horarios y precio para tu país</a>
+<p class="text-sm sm:text-lg md:text-xl text-zinc-200 font-medium leading-relaxed max-w-4xl mx-auto mb-9">Construye un <strong class="text-white border-b border-emerald-400/40">Sistema integral de marketing con agentes de inteligencia artificial</strong> con inteligencia de mercado, oferta, Sistema de contenidos, creatividad multimodal, Página inteligente, CRM, agente vendedor, automatización, publicidad digital, medición, Codex, Antigravity, Goatify y ciclos automatizados de crecimiento.</p>
 <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-9 w-full max-w-5xl mx-auto">
-<div class="bg-zinc-900/65 border border-zinc-800 px-3 sm:px-5 py-3.5 rounded-xl backdrop-blur-md shadow-md flex items-center gap-3 min-w-0"><i class="fa-regular fa-clock text-emerald-400 text-lg"></i><div class="text-left"><p class="text-[9px] text-zinc-500 font-black uppercase tracking-widest">Duración</p><p class="text-xs sm:text-sm font-black text-white leading-tight">5 semanas · 60h</p></div></div>
-<div class="bg-zinc-900/65 border border-zinc-800 px-3 sm:px-5 py-3.5 rounded-xl backdrop-blur-md shadow-md flex items-center gap-3 min-w-0"><i class="fa-solid fa-video text-emerald-400 text-lg"></i><div class="text-left"><p class="text-[9px] text-zinc-500 font-black uppercase tracking-widest">Formato</p><p class="text-xs sm:text-sm font-black text-white leading-tight">40h en vivo + 20h guiadas</p></div></div>
-<div class="bg-zinc-900/65 border border-zinc-800 px-3 sm:px-5 py-3.5 rounded-xl backdrop-blur-md shadow-md flex items-center gap-3 min-w-0"><i class="fa-regular fa-calendar text-emerald-400 text-lg"></i><div class="text-left"><p class="text-[9px] text-zinc-500 font-black uppercase tracking-widest">Cohorte</p><p class="text-xs sm:text-sm font-black text-white leading-tight">Por confirmar</p></div></div>
-<div class="bg-zinc-900/65 border border-zinc-800 px-3 sm:px-5 py-3.5 rounded-xl backdrop-blur-md shadow-md flex items-center gap-3 min-w-0"><i class="fa-solid fa-diagram-project text-emerald-400 text-lg"></i><div class="text-left"><p class="text-[9px] text-zinc-500 font-black uppercase tracking-widest">Proyecto final</p><p class="text-xs sm:text-sm font-black text-white leading-tight">Sistema integral de marketing con agentes de IA</p></div></div>
+<div class="bg-zinc-900/80 border border-zinc-800 px-3 sm:px-5 py-3.5 rounded-xl backdrop-blur-md shadow-md flex items-center gap-3 min-w-0"><i class="fa-regular fa-clock text-emerald-400 text-lg"></i><div class="text-left"><p class="text-[9px] text-zinc-300 font-black uppercase tracking-widest">Duración</p><p class="text-xs sm:text-sm font-black text-white leading-tight">5 semanas · 60h</p></div></div>
+<div class="bg-zinc-900/80 border border-zinc-800 px-3 sm:px-5 py-3.5 rounded-xl backdrop-blur-md shadow-md flex items-center gap-3 min-w-0"><i class="fa-solid fa-video text-emerald-400 text-lg"></i><div class="text-left"><p class="text-[9px] text-zinc-300 font-black uppercase tracking-widest">Formato</p><p class="text-xs sm:text-sm font-black text-white leading-tight">40h en vivo + 20h guiadas</p></div></div>
+<div class="bg-zinc-900/80 border border-zinc-800 px-3 sm:px-5 py-3.5 rounded-xl backdrop-blur-md shadow-md flex items-center gap-3 min-w-0"><i class="fa-regular fa-calendar text-emerald-400 text-lg"></i><div class="text-left"><p class="text-[9px] text-zinc-300 font-black uppercase tracking-widest">Cohorte</p><p class="text-xs sm:text-sm font-black text-white leading-tight">Por confirmar</p></div></div>
+<div class="bg-zinc-900/80 border border-zinc-800 px-3 sm:px-5 py-3.5 rounded-xl backdrop-blur-md shadow-md flex items-center gap-3 min-w-0"><i class="fa-solid fa-diagram-project text-emerald-400 text-lg"></i><div class="text-left"><p class="text-[9px] text-zinc-300 font-black uppercase tracking-widest">Proyecto final</p><p class="text-xs sm:text-sm font-black text-white leading-tight">Sistema integral de marketing con agentes de IA</p></div></div>
 </div>
 <div class="flex flex-col sm:flex-row gap-3 justify-center w-full max-w-xl mx-auto"><a class="w-full bg-white text-zinc-950 px-8 py-4 rounded-xl font-black text-sm lg:text-base hover:bg-emerald-50 transition-all shadow-[0_0_24px_rgba(255,255,255,0.13)] text-center flex items-center justify-center gap-2 group" href="#inversion"><span>Asegurar Cupo</span><i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i></a><a class="w-full border border-white/15 bg-white/5 hover:bg-white/10 text-white px-8 py-4 rounded-xl font-black text-sm lg:text-base transition-all text-center flex items-center justify-center gap-2" href="#temario">Ver Malla Completa <i class="fa-solid fa-layer-group text-emerald-300"></i></a></div>
 </div>
