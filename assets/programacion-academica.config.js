@@ -44,12 +44,6 @@ window.IBERO_PROGRAMACION_CONFIG = {
           "start": "2026-11-02",
           "end": "2026-11-05",
           "status": "confirmed"
-        },
-        {
-          "id": "marketing-2026-11-23",
-          "start": "2026-11-23",
-          "end": "2026-11-26",
-          "status": "confirmed"
         }
       ],
       "registrationDaysBefore": 14
@@ -108,9 +102,9 @@ window.IBERO_PROGRAMACION_CONFIG = {
           "status": "confirmed"
         },
         {
-          "id": "agents-2026-11-16",
-          "start": "2026-11-16",
-          "end": "2026-11-19",
+          "id": "agents-2026-11-23",
+          "start": "2026-11-23",
+          "end": "2026-11-26",
           "status": "confirmed"
         },
         {
