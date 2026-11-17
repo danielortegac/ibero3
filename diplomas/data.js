@@ -422,5 +422,96 @@ window.BASE_DE_DATOS_DIPLOMAS = {
     "url": "/fotos/diplomas/certificado-productividad-automatizacion-ia-2026-10-19-diana-caiza.png",
     "curso": "Certificación en Productividad y Automatización de Procesos con Inteligencia Artificial · Finalizado el 22 de octubre de 2026",
     "fechaFin": "2026-10-22"
+  },
+  "cristina-loor-bruno": {
+    "id": "productividad-automatizacion-ia-2026-11-09-cristina-loor-bruno",
+    "nombre": "Cristina Loor Bruno",
+    "url": "/fotos/diplomas/certificado-productividad-automatizacion-ia-2026-11-09-cristina-loor-bruno.png",
+    "curso": "Certificación en Productividad y Automatización de Procesos con Inteligencia Artificial · Finalizado el 12 de noviembre de 2026",
+    "fechaFin": "2026-11-12"
+  },
+  "daniel-morales": {
+    "id": "productividad-automatizacion-ia-2026-11-09-daniel-morales",
+    "nombre": "Daniel Morales",
+    "url": "/fotos/diplomas/certificado-productividad-automatizacion-ia-2026-11-09-daniel-morales.png",
+    "curso": "Certificación en Productividad y Automatización de Procesos con Inteligencia Artificial · Finalizado el 12 de noviembre de 2026",
+    "fechaFin": "2026-11-12"
+  },
+  "yolis-bibiana-castillo-gutierrez": {
+    "id": "productividad-automatizacion-ia-2026-11-09-yolis-bibiana-castillo-gutierrez",
+    "nombre": "Yolis Bibiana Castillo Gutiérrez",
+    "url": "/fotos/diplomas/certificado-productividad-automatizacion-ia-2026-11-09-yolis-bibiana-castillo-gutierrez.png",
+    "curso": "Certificación en Productividad y Automatización de Procesos con Inteligencia Artificial · Finalizado el 12 de noviembre de 2026",
+    "fechaFin": "2026-11-12"
+  },
+  "roberto-castillo-bozo": {
+    "id": "productividad-automatizacion-ia-2026-11-09-roberto-castillo-bozo",
+    "nombre": "Roberto Castillo Bozo",
+    "url": "/fotos/diplomas/certificado-productividad-automatizacion-ia-2026-11-09-roberto-castillo-bozo.png",
+    "curso": "Certificación en Productividad y Automatización de Procesos con Inteligencia Artificial · Finalizado el 12 de noviembre de 2026",
+    "fechaFin": "2026-11-12"
+  },
+  "eber-javier-hernandez-cruz": {
+    "id": "productividad-automatizacion-ia-2026-11-09-eber-javier-hernandez-cruz",
+    "nombre": "Eber Javier Hernandez Cruz",
+    "url": "/fotos/diplomas/certificado-productividad-automatizacion-ia-2026-11-09-eber-javier-hernandez-cruz.png",
+    "curso": "Certificación en Productividad y Automatización de Procesos con Inteligencia Artificial · Finalizado el 12 de noviembre de 2026",
+    "fechaFin": "2026-11-12"
+  },
+  "omar-hidalgo": {
+    "id": "productividad-automatizacion-ia-2026-11-09-omar-hidalgo",
+    "nombre": "Omar Hidalgo",
+    "url": "/fotos/diplomas/certificado-productividad-automatizacion-ia-2026-11-09-omar-hidalgo.png",
+    "curso": "Certificación en Productividad y Automatización de Procesos con Inteligencia Artificial · Finalizado el 12 de noviembre de 2026",
+    "fechaFin": "2026-11-12"
+  },
+  "julio-alejandro-valencia-garcia": {
+    "id": "productividad-automatizacion-ia-2026-11-09-julio-alejandro-valencia-garcia",
+    "nombre": "Julio Alejandro Valencia García",
+    "url": "/fotos/diplomas/certificado-productividad-automatizacion-ia-2026-11-09-julio-alejandro-valencia-garcia.png",
+    "curso": "Certificación en Productividad y Automatización de Procesos con Inteligencia Artificial · Finalizado el 12 de noviembre de 2026",
+    "fechaFin": "2026-11-12"
+  },
+  "cristhian-alexander-ordonez-mejia": {
+    "id": "productividad-automatizacion-ia-2026-11-09-cristhian-alexander-ordonez-mejia",
+    "nombre": "Cristhian Alexander Ordóñez Mejía",
+    "url": "/fotos/diplomas/certificado-productividad-automatizacion-ia-2026-11-09-cristhian-alexander-ordonez-mejia.png",
+    "curso": "Certificación en Productividad y Automatización de Procesos con Inteligencia Artificial · Finalizado el 12 de noviembre de 2026",
+    "fechaFin": "2026-11-12"
+  },
+  "juan-carlos-verdezoto-montano": {
+    "id": "productividad-automatizacion-ia-2026-11-09-juan-carlos-verdezoto-montano",
+    "nombre": "Juan Carlos Verdezoto Montaño",
+    "url": "/fotos/diplomas/certificado-productividad-automatizacion-ia-2026-11-09-juan-carlos-verdezoto-montano.png",
+    "curso": "Certificación en Productividad y Automatización de Procesos con Inteligencia Artificial · Finalizado el 12 de noviembre de 2026",
+    "fechaFin": "2026-11-12"
+  },
+  "miriam-puente-jimenez": {
+    "id": "productividad-automatizacion-ia-2026-11-09-miriam-puente-jimenez",
+    "nombre": "Miriam Puente Jimenez",
+    "url": "/fotos/diplomas/certificado-productividad-automatizacion-ia-2026-11-09-miriam-puente-jimenez.png",
+    "curso": "Certificación en Productividad y Automatización de Procesos con Inteligencia Artificial · Finalizado el 12 de noviembre de 2026",
+    "fechaFin": "2026-11-12"
+  },
+  "anthony-freyle": {
+    "id": "productividad-automatizacion-ia-2026-11-09-anthony-freyle",
+    "nombre": "Anthony Freyle",
+    "url": "/fotos/diplomas/certificado-productividad-automatizacion-ia-2026-11-09-anthony-freyle.png",
+    "curso": "Certificación en Productividad y Automatización de Procesos con Inteligencia Artificial · Finalizado el 12 de noviembre de 2026",
+    "fechaFin": "2026-11-12"
+  },
+  "edwin-culqui": {
+    "id": "productividad-automatizacion-ia-2026-11-09-edwin-culqui",
+    "nombre": "Edwin Culqui",
+    "url": "/fotos/diplomas/certificado-productividad-automatizacion-ia-2026-11-09-edwin-culqui.png",
+    "curso": "Certificación en Productividad y Automatización de Procesos con Inteligencia Artificial · Finalizado el 12 de noviembre de 2026",
+    "fechaFin": "2026-11-12"
+  },
+  "kevin-simbana": {
+    "id": "productividad-automatizacion-ia-2026-11-09-kevin-simbana",
+    "nombre": "Kevin Simbaña",
+    "url": "/fotos/diplomas/certificado-productividad-automatizacion-ia-2026-11-09-kevin-simbana.png",
+    "curso": "Certificación en Productividad y Automatización de Procesos con Inteligencia Artificial · Finalizado el 12 de noviembre de 2026",
+    "fechaFin": "2026-11-12"
   }
 };
