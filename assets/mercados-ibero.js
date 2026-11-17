@@ -580,7 +580,7 @@
       return '';
     }
     const payment=/pago|pagar|paypal|inscripcion|inscrib|matricula|tarjeta|transferencia/.test(q);
-    if(key==='agents'&&country==='ES'&&payment&&!window.IBERO_PROGRAMACION.getRegistrationState(key).canRegister)return programSummary(key,false)+'<br>Inscripción no disponible para esta cohorte. Consulta la próxima convocatoria en Admisiones antes de realizar un pago.';
+    if(key==='agents'&&payment&&window.IBERO_PROGRAMACION&&!window.IBERO_PROGRAMACION.getRegistrationState(key).canRegister)return programSummary(key,false)+'<br>Consulta esta convocatoria en <a href="/registro-y-admisiones/#inversion">Admisiones</a> antes de realizar un pago.';
     if(key==='agents'&&country==='ES'&&payment)return '<strong>Agentes IA para España: 50 € finales, pago único en EUR.</strong><br><a href="'+esc(M.ES.agentsPayment.url)+'">Pagar 50 € con PayPal o tarjeta</a><br>'+esc(scheduleText(key))+'<br>'+esc(window.IBERO_PROGRAMACION.fieldText(key,'summary','long'))+'<br>No hay una transferencia bancaria española publicada. Después del pago, envía el comprobante a admisiones; la matrícula se confirma tras su validación.';
     if(key==='agents'&&/espana|madrid|canarias/.test(q)){
       const api=window.IBERO_PROGRAMACION;

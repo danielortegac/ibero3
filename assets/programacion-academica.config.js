@@ -1,6 +1,6 @@
 /* IBERO · Fuente de cohortes. Marketing actualizado por autorización del usuario: 26–29 octubre 2026. */
 window.IBERO_PROGRAMACION_CONFIG = {
-  "version": "2026-10-03.4-marketing-26oct",
+  "version": "2026-11-16.agentes-calendario",
   "timeZone": "America/Guayaquil",
   "utcOffset": "-05:00",
   "diplomadoAppsAplazado": true,
@@ -108,10 +108,18 @@ window.IBERO_PROGRAMACION_CONFIG = {
           "status": "confirmed"
         },
         {
+          "id": "agents-2026-12-07",
+          "start": "2026-12-07",
+          "end": "2026-12-10",
+          "status": "confirmed",
+          "registrationPending": true
+        },
+        {
           "id": "agents-2027-01-11",
           "start": "2027-01-11",
           "end": "2027-01-14",
-          "status": "confirmed"
+          "status": "confirmed",
+          "registrationPending": true
         }
       ],
       "registrationDaysBefore": 14,

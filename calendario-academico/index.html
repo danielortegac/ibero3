@@ -620,8 +620,8 @@ document.addEventListener('DOMContentLoaded', function(){
   @media(max-width:640px){.ibero-calendar-floating-toggle{left:14px;bottom:134px}.ibero-calendar-floating-toggle button{padding:9px 11px;font-size:9.5px}}
   @media print{.ibero-calendar-floating-toggle{display:none!important}}
 </style>
-<meta content="summary_large_image" name="twitter:card"/><meta content="https://ibero.education/fotos/og-image.jpg" name="twitter:image"/><script src="/assets/programacion-academica.config.js?v=20261111-agentes-nov23"></script>
-<script src="/assets/programacion-academica.js?v=20261003-es-eur50"></script>
+<meta content="summary_large_image" name="twitter:card"/><meta content="https://ibero.education/fotos/og-image.jpg" name="twitter:image"/><script src="/assets/programacion-academica.config.js?v=20261116-agentes-calendario"></script>
+<script src="/assets/programacion-academica.js?v=20261116-agentes-calendario"></script>
 <style id="ibero-market-styles">
 /* IBERO · presentación regional. Estilos acotados: no redefine navegación ni componentes académicos. */
 .ibero-flags-strip{display:flex;flex-wrap:wrap;gap:9px 11px;align-items:center;max-width:100%;margin:20px 0 6px;padding:0;list-style:none}
@@ -3121,7 +3121,7 @@ body.ibero-calendar-month-sidebar>div.pointer-events-none[class*="-z-10"]{displa
       let newEvents = [];
       finalSchedule.forEach(week => {
         week.events.forEach(ev => {
-          if(ev.registrationClosed || ev.type === 'comercial' || ev.type === 'inscripcion' || ev.type === 'master') return;
+          if(ev.registrationClosed || ev.registrationPending || ev.type === 'comercial' || ev.type === 'inscripcion' || ev.type === 'master') return;
           if(ev.type === 'gratis') {
             const startDate = new Date(ev.start + 'T12:00:00Z');
             startDate.setUTCDate(startDate.getUTCDate() - 6);
@@ -3976,6 +3976,7 @@ ${ev.type === 'inscripcion' ? '' : `                    <span class="inline-flex
 
       const btnInscribete = document.getElementById('btn-inscribete');
       const registrationUrl = getRegistrationLink(ev);
+      delete btnInscribete.dataset.iberoPaymentOriginalHref;
       btnInscribete.href = registrationUrl;
       btnInscribete.innerHTML = `<i class="ph-fill ph-link text-xl"></i> ${getRegistrationButtonLabel(ev)}`;
       btnInscribete.classList.remove('hidden');
@@ -4423,7 +4424,10 @@ window.addEventListener('ibero:pais-actualizado',function(event){
   calendarPaymentCountry=event.detail.country==='MX'?'mx':'general';
   // La actualización regional refresca el mismo evento sin cerrar su ventana.
   const btn=document.getElementById('btn-inscribete');
-  if(btn && calendarCurrentEvent)btn.href=getRegistrationLink(calendarCurrentEvent);
+  if(btn && calendarCurrentEvent){
+    delete btn.dataset.iberoPaymentOriginalHref;
+    btn.href=getRegistrationLink(calendarCurrentEvent);
+  }
   if(window.IBERO_MERCADOS)window.IBERO_MERCADOS.syncLinks();
 });
 </script>
@@ -5477,7 +5481,7 @@ window.IBERO_MERCADOS_CONFIG = {
       return '';
     }
     const payment=/pago|pagar|paypal|inscripcion|inscrib|matricula|tarjeta|transferencia/.test(q);
-    if(key==='agents'&&country==='ES'&&payment&&!window.IBERO_PROGRAMACION.getRegistrationState(key).canRegister)return programSummary(key,false)+'<br>Inscripción no disponible para esta cohorte. Consulta la próxima convocatoria en Admisiones antes de realizar un pago.';
+    if(key==='agents'&&payment&&window.IBERO_PROGRAMACION&&!window.IBERO_PROGRAMACION.getRegistrationState(key).canRegister)return programSummary(key,false)+'<br>Consulta esta convocatoria en <a href="/registro-y-admisiones/#inversion">Admisiones</a> antes de realizar un pago.';
     if(key==='agents'&&country==='ES'&&payment)return '<strong>Agentes IA para España: 50 € finales, pago único en EUR.</strong><br><a href="'+esc(M.ES.agentsPayment.url)+'">Pagar 50 € con PayPal o tarjeta</a><br>'+esc(scheduleText(key))+'<br>'+esc(window.IBERO_PROGRAMACION.fieldText(key,'summary','long'))+'<br>No hay una transferencia bancaria española publicada. Después del pago, envía el comprobante a admisiones; la matrícula se confirma tras su validación.';
     if(key==='agents'&&/espana|madrid|canarias/.test(q)){
       const api=window.IBERO_PROGRAMACION;

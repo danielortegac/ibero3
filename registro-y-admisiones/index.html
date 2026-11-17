@@ -363,9 +363,9 @@
 #admission-payment-grid .admission-pay-link[data-ibero-admission-state="pending"] .admission-cohort{color:#bfc0c7}
 #admission-payment-grid .admission-pay-link[data-ibero-admission-state="pending"] [data-admission-action]{background:#242428;border-color:#52525b;color:#fff}
 </style>
-<script src="../assets/programacion-academica.config.js?v=20261111-agentes-nov23" defer></script>
-<script src="../assets/programacion-academica.js?v=20261003-es-eur50" defer></script>
-<script src="../assets/admisiones-cohortes.js?v=20261003-es-eur50" defer></script>
+<script src="../assets/programacion-academica.config.js?v=20261116-agentes-calendario" defer></script>
+<script src="../assets/programacion-academica.js?v=20261116-agentes-calendario" defer></script>
+<script src="../assets/admisiones-cohortes.js?v=20261116-agentes-calendario" defer></script>
 </head>
 <body class="bg-white text-ibero-dark font-sans antialiased overflow-x-hidden selection:bg-ibero-dark selection:text-white pt-[144px] md:pt-[152px]">
 <!-- Botones Flotantes -->
@@ -3066,7 +3066,7 @@ window.IBERO_MERCADOS_CONFIG = {
       return '';
     }
     const payment=/pago|pagar|paypal|inscripcion|inscrib|matricula|tarjeta|transferencia/.test(q);
-    if(key==='agents'&&country==='ES'&&payment&&!window.IBERO_PROGRAMACION.getRegistrationState(key).canRegister)return programSummary(key,false)+'<br>Inscripción no disponible para esta cohorte. Consulta la próxima convocatoria en Admisiones antes de realizar un pago.';
+    if(key==='agents'&&payment&&window.IBERO_PROGRAMACION&&!window.IBERO_PROGRAMACION.getRegistrationState(key).canRegister)return programSummary(key,false)+'<br>Consulta esta convocatoria en <a href="/registro-y-admisiones/#inversion">Admisiones</a> antes de realizar un pago.';
     if(key==='agents'&&country==='ES'&&payment)return '<strong>Agentes IA para España: 50 € finales, pago único en EUR.</strong><br><a href="'+esc(M.ES.agentsPayment.url)+'">Pagar 50 € con PayPal o tarjeta</a><br>'+esc(scheduleText(key))+'<br>'+esc(window.IBERO_PROGRAMACION.fieldText(key,'summary','long'))+'<br>No hay una transferencia bancaria española publicada. Después del pago, envía el comprobante a admisiones; la matrícula se confirma tras su validación.';
     if(key==='agents'&&/espana|madrid|canarias/.test(q)){
       const api=window.IBERO_PROGRAMACION;

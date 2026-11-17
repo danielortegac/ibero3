@@ -31,6 +31,15 @@
         state.cohort.startTime+'–'+state.cohort.endTime+' · Ecuador';
       setText(card.querySelector('[data-admission-schedule]'),schedule);
       setAttr(card,'data-ibero-cohort-id',state.cohort.id);
+    } else if (state.state==='scheduled') {
+      const dates=api.formatRange(state.cohort,'long');
+      const schedule=window.IBERO_MERCADOS?window.IBERO_MERCADOS.scheduleText(key):state.cohort.startTime+'–'+state.cohort.endTime+' · Ecuador';
+      target='https://wa.me/19152854778?text='+encodeURIComponent('Hola IBERO, deseo consultar por '+title+' del '+dates+'. Mi país es '+country+'.');
+      action='Consultar esta cohorte';
+      setText(card.querySelector('[data-admission-status]'),state.label);
+      setText(card.querySelector('[data-admission-date]'),dates);
+      setText(card.querySelector('[data-admission-schedule]'),schedule);
+      setAttr(card,'data-ibero-cohort-id',state.cohort.id);
     } else {
       target='https://wa.me/19152854778?text='+encodeURIComponent('Hola IBERO, deseo consultar la próxima convocatoria de '+title+'. Mi país es '+country+'.');
       action='Consultar próxima convocatoria';

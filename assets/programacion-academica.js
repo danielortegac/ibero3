@@ -131,7 +131,9 @@
     const c=getDisplayedCohort(key,reference,market);return !!c&&isPublicCandidate(key,c,reference);
   }
   function commercialLabel(key, reference, market=selectedMarket()) {
-    return hasConfirmedPublicCohort(key, reference, market) ? 'Matrículas abiertas' : PENDING;
+    const cohort = getDisplayedCohort(key, reference, market);
+    if (!cohort) return PENDING;
+    return cohort.registrationPending === true ? 'Consulta con Admisiones' : 'Matrículas abiertas';
   }
   function formatStart(item, style = 'long') {
     if (!item) return PENDING;
@@ -207,9 +209,9 @@
       for (const c of getCohorts(key)) {
         const event = {title:(p.calendarTitle || p.name)+(c.market==='ES'?' · España':''), type:p.type, start:c.start, end:c.end,
           startTime:c.startTime, endTime:c.endTime, timeZone:c.timeZone, market:c.market||null, schedule:c.schedule || p.schedule,
-          desc:p.description || '', link:'https://ibero.education' + p.url + (c.market==='ES'?'?pais=ES&cohorte='+encodeURIComponent(c.id):''), programId:key, cohortId:c.id,
+          desc:p.description || '', link:'https://ibero.education' + p.url + (c.market==='ES'?'?pais=ES&cohorte='+encodeURIComponent(c.id):c.registrationPending?'?cohorte='+encodeURIComponent(c.id):''), programId:key, cohortId:c.id,
           weekdays:clone(c.weekdays || p.weekdays || [1,2,3,4]),
-          registrationClosed:c.registrationClosed === true, cohortStart:c.start, cohortEnd:c.end};
+          registrationClosed:c.registrationClosed === true, registrationPending:c.registrationPending === true, cohortStart:c.start, cohortEnd:c.end};
         if (p.type === 'diplomado' || p.type === 'master') {
           // New cohorts automatically generate weeks from their actual boundaries.
           const explicit = Array.isArray(c.modules) && c.modules.length ? c.modules : null;
@@ -245,11 +247,12 @@
     const p = programs[key];
     const c = cohortId ? getCohorts(key).find(item=>item.id===cohortId) : getDisplayedCohort(key,reference);
     const routeCohort=c && isPublicCandidate(key,c,reference) ? c : getPublishedCohort(key,reference);
-    const routeQuery=routeCohort && routeCohort.market==='ES'?'?pais=ES&cohorte='+encodeURIComponent(routeCohort.id):selectedMarket()==='ES'?'?pais=ES':'';
+    const routeQuery=routeCohort && routeCohort.market==='ES'?'?pais=ES&cohorte='+encodeURIComponent(routeCohort.id):routeCohort?.registrationPending?'?cohorte='+encodeURIComponent(routeCohort.id):selectedMarket()==='ES'?'?pais=ES':'';
     const programUrl = p ? 'https://www.ibero.education' + p.url + routeQuery : 'https://www.ibero.education/registro-y-admisiones/';
     if (!p || !c) return {state:'pending',canRegister:false,cohort:null,programUrl,label:PENDING};
     const closed = !isPublicCandidate(key,c,reference);
     if (closed) return {state:'closed',canRegister:false,cohort:c,programUrl,label:'Matrículas cerradas para esta cohorte'};
+    if (c.registrationPending === true) return {state:'scheduled',canRegister:false,cohort:c,programUrl,label:'Fecha confirmada · consulta con Admisiones'};
     return {state:'open',canRegister:true,cohort:c,programUrl,label:'Matrículas abiertas'};
   }
 
@@ -349,6 +352,9 @@
       const info=window.IBERO_MERCADOS.priceInfo(key,Number(value.price),'ES');
       if(Number.isFinite(info.value)){out.price=info.value;out.priceCurrency='EUR';out.url=key==='agents'?'https://www.paypal.com/ncp/payment/CEG8W8MVU3R9Q':window.IBERO_MERCADOS.consultationLink(key,Number(value.price));}
     }
+    if(type.includes('Course') && key==='agents' && getDisplayedCohort(key,reference)?.registrationPending){
+      delete out.offers;
+    }
     if (type.includes('Course') && key && programs[key]) {
       const cohorts = getCohorts(key).filter(c=>isPublicCandidate(key,c,reference));
       if (!cohorts.length) delete out.hasCourseInstance;
@@ -361,6 +367,7 @@
             startDate:zonedDate(c.start,c.startTime,c.timeZone).toISOString(),endDate:zonedDate(c.end,c.endTime,c.timeZone).toISOString(),
             courseSchedule:{'@type':'Schedule',scheduleTimezone:c.timeZone,startTime:c.startTime,endTime:c.endTime,repeatFrequency:'P1D',byDay:['Monday','Tuesday','Wednesday','Thursday']},
             offers:{'@type':'Offer',price:50,priceCurrency:'EUR',url:'https://www.paypal.com/ncp/payment/CEG8W8MVU3R9Q',description:'Precio final. Pago único de EUR 50.'}}:{})}));
+        instances.forEach((instance,i)=>{if(cohorts[i].registrationPending)delete instance.offers;});
         out.hasCourseInstance = instances.length===1 && !Array.isArray(value.hasCourseInstance) ? instances[0] : instances;
       }
     }
@@ -422,8 +429,8 @@
     // a la siguiente cohorte o queda en "Próxima cohorte por confirmar" sin invitar a pagar.
     findWithin(root,'[data-ibero-commercial-status]').forEach(el=>{
       const key=el.getAttribute('data-ibero-commercial-status');
-      const open=hasConfirmedPublicCohort(key);
-      const text=open ? 'Matrículas Abiertas' : PENDING;
+      const open=getRegistrationState(key).canRegister;
+      const text=open ? 'Matrículas Abiertas' : commercialLabel(key);
       if(el.textContent.trim()!==text) {
         const dot=el.querySelector('[data-ibero-commercial-dot]');
         if(dot) {
@@ -437,7 +444,7 @@
     });
     findWithin(root,'[data-ibero-registration]').forEach(el=>{
       const key=el.getAttribute('data-ibero-registration');
-      const open=hasConfirmedPublicCohort(key)&&el.dataset.iberoEsPaymentHidden!=='true';
+      const open=getRegistrationState(key).canRegister&&el.dataset.iberoEsPaymentHidden!=='true';
       el.hidden=!open;
       // `hidden` can lose the cascade against utility display classes such as `flex`.
       // Force the commercial CTA off when there is no confirmed public cohort.
@@ -446,6 +453,28 @@
       el.setAttribute('aria-hidden',open?'false':'true');
       if(!open) el.setAttribute('tabindex','-1');
       else if(el.getAttribute('tabindex')==='-1') el.removeAttribute('tabindex');
+    });
+    findWithin(root,'[data-ibero-agents-admission]').forEach(el=>{
+      const registration=getRegistrationState('agents');
+      const scheduled=registration.state==='scheduled';
+      el.hidden=!scheduled;
+      if(scheduled){
+        const url=new URL('/registro-y-admisiones/',window.location.origin);
+        const current=new URLSearchParams(window.location.search);
+        url.searchParams.set('pais',selectedMarket());
+        if(current.get('zona'))url.searchParams.set('zona',current.get('zona'));
+        url.searchParams.set('cohorte',registration.cohort.id);
+        url.hash='inversion';
+        el.setAttribute('href',url.pathname+url.search+url.hash);
+        el.style.removeProperty('display');
+      }else el.style.setProperty('display','none','important');
+    });
+    // Los PDF publicados de noviembre incluyen pagos para otra cohorte.
+    findWithin(root,'a[data-ibero-brochure-key="agents"]').forEach(el=>{
+      const scheduled=getRegistrationState('agents').state==='scheduled';
+      el.hidden=scheduled;
+      if(scheduled)el.style.setProperty('display','none','important');
+      else el.style.removeProperty('display');
     });
     findWithin(root,'[data-ibero-content-template]').forEach(el=>{
       const text=renderTemplate(el.getAttribute('data-ibero-content-template'));
@@ -471,7 +500,7 @@
       key+':'+market+':'+getCohorts(key,market).filter(c=>isPublicCandidate(key,c)).map(c=>c.id).join(','))).join('|');
     const next = regional+'|'+todayString() + '|'+selectedMarket()+'|'+window.location.search+'|' + Object.keys(programs).map(k=>{
       const c=getPublishedCohort(k);
-      return k+':'+(c?c.id:'pending')+':'+getStatus(k);
+      return k+':'+(c?c.id:'pending')+':'+getRegistrationState(k).state;
     }).join('|') + '|' + getCalendarEvents().filter(e=>!isEventExpired(e)).map(e=>e.start+e.cohortId).join(',');
     if (next === fingerprint) return;
     fingerprint = next;
@@ -490,7 +519,7 @@
   function guardRegistration(event) {
     const target=event.target && event.target.closest && event.target.closest('[data-ibero-registration]');
     if(!target)return;
-    const open=hasConfirmedPublicCohort(target.getAttribute('data-ibero-registration')) && target.dataset.iberoEsPaymentHidden!=='true';
+    const open=getRegistrationState(target.getAttribute('data-ibero-registration')).canRegister && target.dataset.iberoEsPaymentHidden!=='true';
     syncBindings(target);
     if(!open){event.preventDefault();event.stopImmediatePropagation();}
   }
