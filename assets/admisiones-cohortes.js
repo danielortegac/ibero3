@@ -61,7 +61,17 @@
     window.addEventListener('pageshow',refresh);
     document.addEventListener('visibilitychange',()=>{if(!document.hidden)refresh();});
     // Revalidar el destino también en el instante del clic, sin impedir el uso normal del enlace.
-    const verify=e=>{const card=e.target.closest && e.target.closest(SELECTOR);if(card)updateCard(card);};
+    const verify=e=>{
+      const card=e.target.closest && e.target.closest(SELECTOR);
+      if(!card)return;
+      const previousCohort=card.getAttribute('data-ibero-cohort-id');
+      const previousState=card.getAttribute('data-ibero-admission-state');
+      updateCard(card);
+      if(card.dataset.iberoAdmission==='agents' && (previousCohort!==card.getAttribute('data-ibero-cohort-id') || previousState!==card.getAttribute('data-ibero-admission-state'))){
+        e.preventDefault();
+        e.stopImmediatePropagation();
+      }
+    };
     document.addEventListener('click',verify,true);
     document.addEventListener('auxclick',verify,true);
   }

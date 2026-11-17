@@ -620,8 +620,8 @@ document.addEventListener('DOMContentLoaded', function(){
   @media(max-width:640px){.ibero-calendar-floating-toggle{left:14px;bottom:134px}.ibero-calendar-floating-toggle button{padding:9px 11px;font-size:9.5px}}
   @media print{.ibero-calendar-floating-toggle{display:none!important}}
 </style>
-<meta content="summary_large_image" name="twitter:card"/><meta content="https://ibero.education/fotos/og-image.jpg" name="twitter:image"/><script src="/assets/programacion-academica.config.js?v=20261116-agentes-calendario"></script>
-<script src="/assets/programacion-academica.js?v=20261116-agentes-calendario"></script>
+<meta content="summary_large_image" name="twitter:card"/><meta content="https://ibero.education/fotos/og-image.jpg" name="twitter:image"/><script src="/assets/programacion-academica.config.js?v=20261116-agentes-pago-programado"></script>
+<script src="/assets/programacion-academica.js?v=20261116-agentes-pago-programado"></script>
 <style id="ibero-market-styles">
 /* IBERO · presentación regional. Estilos acotados: no redefine navegación ni componentes académicos. */
 .ibero-flags-strip{display:flex;flex-wrap:wrap;gap:9px 11px;align-items:center;max-width:100%;margin:20px 0 6px;padding:0;list-style:none}
@@ -4006,6 +4006,7 @@ ${ev.type === 'inscripcion' ? '' : `                    <span class="inline-flex
 
       updateCalendarDownload(ev);
       const registrationState=getCalendarRegistration(ev);
+      btnInscribete.dataset.iberoCalendarRegistrationState=registrationState?.state || '';
       const status=document.getElementById('modal-registration-status');
       if(status){
         status.textContent=registrationState ? (registrationState.state==='closed'
@@ -4420,6 +4421,17 @@ document.addEventListener('DOMContentLoaded', function () {
 })();
 </script>
 <script id="ibero-calendar-payment-country">
+const calendarRegistrationButton=document.getElementById('btn-inscribete');
+function verifyAgentsCalendarRegistration(event){
+  if(calendarCurrentEvent?.programId!=='agents')return;
+  const state=getCalendarRegistration(calendarCurrentEvent);
+  if(calendarRegistrationButton.dataset.iberoCalendarRegistrationState===(state?.state || ''))return;
+  event.preventDefault();
+  event.stopImmediatePropagation();
+  openEventModal(encodeURIComponent(JSON.stringify(calendarCurrentEvent)));
+}
+calendarRegistrationButton?.addEventListener('click',verifyAgentsCalendarRegistration,true);
+calendarRegistrationButton?.addEventListener('auxclick',verifyAgentsCalendarRegistration,true);
 window.addEventListener('ibero:pais-actualizado',function(event){
   calendarPaymentCountry=event.detail.country==='MX'?'mx':'general';
   // La actualización regional refresca el mismo evento sin cerrar su ventana.

@@ -130,10 +130,17 @@
   function hasConfirmedPublicCohort(key, reference, market=selectedMarket()) {
     const c=getDisplayedCohort(key,reference,market);return !!c&&isPublicCandidate(key,c,reference);
   }
+  function isRegistrationPending(cohort, reference = new Date()) {
+    if (cohort?.registrationPending !== true) return false;
+    const opensAt=cohort.registrationOpensAt;
+    if (typeof opensAt !== 'string' || !/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/.test(opensAt)) return true;
+    if (!validDate(opensAt.slice(0,10)) || !validTime(opensAt.slice(11,-1))) return true;
+    return !(new Date(reference).getTime() >= Date.parse(opensAt));
+  }
   function commercialLabel(key, reference, market=selectedMarket()) {
     const cohort = getDisplayedCohort(key, reference, market);
     if (!cohort) return PENDING;
-    return cohort.registrationPending === true ? 'Consulta con Admisiones' : 'Matrículas abiertas';
+    return isRegistrationPending(cohort,reference) ? 'Consulta con Admisiones' : 'Matrículas abiertas';
   }
   function formatStart(item, style = 'long') {
     if (!item) return PENDING;
@@ -252,7 +259,7 @@
     if (!p || !c) return {state:'pending',canRegister:false,cohort:null,programUrl,label:PENDING};
     const closed = !isPublicCandidate(key,c,reference);
     if (closed) return {state:'closed',canRegister:false,cohort:c,programUrl,label:'Matrículas cerradas para esta cohorte'};
-    if (c.registrationPending === true) return {state:'scheduled',canRegister:false,cohort:c,programUrl,label:'Fecha confirmada · consulta con Admisiones'};
+    if (isRegistrationPending(c,reference)) return {state:'scheduled',canRegister:false,cohort:c,programUrl,label:'Fecha confirmada · consulta con Admisiones'};
     return {state:'open',canRegister:true,cohort:c,programUrl,label:'Matrículas abiertas'};
   }
 
@@ -352,7 +359,7 @@
       const info=window.IBERO_MERCADOS.priceInfo(key,Number(value.price),'ES');
       if(Number.isFinite(info.value)){out.price=info.value;out.priceCurrency='EUR';out.url=key==='agents'?'https://www.paypal.com/ncp/payment/CEG8W8MVU3R9Q':window.IBERO_MERCADOS.consultationLink(key,Number(value.price));}
     }
-    if(type.includes('Course') && key==='agents' && getDisplayedCohort(key,reference)?.registrationPending){
+    if(type.includes('Course') && key==='agents' && isRegistrationPending(getDisplayedCohort(key,reference),reference)){
       delete out.offers;
     }
     if (type.includes('Course') && key && programs[key]) {
@@ -367,7 +374,7 @@
             startDate:zonedDate(c.start,c.startTime,c.timeZone).toISOString(),endDate:zonedDate(c.end,c.endTime,c.timeZone).toISOString(),
             courseSchedule:{'@type':'Schedule',scheduleTimezone:c.timeZone,startTime:c.startTime,endTime:c.endTime,repeatFrequency:'P1D',byDay:['Monday','Tuesday','Wednesday','Thursday']},
             offers:{'@type':'Offer',price:50,priceCurrency:'EUR',url:'https://www.paypal.com/ncp/payment/CEG8W8MVU3R9Q',description:'Precio final. Pago único de EUR 50.'}}:{})}));
-        instances.forEach((instance,i)=>{if(cohorts[i].registrationPending)delete instance.offers;});
+        instances.forEach((instance,i)=>{if(isRegistrationPending(cohorts[i],reference))delete instance.offers;});
         out.hasCourseInstance = instances.length===1 && !Array.isArray(value.hasCourseInstance) ? instances[0] : instances;
       }
     }
@@ -444,7 +451,9 @@
     });
     findWithin(root,'[data-ibero-registration]').forEach(el=>{
       const key=el.getAttribute('data-ibero-registration');
-      const open=getRegistrationState(key).canRegister&&el.dataset.iberoEsPaymentHidden!=='true';
+      const registration=getRegistrationState(key);
+      const open=registration.canRegister&&el.dataset.iberoEsPaymentHidden!=='true';
+      if(key==='agents') el.setAttribute('data-ibero-registration-cohort',registration.cohort?.id || '');
       el.hidden=!open;
       // `hidden` can lose the cascade against utility display classes such as `flex`.
       // Force the commercial CTA off when there is no confirmed public cohort.
@@ -469,11 +478,11 @@
         el.style.removeProperty('display');
       }else el.style.setProperty('display','none','important');
     });
-    // Los PDF publicados de noviembre incluyen pagos para otra cohorte.
+    // El brochure general incluye enlaces de pago reutilizables.
     findWithin(root,'a[data-ibero-brochure-key="agents"]').forEach(el=>{
-      const scheduled=getRegistrationState('agents').state==='scheduled';
-      el.hidden=scheduled;
-      if(scheduled)el.style.setProperty('display','none','important');
+      const open=getRegistrationState('agents').canRegister;
+      el.hidden=!open;
+      if(!open)el.style.setProperty('display','none','important');
       else el.style.removeProperty('display');
     });
     findWithin(root,'[data-ibero-content-template]').forEach(el=>{
@@ -519,9 +528,13 @@
   function guardRegistration(event) {
     const target=event.target && event.target.closest && event.target.closest('[data-ibero-registration]');
     if(!target)return;
-    const open=getRegistrationState(target.getAttribute('data-ibero-registration')).canRegister && target.dataset.iberoEsPaymentHidden!=='true';
+    const key=target.getAttribute('data-ibero-registration');
+    const registration=getRegistrationState(key);
+    const open=registration.canRegister && target.dataset.iberoEsPaymentHidden!=='true';
+    const changed=key==='agents' && target.getAttribute('data-ibero-registration-cohort') !== (registration.cohort?.id || '');
     syncBindings(target);
-    if(!open){event.preventDefault();event.stopImmediatePropagation();}
+    if(changed) refresh();
+    if(!open || changed){event.preventDefault();event.stopImmediatePropagation();}
   }
   function start() {
     syncBindings(document); refresh();
