@@ -110,11 +110,24 @@
     if (!cohort || cohort.registrationClosed === true) return false;
     return localStamp(reference,cohort.timeZone) < cohort.start+'T'+fullTime(cohort.startTime);
   }
+  function findCohortById(cohorts, id) {
+    return id && cohorts.find(c => c.id === id || c.previousIds?.includes(id));
+  }
+  function updateReplacedCohortLink() {
+    const url = new URL(window.location.href);
+    const requested = url.searchParams.get('cohorte');
+    if (!requested) return;
+    const replacement = findCohortById(getCohorts('agents'), requested);
+    if (replacement && replacement.id !== requested) {
+      url.searchParams.set('cohorte', replacement.id);
+      window.history.replaceState(window.history.state, '', url);
+    }
+  }
   function getPublishedCohort(key, reference, market=selectedMarket()) {
     const cohorts=getCohorts(key,market);
     const requested=new URLSearchParams(window.location.search||'').get('cohorte');
-    const chosen=requested && cohorts.find(c=>c.id===requested && isPublicCandidate(key,c,reference));
-    return chosen || cohorts.find(c => isPublicCandidate(key, c, reference)) || null;
+    const chosen=findCohortById(cohorts,requested);
+    return chosen && isPublicCandidate(key,chosen,reference) ? chosen : cohorts.find(c => isPublicCandidate(key, c, reference)) || null;
   }
   function getDisplayedCohort(key, reference, market=selectedMarket()) {
     // Los enlaces comerciales antiguos no fijan una cohorte ya iniciada.
@@ -252,7 +265,7 @@
   // La regla de apertura comercial no se infiere de un recordatorio del calendario.
   function getRegistrationState(key, cohortId, reference) {
     const p = programs[key];
-    const c = cohortId ? getCohorts(key).find(item=>item.id===cohortId) : getDisplayedCohort(key,reference);
+    const c = cohortId ? findCohortById(getCohorts(key),cohortId) : getDisplayedCohort(key,reference);
     const routeCohort=c && isPublicCandidate(key,c,reference) ? c : getPublishedCohort(key,reference);
     const routeQuery=routeCohort && routeCohort.market==='ES'?'?pais=ES&cohorte='+encodeURIComponent(routeCohort.id):routeCohort?.registrationPending?'?cohorte='+encodeURIComponent(routeCohort.id):selectedMarket()==='ES'?'?pais=ES':'';
     const programUrl = p ? 'https://www.ibero.education' + p.url + routeQuery : 'https://www.ibero.education/registro-y-admisiones/';
@@ -525,6 +538,7 @@
     getProgram:key=>programs[key]?clone(programs[key]):null
   });
   window.IBERO_PROGRAMACION = API;
+  updateReplacedCohortLink();
   function guardRegistration(event) {
     const target=event.target && event.target.closest && event.target.closest('[data-ibero-registration]');
     if(!target)return;
