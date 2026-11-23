@@ -31,8 +31,7 @@
       }
     }
   </script>
-<!-- LIBRERÍA PARA PDF PERFECTOS (Limpia) -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<link href="./credencial.css" rel="stylesheet">
 <style>
     html { zoom: 0.9; }
     body { background-color: #FAFAFA; }
@@ -558,86 +557,82 @@
 Buscar otro estudiante
 </button>
 </div>
-<!-- RESULTADO: DIPLOMA ENCONTRADO -->
-<div class="hidden flex-col items-center opacity-0 transition-opacity duration-500 w-full max-w-4xl" id="result-success">
-<!-- CABECERA: TEXTO EMPODERADOR + SELLO VERDE AL LADO (Sello Oculto en Móvil) -->
-<div class="w-full flex flex-col md:flex-row items-center md:items-center justify-between gap-8 mb-10 px-4">
-<!-- Texto Empoderador (Izquierda) -->
-<div class="text-center md:text-left flex-1 max-w-xl">
-<h2 class="text-4xl sm:text-5xl font-serif italic text-ibero-dark mb-4 hero-shine-dark">Documento Verificable IBERO</h2>
-<h3 class="text-2xl sm:text-3xl font-extrabold text-ibero-dark mb-3" id="cert-student-name">Nombre del Alumno</h3>
-<p class="text-zinc-600 leading-relaxed text-sm sm:text-base">
-              El <strong class="text-ibero-dark">Centro IBEROamericano (IBERO)</strong> avala institucionalmente que el alumno ha culminado con <strong class="text-zinc-800">excelencia académica</strong> el programa <strong class="text-ibero-purple" id="cert-course-name">Nombre del Programa</strong> y demuestra su <strong class="text-zinc-800">alto nivel de competencia</strong>, <strong class="text-zinc-800">rigor profesional</strong> y capacidad para <strong class="text-zinc-800">liderar en su entorno</strong>.
-            </p>
-</div>
-<!-- Sello Verde Prominente y Pro (Derecha - Visible solo en Ordenador) -->
-<div class="hidden md:flex shrink-0 w-auto max-w-[280px] md:max-w-none flex-col items-center bg-white border border-emerald-100 px-6 sm:px-8 py-5 sm:py-6 rounded-[2rem] shadow-[0_0_40px_rgba(16,185,129,0.15)] relative overflow-hidden group">
-<div class="absolute inset-0 bg-gradient-to-tr from-emerald-50/80 to-transparent"></div>
-<div class="relative z-10 flex flex-col items-center">
-<div class="w-14 h-14 bg-white rounded-full flex items-center justify-center text-emerald-500 text-3xl mb-3 shadow-[0_4px_15px_rgba(16,185,129,0.2)] border border-emerald-50">
-<i class="fa-solid fa-qrcode"></i>
-</div>
-<h4 class="text-xl sm:text-2xl font-serif italic text-ibero-dark mb-1 leading-tight text-center hero-shine-dark whitespace-nowrap">Auténtica<br/>&amp; Avalada</h4>
-<div class="mt-2 bg-emerald-50/80 px-4 py-1.5 rounded-md border border-emerald-100 backdrop-blur-sm shadow-inner">
-<p class="text-[10px] text-emerald-700 font-mono font-bold tracking-widest" id="student-id-display">ID: ...</p>
-</div>
-</div>
-</div>
-</div>
-<!-- CONTENEDOR DEL DIPLOMA -->
-<div class="relative w-full max-w-2xl flex flex-col items-center">
-<div class="w-full flex justify-center">
-<div class="diploma-frame w-full">
-<img alt="Diploma" class="w-full h-auto object-contain block" crossorigin="anonymous" id="diploma-image" src=""/>
-</div>
-</div>
-</div>
-<!-- TEXTO DE AVAL / SKILLS (Segundo Párrafo) -->
-<div class="mt-10 bg-white border border-zinc-200 rounded-3xl p-6 sm:p-8 max-w-2xl w-full text-center shadow-[0_4px_24px_-8px_rgba(0,0,0,0.05)] relative overflow-hidden">
-<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-ibero-purple via-ibero-red to-ibero-purple"></div>
-<div class="w-14 h-14 bg-zinc-50 rounded-full border border-zinc-200 flex items-center justify-center mx-auto mb-5 shadow-sm">
-<img alt="IBERO" class="w-7 h-7 object-contain opacity-80" src="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/3339294f71590eeeaa7f0b0b0591f5e09156ed96/fotos/logos%20ibero/ibero-favicon.svg"/>
-</div>
-<p class="text-zinc-600 text-sm sm:text-base leading-relaxed font-medium">
-            El <strong class="text-ibero-dark font-bold">Centro IBEROamericano (IBERO)</strong> certifica que el estudiante <strong class="text-ibero-dark font-black uppercase" id="cert-student-name-2"></strong> aprobó satisfactoriamente y cuenta con habilidades blandas de alto nivel, conocimientos sólidos en <strong class="text-ibero-dark">Inteligencia Artificial</strong>, herramientas tecnológicas, comunicación estratégica y negocios.
-          </p>
-</div>
-<!-- Sello Verde Prominente y Pro (Móvil - Visible solo en Celular debajo del aval) -->
-<div class="flex md:hidden shrink-0 w-full max-w-[280px] flex-col items-center bg-white border border-emerald-100 px-6 py-5 rounded-[2rem] shadow-[0_0_40px_rgba(16,185,129,0.15)] relative overflow-hidden group mt-6 mb-2 mx-auto">
-<div class="absolute inset-0 bg-gradient-to-tr from-emerald-50/80 to-transparent"></div>
-<div class="relative z-10 flex flex-col items-center">
-<div class="w-14 h-14 bg-white rounded-full flex items-center justify-center text-emerald-500 text-3xl mb-3 shadow-[0_4px_15px_rgba(16,185,129,0.2)] border border-emerald-50">
-<i class="fa-solid fa-qrcode"></i>
-</div>
-<h4 class="text-xl font-serif italic text-ibero-dark mb-1 leading-tight text-center hero-shine-dark whitespace-nowrap">Auténtica<br/>&amp; Avalada</h4>
-<div class="mt-2 bg-emerald-50/80 px-4 py-1.5 rounded-md border border-emerald-100 backdrop-blur-sm shadow-inner">
-<p class="text-[10px] text-emerald-700 font-mono font-bold tracking-widest" id="student-id-display-mobile">ID: ...</p>
-</div>
-</div>
-</div>
-<!-- Botones de Acción -->
-<div class="flex flex-wrap justify-center gap-3 sm:gap-4 mt-8 w-full max-w-2xl border-t border-zinc-200 pt-8">
-<!-- Botón PDF -->
-<button class="bg-[#09090B] text-white px-5 sm:px-6 py-3 rounded-xl font-bold text-[11px] sm:text-xs hover:bg-zinc-800 transition-all shadow-md flex items-center gap-2" onclick="downloadPDF()">
-<i class="fa-solid fa-file-pdf"></i> Guardar en PDF Oficial
-          </button>
-<a class="bg-white border border-zinc-300 text-ibero-dark px-5 sm:px-6 py-3 rounded-xl font-bold text-[11px] sm:text-xs hover:bg-zinc-50 transition-all shadow-sm flex items-center gap-2" download="" href="#" id="download-btn" target="_blank">
-<i class="fa-solid fa-image"></i> Descargar Imagen
-          </a>
-<!-- Botón de LinkedIn Mejorado -->
-<button class="bg-[#0077b5] text-white px-5 sm:px-6 py-3 rounded-xl font-bold text-[11px] sm:text-xs hover:bg-[#005e93] transition-all shadow-md flex items-center gap-2 group relative" id="linkedin-btn">
-<i class="fa-brands fa-linkedin text-sm"></i> Publicar en LinkedIn
-            <span class="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-black text-white text-[9px] py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
-              Copia texto, abre LinkedIn y sube tu diploma
-            </span>
-</button>
-<button class="hidden bg-white border border-zinc-200 text-ibero-dark px-4 py-3 rounded-xl font-bold text-[11px] sm:text-xs hover:bg-zinc-50 transition-all shadow-sm" id="back-to-list-btn" type="button">
-<i class="fa-solid fa-list"></i> Ver todos mis diplomas
-          </button>
-<button class="bg-white border border-transparent text-zinc-500 px-4 py-3 rounded-xl font-bold text-[11px] sm:text-xs hover:text-zinc-800 hover:bg-zinc-100 transition-all" onclick="resetSearch(true)">
-            Buscar otro
-          </button>
-</div>
+<div class="hidden opacity-0 transition-opacity duration-500 w-full" id="result-success">
+  <div class="intro"><div><h1 id="credential-heading" tabindex="-1">Documento verificable <em>IBERO</em></h1><p id="cert-course-name"></p></div><a class="search" href="#/">Buscar otro diploma <span aria-hidden="true">↗</span></a></div>
+  <div class="workspace">
+    <aside class="holder" aria-label="Datos de la credencial">
+      <div class="holder-name">
+        <span class="field-label">Titular del diploma</span>
+        <h2 id="cert-student-name"></h2>
+      </div>
+      <div class="seal">
+        <button id="show-qr" class="zoom-qr" type="button" aria-haspopup="dialog" aria-label="Ampliar código QR del diploma"><img src="assets/qr-ibero-original.svg" alt="" width="56" height="56"></button>
+        <span class="seal-lettering"><span class="seal-status">Auténtica y avalada</span><code id="student-id-display"></code></span>
+      </div>
+      <dl class="credential-data">
+        <div><dt>Institución emisora</dt><dd>Centro IBEROamericano</dd></div>
+        <div id="credential-date-row" hidden><dt>Finalización del programa</dt><dd id="credential-date"></dd></div>
+      </dl>
+      <a id="back-to-list-btn" class="official" hidden>Ver todos mis diplomas</a>
+      <div class="share-actions" aria-label="Compartir credencial">
+        <a class="linkedin" id="linkedin-btn" href="https://www.linkedin.com/feed/?shareActive=true" target="_blank" rel="noopener noreferrer" aria-describedby="linkedin-help">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V8.99h3.42v1.57h.05a3.75 3.75 0 0 1 3.37-1.85c3.61 0 4.28 2.37 4.28 5.46v6.28ZM5.33 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12Zm1.78 13.02H3.55V8.99h3.56v11.46ZM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.73V1.73C24 .77 23.21 0 22.23 0Z"/></svg>
+          Publicar en LinkedIn
+        </a>
+        <button type="button" id="copy-link">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m10 13 4-4m-6.7 1.6L5 12.9a4.1 4.1 0 1 0 5.8 5.8l2.3-2.3m3.6-3 2.3-2.3a4.1 4.1 0 1 0-5.8-5.8l-2.3 2.3"/></svg>
+          Copiar enlace
+        </button>
+        <p class="sr-only" id="linkedin-help">Prepara el texto de tu logro y abre LinkedIn. Tú decides cuándo publicarlo.</p>
+        <p id="share-feedback" role="status" aria-live="polite"></p>
+      </div>
+    </aside>
+    <section class="documents" aria-label="Documentos de la credencial">
+      <div class="tabline"><div role="tablist" aria-label="Documento a consultar">
+        <button role="tab" id="tab-d" aria-selected="true" aria-controls="panel-d">1. Diploma</button>
+        <button role="tab" id="tab-i" aria-selected="false" aria-controls="panel-i" tabindex="-1">2. Informe de verificación</button>
+      </div></div>
+      <section id="panel-d" role="tabpanel" aria-labelledby="tab-d">
+        <div class="stage"><img class="paper" id="diploma-image" alt="" decoding="async"></div>
+        <div class="actions">
+          <div class="file-tools">
+            <a class="open" href="#" target="_blank" rel="noopener" aria-label="Ampliar imagen del diploma"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M4 14v6h6m10-16-7 7m-9 9 7-7"/></svg><span>Ampliar</span></a>
+            <a id="download-btn" class="image-download" href="#" download="" aria-label="Descargar imagen del diploma en PNG"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Descargar imagen</span></a>
+          </div>
+          <div class="pdf-downloads">
+            <button class="download" type="button" data-pdf="informe"><span class="download-icon" aria-hidden="true">↓</span><span>Descargar informe de verificación</span><small>PDF</small></button>
+            <button class="download" type="button" data-pdf="diploma"><span class="download-icon" aria-hidden="true">↓</span><span>Descargar diploma</span><small>PDF</small></button>
+          </div>
+        </div>
+      </section>
+      <section id="panel-i" role="tabpanel" aria-labelledby="tab-i" hidden>
+        <div class="stage report-stage">
+          <img class="paper" id="report-image" width="935" height="1210" alt="" hidden>
+          <p class="report-status" id="report-status" role="status"></p>
+        </div>
+        <div class="actions">
+          <button class="open" type="button" id="enlarge-report">Ampliar informe <span aria-hidden="true">↗</span></button>
+          <div class="pdf-downloads">
+            <button class="download" type="button" data-pdf="informe"><span class="download-icon" aria-hidden="true">↓</span><span>Descargar informe de verificación</span><small>PDF</small></button>
+            <button class="download" type="button" data-pdf="diploma"><span class="download-icon" aria-hidden="true">↓</span><span>Descargar diploma</span><small>PDF</small></button>
+          </div>
+        </div>
+      </section>
+    <p id="download-feedback" class="sr-only" role="status"></p>
+    </section>
+  </div>
+  <details class="endorsement"><summary><span>Aval institucional de IBERO</span><span class="disclose" aria-hidden="true">+</span></summary>
+    <div><p>El <strong>Centro IBEROamericano (IBERO)</strong> avala institucionalmente que el alumno ha culminado con <strong>excelencia académica</strong> el programa <strong id="endorsement-course"></strong> y demuestra su alto nivel de competencia, rigor profesional y capacidad para liderar en su entorno.</p>
+    <p>El Centro IBEROamericano (IBERO) certifica que el estudiante <strong id="endorsement-name"></strong> aprobó satisfactoriamente y cuenta con habilidades blandas de alto nivel, conocimientos sólidos en Inteligencia Artificial, herramientas tecnológicas, comunicación estratégica y negocios.</p></div>
+  </details>
+  <a class="mobile-search" href="#/">Buscar otro diploma <span aria-hidden="true">↗</span></a>
+  <dialog class="share-dialog" id="copy-dialog" aria-labelledby="copy-title"><h2 id="copy-title">Copiar el texto</h2><p id="copy-instruction"></p><textarea id="share-fallback" readonly aria-labelledby="copy-title" spellcheck="false" rows="6"></textarea><form method="dialog"><button type="submit">Listo</button></form></dialog>
+  <dialog class="share-dialog" id="report-dialog" aria-labelledby="report-dialog-title"><h2 id="report-dialog-title" tabindex="-1" autofocus>Informe de verificación</h2><img id="enlarged-report-image" width="935" height="1210" alt="" hidden><p id="report-dialog-status" role="status"></p><form method="dialog"><button type="submit">Cerrar</button></form></dialog>
+  <dialog class="qr-dialog" id="qr-dialog" aria-labelledby="qr-title">
+    <header><h2 id="qr-title">Verificar diploma</h2><form method="dialog"><button aria-label="Cerrar código QR" type="submit">×</button></form></header>
+    <figure><img id="credential-qr" width="288" height="288" alt="Código QR del registro público de este diploma" hidden><figcaption><span id="qr-name"></span> <code id="qr-id"></code></figcaption></figure>
+    <a id="public-record" target="_blank" rel="noopener noreferrer">Abrir registro público <span aria-hidden="true">↗</span></a>
+  </dialog>
 </div>
 <!-- RESULTADO: NO ENCONTRADO -->
 <div class="hidden flex-col items-center py-12 opacity-0 transition-opacity duration-500 w-full" id="result-error">
@@ -654,74 +649,6 @@ Buscar otro estudiante
 </div>
 </div>
 </main>
-<!-- ========================================================= -->
-<!-- WRAPPER OCULTO PARA GENERACIÓN PERFECTA DEL PDF (CARTA)   -->
-<!-- RE-DISEÑADO A NIVEL PRO Y EJECUTIVO                       -->
-<!-- ========================================================= -->
-<div id="pdf-wrapper" style="position: absolute; left: -9999px; top: 0; pointer-events: none; z-index: -9999; width: 816px; background-color: #ffffff;">
-<!-- Contenedor real que leerá html2canvas (Formato Carta Vertical 816x1056px) -->
-<div id="pdf-export-container" style="width: 816px; min-height: 1056px; background: white; position: relative;">
-<!-- Barra decorativa superior -->
-<div style="height: 6px; background: linear-gradient(to right, #6B21A8, #D91212, #09090B); width: 100%;"></div>
-<div style="padding: 50px 60px; box-sizing: border-box; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; display: flex; flex-direction: column; min-height: 1050px;">
-<!-- Header del PDF (Membrete) -->
-<div style="display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 2px solid #e4e4e7; padding-bottom: 20px; margin-bottom: 30px;">
-<div>
-<img alt="Centro Iberoamericano" crossorigin="anonymous" src="https://raw.githubusercontent.com/danielortegac/CENTRO-IBEROAMERICANO/1557a79470d9c26d1ad0f0b00243f9f03e55cf2f/fotos/svg/ibero-logo-black-redE.svg" style="height: 50px;"/>
-</div>
-<div style="text-align: right;">
-<h2 style="font-size: 16pt; color: #09090B; font-weight: 800; margin: 0 0 5px 0; text-transform: uppercase; letter-spacing: 1px;">Reporte de Validación Oficial</h2>
-<p style="font-size: 10pt; color: #71717a; margin: 0;"><strong>Fecha de expedición:</strong> <span id="pdf-current-date"></span></p>
-</div>
-</div>
-<!-- Cuerpo del informe -->
-<p style="font-size: 11pt; line-height: 1.6; color: #3f3f46; margin-bottom: 15px; text-align: justify;">
-          A quien corresponda:
-          <br/><br/>
-          Por medio de la presente, el <strong>Centro IBEROamericano (IBERO)</strong> certifica y valida la existencia, autenticidad y aprobación del documento académico detallado a continuación. El estudiante ha cumplido a cabalidad con las exigencias académicas, rigor profesional y evaluaciones requeridas por nuestra institución.
-        </p>
-<p style="font-size: 11pt; line-height: 1.6; color: #3f3f46; margin-bottom: 30px; text-align: justify;">
-          Adicionalmente, se avala que el titular aprobó satisfactoriamente el programa, demostrando contar con habilidades blandas de alto nivel, conocimientos sólidos en <strong>Inteligencia Artificial</strong>, manejo de herramientas tecnológicas, comunicación estratégica y visión de negocios.
-        </p>
-<!-- Caja de Datos del Estudiante -->
-<div style="background-color: #fafafa; border: 1px solid #e4e4e7; border-radius: 8px; padding: 20px; margin-bottom: 30px;">
-<table style="width: 100%; border-collapse: collapse;">
-<tr>
-<td style="padding: 8px 0; border-bottom: 1px solid #f4f4f5; width: 35%; color: #71717a; font-size: 11pt; font-weight: bold;">Nombre del Estudiante:</td>
-<td id="pdf-student-name" style="padding: 8px 0; border-bottom: 1px solid #f4f4f5; width: 65%; color: #09090B; font-size: 12pt; font-weight: bold; text-transform: uppercase;"></td>
-</tr>
-<tr>
-<td style="padding: 8px 0; border-bottom: 1px solid #f4f4f5; color: #71717a; font-size: 11pt; font-weight: bold;">Programa de Estudio:</td>
-<td id="pdf-course-name" style="padding: 8px 0; border-bottom: 1px solid #f4f4f5; color: #6B21A8; font-size: 12pt; font-weight: bold;"></td>
-</tr>
-<tr>
-<td style="padding: 8px 0; color: #71717a; font-size: 11pt; font-weight: bold;">ID de Verificación Global:</td>
-<td id="pdf-student-id" style="padding: 8px 0; color: #166534; font-size: 12pt; font-family: monospace; font-weight: bold;"></td>
-</tr>
-</table>
-</div>
-<!-- Espaciador para mantener el diseño vertical -->
-<div style="flex-grow: 1;"></div>
-<!-- Caja de Verificación con URL explícita (Para que sea linkeable) -->
-<div style="background: #f8fafc; border-left: 4px solid #0ea5e9; padding: 15px 20px; margin-bottom: 25px;">
-<p style="font-size: 11pt; color: #0f172a; margin: 0 0 5px 0;"><strong>🔍 Instrucciones de Verificación Externa:</strong></p>
-<p style="font-size: 10pt; color: #334155; margin: 0; line-height: 1.5;">
-            Para verificar la validez de este reporte y credencial en línea, cualquier empleador o institución puede ingresar al portal oficial: <a href="https://ibero.education/diplomas" style="color: #0284c7; text-decoration: underline; font-weight: bold;">https://ibero.education/diplomas</a> e ingresar el código de verificación mencionado arriba.
-          </p>
-</div>
-<!-- Footer del Informe con Links Claros -->
-<div style="padding-top: 15px; border-top: 2px solid #e4e4e7; text-align: center;">
-<p style="font-size: 12pt; color: #09090B; margin: 0 0 5px 0; font-weight: 800;">Centro IBEROamericano (IBERO)</p>
-<p style="font-size: 9pt; color: #71717a; margin: 0 0 5px 0;">
-<a href="https://ibero.education" style="color: #3f3f46; text-decoration: none;">https://ibero.education</a>  |  
-             <a href="mailto:programas@ibero.education" style="color: #3f3f46; text-decoration: none;">programas@ibero.education</a>  |  
-             <a href="https://linkedin.com/company/centro-iberoamericano" style="color: #3f3f46; text-decoration: none;">https://linkedin.com/company/centro-iberoamericano</a>
-</p>
-<p style="font-size: 8pt; color: #a1a1aa; margin: 0;">Este documento es un comprobante de validación digital generado por el sistema central de IBERO.</p>
-</div>
-</div>
-</div>
-</div>
 <!-- MODAL ADMIN (OCULTO) -->
 <div class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[100] hidden items-center justify-center p-4 opacity-0 transition-opacity duration-300" id="admin-modal">
 <!-- LOGIN ADMIN -->
@@ -803,6 +730,13 @@ Maria Gomez   /fotos/diplomas/maria.jpg   Diplomado..."></textarea>
 </div>
 </div>
 <!-- FOOTER PREMIUM EXACTO -->
+<div class="ibero-ecosystem-wrap" id="ibero-ecosystem-wrap">
+<button aria-controls="ibero-ecosystem-panel" aria-expanded="false" class="ibero-ecosystem-btn" id="ibero-ecosystem-toggle" type="button"><span class="ibero-ecosystem-dot"></span>Ecosistema IBERO</button>
+<nav aria-label="Ecosistema IBERO de rutas y recursos" class="ibero-ecosystem-panel" id="ibero-ecosystem-panel">
+<div class="ibero-ecosystem-head"><strong>Ecosistema IBERO</strong><span>Rutas, países, recursos, casos y respuestas para elegir formación aplicada en IA, apps, producto digital, marketing y comunicación.</span></div>
+<div class="ibero-ecosystem-section"><div class="ibero-ecosystem-section-title">Marca</div><div class="ibero-ecosystem-grid"><a class="ibero-ecosystem-link" href="/centro-iberoamericano/"><span class="ibero-ecosystem-mini">→</span>Centro IBEROamericano</a><a class="ibero-ecosystem-link" href="/ibero/"><span class="ibero-ecosystem-mini">→</span>IBERO</a></div></div><div class="ibero-ecosystem-section"><div class="ibero-ecosystem-section-title">Hub</div><div class="ibero-ecosystem-grid"><a class="ibero-ecosystem-link featured" href="/ecosistema-ibero/"><span class="ibero-ecosystem-mini">★</span>Ecosistema IBERO</a></div></div><div class="ibero-ecosystem-section" data-ibero-section="explorar"><div class="ibero-ecosystem-section-title">Explorar IBERO</div><div class="ibero-ecosystem-grid"><a class="ibero-ecosystem-link" href="/aprender-inteligencia-artificial-desde-cero/"><span class="ibero-ecosystem-mini">→</span>Guía para aprender IA desde cero</a><a class="ibero-ecosystem-link" href="/curso-inteligencia-artificial-online-certificado/"><span class="ibero-ecosystem-mini">→</span>Guía de cursos de IA online con certificado</a><a class="ibero-ecosystem-link" href="/cursos-inteligencia-artificial-en-espanol/"><span class="ibero-ecosystem-mini">→</span>Guía de cursos de IA en español</a><a class="ibero-ecosystem-link" href="/inteligencia-artificial-para-emprender/"><span class="ibero-ecosystem-mini">→</span>Guía de IA para emprender</a><a class="ibero-ecosystem-link" href="/certificado-privado-inteligencia-artificial/"><span class="ibero-ecosystem-mini">→</span>Orientación sobre certificados privados de IA</a><a class="ibero-ecosystem-link" href="/diplomado-inteligencia-artificial-aplicada/"><span class="ibero-ecosystem-mini">→</span>Guía sobre diplomados de IA aplicada</a><a class="ibero-ecosystem-link" href="/master-ejecutivo-inteligencia-artificial/"><span class="ibero-ecosystem-mini">→</span>Guía sobre Máster Ejecutivo en IA</a><a class="ibero-ecosystem-link" href="/clase-gratis/"><span class="ibero-ecosystem-mini">→</span>Clases gratis de IA, marketing y negocios</a></div></div><div class="ibero-ecosystem-section"><div class="ibero-ecosystem-section-title">Pilar</div><div class="ibero-ecosystem-grid"><a class="ibero-ecosystem-link" href="/desarrollo-de-software-con-ia/"><span class="ibero-ecosystem-mini">→</span>Desarrollo de Software con Inteligencia Artificial</a><a class="ibero-ecosystem-link" href="/crear-app-con-inteligencia-artificial/"><span class="ibero-ecosystem-mini">→</span>Cómo crear una App con Inteligencia Artificial</a><a class="ibero-ecosystem-link" href="/mvp-con-inteligencia-artificial/"><span class="ibero-ecosystem-mini">→</span>MVP con Inteligencia Artificial</a><a class="ibero-ecosystem-link" href="/producto-digital-con-ia/"><span class="ibero-ecosystem-mini">→</span>Producto Digital con Inteligencia Artificial</a><a class="ibero-ecosystem-link" href="/como-vender-una-app/"><span class="ibero-ecosystem-mini">→</span>Cómo vender una App o Producto Digital</a><a class="ibero-ecosystem-link" href="/vibe-coding/"><span class="ibero-ecosystem-mini">→</span>Programación asistida por IA: crear software con IA</a><a class="ibero-ecosystem-link" href="/agentes-de-inteligencia-artificial-y-automatizacion/"><span class="ibero-ecosystem-mini">→</span>Agentes de IA y Automatización</a></div></div><div class="ibero-ecosystem-section"><div class="ibero-ecosystem-section-title">País</div><div class="ibero-ecosystem-grid"><a class="ibero-ecosystem-link" href="/ecuador/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en Ecuador</a><a class="ibero-ecosystem-link" href="/mexico/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en México</a><a class="ibero-ecosystem-link" href="/colombia/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en Colombia</a><a class="ibero-ecosystem-link" href="/peru/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en Perú</a><a class="ibero-ecosystem-link" href="/argentina/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en Argentina</a><a class="ibero-ecosystem-link" href="/chile/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en Chile</a><a class="ibero-ecosystem-link" href="/bolivia/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en Bolivia</a><a class="ibero-ecosystem-link" href="/uruguay/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en Uruguay</a><a class="ibero-ecosystem-link" href="/paraguay/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en Paraguay</a><a class="ibero-ecosystem-link" href="/venezuela/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en Venezuela</a><a class="ibero-ecosystem-link" href="/panama/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en Panamá</a><a class="ibero-ecosystem-link" href="/costa-rica/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en Costa Rica</a><a class="ibero-ecosystem-link" href="/guatemala/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en Guatemala</a><a class="ibero-ecosystem-link" href="/el-salvador/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en El Salvador</a><a class="ibero-ecosystem-link" href="/honduras/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en Honduras</a><a class="ibero-ecosystem-link" href="/nicaragua/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en Nicaragua</a><a class="ibero-ecosystem-link" href="/republica-dominicana/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en República Dominicana</a><a class="ibero-ecosystem-link" href="/puerto-rico/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en Puerto Rico</a><a class="ibero-ecosystem-link" href="/espana/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en España</a><a class="ibero-ecosystem-link" href="/estados-unidos/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en Estados Unidos</a><a class="ibero-ecosystem-link" href="/cursos-ia-en-espanol-estados-unidos/"><span class="ibero-ecosystem-mini">→</span>Cursos de IA en Español en Estados Unidos</a><a class="ibero-ecosystem-link" href="/ia-para-latinos-en-usa/"><span class="ibero-ecosystem-mini">→</span>IA para Latinos en Estados Unidos</a><a class="ibero-ecosystem-link" href="/formacion-online-para-hispanos/"><span class="ibero-ecosystem-mini">→</span>Formación Online para Hispanos</a></div></div><div class="ibero-ecosystem-section"><div class="ibero-ecosystem-section-title">Ciudad</div><div class="ibero-ecosystem-grid"><a class="ibero-ecosystem-link" href="/miami/"><span class="ibero-ecosystem-mini">→</span>Cursos de IA para Latinos en Miami</a><a class="ibero-ecosystem-link" href="/orlando/"><span class="ibero-ecosystem-mini">→</span>Cursos de IA para Latinos en Orlando</a><a class="ibero-ecosystem-link" href="/houston/"><span class="ibero-ecosystem-mini">→</span>Cursos de IA para Latinos en Houston</a><a class="ibero-ecosystem-link" href="/dallas/"><span class="ibero-ecosystem-mini">→</span>Cursos de IA para Latinos en Dallas</a><a class="ibero-ecosystem-link" href="/los-angeles/"><span class="ibero-ecosystem-mini">→</span>Cursos de IA para Latinos en Los Ángeles</a><a class="ibero-ecosystem-link" href="/nueva-york/"><span class="ibero-ecosystem-mini">→</span>Cursos de IA para Latinos en Nueva York</a><a class="ibero-ecosystem-link" href="/chicago/"><span class="ibero-ecosystem-mini">→</span>Cursos de IA para Latinos en Chicago</a></div></div><div class="ibero-ecosystem-section"><div class="ibero-ecosystem-section-title">Perfil</div><div class="ibero-ecosystem-grid"><a class="ibero-ecosystem-link" href="/ia-para-emprendedores/"><span class="ibero-ecosystem-mini">→</span>IA para Emprendedores</a><a class="ibero-ecosystem-link" href="/ia-para-marketing-y-ventas/"><span class="ibero-ecosystem-mini">→</span>IA para Marketing y Ventas</a><a class="ibero-ecosystem-link" href="/ia-para-emprendedores-digitales/"><span class="ibero-ecosystem-mini">→</span>IA para Emprendedores Digitales</a><a class="ibero-ecosystem-link" href="/ia-para-coaches-y-consultores/"><span class="ibero-ecosystem-mini">→</span>IA para Coaches y Consultores</a><a class="ibero-ecosystem-link" href="/ia-para-agencias-de-marketing/"><span class="ibero-ecosystem-mini">→</span>IA para Agencias de Marketing</a><a class="ibero-ecosystem-link" href="/ia-para-creadores-de-contenido/"><span class="ibero-ecosystem-mini">→</span>IA para Creadores de Contenido</a><a class="ibero-ecosystem-link" href="/ia-para-freelancers/"><span class="ibero-ecosystem-mini">→</span>IA para Freelancers</a><a class="ibero-ecosystem-link" href="/ia-para-pymes/"><span class="ibero-ecosystem-mini">→</span>IA para Pymes</a><a class="ibero-ecosystem-link" href="/ia-para-ventas/"><span class="ibero-ecosystem-mini">→</span>IA para Ventas</a><a class="ibero-ecosystem-link" href="/ia-para-lideres-y-directivos/"><span class="ibero-ecosystem-mini">→</span>IA para Líderes y Directivos</a></div></div><div class="ibero-ecosystem-section"><div class="ibero-ecosystem-section-title">Certificado</div><div class="ibero-ecosystem-grid"><a class="ibero-ecosystem-link" href="/certificado-marketing-digital-inteligencia-artificial/"><span class="ibero-ecosystem-mini">→</span>Certificación en Marketing Digital con IA y Agentes</a><a class="ibero-ecosystem-link" href="/certificado-diseno-produccion-cursos-online-ia/"><span class="ibero-ecosystem-mini">→</span>Certificación en Creación de Cursos Online y Academias Digitales</a><a class="ibero-ecosystem-link" href="/certificado-comunicacion-efectiva-oratoria-profesional/"><span class="ibero-ecosystem-mini">→</span>Certificación en Comunicación Efectiva y Hablar en Público</a><a class="ibero-ecosystem-link" href="/certificado-inteligencia-artificial-analitica-automatizacion-gestion-gerencial/"><span class="ibero-ecosystem-mini">→</span>Certificación en IA para Administradores y Gerentes</a><a class="ibero-ecosystem-link" href="/certificado-productividad-automatizacion-procesos-ia/"><span class="ibero-ecosystem-mini">→</span>Certificación en Productividad y Automatización de Procesos con IA</a></div></div><div class="ibero-ecosystem-section"><div class="ibero-ecosystem-section-title">Diplomado</div><div class="ibero-ecosystem-grid"><a class="ibero-ecosystem-link" href="/diplomado-desarrollo-aplicaciones-productos-digitales-ia/"><span class="ibero-ecosystem-mini">→</span>Diplomado en Desarrollo de Aplicaciones y Gestión de Productos Digitales con IA</a><a class="ibero-ecosystem-link" href="/diplomado-marketing-digital-inteligencia-artificial-agentes/"><span class="ibero-ecosystem-mini">→</span>Diplomado en Marketing Digital con Inteligencia Artificial y Agentes</a></div></div><div class="ibero-ecosystem-section"><div class="ibero-ecosystem-section-title">Máster Ejecutivo</div><div class="ibero-ecosystem-grid"><a class="ibero-ecosystem-link" href="/master-ejecutivo-inteligencia-artificial-direccion-productos-digitales/"><span class="ibero-ecosystem-mini">→</span>Máster Ejecutivo en IA Aplicada y Dirección de Productos Digitales</a></div></div><div class="ibero-ecosystem-section"><div class="ibero-ecosystem-section-title">Comparativa</div><div class="ibero-ecosystem-grid"><a class="ibero-ecosystem-link" href="/certificado-vs-diplomado/"><span class="ibero-ecosystem-mini">→</span>Certificado vs Diplomado: cuál elegir</a><a class="ibero-ecosystem-link" href="/diplomado-vs-master-ejecutivo/"><span class="ibero-ecosystem-mini">→</span>Diplomado vs Máster Ejecutivo</a><a class="ibero-ecosystem-link" href="/que-programa-elegir/"><span class="ibero-ecosystem-mini">→</span>Qué programa IBERO elegir según tu objetivo</a></div></div><div class="ibero-ecosystem-section"><div class="ibero-ecosystem-section-title">Problema</div><div class="ibero-ecosystem-grid"><a class="ibero-ecosystem-link" href="/tengo-una-app-y-no-se-venderla/"><span class="ibero-ecosystem-mini">→</span>Tengo una App y no sé venderla</a><a class="ibero-ecosystem-link" href="/conseguir-clientes-para-software/"><span class="ibero-ecosystem-mini">→</span>Cómo conseguir clientes para mi software</a><a class="ibero-ecosystem-link" href="/crear-mvp-sin-programar/"><span class="ibero-ecosystem-mini">→</span>Cómo crear un MVP sin programar</a><a class="ibero-ecosystem-link" href="/usar-ia-para-crear-aplicaciones/"><span class="ibero-ecosystem-mini">→</span>Cómo usar IA para crear aplicaciones</a><a class="ibero-ecosystem-link" href="/como-lanzar-un-producto-digital/"><span class="ibero-ecosystem-mini">→</span>Cómo lanzar un producto digital</a><a class="ibero-ecosystem-link" href="/como-poner-precio-a-una-app/"><span class="ibero-ecosystem-mini">→</span>Cómo poner precio a una app</a><a class="ibero-ecosystem-link" href="/como-presentar-una-app-a-clientes/"><span class="ibero-ecosystem-mini">→</span>Cómo presentar una app a clientes</a></div></div><div class="ibero-ecosystem-section"><div class="ibero-ecosystem-section-title">Industria</div><div class="ibero-ecosystem-grid"><a class="ibero-ecosystem-link" href="/ia-para-restaurantes/"><span class="ibero-ecosystem-mini">→</span>IA para Restaurantes</a><a class="ibero-ecosystem-link" href="/ia-para-inmobiliarias/"><span class="ibero-ecosystem-mini">→</span>IA para Inmobiliarias</a><a class="ibero-ecosystem-link" href="/ia-para-instituciones-educativas/"><span class="ibero-ecosystem-mini">→</span>IA para Instituciones Educativas</a><a class="ibero-ecosystem-link" href="/ia-para-turismo-y-hoteles/"><span class="ibero-ecosystem-mini">→</span>IA para Turismo y Hoteles</a><a class="ibero-ecosystem-link" href="/ia-para-construccion/"><span class="ibero-ecosystem-mini">→</span>IA para Construcción</a><a class="ibero-ecosystem-link" href="/ia-para-comercio-local/"><span class="ibero-ecosystem-mini">→</span>IA para Comercio Local</a><a class="ibero-ecosystem-link" href="/ia-para-servicios-profesionales/"><span class="ibero-ecosystem-mini">→</span>IA para Servicios Profesionales</a></div></div><div class="ibero-ecosystem-section"><div class="ibero-ecosystem-section-title">Glosario</div><div class="ibero-ecosystem-grid"><a class="ibero-ecosystem-link" href="/glosario/ia-aplicada/"><span class="ibero-ecosystem-mini">→</span>Qué es IA Aplicada</a><a class="ibero-ecosystem-link" href="/glosario/producto-digital/"><span class="ibero-ecosystem-mini">→</span>Qué es Producto Digital</a><a class="ibero-ecosystem-link" href="/glosario/mvp/"><span class="ibero-ecosystem-mini">→</span>Qué es un MVP</a><a class="ibero-ecosystem-link" href="/glosario/vibe-coding/"><span class="ibero-ecosystem-mini">→</span>Qué es programación asistida por IA (Vibe Coding)</a><a class="ibero-ecosystem-link" href="/glosario/prompt-engineering/"><span class="ibero-ecosystem-mini">→</span>Qué es Prompt Engineering</a><a class="ibero-ecosystem-link" href="/glosario/automatizacion-con-ia/"><span class="ibero-ecosystem-mini">→</span>Qué es Automatización con IA</a><a class="ibero-ecosystem-link" href="/glosario/agente-de-ia/"><span class="ibero-ecosystem-mini">→</span>Qué es un Agente de IA</a><a class="ibero-ecosystem-link" href="/glosario/pwa/"><span class="ibero-ecosystem-mini">→</span>Qué es una PWA</a><a class="ibero-ecosystem-link" href="/glosario/saas/"><span class="ibero-ecosystem-mini">→</span>Qué es SaaS</a><a class="ibero-ecosystem-link" href="/glosario/product-management/"><span class="ibero-ecosystem-mini">→</span>Qué es gestión de productos digitales</a><a class="ibero-ecosystem-link" href="/glosario/go-to-market/"><span class="ibero-ecosystem-mini">→</span>Qué es estrategia de salida al mercado</a><a class="ibero-ecosystem-link" href="/glosario/embudo-de-ventas/"><span class="ibero-ecosystem-mini">→</span>Qué es un Embudo de Ventas</a></div></div><div class="ibero-ecosystem-section"><div class="ibero-ecosystem-section-title">Recurso</div><div class="ibero-ecosystem-grid"><a class="ibero-ecosystem-link" href="/recursos/plantilla-mvp/"><span class="ibero-ecosystem-mini">→</span>Plantilla para definir tu MVP con IA</a><a class="ibero-ecosystem-link" href="/recursos/checklist-app/"><span class="ibero-ecosystem-mini">→</span>Lista de verificación para lanzar una App</a><a class="ibero-ecosystem-link" href="/recursos/calculadora-precio-app/"><span class="ibero-ecosystem-mini">→</span>Calculadora de Precio para Apps</a><a class="ibero-ecosystem-link" href="/recursos/plantilla-landing-app/"><span class="ibero-ecosystem-mini">→</span>Plantilla de página de conversión para vender una App</a><a class="ibero-ecosystem-link" href="/recursos/guion-demo-software/"><span class="ibero-ecosystem-mini">→</span>Guion para demostración comercial de software</a><a class="ibero-ecosystem-link" href="/recursos/prompts-marketing-ia/"><span class="ibero-ecosystem-mini">→</span>Sistemas de instrucciones, agentes y ciclos automatizados para marketing</a><a class="ibero-ecosystem-link" href="/recursos/prompts-docentes-ia/"><span class="ibero-ecosystem-mini">→</span>Agentes, instrucciones y ciclos automatizados para docentes</a><a class="ibero-ecosystem-link" href="/recursos/rubrica-proyectos-ia/"><span class="ibero-ecosystem-mini">→</span>Rúbrica para Evaluar Proyectos con IA</a><a class="ibero-ecosystem-link" href="/recursos/guion-hablar-en-publico/"><span class="ibero-ecosystem-mini">→</span>Guion para Hablar en Público</a><a class="ibero-ecosystem-link" href="/recursos/plantilla-pitch-app/"><span class="ibero-ecosystem-mini">→</span>Plantilla para presentación comercial de una App</a></div></div><div class="ibero-ecosystem-section"><div class="ibero-ecosystem-section-title">Ruta</div><div class="ibero-ecosystem-grid"><a class="ibero-ecosystem-link" href="/rutas/crear-y-vender-apps-con-ia/"><span class="ibero-ecosystem-mini">→</span>Ruta para crear y vender Apps con IA</a></div></div><div class="ibero-ecosystem-section"><div class="ibero-ecosystem-section-title">Caso de uso</div><div class="ibero-ecosystem-grid"><a class="ibero-ecosystem-link" href="/casos-de-uso/vender-software-a-pymes/"><span class="ibero-ecosystem-mini">→</span>Cómo vender software a PYMES</a></div></div>
+</nav>
+</div>
 <footer class="bg-[#050505] text-zinc-400 py-12 border-t border-zinc-900 mt-auto">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 mb-8 border-b border-zinc-900 pb-12">
@@ -1030,6 +964,7 @@ Maria Gomez   /fotos/diplomas/maria.jpg   Diplomado..."></textarea>
 <!-- ========================================================= -->
 <script>window.BASE_DE_DATOS_DIPLOMAS = window.BASE_DE_DATOS_DIPLOMAS || {};</script>
 <script src="./data.js"></script>
+<script src="./credencial.js"></script>
 <!-- LÓGICA DEL SITIO -->
 <script>
     // --- MENÚ MÓVIL Y SCROLL DEL HEADER ---
@@ -1128,7 +1063,6 @@ Maria Gomez   /fotos/diplomas/maria.jpg   Diplomado..."></textarea>
     const resultError = document.getElementById('result-error');
     const headerSection = document.getElementById('header-section');
     const diplomaListContainer = document.getElementById('diploma-list-container');
-    let currentDiplomaContext = null;
 
 // BEGIN IBERO_DIPLOMA_SEARCH_CORE
 // Pure search logic embedded verbatim in the candidate HTML (without export).
@@ -1229,10 +1163,16 @@ function buildDiplomaValidationHash(slug, diplomaId) {
 
       const slug = normalizeDiplomaSearchText(rawName).replace(/ /g, '-');
       if (!slug) return;
-      window.location.hash = '#/' + encodeURIComponent(slug);
+      const searchHash = '#/buscar?' + new URLSearchParams({ nombre: rawName });
+      if (window.location.hash === searchHash) handleHashRouting();
+      else window.location.hash = searchHash;
     });
 
     function getRouteFromHash() {
+      if (window.location.hash.startsWith('#/buscar?')) {
+        const query = new URLSearchParams(window.location.hash.slice('#/buscar?'.length)).get('nombre') || '';
+        return { slug: createSlug(query), query, fromSearch: true };
+      }
       const rawHash = window.location.hash.replace(/^#\/?/, '').trim();
       if (!rawHash) return { slug: '', diplomaId: '' };
 
@@ -1251,7 +1191,7 @@ function buildDiplomaValidationHash(slug, diplomaId) {
       const route = getRouteFromHash();
 
       if (route.slug) {
-        searchDiploma(route.slug, route.query.replace(/-/g, ' '), route.diplomaId);
+        searchDiploma(route.slug, route.query.replace(/-/g, ' '), route.diplomaId, route.fromSearch);
       } else {
         resetSearch(false);
       }
@@ -1271,84 +1211,53 @@ function buildDiplomaValidationHash(slug, diplomaId) {
       resultError.classList.remove('flex', 'opacity-100');
     }
 
-    function searchDiploma(slug, displayName, diplomaId = '') {
+    function searchDiploma(slug, displayName, diplomaId = '', fromSearch = false) {
       document.getElementById('search-section').classList.add('hidden');
       hideSearchResults();
 
-      loadingState.classList.remove('hidden');
-      loadingState.classList.add('flex');
-
-      setTimeout(() => {
-        loadingState.classList.add('hidden');
-        loadingState.classList.remove('flex');
-
-        const database = window.BASE_DE_DATOS_DIPLOMAS || {};
-        const people = Object.keys(database).filter(personSlug => getDiplomasForSlug(personSlug).length).map(personSlug => ({
-          slug: personSlug,
-          names: getDiplomasForSlug(personSlug).map(record => record.nombre || '')
-        }));
-        const searchResult = resolveDiplomaSearch(people, displayName || slug, slug);
-        if (searchResult.kind === 'none') {
-          showError(displayName || slug.replace(/-/g, ' '));
-          return;
-        }
-
-        if (searchResult.kind === 'ambiguous') {
-          const matchingRecords = searchResult.matches.flatMap(person => {
-            const personRecords = getDiplomaRecords(person.slug);
-            return personRecords.map(record => ({
-              ...record,
-              personSlug: person.slug,
-              personName: record.data.nombre || person.slug.replace(/-/g, ' '),
-              personTotal: personRecords.length
-            }));
-          });
-          showDiplomaList(matchingRecords, '', { name: displayName || slug, people: searchResult.matches.length });
-          return;
-        }
-
-        slug = searchResult.matches[0].slug;
-        const records = getDiplomaRecords(slug);
-        if (diplomaId) {
-          const selectedRecord = findDiplomaRecord(slug, diplomaId);
-          if (selectedRecord) {
-            showSuccess(selectedRecord.data, slug, selectedRecord.id, selectedRecord.index, records.length);
-            return;
-          }
-        }
-
-        if (records.length === 1) {
-          const selectedRecord = records[0];
-          showSuccess(selectedRecord.data, slug, selectedRecord.id, selectedRecord.index, 1);
+      if (diplomaId) {
+        const selectedRecord = findDiplomaRecord(slug, diplomaId);
+        if (selectedRecord) {
+          showSuccess(selectedRecord, slug, getDiplomaRecords(slug).length);
         } else {
-          showDiplomaList(records, slug);
+          showError(displayName || slug);
         }
-      }, 800);
-    }
-
-    function createCredentialAction(label, iconClass, className, href, options = {}) {
-      const link = document.createElement('a');
-      link.className = `credential-action ${className}`;
-      link.href = href;
-      link.setAttribute('aria-label', options.ariaLabel || label);
-
-      if (options.target) {
-        link.target = options.target;
-        link.rel = 'noopener noreferrer';
+        return;
       }
-      if (options.download) link.setAttribute('download', '');
 
-      const icon = document.createElement('i');
-      icon.className = iconClass;
-      const text = document.createElement('span');
-      text.textContent = label;
-      link.append(icon, text);
-      return link;
+      const database = window.BASE_DE_DATOS_DIPLOMAS || {};
+      const people = Object.keys(database).filter(personSlug => getDiplomasForSlug(personSlug).length).map(personSlug => ({
+        slug: personSlug,
+        names: getDiplomasForSlug(personSlug).map(record => record.nombre || '')
+      }));
+      const resolution = resolveDiplomaSearch(people, displayName || slug, slug);
+      if (resolution.kind === 'none') {
+        showError(displayName || slug);
+        return;
+      }
+
+      if (resolution.kind === 'ambiguous') {
+        const matchingRecords = resolution.matches.flatMap(person => {
+          const records = getDiplomaRecords(person.slug);
+          return records.map(record => ({
+            ...record,
+            personSlug: person.slug,
+            personName: record.data.nombre || person.slug.replace(/-/g, ' '),
+            personTotal: records.length
+          }));
+        });
+        showDiplomaList(matchingRecords, '', { name: displayName || slug, people: resolution.matches.length });
+        return;
+      }
+
+      slug = resolution.matches[0].slug;
+      const records = getDiplomaRecords(slug);
+      if (fromSearch || records.length > 1) showDiplomaList(records, slug);
+      else showSuccess(records[0], slug, 1);
     }
 
     function showDiplomaList(records, slug, searchContext = null) {
       headerSection.classList.add('hidden');
-      currentDiplomaContext = null;
       diplomaListContainer.replaceChildren();
 
       const studentName = searchContext
@@ -1357,7 +1266,7 @@ function buildDiplomaValidationHash(slug, diplomaId) {
       document.getElementById('list-student-name').textContent = studentName;
       document.getElementById('list-summary').textContent = searchContext
         ? `Se encontraron ${records.length} certificados. Revisa el nombre completo y selecciona la credencial de la persona que buscas.`
-        : `Se encontraron ${records.length} certificados académicos emitidos a nombre de ${studentName}. Selecciona el documento que deseas consultar o validar.`;
+        : `Se encontraron ${records.length} certificados académicos emitidos a nombre de ${studentName}. Pulsa Validar para abrir la ficha de la credencial.`;
 
       records.forEach((record, position) => {
         const recordSlug = record.personSlug || slug;
@@ -1374,7 +1283,7 @@ function buildDiplomaValidationHash(slug, diplomaId) {
 
         const label = document.createElement('p');
         label.className = 'credential-list-label';
-        label.textContent = searchContext ? record.personName : `Credencial ${position + 1} de ${records.length}`;
+        label.textContent = searchContext ? record.personName : studentName;
 
         const course = document.createElement('h4');
         course.className = 'credential-list-course';
@@ -1384,36 +1293,22 @@ function buildDiplomaValidationHash(slug, diplomaId) {
         identifier.className = 'credential-list-id';
         identifier.textContent = searchContext
           ? `ID: ${recordSlug.toUpperCase()}${record.personTotal > 1 ? `-C${String(record.index + 1).padStart(2, '0')}` : ''}`
-          : `ID: ${slug.toUpperCase()}-C${String(position + 1).padStart(2, '0')}`;
+          : `ID: ${slug.toUpperCase()}${records.length > 1 ? `-C${String(position + 1).padStart(2, '0')}` : ''}`;
 
         copy.append(label, course, identifier);
 
         const actions = document.createElement('div');
         actions.className = 'credential-list-actions';
 
-        const viewLink = createCredentialAction(
-          'Ver',
-          'fa-regular fa-eye',
-          'credential-action-view',
-          record.data.url,
-          { target: '_blank', ariaLabel: `Ver diploma: ${searchContext ? record.personName + ' · ' : ''}${record.data.curso || studentName}` }
-        );
-        const downloadLink = createCredentialAction(
-          'Descargar',
-          'fa-solid fa-download',
-          'credential-action-download',
-          record.data.url,
-          { download: true, ariaLabel: `Descargar diploma: ${searchContext ? record.personName + ' · ' : ''}${record.data.curso || studentName}` }
-        );
-        const validationLink = createCredentialAction(
-          'Validar',
-          'fa-solid fa-shield-halved',
-          'credential-action-validate',
-          buildDiplomaValidationHash(recordSlug, record.id),
-          { ariaLabel: `Validar credencial: ${searchContext ? record.personName + ' · ' : ''}${record.data.curso || studentName}` }
-        );
-
-        actions.append(viewLink, downloadLink, validationLink);
+        const validationLink = document.createElement('a');
+        validationLink.className = 'credential-action credential-action-validate';
+        validationLink.href = buildDiplomaValidationHash(recordSlug, record.id);
+        validationLink.setAttribute('aria-label', `Validar credencial: ${record.data.nombre || studentName} · ${course.textContent}`);
+        const shield = document.createElement('i');
+        shield.className = 'fa-solid fa-shield-halved';
+        shield.setAttribute('aria-hidden', 'true');
+        validationLink.append(shield, 'Validar');
+        actions.append(validationLink);
         card.append(number, copy, actions);
         diplomaListContainer.appendChild(card);
       });
@@ -1423,64 +1318,25 @@ function buildDiplomaValidationHash(slug, diplomaId) {
       setTimeout(() => resultList.classList.add('opacity-100'), 50);
     }
 
-    function showSuccess(diplomaData, slug, diplomaId, diplomaIndex = 0, totalDiplomas = 1) {
+    function showSuccess(record, slug, totalDiplomas) {
       headerSection.classList.add('hidden');
-      currentDiplomaContext = { diplomaData, slug, diplomaId, diplomaIndex, totalDiplomas };
-
-      // Interfaz principal
-      document.getElementById('cert-student-name').innerText = diplomaData.nombre;
-      document.getElementById('cert-student-name-2').innerText = diplomaData.nombre;
-      document.getElementById('cert-course-name').innerText = diplomaData.curso;
-
-      // Se conserva el ID histórico para estudiantes con una sola credencial.
-      // Cuando existen varias, cada diploma recibe un sufijo individual y verificable.
       const validationId = totalDiplomas > 1
-        ? `${slug}-C${String(diplomaIndex + 1).padStart(2, '0')}`
+        ? `${slug}-C${String(record.index + 1).padStart(2, '0')}`
         : slug;
-      document.getElementById('student-id-display').innerText = 'ID: ' + validationId.toUpperCase();
-
-      const mobileIdDisplay = document.getElementById('student-id-display-mobile');
-      if (mobileIdDisplay) {
-        mobileIdDisplay.innerText = 'ID: ' + validationId.toUpperCase();
-      }
-
-      // Data inyectada en el diseño del PDF
-      document.getElementById('pdf-student-name').innerText = diplomaData.nombre;
-      document.getElementById('pdf-course-name').innerText = diplomaData.curso;
-      document.getElementById('pdf-student-id').innerText = validationId.toUpperCase();
-
-      const today = new Date();
-      const options = { year: 'numeric', month: 'long', day: 'numeric' };
-      document.getElementById('pdf-current-date').innerText = today.toLocaleDateString('es-ES', options);
-
-      // Imágenes y acciones
-      document.getElementById('diploma-image').src = diplomaData.url;
-      document.getElementById('download-btn').href = diplomaData.url;
-
-      const btnLinkedIn = document.getElementById('linkedin-btn');
-      btnLinkedIn.onclick = () => shareLinkedIn(slug, diplomaId);
-
-      const backToListBtn = document.getElementById('back-to-list-btn');
-      if (backToListBtn) {
-        if (totalDiplomas > 1) {
-          backToListBtn.classList.remove('hidden');
-          backToListBtn.onclick = () => {
-            window.location.hash = '#/' + encodeURIComponent(slug);
-          };
-        } else {
-          backToListBtn.classList.add('hidden');
-          backToListBtn.onclick = null;
-        }
-      }
-
+      const permalink = new URL(buildDiplomaValidationHash(slug, record.id), 'https://www.ibero.education/diplomas/').href;
       resultSuccess.classList.remove('hidden');
-      resultSuccess.classList.add('flex');
-      setTimeout(() => resultSuccess.classList.add('opacity-100'), 50);
+      resultSuccess.classList.add('opacity-100');
+      window.iberoCredential.show({
+        ...record.data,
+        id: validationId.toUpperCase(),
+        permalink,
+        historyUrl: totalDiplomas > 1 ? '#/' + encodeURIComponent(slug) : ''
+      });
+      window.scrollTo(0, 0);
     }
 
     function showError(name) {
       headerSection.classList.remove('hidden');
-      currentDiplomaContext = null;
       document.getElementById('error-name').innerText = name.toUpperCase();
       resultError.classList.remove('hidden');
       resultError.classList.add('flex');
@@ -1489,7 +1345,6 @@ function buildDiplomaValidationHash(slug, diplomaId) {
 
     function resetSearch(clearHash = true) {
       headerSection.classList.remove('hidden');
-      currentDiplomaContext = null;
       hideSearchResults();
 
       loadingState.classList.add('hidden');
@@ -1502,95 +1357,6 @@ function buildDiplomaValidationHash(slug, diplomaId) {
       if (clearHash) {
         history.replaceState(null, '', window.location.pathname);
       }
-    }
-
-    // --- GENERACIÓN DE PDF PROFESIONAL (Formato Carta Informe) ---
-    function downloadPDF() {
-      const element = document.getElementById('pdf-export-container');
-      const studentId = document.getElementById('student-id-display').innerText.replace('ID: ', '');
-      
-      // Opciones mejoradas para HTML2PDF
-      const opt = {
-        margin:       0,
-        filename:     `Reporte_Validacion_IBERO_${studentId}.pdf`,
-        image:        { type: 'jpeg', quality: 1.0 },
-        enableLinks:  true, // Permite que los links explícitos funcionen en el visor del PDF
-        html2canvas:  { 
-          scale: 3, // Aumentado a 3 para altísima resolución en texto e imagen
-          useCORS: true, 
-          allowTaint: true, 
-          logging: false,
-          scrollY: 0, 
-          scrollX: 0,
-          letterRendering: true
-        },
-        jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' } 
-      };
-
-      const wrapper = document.getElementById('pdf-wrapper');
-      const btn = document.querySelector('button[onclick="downloadPDF()"]');
-      const originalText = btn.innerHTML;
-      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Generando PDF...';
-      btn.disabled = true;
-
-      const htmlElement = document.documentElement;
-      const prevZoom = htmlElement.style.zoom || window.getComputedStyle(htmlElement).zoom;
-      htmlElement.style.zoom = '1';
-
-      wrapper.style.left = '0px'; 
-      wrapper.style.top = '0px';
-
-      setTimeout(() => {
-        html2pdf().set(opt).from(element).save().then(() => {
-          wrapper.style.left = '-9999px';
-          htmlElement.style.zoom = prevZoom === '1' ? '' : prevZoom; 
-          
-          btn.innerHTML = originalText;
-          btn.disabled = false;
-        }).catch(err => {
-          console.error("PDF Error: ", err);
-          wrapper.style.left = '-9999px';
-          htmlElement.style.zoom = prevZoom === '1' ? '' : prevZoom; 
-          
-          btn.innerHTML = originalText;
-          btn.disabled = false;
-          alert("Hubo un problema generando el PDF. Verifica la ruta de la imagen o usa el botón de descargar imagen.");
-        });
-      }, 600);
-    }
-
-    // --- LÓGICA DE LINKEDIN PRO ---
-    function shareLinkedIn(slug, diplomaId = '') {
-      const selectedRecord = diplomaId ? findDiplomaRecord(slug, diplomaId) : null;
-      const diplomaInfo = selectedRecord
-        ? selectedRecord.data
-        : (currentDiplomaContext && currentDiplomaContext.slug === slug ? currentDiplomaContext.diplomaData : getDiplomasForSlug(slug)[0]);
-      const courseName = diplomaInfo ? diplomaInfo.curso : 'un programa de élite';
-
-      const hasMultipleDiplomas = getDiplomaRecords(slug).length > 1;
-      const credentialPath = hasMultipleDiplomas && diplomaId
-        ? `#/${encodeURIComponent(slug)}/${encodeURIComponent(diplomaId)}`
-        : `#/${encodeURIComponent(slug)}`;
-      const shareUrl = window.location.protocol + '//' + window.location.host + window.location.pathname + credentialPath;
-
-      const postText = `🎓 ¡He completado un nuevo reto académico!\n\nMe emociona compartir que he conseguido mi certificación en ${courseName}, avalado por el Centro Iberoamericano (IBERO).\n\nHa sido un proceso de muchísimo aprendizaje, enfocado en llevar mis habilidades al siguiente nivel con metodologías reales y aplicables.\n\nPuedes verificar mi credencial IBERO aquí:\n${shareUrl}\n\n🚀 #IBERO #Educación #CrecimientoProfesional #LogroAcademico #Certificación`;
-
-      const btn = document.getElementById('linkedin-btn');
-      const originalHtml = btn.innerHTML;
-
-      btn.innerHTML = '<i class="fa-solid fa-check"></i> ¡Texto Copiado! Pega (Ctrl+V) y sube tu foto...';
-      btn.classList.replace('bg-[#0077b5]', 'bg-emerald-600');
-      btn.classList.replace('hover:bg-[#005e93]', 'hover:bg-emerald-700');
-
-      copyTextToClipboard(postText, () => {
-        window.open('https://www.linkedin.com/feed/?shareActive=true', '_blank');
-
-        setTimeout(() => {
-          btn.innerHTML = originalHtml;
-          btn.classList.replace('bg-emerald-600', 'bg-[#0077b5]');
-          btn.classList.replace('hover:bg-emerald-700', 'hover:bg-[#005e93]');
-        }, 4000);
-      });
     }
 
     // 3. PANEL DE ADMIN (GENERADOR DE CÓDIGO)
@@ -1890,13 +1656,6 @@ document.addEventListener('DOMContentLoaded', function () {
 })();
 </script>
 <!-- IBERO Ecosystem Floating Menu v9 -->
-<div class="ibero-ecosystem-wrap" id="ibero-ecosystem-wrap">
-<button aria-controls="ibero-ecosystem-panel" aria-expanded="false" class="ibero-ecosystem-btn" id="ibero-ecosystem-toggle" type="button"><span class="ibero-ecosystem-dot"></span>Ecosistema IBERO</button>
-<nav aria-label="Ecosistema IBERO de rutas y recursos" class="ibero-ecosystem-panel" id="ibero-ecosystem-panel">
-<div class="ibero-ecosystem-head"><strong>Ecosistema IBERO</strong><span>Rutas, países, recursos, casos y respuestas para elegir formación aplicada en IA, apps, producto digital, marketing y comunicación.</span></div>
-<div class="ibero-ecosystem-section"><div class="ibero-ecosystem-section-title">Marca</div><div class="ibero-ecosystem-grid"><a class="ibero-ecosystem-link" href="/centro-iberoamericano/"><span class="ibero-ecosystem-mini">→</span>Centro IBEROamericano</a><a class="ibero-ecosystem-link" href="/ibero/"><span class="ibero-ecosystem-mini">→</span>IBERO</a></div></div><div class="ibero-ecosystem-section"><div class="ibero-ecosystem-section-title">Hub</div><div class="ibero-ecosystem-grid"><a class="ibero-ecosystem-link featured" href="/ecosistema-ibero/"><span class="ibero-ecosystem-mini">★</span>Ecosistema IBERO</a></div></div><div class="ibero-ecosystem-section" data-ibero-section="explorar"><div class="ibero-ecosystem-section-title">Explorar IBERO</div><div class="ibero-ecosystem-grid"><a class="ibero-ecosystem-link" href="/aprender-inteligencia-artificial-desde-cero/"><span class="ibero-ecosystem-mini">→</span>Guía para aprender IA desde cero</a><a class="ibero-ecosystem-link" href="/curso-inteligencia-artificial-online-certificado/"><span class="ibero-ecosystem-mini">→</span>Guía de cursos de IA online con certificado</a><a class="ibero-ecosystem-link" href="/cursos-inteligencia-artificial-en-espanol/"><span class="ibero-ecosystem-mini">→</span>Guía de cursos de IA en español</a><a class="ibero-ecosystem-link" href="/inteligencia-artificial-para-emprender/"><span class="ibero-ecosystem-mini">→</span>Guía de IA para emprender</a><a class="ibero-ecosystem-link" href="/certificado-privado-inteligencia-artificial/"><span class="ibero-ecosystem-mini">→</span>Orientación sobre certificados privados de IA</a><a class="ibero-ecosystem-link" href="/diplomado-inteligencia-artificial-aplicada/"><span class="ibero-ecosystem-mini">→</span>Guía sobre diplomados de IA aplicada</a><a class="ibero-ecosystem-link" href="/master-ejecutivo-inteligencia-artificial/"><span class="ibero-ecosystem-mini">→</span>Guía sobre Máster Ejecutivo en IA</a><a class="ibero-ecosystem-link" href="/clase-gratis/"><span class="ibero-ecosystem-mini">→</span>Clases gratis de IA, marketing y negocios</a></div></div><div class="ibero-ecosystem-section"><div class="ibero-ecosystem-section-title">Pilar</div><div class="ibero-ecosystem-grid"><a class="ibero-ecosystem-link" href="/desarrollo-de-software-con-ia/"><span class="ibero-ecosystem-mini">→</span>Desarrollo de Software con Inteligencia Artificial</a><a class="ibero-ecosystem-link" href="/crear-app-con-inteligencia-artificial/"><span class="ibero-ecosystem-mini">→</span>Cómo crear una App con Inteligencia Artificial</a><a class="ibero-ecosystem-link" href="/mvp-con-inteligencia-artificial/"><span class="ibero-ecosystem-mini">→</span>MVP con Inteligencia Artificial</a><a class="ibero-ecosystem-link" href="/producto-digital-con-ia/"><span class="ibero-ecosystem-mini">→</span>Producto Digital con Inteligencia Artificial</a><a class="ibero-ecosystem-link" href="/como-vender-una-app/"><span class="ibero-ecosystem-mini">→</span>Cómo vender una App o Producto Digital</a><a class="ibero-ecosystem-link" href="/vibe-coding/"><span class="ibero-ecosystem-mini">→</span>Programación asistida por IA: crear software con IA</a><a class="ibero-ecosystem-link" href="/agentes-de-inteligencia-artificial-y-automatizacion/"><span class="ibero-ecosystem-mini">→</span>Agentes de IA y Automatización</a></div></div><div class="ibero-ecosystem-section"><div class="ibero-ecosystem-section-title">País</div><div class="ibero-ecosystem-grid"><a class="ibero-ecosystem-link" href="/ecuador/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en Ecuador</a><a class="ibero-ecosystem-link" href="/mexico/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en México</a><a class="ibero-ecosystem-link" href="/colombia/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en Colombia</a><a class="ibero-ecosystem-link" href="/peru/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en Perú</a><a class="ibero-ecosystem-link" href="/argentina/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en Argentina</a><a class="ibero-ecosystem-link" href="/chile/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en Chile</a><a class="ibero-ecosystem-link" href="/bolivia/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en Bolivia</a><a class="ibero-ecosystem-link" href="/uruguay/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en Uruguay</a><a class="ibero-ecosystem-link" href="/paraguay/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en Paraguay</a><a class="ibero-ecosystem-link" href="/venezuela/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en Venezuela</a><a class="ibero-ecosystem-link" href="/panama/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en Panamá</a><a class="ibero-ecosystem-link" href="/costa-rica/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en Costa Rica</a><a class="ibero-ecosystem-link" href="/guatemala/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en Guatemala</a><a class="ibero-ecosystem-link" href="/el-salvador/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en El Salvador</a><a class="ibero-ecosystem-link" href="/honduras/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en Honduras</a><a class="ibero-ecosystem-link" href="/nicaragua/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en Nicaragua</a><a class="ibero-ecosystem-link" href="/republica-dominicana/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en República Dominicana</a><a class="ibero-ecosystem-link" href="/puerto-rico/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en Puerto Rico</a><a class="ibero-ecosystem-link" href="/espana/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en España</a><a class="ibero-ecosystem-link" href="/estados-unidos/"><span class="ibero-ecosystem-mini">→</span>Cursos de Inteligencia Artificial en Estados Unidos</a><a class="ibero-ecosystem-link" href="/cursos-ia-en-espanol-estados-unidos/"><span class="ibero-ecosystem-mini">→</span>Cursos de IA en Español en Estados Unidos</a><a class="ibero-ecosystem-link" href="/ia-para-latinos-en-usa/"><span class="ibero-ecosystem-mini">→</span>IA para Latinos en Estados Unidos</a><a class="ibero-ecosystem-link" href="/formacion-online-para-hispanos/"><span class="ibero-ecosystem-mini">→</span>Formación Online para Hispanos</a></div></div><div class="ibero-ecosystem-section"><div class="ibero-ecosystem-section-title">Ciudad</div><div class="ibero-ecosystem-grid"><a class="ibero-ecosystem-link" href="/miami/"><span class="ibero-ecosystem-mini">→</span>Cursos de IA para Latinos en Miami</a><a class="ibero-ecosystem-link" href="/orlando/"><span class="ibero-ecosystem-mini">→</span>Cursos de IA para Latinos en Orlando</a><a class="ibero-ecosystem-link" href="/houston/"><span class="ibero-ecosystem-mini">→</span>Cursos de IA para Latinos en Houston</a><a class="ibero-ecosystem-link" href="/dallas/"><span class="ibero-ecosystem-mini">→</span>Cursos de IA para Latinos en Dallas</a><a class="ibero-ecosystem-link" href="/los-angeles/"><span class="ibero-ecosystem-mini">→</span>Cursos de IA para Latinos en Los Ángeles</a><a class="ibero-ecosystem-link" href="/nueva-york/"><span class="ibero-ecosystem-mini">→</span>Cursos de IA para Latinos en Nueva York</a><a class="ibero-ecosystem-link" href="/chicago/"><span class="ibero-ecosystem-mini">→</span>Cursos de IA para Latinos en Chicago</a></div></div><div class="ibero-ecosystem-section"><div class="ibero-ecosystem-section-title">Perfil</div><div class="ibero-ecosystem-grid"><a class="ibero-ecosystem-link" href="/ia-para-emprendedores/"><span class="ibero-ecosystem-mini">→</span>IA para Emprendedores</a><a class="ibero-ecosystem-link" href="/ia-para-marketing-y-ventas/"><span class="ibero-ecosystem-mini">→</span>IA para Marketing y Ventas</a><a class="ibero-ecosystem-link" href="/ia-para-emprendedores-digitales/"><span class="ibero-ecosystem-mini">→</span>IA para Emprendedores Digitales</a><a class="ibero-ecosystem-link" href="/ia-para-coaches-y-consultores/"><span class="ibero-ecosystem-mini">→</span>IA para Coaches y Consultores</a><a class="ibero-ecosystem-link" href="/ia-para-agencias-de-marketing/"><span class="ibero-ecosystem-mini">→</span>IA para Agencias de Marketing</a><a class="ibero-ecosystem-link" href="/ia-para-creadores-de-contenido/"><span class="ibero-ecosystem-mini">→</span>IA para Creadores de Contenido</a><a class="ibero-ecosystem-link" href="/ia-para-freelancers/"><span class="ibero-ecosystem-mini">→</span>IA para Freelancers</a><a class="ibero-ecosystem-link" href="/ia-para-pymes/"><span class="ibero-ecosystem-mini">→</span>IA para Pymes</a><a class="ibero-ecosystem-link" href="/ia-para-ventas/"><span class="ibero-ecosystem-mini">→</span>IA para Ventas</a><a class="ibero-ecosystem-link" href="/ia-para-lideres-y-directivos/"><span class="ibero-ecosystem-mini">→</span>IA para Líderes y Directivos</a></div></div><div class="ibero-ecosystem-section"><div class="ibero-ecosystem-section-title">Certificado</div><div class="ibero-ecosystem-grid"><a class="ibero-ecosystem-link" href="/certificado-marketing-digital-inteligencia-artificial/"><span class="ibero-ecosystem-mini">→</span>Certificación en Marketing Digital con IA y Agentes</a><a class="ibero-ecosystem-link" href="/certificado-diseno-produccion-cursos-online-ia/"><span class="ibero-ecosystem-mini">→</span>Certificación en Creación de Cursos Online y Academias Digitales</a><a class="ibero-ecosystem-link" href="/certificado-comunicacion-efectiva-oratoria-profesional/"><span class="ibero-ecosystem-mini">→</span>Certificación en Comunicación Efectiva y Hablar en Público</a><a class="ibero-ecosystem-link" href="/certificado-inteligencia-artificial-analitica-automatizacion-gestion-gerencial/"><span class="ibero-ecosystem-mini">→</span>Certificación en IA para Administradores y Gerentes</a><a class="ibero-ecosystem-link" href="/certificado-productividad-automatizacion-procesos-ia/"><span class="ibero-ecosystem-mini">→</span>Certificación en Productividad y Automatización de Procesos con IA</a></div></div><div class="ibero-ecosystem-section"><div class="ibero-ecosystem-section-title">Diplomado</div><div class="ibero-ecosystem-grid"><a class="ibero-ecosystem-link" href="/diplomado-desarrollo-aplicaciones-productos-digitales-ia/"><span class="ibero-ecosystem-mini">→</span>Diplomado en Desarrollo de Aplicaciones y Gestión de Productos Digitales con IA</a><a class="ibero-ecosystem-link" href="/diplomado-marketing-digital-inteligencia-artificial-agentes/"><span class="ibero-ecosystem-mini">→</span>Diplomado en Marketing Digital con Inteligencia Artificial y Agentes</a></div></div><div class="ibero-ecosystem-section"><div class="ibero-ecosystem-section-title">Máster Ejecutivo</div><div class="ibero-ecosystem-grid"><a class="ibero-ecosystem-link" href="/master-ejecutivo-inteligencia-artificial-direccion-productos-digitales/"><span class="ibero-ecosystem-mini">→</span>Máster Ejecutivo en IA Aplicada y Dirección de Productos Digitales</a></div></div><div class="ibero-ecosystem-section"><div class="ibero-ecosystem-section-title">Comparativa</div><div class="ibero-ecosystem-grid"><a class="ibero-ecosystem-link" href="/certificado-vs-diplomado/"><span class="ibero-ecosystem-mini">→</span>Certificado vs Diplomado: cuál elegir</a><a class="ibero-ecosystem-link" href="/diplomado-vs-master-ejecutivo/"><span class="ibero-ecosystem-mini">→</span>Diplomado vs Máster Ejecutivo</a><a class="ibero-ecosystem-link" href="/que-programa-elegir/"><span class="ibero-ecosystem-mini">→</span>Qué programa IBERO elegir según tu objetivo</a></div></div><div class="ibero-ecosystem-section"><div class="ibero-ecosystem-section-title">Problema</div><div class="ibero-ecosystem-grid"><a class="ibero-ecosystem-link" href="/tengo-una-app-y-no-se-venderla/"><span class="ibero-ecosystem-mini">→</span>Tengo una App y no sé venderla</a><a class="ibero-ecosystem-link" href="/conseguir-clientes-para-software/"><span class="ibero-ecosystem-mini">→</span>Cómo conseguir clientes para mi software</a><a class="ibero-ecosystem-link" href="/crear-mvp-sin-programar/"><span class="ibero-ecosystem-mini">→</span>Cómo crear un MVP sin programar</a><a class="ibero-ecosystem-link" href="/usar-ia-para-crear-aplicaciones/"><span class="ibero-ecosystem-mini">→</span>Cómo usar IA para crear aplicaciones</a><a class="ibero-ecosystem-link" href="/como-lanzar-un-producto-digital/"><span class="ibero-ecosystem-mini">→</span>Cómo lanzar un producto digital</a><a class="ibero-ecosystem-link" href="/como-poner-precio-a-una-app/"><span class="ibero-ecosystem-mini">→</span>Cómo poner precio a una app</a><a class="ibero-ecosystem-link" href="/como-presentar-una-app-a-clientes/"><span class="ibero-ecosystem-mini">→</span>Cómo presentar una app a clientes</a></div></div><div class="ibero-ecosystem-section"><div class="ibero-ecosystem-section-title">Industria</div><div class="ibero-ecosystem-grid"><a class="ibero-ecosystem-link" href="/ia-para-restaurantes/"><span class="ibero-ecosystem-mini">→</span>IA para Restaurantes</a><a class="ibero-ecosystem-link" href="/ia-para-inmobiliarias/"><span class="ibero-ecosystem-mini">→</span>IA para Inmobiliarias</a><a class="ibero-ecosystem-link" href="/ia-para-instituciones-educativas/"><span class="ibero-ecosystem-mini">→</span>IA para Instituciones Educativas</a><a class="ibero-ecosystem-link" href="/ia-para-turismo-y-hoteles/"><span class="ibero-ecosystem-mini">→</span>IA para Turismo y Hoteles</a><a class="ibero-ecosystem-link" href="/ia-para-construccion/"><span class="ibero-ecosystem-mini">→</span>IA para Construcción</a><a class="ibero-ecosystem-link" href="/ia-para-comercio-local/"><span class="ibero-ecosystem-mini">→</span>IA para Comercio Local</a><a class="ibero-ecosystem-link" href="/ia-para-servicios-profesionales/"><span class="ibero-ecosystem-mini">→</span>IA para Servicios Profesionales</a></div></div><div class="ibero-ecosystem-section"><div class="ibero-ecosystem-section-title">Glosario</div><div class="ibero-ecosystem-grid"><a class="ibero-ecosystem-link" href="/glosario/ia-aplicada/"><span class="ibero-ecosystem-mini">→</span>Qué es IA Aplicada</a><a class="ibero-ecosystem-link" href="/glosario/producto-digital/"><span class="ibero-ecosystem-mini">→</span>Qué es Producto Digital</a><a class="ibero-ecosystem-link" href="/glosario/mvp/"><span class="ibero-ecosystem-mini">→</span>Qué es un MVP</a><a class="ibero-ecosystem-link" href="/glosario/vibe-coding/"><span class="ibero-ecosystem-mini">→</span>Qué es programación asistida por IA (Vibe Coding)</a><a class="ibero-ecosystem-link" href="/glosario/prompt-engineering/"><span class="ibero-ecosystem-mini">→</span>Qué es Prompt Engineering</a><a class="ibero-ecosystem-link" href="/glosario/automatizacion-con-ia/"><span class="ibero-ecosystem-mini">→</span>Qué es Automatización con IA</a><a class="ibero-ecosystem-link" href="/glosario/agente-de-ia/"><span class="ibero-ecosystem-mini">→</span>Qué es un Agente de IA</a><a class="ibero-ecosystem-link" href="/glosario/pwa/"><span class="ibero-ecosystem-mini">→</span>Qué es una PWA</a><a class="ibero-ecosystem-link" href="/glosario/saas/"><span class="ibero-ecosystem-mini">→</span>Qué es SaaS</a><a class="ibero-ecosystem-link" href="/glosario/product-management/"><span class="ibero-ecosystem-mini">→</span>Qué es gestión de productos digitales</a><a class="ibero-ecosystem-link" href="/glosario/go-to-market/"><span class="ibero-ecosystem-mini">→</span>Qué es estrategia de salida al mercado</a><a class="ibero-ecosystem-link" href="/glosario/embudo-de-ventas/"><span class="ibero-ecosystem-mini">→</span>Qué es un Embudo de Ventas</a></div></div><div class="ibero-ecosystem-section"><div class="ibero-ecosystem-section-title">Recurso</div><div class="ibero-ecosystem-grid"><a class="ibero-ecosystem-link" href="/recursos/plantilla-mvp/"><span class="ibero-ecosystem-mini">→</span>Plantilla para definir tu MVP con IA</a><a class="ibero-ecosystem-link" href="/recursos/checklist-app/"><span class="ibero-ecosystem-mini">→</span>Lista de verificación para lanzar una App</a><a class="ibero-ecosystem-link" href="/recursos/calculadora-precio-app/"><span class="ibero-ecosystem-mini">→</span>Calculadora de Precio para Apps</a><a class="ibero-ecosystem-link" href="/recursos/plantilla-landing-app/"><span class="ibero-ecosystem-mini">→</span>Plantilla de página de conversión para vender una App</a><a class="ibero-ecosystem-link" href="/recursos/guion-demo-software/"><span class="ibero-ecosystem-mini">→</span>Guion para demostración comercial de software</a><a class="ibero-ecosystem-link" href="/recursos/prompts-marketing-ia/"><span class="ibero-ecosystem-mini">→</span>Sistemas de instrucciones, agentes y ciclos automatizados para marketing</a><a class="ibero-ecosystem-link" href="/recursos/prompts-docentes-ia/"><span class="ibero-ecosystem-mini">→</span>Agentes, instrucciones y ciclos automatizados para docentes</a><a class="ibero-ecosystem-link" href="/recursos/rubrica-proyectos-ia/"><span class="ibero-ecosystem-mini">→</span>Rúbrica para Evaluar Proyectos con IA</a><a class="ibero-ecosystem-link" href="/recursos/guion-hablar-en-publico/"><span class="ibero-ecosystem-mini">→</span>Guion para Hablar en Público</a><a class="ibero-ecosystem-link" href="/recursos/plantilla-pitch-app/"><span class="ibero-ecosystem-mini">→</span>Plantilla para presentación comercial de una App</a></div></div><div class="ibero-ecosystem-section"><div class="ibero-ecosystem-section-title">Ruta</div><div class="ibero-ecosystem-grid"><a class="ibero-ecosystem-link" href="/rutas/crear-y-vender-apps-con-ia/"><span class="ibero-ecosystem-mini">→</span>Ruta para crear y vender Apps con IA</a></div></div><div class="ibero-ecosystem-section"><div class="ibero-ecosystem-section-title">Caso de uso</div><div class="ibero-ecosystem-grid"><a class="ibero-ecosystem-link" href="/casos-de-uso/vender-software-a-pymes/"><span class="ibero-ecosystem-mini">→</span>Cómo vender software a PYMES</a></div></div>
-</nav>
-</div>
 <script id="ibero-ecosystem-js">
 (function(){
   const wrap=document.getElementById('ibero-ecosystem-wrap');
